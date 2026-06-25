@@ -1,7 +1,7 @@
 * [Home](/en/README.md)
 
 ## Experiments
-* [Exploratory Data Analysis](/en/projects/experiments/exploratory_data_analysis.md)
+* [Exploratory Data Analysis](/en/projects/experiments/exploratory-data-analysis.md)
 
 ## Apps
 <!-- Links will be added when ready -->
