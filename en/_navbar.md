@@ -1,2 +1,2 @@
-* [Türkçe](/tr/)
-* [English](/en/)
+* [🇹🇷 TR](/tr/)
+* [🇬🇧 EN](/en/)
