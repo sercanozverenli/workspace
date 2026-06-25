@@ -25,23 +25,23 @@
 <body>
   <div id="app">Loading workspace...</div>
   <script>
-    // 1. Docsify motoru çalışmadan önce, ana siteye girildiğinde sistemi doğrudan Türkçe klasörüne fırlatır.
-    // Bu sayede sistem kök dizinde var olmayan bir _sidebar arayıp çökmez.
-    if (window.location.hash === '' || window.location.hash === '#/') {
-      window.location.hash = '#/tr/';
-    }
-
     window.$docsify = {
       name: 'Workspace',
-      repo: '',
+      repo: 'sercanozverenli/workspace',
       loadSidebar: true,
       loadNavbar: true,
       subMaxLevel: 2,
       alias: {
-        // 2. Sadece alt klasörlerin (projeler vb.) ana sidebar'ı okumasını sağlar.
-        // (.+) regex'i kullanıldığı için, dosyaların kendi kendisiyle çakışmasını engeller.
-        '/tr/(.+)/_sidebar.md': '/tr/_sidebar.md',
-        '/en/(.+)/_sidebar.md': '/en/_sidebar.md'
+        // 1. Ana adrese girenleri doğrudan Türkçe katmanına yönlendirir
+        '/': '/tr/',
+        
+        // 2. Kullanıcı tr/ veya en/ klasöründe olsa bile 
+        // dil butonunu ana dizinden alıp ekranda her zaman gösterir!
+        '/.*/_navbar.md': '/_navbar.md',
+
+        // 3. Alt klasörlerde gezinirken sol menünün kaybolmasını engeller
+        '/tr/.*/_sidebar.md': '/tr/_sidebar.md',
+        '/en/.*/_sidebar.md': '/en/_sidebar.md'
       }
     }
   </script>
