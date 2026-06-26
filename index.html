@@ -7,21 +7,162 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
   <style>
-    /* Sabit butonlar ve düzen */
-    .sidebar-toggle { bottom: auto !important; top: 15px !important; left: 15px !important; position: fixed !important; background: rgba(255, 255, 255, 0.9) !important; z-index: 99; }
-    .sidebar { padding-top: 60px !important; }
+
+    /* ── GLOBAL ─────────────────────────────────────── */
+    body, .sidebar, .app-nav {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+    }
+
+    /* ── LAYOUT ─────────────────────────────────────── */
+    .sidebar { border-right: 1px solid #e2e8f0; padding-top: 60px !important; }
+    .sidebar-toggle { bottom: auto !important; top: 15px !important; left: 15px !important; position: fixed !important; background: rgba(255,255,255,0.9) !important; z-index: 99; }
     @media screen and (max-width: 768px) { .markdown-section { padding-top: 45px !important; } }
-    
-    /* Modern Dil Butonu */
+
+    /* ── APP NAV (dil seçici) ────────────────────────── */
     .app-nav ul li { background-color: #f4f6f8; border-radius: 20px; padding: 4px 12px; margin-left: 10px; }
     .app-nav li a { font-weight: 600; color: #2c3e50 !important; text-decoration: none; }
-    
-    /* Tıklanmış/Aktif ve Hover durumlarında renk değişimini %100 iptal eder */
-    .sidebar ul li a, .sidebar ul li a.active, .sidebar ul li a.active:hover, .sidebar ul li a:hover {
-      color: #2c3e50 !important;
-      background: transparent !important;
+
+    /* Docsify aktif link override */
+    .sidebar ul li a, .sidebar ul li a.active,
+    .sidebar ul li a.active:hover, .sidebar ul li a:hover {
+      color: #2c3e50 !important; background: transparent !important;
     }
     .sidebar ul li a.active { font-weight: 700 !important; }
+
+    /* ── SIDEBAR NAV CONTAINER ───────────────────────── */
+    .sidebar-nav { padding: 4px 8px; }
+
+    /* ── HOME LINK ───────────────────────────────────── */
+    .sidebar-nav .home-link {
+      display: block;
+      padding: 8px 12px;
+      font-weight: 700;
+      font-size: 16px;
+      color: #2c3e50;
+      text-decoration: none;
+      border-radius: 6px;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+    .sidebar-nav .home-link:hover { background: #f0f4f8; }
+
+    /* ── KATEGORİ BAŞLIKLARI (level 1 details) ───────── */
+    .sidebar-nav > details { margin: 2px 0; }
+    .sidebar-nav > details > summary {
+      cursor: pointer;
+      padding: 6px 12px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #94a3b8;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: 6px;
+      user-select: none;
+    }
+    .sidebar-nav > details > summary::-webkit-details-marker { display: none; }
+    .sidebar-nav > details > summary::before {
+      content: '▶';
+      font-size: 8px;
+      transition: transform 0.2s;
+    }
+    .sidebar-nav > details[open] > summary::before { transform: rotate(90deg); }
+    .sidebar-nav > details > summary:hover { background: #f0f4f8; color: #64748b; }
+
+    /* ── LEVEL 1 LİNKLER ────────────────────────────── */
+    .sidebar-nav > details > ul {
+      list-style: none; padding: 2px 0 6px 0; margin: 0;
+    }
+    .sidebar-nav > details > ul > li { list-style: none; }
+    .sidebar-nav > details > ul > li > a {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px 5px 24px;
+      font-size: 13px;
+      color: #475569;
+      text-decoration: none;
+      border-radius: 6px;
+      border-left: 3px solid transparent;
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+    }
+    .sidebar-nav > details > ul > li > a:hover {
+      background: #f0f4f8;
+      border-left-color: #3b82f6;
+      color: #1e293b;
+    }
+
+    /* ── LEVEL 2 DETAILS (Amplify Core) ─────────────── */
+    .sidebar-nav > details > ul > li > details { margin: 2px 0; }
+    .sidebar-nav > details > ul > li > details > summary {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 12px 5px 24px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #475569;
+      list-style: none;
+      border-radius: 6px;
+      border-left: 3px solid transparent;
+      user-select: none;
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+    }
+    .sidebar-nav > details > ul > li > details > summary::-webkit-details-marker { display: none; }
+    .sidebar-nav > details > ul > li > details > summary::before {
+      content: '▶';
+      font-size: 8px;
+      transition: transform 0.2s;
+      flex-shrink: 0;
+    }
+    .sidebar-nav > details > ul > li > details[open] > summary::before { transform: rotate(90deg); }
+    .sidebar-nav > details > ul > li > details > summary:hover {
+      background: #f0f4f8;
+      border-left-color: #3b82f6;
+      color: #1e293b;
+    }
+
+    /* ── LEVEL 2 LİNKLER ────────────────────────────── */
+    .sidebar-nav > details > ul > li > details > ul {
+      list-style: none; padding: 2px 0 4px 0; margin: 0;
+    }
+    .sidebar-nav > details > ul > li > details > ul > li { list-style: none; }
+    .sidebar-nav > details > ul > li > details > ul > li > a {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px 5px 40px;
+      font-size: 13px;
+      color: #64748b;
+      text-decoration: none;
+      border-radius: 6px;
+      border-left: 3px solid transparent;
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+    }
+    .sidebar-nav > details > ul > li > details > ul > li > a:hover {
+      background: #f0f4f8;
+      border-left-color: #3b82f6;
+      color: #1e293b;
+    }
+
+    /* ── BADGES ──────────────────────────────────────── */
+    .badge {
+      font-size: 10px;
+      font-weight: 600;
+      padding: 1px 7px;
+      border-radius: 10px;
+      margin-left: auto;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+    .badge.active  { background: #dbeafe; color: #1d4ed8; }
+    .badge.planned { background: #f1f5f9; color: #64748b; }
+    .badge.done    { background: #dcfce7; color: #15803d; }
+
   </style>
 </head>
 <body>
@@ -30,17 +171,14 @@
     window.$docsify = {
       loadSidebar: true,
       loadNavbar: true,
-      subMaxLevel: 0, // KOPYA BAŞLIKLARI ÖNLER
+      subMaxLevel: 0,
       alias: {
-        // Ana dizine ilk girişte genel repo README'si yerine Türkçe çalışma alanını yükler
-        '/':                     '/tr/README.md',
-
-        '/_sidebar.md':          '/tr/_sidebar.md',
-        '/tr/.*/_sidebar.md':    '/tr/_sidebar.md',
-        '/en/.*/_sidebar.md':    '/en/_sidebar.md',
-        '/_navbar.md':           '/tr/_navbar.md',
-        '/tr/.*/_navbar.md':     '/tr/_navbar.md',
-        '/en/.*/_navbar.md':     '/en/_navbar.md'
+        '/_sidebar.md':        '/tr/_sidebar.md',
+        '/tr/.*/_sidebar.md':  '/tr/_sidebar.md',
+        '/en/.*/_sidebar.md':  '/en/_sidebar.md',
+        '/_navbar.md':         '/tr/_navbar.md',
+        '/tr/.*/_navbar.md':   '/tr/_navbar.md',
+        '/en/.*/_navbar.md':   '/en/_navbar.md'
       }
     }
   </script>
