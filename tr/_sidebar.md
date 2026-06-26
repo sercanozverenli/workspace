@@ -52,7 +52,7 @@
 </style>
 
 <div class="sidebar-nav">
-  <a class="home-link" href="#/tr/">🏠 Ana Sayfa</a>
+  <a class="home-link" href="#/tr/">Ana Sayfa</a>
 
   <details open>
     <summary>Deneysel Çalışmalar</summary>
