@@ -1,6 +1,7 @@
+# Personal R&D Center | Technical Project Portfolio
 
-# Personal R&D Hub | Engineering Workspace
+This platform serves as a centralized personal research and development laboratory focusing on **Data Science**, **Machine Learning**, and **Software Architecture**.
 
-This repository serves as a centralized personal research and development laboratory focusing on Data Science, Machine Learning Engineering, and Software Architecture. The core objective is to document evolutionary engineering workflows, transition theoretical models into production-ready artifacts, and maintain a modular portfolio of decoupled systems.
+The main objective is to document analytical workflows, transform theoretical models into production-ready structures, and maintain an independent, modular system portfolio.
 
-You can use the sidebar menu on the left to navigate through the platform, explore actively planned and developed modules, system architectures, or experimental prototypes.
+You can use the **navigation menu** to browse through the platform and examine planned or developed modules, system architectures, and experimental studies.
