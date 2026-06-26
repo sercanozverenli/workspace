@@ -18,12 +18,9 @@
   <details>
     <summary>Apps</summary>
     <ul>
-      <!-- Opens when ready:
-      <li><a href="#/en/projects/apps/invoice-ai-agent">Invoice AI Agent <span class="badge planned">Planned</span></a></li>
-      <li><a href="#/en/projects/apps/interactive-quiz-app">Interactive Quiz App</a></li>
-      <li><a href="#/en/projects/apps/multiplication-game">Multiplication Game</a></li>
-      -->
-    </ul>
+      <li><a href="#/en/projects/apps/gamified-multiplication-tool">Gamified Multiplication Tool <span class="badge active">Active</span></a></li>
+      <li><a href="#/en/projects/apps/interactive-quiz-app">Interactive Quiz App <span class="badge active">Active</span></a></li>
+      </ul>
   </details>
 
   <details>
