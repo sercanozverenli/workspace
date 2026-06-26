@@ -18,11 +18,8 @@
   <details>
     <summary>Uygulamalar</summary>
     <ul>
-      <!-- Hazır olunca aç:
-      <li><a href="#/tr/projeler/uygulamalar/fatura-yapay-zeka-ajani">Fatura Yapay Zeka Ajanı <span class="badge planned">Planlı</span></a></li>
-      <li><a href="#/tr/projeler/uygulamalar/interaktif-quiz-uygulamasi">İnteraktif Quiz Uygulaması</a></li>
-      <li><a href="#/tr/projeler/uygulamalar/carpim-tablosu-oyunu">Çarpım Tablosu Oyunu</a></li>
-      -->
+      <li><a href="#/tr/projeler/uygulamalar/oyunlastirilmis-carpim-tablosu">Oyunlaştırılmış Çarpım Tablosu <span class="badge active">Aktif</span></a></li>
+      <li><a href="#/tr/projeler/uygulamalar/interaktif-quiz-uygulamasi">İnteraktif Quiz Uygulaması <span class="badge active">Aktif</span></a></li>
     </ul>
   </details>
 
