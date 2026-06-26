@@ -54,7 +54,7 @@
 <div class="sidebar-nav">
   <a class="home-link" href="#/tr/">Ana Sayfa</a>
 
-  <details open>
+  <details>
     <summary>Deneysel Çalışmalar</summary>
     <ul>
       <li><a href="#/tr/projeler/deneysel-calismalar/kesifsel-veri-analizi">Keşifsel Veri Analizi</a></li>
