@@ -1,65 +1,16 @@
-<style>
-  .sidebar-nav { padding: 0; }
-  .sidebar-nav > ul { list-style: none; padding: 0; margin: 0; }
-  .sidebar-nav details { margin: 4px 0; }
-  .sidebar-nav details summary {
-    cursor: pointer;
-    padding: 6px 8px;
-    font-weight: 600;
-    font-size: 14px;
-    color: #2c3e50;
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    border-radius: 4px;
-  }
-  .sidebar-nav details summary::-webkit-details-marker { display: none; }
-  .sidebar-nav details summary::before {
-    content: '▶';
-    font-size: 9px;
-    transition: transform 0.2s;
-    display: inline-block;
-  }
-  .sidebar-nav details[open] summary::before { transform: rotate(90deg); }
-  .sidebar-nav details summary:hover { background: #f0f4f8; }
-  .sidebar-nav details ul {
-    list-style: none;
-    padding: 0 0 0 20px;
-    margin: 2px 0;
-  }
-  .sidebar-nav details ul li a {
-    display: block;
-    padding: 5px 8px;
-    font-size: 13px;
-    color: #4a5568;
-    text-decoration: none;
-    border-radius: 4px;
-  }
-  .sidebar-nav details ul li a:hover { background: #f0f4f8; color: #2c3e50; }
-    .sidebar-nav .home-link {
-    display: block;
-    padding: 6px 8px;
-    font-weight: 700;
-    font-size: 16px;
-    color: #2c3e50;
-    text-decoration: none;
-    border-radius: 4px;
-    margin-bottom: 12px;
-    letter-spacing: 0.02em;
-  }
-  .sidebar-nav .home-link:hover { background: #f0f4f8; }
-</style>
-
 <div class="sidebar-nav">
+
   <a class="home-link" href="#/tr/">Ana Sayfa</a>
 
   <details>
     <summary>Deneysel Çalışmalar</summary>
     <ul>
-      <li><a href="#/tr/projeler/deneysel-calismalar/kesifsel-veri-analizi">Keşifsel Veri Analizi</a></li>
+      <li><a href="#/tr/projeler/deneysel-calismalar/kesifsel-veri-analizi">Keşifsel Veri Analizi <span class="badge active">Aktif</span></a></li>
       <!-- Hazır olunca aç:
-      <li><a href="#/tr/projeler/deneysel-calismalar/veri-toplama-hatti">Veri Toplama Hattı</a></li>
+      <li><a href="#/tr/projeler/deneysel-calismalar/veri-toplama-hatti">Veri Toplama Hattı <span class="badge planned">Planlı</span></a></li>
+      <li><a href="#/tr/projeler/deneysel-calismalar/sql-veri-modelleme">SQL Veri Modelleme <span class="badge planned">Planlı</span></a></li>
+      <li><a href="#/tr/projeler/deneysel-calismalar/veri-kalitesi-paneli">Veri Kalitesi Paneli <span class="badge planned">Planlı</span></a></li>
+      <li><a href="#/tr/projeler/deneysel-calismalar/gurultu-enjeksiyon-arac-takimi">Gürültü Enjeksiyon Araç Takımı <span class="badge planned">Planlı</span></a></li>
       -->
     </ul>
   </details>
@@ -68,7 +19,9 @@
     <summary>Uygulamalar</summary>
     <ul>
       <!-- Hazır olunca aç:
-      <li><a href="#/tr/projeler/uygulamalar/fatura-yapay-zeka-ajani">Fatura Yapay Zeka Ajanı</a></li>
+      <li><a href="#/tr/projeler/uygulamalar/fatura-yapay-zeka-ajani">Fatura Yapay Zeka Ajanı <span class="badge planned">Planlı</span></a></li>
+      <li><a href="#/tr/projeler/uygulamalar/interaktif-quiz-uygulamasi">İnteraktif Quiz Uygulaması</a></li>
+      <li><a href="#/tr/projeler/uygulamalar/carpim-tablosu-oyunu">Çarpım Tablosu Oyunu</a></li>
       -->
     </ul>
   </details>
@@ -76,7 +29,18 @@
   <details>
     <summary>Sistemler</summary>
     <ul>
-      <!-- Tümü DRDRS bitene kadar gizli -->
+      <li>
+        <details>
+          <summary>Amplify Core <span class="badge active">Aktif</span></summary>
+          <ul>
+            <li><a href="#/tr/projeler/sistemler/amplify-core/01-arastirma">01 Araştırma <span class="badge active">Aktif</span></a></li>
+            <li><a href="#/tr/projeler/sistemler/amplify-core/02-mimari">02 Mimari <span class="badge active">Aktif</span></a></li>
+            <li><a href="#/tr/projeler/sistemler/amplify-core/03-uygulama">03 Uygulama <span class="badge planned">Planlı</span></a></li>
+            <li><a href="#/tr/projeler/sistemler/amplify-core/04-operasyon">04 Operasyon <span class="badge planned">Planlı</span></a></li>
+          </ul>
+        </details>
+      </li>
     </ul>
   </details>
+
 </div>
