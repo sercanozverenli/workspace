@@ -1,0 +1,1576 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          ALGORİTMALAR
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="alg-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="alg-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="alg-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="alg-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="alg-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="alg-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="alg-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="alg-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="alg-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="alg-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB SUNUCU PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wsp-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wsp-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wsp-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wsp-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wsp-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wsp-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wsp-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wsp-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wsp-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wsp-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİ MADENCİLİĞİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="vmaden-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="vmaden-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="vmaden-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="vmaden-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="vmaden-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="vmaden-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="vmaden-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="vmaden-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="vmaden-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="vmaden-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİTABANI SİSTEMLERİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="vtsistem-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="vtsistem-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="vtsistem-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="vtsistem-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="vtsistem-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="vtsistem-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="vtsistem-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="vtsistem-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="vtsistem-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="vtsistem-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMADA YENİ EĞİLİMLER
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="prgyenieğilim-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="prgyenieğilim-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Web Sunucu Programlama - Ünite 1 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	<button class="block-group" data-start="40" data-end="59">Part 3</button>
+	  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Aşağıdakilerden hangisi Web 1.0 teknolojilerinin özellikleri arasındadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kullanıcıların birbirleri ile etkileşimine imkan tanır. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Web sitesi tarafından sunulan içerikleri okumaya imkan tanır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kullanıcıların içerik ile etkileşimine imkan tanır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kullanıcılar içeriğin geliştirilmesine katkı sunar. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Web sitesi yöneticisi kullanıcıların yorum yapmasına
+imkan tanır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Aşağıdakilerden hangisi Web 1.0 ve Web 2.0
+teknolojileri arasındaki <u><strong>en önemli</strong></u> farktır </p>
+	<span class="option" data-correct="true"><b>A)</b> Kullanıcı etkileşimi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Uzmanların içerik üretimi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Web sitesinin yönetimi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Güvenlik duvarı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bilginin depo edilmesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Web 2.0 teknolojileri ile ilgili olarak aşağıdakilerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Web 2.0 teknolojileri Web 1.0 teknolojilerinin ihtiyaçları yeterince karşılayamamasından doğmuştur. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Web 2.0 teknolojileri kullanıcıların içerik üretmesine imkan tanır. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Web 2.0 teknolojilerinde kullanıcılar bilginin pasif alıcısı konumundadır </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Web 2.0 teknolojilerinin gelişimi 2000-2010 yıllarına dayanmaktadır </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Web 2.0 teknolojileri önemli bir kırılma sağlamıştır </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> I. ABD Savunma Bakanlığı personellerinin
+kendi aralarındaki iletişim akışını sürdürebilmesi esasına dayanmaktadır.<br>
+II. WWW, web, W3 veya internet olarak tanımlanmaktadır.<br>
+III. Tim Berners-Lee tarafından icat edilmiştir.<br><br>
+Web’in doğuşu ile yukarıda verilen ifadelerden hangisi veya hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve II </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      “web”, “WWW” veya “W3” şeklinde adlandırılmaktadır. <strong>İnternet kavramı ile sıklıkla karıştırılmaktadır.</strong>     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Aşağıda verilen ifadelerden hangisi doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Blog tek bir kullanıcının yönetiminde olduğu
+için Web 1.0 teknolojisi örneğidir. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Wikipedia kullanıcı etkileşimine imkan verdiğinden
+Web 2.0 teknolojisi örneğidir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İnternetin gelişimi World-Wide-Web’in gelişiminden
+bağımsızdır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> World-Wide-Web’in mucidi Rasmus Lerdorf’tur. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İnternet tek başına dünyaya açılan bir penceredir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> “HTML, CSS, JS ile oluşturulmuş, verileri
+depolayan, verileri işleyen ve internet üzerinden görevleri gerçekleştirmek için bir ekip veya tek bir kullanıcı tarafından kullanılan etkileşimli bir bilgisayar programıdır.”<br><br>
+Yukarıda açıklaması verilen kavram aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Web sitesi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Web uygulamaları </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Mobil uygulamalar </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Web teknolojileri </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Web sayfası </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      • <u><strong>Web teknolojileri</strong></u>: HTML, CSS, JS ile oluşturulmuş, verileri depolayan (veritabanı, dosyalar), verileri işleyen (CreateReadUpdateDelete-CRUD) ve internet üzerinden görevleri gerçekleştirmek için bir ekip veya tek bir kullanıcı tarafından kullanılan etkileşimli bir bilgisayar programıdır.<br><br>
+
+• <u><strong>Web uygulamaları</strong></u>: Yalnızca web sitesi tarayıcısı üzerinden kullanılabilen bir uygulama türüdür ve internete bağlanıldığında uzak sunucularda çalışır ve dinamik içeriğe, daha karmaşık kullanıcı etkileşimlerine sahip bir yazılım parçasıdır.<br><br>
+
+• <u><strong>Mobil uygulamalar</strong></u>: Android, iOS vb. işletim sistemleri için uygun olup özel olarak mobil cihazlar için yapılmıştır.<br><br>
+
+• <u><strong>Web sitesi</strong></u>: Genellikle statik içerik görüntüleyen bir sayfalar topluluğudur     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> Aşağıdakilerden hangisi Web 2.0 teknolojilerinden sosyal medya uygulamalarının beraberinde getirdiği olumsuz etkiler arasında <u><strong>sayılamaz?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Sosyal etkiye maruz kalınması bireylerin toplum ile bütünleşmesini sağlar. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Psikolojik olarak kişide beğenilmeme duygusu oluşturabilir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Birey çalışmalarını takip ettiği araştırmacı ile etkileşimde olur. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Birey bağımlılık semptomları geliştirebilir </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Birey kendini bir gruba ait hissetmeyebilir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> Aşağıdakilerden hangisi sunucu taraflı web
+uygulamalarında kullanılabilecek dillerden birisi <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> PHP </span><br>
+	<span class="option" data-correct="false"><b>B)</b> C# </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ruby </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Python </span><br>
+	<span class="option" data-correct="true"><b>E)</b> HTML </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> Web uygulamalarının çalışma prensibi ile ilgili
+olarak aşağıda verilen ifadelerden hangisi doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> İstemci tarafında çalışan kodlar veritabanından aldığı bilgileri işler. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sunucu tarafında ise sayfaların çalışması ve görüntülenmesi web tarayıcısı üzerindendir. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Veritabanında alınan bilgiler TCP aracılığıyla ağ üzerinden istemci tarafına ulaştırılır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kullanıcı, uygulama sunucusu aracılığıyla web uygulamasına girer. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sunucudan web tarayıcısına istek gönderilir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Aşağıdakilerden hangisi web uygulamasını
+oluşturan katmanlardan birisi <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Veri Katmanı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Veri Erişim Katmanı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Uygulama Katmanı </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Maskeleme Katmanı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Görsel Kullanıcı Arayüzü Katmanı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      Bir web uygulamasını oluşturan katmanlar aşağıdaki gibidir:<br><br>
+
+1. Veri Katmanı,<br>
+ 2. Veri Erişim Katmanı,<br>
+ 3. Uygulama Katmanı,<br>
+ 4. Görüntüleme Mantığı Katmanı,<br>
+ 5. Görsel Kullanıcı Arayüzü Katmanı     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> Sunucu ile ziyaretçi arasındaki etkileşime olan ihtiyacın karşılanması amacıyla geliştirilen ilk program dili nedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> CGI </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Perl </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ASP </span><br>
+	<span class="option" data-correct="false"><b>D)</b> PHP </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Cold Fusion </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      Sunucu ile ziyaretçi arasındaki etkileşime olan ihtiyacın karşılanması amacıyla geliştirilen ilk program dili CGI’dir (Common Gateway Interface). Bu dilin kullanımı biraz zor olduğundan farklı firmalar tarafından geliştirilen, kullanımının daha kolay ve anlaşılır olması nedeniyle Perl, ASP, PHP, Cold Fusion gibi fonksiyonel diller kullanılmaya başlandı. 
+
+
+     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> Aşağıdakilerden hangisi web uygulamaları mimarisinde yer alan görüntüleme mantığı katmanıyla ilgili doğru bir bilgidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Tüm verilerin kaydedildiği katmandır </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Verilere ulaşım şeklini belirleyen katmandır </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Web uygulamalarının son katmanıdır </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Veritabanı ile uygulama arasında bir arabirim görevi gören katmandır </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Görüntülemenin nasıl oluşacağını ve görüntülenecek bileşenlerin belirlendiği katmandır </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Aşağıdakilerden hangisi web uygulamalarının çalışma prensibine ilişkin işletilebilecek adımlardan biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Web tarayıcısından sunucu tarafına istek gönderme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Web sunucusu isteği alır ve türüne bakar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İstek, sunucu üzerinde çalışmakta olan uygulama sunucusuna iletilir </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Uygulama, gerektiği durumlarda farklı sistemler ile iletişime geçerek veri alışverişinde bulunabilir </span><br>
+	<span class="option" data-correct="true"><b>E)</b> İstemci aldığı cevabı kullanıcıya geri iade eder </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      Web uygulamalarının çalışma prensibine ilişkin işletilebilecek adımlar aşağıda yer almaktadır:<br><br>
+
+1. Kullanıcı, web tarayıcısı aracılığıyla web uygulamasına girer.<br>
+2. Web tarayıcısından sunucu tarafına istek gönderilir.<br>
+3. Web sunucusu isteği alır ve türüne bakar.<br>
+4. İstek, sunucu üzerinde çalışmakta olan uygulama sunucusuna iletilir.<br>
+5. Uygulama, sunucunun kaynaklarını kullanarak isteği işler.<br>
+6. Uygulama, gerektiği durumlarda aynı sunucu veya başka bir sunucu üzerindeki veritabanı sunucusu ile iletişime geçer, veri alışverişinde bulunur.<br>
+7. Uygulama, gerektiği durumlarda farklı sistemler ile iletişime geçerek veri alışverişinde bulunabilir.<br>
+8. Elde edilen veriler, uygulamanın ihtiyaçlarına göre değiştirilir ve şekillendirilir.<br>
+9. Değiştirilen/şekillendirilen veriler sunucu tarafındaki dosya sistemi aracılığı ile kullanıcının web tarayışında gösterilir veya başka bir istemciye iletilir.<br>
+10. İstemci aldığı cevabı kullanıcıya gösterir     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> "Web 1.0 teknolojileri kullanıcıların günümüzde gerçekleştirdikleri deneyim paylaşımı, bilgi alışverişinde bulunma, katkı sağlama, içerik üretme vb. özelliklerden yoksundur" ifadesi bağlamında bu sınırlılığının temel nedeni nedir?  </p>
+	<span class="option" data-correct="true"><b>A)</b> Metinlerin sıralı bir biçimde verilmesi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> TCP/IP protokol takımına yer verilmesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sosyal ağ sitelerinin yeterince yer almaması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sunucu taraflı web uygulamalarının kullanılması </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Web uygulamasını oluşturan katmanların çokluğu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> I. Web sunucusu sonuçlanan sayfayı istekte bulunan tarayıcıya gönderir<br>
+
+II. Web sunucusu sayfayı bulur ve uygulama sunucusuna iletir<br>
+
+III. Web tarayıcısı dinamik sayfa isteminde bulunur<br>
+
+IV. Uygulama sunucusu, sonuçlanan sayfayı web sunucusuna geri iletir<br>
+
+V. Uygulama sunucusu talimatlar ve sonuç için sayfayı tarar<br><br>
+
+Yukarıda karışık olarak verilen dinamik bir sayfa isteğinin web tarayıcısı tarafından nasıl karşıladığına ilişkin akış adımlarının doğru bir biçimde sıralaması hangisidir?  </p>
+	<span class="option" data-correct="true"><b>A)</b> III, II, V, IV, I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> III, V, I, IV, II, </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I, III, II, V, IV </span><br>
+	<span class="option" data-correct="false"><b>D)</b> V, III, II, I, IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> V, IV, III, II, I </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Aşağıdakilerden hangisi dinamik web sayfalarının ve genellikle bir veritabanının kullanıldığı sistemlerdir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Web uygulamaları </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Mobil sistemler </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Mobil uygulamalar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Web teknolojileri </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Mobil teknolojileri </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      Web uygulamaları dinamik web sayfalarının ve genellikle bir veritabanının kullanıldığı sistemlerdir.     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> Aşağıdakilerden hangisi web tarayıcısı tarafından yapılan isteğe uygun olarak sunucu tarafından üretilen web sayfalarıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Standart geçişler </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Durağan resimler </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Statik sayfalar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sabit slaytlar </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Dinamik sayfalar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Aşağıdakilerden hangisi akıllı web uygulamalarını içeren web teknolojisidir?  </p>
+	<span class="option" data-correct="false"><b>A)</b> Web 1.0 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Web 2.0 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Web 3.0 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Web 4.0 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Web 0.0 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> Aşağıdaki ifadelerden hangisi Web 1.0 teknolojisi ile ilgilidir?  </p>
+	<span class="option" data-correct="true"><b>A)</b> Tek yönlü bilgi akışı vardır.  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Web siteleri sıkı bir şekilde kontrol edilmektedir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bireyler paylaşılan bilgiyi inşa ederler. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Katıl eylemi esasına dayalıdır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Dinamik ve hiyerarşik olmayan bir yapı vardır.  </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> Aşağıdakilerden hangileri istemci taraflı web uygulamalarının oluşturulabildiği programlardır?  </p>
+	<span class="option" data-correct="true"><b>A)</b> JavaScript  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> C # </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ruby </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Python </span><br>
+	<span class="option" data-correct="false"><b>E)</b> PHP </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">       İstemci taraflı web uygulamaları front-end JS ve JavaScript framework’lerinde oluşturabilmektedir     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Genellikle statik içerik görüntüleyen bir sayfalar topluluğudur.<br><br>
+
+Yukarıdaki tanım hangi kavramı ifade eder? </p>
+	<span class="option" data-correct="false"><b>A)</b> İşletim Sistemi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Web Uygulamaları </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Web sitesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Mobil uygulamalar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Web teknolojileri </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Dinamik ve kullanıcıyı merkeze alan bir yapıya sahip olan web teknolojisi hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> web 5.0 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> web 4.0 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> web 3.0 </span><br>
+	<span class="option" data-correct="true"><b>D)</b> web 2.0 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> web 1.0 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br>  Web uygulamalarının çalışma prensibine ilişkin işletilebilecek adımlar düşünüldüğünde aşağıdakilerden hangisinde <u><strong>yanlış</strong></u> bilgi verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kullanıcı, web tarayıcısı aracılığıyla web uygulamasına girer. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Web tarayıcısından sunucu tarafına istek gönderilir. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Web kullanıcısı isteği alır ve türüne bakar. </span><br>
+	<span class="option" data-correct="false"><b>D)</b>  İstek, sunucu üzerinde çalışmakta olan uygulama sunucusuna iletilir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b>  Uygulama, sunucunun kaynaklarını kullanarak isteği işler. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      Web uygulamalarının çalışma prensibine ilişkin işletilebilecek adımlar aşağıda yer almaktadır:<br><br>
+
+1. Kullanıcı, web tarayıcısı aracılığıyla web uygulamasına girer.<br>
+2. Web tarayıcısından sunucu tarafına istek gönderilir.<br>
+3. Web sunucusu isteği alır ve türüne bakar.<br>
+4. İstek, sunucu üzerinde çalışmakta olan uygulama sunucusuna iletilir.<br>
+5. Uygulama, sunucunun kaynaklarını kullanarak isteği işler.<br>
+6. Uygulama, gerektiği durumlarda aynı sunucu veya başka bir sunucu üzerindeki veritabanı sunucusu ile iletişime geçer, veri alışverişinde bulunur.<br>
+7. Uygulama, gerektiği durumlarda farklı sistemler ile iletişime geçerek veri alışverişinde bulunabilir.<br>
+8. Elde edilen veriler, uygulamanın ihtiyaçlarına göre değiştirilir ve şekillendirilir.<br>
+9. Değiştirilen/şekillendirilen veriler sunucu tarafındaki dosya sistemi aracılığı ile kullanıcının web tarayışında gösterilir veya başka bir istemciye iletilir.<br>
+10. İstemci aldığı cevabı kullanıcıya gösterir      </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Verilere ulaşım şeklini belirleyen ve veritabanı ile uygulama arasında bir arabirim görevi gören bu katman veriye kolay ulaşımı ve ölçeklenebilirliği sağlamaktadır.
+Yukarıda hangi katman tanımlanmıştır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Veri Katmanı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Uygulama Katmanı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Görsel Kullanıcı Arayüzü Katmanı </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Veri Erişim Katmanı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Görüntüleme Mantığı Katmanı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> Aşağıdakilerden hangisi web uygulama mimarisinde yer alan uygulama katmanıyla ilgili doğru bir bilgidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Tüm verilerin kaydedildiği katmandır </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Verilerin sorgulandığı katmandır </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Verilere ulaşım şeklini belirleyen katmandır </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Görüntülemenin nasıl oluşacağını belirleyen katmandır </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Uygulamaya temel olan nesnelerin yer aldığı katmandır </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> Aşağıdakilerden hangisi görsel kullanıcı arayüzü katmanıyla ilgili doğru bir bilgidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Uygulama mantığının yer aldığı katmandır </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Verilere ulaşım şeklini belirleyen katmandır </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tüm verilerin kaydedildiği katmandır </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İşlenen verilerin istemci tarafına gönderilmek üzere hazırlandığı katmandır </span><br>
+	<span class="option" data-correct="true"><b>E)</b> hangi verinin nerede ve ne şekilde gösterileceği belirlendiği katmandır </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Aşağıdakilerden hangisi PHP programlama dili ile kodlanabilen web uygulama türüdür?  </p>
+	<span class="option" data-correct="false"><b>A)</b> İstemci taraflı web uygulaması </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Sunucu taraflı web uygulaması </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tek taraflı web uygulaması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Mobil uygulamalar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sosyal medya uygulamaları </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> Aşağıdakilerden hangisi internete bağlanıldığında uzak sunucularda çalışan ve daha karmaşık kullanıcı etkileşimlerine sahip bir yazılım parçasıdır?  </p>
+	<span class="option" data-correct="false"><b>A)</b> Web teknolojileri </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Web uygulamaları </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Mobil uygulamalar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Web sitesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Web tarayıcısı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      • <u><strong>Web teknolojileri</strong></u>: HTML, CSS, JS ile oluşturulmuş, verileri depolayan (veritabanı, dosyalar), verileri işleyen (CreateReadUpdateDelete-CRUD) ve internet üzerinden görevleri gerçekleştirmek için bir ekip veya tek bir kullanıcı tarafından kullanılan etkileşimli bir bilgisayar programıdır.<br><br>
+
+• <u><strong>Web uygulamaları</strong></u>: Yalnızca web sitesi tarayıcısı üzerinden kullanılabilen bir uygulama türüdür ve internete bağlanıldığında uzak sunucularda çalışır ve dinamik içeriğe, daha karmaşık kullanıcı etkileşimlerine sahip bir yazılım parçasıdır.<br><br>
+
+• <u><strong>Mobil uygulamalar</strong></u>: Android, iOS vb. işletim sistemleri için uygun olup özel olarak mobil cihazlar için yapılmıştır.<br><br>
+
+• <u><strong>Web sitesi</strong></u>: Genellikle statik içerik görüntüleyen bir sayfalar topluluğudur      </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> Aşağıdakilerden hangisi Web 2.0 teknolojilerinin hemen her yaştan her milliyetten bireye bilgiye ulaşmada ve
+bilgiyi paylaşmakta eşit hak sağlamasını ifade eden etkidir?  </p>
+	<span class="option" data-correct="false"><b>A)</b> Kültürel açıdan etkiler </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ekonomik açıdan etkiler </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Psiko-sosyal açıdan etkiler </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Eğitim açısından etkiler </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sosyolojik açıdan etkiler </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> World Wide Web (www); 1990’da Avrupa Nükleer Araştırmalar Merkezi’nde (CERN) kimin tarafından icat edilmiştir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Tim Berners-Lee </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Darcy DiNucci </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Rasmus Lerdorf </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Solomon Asch
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Tim O’Reilly </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> Aşağıdakilerden hangisi sunucu taraflı web uygulamaları için kullanılabilen programlama dillerinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> R </span><br>
+	<span class="option" data-correct="false"><b>B)</b> C# </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ruby </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Python </span><br>
+	<span class="option" data-correct="false"><b>E)</b> PHP </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> I. Web 1.0 <br>
+II. Web 2.0 <br>                             
+III. Web 3.0 <br>
+IV. Web 4.0  <br><br>
+		
+A. Dinamik ve kullanıcıyı merkeze alan yapı<br>
+B. İnternet sitesinden tek yönlü bilgi edinimi<br>
+C. Kullanıcının tanınması ve kullandığı ortamların kişiselleştirilmesi<br>
+D. Akıllı internet uygulamalarını içermesi<br><br>
+
+Web teknolojilerindeki gelişim dikkate alındığında yukarıda verilen web teknolojisi ile özelliğin eşleşmesini doğru bir biçimde gösteren seçenek hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> I-B, II-A, III-D, IV-C </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I-B, II-C, III-D, IV-A </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I-A, II-C, III-D, IV-B </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I-A, II-B, III-C, IV-A </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I-A, II-B, III-D, IV-C </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> Aşağıdakilerden hangi teknoloji İnternet tarihinin devrimi niteliğinde sayılabilecek bir gelişmedir?  </p>
+	<span class="option" data-correct="false"><b>A)</b> Web 4.0 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Web 3.0 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Web 2.0 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Web 1.0 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> PC Era </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> Aşağıdakilerden hangisi bir web uygulamasını oluşturan katmanlardan biri <u><strong>değildir?</strong></u>  </p>
+	<span class="option" data-correct="false"><b>A)</b> Veri Katmanı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Veri Erişim Katmanı </span><br>
+	<span class="option" data-correct="true"><b>C)</b> İşleme Katmanı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Uygulama Katmanı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Görüntüleme Mantığı Katmanı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      Bir web uygulamasını oluşturan katmanlar aşağıdaki gibidir:<br><br>
+
+1. Veri Katmanı,<br>
+ 2. Veri Erişim Katmanı,<br>
+ 3. Uygulama Katmanı,<br>
+ 4. Görüntüleme Mantığı Katmanı,<br>
+ 5. Görsel Kullanıcı Arayüzü Katmanı      </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> Uygulamaya temel olan nesnelerin ve uygulama mantığının yer aldığı katman hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Veri Katmanı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Veri Erişim Katmanı </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Uygulama Katmanı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Görüntüleme Mantığı Katmanı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Görsel Kullanıcı Arayüzü Katmanı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> Aşağıdakilerden hangisi Veri katmanıyla ilgili doğru bir bilgidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Verilere ulaşım şeklini belirleyen ve veritabanı ile uygulama arasında bir arabirimdir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> veriye kolay ulaşımı ve ölçeklenebilirliği sağlamaktadır </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Uygulamaya temel olan nesnelerinin yer aldığı katmandır </span><br>
+	<span class="option" data-correct="false"><b>D)</b> görsel kullanıcı arayüz katmanıdır </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Tüm verilerin kaydedildiği katmandır </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> Aşağıdakilerden hangisi internet kullanıcılarının, ortaklaşa ve paylaşarak meydana getirdiği sistemi tanımlamaktadır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Web 2.0 teknolojisi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Widget </span><br>
+	<span class="option" data-correct="false"><b>C)</b> AJAX </span><br>
+	<span class="option" data-correct="false"><b>D)</b> XML </span><br>
+	<span class="option" data-correct="false"><b>E)</b> USUNET </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> Aşağıdakilerden hangisi HTML, CSS, JS ile oluşturulmuş, verileri depolayan (veritabanı, dosyalar), verileri işleyen (CreateReadUpdateDelete-CRUD) ve internet üzerinden görevleri gerçekleştirmek için bir ekip veya tek bir kullanıcı tarafından kullanılan etkileşimli bir bilgisayar programıdır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Web teknolojileri </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Web uygulamaları </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Mobil uygulamalar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Web sitesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Mobil plattformu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> Aşağıdakilerden hangisi internetin toplumun geneline ulaşması web teknolojileri açısından gelişimin hangi dönemidir?  </p>
+	<span class="option" data-correct="true"><b>A)</b> Web 1.0 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Web 2.0 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> PCERA  </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Web 3.0  </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Web 4.0 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> Aşağıdakilerden hangisi bilgisayar ağlarının birbirine bağlanmasını sağlayan bir internet protokolüdür? </p>
+	<span class="option" data-correct="true"><b>A)</b> TCP </span><br>
+	<span class="option" data-correct="false"><b>B)</b> PHP </span><br>
+	<span class="option" data-correct="false"><b>C)</b> C# </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Python </span><br>
+	<span class="option" data-correct="false"><b>E)</b> TPP </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question41">
+	<p class="question">Soru 41:<br> Aşağıdakilerden hangisi web 1.0 dönemi teknolojilerinin özelliklerinden biridir? </p>
+	<span class="option" data-correct="true"><b>A)</b>  Bireyler web sitelerini ziyaret ederek içerikleri yalnızca okuyabilmektedir </span><br>
+	<span class="option" data-correct="false"><b>B)</b>  Youtue ve sosyal ağlar bu grupta değerlendirilebilir </span><br>
+	<span class="option" data-correct="false"><b>C)</b>  Wikiler bu grupta değerlendirilebilir </span><br>
+	<span class="option" data-correct="false"><b>D)</b>  Bloglar bu grupta değerlendirilebilir
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b>  Kullanıcıların ürettiği içerik, resim, kullanıcı görüşlerinden oluşmaktadır </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description41">Açıklama</button>
+		<div id="description41" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question42">
+	<p class="question">Soru 42:<br> Aşağıdakilerden hangisi bugünkü web sayfalarının temelini oluşturmaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> WWW  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> HTTP </span><br>
+	<span class="option" data-correct="true"><b>C)</b> HTML </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ARPA </span><br>
+	<span class="option" data-correct="false"><b>E)</b> TCP </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description42">Açıklama</button>
+		<div id="description42" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question43">
+	<p class="question">Soru 43:<br> I. Veri Erişimi Katmanı<br>
+II. Uygulama Katmanı <br>
+III. Görsel Kullanıcı Arayüzü Katmanı <br>
+IV. Veri Katmanı<br>
+V. Görüntüleme Mantığı Katmanı<br><br>
+
+A. İşlenen verilerin istemci tarafına gönderilmek üzere hazırlandığı katmandır<br>
+B. Hangi verinin nerede ve ne şekilde gösterileceği katmandır<br>
+C. Yüksek performanslı olması gereken katmandır<br>
+D.  Veritabanı ile uygulama arasında bir arabirim görevi gören katmandır<br>
+ E.  Nesnelerin ve uygulama mantığının yer aldığı katmandır
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> I-E, II-D, III-B, IV-C, V-A </span><br>
+	<span class="option" data-correct="true"><b>B)</b> I-D, II-E, III-B, IV-C, V-A </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I-B, II-E, III-D, IV-C, V-A </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I-A, II-C, III-B, IV-E, V-B </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I-C, II-E, III-A, IV-D, V-B </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description43">Açıklama</button>
+		<div id="description43" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question44">
+	<p class="question">Soru 44:<br> Aşağıdakilerden hangisi tüm verilerin kaydedildiği, sorgulandığı ve saklandığı web uygulamasını oluşturan katmandır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Uygulama Katmanı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Görüntüleme Mantığı Katmanı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veri Erişim Katmanı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Görsel Kullanıcı Arayüzü Katmanı </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Veri Katmanı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description44">Açıklama</button>
+		<div id="description44" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question45">
+	<p class="question">Soru 45:<br> Aşağıdakilerden hangisi Web'in doğuşuna ilişkin doğru bir ifadedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> WWW protokolü ilk olarak insan-bilgisayar etkileşimini sağlamak amacı ile ortaya çıkmıştır  </span><br><br>
+	<span class="option" data-correct="false"><b>B)</b> PHP programlama dili ile birlikte günümüzdeki internetin kökenleri olan WWW keşfedilmiştir </span><br><br>
+	<span class="option" data-correct="true"><b>C)</b> WWW'deki gelişmeler zenginleştirilmiş metin dökümanlarının çalışan bir ağ sistemine entegresyonu ile gerçekleşmiştir </span><br><br>
+	<span class="option" data-correct="false"><b>D)</b> Günümüzde WWW bağlantı protokolü günlük yaşamda internet kavramının karşılığı olarak düşünülmelidir </span><br><br>
+	<span class="option" data-correct="false"><b>E)</b> Araştırmacılar internet üzerinde çalışan Web'in ortaya çıkışı ile birlikte internet tarihinin başladığını ileri sürmektedirler </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description45">Açıklama</button>
+		<div id="description45" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question46">
+	<p class="question">Soru 46:<br>  PHP web programlama dilinin mucidi ve Apache sunucu projesinin programcısı aynı zamanda “PHP Programming” kitabının yazarı kimdir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Darcy DiNucci </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Rasmus Lerdorf </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Solomon Asch </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Tim Berners-Lee </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Tim O’Reilly </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description46">Açıklama</button>
+		<div id="description46" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question47">
+	<p class="question">Soru 47:<br> Aşağıdakilerden hangisi web teknolojilerinin geldiği son noktayı ifade etmektedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> web 4.0 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> web 5.0 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> web 3.0 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> web 2.0 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> web 1.0 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description47">Açıklama</button>
+		<div id="description47" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question48">
+	<p class="question">Soru 48:<br> Aşağıdakilerden hangisi Web 2.0 teknolojisi uygulamalarının özelliklerini betimleyen bir kavram olarak ifade edilemez? </p>
+	<span class="option" data-correct="true"><b>A)</b> statik </span><br>
+	<span class="option" data-correct="false"><b>B)</b> dinamik </span><br>
+	<span class="option" data-correct="false"><b>C)</b> etkileşim </span><br>
+	<span class="option" data-correct="false"><b>D)</b> üretken </span><br>
+	<span class="option" data-correct="false"><b>E)</b> özgürlük </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description48">Açıklama</button>
+		<div id="description48" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question49">
+	<p class="question">Soru 49:<br> I.  Bugünkü web sayfalarının ilk çıkış protokolüdür<br>
+
+II. Hiper Metin İşaretleme Dilini kısaltmasıdır<br>
+
+III. İleri Araştırma Projeleri Ajansı Bilgisayar Ağı'dır<br>
+
+IV.  Ağ cihazlarının iletişimi için internet protokol takımıdır<br><br>
+
+Yukarıda verilen ifadelerden hangisi veya hangileri TCP/IP'yi betimlemektedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Yalnız IV </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description49">Açıklama</button>
+		<div id="description49" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question50">
+	<p class="question">Soru 50:<br> Aşağıdakilerden hangisi sunucu taraflı web uygulamalarının da gelişmesine temel olmaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Sunucu taraflı çalışan programlama dilleri </span><br>
+	<span class="option" data-correct="false"><b>B)</b> kişiler hakkında bilgi toplanması </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bilimsel çalışmaların artışı </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Web teknolojilerindeki gelişmeler </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sunucu ile ziyaretçi arasındaki etkileşim </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description50">Açıklama</button>
+		<div id="description50" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question51">
+	<p class="question">Soru 51:<br> Hangi web teknolojisi O’Reilly Media tarafından 2004’te kullanılmaya başlayan bir kavramdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> web 1.0
+
+  </span><br>
+	<span class="option" data-correct="true"><b>B)</b> web 2.0 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> web 3.0 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> web 4.0 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> web 5.0 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description51">Açıklama</button>
+		<div id="description51" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question52">
+	<p class="question">Soru 52:<br> Aşağıdakilerden hangisi web uygulama mimarisi katmanlarından biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Veri </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Veri Erişim </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Uygulama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Görüntüleme Mantığı </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Görsel Tasarım Arayüzü </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description52">Açıklama</button>
+		<div id="description52" class="collapse">      Bir web uygulamasını oluşturan katmanlar aşağıdaki gibidir:<br><br>
+
+1. Veri Katmanı,<br>
+ 2. Veri Erişim Katmanı,<br>
+ 3. Uygulama Katmanı,<br>
+ 4. Görüntüleme Mantığı Katmanı,<br>
+ 5. Görsel Kullanıcı Arayüzü Katmanı     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question53">
+	<p class="question">Soru 53:<br> Aşağıdakilerden hangisi Facebook’a Chrome ile ulaşmak için kullanılan araçtır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Web sitesi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Mobil uygulama </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Web uygulaması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Web teknolojisi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Mobil site </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description53">Açıklama</button>
+		<div id="description53" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question54">
+	<p class="question">Soru 54:<br> Web 2.0 kavramı, ilk olarak -------- tarafından, “Parçalanmış Gelecek” isimli makalede kullanılmış bir terimdir </p>
+	<span class="option" data-correct="false"><b>A)</b> Tim Berners-Lee </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Darcy DiNucci </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Rasmus Lerdorf </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Solomon Asch </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Tim O’Reilly </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description54">Açıklama</button>
+		<div id="description54" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question55">
+	<p class="question">Soru 55:<br> Android veya IOS yazılımlar üzerinden indirilen Facebook aşağıdakilerden hangisine örnek olarak gösterilebilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> mobil uygulama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> web sitesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> web teknolojisi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> web uygulaması </span><br>
+	<span class="option" data-correct="false"><b>E)</b> veritabanı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description55">Açıklama</button>
+		<div id="description55" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question56">
+	<p class="question">Soru 56:<br>  Aşağıdakilerden hangisi monolog bir düzende tek yönlü bir iletişime imkân vermektedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> HTML </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Web 1.0 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> HTML 5 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> XHTML </span><br>
+	<span class="option" data-correct="false"><b>E)</b> CSS3 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description56">Açıklama</button>
+		<div id="description56" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

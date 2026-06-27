@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="anasayfa.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA I
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama1-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama1-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama1-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama1-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama1-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama1-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama1-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama1-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama1-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama1-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          BİLİŞİM HUKUKU
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="bilisimhk-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="bilisimhk-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="bilisimhk-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="bilisimhk-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="bilisimhk-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="bilisimhk-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="bilisimhk-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="bilisimhk-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="bilisimhk-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="bilisimhk-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB'DE TELİF HAKLARI VE ETİK
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="webtelif-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="webtelif-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="webtelif-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="webtelif-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="webtelif-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="webtelif-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="webtelif-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="webtelif-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="webtelif-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="webtelif-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          AĞ YÖNETİMİ VE BİLGİ GÜVENLİĞİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="agyonetimi-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="agyonetimi-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="agyonetimi-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="agyonetimi-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="agyonetimi-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="agyonetimi-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="agyonetimi-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="agyonetimi-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="agyonetimi-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="agyonetimi-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİTABANI PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veritabaniprg-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veritabaniprg-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  </nav>
+  
+    <h4 id="ders">Veritabanı Programlama - Ünite 7 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Aşağıdakilerden hangisi yedek alma nedenlerinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Bazı kurumlarda yasal vb. nedenlerle verinin eski halinin barındırılmak zorunda olması </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Veritabanının bulunduğu hiçbir sistemin tam anlamı ile güvenilir olmaması </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Hiçbir veritabanı yöneticisinin tam anlamı ile güvenilir olmaması </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Performansın arttırılması ihtiyacı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Test ekibinin ve geliştiricilerin ortamlarında gerçeğe
+en yakın veritabanını kullanmayı tercih ediyor olmaları </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Aşağıdakilerden hangisi işlev dışı kalsa da SQL Server çalışmaya devam edebilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Master veritabanı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Msdb veritabanı </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Model veritabanı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> SQL Server uygulaması </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Disk sistemi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Aşağıdakilerden hangisi SQL Server her başlatıldığında yeniden oluşturulur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Master veritabanı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Msdb veritabanı </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Tempdb veritabanı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kullanıcı veritabanı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bakım planları </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Veritabanı yedekleri için aşağıdakilerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Güvenlik gereksinimleri en az veritabanı kadardır </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Fark yedekleri genellikle tam yedeklerden oldukça az
+yer kaplarlar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Hareket günlük yedeği, kendinden önce alınan yedekler
+ile birlikte kullanılabilir. </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Fark yedeği tek başına veritabanını geri yüklemekte
+kullanılabilir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> SQL Server ‘da bir dosyaya birden fazla veritabanının,
+birden fazla yedeği yerleştirilebilir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Hareket günlük yedekleri ile ilgili aşağıdakilerden hangisi
+doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kendinden önce alınan yedek ile birlikte tek bir hareket
+günlük yedeği, her zaman veritabanını geri yüklemek
+için yeterlidir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Hareket günlüğünün geri yüklenmesi, diğerlerinden
+daha düşük maliyetlidir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Günde bir defa alınması uygundur </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yoğun işlem yapılan veritabanlarında tercih edilmez </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Verinin kendisini değil, veride yapılan değişiklik işlemlerini
+barındırırlar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Aşağıdakilerden hangisinin yedeklemenin temel prensiplerinden biridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Her gün mutlaka yedek alınmalıdır. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Yedekler, veritabanı sunucusunun dışına çıkartılmalıdır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veritabanının boyutu büyüdükçe transfer edilecek veri miktarı artacağından, güncel yedeklerin birer
+kopyası veritabanı sunucusunda bırakılmalıdır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yedekleme senaryosunda kurgulanan izin verilecek maksimum veri kaybı 30dk’yı geçmemelidir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Her disk sistemi bir gün bozulacaktır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> Test ortamı oluşturmak için alınan yedekler ile ilgili aşağıdakilerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Orijinal veritabanının şemasını olduğu gibi içerirler. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Geliştirme ekipleri için ideal test ortamı sağlarlar. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Orijinal ortamdan doğrudan kopyalanarak kullanmaları en iyi sonucu sağlar. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bu yedekler geliştirme ortamına geri yüklenirler. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kullanımda olan uygulamaların geliştirilmesi faaliyetlerinde
+kullanılırlar. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> Replikasyon yöntemi ile ilgili aşağıdaki ifadelerden hangisi yanlıştır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Ana veritabanının bir kopyasının diğer bir konumda hazır bulundurulmasını sağlar. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Esnektir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veritabanında ikizleme yöntemine göre daha az yük oluşturur. </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Ana veritabanına ulaşılamadığında kopya veritabanına otomatik geçiş sağlar. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kopya veritabanları, ana veritabanı ile eş zamanlı
+eşitlenmezler. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> Aşağıdakilerden hangisi veritabanı bakımını yapma amaçlarından biridir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Parçalanan indeks yapısını düzenlemek </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kullanıcı yetkilerini yeniden düzenlemek </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Aşırı büyüyen veriyi kontrol altında tutmak </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bozulan veritabanlarını yerine koymak </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Zarar gören Master veritabanını kurtarmak </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Geri yükleme açısından aşağıdakilerden hangisi önemli değildir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yedeğin boyutu </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ana veritabanından uzaklığı ve iletim hızı </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Veritabanını çalıştıran sistemin işlemci sayısı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yedeğin alındığı saat </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yedeğin türü </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> Aşağıdakilerden hangisi çok sayıda veritabanı olan ve sıklıkla yeni veritabanları oluşturulan sistemlerde, yeni veritabanlarında bulunmasını istediğiniz özellik ve nesneleri ekleyerek yeni veritabanı oluşturma işlemlerinizi basitleştirmek için kullanılan veritabanıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Tempdb </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kaynak </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Master </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Model </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Msdb </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> Aşağıdakilerden hangisi kullanıldığında felaket durumunda veri kaybının önüne geçilmiş ve yüksek erişilebilirlik sağlanmış olur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Geri Yükleme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Replikasyon </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kurtarma </span><br>
+	<span class="option" data-correct="true"><b>D)</b> İkizleme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Koruma </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> 1. Felakete uğrayan veritabanını yerine koymak<br>
+2. Yanlış yapılan bir işlemi verinin önceki haline ulaşarak onarmak<br>
+3. Eski haline ulaşarak çeşitli araştırmalar yapmak<br>
+4. Bir ikizleme kurgusunun kurulumunu yapabilmek<br>
+5. Test ortamı oluşturmak<br><br>
+Yukarıda numaralandırılmış risk senaryolarının hangileri, sıklıkla karşılaşılan geri yükleme nedenleri arasında değerlendirilmektedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> 1,2,3,4 ve 5 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 1,2,3 ve 4 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 1,2 ve 3 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 1 ve 2 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 2 ve 3 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> 1. &gt; sqlmcd<br>
+2. &gt; RESTORE DATABASE master FROM DISK = '&lt;YedekKonumu&gt;\&lt;YedekDosyası&gt;' WITH REPLACE;<br>
+3. &gt; GO<br> </p>
+	<span class="option" data-correct="true"><b>A)</b> Yalnızca 1 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnızca 2 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yalnızca 3 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 1 ve 2 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 2 ve 3 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      MS SQL'de master veritabanı, yedeklerinde sqlcmd komut satırı uygulaması kullanılarak geri yüklenebilir. 1 numarada verilen sqlmcd ifadesi sqlcmd olarak düzeltilmelidir.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> Aşağıdakilerden hangisi verinin, veritabanı sunucusunun dışına çıkartılması ve güvenlik altına alınmasıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Geri Yükleme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Replikasyon </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Yedekleme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kurtarma </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Koruma </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Yasal nedenler başta olmak üzere, artık aktif sistemlerinde bulunmayan arşiv verilerinin geri döndürülmesi Sıklıkla Karşılaşılan Geri Yükleme Nedenlerinden hangisi için gerekir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yanlış yapılan bir işlemi verinin önceki hâline ulaşarak onarmak için </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bir ikizleme kurgusunun kurulumunu yapabilmek için </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Eski hâline ulaşarak çeşitli araştırmalar yapmak için </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Felakete uğrayan veritabanını yerine koymak için </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Test ortamı oluşturmak için </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> Aşağıdakilerden hangisinde kontrol sırasında veritabanı tarafında bozuk olan kısmına erişildiğinde SQL Server bozulma hatası verir? </p>
+	<span class="option" data-correct="false"><b>A)</b> İndeks bakımı
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İstatistik bakımı
+
+ </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Tutarlılık kontrolü </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Veritabanı sıkıştırma </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bakım sonrası temizlik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> I. Felakete uğrayan veritabanını yerine koymak.<br>
+II. Eski hâline ulaşarak çeşitli araştırmalar yapmak.<br>
+III. Bir ikizleme kurgusunun kurulumunu yapabilmek.<br><br>
+Yukarıdakilerden hangileri sıklıkla karşılaşılan geri yükleme nedenleri arasındadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> Sürekli hizmet vermesi gereken ve kesintiye toleransı olmayan işletmelerde birbirinden bağımsız iki ya da daha çok  sunucunun aralarında iletişim kurulduktan sonra tek bir sistem gibi çalışarak bir veya birden fazla uygulamayı çalıştırmasına olanak tanıyan, birden fazla sunucunun tek bir sunucu gibi davrandığı felaket planı çözüm yaklaşımı aşağıdakilerden hangisidir. </p>
+	<span class="option" data-correct="false"><b>A)</b> İkizleme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Replikasyon </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yedekleme </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Kümeleme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Rotasyon </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> İşlem kayıtlarını tutan hareket dosyalarının uzantısı nedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> .ldf </span><br>
+	<span class="option" data-correct="false"><b>B)</b> .mdf </span><br>
+	<span class="option" data-correct="false"><b>C)</b> .ndf </span><br>
+	<span class="option" data-correct="false"><b>D)</b> .pdf </span><br>
+	<span class="option" data-correct="false"><b>E)</b> .sql </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Veritabanı bütünlüğünü kontrol eden görev (Check Database Integrity Task) için DBCC CHECKDB yordamını çalıştırıp seçilmiş veritabanlarında, veri bozulması olup olmadığı kontrol edilir. <br>
+<br>
+Bu görev kontrol sırasında veritabanı tarafında bozuk olan kısmına erişildiğinde SQL Server ne hatası verir? </p>
+	<span class="option" data-correct="false"><b>A)</b> İndeks </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İstatistik </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yedekleme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Geri Yükleme </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Bozulma </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Bakım planı hazırlanma sürecinde Hazırlanan bakım planının hangi veritabanına hangi kullanıcı ile bağlanılacağını tanımlamak için hangi bölüm kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Manage Connections </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Back up databases </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Create a sub directory for each database </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Folder </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Create a backup File </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> Aşağıdakilerden hangisi Geri yükleme işlemi için “Database” başlığından seçilmesi gereken seçenektir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Restore Database </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Start PowerShell </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Data Collection </span><br>
+	<span class="option" data-correct="false"><b>D)</b> New Database </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Deploy Data </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> 1. Donanım/altyapı arızaları nedeniyle oluşabilecek veri bütünlüğünün bozulması<br>
+2. Veritabanına ya da üzerinde çalıştığı sistemlere müdahale eden kullanıcıların yanlış işlemleri nedeni ile oluşabilecek kayıplar ya da veri bütünlüğünün bozulması halleri<br>
+3. Yasal nedenler ile herhangi bir verinin eski halinin talep edilmesi<br><br>
+Yukarıda verilen ve 1, 2, 3 olarak numaralandırılmış ifadelerden hangilerinin gerçekleşmesi riskine karşı veritabanı ve verilerin yedeklenmesi önerilmektedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> 1, 2 ve 3 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 1 ve 2 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yalnızca 1 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yalnızca 2 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 1 ve 3 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> I. Veritabanları<br>
+II. Günlük Sıklık<br>
+III. Zamanlama Türü<br>
+IV. Yedekleme Hedefi<br><br>
+Yukarıdakilerden hangileri Yeni iş zamanlama (New Job Schedule) sayfasında belirlenen ayarlar arasında yer alır? </p>
+	<span class="option" data-correct="false"><b>A)</b> I ve II </span><br>
+	<span class="option" data-correct="true"><b>B)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I, II ve III
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II, III ve IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II, III ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> Aşağıdakilerden hangisi veritabanı bakım faaliyetleri arasında <u><strong>yer almaz?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Sistem Veritabanlarını ve Kullanıcı veritabanlarını yedeklemek </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İstatistiklerin bakımı ile eski veya bozuk istatistik verilerini düzeltmek </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İndeks bakımı ile indeksleri yeniden yapılandırmak ve organize etmek </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Veritabanı bütünlüğünün sağlanması için kontrol mekanizmaları oluşturmak </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yedek saklamada kapasite sorunu varsa, yedeği alınan veritabanları sıkıştırmak </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Aşağıdakilerden hangisi veritabanlarının veri biriktirdikçe ve uygulamalar veriler üzerinde değişiklik yaptıkça tabloları içeren veri dosyaları içerisindeki blokların faklı yerlere taşınıp ideal dizilimlerinden uzaklaşmasıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Gruplama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ayrıştırma </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Birleştirme </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Parçalanma </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Çözümlenme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> Mirroring ne anlama gelmektedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> İkizleme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Replikasyon </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Oturum Açma </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Geri Alma </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Uyarı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> Uygulamaların kullanması için açılan veritabanlarına ne denir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Kullanıcı veritabanı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Msdb </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Model </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Tempdb </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Master </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> Yedeklerin kullandığı disk alanının artmaması için bir kısmının (genellikle eski tarihli) otomatik olarak silinmesi ve yenilerine yer açılmasına ne denir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Yedeklerin rotasyonu </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Senaryo oluşturma </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yedekleme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Geri yükleme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İkizleme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> Aşağıda verilen veritabanı geri yükleme nedenlerinden hangisi veritabanın erişilemez olduğu durumları kapsar? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yanlış yapılan bir işlemi verinin önceki hâline ulaşarak onarmak </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Eski hâline ulaşarak çeşitli araştırmalar yapmak </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bir ikizleme kurgusunun kurulumunu yapabilmek </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Test ortamı oluşturmak </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Felakete uğrayan veritabanını yerine koymak </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> Parçalanma ve giderilmesi sürecinde blokların içlerinde oluşan boşlukların düzenlenmesi ve veri dosyalarındaki boş blokların dosya sonuna taşınarak MS SQL Server’ın daha etkin çalışmasını sağlamak için hangi işlem uygulanır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yedekleme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kümeleme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Geri Yükleme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Programlama </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Küçültme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> Geri yükleme seçenekleri içerisindeki Options sayfasında bulunan "Overwrite the existing database" özelliği aşağıda verilen fonksiyonlardan hangisi yerine getirir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Veritabanı bir replikasyon kümesinin parçası ise bu ayarları silmez ve çalışabilir durumda bırakır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Veritabanı, sadece db_owner, dbcreator, or sysadmin rollerinden birine sahip kullanıcılarca erişilebilir şekilde geri alınır. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Geri yükleme için kullanılan veritabanı ile aynı adda veritabanı var ise üzerine yazar. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Seçilen yedeklerin geri alınmasından sonra, yedek alınması ya da riskin gerçekleşmesi sırasında tamamlanmadığı için açık kalan işlemleri temizler / geri alır, geri yükleme pozisyonunu sonlandırır, veritabanını etkinleştirir ve kullanıma açar. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Seçilen yedeklerin geri alınmasından sonra veritabanını geri yükleme pozisyonunda bırakır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> Aşağıda verilen veritabanı yedekleme nedenlerinden hangisi kullanıcı hatası ile ilgilidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Donanım/altyapı arızaları nedeni ile oluşabilecek veri bütünlüğünün bozulması </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Veritabanına müdahale edenlerin yanlış işlemleri ile oluşabilecek kayıplar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yasal nedenlerle herhangi bir verinin eski hâlinin talep edilmesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Geliştirme ve test ekiplerinin güncel veritabanı şemasına kolay ulaşabilmeleri </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Geliştirmelerin gerçek verilerle test edilmesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> Aşağıdakilerden hangisi MS SQL Server SQL Agent servisinin yapılandırma bilgilerini içerir ve veritabanı uyarı ve işleri ile ilgili bilgileri tutar? </p>
+	<span class="option" data-correct="true"><b>A)</b> Msdb </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Model </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tempdb </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Master </span><br>
+	<span class="option" data-correct="false"><b>E)</b> MS SQL Server </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> MS SQL Server’ın tüm yapılandırma bilgileri hangi veritabanında yer alır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yedekleme veritabanı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Tempdb </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Msdb </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Model </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Master </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> I. .mdf ve .ldf uzantılıdırlar.<br>
+II. Tabloları ve indeksleri barındırır.<br>
+III. Bloklara ayrılmıştır.<br>
+IV. Geriye doğru çalışabilir.<br><br>
+MS SQL Server'da ön tanımlı olarak gelen veri dosyaları ile ilgili yukarıda verilen bilgilerden hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve III </span><br>
+	<span class="option" data-correct="true"><b>C)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> III ve IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      mdf ve .ndf uzantılıdırlar.<br>
+ .ldf işlem kayıtlarını tutan hareket dosyalarının uzantısıdır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> Tam tarama yapılırken aynı zamanda istatistiklerin de güncellendiği veritabanı bakım planı görevi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> İndeks bakımı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yedekleme planlama </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veritabanı sıkıştırma </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Tutarlılık kontrolü </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bakım sonrası temizlik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> Aşağıdakilerden hangisi ayrıca artımlı yedekleme olarak da anılmaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Tam Yedeklemeler </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İhraç Etme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Replikasyon </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Hareket Günlük Yedeklemeleri </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Fark Yedeklemeleri </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> Yedekleme ortam ayarları yapılırken "Rewind the tape before unloading" yanındaki kutucuk işaretlendiğinde aşağıdaki fonksiyonlardan hangisi gerçekleştirilmiş olur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Hareket günlük yedeği alındıktan sonra, yedeklenmiş hareket günlüğü içeriği siler. Bu özelliğin kullanımı, hareket günlük dosyalarının aşırı büyümesini engeller. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Hareket günlük yedeği alınır ancak veritabanı yeni hareket kabul edilmeyen “restoring” konumunda bırakılır. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Kaset çıkmadan önce başa sarılmasını sağlar. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Teyp yedekleme ünitesinin, yedekleme bittikten sonra kaseti çıkartmasını sağlar. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Doğrulama sağlanamasa da yedekleme işlemine devam eder. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

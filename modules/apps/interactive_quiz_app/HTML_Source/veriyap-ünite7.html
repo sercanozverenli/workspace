@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+	  
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA II
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama2-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama2-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama2-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama2-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama2-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama2-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama2-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama2-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama2-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama2-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB ARAYÜZ PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİ YAPILARI
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veriyap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veriyap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veriyap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veriyap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veriyap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veriyap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veriyap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veriyap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veriyap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veriyap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          MOBİL UYGULAMA GELİŞTİRME
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="mobilug-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="mobilug-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="mobilug-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="mobilug-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="mobilug-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="mobilug-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="mobilug-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="mobilug-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="mobilug-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="mobilug-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          UNIX SİSTEM YÖNETİMİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="unixsy-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="unixsy-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="unixsy-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="unixsy-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="unixsy-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="unixsy-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="unixsy-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="unixsy-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="unixsy-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="unixsy-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Veri Yapıları - Ünite 7 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Ağaç yapısında ilk düğüm ______ olarak adlandırılır.<br><br>
+Yukarıdaki boşluğu aşağıdakilerden hangisi doğru şekilde tamamlar? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kenar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ebeveyn </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Kök </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yaprak </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Çocuk </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Aşağıdakilerden hangisi ağaç yapısında kök
+düğümünden en uzaktaki düğüme olan uzaklığı belirten terimdir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kenar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ebeveyn </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Derinlik </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yaprak </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Yükseklik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Aşağıdakilerden hangisi ağaç yapısındaki bir
+düğümün kök düğümüne olan uzaklığını belirten terimdir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kenar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ebeveyn </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Derinlik </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yaprak </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yükseklik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> İkili ağaç yapısının “Tam İkili Ağaç” olarak
+adlandırılması için gereken koşul aşağıdakilerin hangisinde verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Ağacın tüm düğümleri sola doğru yaslı olmalıdır </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Tüm düğümlerin tek çocuklu veya hiç çocuğunun olmadığı yapıdır. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Tüm düğümlerin iki çocuklu veya hiç çocuğunun olmadığı yapıdır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Tüm yaprak düğümlerin aynı seviyede olduğu yapıdır </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Tüm yaprak düğümlerin sağa doğru yaslı olduğu yapıdır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> İkili ağaç yapısının “Dejenere İkili Ağaç” olarak adlandırılması için gereken koşul aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Ağacın tüm düğümleri sola doğru yaslı olmalıdır </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Tüm düğümlerin tek çocuklu veya hiç çocuğunun olmadığı yapıdır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tüm düğümlerin iki çocuklu veya hiç çocuğunun olmadığı yapıdır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Tüm yaprak düğümlerin aynı seviyede olduğu
+yapıdır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Tüm yaprak düğümlerin sağa doğru yaslı olduğu yapıdır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> İkili ağaç yapısının “Mükemmel İkili Ağaç”
+olarak adlandırılması için gereken koşul aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Ağacın tüm düğümleri sola doğru yaslı olmalıdır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Tüm düğümlerin tek çocuklu veya hiç çocuğunun olmadığı yapıdır </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tüm düğümlerin iki çocuklu veya hiç çocuğunun olmadığı yapıdır. </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Tüm düğümlerin iki çocuklu olduğu ve yaprak düğümlerin aynı seviyede olduğu yapıdır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Tüm yaprak düğümlerin sağa doğru yaslı olduğu yapıdır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> <em>“Mevcut düğümün değerinden düşük değerli verilerin sol çocuk düğümlerde, büyük değerli verilerin
+ise sağ çocuk düğümlerde depolandığı bir ikili ağaçtır.”</em><br><br>
+Aşağıdaki ağaç yapılarından hangisi yukarıdaki tanıma karşılık gelir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Mükemmel İkili Ağaç </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Eksiksiz İkili Ağaç </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İkili Ağaç </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Üçlü Ağaç </span><br>
+	<span class="option" data-correct="true"><b>E)</b> İkili Arama Ağacı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> Aşağıdakilerden hangisi İkili Arama Ağacının
+avantajlarından biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Ağacın temsili basit ve kolaydır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Veri setinde mevcut olan yapısal ilişkileri yansıtır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Arama işlemi çok hızlıdır. </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Düğüm silme işlemi zordur. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sayıları depolarken kapasite sınırı yoktur. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> İkili arama ağacındaki verileri büyükten küçüğe doğru hizalı olarak sıralamak için kullanılacak gezinme yöntemi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kök-Sol-Sağ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sağ-Sol-Kök </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sol-Kök-Sağ </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Sağ-Kök-Sol </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kök-Sağ-So </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> İkili arama ağacında bulunan verilerden en
+küçük değeri bulmak için yapılması gereken aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Ağacın en ortasındaki düğüme gidilmelidir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ağacın en sağında bulunan düğüme gidilmelidir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ağacın en solunda bulunan düğüme gidilmelidir. </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Kök düğümüne gidilmelidir </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sağ alttaki yaprak düğümün ebeveyn düğümüne gidilmelidir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> Bilgisayar bilimlerinde ağaç nasıl tanımlanır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Bilgisayar bilimlerinde ağaç; verilerin düğümlerde tutulduğu, düğümlerin birbirlerine kenarlar ile bağlandığı doğrusal olmayan bir veri yapısıdır.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> Kök düğüm, ebeveyn düğüm ve çocuk düğüm arasında nasıl bir bağ vardır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Ağacın ilk düğümüne kök (root) denir. Kök, düğüme başka bir düğüm bağlanırsa kök düğüm ebeveyn düğüm (parent node) olarak; bağlanan düğüm ise çocuk düğüm (child node) olarak adlandırılır.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Ağaç yapısının son düğümüne ne ad verilir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Ağaç yapısındaki son düğümler ise yaprak (leaves) olarak adlandırılır. Bu düğümlerin çocuk düğümleri yoktur.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> Ağacın yüksekliği nasıl belirlenir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Bir ağacın yüksekliği, kök düğümünden en uzaktaki yaprak düğümüne kadar olan mesafeyi belirtir.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> Ağaç yapılarının hangi avantajları bulunmaktadır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Bilgisayar bilimlerinde sıkça kullanılan ağaç yapılarının avantajları aşağıdaki gibi sıralanabilir;<br><br>
+
+&emsp; - Veri depolamak için hiyerarşik bir yol sağlar.<br>
+&emsp; - Bir veri kümesindeki yapısal ilişkiyi yansıtır.<br>
+&emsp; - Bir diziden veya bağlantılı listeden daha hızlı sonuç veren ekleme, silme ve arama işlemlerine izin verir.<br>
+&emsp; - Verileri tutmak ve taşımak için esnek bir yol sağlar.<br>
+&emsp; - Birçok düğümün depolanmasına izin verir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Bir ağacın ikili arama ağacı olma şartı nedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> İkili arama ağacı, bazı kısıtlamalara sahip ikili ağacın bir uzantısıdır. Yalnızca bir düğümün sol çocuğu ana değerden küçük veya ona eşit olduğunda ve aynı düğümün sağ çocuğu ana değerden büyük veya ona eşit olduğunda ağaç ikili arama ağacı olur.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> AVL ağacını diğer türlerden ayıran temel özellik nedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> AVL ağacı, kendi kendini dengeleyen bir ikili arama ağacıdır. Bu ağaç, yüksekliğini otomatik olarak dengeleyebilir çünkü her düğüm, sağ alt ağaç ile sol alt ağacın yüksekliğindeki farkı temsil eden “denge faktörü” adı verilen bir değeri depolar.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Düğümlerin en fazla iki çocuk düğüme sahip olabildiği yapılara ne ad verilir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> İkili ağaçlar, düğüm- lerin en fazla iki çocuk düğüme sahip olabildiği yapılardır.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> Tüm düğümlerin çocuk sayısı, iki veya sıfır olan ağaçlar nasıl adlandırılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Tam İkili Ağaç Yapısı  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> Bir ağacın dengeli ikili ağaç olabilmesi için gerekli koşullar nelerdir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Bir ağacın dengeli ikili ağaç olarak adlandırılması için gereken koşullar aşağıda verilmiştir.<br><br>
+
+&emsp; - Herhangi bir düğüm için sol ve sağ alt ağaç arasındaki fark birden fazla olmamalıdır.<br>
+&emsp; - Sol alt ağaç dengeli olmalıdır.<br>
+&emsp; - Sağ alt ağaç dengeli olmalıdır.<br><br>
+		
+Ağacın dengeli olabilmesi için her düğümün sol ve sağ çocuklarının yüksekliklerinin farkı alınmalıdır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Mükemmel bir ikili ağaç yapısı nasıldır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Mükemmel bir ikili ağaç, her dahili düğümün tam olarak iki alt düğüme sahip olduğu ve tüm yaprak düğümlerinin aynı seviyede olduğu bir ikili ağaç türüdür.  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> İkili arama ağacında süre nasıl belirlenir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> İkili arama ağaçlarında süreyi ağacın yüksekliği belirler. Aranan ögeye en fazla ağacın yüksekliği kadar adımda ulaşılabilir.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> İkili arama ağacının avantajları nelerdir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> İkili arama ağaçlarının avantajları şu şekildedir:<br><br>
+
+&emsp; - Arama işlemi çok hızlıdır.<br>
+&emsp; - Ağacın temsili basit ve kolaydır.<br>
+&emsp; - Ebeveynden çocuk düğüme veya tersi yönde geçişler kolaydır.<br>
+&emsp; - Uygulaması basittir.<br>
+&emsp; - Veri setinde mevcut olan yapısal ilişkileri yansıtır.<br>
+&emsp; - Verileri sıralı eklemek diğer veri yapılarına göre daha kolaydır.<br>
+&emsp; - Verileri hafızada saklamak kolaydır.<br>
+&emsp; - Sayıları depolarken kapasite sınırı yoktur </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> İkili arama ağacının dezavantajları nelerdir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> İkili arama ağacının dezavantajları şu şekildedir:<br><br>
+
+&emsp; - İkili arama ağaçlarının dezavantajları ise aşağıdakiler gibidir;<br>
+&emsp; - Düğüm silme işlemi zordur.<br>
+&emsp; - Verilere rastgele erişim işlemi diziden daha zordur. İndeks kullanılarak verilere erişilemez.<br>
+&emsp; - Temel operasyonlar ağacın yüksekliğine bağlıdır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> İkili arama ağaçlarında, kökün gösterilme sırasına göre hangi gezinme yöntemleri kullanılabilir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> İkili arama ağaçlarında, kökün gösterilme sırasına göre üç farklı şekilde gezinme yapılabilir. Gezinmede kullanılan yöntemler; kökün çocuklardan önce gösterildiği Önce Kök(prefix), kökün çocuklardan sonra gösterildiği Sonra Kök(postfix) ve kökün çocuklar içinde gösterildiği İç Kök(infix) olarak adlandırılır.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> İkili arama ağacında en küçük değer nasıl bulunur?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> İkili arama ağacına veri eklenirken veri mevcut düğümün verisinden küçük ise sol alt ağaca yönelinir. Ağaç üzerindeki en küçük değer, bu özellik kullanılarak kolayca tespit edilebilir.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> İkili arama ağacında en büyük değer nasıl bulunur?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> İkili arama ağacında, en küçük sayının en soldaki düğüme yerleştirilmesi gibi, en büyük sayıda en sağ- daki düğüme yerleştirilir. <em>EnKucukBul</em> yöntemine benzer bir yöntemi, en büyük sayıyı bulmak için yaza- biliriz. Bu kez <u>Kök-&gt;Sağ Çocuk-&gt;Sağ Çocuk-&gt;Sağ Çocuk...</u> rotası izlenmelidir. Yöntemin içinde yapmamız gereken tek değişiklik ise <u>Sol Çocuk</u> Düğümü kontrolü yerine <u>Sağ Çocuk Düğümünün</u> kontrol etmektir.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> İkili arama ağaçlarında aranan bir değer nasıl bulunur?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Aradığımız değeri bulmak için kullanacağımız <u>Bul</u> metodu, parametre olarak bir değer alır. İlk olarak yeni bir <u>Dugum</u> oluşturur ve kök değerine eşitler. Kök düğümünden başlayarak mevcut değer ile aranan değeri karşılaştırır. Aranan değer mevcut düğümün verisinden küçükse mevcut düğümün sol çocuk düğümüne, büyükse sağ çocuk düğümüne geçer ve mevcut düğümü çocuk düğümüne eşitler. Bu işlem, aranan değer ile mevcut düğümün değeri eşit olana kadar veya mevcut düğüm boş olana kadar devam eder.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> Silinecek bir düğümün tek çocuklu olup olmadığı nasıl kontrol edilir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Silinecek düğümün, tek çocuğu olduğunda kontrol edilmesi gereken dört koşul vardır;<br><br>
+
+- Düğümün çocuğu sol çocuk olabilir.<br>
+- Düğümün çocuğu sağ çocuk olabilir.<br>
+- Silinecek düğüm, ebeveyn düğümün sol düğümü olabilir.<br>
+- Silinecek düğüm, ebeveyn düğümün sağ düğümü olabilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> İki çocuklu bir düğümü silmede varis belirleme işlemi nasıl yapılır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Varis belirleme işlemi için iki aday vardır. Bunlardan ilki, sol çocukların en sağındaki düğüm, diğeri ise sağ çocukların en solundaki düğümdür. Kaldırılan düğümün yerine bu iki düğümden birisi konursa ikili arama ağacının yapısı bozulmayacaktır.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> Varis düğümü return ile geri döndürülmesi sürecinde hangi durumlar kontrol edilmelidir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> <u>VarisDugum</u> metodu ile işimiz tamamlandıktan sonra Sil metodunda iki çocuklu düğümü silmek için gereken kodları yazabiliriz. Bu aşamada kontrol edilmesi gereken üç durum vardır;<br><br>
+
+&emsp; - Silinecek düğüm, kök düğüm olabilir. Varis kök düğüm olarak atanır.<br>
+&emsp; - Silinecek düğüm, ebeveyn düğümünün sol çocuğu olabilir. Ebeveynin sol çocuk alanına varis atanır.<br>
+&emsp; - Silinecek düğüm, ebeveyn düğümünün sağ çocuğu olabilir. Ebeveynin sağ çocuk alanına varis atanır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+
+		
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+	  
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA II
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama2-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama2-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama2-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama2-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama2-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama2-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama2-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama2-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama2-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama2-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB ARAYÜZ PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİ YAPILARI
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veriyap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veriyap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veriyap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veriyap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veriyap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veriyap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veriyap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veriyap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veriyap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veriyap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          MOBİL UYGULAMA GELİŞTİRME
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="mobilug-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="mobilug-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="mobilug-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="mobilug-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="mobilug-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="mobilug-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="mobilug-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="mobilug-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="mobilug-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="mobilug-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          UNIX SİSTEM YÖNETİMİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="unixsy-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="unixsy-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="unixsy-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="unixsy-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="unixsy-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="unixsy-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="unixsy-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="unixsy-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="unixsy-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="unixsy-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Mobil Uygulama Geliştirme - Ünite 7 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	<button class="block-group" data-start="40" data-end="59">Part 3</button>
+	  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Aşağıdakilerden hangisi, mobil uygulamalardaki kullanım tecrübesini etkileşim boyutunda
+artırmak için dikkate alınması gereken hususlardan biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Donanım-yazılım etkileşiminden faydalanmak </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Gerçek dünyayı mobil ortama taşımak </span><br>
+	<span class="option" data-correct="true"><b>C)</b> İnsanların aynı cihazları kullanmasını sağlamak </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kolay kullanım sağlamak </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İleri düzey veri işleme süreçleri işletmek </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Aşağıdakilerden hangisi mobil cihazlardaki
+Jiroskop (Gyroscope) sensörünün ölçüm şeklini doğru bir biçimde tanımlamaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Çevredeki manyetik alan yoğunluğunu ve yönünü ölçmektedir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Cihazdaki sıcaklık, nem gibi iklimsel değişiklikleri ölçmektedir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İvmeyi algılayarak, yerçekimi düzeyini ya da hızlanma, durma gibi olayları ölçmektedir. </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Cihazın X-Y-Z eksenlerindeki açısal konumunu ölçerek, açısal hızı tespit etmektedir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Cihazın yatay-dikey kullanım değişikliklerini tespit etmektedir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Flutter ortamı ve Dart programlama dili kullanmak suretiyle geliştirilen sensör tabanlı mobil uygulamalar ve motion_sensors eklentisi ile ilgili olarak aşağıdaki ifadelerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Motion_sensors kapsamında sensör okumaları yapmak için listen fonksiyonu kullanılabilmektedir. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Motion_sensors eklentisi ile mobil cihaz konumlanmasını tespit etmek mümkün değildir.
+</span><br>
+	<span class="option" data-correct="false"><b>C)</b> Motion_sensors, sensör kontrolü için kullanılabilen tek eklenti değildir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Motion_sensors eklentisi kapsamında Manyetometre sensöründen gelen değerler okunabilmektedir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Motion_sensors eklentisi kullanılırken dependencies altında metadata tanımlaması yapılmalıdır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Mobil uygulamalarda kamera kullanımı ile ilgili olarak aşağıdaki ifadelerden hangisi doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kamera kullanımının mobil uygulamalar açısından herhangi bir avantajı yoktur. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Flutter ortamı için herhangi bir kamera eklentisi bulunmamaktadır </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Android işletim sistemi, kamera kullanan uygulama geliştirmeye izin vermemektedir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Dart programlama dili ile kamera uygulamaları kodlamak mümkün değildir </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Kamera kullanımı, uygulamalar nezdinde izne tabidir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Flutter ortamında, Dart programlama dili
+kullanılarak, camera eklentisiyle geliştirilecek bir fotoğraf çekme uygulaması için aşağıdaki ifadelerden hangisi yanlış olacaktır?  </p>
+	<span class="option" data-correct="true"><b>A)</b> Kaydedilecek görüntünün dosya uzantısını belirtmeye izin verilmemektedir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Camera eklentisinin dependencies altına tanımlanması gerekmektedir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> O andaki görüntünün fotoğrafını çekmek için takePicture metodu kullanılabilmektedir </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Çekilen fotoğrafların kaydedilebilmesi için path_provider ve path eklentileri de kullanılmalıdır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kamera kullanımını sağlamak için CameraController sınıfı kullanılmaktadır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br>  Flutter ortamında Artırılmış Gerçeklik uygulamaları geliştirilmesini sağlayan ARCore eklentisi ile
+ilgili olarak aşağıdaki ifadelerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> ARCore eklentisi Google firması tarafından sunulmaktadır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Eklentinin kullanımı için ArCoreController sınıfının çağrılması gerekmektedir. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Ekranda sanal unsurların oluşturulması için listen metodu kullanılmaktadır </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Flutter projelerinde arcore_flutter_plugin ismiyle tanımlanmaktadır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Görüntülemeler için ArCoreView çağrısı kullanılmaktadır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> ”Kamera ile görüntülemede sanal nesnelerin
+yerleştirileceği konumları işaret etmektedir”<br><br>
+Yukarıdaki ifade ile tam olarak tanımlanan ARCore eklentisi bileşeni aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> ArCoreView </span><br>
+	<span class="option" data-correct="true"><b>B)</b> ArCoreNode </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ArCamera </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ArShape </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ArCoreController </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> Flutter ortamında Yapay Zeka uygulamaları
+geliştirmek için kullanılan Firebase ML Kit eklentisiyle ilgili olarak aşağıdaki ifadelerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Firebase ML Kit eklentisi sadece nesne tespiti uygulamaları yapılmasına izin vermektedir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Firebase ML Kit eklentisi Dart dilinde import ‘package:mlkit/mlkit.dart’; koduyla çağrılır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Firebase ML Kit eklentisi dependencies altında mlkit: ibaresi ile tanımlanır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Firebase ML Kit eklentisi Google tarafından geliştirilmiştir </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Firebase ML Kit eklentisinin Dart ortamında kullanımı için Firebase Web platformunda proje tanımı yapılmalıdır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> Firebase ML Kit eklentisiyle nesne tespiti yapmak için kullanılan bileşen aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> FirebaseObjectAnalyse </span><br>
+	<span class="option" data-correct="false"><b>B)</b> FirebaseClassifier </span><br>
+	<span class="option" data-correct="true"><b>C)</b> FirebaseVisionLabelDetector </span><br>
+	<span class="option" data-correct="false"><b>D)</b> FirebaseObjectDetector </span><br>
+	<span class="option" data-correct="false"><b>E)</b> FirebaseClassification </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> “Firebase ML Kit eklentisi Yapay Zeka çözümlerini bir tür —----- üzerinden sunmaktadır.”<br><br>
+Yukarıda cümlede boş bırakılan yeri aşağıdakilerden hangisi doğru şekilde tamamlar? </p>
+	<span class="option" data-correct="false"><b>A)</b> XML </span><br>
+	<span class="option" data-correct="false"><b>B)</b> TEXT </span><br>
+	<span class="option" data-correct="false"><b>C)</b> MDB </span><br>
+	<span class="option" data-correct="true"><b>D)</b> API </span><br>
+	<span class="option" data-correct="false"><b>E)</b> HTML </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> Üzerinde bulunduğu cihazın X-Y-Z eksenlerindeki açısal konumunu ölçerek, açısal hızı tespit edebilen bir sensör tipi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yönlendirme Sensörü </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Manyetometre </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Jiroskop </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İvmeölçer </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Hareket Sensörü </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> Aşağıdakilerden hangisi mobil cihazın yatay-dikey kullanım değişikliklerinin tespitini sağlayan sensördür? </p>
+	<span class="option" data-correct="true"><b>A)</b> Yönlendirme Sensörü </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sensör </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İvmeölçer </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Jiroskop </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Manyetometre </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Aşağıdakilerden hangisi çözülmesi istenen problemin, problem ile alakalı verileri dikkate almak suretiyle öğrenilmesini sağlayan Yapay Zeka yaklaşımıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Metaverse </span><br>
+	<span class="option" data-correct="false"><b>B)</b> AR Core </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Makine Öğrenmesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> API </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Derin Öğrenme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> Bir eklenti kurulumu sonrası projenin hangi komut ile rebuild edilmesi sağlanır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Manyetometre </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Dart </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Terminal </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Flutter run </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Pub get </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> ” Çevre ortamdaki fiziksel değişimleri / olayları algılayıp sayısal olarak ölçebilen donanımsal bileşenlerdir.” Tanımlamasını karşılayan terim aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Artırılmış Gereklik </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Programlama Dili </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Sensör </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yapay Zeka </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Mutlak Yönlendirme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> “Bir yazılım içerisinde tanımlanan fonksiyonların başka yazılımlar tarafından kullanılması için hazırlanmış iletişim altyapısıdır.” tanımı hangi terimi karşılamaktadır?  </p>
+	<span class="option" data-correct="true"><b>A)</b> API </span><br>
+	<span class="option" data-correct="false"><b>B)</b> SDK </span><br>
+	<span class="option" data-correct="false"><b>C)</b> JSDK </span><br>
+	<span class="option" data-correct="false"><b>D)</b> JSON </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Firebase ML Kit </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> Gerçek Dünyayı Sanal Süreçlerle Destekleyerek, Bilgiyi Anlamlandırma ve Kullanıcıları Etkileşime Dahil Etmede Yenilikçi Çözümler Ortaya Koyan uygulama çeşidi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Sosyal Medya </span><br>
+	<span class="option" data-correct="false"><b>B)</b> GPS </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Artırılmış Gerçeklik </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Artırılmış Sanallık </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Firebase </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> İvmeölçer, Jiroskop, Manyetometre ve Yönlendirme Sensörünün dördünü de destekleyen eklenti aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> path_provider </span><br>
+	<span class="option" data-correct="true"><b>B)</b> motion_sensors </span><br>
+	<span class="option" data-correct="false"><b>C)</b> permission_handler </span><br>
+	<span class="option" data-correct="false"><b>D)</b> package:arcore_flutter_plugin/arcore_flutter_plugin.dart </span><br>
+	<span class="option" data-correct="false"><b>E)</b> package:mlkit/mlkit.dart </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> “Bağlı olduğu cihaz kapsamındaki ivmeyi algılayarak, yerçekimi düzeyini ya da hızlanma, durma gibi olayları ölçebilmektedir.” cümlesi hangi sensör çeşidinin tanımıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Jiroskop </span><br>
+	<span class="option" data-correct="true"><b>B)</b> İvmeölçer </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Mnayetometre </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yönlendirme Sensörü </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Işık Sensörü </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> Aşağıdakilerden hangisi internet teknolojisinin kullanıcılara açılan, yazılım tabanlı uygulamalarını içeren, bir tür sanal yüzüdür? </p>
+	<span class="option" data-correct="false"><b>A)</b> Metaverse </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Web </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Artırılmış Gerçeklik </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Mobil </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Büyük Veri </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> “Çekilen görüntünün (fotoğrafın) ekranda sabit bir şekilde görüntülenmesi için ……………. bileşeni kullanılabilmektedir.”<br><br>
+Yukarıda verilmiş olan cümleyi tamamlayan sözcük aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Dispose </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Controller </span><br>
+	<span class="option" data-correct="false"><b>C)</b> takePicture </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Image widget </span><br>
+	<span class="option" data-correct="false"><b>E)</b> CameraPreview </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> “Çözülmesi istenen problemin, problem ile alakalı verileri (örnekleri ya da bilinen senaryoları) dikkate almak suretiyle öğrenilmesini sağlayan Yapay Zeka yaklaşımıdır. Bu yaklaşım kapsamında, farklı öğrenme yöntemlerini takip eden birçok algoritma-teknik yer almaktadır.”<br> <br> 
+Verilmiş olan bu tanım aşağıdakilerden hangisine ait olabilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Derin Öğrenme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> API </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Firebase ML Kit </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Artırılmış Gerçeklik </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Makine Öğrenmesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> Aşağıdaki boşluğu doldurunuz?<br><br>
+Mobil uygulamamıza kamera fonksiyonlarını kullanma işlevi sağlayan camera eklentisi şu komut ile dart dosyası içerisinde ............ edilmelidir </p>
+	<span class="option" data-correct="false"><b>A)</b> CameraPreview </span><br>
+	<span class="option" data-correct="false"><b>B)</b> TakePicture </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Import </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Controller </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Image </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Bilişim araçlarının yoğun kullanımıyla birlikte hızlı bir ivmeyle oluşan, miktarı oldukça fazla, içeriği karışık, değerli veri bütünleridir.” tanımı aşağıdakilerden hangisine aittir? </p>
+	<span class="option" data-correct="false"><b>A)</b> WEB </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sanal Gerçeklik </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veri tabanı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Artırılmış Gerçeklik </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Büyük Veri </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> Ekranda görüntüleme sonrasında controller değişkeninin bellekten silinmesi için hangi metodu kullanır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Image </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Dispose  </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Widget </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Png </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Dart </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> İnternet ve Web teknolojilerinin gelişmesinin mobil uygulamaları üzerindeki etkileri nelerdir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> İnternet sayesinde artan bireyler arası etkileşim düzeyi, farklı uygulamaların geliştirilmesine ve mobil cihazlara entegre edilmesine sebep olmuştur. Örneğin sosyal medya platformları, iletişim uygulamalarındaki önemli dönüm noktaları arasında yer almaktadır.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Büyük veri nedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Bilişim araçlarının yoğun kullanımıyla birlikte hızlı bir ivmeyle oluşan, miktarı oldukça fazla, içeriği karışık, değerli veri bütünleridir.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> Mobil uygulamalarda, kullanım tecrübesini etkileşim boyutunda artırmak için hangi hususlara dikkat edilmelidir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Dikkat edilmesi gereken hususlar; Kolay kullanım sağlamak, Donanım-yazılım etkileşiminden faydalanmak, Gerçek dünyayı mobil ortama taşımak, İleri düzey veri işleme süreçleri işletmek şeklinde sıralanabilir.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> Gerçek dünyayı mobil ortama taşımak nasıl bir avantaj sağlamaktadır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Kullanıcıların mobil uygulamaları kullanırken gerçek dünyadan destek alabilmeleri, etkileşim düzeyinde büyük avantajlar sunmaktadır.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> Mobil uygulamalarda özellikle etkileşimi artıran mekanizmalar tasarlanırken nelere dikkat edilmelidir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Bu tasarım sürecinde özellikle, kullanım amacı ve hedef kitleyi iyi analiz etmek gerekmektedir. Bu da mobil uygulama geliştirme süreçlerinin dikkatli planlanmasının ve kullanıcı deneyimlerinin önemini işaret etmektedir.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> Sensör nedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Çevre ortamdaki fiziksel değişimleri / olayları algılayıp sayısal olarak ölçebilen donanımsal bileşenlerdir.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> Sensörlerin mobil cihazlar üzerindeki etkileri nelerdir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Mobil taşınırlığı sağlamak ya da cihazı giyilebilir bir biçimde kullanmak adına görece küçük geliştirilen mobil cihazlarda yazılım kabiliyetlerinin artırılması sensörler sayesinde mümkün olmaktadır. Sensörler, çevredeki ışık, ses, basınç gibi unsurları algılayan birçok farklı makinede / cihazda kullanılıyor olsa da, mobil teknolojiler sayesinde seviye atlamış ve yenilikçi mobil uygulamaların doğmasını kolaylaştırmıştır.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> Jiroskop nedir ve ne için kullanılır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Üzerinde bulunduğu cihazın X-Y-Z eksenlerindeki açısal konumunu ölçerek, açısal hızı tespit edebilen bir sensördür. Bu yönüyle jiroskop, ivmeölçerin sadece ivme ölçmeye dayanan kabiliyetini üç eksenli düzeye taşımakta ve açısal hız tespitine ulaşabilmektedir. İngilizce Gyroscope olarak adlandırılmaktadır.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> Yönlendirme Sensörü nedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Mobil cihazın yatay-dikey kullanım değişikliklerinin tespitini sağlayan sensördür. Yönlendirme sensörü İngilizce orientation sensor olarak da bilinmektedir.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> UserAccelerometer.Listen ne için kullanılmaktadır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Yerçekimini dikkate almadan, İvmeölçer sensörünün ölçümlerinin okunmasını sağlar. Bir bakıma sadece kullanıcının cihaz üzerindeki etkilerini okumak için kullanılmaktadır.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> Kamera kullanım izinlerinin denetlenmesi için ne yapılmalıdır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Flutter ortamında Dart programlama diliyle geliştirilen uygulamalarda kamera kullanım izinlerinin denetlenmesi için permission_handler eklentisi kullanılabilmektedir.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> Permission.camera.status metodu ne için kullanılmaktadır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Uygulama içerisinde herhangi bir anda kamera kullanım izni durumunu kontrol etmek için permission.camera.status metodu kullanılmaktadır.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> Permission.camera.status metodu sayesinde elde edilen dönütler nelerdir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Bu metod sayesinde elde edilen dönütler, undetermined: izin belirlenmemiş, granted: izin elde edilmiş, denied: izin reddedilmiş, restricted: izin kısıtlı elde edilmiş veya permanentlyDenied: izin kalıcı olarak reddedilmiş şeklindedir.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> Artırılmış Gerçeklik nedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Gerçek dünyadaki görüntüye sanal unsurların dahil edildiği Karma Gerçeklik türüdür. Örneğin, TV ekranlarında spor karşılaşmaları izlerken, gerçek görüntü üzerine eklenmiş izlenimi veren sanal gösterimler Artırılmış Gerçeklik ile ilgilidir. Yine insanların gerçek dünyada Pokemon adı verilen anime karakterleri arayıp yakalaması üzerine kurulu olan Pokemon Go mobil oyunu da bu teknolojiyi kullanmaktadır.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> Artırılmış Sanallık nedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Sanal görüntülenen ortama gerçek dünyadan unsurların dahil edildiği Karma Gerçeklik türüdür. Artırılmış Gerçeklik’e göre daha ender olduğunu yorumlayabileceğimiz bu Artırılmış Sanallık’ın en iyi örnekleri, gerçek kişilerin çizgi karakterlerin dünyasına dahil olduğu, çizgi film / animasyon filmleridir.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question41">
+	<p class="question">Soru 41:<br> Artırılmış gerçekliğin sosyal hayata etkisi nelerdir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Artırılmış Gerçeklik içeren uygulamalar sayesinde eğitimden turizme, ticari uygulamalardan video oyun dünyasına, hatta sağlığa kadar hayatın farklı alanlarında etkili uygulamalar geliştirilebilmektedir. Özellikle bilgiyi kullanıcıya aktarma ve kullanıcıyı gerçek dünya ile sanal dünyanın birleştiği noktada daha yüksek etkileşim düzeyine ulaştırma amacı güden Artırılmış Gerçeklik ile mobil uygulamalar içerisinde kullanımı kolay ve bir o kadar etkili mekanizmalar eklenebilmektedir.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description41">Açıklama</button>
+		<div id="description41" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question42">
+	<p class="question">Soru 42:<br> arcore_flutter_plugin eklentisi ne için kullanılmaktadır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> arcore_flutter_plugin eklentisi mobil uygulamalara Artırılmış Gerçeklik entegre etmek için kullanılmaktadır.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description42">Açıklama</button>
+		<div id="description42" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question43">
+	<p class="question">Soru 43:<br> Ar core ne için kullanılmaktadır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> AR Core mobil uygulama ortamına çeşitli üç boyutlu (3D / 3B) şekillerin dahil edilmesini sağlamaktadır.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description43">Açıklama</button>
+		<div id="description43" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question44">
+	<p class="question">Soru 44:<br> ArCoreMaterial ve ArCoreNode’un işlevi nedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> ArCoreMaterial üç boyutlu şekillerin renk ve materyal yapısını belirlemektedir. ArCoreNode ise kamera ile görüntülemede sanal nesnelerin yerleştirileceği konumları işaret etmektedir.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description44">Açıklama</button>
+		<div id="description44" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question45">
+	<p class="question">Soru 45:<br> Yapay Zeka yazılımlarının çözüm üretebildiği problem durumları nelerdir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Yapay Zeka, görüntülerden nesne tanımlama, tanımlanan nesnelerden durum analizi yapma, yüz tanıma, kişi tanıma, yüz tanıma üzerinden duygu tanıma, nedenlere göre sonuç tahmin etme, yeni veri türetme ve insanlara karar destek sağlama gibi durumlarda çözüm üretebilmektedir.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description45">Açıklama</button>
+		<div id="description45" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+			
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

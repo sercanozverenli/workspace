@@ -1,0 +1,1877 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  table {
+    border-collapse: collapse; /* Hücreler arası boşluğu kaldırır */
+  }
+  table, th, td {
+    border: 1px solid black; /* Tüm hücrelere kenarlık ekler */
+    padding: 8px; /* Hücre içeriği ile kenarlık arasında boşluk bırakır */
+  }  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          ALGORİTMALAR
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="alg-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="alg-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="alg-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="alg-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="alg-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="alg-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="alg-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="alg-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="alg-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="alg-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB SUNUCU PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wsp-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wsp-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wsp-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wsp-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wsp-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wsp-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wsp-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wsp-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wsp-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wsp-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİ MADENCİLİĞİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="vmaden-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="vmaden-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="vmaden-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="vmaden-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="vmaden-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="vmaden-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="vmaden-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="vmaden-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="vmaden-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="vmaden-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİTABANI SİSTEMLERİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="vtsistem-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="vtsistem-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="vtsistem-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="vtsistem-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="vtsistem-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="vtsistem-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="vtsistem-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="vtsistem-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="vtsistem-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="vtsistem-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMADA YENİ EĞİLİMLER
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="prgyenieğilim-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="prgyenieğilim-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Veri Madenciliği - Çıkmış Sorular (Final) </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	<button class="block-group" data-start="40" data-end="59">Part 3</button>
+	<button class="block-group" data-start="60" data-end="79">Part 4</button>
+	  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> 5 adet nesne içeren bir nesneler kümesinden
+elemanları birbirinden farklı olmak kaydıyla,
+ilişki kuralı oluşturmak için kullanılabilecek
+toplam nesne seti sayısı kaçtır? </p>
+	<span class="option" data-correct="true"><b>A)</b> 31 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 32 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 33 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 34 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 35 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      Bir kümedeki eleman sayısı (n) için, elemanların birbirinden farklı olmak kaydıyla ilişki kuralı oluşturmak için kullanılabilecek toplam nesne seti sayısı 2<sup>n</sup> - 1'dir.<br><br>
+
+		2<sup>5</sup>-1 = 32-1 = 31</div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Aşağıdakilerden hangisi belirlenen destek
+eşik değeri s için A ⇒ B şeklinde ifade edilen bir kuralın ilişki kuralı olabilmesi için sağlaması gereken koşullardan biridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Destek (A) ≤ s </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Destek (B) ≤ s </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Destek (A ⇒ B) = s </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Destek (B) ≥ s </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Destek (A) ≥ s </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      Tanım (İlişki Kuralı): A ve B iki nesne seti olsun. Belirlenen destek eşik değeri s ve
+belirlenen güven eşik değeri c için A ⇒ B şeklinde ifade edilen bir kural,<br>
+<br>
+i. A nesne setinin destek değeri Destek (A) ≥ s<br>
+ii. A ⇒ B kuralının güven değeri Güven (A ⇒ B) ≥ c <br><br>
+koşullarını sağlıyor ise A ⇒ B kuralı bir ilişki kuralı olarak adlandırılır
+    </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Bir alışveriş veri tabanından oluşturulacak
+ilişki kuralları arasından işe yarayacak bilgiyi
+üretmek amacıyla kullanılacak ilişki kuralına
+ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kaldıraç kural </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Objektif kural </span><br>
+	<span class="option" data-correct="true"><b>C)</b> İlginç kural </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Subjektif kural </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Öncül kural </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Bir B nesne setinin destek değeri Destek (B) = 3/7
+olarak elde edilmiştir.<br><br>
+Buna göre, veri tabanında toplam kaç adet işlem(alışveriş) vardır? </p>
+	<span class="option" data-correct="false"><b>A)</b> 3 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 4 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 7 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 10 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 21 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      Destek(B) = Nesne setinin geçtiği işlem sayısı / Toplam işlem sayısı     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Aşağıdakilerden hangisi karar ağacının
+avantajlarından biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Açıklanmalarının kolay olması </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İnsani karar almayı daha iyi yansıtması </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Kararı etkileyen etki sayısının artmasıyla karmaşıklığının artması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Grafiksel olarak gösterilebilir olması </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yorumlanabilmesi için uzmanlık gerektirmemesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      Karar ağaçlarının
+bazı avantajları,<br><br>
+•	 Açıklanmalarının	kolay olması<br>
+•	 İnsani	karar almayı	diğer	yaklaşımlara	göre daha iyi	yansıtması<br>	
+•	 Grafiksel	olarak	gösterilebilir	olması<br>
+•	 Uzman	olmayan	kişiler	tarafından da kolaylıkla	yorumlanabilir	olması<br>
+•	 Temsili değişkenlere ihtiyaç duymadan nitel değişkenleri de işleyebiliyor olmalarıdır<br><br>
+		
+Karar ağaçları basit karar verme problemlerinde kullanışlı olmakla beraber, karar sayısı ve kararları etkileyen etki sayısının artması ile daha karmaşık bir yapıya da sahip
+olabilirler</div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Karar probleminin zaman içerisinde
+doğuracağı sonuçlardan etkilenen sorumlu kişiye ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> CEO </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Karar verici </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yönetici </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kamu kurumu </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Çalışma grubu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> Aşağıdakilerden hangisi karar ağacına ait
+bileşenlerden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> İç düğüm </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kök düğüm </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Nitelik </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yaprak düğüm </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Dal </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> Bir karar ağacının, bir ya da daha fazla
+dalının çıkartılarak, basitleştirilmesi işlemine ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Aşırı uyum </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Budama </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Performans testi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kestirim </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sınıflandırma </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> Aşağıdakilerden hangisi "Aşamalı Olmayan
+Kümeleme" yöntemlerinden biridir? </p>
+	<span class="option" data-correct="true"><b>A)</b> k-Medyanlar yöntemi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Tek bağlantı kümeleme yöntemi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Medyan bağlantı kümeleme yöntemi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Ward bağlantı kümeleme yöntemi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Küresel ortalama bağlantı kümeleme yöntemi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Ward bağlantı kümeleme yöntemi ile ilgili
+aşağıdaki ifadelerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Minimum varyans yöntemi olarak bilinir </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Küme içi varyansları maksimize ederek
+kümeleri oluşturur. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Küme bağlantıları yerine küme içi kareler
+toplamlarını dikkate alır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Küme içi varyansları minimize ederek
+kümeleri oluşturur </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Az birimli kümeleri birleştirme eğilimindedir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      Küme içi varyansın <u><strong>minimum</strong></u> olduğu kümeler belirlenir ve bu doğrultuda kümeler oluşturulur.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> Kümeleme analizinde sonuçlar ------- (ağaç
+diyagramı) adı verilen grafiksel yöntemle sunulurlar. <br><br>
+Yukarıdaki cümlede boş bırakılan yeri aşağıdakilerden hangisi doğru olarak tamamlar? </p>
+	<span class="option" data-correct="false"><b>A)</b> McQuitty bağlantısı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> kümeleme yöntemi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ağaç tablosu </span><br>
+	<span class="option" data-correct="true"><b>D)</b> dendrogram </span><br>
+	<span class="option" data-correct="false"><b>E)</b> aşamalı küme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> R programında "results" komutunun kullanım
+amacı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Verilerin dosyadan çağırılmasını sağlamak </span><br>
+	<span class="option" data-correct="false"><b>B)</b> K-ortalamalar yöntemini uygulamak </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Dendrogramı çizdirmek </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Sonuçları görüntülemek </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Verilerin kaydedilmesini sağlamak </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Kullanıcı profili <u><strong>temel</strong></u> alınarak kullanıcılara sunulacak bilgileri filtrelemek, sınıflandırmak ve kullanıcı profil bilgilerini geliştirmek için kullanılan yaklaşım aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Bilgiye erişim yaklaşımı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Veritabanı yaklaşımı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sınıflandırma yaklaşımı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sistem geliştirme yaklaşımı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Etkileşimli veri yaklaşımı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> Girilecek anahtar kelime(ler) ile ilişkili bir kelime bulutu grafiği elde edebilmek amacıyla, tweetlerdeki ortak ve etkisiz kelimelerin, noktalama işaretlerinin ve rakamların temizlenmesi için kullanılacak R fonksiyonu aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> str() </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ggplot() </span><br>
+	<span class="option" data-correct="false"><b>C)</b> summary() </span><br>
+	<span class="option" data-correct="false"><b>D)</b> pie() </span><br>
+	<span class="option" data-correct="true"><b>E)</b> tm_map() </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> İkincil veri tipinin kullanıldığı web madencilik sınıfı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Web sosyal medya madenciliği </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Web yapı madenciliği </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Web içerik madenciliği </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Web kullanım madenciliği </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Web metin madenciliği </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Aşağıdakilerden hangisi sosyal medya
+hizmetleri temel sınıflarından biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Eğitim </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Mesleki </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bilgilendirici </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Akademik </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Reklam amaçlı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      <strong>1. Genel amaçlı veya arkadaş tabanlı:</strong> Bu hizmetler belirli bir konu üzerine odaklanmayan arkadaşlık temeline dayanan paylaşım hizmetleridir.<br><br>
+<strong>2. Bilgilendirici:</strong> Bu hizmetlerin amacı günlük sorunlara yanıtlar sunmaktır.<br><br>
+<strong>3. Mesleki:</strong> Bu hizmetler kariyer veya meslek planlamasında yeni fırsatlar edinmek için kullanılır.<br><br>
+<strong>4. Eğitim:</strong> Bu hizmetler öğrencinin deneyimini geliştirmek için kullanılır.<br><br>
+<strong>5. Hobiler:</strong> Bu hizmetler aynı şeylere ilgi duyan insanlar için bir buluşma noktasıdır.<br><br>
+<strong>6. Akademik:</strong> Bu hizmetler akademik ve bilimsel çalışmalar için güncel bilgi kaynağına erişim sunan hizmetlerdir.<br><br>
+<strong>7. Haberler:</strong> Bu hizmetler tüm toplumu ilgilendiren haber yayıncılığına ilişkin hizmetlerdir     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> Olayların birlikte gerçekleşme ihtimallerini
+geçmiş verileri analiz edip ortaya koyarak
+geleceğe yönelik çalışmaları destekleyen veri
+madenciliği yöntemine ne ad verilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> İlişki kuralları </span><br>
+	<span class="option" data-correct="false"><b>B)</b> k-means ortalaması </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Hipotez testi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kümeleme analizi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Açıklayıcı veri analizi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> m = 8 adet nesne ya da ürün içeren bir
+nesneler kümesinden k = 3 nesne içeren
+nesne kümelerinin sayısı aşağıdakilerin
+hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 3 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 8 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 56 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 512 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 6561 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      n! / (k! * (n-k)!)<br><br>
+= 8! / (3! * 5!) <br>
+= 56
+     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> Aşağıdakilerden hangisi literatürde ilişki
+kurallarının diğer adıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Korelasyon analizi </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Pazar sepeti analizi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ki-Kare testi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Regresyon analizi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Korelasyon ile ilişki arama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> Destek eşik değeri = 0,45 ve güven eşik
+değeri = 0,75 olmak koşuluyla aşağıda destek
+ve güven değerleri verilen ilişki kurallarından
+hangisi güçlü bir kuraldır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Destek(A ⇒ B) = 0,25, Güven(A ⇒ B) =
+0,75 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Destek(A ⇒ B) = 0,25, Güven(A ⇒ B) =
+0,40 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Destek(A ⇒ B) = 0,50, Güven(A ⇒ B) =
+0,50 </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Destek(A ⇒ B) = 0,55, Güven(A ⇒ B) =
+0,80 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Destek(A ⇒ B) = 0,45, Güven(A ⇒ B) =
+0,20 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">       Güçlü bir kuralın hem destek değeri hem de güven değeri belirtilen eşik değerlerinin üzerinde olmalıdır.<br><br>
+
+Destek eşik değeri 0,45 ve güven eşik değeri 0,75 olarak belirtilmiştir.      </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> <span style="color: darkred; margin-left: 30px;"><img src="vmaden2.JPG" alt="Veri Madenciliği 2022 Final Soru 9" ></span>
+<br><br>
+Şekilde 1, 2 ve 3 ile gösterilen karar ağacının düğümleri aşağıdakilerden hangisinde doğru olarak tanımlanmıştır?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> 1-İç düğüm, 2-Kök düğüm, 3-Yaprak düğüm </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 1-İç düğüm, 2-Yaprak düğüm, 3-Kök düğüm </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 1-Kök düğüm, 2-İç düğüm, 3-Yaprak düğüm </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 1-Yaprak düğüm, 2-İç düğüm, 3-Kök Düğüm </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 1-Kök düğüm, 2-Yaprak düğüm, 3-İç düğüm </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Aşağıdakilerden hangisi yaz tatilini geçirmek
+için bir otel seçerken karar vermede etkili
+niteliklerden biri olarak veri madenciliği
+kapsamında değerlendirilmez? </p>
+	<span class="option" data-correct="false"><b>A)</b> Otelin ücretsiz hizmetleri </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Otelin yeşil alan büyüklüğü </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Otelin havuzunun olup olmaması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Otelin konumu </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Otelin ismi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> <img src="vmaden3.JPG" alt="Veri Madenciliği 2022 Final Soru 11"  style="width: 90%;"><br> <br>
+		A bankasında yeni hesap açan 132 numaralı yeni müşterinin kredi riski, şekilde verilen sınıflandırma ağacına göre banka tarafından hangi sınıfta değerlendirilecektir?
+<table style="border: solid darkred 2px">
+  <tr>
+    <th>Yeni Müşteri NO</th>
+    <th>Borç</th>
+    <th>Gelir (x1000 TL)</th>
+    <th>Statü</th>
+  </tr>
+  <tr>
+    <td>132</td>
+    <td>Yüksek</td>
+    <td>25.5</td>
+    <td>Ücretli</td>
+  </tr>
+  </table>
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> 2. Düğümde kredi riski iyi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 2. Düğümde kredi riski kötü </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 6. Düğümde kredi riski iyi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 7. Düğümde kredi riski kötü </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 3. Düğümde kredi riski kötü </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Karar vericinin içinde bulunduğu karar
+verme probleminde ortaya çıkabilecek tüm durumları ve karar vericinin karşılaşabileceği tüm senaryoları bir arada gösterebilen grafiksel yaklaşıma ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Sieve şeması </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Karar Ağacı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Histogram </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Pasta grafiği </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sütun grafiği </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> <span style="color: darkred; margin-left: 30px;"><img src="vmaden4.JPG" alt="Veri Madenciliği 2022 Final Soru 13"  style="width: 90%;"></span><br><br>
+Yukarıdaki şekilde gösterilen bağlantı kümeleme yöntemi aşağıdakilerden hangisidir?
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Tam bağlantı kümeleme yöntemi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Tek bağlantı kümeleme yöntemi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ortalama bağlantı kümeleme yöntemi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Ward bağlantı kümeleme yöntemi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Medyan bağlantı kümeleme yöntemi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      <u><strong>Tam Bağlantı Kümeleme Yöntemi</strong></u> Bu yöntem, en uzak komşuluk olarak da bilinmektedir.<br>
+<br>
+<u><strong>Tek Bağlantı Kümeleme Yöntemi</strong></u> Literatürde en yakın komşuluk olarak da bilinir
+     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> Veri setinde bulunan değişkenler arasında
+korelasyon (ilişki) var ise kullanılan aşamalı olmayan kümeleme yöntemi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> k-medoidler Yöntemi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> k-ortalamalar Yöntemi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> k-medyanlar Yöntemi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Medyan Bağlantı Yöntemi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Ortalama Bağlantı Yöntemi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Aşağıdakilerden hangisi birleştirici aşamalı kümeleme yöntemlerinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Ortalama bağlantı kümeleme yöntemleri </span><br>
+	<span class="option" data-correct="true"><b>B)</b> k-ortalamalar yöntemi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tek bağlantı kümeleme yöntemleri </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Medyan bağlantı kümeleme yöntemleri </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Ward bağlantı kümeleme yöntemleri </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      <u><strong>•	 Tek Bağlantı	Kümeleme	Yöntemi</strong></u> (TekBKY, SINGLE Linkage [SLINK], En Yakın
+Komşuluk, Nearest Neighbour Method)<br><br>
+			
+<u><strong>•	 Tam Bağlantı	 Kümeleme	 Yöntemi</strong></u> (TamBKY, COMPLETE linkage Method
+[CLINK], Furthest Neighbor Method)<br><br>
+			
+<u><strong>•	 Ortalama	Bağlantı	Kümeleme	Yöntemi</strong></u> (OrtBKY, AVERAGE Linkage Method,
+[ALINK])<br><br>
+			
+<u><strong>•	 McQuitty	Bağlantı	Kümeleme	Yöntemi</strong></u> (McQuitty linkage Method)<br><br>
+			
+<u><strong>•	 Küresel	Ortalama	Bağlantı	Kümeleme	Yöntemi</strong></u> (KOBKY, CENTROID linkage
+Method)<br><br>
+			
+<u><strong>•	 Medyan	Bağlantı	Kümeleme	Yöntemi</strong></u> (MBKY, MEDIAN linkage Method)<br><br>
+			
+<u><strong>•	 Ward Bağlantı	Kümeleme	Yöntemi </strong></u>(WBKY, WARD linkage Method, En Küçük
+Varyans Kümeleme Yöntemi)     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> Kümeleme analizinde bağlantılar, uzaklıklar
+ve birimlerin bağlanma düzeylerinin bir ağaç biçiminde ele alınarak şekillendirildiği ve kümeleme sürecinin bu şekilde ayrıntılı bir biçimde özetlendiği diyagramlara verilen ad aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Decision tree </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Clustergram </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bigram </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Dendrogram </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Random Forest </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> Webdeki veriyi veritabanına kaydederek
+modellemek ve veriyi bütünleştirerek daha karmaşık bilgilerin yönetilmesi için kullanılan web içerik madenciliği yaklaşımı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Metin işleme yaklaşımı </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Veritabanı yaklaşımı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bilgiye erişim yaklaşımı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Gürültü temizleme yaklaşımı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kayıp veri yaklaşımı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> Aşağıdakilerden hangisi web madenciliğinin doğrudan dezavantajlarından biridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Eksik bilgilendirmeler </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Güvenlik sorunları </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bilginin kötüye kullanımı </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Olay ve URL'lerin çok çeşitli olması </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Gizlilik sorunları </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      Web Madenciliğinin Dezavantajları:<br>
+<br>
+•	 URL’ler	izlenerek	veriye	erişilebilir
+•	 Olaylar	ve	URL’ler	çok	çeşitlidir
+•	 Verilerin	büyük	bir	kısmı	 kullanılmadan	kalır<br>
+<br>
+A, B, C ve E seçeneklerinde yer alanlar Veri Madenciliğinin dezavantajlarıdır.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> Aşağıdakilerden hangisi web yapı
+madenciliği uygulama alanlarından biridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Sistem geliştirme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kısa metin işleme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Web arama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İş zekası </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Atıf analizi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      <u><strong>Web Yapı Madenciliği</strong></u><br>
+İnternette Arama ve Bağlantı Köprüleri<br>
+Atıf Analizi<br>
+Web Topluluğu Keşfi <br>
+Web Şeması Ölçüm ve Modellemesi<br>
+Web Sayfalarının Sınıflandırılması<br><br>
+
+<strong><u>Web İçerik Madenciliği</u> </strong><br>
+Web Arama <br>
+Kısa Metin İşleme <br>
+Bilgi Keşfi <br>
+Web Görüş Madenciliği<br><br>
+
+<u><strong>Web Kullanım Madenciliği</strong></u> <br>
+Web Kullanım Madenciliği Aşamaları	<br><br>
+			
+	
+<u><strong>Web Kullanım Madenciliği Temel Uygulama Alanları </strong></u><br>
+Kişiselleştirme (Personalization) <br>
+Sistem Geliştirme (System Improvement) <br>
+Web Sitesi Güncelleme (Site Modification) <br>
+İş Zekası (Business Intelligence) <br>
+Kullanım Karakteristiği (Usage Characterization)
+     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> Aşağıdakilerden hangisi örüntü analizi
+sonucunda elde edilecek örüntülerin kullanılabilir yararlı bilgi olabilmesi için taşıması gereken özelliklerden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Belirli bir oranda geçerliliğinin sağlanmış
+olması </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İnsanlar tarafından kolayca anlaşılabilir
+olması </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Açıklayıcı, ayırt edici ve tahminlenebilir
+olması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İhtiyaçları karşılayan ve kullanılabilir olması </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Daha önceden keşfedilmemiş olması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> <span style="color: darkred; margin-left: 30px;"><img src="vmaden5.JPG" alt="Veri Madenciliği 2023 Final Yurtdışı Soru 5"  style="width: 90%;"></span>
+ <br><br>
+Yukarıdaki grafikte verilen birbirinden farklı oluşturulabilecek nesne setlerine göre, bu ilişki kuralı probleminde kaç tane nesne vardır?  </p>
+	<span class="option" data-correct="false"><b>A)</b> 2 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 3 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 4 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 5 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 6 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> A ve B iki nesne seti olsun. A⟹B kuralında A aşağıdakilerden hangisini ifade eder? </p>
+	<span class="option" data-correct="false"><b>A)</b> Aykırı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bilinmeyen </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Durağan </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Öncül </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sonsal </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> Sağlık sektöründe bir hastanın hastalık ve
+tedavi geçmişi ileride yaşaması muhtemel rahatsızlıkların belirlenmesinde ve tedbir alınmasında kullanılabilecek tanımlayıcı model aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Öklid uzaklığı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Hipotez testi </span><br>
+	<span class="option" data-correct="true"><b>C)</b> İlişki Kuralları </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Manhattan Uzaklığı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Zaman Serisi analizi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> {yumurta,domates,ekmek,çay}⟹{soğan}<br><br>
+Yukarıdaki ilişki kuralına göre ürünlerden hangisi/hangileri birlikte alındığında ilgili ürünün de alınıp alınmadığı gösterilen üründür? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yumurta </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Soğan </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Domates </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Çay </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Ekmek </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> I. csv türü dosya ile<br>
+II. Ortalama yöntemi<br>
+III. Tekrarlı hold-out tekniği<br>
+IV. Veritabanı bağlantısı<br>
+V. En küçük hata (minimum-error) tekniği<br><br>
+Yukarıdakilerden hangileri R'ye veri aktarma yöntemlerindendir </p>
+	<span class="option" data-correct="false"><b>A)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve III </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I ve IV </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II, III ve V </span><br>
+	<span class="option" data-correct="false"><b>E)</b> III, IV ve V </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> Karar ağaçlarında yer alan ilk düğüme ne ad
+verilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Kök Düğüm </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sonsal Düğüm </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Önsel olasılık </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yaprak düğüm </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bayes olasılığı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> Sınıflandırma modeli mevcut olan nitelik değerleri ile yeni bir kaydın sınıfının ------- yapar ve sınıflayıcı olarak adlandırılır.<br><br>
+Yukarıdaki cümlede boş bırakılan yeri aşağıdakilerden hangisi doğru olarak tamamlar? </p>
+	<span class="option" data-correct="false"><b>A)</b> daralmasını </span><br>
+	<span class="option" data-correct="true"><b>B)</b> kestirimini </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ortalamasını </span><br>
+	<span class="option" data-correct="false"><b>D)</b> sapmasını </span><br>
+	<span class="option" data-correct="false"><b>E)</b> büyümesini </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> <span style="color: darkred; margin-left: 30px;"><img src="vmaden6.JPG" alt="Veri Madenciliği 2022 Final Soru 12"  style="width: 90%;"></span>
+ <br><br>
+Yukarıdaki karar ağacına göre bir birey ücretli çalışmıyor ise hangi risk grubunda yer alır?
+</p>
+	<span class="option" data-correct="false"><b>A)</b> Ek veri istenmelidir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yan geliri bilinmelidir </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Az riskli </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Riski kötü </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Risksiz </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question41">
+	<p class="question">Soru 41:<br> Aşağıdakilerden hangisi k-medyanlar
+yönteminde en sık kullanılan uzaklık ölçüsüdür? </p>
+	<span class="option" data-correct="false"><b>A)</b>Mahalonobis uzaklığı </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Manhattan uzaklığı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Minkowski uzaklığı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Öklid uzaklığı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Açısal uzaklık </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description41">Açıklama</button>
+		<div id="description41" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question42">
+	<p class="question">Soru 42:<br> Kümeleme analizinde sonuçların
+gösteriminde kullanılan grafiğe ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Viyola grafiği </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Eğim grafiği </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Histogram </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Zaman çizelgesi </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Dendrogram </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description42">Açıklama</button>
+		<div id="description42" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question43">
+	<p class="question">Soru 43:<br> Kümeleme analizini ilk aşaması nedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Ortalama hesabı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Karar ağacının oluşturulması </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Korelasyonların tespiti </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Veri matrisinin oluşturulması </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Regresyon katsayılarının bulunması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description43">Açıklama</button>
+		<div id="description43" class="collapse">      - Veri matrisinin
+oluşturulması, <br>
+- Benzerlik veya uzaklık matrislerinin hesaplanması,<br>
+- Kümelemede esas alınacak yöntemlerin belirlenmesi<br>
+- Elde edilen sonuçların yorumlanmasıdır     </div>
+	</div>
+</div>
+		
+	
+		
+<div class="question-block">
+	<div id="question44">
+	<p class="question">Soru 44:<br> R programlama dilinde C diski altındaki
+"data" adındaki metin dosyasını okuyup a
+değişkenine atayan komut aşağıdakilerden
+hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> a&lt;-read.csv(“c:/data.txt”) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> a&lt;-csv(“c:/data.txt”) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> a&lt;-“c:/data.txt” </span><br>
+	<span class="option" data-correct="false"><b>D)</b> a&lt;-read.csv(“data.txt”) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> a&lt;-read(“c:/data.txt”) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description44">Açıklama</button>
+		<div id="description44" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question45">
+	<p class="question">Soru 45:<br> İnternet ortamından yararlı bilginin
+keşfinde  web madenciliği sürecinin üçüncü adımı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Genelleştirme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bilgi seçimi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veri </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Ön işleme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Analiz </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description45">Açıklama</button>
+		<div id="description45" class="collapse">      İnternet ortamından yararlı bilginin keşfi için, web madenciliği sürecini dört temel
+adımda ele alabiliriz.<br><br>
+
+
+<u><strong>1. Kaynakların Tespiti:</strong></u> İlgilenilen konuda bilgi içeren web dokümanlarının belirlenmesi ve elde edilmesi.<br>
+<u><strong>2. Bilgi Seçimi ve Ön İşleme:</strong></u> Elde edilen kaynaklardan ihtiyaç duyulan bilginin otomatik olarak seçilmesi ve kullanılabilir hâle getirilmesi.<br>
+<u><strong>3. Genelleştirme:</strong></u> Bireysel web sitelerindeki örüntü (pattern) veya kuralların otomatik
+olarak çıkarılması ve diğer web siteleri ile karşılaştırarak genellenmesi.<br>
+<u><strong>4. Analiz:</strong></u> Elde edilen genel örüntü veya kuralların doğruluklarının onaylanması ve /
+veya yorumlanması.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question46">
+	<p class="question">Soru 46:<br> Veritabanı üzerindeki yükü hafifletmek için
+oluşturulmuş, birbiriyle ilişkili verileri kolay,
+hızlı ve doğru bir biçimde sorgulama ve
+analiz yapabilmek için gerekli işlemlerin
+yapılabildiği veri deposuna ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Veri madenciliği </span><br>
+	<span class="option" data-correct="false"><b>B)</b> OLTP </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veri tabanı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ODBC </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Veri ambarı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description46">Açıklama</button>
+		<div id="description46" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question47">
+	<p class="question">Soru 47:<br> E-ticaret sitelerindeki ürün veya hizmetler
+hakkında yapılan olumlu veya olumsuz
+yorumların analiz edilerek kullanıcı
+eğilimlerinin tespit edildiği web madenciliği
+alanı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Web görüş madenciliği </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kısa metin işleme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Web yapı madenciliği </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Web içerik madenciliği </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Web topluluğu keşfi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description47">Açıklama</button>
+		<div id="description47" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question48">
+	<p class="question">Soru 48:<br> Aşağıdakilerden hangisi veri madenciliğinin
+çevrimdışı verileri kullanma özelliğinin web
+madenciliğindeki karşılığıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> e-öğrenme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Elektronik ticaret </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Çevrimiçi veri kullanımı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Web sayfalarının karmaşıklığı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Web içerik madenciliği </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description48">Açıklama</button>
+		<div id="description48" class="collapse">      Veri madenciliğinde çevrimdışı veriler kullanılmasına karşın, web madenciliğinde çevrimiçi veri kullanımı mevcuttur.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question49">
+	<p class="question">Soru 49:<br> Apriori algoritması kullanılarak güçlü ilişki kuralları oluşturabilmek için kullanılan R paketi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> confidence </span><br>
+	<span class="option" data-correct="false"><b>B)</b> minlen </span><br>
+	<span class="option" data-correct="false"><b>C)</b> lift </span><br>
+	<span class="option" data-correct="true"><b>D)</b> arules </span><br>
+	<span class="option" data-correct="false"><b>E)</b> support </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description49">Açıklama</button>
+		<div id="description49" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question50">
+	<p class="question">Soru 50:<br> Veri tabanına yeni eklenen bir kaydın, veri
+tabanında yer alan belli bir niteliğin, önceden
+belirlenmiş kategorilerinden birine atanması
+işlemine ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kestirim yapma </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Tahmin yapma </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Sınıflandırma yapma </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Oy verme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Karar verme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description50">Açıklama</button>
+		<div id="description50" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question51">
+	<p class="question">Soru 51:<br> 4 adet ürün içeren bir nesneler kümesinden
+en çok kaç adet ilişki kuralı oluşturulabilir ? </p>
+	<span class="option" data-correct="false"><b>A)</b> 10 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 20 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 30 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 40 </span><br>
+	<span class="option" data-correct="true"><b>E)</b> 50 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description51">Açıklama</button>
+		<div id="description51" class="collapse">      	m	adet	
+nesne içeren bir nesneler kümesinden toplamda 3<sup>m</sup>-2<sup>m+1</sup>+1 adet ilişki kuralı oluşturulabilir.<br><br>
+		
+3<sup>4</sup> - 2<sup>4+1</sup> + 1 =<br>
+81 - 32 + 1 = 50 </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question52">
+	<p class="question">Soru 52:<br> Aşağıdakilerden hangisi bir sınıflandırma
+ağacına budama işlemi uygulamak için kullanılan tekniklerden biri değildir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Kestirim Hata Oranı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Maliyet Karmaşıklığı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kötümser Hata </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Hata-Karmaşıklığı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> En Küçük-Hata </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description52">Açıklama</button>
+		<div id="description52" class="collapse">      - Maliyet karmaşıklığı (cost complexity), <br>
+- Kötümser hata (pessimistic error), <br>
+- Hata-karmaşıklığı (error complexity), <br>
+- Kritik değer (critical value), <br>
+- Azaltılmış hata (reduced error), <br>
+- En küçük-hata (minimum-error)     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question53">
+	<p class="question">Soru 53:<br> Pazar sepeti analizinde müşterilerin
+alışverişlerinde aldıkları her bir ürün ne olarak adlandırılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> İşlem </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kural </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veritabanı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İlişki </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Nesne </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description53">Açıklama</button>
+		<div id="description53" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question54">
+	<p class="question">Soru 54:<br> Aşağıdakilerden hangisi webden bilgi
+çıkarım uygulamalarında genel olarak karşılaşılan sorunlardan biri değildir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yararlı bilgi keşfi </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Verinin temizlenmesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bilgiyi kişiselleştirme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Web toplulukları ve sosyal ağlar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Araştırılan konuyu bulma </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description54">Açıklama</button>
+		<div id="description54" class="collapse">      1. Araştırılan konuyu bulma<br>
+2. İstenilen bilgiyi bulma<br>
+3. Yararlı bilgi keşfi<br>
+4. Bilgiyi kişiselleştirme<br>
+5. Web toplulukları ve sosyal ağlar			
+     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question55">
+	<p class="question">Soru 55:<br> Kümeleme Analizinde sonuçların sunulduğu
+Dendrogram adı verilen grafiksel yöntemin diğer adı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Ağaç diyagramı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Medoid </span><br>
+	<span class="option" data-correct="false"><b>C)</b> McQuitty Bağlantısı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Küme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Ağaç ortalaması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description55">Açıklama</button>
+		<div id="description55" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question56">
+	<p class="question">Soru 56:<br> Ward bağlantı Kümeleme Yöntemi ile ilgili
+aşağıdaki ifadelerden hangisi doğrudur? </p>
+	<span class="option" data-correct="true"><b>A)</b> Minimum Varyans yöntemi olarak bilinir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Az birimli kümeleri ayırma eğilimindedir ve aşırı değerlerden etkilenmez </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kümeler arası varyansları minimize ederek kümeleri oluşturur </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Küme içi varyansları maksimize ederek kümeleri oluşturur </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Küme bağlantıları yerine küme içi kareler
+çarpımlarını dikkate alır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description56">Açıklama</button>
+		<div id="description56" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question57">
+	<p class="question">Soru 57:<br> Büyük miktardaki belgeleri depolamada
+yetersiz kalan dosya-işlem sistemine alternatif olarak geliştirilen ve birbirleriyle ilişkili bilgilerin depolandığı alana ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Veri deposu </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Veri sorgusu </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veri kaynağı </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Veritabanı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Veri ambarı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description57">Açıklama</button>
+		<div id="description57" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question58">
+	<p class="question">Soru 58:<br> Aşağıda tanımlanan işlemlerden hangisi I =
+{Ekmek, Makarna, Peynir, Süt, Yumurta,
+Zeytin} nesneler kümesine ait <u><strong>olamaz?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> t<sub>5</sub> = {Süt, Şeker} </span><br>
+	<span class="option" data-correct="false"><b>B)</b> t<sub>4</sub> = {Süt, Yumurta} </span><br>
+	<span class="option" data-correct="false"><b>C)</b> t<sub>3</sub> = {Peynir, Zeytin} </span><br>
+	<span class="option" data-correct="false"><b>D)</b> t<sub>2</sub> = {Ekmek, Makarna} </span><br>
+	<span class="option" data-correct="false"><b>E)</b> t<sub>1</sub> = {Ekmek} </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description58">Açıklama</button>
+		<div id="description58" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question59">
+	<p class="question">Soru 59:<br> I. Destek<br>
+II. Güven<br>
+III. Kaldıraç<br><br>
+Yukarıdakilerden hangileri oluşturulan bir ilişki kuralının gücünü belirlemede ölçüt olarak kullanılan değerlerdendir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yalnız III </span><br>
+	<span class="option" data-correct="true"><b>D)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description59">Açıklama</button>
+		<div id="description59" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question60">
+	<p class="question">Soru 60:<br> R Programında “ilceler.variable” olarak
+adlandırılan ve 5 kümeye ayrılması istenilen veri setine k-ortalamalar kümeleme yönteminin uygulanabilmesi için aşağıdaki komutlardan hangisi kullanılmalıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> &gt;results= ilceler.variable (kmeans,5/5) </span><br>
+	<span class="option" data-correct="true"><b>B)</b> &gt;results=kmeans(ilceler.variable,5) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> &gt;results=kmeans(ilceler.variable,5/5nonhier) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> &gt;results=kmeans(ilceler.variable,1/5) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> &gt;results= ilceler.variable (kmeans,5) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description60">Açıklama</button>
+		<div id="description60" class="collapse">      K-ortalamalar kümeleme yöntemini R'de kullanmak için "kmeans" fonksiyonu kullanılır. İlk parametre olarak veri seti, ikinci parametre olarak ise istenen küme sayısı verilir.<br><br>
+
+Bu durumda, "ilceler.variable" olarak adlandırılan veri setine k-ortalamalar kümeleme yöntemini uygulamak için doğru komut şu şekildedir:
+
+results = kmeans(ilceler.variable, 5)     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question61">
+	<p class="question">Soru 61:<br> m = 3 adet nesne içeren bir I nesneler
+kümesinden toplamda kaç adet ilişki kuralı
+oluşturulabilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 3 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 9 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 12 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 16 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 27 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description61">Açıklama</button>
+		<div id="description61" class="collapse">      	m	adet	
+nesne içeren bir nesneler kümesinden toplamda 3<sup>m</sup>-2<sup>m+1</sup>+1 adet ilişki kuralı oluşturulabilir.<br><br>
+		
+3<sup>3</sup> - 2<sup>3+1</sup> + 1 =<br>
+27 - 16 + 1 = 12     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question62">
+	<p class="question">Soru 62:<br> I. Entropi İndeksi<br>
+II. Gini İndeksi<br>
+III. Sınıflandırma Hatası İndeksi<br>
+IV. Twoing Ölçüleri<br>
+V. En Küçük Kareler Sapması<br><br>
+Yukarıdakilerden hangileri nitel veri için kullanılan ölçülerden <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Yalnız V </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> III ve IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> IV ve V </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description62">Açıklama</button>
+		<div id="description62" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question63">
+	<p class="question">Soru 63:<br> ID3 algoritmasının geliştirilmiş hâli olan,
+ayırma kriteri olarak kazanç oranından yararlanan algoritma aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> CART </span><br>
+	<span class="option" data-correct="false"><b>B)</b> CHAID </span><br>
+	<span class="option" data-correct="false"><b>C)</b> QUEST </span><br>
+	<span class="option" data-correct="true"><b>D)</b> C4.5 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ANOVA </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description63">Açıklama</button>
+		<div id="description63" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question64">
+	<p class="question">Soru 64:<br> Aşamalı olmayan kümeleme yöntemlerinde
+en yaygın kullanılan yöntem aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Gauss karışım modeli </span><br>
+	<span class="option" data-correct="true"><b>B)</b> k-ortalamalar yöntemi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ortalama kaydırma </span><br>
+	<span class="option" data-correct="false"><b>D)</b> DBSCAN </span><br>
+	<span class="option" data-correct="false"><b>E)</b> OPTICS </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description64">Açıklama</button>
+		<div id="description64" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question65">
+	<p class="question">Soru 65:<br> Aşağıdakilerden hangisi örüntü analizi
+aşamasında yapılacak analizler sonucunda elde edilecek veya keşfedilecek örüntülerin kullanılabilir yararlı bir bilgi olabilmesi için gerekli koşullardan biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Belirli bir oranda geçerliliğinin sağlanmış olması </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Daha önceden keşfedilmemiş olması </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İhtiyaçları karşılayan ve kullanılabilir olması </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Birbirini tekrar eden örüntülerin tespit edilebilmesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İnsanlar tarafından kolayca anlaşılabilir olması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description65">Açıklama</button>
+		<div id="description65" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question66">
+	<p class="question">Soru 66:<br> Aşağıdakilerden hangisi kümeleme analizinin <u><strong>temel</strong></u> amacıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Hangi kümeye ait olduğu bilinmeyen bir grup
+verinin dağılımının belirlenmesi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bir grup verinin çözümlenmesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bir grup verinin görselleştirilmesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Hangi kümeye ait olduğu bilinen bir grup verinin sınıflandırılması </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Hangi kümeye ait olduğu bilinmeyen bir grup verinin sınıflandırılarak anlamlandırılması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description66">Açıklama</button>
+		<div id="description66" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question67">
+	<p class="question">Soru 67:<br> Kümeleme yöntemlerinin, kümeleri
+belirlemede izledikleri yaklaşımlara göre ayrıldığı iki temel alt grup aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Aşamalı ve aşamalı olmayan kümeleme
+yöntemleri </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Doğrusal ve doğrusal olmayan kümeleme
+yöntemleri </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Nesnel ve öznel kümeleme yöntemleri </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Tek bağlantılı ve tam bağlantılı kümeleme
+yöntemleri </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Birleştirici ve ayırıcı kümeleme yöntemleri </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description67">Açıklama</button>
+		<div id="description67" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

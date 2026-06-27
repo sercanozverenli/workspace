@@ -1,0 +1,1481 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+	  
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA II
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama2-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama2-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama2-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama2-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama2-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama2-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama2-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama2-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama2-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama2-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB ARAYÜZ PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİ YAPILARI
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veriyap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veriyap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veriyap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veriyap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veriyap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veriyap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veriyap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veriyap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veriyap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veriyap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          MOBİL UYGULAMA GELİŞTİRME
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="mobilug-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="mobilug-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="mobilug-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="mobilug-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="mobilug-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="mobilug-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="mobilug-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="mobilug-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="mobilug-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="mobilug-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          UNIX SİSTEM YÖNETİMİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="unixsy-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="unixsy-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="unixsy-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="unixsy-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="unixsy-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="unixsy-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="unixsy-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="unixsy-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="unixsy-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="unixsy-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Mobil Uygulama Geliştirme - Ünite 8 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	<button class="block-group" data-start="40" data-end="59">Part 3</button>
+	  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Aşağıdakilerden hangisi Firebase sisteminde
+kullanılan araçlardan biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Web sayfası barındırma </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kimlik doğrulama </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veritabanları </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Dosya depolama </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Analitik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Aşağıdakilerin hangisinde verilere erişmek
+için Yapılandırılmış Sorgu Dili (SQL) kullanılır ve veriler tablolar biçiminde depolanır? </p>
+	<span class="option" data-correct="false"><b>A)</b> NoSQL veritabanları </span><br>
+	<span class="option" data-correct="true"><b>B)</b> İlişkisel Veritabanı Yönetim Sistemleri </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sosyal ağlar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Firebase </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Cloud Firestore </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Firebase sisteminin sahibi aşağıdakilerden
+hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Apple </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Oracle </span><br>
+	<span class="option" data-correct="false"><b>C)</b> MySQL </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Google </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Microsoft </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Aşağıdakilerden hangisi, Firebase
+Authentication’da alternatif kullanıcı giriş seçeneklerinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Facebook </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Apple </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Microsoft </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Google </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Kurumsal sistemler </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Cloud Firestore’da veriler aşağıdaki birimlerin hangisinde depolanır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Tablo </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kayıt </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Belge </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Grafik </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Alan </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Cloud Firestore ile ilgili aşağıdaki ifadelerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> SQL ile sorgulama yapılabilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Cloud Firestore şemasızdır </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Aynı koleksiyondaki belerler farklı alan ve veri
+türleri içerebilir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Belgelerin içinde alt koleksiyonlar bulunabilir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Koleksiyonların oluşturulmasına veya silinmesine gerek yoktur. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> Flutter projesi ile Firebase projesini ilişkilendirmek için kullanılan yardımcı yazılımın adı aşağıda-kilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Custom Firebase </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Firebase Core </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Authentication </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Cloud Firestore </span><br>
+	<span class="option" data-correct="true"><b>E)</b> FlutterFire </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> Flutter’da Firebase kimlik doğrulamasını kullanabilmek için aşağıdaki eklentiden hangisine ihtiyaç vardır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Cloud_firestore </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Firebase_auth </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Authentication </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Flutter pub get </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Firebase_options </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> Bir StatefulWidget nesnesi ağaca eklendiğinde
+bir kez çağrılan fonksiyon aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> CallBack </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Push </span><br>
+	<span class="option" data-correct="true"><b>C)</b> İnitState </span><br>
+	<span class="option" data-correct="false"><b>D)</b> PostFrameCallBack </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Future </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Bir fonksiyon içinde await ifadesinin kullanılması ile ilgili aşağıdaki ifadelerden hangisi doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Try on catch mekanizması içinde kullanılması şarttır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Fonksiyon çağrılırken async ifadesi ile çağrılmalıdır </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Fonksiyon mutlaka geriye bir değer döndürmelidir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bu fonksiyon çalıştırıldığında uygulama kilitlenir ve fonksiyonun tamamlanması beklenir. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Fonksiyonun Future&lt;T&gt; türünde ve async olarak tanımlanması gerekir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> "......... veritabanları" ilişkisel veritabanı yönetim sistemlerinden farklı olarak verilerin tablo şeklinde depolanmadığı veri tabanlarıdır.<br><br>
+Yukarıda boş bırakılan yere aşağıda verilenlerden hangisi gelmelidir?  </p>
+	<span class="option" data-correct="true"><b>A)</b> NoSQL  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sosyal ağlar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İlişkisel Veritabanı Yönetim Sistemleri </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Cloud Firestore </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Firebase </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> İnternetten indirme yapılması gereken bir süreçte kullanıcılar indirme işlemi devam ederken dahi uygulama ile etkileşim kurmaya devam etmelerini sağlayan hangi fonksiyonlardan yararlanmak gerekmektedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> future </span><br>
+	<span class="option" data-correct="true"><b>B)</b> async </span><br>
+	<span class="option" data-correct="false"><b>C)</b> void </span><br>
+	<span class="option" data-correct="false"><b>D)</b> await  </span><br>
+	<span class="option" data-correct="false"><b>E)</b> catch  </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Flutter’da telefon uygulamasını açabilmek için hangi eklentiye ihtiyaç vardır? </p>
+	<span class="option" data-correct="true"><b>A)</b> url_launcher </span><br>
+	<span class="option" data-correct="false"><b>B)</b> sensor_plus </span><br>
+	<span class="option" data-correct="false"><b>C)</b> firebase_auth </span><br>
+	<span class="option" data-correct="false"><b>D)</b> cloud_firestore </span><br>
+	<span class="option" data-correct="false"><b>E)</b> shake </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> Aşağıdakilerden hangisi bir RDBMS <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> MySQL </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Oracle </span><br>
+	<span class="option" data-correct="false"><b>C)</b> SQL Server </span><br>
+	<span class="option" data-correct="true"><b>D)</b> SMTP </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Firebase </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      Önemli İlişkisel veri tabanı yönetim sistemleri (RDBMS):<br>
+Firebase veya MySQL, PostgreSQL, Oracle, SQL Server     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> NoSQL veritabanları hakkında aşağıdakilerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Verilerin tablo şeklinde depolandığı veri tabanlarıdır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Cloud Firestole No SQL türünde belge odaklı olan bir veri tabanıdır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> NoSQL veritabanları, veri modellerine göre çeşitli türlerde olabilmektedir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> NoSQL veri tabanları esnek şemalar sağlarlar ve büyük miktarda veri ve yüksek kullanıcı yükleriyle kolayca ölçeklenirler. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Cloud Firestore veri tabanında da tablo veya satır yoktur. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      NoSQL veritabanları ilişkisel veritabanı yönetim sistemlerinden farklı olarak verilerin tablo şeklinde depolanmadığı veri tabanlarıdır     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> -Uygulamanızı oluşturmak, geliştirmek ve büyütmek” için Google tarafından sunulan bir araç setidir. <br>
+-Hizmetler bulutta barındırılır ve uygulama geliştirici tarafından çok az veya hiç çaba harcamadan ölçeklenebilir. <br>
+-Analitik, kimlik doğrulama, veritabanları, yapılandırma, dosya depolama, push mesajlaşma gibi konularda çok daha hızlı entegrasyon yapabilmelerini sağlar.<br><br> 
+Yukarıda özellikleri verilen araç setinin adı aşağıdakilerin hangisinde yer almaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> MySQL </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Firebase </span><br>
+	<span class="option" data-correct="false"><b>C)</b> FlutterFire </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İlişkisel Veritabanı Yönetim Sistemleri </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Cloud Firestore </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> -NoSQL türünde belge odaklı bir veritabanıdır.<br>
+-Tablo veya satır yoktur. <br>
+-Verileri koleksiyonlar halinde düzenlenen belgelerde depolanır.<br>
+Yukarıda özellikleri verilen veritabanı aşağıda verilenlerin hangisinde yer almaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Custom Firebase </span><br>
+	<span class="option" data-correct="false"><b>B)</b> FlutterFire </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İlişkisel Veritabanı Yönetim Sistemleri </span><br>
+	<span class="option" data-correct="false"><b>D)</b> NoSQL veritabanları </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Cloud Firestore </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> İnternetten indirme yapılması gereken bir süreçte kullanıcılar indirme işlemi devam ederken dahi uygulama ile etkileşim kurmaya devam etmelerini sağlayan hangi fonksiyonlardan yararlanmak gerekmektedir?  </p>
+	<span class="option" data-correct="false"><b>A)</b> future </span><br>
+	<span class="option" data-correct="true"><b>B)</b> async </span><br>
+	<span class="option" data-correct="false"><b>C)</b> void </span><br>
+	<span class="option" data-correct="false"><b>D)</b> await  </span><br>
+	<span class="option" data-correct="false"><b>E)</b> catch  </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> Aşağıda verilenlerden hangisi StatelessWidget gibi widgetların faydalarından biridir?  </p>
+	<span class="option" data-correct="true"><b>A)</b> Ekranda benzer görüntüyü elde etmek için çok daha az kod yazma </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Tüm belgelerin koleksiyonlarda saklanabilmesi  </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kullanıcı girişlerinin yönetilmesi  </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Flutter ile Firebase'in ilişkinlendirilmesi  </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Veritabanı sorgulamalarının gerçekleştirilebilmesi  </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> “Oluşturulan Kayıt Ol sayfalarında mevcut olan Kullanıcı Giriş Sayfasında her yeni bir kullanıcı e-posta adresini ve şifresini yazarak sisteme kaydolabilmektedir. Bu etapta tüm kullanıcılardan şifresini iki defa yazması istenmektedir.”<br><br>
+Bunun sebebi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Daha önce başka bir kullanıcıya tanımlanmamış bir şifre edinilmesi. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Hatalı şifre yazımının önüne geçilmeye çalışılması. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kullanıcıya şifrenin onaylatılması. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Robot kullanıcının önüne geçilmesi. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Seçilmiş şifrelerin güvenliğinin arttırılması. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> - Uygulama geliştiricilerinin ilişkisel bir veritabanı oluşturmasını, güncellemesini ve yönetmesini
+sağlayan bir sistemdir.<br><br>
+
+-Dünyada en popüler veritabanı sistemidir.<br><br>
+
+-Veriler tablolar biçiminde depolanır. <br><br>
+
+-Sistem performansı ve uygulama kolaylığının yanında büyük miktarda veriyi depolamak ve almak için güvenilir bir yöntem sağlar.<br><br>
+
+Yukarıda özellikleri verilen veri tabanı sisteminin adı aşağıda verilenlerin hangisinde yer almaktadır?  </p>
+	<span class="option" data-correct="false"><b>A)</b> MySQL </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Cloud Firestore </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Firebase </span><br>
+	<span class="option" data-correct="false"><b>D)</b> NoSQL veritabanları </span><br>
+	<span class="option" data-correct="true"><b>E)</b> İlişkisel Veritabanı Yönetim Sistemleri </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      İlişkisel Veritabanı Yönetim Sistemleri (RDBMS)    </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Veritabanındaki mevcut kaydı güncellemek için aşağıdakilerden hangisi kullanılmalıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> flutter pub add cloud_firestore </span><br>
+	<span class="option" data-correct="false"><b>B)</b> flutter pub get </span><br>
+	<span class="option" data-correct="true"><b>C)</b> doc().update  </span><br>
+	<span class="option" data-correct="false"><b>D)</b> _duzenle() </span><br>
+	<span class="option" data-correct="false"><b>E)</b> flutter pub get url_launcher </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> Mobil uygulama geliştirmede kullanıcı verisi silme işlemi aşağıdakilerden hangisi ile yapılabilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> flutter pub get </span><br>
+	<span class="option" data-correct="false"><b>B)</b> doc().update </span><br>
+	<span class="option" data-correct="false"><b>C)</b> _duzenle() </span><br>
+	<span class="option" data-correct="true"><b>D)</b> doc(widget.kisi.kod).delete() </span><br>
+	<span class="option" data-correct="false"><b>E)</b> _ara() </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> NoSQL veritabanları hakkında aşağıdakilerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Verilerin tablo şeklinde depolandığı veri tabanlarıdır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Cloud Firestole No SQL türünde belge odaklı olan bir veri tabanıdır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> NoSQL veritabanları, veri modellerine göre çeşitli türlerde olabilmektedir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> NoSQL veri tabanları esnek şemalar sağlarlar ve büyük miktarda veri ve yüksek kullanıcı yükleriyle kolayca ölçeklenirler. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Cloud Firestore veri tabanında da tablo veya satır yoktur. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> Cloud Firestore hakkında aşağıdakilerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> NoSQL türünde belge odaklı bir veri tabanıdır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Cloud Firestore veritabanında da tablo veya satır yoktur. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Cloud Firestore’da depolama birimi belgedir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Cloud Firestore’un bir tür JSON veritabanı olduğu söylenebilir. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Belgeler adsız tanımlanabilir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> Örnek Mobil Uygulama Geliştirme esnasında kayıt düzenle sayfası oluşturma kısmındaki telefon ile istenilen telefon numarasını arayabilmek için “ url_launcher “ eklentisine ihtiyaç bulunmaktadır. Bu eklenti aşağıdakilerden hangi komut ile projeye eklenebilir? </p>
+	<span class="option" data-correct="false"><b>A)</b>  _DetaySate </span><br>
+	<span class="option" data-correct="true"><b>B)</b> flutter pub get url_launcher </span><br>
+	<span class="option" data-correct="false"><b>C)</b> accelerometerEvents, </span><br>
+	<span class="option" data-correct="false"><b>D)</b> widget.kisi.isim; </span><br>
+	<span class="option" data-correct="false"><b>E)</b> flutter pub get sensor_plus </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> MySQL hakkında aşağıdakilerden hangisi doğrudur? </p>
+	<span class="option" data-correct="true"><b>A)</b> Açık kaynak kodludur. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Çok tercih edilmeyen bir sistemdir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ücrete tabidir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Standart SQL dilini kullanmamaktadır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bir veritabanı sistemi değildir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> Firebase ile ilgili aşağıdaki ifadelerden hangisi doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Uygulamaları daha kişisel hale getirmek için kullanıcıların davranışını izlemeye olanak tanıyamaz. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Müşteri davranışlarını analiz edemez </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Push Notifications sistemine sahip değildir </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Firebase, Google tarafından sunulan bir yazılım geliştirme platformudur. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Ücretsizdir </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      -Uygulamanızı oluşturmak, geliştirmek ve büyütmek” için Google tarafından sunulan bir araç setidir.<br>
+-Hizmetler bulutta barındırılır ve uygulama geliştirici tarafından çok az veya hiç çaba harcamadan ölçeklenebilir.<br>
+-Analitik, kimlik doğrulama, veritabanları, yapılandırma, dosya depolama, push mesajlaşma gibi konularda çok daha hızlı entegrasyon yapabilmelerini sağlar.     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> ....... fonksiyonunda öncelikle kullanıcının iki defa girmiş olduğu şifrelerin tutarlı olup olmadığı kontrol edilmekte ve tutarsız ise “Şifreler Uyumsuz” mesajı verilmektedir. <br><br>
+Yukarıda boş bırakılan yere aşağıdakilerden hangisi gelmelidir?  </p>
+	<span class="option" data-correct="false"><b>A)</b> Push </span><br>
+	<span class="option" data-correct="true"><b>B)</b> TiklaKayit </span><br>
+	<span class="option" data-correct="false"><b>C)</b> PostFrameCallBack </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İnitState </span><br>
+	<span class="option" data-correct="false"><b>E)</b> main </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> Flutter’da telefonlardaki jiroskop sensörünün kontrolü hangi eklenti ile yönetilebilmektedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> launch </span><br>
+	<span class="option" data-correct="false"><b>B)</b> shake  </span><br>
+	<span class="option" data-correct="true"><b>C)</b> sensor_plus </span><br>
+	<span class="option" data-correct="false"><b>D)</b> cloud_firestore </span><br>
+	<span class="option" data-correct="false"><b>E)</b> firebase_auth </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> Firebase nedir ve hangi amaçla geliştirilmiştir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Firebase, Google tarafından sunulan bir araç setidir. Uygulamanızı oluşturmak, geliştirmek ve büyütmek amacıyla geliştirilmiştir.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ......... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ......... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ......... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ......... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> Firebase projesi nasıl oluşturulur?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Firebase projesi oluşturmak için öncelikle bir Google hesabına sahip olmak gerekmektedir. Ardından Google hesabı ile firebase.google.com adresine giriş yapılmalıdır. Daha sonra Goto Console seçeneğine tıklanmalıdır. Yeni proje oluşturmak için “Add Project” seçeneği seçilmelidir. İki aşamalı proje oluşturma sayfasında ilk olarak proje adı belirlenmelidir. Son olarak “Google Analytics for your Firebase Project” araçlarını kullanılıp kullanılmayacağı belirlenmelidir.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> Firebase Projesi içinde yer alan Authentication bölümü ne için kullanılmaktadır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Authentication geliştirilecek uygulamada kullanıcı girişlerini yönetmek için kullanılan modüldür.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> İnternet kullanıcıları için büyük bir sorun haline gelen kullanıcı şifresi hatırlama problemine Firebase veritabanı nasıl bir kolaylık getirmiştir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Alternatif kullanıcı giriş seçenekleri sayesinde kullanıcılar yeni şifre belirlemek zorunda kalmadan örneğin Google hesabı ile sisteme giriş yapabilmektedirler. Ayrıca birden fazla giriş seçeneğinin aynı anda kullanılması da mümkünüdür. Örneğin uygulamalar hem Google hem de Apple ile kullanıcı girişi yapabilecek şekilde yapılandırılabilmektedir. Böylece kullanıcılar için farklı kullanıcı girişleri arasından tercih yapabilecekleri bir esneklik sunulmuş olacaktır.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> SMTP nedir ve hangi amaçla kullanılmaktadır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> SMTP, Basit Posta Aktarım Protokolü anlamına gelir ve e-posta sunucuları tarafından e-posta göndermek, almak ve/veya iletmek için kullanılan bir uygulamadır. Bir SMTP e-posta sunucusunun, kullandığınız posta istemcisi veya uygulama tarafından ayarlanabilmektedir.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> NoSQL veritabanı Nedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> NoSQL veritabanları ilişkisel veritabanı yönetim sistemlerinden farklı olarak verilerin tablo şeklinde depolanmadığı veri tabanlarıdır. NoSQL veritabanları, veri modellerine göre çeşitli türlerde olabilmektedir. Bu türler ise belge, anahtar/değer çifti, geniş sütun ve grafik şeklinde sıralanabilir. NoSQL veritabanları esnek şemalar sağlarlar ve büyük miktarda veri ve yüksek kullanıcı yükleriyle kolayca ölçeklenirler.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> Cloud Firestore’da depolama birimi nedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Cloud Firestore’da depolama birimi belgedir. Belge, değerlerle eşleşen alanları içeren bir kayıttır. Ancak belgeler koleksiyonları da içerebileceği için kayıttan daha fazlasıdır. Her belge bir adla tanımlanmaktadır.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> MySQL sisteminin avantaj ve dezavantajları nelerdir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> MySQL açık kaynak kodlu ve ücretsiz oluşu açısından avantaj sağlamaktadır. Ancak  MySQL’i kurabilmek için bir alan adı ve sunucuya ihtiyaç vardır. Alternatif olarak bulut sistemler üzerinde barındırılan veritabanı sistemlerinden de yararlanılabilmektedir. Dolayısıyla  bulut sistemleri, alan adı ve sunucu hizmetleri de artı maliyet oluşturacağı için bu bir dezavantaj oluşturmaktadır.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> FlutterFire yazılımı daha önce kurulmamışsa sisteme kurulması için terminal sayfasında sırasıyla hangi komutlar çalıştırılmalıdır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Sırasıyla çalıştırılması gereken komutlar şu şekilde olmalıdır; dart pub global activate flutterfire_cli, flutterfire configure.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> Firebase veritabanı ve kullanıcı girişi sistemlerini kullanabilmek için hangi komutlar çalıştırılmalıdır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Sırasıyla çalıştırılması gereken komutlar şu şekilde olmalıdır; flutter pub add cloud_firestore, flutter pub add firebase_auth, flutter pub get.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question41">
+	<p class="question">Soru 41:<br> Firebase projesinde her bir sayfanın ayrı dosyalar içinde oluşturulmasının sebebi nedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Sayfaların ayrı dosyalarda barındırılmasının sebebi ise yazılan kodları karmaşıklığının azaltılarak bir dosyadaki yazılan satır sayısını düşük seviyelerde tutma ihtiyacıdır.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description41">Açıklama</button>
+		<div id="description41" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question42">
+	<p class="question">Soru 42:<br> Bir fonksiyonun async olabilmesi için geri dönüş türünün ne olması gerekir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Geri dönüş türünün, Future&lt;T&gt; olması gerekmektedir. T fonksiyonun asıl geri döndüreceği türdür.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description42">Açıklama</button>
+		<div id="description42" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question43">
+	<p class="question">Soru 43:<br> Async fonksiyonun internet kullanıcılar için avantajı nedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Kullanıcılar indirme işlemi yaparken eğer async fonksiyonunu kullanırsa indirme işlemi devam ederken dahi uygulama ile etkileşim kurmaya devam edebileceklerdir. Herhangi bir donma sorunu yaşanmayacaktır.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description43">Açıklama</button>
+		<div id="description43" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question44">
+	<p class="question">Soru 44:<br> Firebase projesine giriş başarısız olursa kullanıcı nasıl bir uyarı ile karşılaşır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Eğer giriş başarılı olmaz ise üretilen hata koduna göre “Kullanıcı bulunamadı” veya “Şifre Yanlış” uyarıları ScaffoldMessenger ile ekranın en altına gösterilmektedir.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description44">Açıklama</button>
+		<div id="description44" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question45">
+	<p class="question">Soru 45:<br> İnternet bağlantısı olmaması sebebiyle veritabanına erişim sağlanamaması ve çalışmanın sonlanması durumlarının yaşanmaması için hangi mekanizmalar kullanılmalıdır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Bu gibi durumlarla baş etmek için programlama dillerinde try catch veya try on catch mekanizmaları geliştirilmiştir. Özellikle hata üretebilecek satırlar try bloğu mekanizması içine yazılmalıdır.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description45">Açıklama</button>
+		<div id="description45" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question46">
+	<p class="question">Soru 46:<br> ListView bölümünde hangi bilgiler yer alır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Defter sayfasında bir ListView ile kullanıcının daha önce kaydetmiş olduğu kişilerin listesi yer almaktadır.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description46">Açıklama</button>
+		<div id="description46" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question47">
+	<p class="question">Soru 47:<br> DefterState kurucu fonksiyonun işlevi nedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Kurucu fonksiyon olan defterstate çalıştığı zaman, veritabanındaki bilgileri getirerek ListView’da listelenmesini sağlamaktadır.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description47">Açıklama</button>
+		<div id="description47" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question48">
+	<p class="question">Soru 48:<br> Document id neden oluşturulmalıdır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Firebase’de her oluşturulan belge için otomatik veya manuel bir şekilde oluşturulan document id değeri kişi sınıfının kod özelliğinde saklanmaktadır. Bu değer daha sonra güncelleme veya silme işlemi gerçekleştirmek için kullanılmaktadır.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description48">Açıklama</button>
+		<div id="description48" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question49">
+	<p class="question">Soru 49:<br> Uid parametresi firebase için neden önemlidir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Uid parametresine bir değer verilmektedir. Bu değer uygulamaya giriş yapmış olan kullanıcının id’sidir. Böylece girilen kişi bilgilerinin hangi kullanıcıya ait olduğu belirlenmiş olur.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description49">Açıklama</button>
+		<div id="description49" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question50">
+	<p class="question">Soru 50:<br> Kayıt düzenleme sayfasında hangi işlemler yapılabilmektedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Kayıt düzenle sayfasında, kayıt düzenleme, kayıt silme ve kişinin telefon numarasını arama işlemleri yapılabilmektedir.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description50">Açıklama</button>
+		<div id="description50" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+		
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

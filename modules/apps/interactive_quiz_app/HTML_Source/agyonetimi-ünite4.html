@@ -1,0 +1,2248 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+  <style>
+	  	  	  .block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="anasayfa.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA I
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama1-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama1-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama1-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama1-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama1-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama1-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama1-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama1-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama1-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama1-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          BİLİŞİM HUKUKU
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="bilisimhk-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="bilisimhk-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="bilisimhk-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="bilisimhk-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="bilisimhk-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="bilisimhk-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="bilisimhk-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="bilisimhk-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="bilisimhk-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="bilisimhk-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB'DE TELİF HAKLARI VE ETİK
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="webtelif-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="webtelif-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="webtelif-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="webtelif-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="webtelif-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="webtelif-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="webtelif-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="webtelif-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="webtelif-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="webtelif-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          AĞ YÖNETİMİ VE BİLGİ GÜVENLİĞİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="agyonetimi-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="agyonetimi-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="agyonetimi-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="agyonetimi-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="agyonetimi-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="agyonetimi-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="agyonetimi-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="agyonetimi-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="agyonetimi-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="agyonetimi-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİTABANI PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veritabaniprg-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veritabaniprg-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  </nav>
+  
+    <h4 id="ders">Ağ Yönetimi ve Bilgi Güvenliği - Ünite 4 </h4>
+	  	  <div id="parts">	 	  <button id="show-all">Tümü</button>
+<button class="block-group" data-start="0" data-end="19">Part 1</button>
+<button class="block-group" data-start="20" data-end="39">Part 2</button>
+<button class="block-group" data-start="40" data-end="59">Part 3</button>
+<button class="block-group" data-start="60" data-end="79">Part 4</button>
+<button class="block-group" data-start="80" data-end="99">Part 5</button>
+
+	  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> MD5 özet fonksiyonu kaç bit uzunluğunda özet değeri üretir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 64 </span><br>
+	<span class="option" data-correct="true"><b>B)</b> 128 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 160 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 256 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 512 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Güvenli veri aktarımı için aşağıda verilen algoritmalardan hangisi birbiri ile ilişkili iki anahtar kullanır? </p>
+	<span class="option" data-correct="false"><b>A)</b> DES </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 3DES </span><br>
+	<span class="option" data-correct="false"><b>C)</b> AES </span><br>
+	<span class="option" data-correct="true"><b>D)</b> RSA </span><br>
+	<span class="option" data-correct="false"><b>E)</b> IDEA </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Aşağıdakilerden hangisi bir güvenlik servisi <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Gizlilik </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Mesaj bütünlüğü </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kimlik doğrulama </span><br>
+	<span class="option" data-correct="true"><b>D)</b> İnkâr edilebilirlik </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Erişim kontrolü </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">       <u><strong>Gizlilik:</strong></u> Sadece yetkili kişilerin mesajı okuyabilmesidir.<br><br>
+
+<u><strong>Mesaj bütünlüğü:</strong></u> Yetkisi olmayan kişilerin iletim halindeki mesaj içeriğinde hiçbir değişiklik yapamamalarıdır.<br><br>
+
+<u><strong>Kimlik doğrulama:</strong></u> Mesajı oluşturan kişinin kimliğinin onaylanmasıdır.<br><br>
+
+<u><strong>İnkâr edememe:</strong></u> Mesajı oluşturan kişinin, oluşturduğu mesajı inkâr edememesidir.<br><br>
+
+<u><strong>Erişim kontrolü:</strong></u> Kullanıcılar kendilerine verilen yetkiler doğrultusunda servislerden faydalanmalıdır.<br><br>
+
+<u><strong>Kullanılabilirlik:</strong></u> Kullanıcıların, servisleri arzu ettikleri zaman kullanabilmesine imkân verilmelidir.<br><br>
+
+<u><strong>Fiziksel güvenlik:</strong></u> Donanımın kötü niyetli kişiler tarafından fiziksel olarak zarara uğratılması engellenmelidir.<br><br>
+
+<u><strong>Denetim:</strong></u> Özel durumların kayıt altına alınması ile bir yanlış işlemin veya kötü niyetli kullanımın kim veya kimler tarafından yapıldığının tespit edilmesine imkân verilmelidir.      </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Dijital imza oluşturmak için aşağıdaki hangi anahtar kullanılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Açık anahtar </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Gizli anahtar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bir kullanımlık anahtar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Oturum anahtarı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yabancı anahtar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Dijital imzayı doğrulamak için aşağıdaki hangi anahtar kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Açık anahtar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yabancı anahtar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Gizli anahtar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Oturum anahtarı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bir kullanımlık anahtar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Özet fonksiyonları bir mesajın özet değerini hesaplarken aşağıdaki hangi anahtarı kullanır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Açık anahtar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yabancı anahtar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Gizli anahtar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Oturum anahtarı </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Anahtar kullanmaz </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> Aşağıdaki algoritmalardan hangisi bir özet fonksiyonu <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> MD5 </span><br>
+	<span class="option" data-correct="true"><b>B)</b> RSA </span><br>
+	<span class="option" data-correct="false"><b>C)</b> SHA </span><br>
+	<span class="option" data-correct="false"><b>D)</b> WHIRLPOOL </span><br>
+	<span class="option" data-correct="false"><b>E)</b> RIPEMD </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> Aşağıdaki güvenlik servislerinden hangisi sadece yetkili kişilerin mesajı okuyabilmesi olarak tanımlanır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Gizlilik </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Mesaj bütünlüğü </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kimlik doğrulama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Erişim kontrolü </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Fiziksel güvenlik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> RSA algoritmasında p = 5 ve q = 7 olarak seçilirse, aşağıdakilerden hangisi açık anahtar olarak kullanılabilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 1 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 2 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 3 </span><br>
+	<span class="option" data-correct="true"><b>D)</b> 7 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 9 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Aşağıdakilerden hangisi bir açık anahtar şifreleme algoritması <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> DSA </span><br>
+	<span class="option" data-correct="false"><b>B)</b> RSA </span><br>
+	<span class="option" data-correct="true"><b>C)</b> IDEA </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ElGamal </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Diffie-Hellman </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> Diffie-Hellman şifreleme yönteminin güvenliği aşağıdakilerden hangisine dayanır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Çarpanlara ayırmanın zorluğu </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Ayrık logaritma hesaplanmasının zorluğu </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Çok uzun oturum anahtarı kullanımı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kimlik doğrulaması </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Çift anahtar kullanımı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> RSA algoritmasının hızlandırılması için kullanılabilecek yöntemlerden biri aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Çin Kalan Teoremi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Diffie-Hellman Şifreleme Algoritması </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ElGamal Şifreleme Sistemi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İmza Algoritması </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kimlik Doğrulama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">     <strong> RSA algoritmasını hızlandırmak için kullanılması tavsiye edilen yöntemler;</strong><br>
+- Çin Kalan Teoremi, <br>
+- Hızlı üs hesaplama <br>
+- Küçük açık anahtar seçme gibi yöntemlerdir.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Aşağıdaki algoritmalardan hangisi sadece dijital imza üretmek amacıyla tasarlanmıştır? </p>
+	<span class="option" data-correct="false"><b>A)</b> RSA </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ElGamal </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Diffie-Hellman </span><br>
+	<span class="option" data-correct="true"><b>D)</b> DSA </span><br>
+	<span class="option" data-correct="false"><b>E)</b> AES </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      Dijital imza algoritması (DSA-Digital Signature Algorithm)     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> Aşağıdakilerden hangisi Açık Anahtar şifreleme algoritmalarının temel bileşenleri arasında <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Kapalı Anahtar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Açık metin kümesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Şifreli metin kümesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Şifreleme fonksiyonu </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Açık anahtar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      <strong>Açık anahtar şifreleme algoritmalarının temel olarak altı bileşeni vardır. Bunlar;</strong><br>
+- Açık metin kümesi, <br>
+- Şifreli metin kümesi,<br>
+- Şifreleme fonksiyonu,<br>
+- Şifre çözme fonksiyonu,<br>
+- Açık anahtar <br>
+- Gizli anahtar olarak sıralanabilir.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> Eliptik eğriler yöntemiyle, daha kısa anahtarlar kullanmasına rağmen en yaygın olarak kullanılan ve bilinen açık anahtar şifreleme yöntemine ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> ECB </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ASR </span><br>
+	<span class="option" data-correct="true"><b>C)</b> RSA </span><br>
+	<span class="option" data-correct="false"><b>D)</b> BCB </span><br>
+	<span class="option" data-correct="false"><b>E)</b> CBC </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Aşağıdakilerden hangisi dijital imzanın gereksinimlerinden biri <u><strong>değildir?</strong></u>  </p>
+	<span class="option" data-correct="false"><b>A)</b> Dijital imza benzersiz olmalıdır.  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Dijital imzanın, imzalanan metne bağlı bir örüntüsü olmalıdır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Göndericinin oluşturduğu dijital imzayı kötü niyetli kişiler oluşturamamalıdır.  </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Dijital imzaları üretmek hesaplama açısından zor olmalıdır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Göndericiden gelen imzaları tanımak ve doğrulamak kolay olmalıdır.  </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      Dijital imzaları üretmek hesaplama açısından kolay olmalıdır.     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> Aşağıdakilerden hangisi 1970’li yıllarda kullanılan anahtar uzunluklarındandır? </p>
+	<span class="option" data-correct="false"><b>A)</b> 8 bit </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 64 bit </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 128 bit </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 256 bit </span><br>
+	<span class="option" data-correct="true"><b>E)</b> 1024 bit </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      Tam sayıyı çarpanlarına ayırma ve ayrık logaritma 1970’li yılların ortasında ve eliptik eğriler ise 1980’li yılların ortasında sunulmuştur. Tam sayıyı asal çarpanlarına ayırma ve ayrık logaritma yöntemlerinde kullanılan anahtar uzunlukları 1024, 2048, 3072 bit gibi oldukça uzundur.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Eğer iki farklı mesaj için aynı özet değerinin bulunması zor ise, bu durum ne olarak adlandırılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Ön-görüntü Direnci </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Çakışma Direnci </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İkinci Ön-görüntü Direnci </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Oturum Anahtarı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Şifreleme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> "Diğer algoritmalar ile aynı seviyede güvenliği daha kısa anahtar uzunluğu ile sağlar. Bu nedenle performansı daha iyidir. Fakat diğer şifreleme algoritmalarına göre güvenliği henüz kanıtlanmamıştır." Verilen bilgi aşağıdaki algoritma türlerinden hangisine aittir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Paillier şifreleme sistemi </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Eliptik </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Dijital imza algoritması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Diffie-Hellman </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ElGamal açık anahtar şifreleme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      Eliptik algoritmanın güven derecesi, RSA algoritmasına göre daha düşüktür.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> Aşağıdakilerden hangisi RSA Dijital İmza Protokolü'nün ikinci adımıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> RSA anahtarlarını oluşturulması </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Hem açık metni hem de bu metnin dijital imzasının alıcıya gönderilmesi </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Bir özet fonksiyonu kullanarak imzalamak istenilen metnin ileti özetini hesaplanması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Alıcının kendisine gelen mesajın gerçekten bilinen gönderiden gelip gelmediğini doğrulamak için RSA şifreleme fonksiyonunu kullanarak dijital imzayı açması </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Alıcının kendisine gelen metnin özetini hesaplaması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      <strong>Protoklün adımlarıın örneklemesi:</strong><br>
+• Can öncelikle RSA anahtarlarını oluşturur. Açık anahtarını dijital imzasını göndermek istediği Bora’ya gönderir.<br>
+• Can bir özet fonksiyonu kullanarak imzalamak istediği metnin ileti özetini hesaplar. Daha sonra RSA çözme fonksiyonu kullanarak dijital imzasını oluşturur. Yani kendi gizli anahtarı ile ileti özetini şifreler.<br>
+• Can hem açık metni hem de bu metnin dijital imzasını Bora’ya gönderir.<br>
+• Bora, Can’dan kendisine gelen mesajın gerçekten Can’dan gelip gelmediğini doğrulamak için RSA şifreleme fonksiyonunu kullanarak dijital imzayı açar.<br>
+• Kendisine gelen metnin özetini hesaplar. Açma işlemi sonunda elde ettiği ileti özeti ile kendisinin hesapladığı ileti özetini karşılaştırır. Eğer bire bir eşleşme var ise mesajın Can’dan geldiği doğrulanır.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Aşağıdakilerden hangisi kötü niyetli kişilerin saldırının gerçekleşmesi için ihtiyaç duyacağı gerekli şeyler arasında <u><strong>yer almaz?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Kötü niyetli kişilerin saldırı yapacakları sistem veya algoritma hakkında bilgiye sahip olmaları, </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kötü niyetli kişilerin belli bir yeteneğe yeterli bilgi ve tecrübeye sahip olmaları,
+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İhtiyaç duyulacak araç ve maddi imkânlara sahip olunmalıdır, </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Saldırılacak sistemde bir açık bulunmalıdır </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Kötü niyetli kişilerin güvenlik sistemlerini benzersiz kılmak için motivasyonları </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Kötü niyetli kişilerin saldırıları gerçekleştirmek için ihtiyaç duydukları şey/şeyler aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Metot, fırsat ve şans </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Motivasyon , metot ve şans </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Metot ve fırsat </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Motivasyon ve metot </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Motivasyon, metot ve fırsat </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> <em>"Açık anahtar şifreleme algoritmaları tek yönlü fonksiyonlar üzerine kurulmuştur. Tek yönlü fonksiyonlar prensip olarak, verilen girdiye karşılık çıktının kısa sürede hesap edilebilmesi; ancak bilinen çıktı değerine karşılık gelen girdi değerinin kolayca hesap edilememesine dayanmaktadır."</em><br><br>
+I. Tam sayıyı asal çarpanlarına ayırma<br>
+I. Ayrık logaritma<br>
+I. Eliptik eğriler<br><br>
+Yukarıdakilerden hangisi veya hangileri açık anahtar şifreleme yöntemlerinde kullanılan tek yönlü fonksiyonlardandır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Açık anahtar şifreleme algoritmalarında aşağıdakilerden hangisinin yabancı kişiler tarafından bilinmesi tehlike oluşturur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Açık Anahtar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Şifreleme Fonksiyonu </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Şifre Çözme Fonksiyonu </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Gizli Anahtar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Şifreli Metin </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> Açık anahtar şifreleme algoritmaları şifreleme ve çözme için farklı iki anahtar kullandıklarından aşağıdakilerden hangisiyle isimlendirilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> İkili şifreleme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Gizli şifreleme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Açık şifreleme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Simetrik şifreleme </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Asimetrik şifreleme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> Aşağıdakilerden hangisine kaba kuvvet atağı denir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Açık anahtar şifreleme algoritmalarının  uygulama alanlarından biri oturum anahtarı paylaşımıdır. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Olası bütün anahtarlar sırayla denenerek gizli anahtar elde edilmeye çalışılır </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Anahtar uzunluğu arttıkça performansın düşeceği unutulmamalıdır </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Anahtar uzunluğu, bu tür saldırılara karşı yeterli güvenlik sağlayacak şekilde belirlenmelidir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Oturum anahtarı karşı tarafın açık anahtarı ile şifrelenerek alıcıya gönderilmektedir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Aşağıdakilerden hangisi Dijital imzanın <u><strong>kamusal alandaki</strong></u> uygulama alanlarından biridir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Sosyal güvenlik uygulamaları </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sigortacılık işlemleri </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kağıtsız ofisler </span><br>
+	<span class="option" data-correct="false"><b>D)</b> e-Sözleşmeler </span><br>
+	<span class="option" data-correct="false"><b>E)</b> e-Sipariş </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> Açık anahtar şifreleme yöntemlerinde kullanıcının birbiriyle ilişkili iki anahtarı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Bilinen anahtar ve gizli anahtar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Genel anahtar ve yerel anahtar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Açık anahtar ve saklı anahtar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Açık anahtar ve kapalı anahtar </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Açık anahtar ve gizli anahtar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> RSA algoritması için p ve q sırasıyla 5 ve 11 olarak verildiyse Euler Sayısı hangi değeri alır? </p>
+	<span class="option" data-correct="true"><b>A)</b> 40 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 55 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 16 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 50 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 72 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      RSA algoritması için Euler sayısı (p-1)x(q-1) olarak hesaplanır. Verilen p ve q değerleri için 4x10 = 40 olarak bulunur.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> Özet fonksiyonlarında hangi anahtar kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Anahtar kullanmaz </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Açık anahtar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yabancı anahtar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Gizli anahtar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Oturum anahtarı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> İki büyük sayıyı çarpmanın kolay olması, ancak büyük bir sayıyı faktörlerine ayırmanın zor olması prensibi üzerine kurulan açık anahtar şifreleme algoritması aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> RSA </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Diffie - Hellman </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ElGamal </span><br>
+	<span class="option" data-correct="false"><b>D)</b> MD5 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> SHA </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> Aşağıdakilerden hangisi Açık anahtar şifreleme algoritmalarına örnek olarak <strong>verilemez?</strong> </p>
+	<span class="option" data-correct="false"><b>A)</b> Diffie-Hellman </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ElGamal </span><br>
+	<span class="option" data-correct="false"><b>C)</b> RSA </span><br>
+	<span class="option" data-correct="true"><b>D)</b> RC5 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Paillier </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> 1976 yılında açık anahtar şifreleme yöntemi ortaya konmuştur. Aşağıdakilerden hangisi açık anahtar için söylenemez? </p>
+	<span class="option" data-correct="false"><b>A)</b> Açık anahtar şifreleme yöntemlerinde kullanıcının birbiriyle ilişkili iki anahtarı vardır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bu iki anahtar birbirinden bağımsız değildir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Matematiksel olarak birbiri ile ilişkilidir. </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Açık anahtarın başkaları tarafından bilinmesi yanlıştır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Açık anahtar, mesajların şifrelenmesinde, kimliğinin doğrulanmasında kullanılır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> Açık anahtar şifreleme yöntemlerinde kullanıcının birbiriyle ilişkili iki anahtarı vardır<br> 
+(I). Bu iki anahtar birbirinden bağımsızdır<br> 
+(II). Bu anahtarlardan biri açık anahtar olarak adlandırılır<br> 
+(III). Açık anahtarın başkaları tarafından bilinmesinde hiçbir mahsur yoktur<br> <br> 
+Yukarıda numaralandırılmış bilgilerden hangisi veya hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve III </span><br>
+	<span class="option" data-correct="true"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      Açık anahtar şifreleme yöntemlerinde kullanıcının birbiriyle ilişkili iki anahtarı vardır. Bu iki anahtar birbirinden bağımsız değildir. Aksine matematiksel olarak birbiri ile ilişkilidir.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> I. Kullanıcılar hem açık hem de gizli anahtarlarını kolaylıkla hesaplayabilmelidir<br>
+II. Şifreleme fonksiyonu ve ilgili anahtar kullanılarak şifreli mesaj kolaylıkla hesaplanmalıdır <br>
+III. Şifre çözme fonksiyonu ve ilgili anahtar kullanılarak şifreli metinden açık metin kolaylıkla elde edilebilmelidir<br><br>
+Yukarıdakilerden hangisi veya hangileri açık anahtar şifreleme algoritmalarının uygulanabilmesi için sağlanması gereken şartlar arasında yer alır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="true"><b>D)</b> I, II ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      <strong>Açık anahtar şifreleme algoritmalarının uygulanabilmesi için bazı şartları sağlamaları
+gerekmektedir;</strong><br>
+Kullanıcılar, hem açık hem de gizli anahtarlarını kolaylıkla hesaplayabilmelidir. Asimetrik şifreleme algoritmaları kullanılarak şifreli mesaj değiştirmeye başlamadan önce haberleşecek kişiler, açık ve gizli anahtarlarını üretmelidirler. Açık anahtarlar yayınlanarak diğer kullanıcılar haberdar edilmelidir. Böylece ilgili kullanıcıyla güvenli haberleşmek isteyen kişiler kişinin açık anahtarını kullanabilir. <br><br>
+			
+İkinci olarak, şifreleme fonksiyonu ve ilgili anahtar kullanılarak şifreli mesaj kolaylıkla hesaplanmalıdır.<br><br>
+			
+Üçüncü gereksinim ise şifre çözme fonksiyonu ve ilgili anahtar kullanılarak şifreli metinden açık metin elde etmenin kolaylıkla yapılabilmesidir. <br><br>
+			
+Anahtarların üretilmesi, açıkmetnin şifrelenerek şifreli metnin elde edilmesi ve şifreli metnin çözülerek açık metnin hesaplanması işlemleri performans ile ilgilidir. Bu işlemler ne kadar hızlı yapılırsa, algoritmanın performansı o kadar iyidir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> RSA algoritması için verilen bilgilerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> En yaygın olarak kullanılan ve bilinen açık anahtar şifreleme yöntemidir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kısa metinlerin şifrelemesinde, dijital imza oluşturmada ve simetrik yöntemler için gerekli gizli anahtarın kullanıcılara dağıtılmasında kullanılır </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İki büyük sayıyı çarpmanın kolay olması, ancak büyük bir sayıyı faktörlerine ayırmanın zor olması prensibi üzerine kurulmuştur </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Açık anahtar şifreleme algoritması olduğundan hızı düşüktür </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Uzun metinlerin şifrelenmesi için kullanılması performans açısından uygundur </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      RSA bir açık anahtar şifreleme algoritması olduğundan hızı düşüktür. Bu nedenle kısa metinlerin şifrelenmesi için kullanılabilir ve uzun metinlerin şifrelenmesi için kullanılması performans açısından <u><strong>çok uygun değildir.</strong></u>     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> 128 bit uzunluğunda özet değeri üreten özet fonksiyonu aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> MD5 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> SHA </span><br>
+	<span class="option" data-correct="false"><b>C)</b> WHIRLPOOL </span><br>
+	<span class="option" data-correct="false"><b>D)</b> RIPEMD </span><br>
+	<span class="option" data-correct="false"><b>E)</b> XOR </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> Bir mesajın içeriğinin değiştirilip değiştirilmediğinin tespit edilmesi --------------- olarak adlandırılır. </p>
+	<span class="option" data-correct="true"><b>A)</b> Mesaj bütünlüğü </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Özet fonksiyonlar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sabit uzunluk </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Açık anahtar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kapalı anahtar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> Aşağıdakilerden hangisi açık anahtar şifreleme algoritmalarınn uygulama alanlarından biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Oturum anahtarı paylaşmak </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kimlik doğrulama </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İnkâr edilemezlik </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Güvenli veri saklama </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Güvensiz bir ağ üzerinde verilerin güvenli bir şekilde iletilmesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> I. Taher ElGamal tarafından 1985 yılında ayrık logaritma üzerine kurulan bir açık anahtar şifreleme yöntemidir.<br>
+II. ElGamal algoritmasının güvenliği de ayrık logaritmaların hesaplanmasının zorluğuna dayanmaktadır.<br>
+III. ElGamal şifreleme algoritmasının uygulama alanı RSA’ye göre daha geniştir.<br>
+IV. ElGamal, algoritma adını, öneren araştırmacıların soyadlarının ilk harflerinden almaktadır.<br><br>
+ElGamal Şifreleme Sistemi ile ilgi yukarıdakilerden hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="true"><b>B)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> III ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      <u><strong>Diffie - Hellma</strong></u>n şifreleme algoritmasının uygulama alanı RSA’ye göre daha geniştir.<br>
+<br>
+<u><strong>RSA,</strong></u> algoritma adını, öneren araştırmacıların soyadlarının ilk harflerinden almaktadır.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question41">
+	<p class="question">Soru 41:<br> I. MD4 32 bit değişkenler ve mantıksal fonksiyonlar kullanılarak geliştirilmiştir.<br>
+II. MD5, SHA, WHIRLPOOL ve RIPEMD gibi özet fonksiyonların hepsi MD4 algoritması üzerine inşa edilmiştir.<br>
+III. 1995 yılında MD5 algoritması geliştirilmiştir.<br>
+IV. MD5, 64 bit uzunluğunda mesaj özeti üretmektedir.<br><br>
+ElGamal Şifreleme Sistemi ile ilgi yukarıdakilerden hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="true"><b>B)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve  III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> III ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description41">Açıklama</button>
+		<div id="description41" class="collapse">      Ronald Rivest tarafından geliştirilen MD4 algoritması bu grupta yer almaktadır. 32 bit değişkenler ve mantıksal fonksiyonlar (AND, OR ve XOR) kullanılarak geliştirilmiştir. MD5, SHA, WHIRLPOOL ve RIPEMD gibi özet fonksiyonların hepsi MD4 algoritması üzerine inşa edilmiştir.<br><br>
+
+<u><strong>1991 yılında</strong></u> MD5 algoritması geliştirilmiştir. <br>
+MD5, <u><strong>128 bit</strong></u> uzunluğunda mesaj özeti üretmektedir.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question42">
+	<p class="question">Soru 42:<br> Can arkadaşı Bora’ya bir mesaj göndermek istiyor. Bu mesajı sadece ve sadece Bora’nın okuyabilmesi aşağıdaki güvenlik sistemleri kavramlarından hangisine aittir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Gizlilik </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kimlik doğrulama </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Mesaj Bütünlüğü </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İnkar Edememe </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Erişim Kontrolü </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description42">Açıklama</button>
+		<div id="description42" class="collapse">       <u><strong>Gizlilik:</strong></u> Sadece yetkili kişilerin mesajı okuyabilmesidir.
+
+<u><strong>Mesaj bütünlüğü:</strong></u> Yetkisi olmayan kişilerin iletim halindeki mesaj içeriğinde hiçbir değişiklik yapamamalarıdır.
+
+<u><strong>Kimlik doğrulama:</strong></u> Mesajı oluşturan kişinin kimliğinin onaylanmasıdır.
+
+<u><strong>İnkâr edememe:</strong></u> Mesajı oluşturan kişinin, oluşturduğu mesajı inkâr edememesidir.
+
+<u><strong>Erişim kontrolü:</strong></u> Kullanıcılar kendilerine verilen yetkiler doğrultusunda servislerden faydalanmalıdır.
+
+<u><strong>Kullanılabilirlik:</strong></u> Kullanıcıların, servisleri arzu ettikleri zaman kullanabilmesine imkân verilmelidir.
+
+<u><strong>Fiziksel güvenlik:</strong></u> Donanımın kötü niyetli kişiler tarafından fiziksel olarak zarara uğratılması engellenmelidir.
+
+<u><strong>Denetim:</strong></u> Özel durumların kayıt altına alınması ile bir yanlış işlemin veya kötü niyetli kullanımın kim veya kimler tarafından yapıldığının tespit edilmesine imkân verilmelidir.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question43">
+	<p class="question">Soru 43:<br> Değişken uzunlukta bir mesajı girdi olarak alır ve sabit uzunlukta bir çıktı mesajı üretir.<br><br>
+Yukarıdaki tanım aşağıdakilerden hangisine aittir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Diffie - Hellman Şifreleme Algoritması </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ElGamal Şifreleme Sistemi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> RSA Dijital İmza Protokolü </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Dijital İmza Algoritması </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Özet Fonksiyonları </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description43">Açıklama</button>
+		<div id="description43" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question44">
+	<p class="question">Soru 44:<br> Güvenlik sistemlerinin sağlaması gereken birçok güvenlik servisleri bulunur. Aşağıdaki seçeneklerin hangisinde güvenlik servisi ve açıklaması doğru bir biçimde verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Gizlilik: Kullanıcılar kendilerine verilen yetkiler doğrultusunda servislerden faydalanmalıdır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Mesaj bütünüğü: Yetkisi olmayan kişilerin iletim halindeki mesaj içeriğinin sadece bir kısmında değişiklik yapabilmeleridir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kimlik doğrulama: Mesajı oluşturan kişinin, oluşturduğu mesajı inkâr edememesidir. </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Erişim kontrolü: Kullanıcılar kendilerine verilen yetkiler doğrultusunda servislerden
+faydalanmalıdır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Denetim: Kullanıcıların, servisleri arzu ettikleri zaman kullanabilmesine imkân verilmelidir </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description44">Açıklama</button>
+		<div id="description44" class="collapse">      <u><strong>Gizlilik:</strong></u> Sadece yetkili kişilerin mesajı okuyabilmesidir.<br><br>
+
+<u><strong>Mesaj bütünlüğü:</strong></u> Yetkisi olmayan kişilerin iletim halindeki mesaj içeriğinde hiçbir değişiklik yapamamalarıdır.<br><br>
+
+<u><strong>Kimlik doğrulama:</strong></u> Mesajı oluşturan kişinin kimliğinin onaylanmasıdır.<br><br>
+
+<u><strong>İnkâr edememe:</strong></u> Mesajı oluşturan kişinin, oluşturduğu mesajı inkâr edememesidir.<br><br>
+
+<u><strong>Erişim kontrolü:</strong></u> Kullanıcılar kendilerine verilen yetkiler doğrultusunda servislerden faydalanmalıdır.<br><br>
+
+<u><strong>Kullanılabilirlik:</strong></u> Kullanıcıların, servisleri arzu ettikleri zaman kullanabilmesine imkân verilmelidir.<br><br>
+
+<u><strong>Fiziksel güvenlik:</strong></u> Donanımın kötü niyetli kişiler tarafından fiziksel olarak zarara uğratılması engellenmelidir.<br><br>
+
+<u><strong>Denetim:</strong></u> Özel durumların kayıt altına alınması ile bir yanlış işlemin veya kötü niyetli kullanımın kim veya kimler tarafından yapıldığının tespit edilmesine imkân verilmelidir.  
+
+
+     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question45">
+	<p class="question">Soru 45:<br> (I) Her kullanıcının birbiri ile ilişkili bir açık bir gizli olmak üzere iki anahtarı vardır. Kullanıcı açık anahtarını herkesle paylaşabilir fakat gizli anahtarını yalnızca kendi bilmelidir.<br> 
+(II) Açık anahtar ve gizli anahtar matematiksel bir ilişki ile birbirlerine bağlanmıştır. Açık anahtar bilgisi kullanılarak gizli anahtara ulaşılabilir.<br> 
+(III) Açık anahtar şifreleme algoritmalarında, açık ve gizli anahtardan herhangi biri şifreleme için kullanılabilir.<br> <br> 
+Yukarıda verilen paragrafta, numaralandırılmış cümlelerin hangisinde verilen bilgi veya bilgiler doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve II </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description45">Açıklama</button>
+		<div id="description45" class="collapse">      Açık anahtar bilgisini kullanarak gizli anahtara ulaşmak <u><strong>imkânsızdır.</strong></u>     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question46">
+	<p class="question">Soru 46:<br> “Bora mesajı aldığında, bu mesajın Can’dan geldiğinden emin olur.” söyleyen biri hangi güvenlik servisinden bahsetmektedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Gizlilik </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Erişim kontrolü </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Mesaj bütünlüğü </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Kimlik doğrulama </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Denetim </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description46">Açıklama</button>
+		<div id="description46" class="collapse">      <u><strong>Gizlilik:</strong></u> Sadece yetkili kişilerin mesajı okuyabilmesidir.
+
+<u><strong>Mesaj bütünlüğü:</strong></u> Yetkisi olmayan kişilerin iletim halindeki mesaj içeriğinde hiçbir değişiklik yapamamalarıdır.
+
+<u><strong>Kimlik doğrulama:</strong></u> Mesajı oluşturan kişinin kimliğinin onaylanmasıdır.
+
+<u><strong>İnkâr edememe:</strong></u> Mesajı oluşturan kişinin, oluşturduğu mesajı inkâr edememesidir.
+
+<u><strong>Erişim kontrolü:</strong></u> Kullanıcılar kendilerine verilen yetkiler doğrultusunda servislerden faydalanmalıdır.
+
+<u><strong>Kullanılabilirlik:</strong></u> Kullanıcıların, servisleri arzu ettikleri zaman kullanabilmesine imkân verilmelidir.
+
+<u><strong>Fiziksel güvenlik:</strong></u> Donanımın kötü niyetli kişiler tarafından fiziksel olarak zarara uğratılması engellenmelidir.
+
+<u><strong>Denetim:</strong></u> Özel durumların kayıt altına alınması ile bir yanlış işlemin veya kötü niyetli kullanımın kim veya kimler tarafından yapıldığının tespit edilmesine imkân verilmelidir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question47">
+	<p class="question">Soru 47:<br> I.Tek yönlü fonksiyonlar üzerine kurulmuştur<br>
+II. Gizli anahtar şifreleme algoritmalarına göre daha hızlı çalışmaktadırlar.<br>
+III. Açık anahtar ve gizli anahtar matematiksel bir ilişki ile birbirlerine bağlanmıştır.<br><br>
+Yukarıda açık anahtar bilgi sistemleri ile ilgili verilen bilgilerden hangisi veya hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I-II </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I-III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II-III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I-II-III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description47">Açıklama</button>
+		<div id="description47" class="collapse">      Açık anahtar şifreleme yöntemleri, gerek dayandıkları matematiksel yöntemlerin uzun ve karmaşık hesaplamalar gerektirmesi, gerek anahtar uzunluklarının simetrik anahtar şifreleme yöntemlerine göre <u><strong>daha uzun</strong></u> olmasından dolayı gizli anahtar şifreleme algoritmalarına göre daha yavaş çalışmaktadırlar.
+
+
+     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question48">
+	<p class="question">Soru 48:<br> "Sebepsiz yere saldırıların gerçekleştiği düşünülemez". Verilen bilgi kötü niyetli kişilerin saldırı gerçekleştirme sebeplerinden hangisine aittir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Metot </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Fırsat </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Motivasyon </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Gizlilik </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İnkar Edememe </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description48">Açıklama</button>
+		<div id="description48" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question49">
+	<p class="question">Soru 49:<br> "Bu algoritması iki kullanıcı arasında gizli bir oturum anahtarının oluşturulması için kullanılır." Verilen bilgi aşağıdaki algoritmalardan hangisine aittir? </p>
+	<span class="option" data-correct="false"><b>A)</b> RSA Dijital İmza Protokolü </span><br>
+	<span class="option" data-correct="false"><b>B)</b> RSA </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Dijital İmza </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Diffie - Hellman Şifreleme Algoritması </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ElGamal Şifreleme Sistemi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description49">Açıklama</button>
+		<div id="description49" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question50">
+	<p class="question">Soru 50:<br> Birçok çalışanın bulunduğu bir işletmede çalışan Neşe Hanım, birkaç haftadır tanımadığı bir kişi tarafından mesajlar aldığını birim yöneticisi ile paylaşmıştır. Bu durumun giderilmesi için gerekli işlemlerin yapılmasını rica etmiştir. Buna göre Neşe Hanım’ın sorununun çözümünde aşağıdaki güvenlik servislerinden hangisinden yararlanılacaktır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Gizlilik </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Erişim kontrolü </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kimlik doğrulama </span><br>
+	<span class="option" data-correct="true"><b>D)</b> İnkâr edememe </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Fiziksel güvenlik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description50">Açıklama</button>
+		<div id="description50" class="collapse">      <u><strong>Gizlilik:</strong></u> Sadece yetkili kişilerin mesajı okuyabilmesidir.
+
+<u><strong>Mesaj bütünlüğü:</strong></u> Yetkisi olmayan kişilerin iletim halindeki mesaj içeriğinde hiçbir değişiklik yapamamalarıdır.
+
+<u><strong>Kimlik doğrulama:</strong></u> Mesajı oluşturan kişinin kimliğinin onaylanmasıdır.
+
+<u><strong>İnkâr edememe:</strong></u> Mesajı oluşturan kişinin, oluşturduğu mesajı inkâr edememesidir.
+
+<u><strong>Erişim kontrolü:</strong></u> Kullanıcılar kendilerine verilen yetkiler doğrultusunda servislerden faydalanmalıdır.
+
+<u><strong>Kullanılabilirlik:</strong></u> Kullanıcıların, servisleri arzu ettikleri zaman kullanabilmesine imkân verilmelidir.
+
+<u><strong>Fiziksel güvenlik:</strong></u> Donanımın kötü niyetli kişiler tarafından fiziksel olarak zarara uğratılması engellenmelidir.
+
+<u><strong>Denetim:</strong></u> Özel durumların kayıt altına alınması ile bir yanlış işlemin veya kötü niyetli kullanımın kim veya kimler tarafından yapıldığının tespit edilmesine imkân verilmelidir.      </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question51">
+	<p class="question">Soru 51:<br> Aşağıdakilerden hangisinde kimlik bilgisi ve metin içeriğinin doğrulanmasının bankacılık işlemi açısından önemi yoktur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Çekler </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Mektuplar </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Dekontlar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Dilekçeler </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Ticari sözleşmeler </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description51">Açıklama</button>
+		<div id="description51" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question52">
+	<p class="question">Soru 52:<br> SHA-1 özet fonksiyonu kaç bit uzunluğunda özet değeri üretir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 64 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 128 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 256 </span><br>
+	<span class="option" data-correct="true"><b>D)</b> 160 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 512 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description52">Açıklama</button>
+		<div id="description52" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question53">
+	<p class="question">Soru 53:<br> I. Kimlik doğrulama<br>
+II. İnkar edilemezlik<br>
+III. Güvenli veri saklama<br><br>
+Yukarıdakilerden hangisi veya hangileri açık anahtar şifreleme algoritmalarının kullanım amaçlarından biri olabilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description53">Açıklama</button>
+		<div id="description53" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question54">
+	<p class="question">Soru 54:<br> Özet fonksiyonları  güvenlik özelliklerinden "Ön–görüntü direnci (Tek yönlülük)" hangi anlama gelmektedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Bir özet verildiğinde, bu özetten yola çıkarak orijinal mesajı hesaplamak imkânsız olmalıdır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bir mesajın içinde sadece bir bitlik bir değişiklik yapılsa bile, hesaplanacak özet değeri bir önceki özet değerinden farklı olmalıdır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İki farklı mesaj için aynı özet değerinin bulunması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İki farklı mesaj için aynı özet değerinin bulunmaması </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kötü niyetli kişinin her iki mesajı oluşturma serbestliği olmaması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description54">Açıklama</button>
+		<div id="description54" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question55">
+	<p class="question">Soru 55:<br>  I. Güvenlik<br>
+II. Performans<br>
+III. Kolay kullanılabilirlik<br><br>
+En uygun şifreleme algoritmasını seçmek için kullanılan kriterler yukarıdakilerden hangisi/hangileridir?</p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description55">Açıklama</button>
+		<div id="description55" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question56">
+	<p class="question">Soru 56:<br> "Gerekli donanım güvenlik önlemleri alınmış olmalı ve çevresel faktörler ile doğal afetlere karşı korunaklı binalarda saklanmalıdır." Verilen önlemler aşağıda verilen güvenlik servislerinden hangisini korumak içindir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Gizlilik </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Mesaj Bütünlüğü </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kimlik Doğrulama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kullanılabilirlik </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Fiziksel Güvenlik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description56">Açıklama</button>
+		<div id="description56" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question57">
+	<p class="question">Soru 57:<br> Aşağıdakilerden hangisi güvenlik servislerinden Fiziksel güvenlik tanımlamasıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Mesajı oluşturan kişinin kimliğinin onaylanmasıdır.
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Mesajı oluşturan kişinin, oluşturduğu mesajı inkâr edememesidir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Her kullanıcı kaynaklara, kendisine verilen yetkinin izin verdiği ölçüde erişebilir olmalıdır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kullanıcıların, servisleri arzu ettikleri zaman kullanabilmesine imkân verilmelidir. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Donanımın kötü niyetli kişiler tarafından fiziksel olarak zarara uğratılması engellenmelidir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description57">Açıklama</button>
+		<div id="description57" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question58">
+	<p class="question">Soru 58:<br> Yetkisi olmayan kişilerin iletim halindeki mesaj içeriğinde değişiklik yapamamalarını sağlayan güvenlik servisi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Gizlilik </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Mesaj Bütünlüğü </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kimlik Doğrulama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İnkâr Edememe </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Erişim Kontrolü </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description58">Açıklama</button>
+		<div id="description58" class="collapse">      <u><strong>Gizlilik:</strong></u> Sadece yetkili kişilerin mesajı okuyabilmesidir.<br><br>
+
+<u><strong>Mesaj bütünlüğü:</strong></u> Yetkisi olmayan kişilerin iletim halindeki mesaj içeriğinde hiçbir değişiklik yapamamalarıdır.<br><br>
+
+<u><strong>Kimlik doğrulama:</strong></u> Mesajı oluşturan kişinin kimliğinin onaylanmasıdır.<br><br>
+
+<u><strong>İnkâr edememe:</strong></u> Mesajı oluşturan kişinin, oluşturduğu mesajı inkâr edememesidir.<br><br>
+
+<u><strong>Erişim kontrolü:</strong></u> Kullanıcılar kendilerine verilen yetkiler doğrultusunda servislerden faydalanmalıdır.<br><br>
+
+<u><strong>Kullanılabilirlik:</strong></u> Kullanıcıların, servisleri arzu ettikleri zaman kullanabilmesine imkân verilmelidir.<br><br>
+
+<u><strong>Fiziksel güvenlik:</strong></u> Donanımın kötü niyetli kişiler tarafından fiziksel olarak zarara uğratılması engellenmelidir.<br><br>
+
+<u><strong>Denetim:</strong></u> Özel durumların kayıt altına alınması ile bir yanlış işlemin veya kötü niyetli kullanımın kim veya kimler tarafından yapıldığının tespit edilmesine imkân verilmelidir.       </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question59">
+	<p class="question">Soru 59:<br> Şifrelenmiş metinlerin çözülmesinde ve dijital imzaların oluşturulmasında kullanılan yöntem hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Şifreleme fonksiyonu </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Açık anahtar </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Gizli anahtar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Simetrik anahtar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Simetrik şifreleme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description59">Açıklama</button>
+		<div id="description59" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question60">
+	<p class="question">Soru 60:<br> 160 bit uzunluğunda özet değeri üretebilen fonksiyon aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> MD4 </span><br>
+	<span class="option" data-correct="true"><b>B)</b> SHA-1 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> WHIRLPOOL </span><br>
+	<span class="option" data-correct="false"><b>D)</b> RIPEMD </span><br>
+	<span class="option" data-correct="false"><b>E)</b> MD5 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description60">Açıklama</button>
+		<div id="description60" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question61">
+	<p class="question">Soru 61:<br> RSA ve ElGamal algoritmalarında kullanılan anahtar uzunluklarının, yeterli seviyede güvenlik sağlamak için en az kaç bit olmaları gerekmektedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 128 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 256 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 1024 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 512 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 64 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description61">Açıklama</button>
+		<div id="description61" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question62">
+	<p class="question">Soru 62:<br> Aşağıdakilerden hangisi açık anahtar şifreleme algoritmalarına karşı yapılabilecek saldırılardan biri değildir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Açık anahtar bilgisini kullanarak gizli anahtara ulaşmak </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Açık anahtar şifreleme algoritması ile şifrelenen oturum anahtarını ele geçirmek </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Açık anahtar bilgisi ve bu anahtarla şifrelenmiş şifreli metin bilgisinden yola çıkarak gizli anahtarı elde etmeye çalışmak </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kötü niyetli kişiler başarılı bir saldırı gerçekleştirmek için şifreli metinleri elde etmek </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Gizli anahtarı elde etmek için hesaplamayı olanaklı hale getirmek </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description62">Açıklama</button>
+		<div id="description62" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question63">
+	<p class="question">Soru 63:<br> Can ve Bora simetrik şifreleme yöntemleri kullanarak gizli mesaj paylaşmak istemektedir. Can oturum anahtarını Bora’ya göndermek için oturum anahtarını aşağıdakilerden hangisi ile şifreler? </p>
+	<span class="option" data-correct="false"><b>A)</b> Can’ın açık anahtarı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bora’nın gizli anahtarı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Can’ın gizli anahtarı </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Bora’nın açık anahtarı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bora’nın oturum anahtarı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description63">Açıklama</button>
+		<div id="description63" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question64">
+	<p class="question">Soru 64:<br> I. Açık anahtar şifreleme algoritmaları daha hızlıdır.<br>
+II. Çift yönlü fonksiyonlar üzerine kurulmuştur.<br>
+III. Açık anahtar şifreleme algoritmaları tek yönlü fonksiyonlar üzerine kurulmuştur.<br>
+IV. Simetrik şifreleme olarak isimlendirilir.<br><br>
+Açık anahtar şifreleme algoritmaları ile ilgi yukarıdakilerden hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve III </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> III ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description64">Açıklama</button>
+		<div id="description64" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question65">
+	<p class="question">Soru 65:<br> Aşağıdakilerden hangisi en uygun şifreleme algoritmasını seçmek için kullanılan kriterlerden biridir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Kolay Kullanılabilirlik </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Gizlilik </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Denetim </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Fiziksel Güvenlik </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Erişim Kontrolü </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description65">Açıklama</button>
+		<div id="description65" class="collapse">      En uygun şifreleme algoritmasını seçmek için kullanılan kriterler; <br>
+- Güvenlik, <br>
+- Performans <br>
+- Kolay kullanılabilirlik     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question66">
+	<p class="question">Soru 66:<br> Aşağıdaki seçeneklerin hangisinde açık anahtar şifreleme algoritmalarının uygulanabilmesi için gereken şartlardan birisi <u><strong>değildir? </strong></u></p>
+	<span class="option" data-correct="false"><b>A)</b> Kullanıcılar, hem açık hem de gizli anahtarlarını kolaylıkla hesaplayabilmelidir. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Şifreleme adımları ne kadar yavaş yapılırsa, algoritmanın performansı o kadar iyidir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Şifreleme fonksiyonu ve ilgili anahtar kullanılarak şifreli mesaj kolaylıkla hesaplanmalıdır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Şifre çözme fonksiyonu ve ilgili anahtar kullanılarak şifreli metinden açık metin elde etme kolay olmalıdır </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Açık anahtardan gizli anahtarın elde edilmesi hesaplama açısından olanaksız olmalıdır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description66">Açıklama</button>
+		<div id="description66" class="collapse">      Şifreleme adımları ne kadar hızlı yapılırsa, algoritmanın performansı o kadar iyidir.
+
+
+     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question67">
+	<p class="question">Soru 67:<br> Aşağıdakilerden hangisi bir güvenlik servisi <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> İnkâr edememe </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Erişim kontrolü </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Fiziksel güvenlik </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Denetim </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Doğruluk </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description67">Açıklama</button>
+		<div id="description67" class="collapse">      <u><strong>Gizlilik:</strong></u> Sadece yetkili kişilerin mesajı okuyabilmesidir.<br><br>
+
+<u><strong>Mesaj bütünlüğü:</strong></u> Yetkisi olmayan kişilerin iletim halindeki mesaj içeriğinde hiçbir değişiklik yapamamalarıdır.<br><br>
+
+<u><strong>Kimlik doğrulama:</strong></u> Mesajı oluşturan kişinin kimliğinin onaylanmasıdır.<br><br>
+
+<u><strong>İnkâr edememe:</strong></u> Mesajı oluşturan kişinin, oluşturduğu mesajı inkâr edememesidir.<br><br>
+
+<u><strong>Erişim kontrolü:</strong></u> Kullanıcılar kendilerine verilen yetkiler doğrultusunda servislerden faydalanmalıdır.<br><br>
+
+<u><strong>Kullanılabilirlik:</strong></u> Kullanıcıların, servisleri arzu ettikleri zaman kullanabilmesine imkân verilmelidir.<br><br>
+
+<u><strong>Fiziksel güvenlik:</strong></u> Donanımın kötü niyetli kişiler tarafından fiziksel olarak zarara uğratılması engellenmelidir.<br><br>
+
+<u><strong>Denetim:</strong></u> Özel durumların kayıt altına alınması ile bir yanlış işlemin veya kötü niyetli kullanımın kim veya kimler tarafından yapıldığının tespit edilmesine imkân verilmelidir.       </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question68">
+	<p class="question">Soru 68:<br> I. Gizlilik
+II. İnkâr etme
+III. Erişim kontrolü
+IV. Fiziksel güvenlik
+V. Mesaj bütünlüğü
+Yukarıda sıralananlardan hangisi veya hangileri güvenlik sistemlerinin sağlaması gereken güvenlik servislerindendir? </p>
+	<span class="option" data-correct="false"><b>A)</b> III ve IV </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I, II ve V </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I, II, III ve IV </span><br>
+	<span class="option" data-correct="true"><b>D)</b> I, III, IV ve V </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II, III, IV ve V </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description68">Açıklama</button>
+		<div id="description68" class="collapse">       <u><strong>Gizlilik:</strong></u> Sadece yetkili kişilerin mesajı okuyabilmesidir.<br><br>
+
+<u><strong>Mesaj bütünlüğü:</strong></u> Yetkisi olmayan kişilerin iletim halindeki mesaj içeriğinde hiçbir değişiklik yapamamalarıdır.<br><br>
+
+<u><strong>Kimlik doğrulama:</strong></u> Mesajı oluşturan kişinin kimliğinin onaylanmasıdır.<br><br>
+
+<u><strong>İnkâr edememe:</strong></u> Mesajı oluşturan kişinin, oluşturduğu mesajı inkâr edememesidir.<br><br>
+
+<u><strong>Erişim kontrolü:</strong></u> Kullanıcılar kendilerine verilen yetkiler doğrultusunda servislerden faydalanmalıdır.<br><br>
+
+<u><strong>Kullanılabilirlik:</strong></u> Kullanıcıların, servisleri arzu ettikleri zaman kullanabilmesine imkân verilmelidir.<br><br>
+
+<u><strong>Fiziksel güvenlik:</strong></u> Donanımın kötü niyetli kişiler tarafından fiziksel olarak zarara uğratılması engellenmelidir.<br><br>
+
+<u><strong>Denetim:</strong></u> Özel durumların kayıt altına alınması ile bir yanlış işlemin veya kötü niyetli kullanımın kim veya kimler tarafından yapıldığının tespit edilmesine imkân verilmelidir.        </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question69">
+	<p class="question">Soru 69:<br> Dijital İmza diğer kimlik doğrulayıcılardan farklı olarak hangi güvenlik servisini sunar? </p>
+	<span class="option" data-correct="false"><b>A)</b> Mesaj Bütünlüğü </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kimlik Doğrulama </span><br>
+	<span class="option" data-correct="true"><b>C)</b> İnkâr Edememe </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Erişim Kontrolü </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Gizlilik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description69">Açıklama</button>
+		<div id="description69" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question70">
+	<p class="question">Soru 70:<br> Aşağıdakilerden hangisi açık anahtar şifreleme algoritmalarının uygulanabilmesi için sağlaması gereken şartlardan biri değildir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kullanıcılar, hem açık hem de gizli anahtarlarını kolaylıkla hesaplayabilmelidir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Şifreleme fonksiyonu ve ilgili anahtar kullanılarak şifreli mesaj kolaylıkla hesaplanmalıdır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Şifre çözme fonksiyonu ve ilgili anahtar kullanılarak şifreli metinden açık metin elde etme kolaylıkla yapılabilmelidir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Açık ve gizli anahtar şifreleme ve şifre çözme işlemleri için herhangi bir sırada yapılabilmesine olanak sağlamalıdır. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Açık anahtardan gizli anahtarın elde edilmesi hesaplama açısından olanaklı olmalıdır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description70">Açıklama</button>
+		<div id="description70" class="collapse">      Açık anahtardan gizli anahtarın elde edilmesi hesaplama açısından <u><strong>olanaksız</strong></u> olmalıdır.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question71">
+	<p class="question">Soru 71:<br> I. Diffie - Hellman şifreleme algoritmasının uygulama alanı RSA’ye göre daha geniştir.<br>
+II. 1976 yılında Whitfield Diffie ve Martin Hellman tarafından önerilmiştir.<br>
+III. Avantajı: Öncesinde kimlik doğrulama yapılması gerekliliğidir<br>
+IV. Anahtar değişimi protokolü olarak bilinir.<br><br>
+Diffie - Hellman Şifreleme Algoritması ile ilgi yukarıdakilerden hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yalnız II </span><br>
+	<span class="option" data-correct="true"><b>D)</b> II ve IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> III ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description71">Açıklama</button>
+		<div id="description71" class="collapse">      Diffie - Hellman şifreleme algoritmasının uygulama alanı RSA’ye göre daha <u><strong>sınırlıdır</strong></u>; <br>
+Bu algoritmanın en önemli <u><strong>problemi</strong></u>, öncesinde kimlik doğrulama yapılması gerekliliğidir.
+
+
+     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question72">
+	<p class="question">Soru 72:<br> I. Erişim kontrolü<br>
+II. Kullanılabilirlik<br>
+III. Mesaj bütünlüğü<br>
+IV. Kimlik doğrulama<br><br>
+Yukarıda sıralananlardan hangisi veya hangileri güvenlik servislerinin kullanıcı sorumluluğuna vurgu yapmaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız III </span><br>
+	<span class="option" data-correct="true"><b>C)</b> III ve IV </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I, II, III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II, III, IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description72">Açıklama</button>
+		<div id="description72" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question73">
+	<p class="question">Soru 73:<br> RSA algoritmasının hızlandırılması için kullanılabilecek yöntemler aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Küçük açık anahtar seçme ve kolay üs alma </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Büyük açık anahtar seçme ve kolay üs alma
+
+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Hızlı üs alma ve küçük açık anahtar seçme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Çin Kalan Teoremi, büyük açık anahtar seçme ve kolay üs alma </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Çin Kalan Teoremi, hızlı üs alma ve küçük açık anahtar seçme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description73">Açıklama</button>
+		<div id="description73" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question74">
+	<p class="question">Soru 74:<br> I. Açık anahtar bilgisini kullanarak gizli anahtara ulaşmak<br>
+II. Açık anahtar bilgisi ve bu anahtarla şifrelenmiş şifreli metin bilgisinden yola çıkarak gizli anahtarı elde etmeye çalışmak<br>
+III. Olası bütün anahtarların sırayla denenerek gizli anahtarı elde etmeye çalışmak<br><br>
+Yukarıdakilreden hangisi veya hangileri açık anahtar şifreleme algoritmalarına karşı yapılabilecek saldırı türlerindendir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description74">Açıklama</button>
+		<div id="description74" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question75">
+	<p class="question">Soru 75:<br> Açık anahtar şifreleme algoritmalarına karşı yapılan saldırılarda motivasyon gereklidir. Buna göre aşağıdakilerden hangisi bu motivasyonlardan biridir?<br>
+I. Tanınma,<br>
+II. Başkalarınca takdir edilme,<br>
+III. Politik sebepler,<br>
+IV. Dini sebepler,<br>
+V. Para ve güç elde etmek </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> II, III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> III, IV ve V </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I.III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II, III, IV ve V </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description75">Açıklama</button>
+		<div id="description75" class="collapse">      I.II.III.IV.V     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question76">
+	<p class="question">Soru 76:<br> I. RSA şifreleme algoritması bir blok şifreleme algoritmasıdır.<br>
+II. 1976 yılında Ron Rivest, Adi Shamir ve Leonard Adleman RSA algoritmasını sundular.<br>
+III. Algoritma adını, öneren araştırmacıların soyadlarının ilk harflerinden almaktadır.<br>
+IV. RSA bir açık anahtar şifreleme algoritması olduğundan hızılıdır.<br><br>
+RSA ile ilgiki yukarıdakilerden hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="true"><b>B)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> III ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description76">Açıklama</button>
+		<div id="description76" class="collapse">      <u><strong>1977 yılında</strong></u> Ron Rivest, Adi Shamir ve Leonard Adleman RSA algoritmasını sundular; <br>
+<br>
+RSA bir açık anahtar şifreleme algoritması olduğundan <u><strong>hızı düşüktür.</strong></u>     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question77">
+	<p class="question">Soru 77:<br> Tam sayıyı çarpanlarına ayırma, ayrık logaritma ve eliptik eğriler hangi yıllarda sunulmuştur? </p>
+	<span class="option" data-correct="false"><b>A)</b> 1960’li ve 1970’li yılların başında </span><br>
+	<span class="option" data-correct="true"><b>B)</b> 1970’li ve 1980’li yılların ortasında </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 1940’li ve 1950’li yılların başında </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 1960’li ve 1970’li yılların sonunda </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 1970’li ve 1990’li yılların ortasında </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description77">Açıklama</button>
+		<div id="description77" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question78">
+	<p class="question">Soru 78:<br> Bit tabanlı en basit özet fonksiyonu operasyonu aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> AND </span><br>
+	<span class="option" data-correct="true"><b>B)</b> XOR </span><br>
+	<span class="option" data-correct="false"><b>C)</b> OR </span><br>
+	<span class="option" data-correct="false"><b>D)</b> MD5 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> SHA </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description78">Açıklama</button>
+		<div id="description78" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question79">
+	<p class="question">Soru 79:<br> Aşağıdakilerden hangisinde şifreleme için kullanılan anahtar uzunluğunun artması ile ilgili yanlış bir bilgi verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Güvenliği arttırır </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Performansı olumlu etkiler </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ayrık logaritma yöntemi kullanılır </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kaba kuvvet saldırılarını zorlaştırır </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Anahtar kümesinin eleman sayısı artar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description79">Açıklama</button>
+		<div id="description79" class="collapse">      Tam sayıyı asal çarpanlarına ayırma ve ayrık logaritma yöntemlerinde kullanılan anahtar uzunlukları 1024, 2048, 3072 bit gibi oldukça uzundur. Anahtar boyunun uzunluğu hem performans hem de güvenlik açısından önemlidir. Anahtar boyu uzadıkça, anahtar kümesinin eleman sayısı artar. Kaba kuvvet saldırılarının gerçekleştirilmesi zorlaşır. Dolayısıyla güvenlik artar. Fakat anahtar boyu arttıkça <u><strong>performans kötüleşir.</strong></u> Bu nedenle performans ve güvenlik birbiriyle çelişen amaçlardır.      </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question80">
+	<p class="question">Soru 80:<br> Simetrik anahtar şifreleme yöntemleri uzun yıllar boyunca kullanılmıştır. Ancak bazı gereksinimler nedeniyle açık anahtar şifreleme yöntemlerine ihtiyaç duyulmuştur. Aşağıdakilerden hangisi açık anahtar şifreleme yönteminin ortaya çıkış tarihidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> 1976 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 1977 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 1980 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 1981 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 1982 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description80">Açıklama</button>
+		<div id="description80" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question81">
+	<p class="question">Soru 81:<br> MD5 algoritmasında güvenlik açıklarının ortaya çıkmasından sonra SHA algoritması standart olarak kabul edilmiş ve yaygın olarak kullanılmaya başlanmıştır. Aşağıdakilerden hangisi SHA algoritmasının son sürüm algoritmasıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> SHA-0 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> SHA-1 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> SHA-256 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> SHA-384 </span><br>
+	<span class="option" data-correct="true"><b>E)</b> SHA-3 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description81">Açıklama</button>
+		<div id="description81" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question82">
+	<p class="question">Soru 82:<br> RSA algoritmasında Euler sayısının 14 olduğu bilinmektedir. Bu durumda açık anahtar aşağıdakilerden hangisi <u><strong>olamaz?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> 9 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 5 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 13 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 11 </span><br>
+	<span class="option" data-correct="true"><b>E)</b> 7 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description82">Açıklama</button>
+		<div id="description82" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question83">
+	<p class="question">Soru 83:<br> Dijital imzanın günlük hayatta kullanılan ıslak imzadan farkı nedir?<br><br>
+I. Dijital imza günlük hayatta kullanılan ıslak imzadan farklı olarak her seferinde farklı bir değere sahip olmaktadır.<br>
+II. Dijital imza Elektronik ortamda kullanılmaktadır.<br>
+III. Verinin izinsiz ya da yanlışlıkla değiştirilmesini, silinmesini ve veriye ekleme yapılmasını önlemek,<br>
+IV. Bireylerin elektronik ortamda gerçekleştirdikleri işlemleri inkar etmelerini önlemek.<br>
+V. Mesajın ve mesaj sahibinin iletiminin geçerliliğini sağlamak, </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> II.III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> II.III.IV </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II.III.V </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I.II.III.IV.V </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description83">Açıklama</button>
+		<div id="description83" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question84">
+	<p class="question">Soru 84:<br> I. Kendisine gelen metnin özetini hesaplar. Açma işlemi sonunda elde ettiği ileti özeti ile kendisinin hesapladığı ileti özetini karşılaştırır. Eğer bire bir eşleşme var ise mesajın Can’dan geldiği doğrulanır.
+II. Can bir özet fonksiyonu kullanarak imzalamak istediği metnin ileti özetini hesaplar. Daha sonra RSA çözme fonksiyonu kullanarak dijital imzasını oluşturur. Yani kendi gizli anahtarı ile ileti özetini şifreler.
+III. Can hem açık metni hem de bu metnin dijital imzasını Bora’ya gönderir.
+IV. Bora, Can’dan kendisine gelen mesajın gerçekten Can’dan gelip gelmediğini doğrulamak için RSA şifreleme fonksiyonunu kullanarak dijital imzayı açar.
+V. Can öncelikle RSA anahtarlarını oluşturur. Açık anahtarını dijital imzasını göndermek istediği Bora’ya gönderir.
+RSA Dijital İmza Protokolünde yukarıdaki dijital imza oluşturma adımlarını sıralayacak olursak aşağıdakilerden hangisi doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> I – II – IV – V – III </span><br>
+	<span class="option" data-correct="false"><b>B)</b> II – I – V – III - IV </span><br>
+	<span class="option" data-correct="false"><b>C)</b> III – I – II - V - IV </span><br>
+	<span class="option" data-correct="true"><b>D)</b> V – II – III – IV – I </span><br>
+	<span class="option" data-correct="false"><b>E)</b> IV – V – II – III - I </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description84">Açıklama</button>
+		<div id="description" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question85">
+	<p class="question">Soru 85:<br> En uygun şifreleme algoritmasını seçmek için kullanılan kriterlerden ikisi güvenlik ve performanstır. Gerekli olan üçüncü kriter aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Denetim </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kodlama </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Hesaplama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Metin içeriği </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Kolay kullanılabilirlik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description85">Açıklama</button>
+		<div id="description85" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question86">
+	<p class="question">Soru 86:<br> RSA algoritmasında p = 7 ve q = 9 verildiğine göre hangisi açık anahtar olarak kullanılabilir hesaplayınız? </p>
+	<span class="option" data-correct="false"><b>A)</b> 1 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 2 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 3 </span><br>
+	<span class="option" data-correct="true"><b>D)</b> 7 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 6 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description86">Açıklama</button>
+		<div id="description86" class="collapse">      n = 7×9 = 63 olarak hesaplanır.Sonra Ø(n) = 6×8 = 48 olarak bulunur.
+Açık anahtar e 1’den büyük ve 48’den küçük olmalıdır. Ayrıca açık anahtar 48 ile aralarında asal olmalıdır.
+Buna göre e = 7 açık anahtar olarak seçilebilir.
+Açık anahtar 7 ise, 7×d = 1 mod 48 olacağından, gizli anahtar d = 7 olarak hesaplanır.Başka anahtarlar da seçilebilir.     </div>
+	</div>
+</div>
+		 
+		
+	
+<div class="question-block">
+	<div id="question87">
+	<p class="question">Soru 87:<br> RSA algoritmasında şifreleme formülü aşağıdakilerin hangisinde doğrudur? </p>
+	<span class="option" data-correct="true"><b>A)</b> y = x^e mod n </span><br>
+	<span class="option" data-correct="false"><b>B)</b> y = x^e log n </span><br>
+	<span class="option" data-correct="false"><b>C)</b> y = x^e sin n </span><br>
+	<span class="option" data-correct="false"><b>D)</b> y = x mod n^e </span><br>
+	<span class="option" data-correct="false"><b>E)</b> y = x mod n </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description87">Açıklama</button>
+		<div id="description87" class="collapse">      x^e, x üssü e 'yi ifade etmektedir;<br>
+
+		</div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question88">
+	<p class="question">Soru 88:<br> Aşağıdakilerden hangisi <u><strong>güvenlik açısından</strong></u> Anahtar boyunun uzunluğu ile ilgili <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Anahtar boyu uzadıkça, anahtar kümesinin eleman sayısı artar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Anahtar boyu uzadıkça Kaba kuvvet saldırılarının gerçekleştirilmesi zorlaşır </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Anahtar boyunun uzunluğu arttıkça performans azalır </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Anahtar boyunun uzunluğu arttıkça güvenlik artar </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Eliptik eğri yöntemlerinin anahtar uzunlukları daha kısadır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description88">Açıklama</button>
+		<div id="description88" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question89">
+	<p class="question">Soru 89:<br> Bir kişinin kullandığı Dijital İmzanın her seferinde farklı bir değer alması hangi özelliğinden kaynaklanmaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Güvenlik nedeniyle sık değiştirilmesi gerekmektedir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Üretilirken tek kullanımlık olarak üretilir </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Dijital İmza fonksiyonu açık metin girdisi içerir </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Rastgele oluşturulmaktadır </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kopyalanmasının engellenmesi gerekmektedir </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description89">Açıklama</button>
+		<div id="description89" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question90">
+	<p class="question">Soru 90:<br> I. Uzun yıllardır bir mesajın bir kullanıcıdan diğer bir kullanıcıya gizli bir şekilde ulaştırılmasında kullanılmıştır<br>
+II. Kullanıcılar arasında gizli anahtarların dağıtılması ve mesaj oluşturan kişinin kimliğinin onaylanması gibi gereksinimleri sağlar<br>
+III. Mesaj içeriğinin değişime uğrayıp uğramadığının kontolünü sağlar<br><br>
+Simetrik anahtar şifreleme yöntemleri ile ilgili olarak yukarıdakilerden hangisi veya hangileri doğrudur? </p>
+	<span class="option" data-correct="true"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description90">Açıklama</button>
+		<div id="description90" class="collapse">      Simetrik anahtar şifreleme yöntemleri uzun yıllardır bir mesajın bir kullanıcıdan diğer bir kullanıcıya gizli bir şekilde ulaştırılmasında kullanılmıştır. Bankacılık ve bilgisayar teknolojilerinde yaşanan gelişmeye paralel olarak ortaya çıkan bazı gereksinimler simetrik şifreleme yöntemleri tarafından sağlanamamaktadır. Kullanıcılar arasında gizli anahtarların dağıtılması, mesaj içeriğinin değişime uğrayıp uğramadığının doğrulanması, mesajı oluşturan kişinin kimliğinin onaylanması gibi gereksinimleri sağlamak amacıyla 1976 yılında açık anahtar şifreleme yöntemi ortaya konmuştur     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question91">
+	<p class="question">Soru 91:<br> "Özel durumların kayıt altına alınması ile bir yanlış işlemin veya kötü niyetli
+kullanımın kim veya kimler tarafından yapıldığının tespit edilmesine imkân verilmelidir." <br><br>
+
+Verilen bilgi aşağıdaki kavramlardan hangisine aittir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kimlik Doğrulama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İnkar Edememe </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kullanılabilirlik </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Fiziksel Güvenlik </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Denetim </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description91">Açıklama</button>
+		<div id="description91" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question92">
+	<p class="question">Soru 92:<br>I. Daha hızlı olması<br>
+II. Anahtar paylaşım problemi olmaması<br>
+III. Mesaj bütünlüğünü sağlaması <br><br>
+Yukarıda verilen seçeneklerden hangisi veya hangileri asimetrik şifreleme algoritmalarının simetrik şifreleme algoritmalarına göre üstünlüklerindendir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve III </span><br>
+	<span class="option" data-correct="true"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description92">Açıklama</button>
+		<div id="description92" class="collapse">      Açık anahtar şifreleme yöntemleri, gerek dayandıkları matematiksel yöntemlerin uzun
+ve karmaşık hesaplamalar gerektirmesi, gerek anahtar uzunluklarının simetrik anahtar şifreleme yöntemlerine göre daha uzun olmasından dolayı gizli anahtar şifreleme algoritmalarına göre daha yavaş çalışmaktadırlar. Açık anahtar şifreleme yöntemleri daha çok mesaj bütünlüğü, kimlik doğrulama ve inkâr edememe gibi güvenlik servislerini sağlamak için kullanılır. Gizlilik ise daha hızlı olmalarından dolayı simetrik anahtar şifreleme algoritmaları ile sağlanır. Simetrik ve asimetrik anahtar şifreleme algoritmalarının birbirlerine göre avantaj ve dezavantajları vardır. Simetrik şifreleme algoritmaları daha hızlıdır. Ama anahtar paylaşım problemi vardır. Asimetrik şifreleme algoritmaları daha yavaş olmalarına rağmen anahtar paylaşım problemi yoktur. Bu nedenle simetrik şifreleme algoritmaları mesaj şifrelemek için kullanılır. Oturum anahtarı olan gizli anahtarın paylaşılması için ise asimetrik şifreleme algoritmaları kullanılır.     </div>
+	</div>
+</div>
+		
+		
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+		
+    <script>
+		
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 119));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}
+			
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1752 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+	  
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA II
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama2-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama2-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama2-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama2-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama2-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama2-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama2-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama2-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama2-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama2-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB ARAYÜZ PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİ YAPILARI
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veriyap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veriyap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veriyap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veriyap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veriyap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veriyap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veriyap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veriyap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veriyap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veriyap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          MOBİL UYGULAMA GELİŞTİRME
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="mobilug-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="mobilug-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="mobilug-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="mobilug-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="mobilug-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="mobilug-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="mobilug-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="mobilug-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="mobilug-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="mobilug-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          UNIX SİSTEM YÖNETİMİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="unixsy-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="unixsy-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="unixsy-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="unixsy-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="unixsy-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="unixsy-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="unixsy-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="unixsy-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="unixsy-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="unixsy-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Web Arayüz Programlama - Ünite 3 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	<button class="block-group" data-start="40" data-end="59">Part 3</button>
+	  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Aşağıdakilerden hangisi ekrana duyarlı web tasarımı kavramını tam olarak ifade eder? </p>
+	<span class="option" data-correct="false"><b>A)</b> Web sayfasının ekran boyutuna göre yeniden boyutlandırılmasıdır </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Web sayfasındaki öge ve komponentlerin, ekran boyutu ve türüne göre, boyut değiştirerek veya ekrandan kaldırılarak kullanım kolaylığı oluşturulmasıdır </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kullanıcının ekran türüne göre yazı tipi ve renginin değiştirilmesidir </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sayfanın görüntülendiği ekrana göre, farklı temaların uygulandığı tasarım kavramıdır </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sayfanın görüntülendiği ekrana göre, içeriğin değiştirildiği tasarım kavramıdır </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Aşağıdakilerden hangisinde CSS değişkenleri doğru tanımlanmıştır? </p>
+	<span class="option" data-correct="true"><b>A)</b> :root{<br>
+ --primary: #007BFF;<br>
+ } </span><br><br>
+	<span class="option" data-correct="false"><b>B)</b> h1{<br>
+ color: var(--primary);<br>
+ } </span><br><br>
+	<span class="option" data-correct="false"><b>C)</b> h1{<br>
+ color: var(--primary:#007BFF);<br>
+ } </span><br><br>
+	<span class="option" data-correct="false"><b>D)</b> :root{<br>
+ background-color: var(--secondary);<br>
+ } </span><br><br>
+	<span class="option" data-correct="false"><b>E)</b> :root{<br>
+ --primary= #007BFF;<br>
+ } </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      Değişken tüm HTML
+dosyasında kullanılacaksa :root pseudo sınıfı altında tanımlanabilir. Değişken tanımlanırken “--” işareti ile başlanmalı ve “--degiskenadi” olarak oluşturulmalı.     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Aşağıdakilerden hangisinde CSS değişkenleri doğru kullanılmıştır? </p>
+	<span class="option" data-correct="false"><b>A)</b> :root(<br>
+ --primary: #007BFF;<br>
+ ) </span><br><br>
+	<span class="option" data-correct="true"><b>B)</b> h1{<br>
+ color: var(--primary);<br>
+ } </span><br><br>
+	<span class="option" data-correct="false"><b>C)</b> h1{<br>
+ color: var(--primary:#007BFF);<br>
+ } </span><br><br>
+	<span class="option" data-correct="false"><b>D)</b> :root{<br>
+ background-color: var(--secondary);<br>
+ } </span><br><br>
+	<span class="option" data-correct="false"><b>E)</b> :root{<br>
+ --primary= #007BFF;<br>
+ } </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      Değişkeni kullanırken ise “var(--degiskenadi)” şeklinde çağrılmalıdır     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Yazılan CSS kurallarının, yalnızca ekran boyutu 768px’den büyük olduğunda uygulanması için yazılması gereken komut aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> @media screen and (maxwidth: 768px) {<br>
+ /* yeni stil kuralları*/<br>
+ } </span><br><br>
+	<span class="option" data-correct="false"><b>B)</b> @media screen and (minwidth: 768px) {<br>
+ /* yeni stil kuralları*/<br>
+ } </span><br><br>
+	<span class="option" data-correct="true"><b>C)</b> @media screen and (min-width: 768px) {<br>
+ /* stil kuralları*/<br>
+ } </span><br><br>
+	<span class="option" data-correct="false"><b>D)</b> @media(width: 768px) {<br>
+ /* stil kuralları*/<br>
+ } </span><br><br>
+	<span class="option" data-correct="false"><b>E)</b> @media screen and (max-width= 768) {<br>
+ /* stil kuralları*/<br>
+ } </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Aşağıdakilerden hangisinde ekran türü ve sınır değerleri eşleştirmesi doğru olarak verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Tablet Ekranları	 	 : ≥576px </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Telefon Ekranları :&lt;576px </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Masaüstü Ekranlar	 	 :≥768px </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Büyük Masaüstü Ekranlar	 :≥1400px </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yatık Telefon Ekranı	 	 :≥768px </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      
+		
+<table style="border: 1px solid darkred; border-collapse: collapse;">
+ <caption style="caption-side: top;">Ekran kısaltmaları ve boyut sınırları</caption>
+  <tr>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;">Kısaltma Kodu</th>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;">Ekran Türü</th>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;">Boyutu</th>
+
+  </tr>
+	
+  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> xs </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Telefon Ekranları </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> &lt;576px </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> sm </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Yatık Telefon Ekranı </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> ≥576px </td>
+  </tr>
+	
+	<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> md </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Tablet Ekranları </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> ≥768px </td>
+  </tr>
+	
+	  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> lg </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Masaüstü Ekranlar </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> ≥992px </td>
+  </tr>
+	
+	  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> xl </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Büyük Masaüstü Ekranlar </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> ≥1200px </td>
+  </tr>
+	
+	  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> xxl </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Ekstra Büyük Masaüstü Ekranlar </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> ≥1400px </td>
+  </tr>
+	
+</table>
+			
+		</div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Flexbox yapısında,kapsayıcıdaki öğelerin akış yönünü dikey yapabilmek için kapsayıcıya verilmesi gereken
+özellik aşağıdakilerin hangisinde doğru verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> flex-direction:row; </span><br>
+	<span class="option" data-correct="false"><b>B)</b> flex-direction:vertical; </span><br>
+	<span class="option" data-correct="false"><b>C)</b> flex-direction:row-reverse;  </span><br>
+	<span class="option" data-correct="true"><b>D)</b> flex-direction:column; </span><br>
+	<span class="option" data-correct="false"><b>E)</b> flex-direction:vertical-reverse; </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> Akış yönü yatay olarak belirtilen flex yapısında ögeleri dikey olarak ortalamak için kullanılması gereken
+özellik aşağıdakilerin hangisinde doğru verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> flex-direction:center;  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> justify-content:center; </span><br>
+	<span class="option" data-correct="false"><b>C)</b> justify-content:flex-start; </span><br>
+	<span class="option" data-correct="true"><b>D)</b> align-items:center; </span><br>
+	<span class="option" data-correct="false"><b>E)</b> align-items:flex-center; </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> Flex yapısında, satıra sığmayan elemanların alt satıra geçmesine izin vermek için kapsayıcıya verilmesi
+gereken özellik aşağıdakilerin hangisinde doğru olarak verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> flex-direction:single; </span><br>
+	<span class="option" data-correct="true"><b>B)</b> flex-wrap:wrap; </span><br>
+	<span class="option" data-correct="false"><b>C)</b> flex-wrap:nowrap; </span><br>
+	<span class="option" data-correct="false"><b>D)</b> flex-direction:row; </span><br>
+	<span class="option" data-correct="false"><b>E)</b> flex-wrap:row; </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> Web sayfa düzeninin 3 satır ve 4 sütundan ızgara şeklinde yapılandırmak için kapsayıcı elemana verilmesi gereken CSS kuralları aşağıdakilerin hangisinde doğru verilmiştir ? </p>
+	<span class="option" data-correct="true"><b>A)</b> .container{<br>
+ &emsp; display: grid;<br>
+ &emsp; grid-template-rows: 200px 200px 200px;<br>
+ &emsp; grid-template-columns: 200px 200px 200px 200px;<br>
+} </span><br><br>
+	<span class="option" data-correct="false"><b>B)</b> .container{<br>
+ &emsp; grid-template-rows: 200px 200px 200px;<br>
+ &emsp; grid-template-columns: 200px 200px 200px 200px;<br>
+} </span><br><br>
+	<span class="option" data-correct="false"><b>C)</b> .container{<br>
+ &emsp; display: grid;<br>
+ &emsp; grid-template-rows: 3;<br>
+ &emsp; grid-template-columns: 4;<br>
+} </span><br><br>
+	<span class="option" data-correct="false"><b>D)</b> .container{<br>
+ &emsp; display: grid;<br>
+ &emsp; grid-template-rows: 3fr;<br>
+ &emsp; grid-template-columns: 4fr;<br>
+} </span><br><br>
+	<span class="option" data-correct="false"><b>E)</b> .container{<br>
+ &emsp; grid-template-rows: 3* 200px;<br>
+ &emsp; grid-template-columns:4*200px;<br>
+} </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Grid yapısındaki ögeler arasında 5px boşluk bırakmak için kapsayıcıya verilmesi gereken özellik aşağıdakilerin hangisinde doğru verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> display: 5px; </span><br>
+	<span class="option" data-correct="false"><b>B)</b> margin: 5px; </span><br>
+	<span class="option" data-correct="false"><b>C)</b> padding: 5px; </span><br>
+	<span class="option" data-correct="true"><b>D)</b> gap: 5px; </span><br>
+	<span class="option" data-correct="false"><b>E)</b> grid-rows: 5px; </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> Aşağıdakilerden hangisi Bootstrap 5 sürümü ile kullanılan masaüstü ekran boyut türünün kısıtlama kodudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> xs </span><br>
+	<span class="option" data-correct="false"><b>B)</b> sm </span><br>
+	<span class="option" data-correct="false"><b>C)</b> md </span><br>
+	<span class="option" data-correct="true"><b>D)</b> lg </span><br>
+	<span class="option" data-correct="false"><b>E)</b> xl </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">     
+
+<table style="border: 1px solid darkred; border-collapse: collapse;">
+ <caption style="caption-side: top;">Ekran kısaltmaları ve boyut sınırları</caption>
+  <tr>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;">Kısaltma Kodu</th>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;">Ekran Türü</th>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;">Boyutu</th>
+
+  </tr>
+	
+  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> xs </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Telefon Ekranları </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> &lt;576px </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> sm </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Yatık Telefon Ekranı </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> ≥576px </td>
+  </tr>
+	
+	<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> md </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Tablet Ekranları </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> ≥768px </td>
+  </tr>
+	
+	  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> lg </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Masaüstü Ekranlar </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> ≥992px </td>
+  </tr>
+	
+	  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> xl </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Büyük Masaüstü Ekranlar </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> ≥1200px </td>
+  </tr>
+	
+	  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> xxl </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Ekstra Büyük Masaüstü Ekranlar </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> ≥1400px </td>
+  </tr>
+	
+</table>     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> Aşağıdakilerden hangisi CCS'de flexbox özelliklerinden kapsayıcı için olanlardan biri <u><strong>değildir?</strong></u>  </p>
+	<span class="option" data-correct="false"><b>A)</b> flex-direction </span><br>
+	<span class="option" data-correct="false"><b>B)</b> justify-content </span><br>
+	<span class="option" data-correct="false"><b>C)</b> align-items </span><br>
+	<span class="option" data-correct="false"><b>D)</b> flex-wrap </span><br>
+	<span class="option" data-correct="true"><b>E)</b> flex-grow </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      Kapsayıcı İçin Kullanılan Özellikler<br><br>
+<u><strong>• flex-direction:</strong></u> Elemanların akış yönünü seçer.<br>
+&emsp;• row, elemanları yatay yönde hizalar.<br>
+&emsp;• column, elemanları dikey yönde hizalar.<br>
+&emsp;• Bunların haricinde akışı tersine çevirmek için row-reverse ve column-reverse değerlerinide alabilir. Varsayılan row değerini alır.<br><br>
+
+<u><strong>• flex-wrap:</strong></u> Elemanların genişliği satıra sığmadığında alt satıra geçebilmesini belirtmek için kullanılır. <br>
+&emsp;• wrap, alt satıra geçmeye izin verir.<br>
+&emsp;• nowrap, tek satıra yerleştirir. Varsayılan değerdir.<br>
+&emsp;• wrap-reverse, alt satıra geçerken akışı ters çevirir.<br><br>
+
+<u><strong>• flex-flow:</strong></u> Tek komutta flex-direction ve flex-wrap özelliklerini girebilmeyi sağlar.<br><br>
+
+<u><strong>• justify-content:</strong></u> Kutuların kapsayıcıdaki yatay yönde hizalanma şeklini belirtir.<br>
+&emsp;• center, ögeleri kapsayıcının ortasında hizalar.<br>
+&emsp;• flex-start, ögeleri flex alanının başından itibaren hizalar. Varsayılan değerdir.<br>
+&emsp;• flex-end, ögeleri kapsayıcının sonuna hizalar.<br>
+&emsp;• space-around, ögeler arasında ve kenarlarda boşluk bırakarak hizalar. Kenar boşlukları ögeler arasındaki boşlukların yarısı kadardır.<br>
+&emsp;• space-between, ögeler arasında boşluk bırakarak hizalama yapar. Kenarlardan boşluk bırakmaz.<br><br>
+			
+<u><strong>• align-items:</strong></u> Kutuların kapsayıcıdaki dikey yönde hizalanma şeklini belirtir.<br>
+&emsp;• center, ögeleri kapsayıcının ortasında hizalar.<br>
+&emsp;• flex-start, ögeleri flex alanının üstünden itibaren hizalar.<br>
+&emsp;• flex-end, ögeleri kapsayıcının altında hizalar.<br>
+&emsp;• stretch, ögeleri kapsayıcının boyu kadar uzatır. Varsayılan değerdir.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> I. Sadece bilgisayar ekranlarında kullanılabilir.<br>
+II. Ekrana göre yeniden boyutlandırılabilir.<br>
+III. İstenen bölümler gizlenip gösterilebilir. <br>
+IV. Otomatik olarak çözünürlük değişiklikleri yapabilir. <br><br>
+Yukarıdakilerden hangileri duyarlı web tasarımı özellikleri arasında yer alır? </p>
+	<span class="option" data-correct="false"><b>A)</b> I-II-III-IV </span><br>
+	<span class="option" data-correct="true"><b>B)</b> II-III-IV </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I-III-IV </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I-II </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> Aşağıdakilerden hangisinde "width=device-width" kodu doğru olarak açıklanmaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kutu genişliği değerleri için değişkenleri ayarlama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yazdırılabilir cihazlarla eşleştirmeyi ayarlama </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Genişliğini ekran genişliğini takip edecek şekilde ayarlama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sayfa ilk yüklendiğinde yakınlaştırma seviyesini ayarlama </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Birden fazla yerde kullanılmak istenen renk kodunu ayarlama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> Aşağıdakiler hangisinde "speech" medya türü doğru olarak açıklanmıştır. </p>
+	<span class="option" data-correct="false"><b>A)</b> Tüm cihazlarla eşleşir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yazdırılabilir cihazlarla eşleşir </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ekran boyutlarıyla eşleştirir </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Ekran okuyucu cihazlarla eşleştirir </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Mobil cihazlarla eşleştirir </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> I. 0 &lt; Telefon ekranları &lt; 576px<br>
+II. 576 ≤ Yatık Telefon Ekranı &lt;  768px<br>
+III. 768px  ≤ Masaüstü Ekranlar &lt; 992px<br><br>
+Yukarıdaki HTML sayfalarının görüntülendiği ekran türleri ve sınır değerlerinden hangisi/hangileri doğrudur?   </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="true"><b>B)</b> I-II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II-III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I-II-III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      
+			
+<table style="border: 1px solid darkred; border-collapse: collapse;">
+ <caption style="caption-side: top;">Ekran kısaltmaları ve boyut sınırları</caption>
+  <tr>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;">Kısaltma Kodu</th>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;">Ekran Türü</th>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;">Boyutu</th>
+
+  </tr>
+	
+  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> xs </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Telefon Ekranları </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> &lt;576px </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> sm </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Yatık Telefon Ekranı </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> ≥576px </td>
+  </tr>
+	
+	<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> md </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Tablet Ekranları </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> ≥768px </td>
+  </tr>
+	
+	  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> lg </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Masaüstü Ekranlar </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> ≥992px </td>
+  </tr>
+	
+	  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> xl </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Büyük Masaüstü Ekranlar </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> ≥1200px </td>
+  </tr>
+	
+	  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> xxl </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Ekstra Büyük Masaüstü Ekranlar </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> ≥1400px </td>
+  </tr>
+	
+</table>     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> Aşağıdakilerden hangisi CCS'de elemanlar için kullanılan özelliklerinden biridir?  </p>
+	<span class="option" data-correct="true"><b>A)</b> flex-grow </span><br>
+	<span class="option" data-correct="false"><b>B)</b> flex-direction </span><br>
+	<span class="option" data-correct="false"><b>C)</b> justify-content </span><br>
+	<span class="option" data-correct="false"><b>D)</b> flex-flow </span><br>
+	<span class="option" data-correct="false"><b>E)</b> flex-wrap </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      Elemanlar İçin Kullanılan Özellikler<br><br>
+
+<u><strong>• order</strong></u>, elemanların akış yönündeki sıralamasının değiştirilebilmesini sağlar.  <br><br>
+
+<u><strong>• flex-grow</strong></u>, elemanların boyutlarını ayarlamak için kullanılır. Değer olarak sayı alır. Varsayılan değeri 0’dır. <br><br>
+
+<u><strong>• flex-shrink</strong></u>, kutular satıra sığmadığında diğer kutulardan farklı oranda küçültülmesi istenilen kutular için kullanılır. Varsayılan değeri 1’dir. 1 değerini alan tüm kutular aynı oranda küçülürken 0 değerini alan kutu küçülmez. flex-shrink sayı değeri almalıdır. <br><br>
+
+<u><strong>• flex-basis</strong></u>, başlangıç genişliği belirtilmek istenilen kutular için kullanılır. <br><br>
+
+<u><strong>• flex</strong></u>, sırasıyla flex-grow, flex-shrink ve flex-basis özellikleri tek seferde ataya bilmeyi sağlar.<br><br>
+
+<u><strong>• align-self</strong></u>, akış içerisindeki belirli bir kutunun dikey hizalanması değiştirilmek istenildiğinde kullanılır. 			
+			
+</div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Aşağıdakilerden hangisi CCS'de başlangıç genişliği belirtilmek istenilen kutular için kullanılan eleman özelliklerinden biridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> align-self </span><br>
+	<span class="option" data-correct="false"><b>B)</b> order </span><br>
+	<span class="option" data-correct="true"><b>C)</b> flex-basis </span><br>
+	<span class="option" data-correct="false"><b>D)</b> flex-grow </span><br>
+	<span class="option" data-correct="false"><b>E)</b> flex-shrink </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> Yatay ve dikey grid hatları arasında oluşturulan boşluk için kullanılan terim aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Grid gap </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Grid item </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Grid hattı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Grid alanı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Grid hücresi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> Bir grid tasarlarken "grid-template-rows" komutu kullanmak aşağıdakilerden hangisi oluşturulmayı sağlar? </p>
+	<span class="option" data-correct="false"><b>A)</b> Gridin sütun sayısını belirlemek </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Griddeki alanlar arasında boyutlandırma sağlamak </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Gridin satır sayısını belirtmek </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Satır ve sütunlar arasında boşluk oluşturmak </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Grid ögelerini başka hücrelere taşımak </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Aşağıdakilerden hangisi CCS ile yapılan bir stillendirme işleminde menü komponentinin stillendirilmesi için kullanılan kod bloğudur?  </p>
+	<span class="option" data-correct="false"><b>A)</b> {<br>
+margin: 0;<br>
+padding: 0;<br>
+} </span><br>
+	<span class="option" data-correct="true"><b>B)</b> .menu {<br>
+grid-area: menu;<br>
+} </span><br>
+	<span class="option" data-correct="false"><b>C)</b> .active{<br>
+background-color: #dddddd;<br>
+color: #3a3535;<br>
+} </span><br>
+	<span class="option" data-correct="false"><b>D)</b> .content {<br>
+grid-area: content;<br>
+} </span><br>
+	<span class="option" data-correct="false"><b>E)</b> .card:hover {<br>
+box-shadow: 0 0 4px #515151;<br>
+} </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> I. Renk<br>
+II. Yazı tipi<br>
+III. Yazı boyutu<br>
+IV. Kutu genişliği<br><br>
+Yukarıdakilerden hangileri CSS kuralları yazılırken kullanılabilecek değerler arasında yer alır? </p>
+	<span class="option" data-correct="false"><b>A)</b> I-IV </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I-II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> III-IV </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I-II-III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I-II-III-IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> I. sm-tablet ekranları ≥768px<br>
+II. xl-yatık telefon ekranı ≥1400px<br>
+III. lg-masaüstü ekranlar ≥992px<br>
+IV. xs-telefon ekranları &lt;576px<br><br>
+Yukarıdaki ekran kısaltmaları ve boyut sınırlarından hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> I-II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> II-III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I-III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I-IV </span><br>
+	<span class="option" data-correct="true"><b>E)</b> III-IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      
+		
+<table style="border: 1px solid darkred; border-collapse: collapse;">
+ <caption style="caption-side: top;">Ekran kısaltmaları ve boyut sınırları</caption>
+  <tr>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;">Kısaltma Kodu</th>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;">Ekran Türü</th>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;">Boyutu</th>
+
+  </tr>
+	
+  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> xs </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Telefon Ekranları </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> &lt;576px </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> sm </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Yatık Telefon Ekranı </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> ≥576px </td>
+  </tr>
+	
+	<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> md </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Tablet Ekranları </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> ≥768px </td>
+  </tr>
+	
+	  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> lg </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Masaüstü Ekranlar </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> ≥992px </td>
+  </tr>
+	
+	  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> xl </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Büyük Masaüstü Ekranlar </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> ≥1200px </td>
+  </tr>
+	
+	  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> xxl </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Ekstra Büyük Masaüstü Ekranlar </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> ≥1400px </td>
+  </tr>
+	
+</table>		
+		</div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Aşağıdakilerden hangisi  elemanların genişliği satıra sığmadığında alt satıra geçebilmesini belirtmek için kullanılan flexbox kapsayıcıya verilen özelliktir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Flex-direction </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Flex-wrap </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Flex-flow </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Flex-start </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Flex-end </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> Aşağıdakilerden hangisi sayfanın genişliğini ekran genişliğini takip edecek şekilde ayarlayan koddur? </p>
+	<span class="option" data-correct="false"><b>A)</b> html lang="tr" </span><br>
+	<span class="option" data-correct="false"><b>B)</b> meta charset="UTF-8" </span><br>
+	<span class="option" data-correct="false"><b>C)</b> div class="flex-container" </span><br>
+	<span class="option" data-correct="false"><b>D)</b> initial-scale=1.0 </span><br>
+	<span class="option" data-correct="true"><b>E)</b> width=device-width </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> Telefon ekran boyutu için medya sorgusu aralığı aşağıdakilerden hangisi seçilmelidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> 0px - 576px </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 600px - 768px </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 700px - 992px </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 900px - 1200px </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 1200px - 1400px </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Aşağıdakiler hangisinde "speech" medya türü doğru olarak açıklanmıştır. </p>
+	<span class="option" data-correct="false"><b>A)</b> Tüm cihazlarla eşleşir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yazdırılabilir cihazlarla eşleşir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ekran boyutlarıyla eşleştirir. </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Ekran okuyucu cihazlarla eşleştirir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Mobil cihazlarla eşleştirir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> I. Tek boyutlu düzenler için geliştirilmiştir.<br>
+II. Sayfayı dikey ve yatay eksende bölme imkanı sağlar.<br>
+III.  Sayfayı ızgara yapısıyla bölerek düzenler.<br>
+IV. Sıralamayı ve akışı kontrol eden esnek özellikleri etkinleştirir.<br><br>
+Yukarıdakilerden hangileri flexbox'ın özellikleri arasında yer alır? </p>
+	<span class="option" data-correct="true"><b>A)</b> I-IV </span><br>
+	<span class="option" data-correct="false"><b>B)</b> II-III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I-II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> III-IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I-III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      II ve II Grid yapısı ile ilgilidir.     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> 
+I. Değişkeler, uygulamadaki gereksiz görevleri azaltır. <br>
+II. Renk,  yazı tipi ve boyutu için değişken oluşturulur.<br>
+III. Küçük projelerde değişken yazmak gereksizdir. <br><br>
+Yukarıda CSS değişkeleri ile ilgili verilen ifadelerden hangisi/hangileri doğrudur?  </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I-II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II-III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I-II-III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> I. Yan menüyü stillendirme<br>
+II. Sayfadaki eleman düzenini belirleme<br>
+III. Menü elemanlarını stillendirme<br>
+IV.  Sayfadaki komponentleri stillendirme<br><br>
+HTML CSS kullanarak hazırladığımız kitap bölümünü CSS kullanarak stillendirirken yapılması gerekenlerin sırası aşağıdakilerden hangisinde doğru olarak verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> I-II-III-IV </span><br>
+	<span class="option" data-correct="false"><b>B)</b> II-III-I-IV </span><br>
+	<span class="option" data-correct="true"><b>C)</b> II-IV-I-III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> IV-III-I-II </span><br>
+	<span class="option" data-correct="false"><b>E)</b> IV-III-II-I </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      Sayfa Düzeninin Oluşturulması<br>
+İlk olarak sayfadaki eleman düzenini belirlemeliyiz. Belirlemeyi yaptıktan sonra grid yapısını oluşturabiliriz. Basit bir sayfamız olacağı için elemanların yerleşimi kolay olacaktır. Başılık alanı en üstü kaplayacak, yan menü sol tarafa yerleşecek, ekranın kalan alanını da içerik alanı dolduracaktır. Sayfamızdaki
+yerleşim için aşağıdaki kod bloğunda bulunan grid yapısını kullanabiliriz. Grid yapısını belirlerken alanlar için kullanılacak isimlendirmeleri de tanımlıyoruz.<br><br>
+
+Başlık Komponentinin Stillendirilmesi<br>
+Grid yapımızı kurduktan sonra sayfadaki komponentleri stillendirmeye başlayabiliriz. HTML kodları ile başlık komponentine .header sınıfını atamıştık. Sınıf seçicisi ile başlık komponentine ulaşıyoruz. Sayfamız için kurduğumuz grid yapısında “header” bölmesine başlığı yerleştirmek için grid-area: header; kuralını uygulayacağız.<br><br>
+
+
+Menü Komponentinin Stillendirilmesi<br>
+Başlık stillendirmesini tamamladıktan sonra yan menüyü stillendirmeye başlayabiliriz<br><br>
+
+Menü alanının gövdesinin stillendirilmesinden sonra menü elemanlarını stillendirebiliriz.      </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> Aşağıdakilerden hangisi CSS'de tek boyutlu içerik yerleştirmek için tasarlanmış bir düzen modelidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Float </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Flexbox </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Grid </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Viewport </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Head </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> Aşağıda verilen HTML kod çalıştırıldığında WEB sayfası görüntüsü : <br>
+<span style="color: darkred; margin-left: 30px;"><img src="wap1.JPG" alt="Web Arayüz Programlama - Ünite 3 Alıştırma Soruları " style="width: 40%;"></span><br>
+	şeklinde olmaktadır. Bu kod içerisinde boş bırakılan yerleri en uygun biçimde nasıl doldurmak gerekir?<br>	
+<span style="color: darkred; margin-left: 30px;"><img src="wap2.JPG" alt="Web Arayüz Programlama - Ünite 3 Alıştırma Soruları " style="width: 65%;"></span> </p>
+	<span class="option" data-correct="true"><b>A)</b> <br>
+color:var(--kirmizi);<br>
+background-color:var(--mavi);<br>
+kodlarının yazılması gerekir. <br>
+<br>
+:root CSS değişkeninin altında tanımlanan renkler "var" ile çağrılarak kullanılır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> Farklı cihazlarda çalışacak CSS kodları için Bootstrap 5 sürümü ile ekran botyutları ve bu boyutlara ait kısaltmalar belirlenmiştir. Telefon ekranları ve büyük masaüstü ekranlar için bu kısaltmalar nelerdir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Telefon ekranları : xs<br><br>
+Büyük Masaüstü ekranlar : xl </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> Geliştiriciler için hazırlanmış stil kurallarını içeren CSS çatısına ne ad verilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Bootstrap adı verilir. 
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> Yazılan CSS kurallarınının ekran genişliği 550 px den küçük ekranlarda uygulanabilmesi için gereken kod nedir? </p>
+	<span class="option" data-correct="true"><b>A)</b>@media (max-width : 550px) {<br>
+&emsp; &emsp; /* yeni stil kurallar*/<br>
+&emsp; } </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> CSS Flexbox nedir ne için kullanılır?
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> CSS flexbox, öğelerin farklı ekran boyutları ve farklı görüntüleme cihazlarıyla kullanıldığında tahmin edilebilir şekilde davranmasını sağlamak için kullanılır. Konteynerdeki öğeler arasında alanı yerleştirmek, hizalamak ve dağıtmak için daha verimli bir yol sağlar. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> Bir flexbox kullanabilmek için bir konteyner yaratıldığında bunu kullanmak için gereken kod nedir?  </p>
+	<span class="option" data-correct="true"><b>A)</b> Display:flex
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> Flex kullanarak bir konteyner yaratmak için bir örnek veriniz. Bu örnekte HTML ve CSS kodları tanımlanmalıdır. </p>
+	<span class="option" data-correct="true"><b>A)</b> HTML<br>
+
+&lt;div class = ornek-container&gt;<br>
+
+     &emsp; &lt;div&gt; Ornek 1 &lt;/div&gt;<br>
+
+     &emsp; &lt;div&gt; Ornek 2 &lt;/div&gt;<br>
+
+     &emsp; &lt;div&gt; Ornek 3 &lt;/div&gt;<br>
+
+&lt;/div&gt;<br><br>
+
+CSS<br>
+
+.ornek-container {<br>
+
+    &emsp; display:flex;<br>
+
+} </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> Flex-wrap ne işe yarar? </p>
+	<span class="option" data-correct="true"><b>A)</b> Tarayıcı genişliği değiştirildiğinde elemanların nasıl kaydırılacağını tanımlar. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> Elemanları yerleştirirken flexbox özellikleri kaç gruba ayrılır, bunlar nelerdir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Elemanları yerleştirirken kullanılan flexbox özellikleri kapsayıcı için olanlar ve elemanlar için olanlar olarak iki gruba ayrılır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question41">
+	<p class="question">Soru 41:<br> Elemanlar için kullanılan flexbox özellikleri nelerdir? Bunlardan üç tanesini yazmanız yeterli olacaktır. </p>
+	<span class="option" data-correct="true"><b>A)</b> <br>
+- order<br>
+- flex-grow<br>
+- flex-shrink<br>
+- flex-basis<br>
+- flex<br>
+- align-self </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description41">Açıklama</button>
+		<div id="description41" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question42">
+	<p class="question">Soru 42:<br> Flexbox ile Grid arasında kullanım alanları bakımından fark nedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Tarayıcı genişliği değiştirildiğinde öğelerin nasıl kaydırılacağını tanımlayan Flexbox, özellikle site içindeki daha küçük alanlar için çok kullanışlı bir yerleşim aracıdır. CSS Grid, daha çok tüm sayfa için bir düzen aracıdır. Flexbox, öğeleri tek bir eksen boyunca yerleştirme konusunda üstün olsa da, Grid, hem yatay hem de dikey eksenli düzenler, yani ızgaralar için daha iyidir! </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description42">Açıklama</button>
+		<div id="description42" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question43">
+	<p class="question">Soru 43:<br> CSS Grid nedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Bir CSS Grid, iki boyutlu grid tabanlı düzenler oluşturmak için bir düzen sistemidir. Ekran boyutuna duyarlı düzenler oluşturmak için güçlü bir araçtır ve çok çeşitli farklı düzen türleri oluşturmak için kullanılabilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description43">Açıklama</button>
+		<div id="description43" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question44">
+	<p class="question">Soru 44:<br> CSS Grid bağlamında bir grid kapsayıcının (container) ne olduğunu açıklayabilir misiniz? </p>
+	<span class="option" data-correct="true"><b>A)</b> Grid kapsayıcı, grid içeren bir öğedir. Tüm grid öğelerinin doğrudan ebeveynidir.
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description44">Açıklama</button>
+		<div id="description44" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question45">
+	<p class="question">Soru 45:<br> Gridleri diğer gridlerin içerisine yerleştirmek mümkün mü? Evet ise, nasıl?
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Evet, ızgaraları diğer ızgaraların içine yerleştirmek mümkündür. Bu, grid-template-columns ve grid-template-rows'un CSS Grid özellikleri kullanılarak gerçekleştirilebilir. Her ızgara için sütun ve satır sayısını belirterek, iç içe ızgaraların genel düzeni kontrol edilebilir. Burada display:inline-grid ile inline yapıda grid oluşturmak mümkün. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description45">Açıklama</button>
+		<div id="description45" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question46">
+	<p class="question">Soru 46:<br> 2 x 3 lük bir grid oluşturabilmek için basit bir kod yazabilir misiniz? 
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> <br>
+container{<br>
+   &emsp; display: grid;<br>
+    &emsp; &emsp; grid-template-rows: 200px 200px;<br>
+    &emsp; &emsp; grid-template-columns: 200px 200px 200px;<br>
+} </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description46">Açıklama</button>
+		<div id="description46" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question47">
+	<p class="question">Soru 47:<br> fr birimi nedir </p>
+	<span class="option" data-correct="true"><b>A)</b> fr sadece grid ile kullanılabilen, alanlar arasında oranla boyutlandırma sağlayan birimidir. Örneğin grid-template-rows: 3fr 1fr 1fr; özelliği verilirse ilk satır diğer satırların 3 katı uzunluğunda olacaktır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description47">Açıklama</button>
+		<div id="description47" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question48">
+	<p class="question">Soru 48:<br> Aşağıda şekilde verilen 4 x 4 grid içerisindeki ".item-a" alanını tanımlayacak CSS kodu nedir?<br>
+<span style="color: darkred; margin-left: 30px;"><img src="wap3.JPG" alt="Web Arayüz Programlama - Ünite 3 Alıştırma Soruları " style="width: 60%;"></span> </p>
+	<span class="option" data-correct="true"><b>A)</b> <br>
+.item-a {<br> 
+
+   &emsp; grid-column-start: 2;<br>
+   &emsp; grid-column-end: 5;<br> 
+   &emsp; grid-row-start: 2;<br> 
+   &emsp; grid-row-end: 4;<br> 
+} </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description48">Açıklama</button>
+		<div id="description48" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question49">
+	<p class="question">Soru 49:<br>Aşağıda verilen grid için ".item-a" alanını<br> 
+
+grid-column: başlangıç / bitiş <br>
+grid-row: başlangıç / bitiş <br><br>
+
+şeklinde ifade edecek CSS kodu nedir?<br>
+<span style="color: darkred; margin-left: 30px;"><img src="wap4.jpg" alt="Web Arayüz Programlama - Ünite 3 Alıştırma Soruları " style="width: 60%;"></span> </p>
+	<span class="option" data-correct="true"><b>A)</b> <br>
+.item-a {<br> 
+
+   &emsp; grid-column:3/5;<br> 
+
+   &emsp; grid-row: 2/5;<br> 
+
+} </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description49">Açıklama</button>
+		<div id="description49" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+		
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

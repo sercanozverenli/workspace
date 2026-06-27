@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+	  
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA II
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama2-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama2-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama2-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama2-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama2-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama2-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama2-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama2-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama2-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama2-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB ARAYÜZ PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİ YAPILARI
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veriyap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veriyap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veriyap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veriyap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veriyap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veriyap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veriyap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veriyap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veriyap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veriyap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          MOBİL UYGULAMA GELİŞTİRME
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="mobilug-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="mobilug-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="mobilug-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="mobilug-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="mobilug-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="mobilug-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="mobilug-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="mobilug-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="mobilug-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="mobilug-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          UNIX SİSTEM YÖNETİMİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="unixsy-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="unixsy-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="unixsy-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="unixsy-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="unixsy-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="unixsy-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="unixsy-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="unixsy-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="unixsy-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="unixsy-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Web Arayüz Programlama - Ünite 1 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	<button class="block-group" data-start="40" data-end="59">Part 3</button>
+	  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Aşağıdakilerin hangisinde W3C’nin kuruluş
+amacı doğru verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Programcılar için gerekli programları hazırlamak </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Dünya çapında tüm ağlar için standardı belirlemek </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Stil şablonları kullanılmasını sağlamak </span><br>
+	<span class="option" data-correct="false"><b>D)</b> HTML programlama dilini tasarlamak </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Web sayfalarını görüntüleyebilmek için tarayıcı programları hazırlamak </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Web sayfasının başlığına “Web Arayüz
+Programlama” yazmak için aşağıdakilerden hangisi yapılmalıdır? </p>
+	<span class="option" data-correct="true"><b>A)</b> &lt;head&gt; kısmına &lt;title&gt;Web Arayüz Programlama&lt;/title&gt; kodu yazılmalıdır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> &lt;body&gt; kısmına &lt;h1&gt;Web Arayüz Programlama&lt;/h1&gt; kodu yazılmalıdır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> &lt;head title="Web Arayüz
+Programlama"/&gt; kodu yazılmalıdır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> &lt;head&gt; kısmına &lt;h1&gt;Web Arayüz Programlama&lt;/h1&gt; kodu yazılmalıdır </span><br>
+	<span class="option" data-correct="false"><b>E)</b> &lt;html&gt; etiketine title="Web Arayüz
+Programlama" özelliği girilmelidir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Google Chrome tarayıcısında web sayfasındaki bir elemanın HTML kodunu görmek için ne yapılmalıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Klavyeden “F11” tuşuna basılarak ilgili elementin bulunduğu kod bloğu seçilmelidir </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Görüntülenmek istenen elemanın üzerine sağ tıklayarak açılan menüden incele seçeneği seçilmelidir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Klavyeden “CTRL+SHIFT+R” tuş kombinasyonuna basılmalıdır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Geliştirici araçlarında “console” menüsünde incelenmelidir </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Klavyeden “CTRL+SHIFT+E” tuş kombinasyonuna basılmalıdır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Aşağıdakilerden hangisi IDE (Integrated Development Environment) kullanmanın avantajlarından <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Yazılan kodu renklendirerek kod vurgulama yapar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Versiyon kontrol sistemleri ile entegre olarak aynı arayüz üzerinden kodları versiyonlayabilir </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kod geliştirme ile aynı ortamda veri tabanı bağlantısı yapabilir </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yazılan kodda hata ayıklanmasında yardımcı olur.  </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Arama motorlarının web sayfalarını arama sonuçlarıyla ilişkilendirebilmek için etiketler. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Aşağıdakilerden hangisi geçerli bir başlık etiketi tanımıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> &lt;b&gt;Bu Bir Başlıktır.&lt;b&gt; </span><br>
+	<span class="option" data-correct="false"><b>B)</b> &lt;p title="Bu bir Başlıktır."/&gt; </span><br>
+	<span class="option" data-correct="true"><b>C)</b> &lt;h4&gt;Bu Bir Başlıktır.&lt;/h4&gt; </span><br>
+	<span class="option" data-correct="false"><b>D)</b> &lt;h7&gt;Bu Bir Başlıktır.&lt;/h7&gt; </span><br>
+	<span class="option" data-correct="false"><b>E)</b> &lt;h6&gt;Bu Bir Başlıktır.&lt;h6&gt; </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      Başlık etiketleri, Web sayfalarındaki içeriklerde başlık tanımlamak için kullanılırlar. h1'den h6'ya kadardır. Font büyüklüğü büyükten küçüğe doğru sıralanan başlık etiketleridir. Etiketler açıldıktan sonra kapatılmalıdır.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Aşağıdakilerden hangisinde “Lorem ipsum
+dolor sit amet.” metnini bir paragraf olarak göstermek için HTML sayfasına yazılması gereken kod doğru verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> &lt;b&gt;Lorem ipsum dolor sit amet.&lt;b&gt; </span><br>
+	<span class="option" data-correct="true"><b>B)</b> &lt;p&gt;Lorem ipsum dolor sit amet.&lt;/p&gt; </span><br>
+	<span class="option" data-correct="false"><b>C)</b> &lt;h4&gt;Lorem ipsum dolor sit amet.&lt;/h4&gt; </span><br>
+	<span class="option" data-correct="false"><b>D)</b> &lt;h7&gt;Lorem ipsum dolor sit amet.&lt;/h7&gt; </span><br>
+	<span class="option" data-correct="false"><b>E)</b> &lt;h6&gt;Lorem ipsum dolor sit amet.&lt;h6&gt; </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> Aşağıdakilerden hangisinde “https://www.
+anadolu.edu.tr” adresine “Anadolu Üniversitesi” metni ile link vermek için kullanılması gereken kod doğru verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> &lt;a&gt;https://www.anadolu.edu.tr&lt;/a&gt; </span><br>
+	<span class="option" data-correct="false"><b>B)</b> &lt;li href="https://www.anadolu.edu.
+tr"&gt;Anadolu Üniversitesi&lt;/li&gt; </span><br>
+	<span class="option" data-correct="true"><b>C)</b> &lt;a href="https://www.anadolu.edu.
+tr"&gt;Anadolu Üniversitesi&lt;/a&gt; </span><br>
+	<span class="option" data-correct="false"><b>D)</b> &lt;a link="https://www.anadolu.edu.
+tr"&gt;Anadolu Üniversitesi&lt;/a&gt; </span><br>
+	<span class="option" data-correct="false"><b>E)</b> &lt;li link="https://www.anadolu.edu.
+tr"&gt;Anadolu Üniversitesi&lt;/li&gt; </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> Aşağıdakilerden hangisi semantik etiketlerden değildir? </p>
+	<span class="option" data-correct="false"><b>A)</b> article </span><br>
+	<span class="option" data-correct="false"><b>B)</b> header </span><br>
+	<span class="option" data-correct="false"><b>C)</b> section </span><br>
+	<span class="option" data-correct="true"><b>D)</b> div </span><br>
+	<span class="option" data-correct="false"><b>E)</b> nav </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      header, nav, section, article, footer gibi etiketler semantik etiketlerdir ancak div  ve span gibi etiketler semantik etiketler değildir.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> Aşağıdakilerden hangisi HTML sayfasına resim eklemek için kullanılan doğru bir koddur? </p>
+	<span class="option" data-correct="true"><b>A)</b> &lt;img src="img_girl.jpg" alt="Girl in a jacket" width="500" height="600"&gt; </span><br>
+	<span class="option" data-correct="false"><b>B)</b> &lt;li href="img_girl.jpg"&gt;Girl in a jacket&lt;/li&gt; </span><br>
+	<span class="option" data-correct="false"><b>C)</b> &lt;a link="img_girl.jpg"&gt;Girl in a jacket&lt;/a&gt; </span><br>
+	<span class="option" data-correct="false"><b>D)</b> &lt;iframe src="img_girl.jpg" width="400" height="400"&gt;&lt;/iframe&gt; </span><br>
+	<span class="option" data-correct="false"><b>E)</b> &lt;img link="img_girl.jpg" alt="Girl in a jacket" width="500" height="600"&gt; </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Aşağıdakilerden hangisi 3’ten başlayan sıralı listeyi oluşturan HTML kodudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> &lt;ul start="3"&gt;<br>
+ &lt;li&gt;Ankara&lt;/li&gt;<br>
+ &lt;li&gt;İstanbul&lt;/li&gt;<br>
+ &lt;li&gt;Eskişehir&lt;/li&gt;<br>
+ &lt;/ol&gt; </span><br><br>
+	<span class="option" data-correct="false"><b>B)</b> &lt;ol&gt;<br>
+ &lt;li&gt;Ankara&lt;/li&gt;<br>
+ &lt;li&gt;İstanbul&lt;/li&gt;<br>
+ &lt;li&gt;Eskişehir&lt;/li&gt;<br>
+ &lt;/ol&gt;  </span><br><br>
+	<span class="option" data-correct="false"><b>C)</b> &lt;sl start="III"&gt;<br>
+ &lt;li&gt;Ankara&lt;/li&gt;<br>
+ &lt;li&gt;İstanbul&lt;/li&gt;<br>
+ &lt;li&gt;Eskişehir&lt;/li&gt;<br>
+ &lt;/ol&gt;  </span><br><br>
+	<span class="option" data-correct="false"><b>D)</b> &lt;ol start="III"&gt;<br>
+ &lt;li&gt;Ankara&lt;/li&gt;<br>
+ &lt;li&gt;İstanbul&lt;/li&gt;<br>
+ &lt;li&gt;Eskişehir&lt;/li&gt;<br>
+ &lt;/ol&gt;  </span><br><br>
+	<span class="option" data-correct="true"><b>E)</b> &lt;ol start="3"&gt;<br>
+ &lt;li&gt;Ankara&lt;/li&gt;<br>
+ &lt;li&gt;İstanbul&lt;/li&gt;<br>
+ &lt;li&gt;Eskişehir&lt;/li&gt;<br>
+ &lt;/ol&gt;  </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> HTML 5 sürümünde HTML sayfasındaki belirli bir bölümü anlamlandırmak için kullanılan etiket hangisidir ?  </p>
+	<span class="option" data-correct="false"><b>A)</b> E-mail </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Password </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Audio etiketi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Semantik (anlamsal) etiketler </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Section etiketi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> Metin seslendirme algoritmalarında içindeki kelime bloğunun farklı ses tonuyla okunmasını sağlayan etiket hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> em  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> i </span><br>
+	<span class="option" data-correct="false"><b>C)</b> del </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ins </span><br>
+	<span class="option" data-correct="false"><b>E)</b> u </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      etiketi italik gibi metni vurgular, aynı zamanda metin seslendirme algoritmalarında içindeki kelime bloğunun farklı ses tonuyla okunmasını sağlar.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Dosyalar arasında geçiş yaparken kullanılan etiketin içerisinde hangi özellik ile gidilecek sayfanın konumu belirtilir ? </p>
+	<span class="option" data-correct="true"><b>A)</b> href </span><br>
+	<span class="option" data-correct="false"><b>B)</b> target </span><br>
+	<span class="option" data-correct="false"><b>C)</b> target="_self </span><br>
+	<span class="option" data-correct="false"><b>D)</b> target="_blank" </span><br>
+	<span class="option" data-correct="false"><b>E)</b> title=" </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> Berners-Lee’nin World Wide Web ağını anlatan siteyi dışarıdan insanların kullanımına açmasıyla bugün kullanılan web sayfalarının ilk örneği hangi yıl hayata geçmiştir ?</p>
+	<span class="option" data-correct="false"><b>A)</b> 1960 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 1980 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 1990 </span><br>
+	<span class="option" data-correct="true"><b>D)</b> 1991 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 2000 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      6 Ağustos 1991 yılına gelindiğinde, Berners-Lee’nin World Wide Web ağını anlatan bu siteyi dışarıdan insanların kullanımına açmasıyla bugün kullanılan web sayfalarının ilk örneği hayata geçmiş oldu.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> I. HTML bir programlama dilidir. <br>
+II. URL web sayfalarınının paylaşıldığı sunucu adreslerini tanımlar.<br>
+III.Dünya Çapında Ağ anlamına gelen World Wide Web yani kısaca WWW, belge ve diğer bilgilerin URL tarafından tanımlandığı bir sistemdir.<br>
+IV. Etiketler yardımıyla HTML içeriği anlamlandırılır.<br><br>
+Yukarıda verilen maddelerden hangileri doğrudur?  </p>
+	<span class="option" data-correct="false"><b>A)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I, II ve III </span><br>
+	<span class="option" data-correct="true"><b>D)</b> II, III ve IV  </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, III ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      HTML bir programlama dili değildir. Adında da belirtildiği şekilde işaretleme (markup) dilidir     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Başlık komponenti için kullanılan &lt;header&gt; etiketi hangi etiket sınflandırmasına dahil edilmektedir?  </p>
+	<span class="option" data-correct="false"><b>A)</b> Email </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Password  </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Audio etiketi </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Semantik(anlamsal) etiketler </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Section etiketi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      Semantik Etiketler:<br><br>
+&lt;header&gt;
+&lt;nav&gt;
+&lt;section&gt;
+&lt;aside&gt;
+&lt;article&gt;
+&lt;footer&gt;     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> Kodun yazıldığı dile göre kodu renklendiren, tamamlayan, şekil kontrolü yaparak kodu vurgulayan, hata ayıklaması yaparak programcıya uyarı veren, veri tabanı bağlantısı, versiyon kontrol sistemleri entegrasyonu gibi çeşitli ortamlarla entegrasyonu sağlayan araçları içinde barındıran yazılım türüdür.<br><br>
+Yukarıda tanımı açıklanan program geliştirme aşamasında programcıya yardım için birden çok amaca hizmet sunan yazılım türü aşağıda verilenlerden hangisidir?  </p>
+	<span class="option" data-correct="true"><b>A)</b> IDE (Integrated Development Environment) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> VCS (Version Control System) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> HTML etiketleri  </span><br>
+	<span class="option" data-correct="false"><b>D)</b> HTTP (Hyper Text Transfer Protocol) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> W3C (World Wide Web Consortium) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Sıralı listenin romen rakamları türünde  olması için ol etiketinde hangi type kullanılmalıdır </p>
+	<span class="option" data-correct="true"><b>A)</b> type="I" </span><br>
+	<span class="option" data-correct="false"><b>B)</b> type="A" </span><br>
+	<span class="option" data-correct="false"><b>C)</b> type="-" </span><br>
+	<span class="option" data-correct="false"><b>D)</b> type="A-Z" </span><br>
+	<span class="option" data-correct="false"><b>E)</b> type="." </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> Web sayfasında bir haber sitesini sayfanın bir köşesinde göstermek istediğinizde kullanılması gereken kod etiketi aşağıdakilerin hangisinde doğru verilmiştir?   </p>
+	<span class="option" data-correct="false"><b>A)</b> &lt;label&gt; </span><br>
+	<span class="option" data-correct="false"><b>B)</b> &lt;textarea&gt; </span><br>
+	<span class="option" data-correct="false"><b>C)</b> &lt;select&gt; </span><br>
+	<span class="option" data-correct="false"><b>D)</b> &lt;option&gt; </span><br>
+	<span class="option" data-correct="true"><b>E)</b> &lt;iframe&gt; </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      Web sayfalarınızda bazen farklı sayfaları bir çerçeve içerisinde göstermek isteyebilirsiniz. Örneğin bir youtube videosu veya bir haber sitesini sayfanızın bir köşesinde göstermek istediğinizde &lt;iframe&gt;kod etiketinin kullanılması gerekmektedir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> HTML dosyalarında, dosyanın içeriği, yazarı gibi genel bilgilerin olduğu kısmın adı nedir ? </p>
+	<span class="option" data-correct="true"><b>A)</b> head </span><br>
+	<span class="option" data-correct="false"><b>B)</b> title </span><br>
+	<span class="option" data-correct="false"><b>C)</b> body </span><br>
+	<span class="option" data-correct="false"><b>D)</b> html </span><br>
+	<span class="option" data-correct="false"><b>E)</b> div </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Tablo etiketi oluştururken başlık kısmında &lt;thead&gt; kullanıldıktan sonra bu etiket içerisinde hücre başlıkları .............. ile eklenir.<br><br>
+  Yukarıdaki ifadedeki boşluğa aşağıda verilenler hangisi gelmelidir? </p>
+	<span class="option" data-correct="false"><b>A)</b>  &lt;td&gt; </span><br>
+	<span class="option" data-correct="false"><b>B)</b>  &lt;tbody&gt; </span><br>
+	<span class="option" data-correct="true"><b>C)</b>  &lt;th&gt; </span><br>
+	<span class="option" data-correct="false"><b>D)</b>  &lt;textarea&gt; </span><br>
+	<span class="option" data-correct="false"><b>E)</b>  &lt;select&gt; </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> harici bir stil dosyasının HTML sayfasına dahil edilebilir olduğu HTML sürümü hangisidir ? </p>
+	<span class="option" data-correct="false"><b>A)</b> HTML 1.0 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> HTML 2.0 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> HTML 3.2 </span><br>
+	<span class="option" data-correct="true"><b>D)</b> HTML 4.01 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> HTML5 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      1999 yılında ise bir sonraki sürüm olan HTML 4.01 duyuruldu. Bu sürümde CSS desteği geliştirildi.
+CSS, HTML 3.2 sürümünde sayfanın içerisine yerleştirilebiliyordu. Bu nedenle sürekli tekrar etmek gerekiyordu. HTML 4.01 ile harici bir stil dosyası HTML sayfaya dahil edilebilir oldu.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> Geliştiriciler için 2014 yılından itibaren kullanılabilen HTML sürümü aşağıdakilerden hangisidir ? </p>
+	<span class="option" data-correct="false"><b>A)</b> HTML 1 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> HTML 2 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> HTML 3.2 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> HTML 4.01 </span><br>
+	<span class="option" data-correct="true"><b>E)</b> HTML 5 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      Geliştiriciler için 2014 yılından itibaren kullanılabilen bu sürüm önceki sürümler gibi birçok yeni etiketle
+birlikte geldi. Bu etiketlerin yanında farklı türdeki girdi öge tipleri de bu sürümde duyuruldu. Bu sayede
+oluşturulan HTML sayfanın form elemanı istenilen girdi değerine göre etiket ve tip ile birlikte işaretlenip
+kullanıcı bu türde veri girmeye zorlanabilir oldu
+
+
+     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Gerekli olduğu durumlarda önceki versiyona dönebilmeye imkân sağlayan sistemin adı aşağıdakilerden hangisidir ? </p>
+	<span class="option" data-correct="false"><b>A)</b> Geliştirme Ortamı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Visual Studio Cod </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Version Control System </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Integrated Development Environment </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Doküman Nesne Modeli </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> Ofis programlarında hazırlanan tablolara benzer yapıda tabloları HTML sayfalarında da hazırlamak için hangi etiket kullanılır ? </p>
+	<span class="option" data-correct="true"><b>A)</b> table </span><br>
+	<span class="option" data-correct="false"><b>B)</b> thead </span><br>
+	<span class="option" data-correct="false"><b>C)</b> tbody </span><br>
+	<span class="option" data-correct="false"><b>D)</b> th </span><br>
+	<span class="option" data-correct="false"><b>E)</b> td </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> Bilgisayarları birbirine bağlamak amacıyla kurulan bilgisayar ağlarının temelinde 1960’larda Amerika Birleşik Devletleri Savunma Bakanlığı tarafından çalışmalarına başlanan ve internetin üzerine inşa edilen yapılar ile geliştirildiği  projenin adı nedir ? </p>
+	<span class="option" data-correct="false"><b>A)</b> INTRANET </span><br>
+	<span class="option" data-correct="false"><b>B)</b> WEB </span><br>
+	<span class="option" data-correct="false"><b>C)</b> HTML </span><br>
+	<span class="option" data-correct="false"><b>D)</b> CSS </span><br>
+	<span class="option" data-correct="true"><b>E)</b> ARPANET </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Chrome tarayıcısında geliştirici araçlarını açmak için sayfa üzerinde mouse ile ...... tıkladıktan sonra “İncele” butonuna basabilir veya klavye üzerinden ...... tuşuna basabilirsiniz.
+Yukarıda verilen ifadede boşluklara sırasıyla aşağıda verilenlerden hangileri gelmelidir?  </p>
+	<span class="option" data-correct="false"><b>A)</b> Sağ- F10 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sağ- F11 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Sağ-F12 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sol-F12 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sol-F10 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      Chrome tarayıcısında geliştirici araçlarını açmak için sayfa üzerinde mouse ile <u><strong>sağ</strong></u> tıkladıktan sonra “İncele” butonuna basabilir veya klavye üzerinden <strong>“F12”</strong> tuşuna basabilirsiniz.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> Aşağıda verilenlerden hangisi Versiyon Kontrol Sisteminin (VCS/ Version Control System) sağladığı faydalardan biridir?  </p>
+	<span class="option" data-correct="false"><b>A)</b> Kod geliştirme ile aynı ortamda veri tabanı bağlantısı yapabilmesi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kodlarda hata ayıklaması yaparak programcıya uyarı vermesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kodun yazıldığı dile göre kodu renklendirebilmesi </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Farklı kişiler tarafından geliştirilen dosyaların versiyonlamasını yapması </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kodların nasıl göründüğünü kullanıcı gözünden takip edebilmesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> HTML dili ne zaman ve kim tarafından geliştirilmiştir?  </p>
+	<span class="option" data-correct="true"><b>A)</b> CERN araştırmacılarından olan Tim Berners-Lee, HTML dilini 1989 yılında tasarlayıp 1991’de tüm dünyanın kullanımına sundu. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> Türkçeye Hiper Metin olarak çevrilen Hyper Text’in anlamı nedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Türkçeye Hiper Metin olarak çevrilen Hyper Text’in anlamı sadece yazı içermeyen belge olarak açıklanabilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> Sadece HTML ile hazırlanan web sayfaları nasıl adlandırılır?  </p>
+	<span class="option" data-correct="true"><b>A)</b> Sadece HTML ile web sayfaları hazırlamak mümkündür. Bu web sayfaları Statik Web Sayfaları olarak adlandırılır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> Geliştirilen ilk HTML sürümünün özellikleri nelerdir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Geliştirilen ilk HTML sürümü, metin kontrolleri ve resimler gibi temel ögeleri destekledi ve HTML 1.0 olarak adlandırıldı. İçeriğin tarayıcıda nasıl oluşturulacağı ile ilgili stil şablonları, tablolar, yazı tipi desteği gibi özellikleri desteklemiyordu. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> HTML5 ile gelen yeni etiketlerden email etiketinin özellikleri nelerdir? </p>
+	<span class="option" data-correct="true"><b>A)</b> email: Eklenen bu yeni etiket e-posta türünün giriş ögesidir. Bir form öge tipi olmasına rağmen form dışında da kullanılabilir. Giriş değerinin geçerli bir e-posta olup olmamasını kontrol eder. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> HTML5 ile gelen yeni etiketlerden password etiketinin özellikleri nelerdir? </p>
+	<span class="option" data-correct="true"><b>A)</b> password: Kullanıcıdan parola almak için kullanılan ögedir. Öge tipi “password” olarak seçildiyse kullanıcı parolasını girerken ekranda girdiği değerler gözükmez bunun yerine özel simgeleri gösterir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> HTML5 ile gelen yeni etiketlerden audio etiketinin özellikleri nelerdir? </p>
+	<span class="option" data-correct="true"><b>A)</b> audio etiketi: HTML5 ile uygulanan yeni bir ses etiketidir. Web sayfalarına ses dosyası eklemeye yardımcı olur. Bu ses dosyası web sayfasına entegre edilebilir ve oynatılabilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> HTML5 ile gelen yeni etiketlerden semantik (anlamsal) etiketlerin özellikleri nelerdir? </p>
+	<span class="option" data-correct="true"><b>A)</b> semantik (anlamsal) etiketler: Anlamsal şeklinde Türkçeye çevrilebilen “semantik” etiketler yapısal etiketler olarakta bilinir. Bu etiketler sayesinde oluşturulan komponentler birleştirilerek anlamlı HTML sayfalar tasarlanabilir. Örneğin başlık komponenti için etiketi kullanılarak bununla alakalı tüm kodlar bu etiketin altında toplanabilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> HTML5 ile gelen yeni etiketlerden section etiketinin özellikleri nelerdir? </p>
+	<span class="option" data-correct="true"><b>A)</b> section etiketi: HTML sayfasındaki belirli bir bölümü anlamlandırmak için bu etiket kullanılabilir. Üstbilgi, altbilgi gibi bölümler olabilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> Program geliştirme aşamasında programcıya yardım için birden çok amaca hizmet eden programlar nasıl adlandırılmaktadır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Program geliştirme aşamasında programcıya yardım için birden çok amaca hizmet eden IDE (Integrated Development Environment) programları vardır. Diğer dillerde olduğu gibi Web Programlama için de geliştirilmiş IDE’ler bulunmaktadır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> Visual Studio Code programında gezgin menüsüne girmek için hangi kısayol kombinasyonu kullanılmaktadır? </p>
+	<span class="option" data-correct="true"><b>A)</b> VSC üzerine kurulan eklentiler ile birçok dil için destek vermektedir. VSC’yi https://code.visualstudio. com/Download adresinden işletim sisteminize uygun olan en son sürümü indirerek kurabilirsiniz. Programı kurduktan sonra “CTRL+SHIFT+E” tuşlarına basarak gezgin menüsüne girebilir ardından kendinize ait bir çalışma klasörü  oluşturabilirsiniz. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> Versiyon Kontrol Sistemleri hangi amaçlarla kullanılır?  </p>
+	<span class="option" data-correct="true"><b>A)</b> Yazılım projelerinde genelde farklı kişiler veya ekipler aynı proje üzerinde çalışmaktadır. Versiyon Kontrol Sistemi (VCS/ Version Control System) farklı kişiler tarafından geliştirilen dosyaların versiyonlamasını yaparak kişiler ve ekipler arasında senkronizasyonu mümkün kılar. Bu programlar sayesinde düzenleme, silme, ekleme, kopyalama gibi işlemler kayıt altına alınıp takip edilebilir. Gerekli olduğu durumlarda önceki versiyona dönebilmeye imkân sağlar. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question41">
+	<p class="question">Soru 41:<br> En büyük ve en küçük etiket boyutuna sahip başlık etiketlerii hangileridir ve font büyüklükleri ne kadardır? </p>
+	<span class="option" data-correct="true"><b>A)</b> En büyük etiket boyutu olan &lt;h1&gt; 2 em font büyüklüğüne sahipken en küçük olan &lt;h6&gt; 0,67 em font büyüklüğüne sahiptir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description41">Açıklama</button>
+		<div id="description41" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question42">
+	<p class="question">Soru 42:<br> Paragraf etiketinin özellikleri ve işlevi nedir?  </p>
+	<span class="option" data-correct="true"><b>A)</b> Paragraf etiketinden daha önce bahsettiğimiz gibi HTML sayfalarının içerisindeki paragrafları etiketlemek için &lt;p&gt; etiketi kullanılır. Tarayıcılar paragraf etiketlerinin öncesine ve sonrasına boşluk koyarak paragrafları ayırırlar. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description42">Açıklama</button>
+		<div id="description42" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question43">
+	<p class="question">Soru 43:<br> mark etiketinin kullanılan etiketin işlevi nedir?    </p>
+	<span class="option" data-correct="true"><b>A)</b> Paragraf içerisinde arka planı vurgulamak istediğinde kullanılır metnin arka planını sarı ile işaretler </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description43">Açıklama</button>
+		<div id="description43" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question44">
+	<p class="question">Soru 44:<br> img </p>
+	<span class="option" data-correct="true"><b>A)</b> Web sayfalarında resim göstermek için kullanılan img etiketi kapanış etiketi gerektirmeyen, resim yolunu içerisindeki alt özellikler yoluyla alan bir etikettir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description44">Açıklama</button>
+		<div id="description44" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question45">
+	<p class="question">Soru 45:<br> a etiketi ne için kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Web sayfalarının birbirlerine linkler aracılığı ile bağlandığından bahsetmiştik. Dosyalar arasında geçiş yapmak için a etiketini kullanabiliriz. Bu etiketin içerisindeki href özelliği ile gidilecek sayfanın konumu belirtilir. Gidilecek sayfa kendi projenizde oluşturduğunuz sayfalardan olabileceği gibi internet üzerindeki başka bir sayfada olabilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description45">Açıklama</button>
+		<div id="description45" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question46">
+	<p class="question">Soru 46:<br> span etiketi hangi durumlarda kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Sayfa içerisindeki herhangi bir elemanı şekillendirirken diğerlerinden ayırmak için span etiketi kullanılır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description46">Açıklama</button>
+		<div id="description46" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+		
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="anasayfa.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA I
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama1-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama1-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama1-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama1-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama1-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama1-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama1-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama1-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama1-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama1-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          BİLİŞİM HUKUKU
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="bilisimhk-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="bilisimhk-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="bilisimhk-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="bilisimhk-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="bilisimhk-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="bilisimhk-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="bilisimhk-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="bilisimhk-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="bilisimhk-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="bilisimhk-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB'DE TELİF HAKLARI VE ETİK
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="webtelif-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="webtelif-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="webtelif-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="webtelif-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="webtelif-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="webtelif-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="webtelif-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="webtelif-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="webtelif-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="webtelif-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          AĞ YÖNETİMİ VE BİLGİ GÜVENLİĞİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="agyonetimi-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="agyonetimi-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="agyonetimi-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="agyonetimi-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="agyonetimi-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="agyonetimi-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="agyonetimi-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="agyonetimi-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="agyonetimi-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="agyonetimi-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİTABANI PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veritabaniprg-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veritabaniprg-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  </nav>
+  
+    <h4 id="ders">Web'de Telif Hakları ve Etik - Ünite 7 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Aşağıdakilerden hangisi hakkında lisans <u><strong>verilemez?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Gizlilik </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Patent </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Marka </span><br>
+	<span class="option" data-correct="false"><b>D)</b> FSEK’teki Mali Haklar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> FSEK’teki Manevi Haklar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Daha önce ağırlıklı olarak tüketici konumunda
+olan kullanıcıların iletişim ağının içinde daha aktif olarak yer almalarını sağlayan ve sosyal medya uygulamalarının hemen tamamının dâhil olduğu sistemi bir sistem ifade eden kavram aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Çevrimiçi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kitlesellik </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Web 2.0 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> WebSitesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Hiçbiri </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Aşağıdakilerden hangisi dijital delillerin özelliklerindedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kabul edilebilirlik </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Gerçeklik </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bütünlük </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Güvenilirlik </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Hepsi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Aşağıdakilerden hangisi Internet Sitelerini oluşturan dosyaların web adreslerinden erişilebilmesi için web sunucularında barındırılmasını ifade eder? </p>
+	<span class="option" data-correct="false"><b>A)</b> Mailing </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Web Site </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Güncelleme </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Hosting </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Dijitalleşme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Aşağıdakilerden hangisi Birden fazla sayıda
+internet kullanıcısına aynı anda iletilen, tanıtım ya da bilgilendirme amaçlı, görsellerden ve metinlerden oluşan e-posta mesajlarını ifade etmek için kullanılan terimdir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Mailing </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Güncelleme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Flood </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Hosting </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Hashtag </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Aşağıdakilerden hangisi dijital delillerin özelliklerinden <u><strong>olamaz?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Kabul edilebilirlik </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Gerçeklik </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bütünlük </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Güvenilirlik </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Ticarilik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> Aşağıdakilerden hangisi 6698 sayılı Kişisel
+Verilerin Korunması Kanunu’nun 11. maddesi gereği; kişisel verileriniz ile ilgili olarak tanınmış yetkilerinizden <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Kişisel verilerinizin işlenip işlenmediğini öğrenme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kişisel verileriniz işlenmişse bilgi talep etme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kişisel verilerinizin işlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Kişisel verilerinizin önemli olduğunu tespit ettirme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kişisel verilerinizin yurt içinde / yurt dışında aktarıldığı 3. kişileri bilme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> Internet üzerinde, kimliğinizi ifşa etmek zorunda olmadan fikirlerinizi beyan etmenizi aşağıdakilerden hangisi direkt olarak sağlamaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Unutulma Hakkı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Lisans </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Anonim Kalma Hakkı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Telif Hakkı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kanunlar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> Avrupa Hukuku’na göre; eğer veriler çok
+uzun süredir toplanış amaçları kapsamında kullanılmıyorsa ve kullanıcı da söz konusu verilerin saklanmasına rıza göstermiyorsa, “veri denetçisi” (controller) kullanıcıya ait verileri gecikmeksizin silmek zorundadır. Ancak bu zorunluğunun bazı istisnaları vardır. <br><br>
+Aşağıdakilerden hangisi bunlardan değildir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Kar amacıyla </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İfade özgürlüğünün korunması amacıyla </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Genel sağlığı ilgilendiren bir konuda kamu yararı nedeniyle </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Tarihî, istatistiksel ve bilimsel amaçlar için </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Birliğin veya üye devletlerin hukuk sistemlerinin gerekli kılması nedeniyle </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Aşağıdakilerden hangisinde lisans türleri
+doğru verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> İhtiyari Lisans / Zorunlu Lisans </span><br>
+	<span class="option" data-correct="true"><b>B)</b> İnhisari Lisans - İnhisari Olmayan Lisans </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İktisadi Lisans – İktisadi Olmayan Lisans </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İnşai Lisans / İzhari Lisans </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İletişim Lisansı / Internet Lisansı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> “Herhangi bir müstehcen, küfürlü, hakaret içeren veya başka bir sebeple yasalara aykırı malzeme ve materyal içermeyeceğini” koşulu Di̇ji̇tal hi̇zmet–web si̇tesi̇ yapim, tasarim sözleşmesi̇’nin hangi bölümünde yer almaktadır. </p>
+	<span class="option" data-correct="false"><b>A)</b> Taraflar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yükümlülükler </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sözleşmenin Konusu </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Tanımlar ve Hizmetler </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Mülkiyet Hakkı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> Aşağıdakilerden hangisi internette kullanıcı hakları arasında bulunan ve günümüzün en çok konuşulan yeni hak türleri arasında yer almaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Bilgi edinme hakkı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sanal toplantı </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Anonim kalma hakkı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Özel hayatın gizliliğinin korunması hakkı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sanal kişiliğin korunması hakkı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Aşağıdakilerden hangisi 6698 sayılı Kişisel Verilerin Korunması Kanunu’nun 11. maddesi gereği; kişisel veriler ile ilgili haklardan birisi <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Kişisel veriler işlenip işlenmediğini öğrenme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yurt içinde/yurt dışında aktarıldığı 3. kişileri bilme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kişisel veriler yanlış işlenmişse düzeltilmesini isteme </span><br>
+	<span class="option" data-correct="true"><b>D)</b> İşlenen kişisel verilerin güvenilir olmasını isteme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kişisel veriler işlenmişse bilgi talep etme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br>  “Ortaya çıkacak resim, flash animasyon, banner, ana sayfa değişikliği, sayfa eklentisi gibi tüm görsel ihtiyaçların yerine getirilmesi” olarak yapılan tanım aşağıdakilerden hangisine aittir? </p>
+	<span class="option" data-correct="false"><b>A)</b> İnternet </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Güncelleme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Hosting </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Ajans </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Grafik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br>  Aşağıdakilerden hangisi kişisel verilerin işlenme amaçları ve hukuki sebeplerden birisi değildir? </p>
+	<span class="option" data-correct="false"><b>A)</b> İşlem sahibinin bilgilerini tespit için gerekli bilgileri kaydetmek </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Elektronik veya kağıt ortamında işleme dayanak olan tüm kayıt ve belgeleri düzenlemek </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Otoritelerce öngörülen bilgi saklama, bilgilendirme yükümlülüklerine uymak </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Hizmetleri sunabilmek ve akdedilen sözleşmenin gereğini yerine getirmek </span><br>
+	<span class="option" data-correct="true"><b>E)</b> İstenildiğinde bireysel bilgilerin başka kurumlar ve kamuoyu ile paylaşmak </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Aşağıdakilerden hangisi Dijital Hizmet-Web Sitesi Yapım, Tasarım Sözleşmesi içeriğinde konu olan tasarlanmış olan internet sitelerinin yayına hazır hale getirilmesi için kullanılan programlama dillerinden biridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> CGI </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Fortran </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Flash Kodlama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> C++ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Pascal </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      ““HTML / Flash Kodlama” Tasarlanmış olan internet sitelerinin yayına hazır hale getirilmesi için kullanılan programlama dilleridir.”
+
+
+     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> Türk Ceza Kanunu’nun 135. maddesine göre; kişisel verileri hukuka aykırı olarak kaydeden kimseye kaç yıl hapis cezası verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Üç ay </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Altı ay </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bir yıldan iki yıla kadar
+ </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Bir yıldan üç yıla kadar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İki yıldan dört yıla kadar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Aşağıdakilerden hangisi sosyal medyada yaptığımız paylaşımlar vb. günlük etkinliklerimiz kapsamında bıraktığımız kişisel verilerimizi tanımlamaktadır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Dijital iz </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Dijitalleşme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Gözetim toplumu </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Dijital sosyalleşme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Dijital iletişim </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> "kişisel verileri, hukuka aykırı olarak bir başkasına veren, yayan veya ele geçiren kişi, iki yıldan dört yıla kadar hapis cezası ile cezalandırılır."<br><br>
+
+Yukarıdaki metin hangi yasadan alınmıştır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Türkiye Cumhuriyeti Anayasası </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bilgisayara Geçirilmiş Kişisel Veri Dosyalarına İlişkin Kanun </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Elektronik İletişimde Kişisel Verilerin İşlenmesi ve Kişisel Alanın Korunması Kanunu </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Fikir ve Sanat Eserleri Kanunu </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Türk Ceza Kanunu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> "Dijital hafızada yer alan, bireye ait fotoğraf, kimlik bilgisi, adres ve diğer kişisel içeriğin, yine bireyin kendi talebi üzerine bir daha geri getirilemeyecek biçimde ortadan kaldırılması olarak" tanımlanan hak aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Anonim Kalma Hakkı </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Unutulma Hakkı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Görünür Olma Hakkı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Ünlü Olma Hakkı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Söz söyleme hakkı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Kişinin kendisiyle ilgili kişisel veriler hakkında bilgilendirilme, bu verilere erişme, bunların düzeltilmesini veya silinmesini talep etme ve amaçları doğrultusunda kullanılıp kullanılmadığını öğrenme hakkı anayasanın hangi maddesine dayanmaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> 18. Madde </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 19. Madde </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 20. Madde </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 21. Madde </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 22. Madde </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Aşağıdakilerden hangisi “hassas kişisel veri” kategorisinde <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Felsefi inanç bilgisi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Dernek üyeliği </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sağlık bilgisi
+ </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Kimlik numarası </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Irk bilgisi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      kişilerin ırkı, etnik kökeni, siyasî düşüncesi, felsefî inancı, dini, mezhebi veya diğer inançları, dernek, vakıf ya da sendika üyeliği, sağlığı veya cinsel hayatıyla ilgili veriler hassas kişisel verilerdir.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> I. Lisans sözleşmesi yapmak.<br>
+II. Yazılı mali haklara ilişkin lisans sözleşmesi yapmak.<br>
+III. Gerekli unsurları içeren yazılı lisans sözleşmesi yapmak.<br><br>
+Yukarıda verilen özelliklerden hangisi/hangileri bir lisansın verilmesi söz konusu olduğunda FSEK analımda geçerli bir sözleşmenin yapılması gereklidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> I-II-III </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I-II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I-III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II-III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yalnız I </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Aşağıdakilerden hangisi kişisel verilerle ilgili hassas veri kapsamında değildir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Doğum yeri </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Etnik köken </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sendika üyeliği </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Cinsellik </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Siyasal parti üyeliği </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      kişilerin ırkı, etnik kökeni, siyasî düşüncesi, felsefî inancı, dini, mezhebi veya diğer inançları, dernek, vakıf ya da sendika üyeliği, sağlığı veya cinsel hayatıyla ilgili veriler hassas kişisel verilerdir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> Aşağıdakilerden hangisi kanuna aykırı olarak verilerinizin işlenmesi sebebiyle zarara uğramanız halinde zararınızın giderilmesini talep edeceğinizi kanunun tam adıdır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Kişisel Verilerin Korunması Kanunu </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ceza Muhakemesi Kanunu </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Fikir ve Sanat Eserleri Kanunu </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Türk Ceza Kanunu </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bilgi Edime Hakkı Kanunu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> Aşağıdakilerden hangisi dijital delillerin verilerin tarafsız ve konuyu yansıtır nitelikte olması olarak tanımlanan özelliktir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Bütünlük </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kabul edilebilirlik
+</span><br>
+	<span class="option" data-correct="false"><b>C)</b> Gerçeklik </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Güvenirlik </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İnanılırlık </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      Hukuki açıdan anlam taşıyan deliller:<br><br>
+
+<u><strong>Kabul edilebilirlik:</strong></u> Hukuki kurallara uygun olarak elde edilmelidir.<br>
+<u><strong>Gerçeklik: </strong></u>Olayla ilgili ve diğer belgelerle ilişkilendirilebilir olmalıdır.<br>
+<u><strong>Bütünlük:</strong></u> Veriler tarafsız ve konuyu yansıtır nitelikte olmalı.<br>
+<u><strong>Güvenilirlik:</strong></u> Toplanması veya transferi sırasında aslına göre değişmemesi/bozulmaması/kaybolmaması için herhangi bir kuşkuya yer verilmeyecek bir hassasiyetle hareket edilmelidir.<br>
+<u><strong>İnanılırlık:</strong></u> Mahkeme vb. yargı mercileri tarafından inandırıcı ve anlaşılabilir olmalıdır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Aşağıdakilerden hangisi "unutulma hakkının sadece dijital kişisel veriler için değil, kamunun kolayca ulaşabileceği yerde tutulan kişisel verilere yönelik olarak da kabul edilmesi gerektiğine hükmetmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Danıştay </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Asliye Hukuk Mahkemesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sayıştay </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Yargıtay Hukuk Genel Kurulu </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Anayasa Mahkemesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> Aşağıdakilerden hangisi dijital delillerin özelliklerinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Kabul edilebilirlik </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Gerçeklik </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bütünlük </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Güvenirlik </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Samimilik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> “İnternet Sitesinin Hosting giderleri ve teknik yönetimi Firma’nın sorumluluğundadır”  koşulu 'Di̇ji̇tal hi̇zmet web si̇tesi̇ yapım, tasarim sözleşmesi̇’nin hangi kısmı/bölümü ile ilgilidir. </p>
+	<span class="option" data-correct="false"><b>A)</b> Taraflar </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Yükümlülükler </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Teslim ve Kesin Kabul </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Mülkiyet Hakkı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Tanımlar ve Hizmetler </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> Aşağıdakilerden hangisi dijital delillerin özelliklerinden <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Gerçeklik </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bütünlük </span><br>
+	<span class="option" data-correct="true"><b>C)</b> İkna edicilik </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Güvenilirlik </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İnanılırlık </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br>  “İnternet Sitesinin Hosting giderleri ve teknik yönetimi Firma’nın sorumluluğundadır”  koşulu 'Di̇ji̇tal hi̇zmet web si̇tesi̇ yapım, tasarim sözleşmesi̇’nin hangi kısmı/bölümü ile ilgilidir. </p>
+	<span class="option" data-correct="false"><b>A)</b> Taraflar </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Yükümlülükler </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Teslim ve Kesin Kabul </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Mülkiyet Hakkı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Tanımlar ve Hizmetler </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> Aşağıdakilerden hangisi doğrudan kişisel verilerin korunması ile ilgili Uluslararası metinlerden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Türk Ceza Kanunu </span><br>
+	<span class="option" data-correct="false"><b>B)</b> OECD Özel Yaşamın Gizliliği ve Sınır Ötesi Kişisel Veri Dolaşımının Korunmasına İlişkin Rehber İlkeleri </span><br>
+	<span class="option" data-correct="false"><b>C)</b> AB Temel Haklar Şartı’nda, Birleşmiş Milletler Evrensel İnsan Hakları Beyannamesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Birleşmiş Milletler Bilgisayara Geçirilmiş Kişisel Veri Dosyalarına İlişkin Rehber İlkeler </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Birleşmiş Milletler Bireysel ve Siyasal Haklar Sözleşmesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> Türkiye’de “unutulma hakkı” nın kabulü ile ilgili önemli bir gelişme olan Yargıtay Hukuk Genel Kurulu kararı aşağıdaki tarihlerden hangisinde alınmıştır? </p>
+	<span class="option" data-correct="false"><b>A)</b> 2012 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 2013 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 2014 </span><br>
+	<span class="option" data-correct="true"><b>D)</b> 2015 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 2016 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br>  “İnternet Sitesi işlevselliğine kavuşturulması için yapılacak programlama çalışmaları” olarak yapılan tanım aşağıdakileden hangisinin tanımıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Flash Kodlama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Güncelleme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Flash Animasyon
+
+ </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Sunucu Tarafı Programlama </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Hosting </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> Doğrudan kişisel verilerin korunması ile ilgili olarak düzenlenmiş bir metin olan "OECD Özel Yaşamın Gizliliği ve Sınır Ötesi Kişisel Veri Dolaşımının Korunmasına İlişkin Rehber İlkeleri" hangi tarihte oluşturulmuştur? </p>
+	<span class="option" data-correct="false"><b>A)</b> 1960 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 1970 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 1980 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 1990 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 2000 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> Aşağıdakilerden hangisi TCK’nın 138. Maddesine göre kanunların belirlediği sürelerin geçmiş olmasına karşın verileri sistem içinde yok etmekle yükümlü olanların görevlerini yerine getirmediklerinde karşılaşacakları yaptırımdır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Bir yıldan iki yıla kadar hapis cezası </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Toplum hizmeti cezası </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Meslekten çıkarılma cezası </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Görev yerini değiştirme cezası </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Maaşının dörtte birini kesme cezası </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> - Konsept tasarımıyla rakiplerinden ayrışacak,<br>
+- HTML5 yazılım ile tüm mobile cihazlarda sorunsuz görüntülenecek,<br>
+- Responsive layout ile farklı ekran boyutlarına göre tasarımı özelleşecek,<br>
+- Arama motorları ile uyumlu olacak (SEO),<br>
+- İngilizce + Türkçe dillerinde olacak,<br><br>
+Yeni bir web sitesi yaptırmak isteyen bir müşterinin tasarım firması ile imzalayacağı sözleşmede yukaradakiler hangi başlık altında yer alır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Tanımlar ve hizmetler </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Taraflar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yükümlülükler </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Teslim ve kesin kabul </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Mülkiyet Hakkı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> 5846 Sayılı ..............................  ile yasal koruma altında olan bir metnin eser sahibi konumunda bulunan kişinin yazılı izni olmaksızın herhangi bir şekilde kullanılması, çoğaltılması, yayılması, işlenmesi, uyarlanması, sahnelenmesi ya da kaynak göstermeksizin alıntılanması yasaktır. Sayılan şekillerde, metnin kullanılmasında hukuka aykırı hareket edilmesi, ilgili yasaya göre suç kabul edilmekte ve hapis cezası gerektirmektedir. Bu türden haksız kullanımlar neticesinde; hapis cezası yanı sıra yine aynı kanuna göre metnin telif ücretinin üç katına kadar da tazminat bedelinin ödenmesi söz konusu olacaktır.<br><br>
+
+Yukarıda boşluğa aşağıdakilerden hangisi gelmelidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Medeni Kanun </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Türk Ceza Kanununu </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Radyo ve Televizyon Üst Kurumunun Kuruluşuna Dair Kanun </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Fikir Ve Sanat Eserleri Kanunu </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Basın Kanunu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> Kişisel bilgilerinizi; kaydeden, saklayan, güncelleyen, mevzuatın izin verdiği durumlarda 3. Kişilere açıklayabilen/devredebilen, sınıflandırabilen ve KVKK’da sayılan şekillerde işleyebilen kişilere verilen isim aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Programcı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İnternet sağlayıcı </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Veri sorumlusu </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Web sitesi yöneticisi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Hosting sunucusu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> Aşağıdakilerden hangisi tasarlanmış olan internet sitelerinin yayına hazır hale getirilmesi için kullanılan programlama dilidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> HTML </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Flash Animasyon </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Hosting </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Güncelleme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Mailing </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      “HTML / Flash Kodlama” Tasarlanmış olan internet sitelerinin yayına hazır hale getirilmesi için kullanılan programlama dilleridir     </div>
+	</div>
+</div>
+	  
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

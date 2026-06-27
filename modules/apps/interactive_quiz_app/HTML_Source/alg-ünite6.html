@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          ALGORİTMALAR
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="alg-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="alg-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="alg-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="alg-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="alg-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="alg-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="alg-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="alg-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="alg-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="alg-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB SUNUCU PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wsp-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wsp-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wsp-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wsp-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wsp-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wsp-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wsp-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wsp-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wsp-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wsp-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİ MADENCİLİĞİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="vmaden-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="vmaden-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="vmaden-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="vmaden-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="vmaden-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="vmaden-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="vmaden-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="vmaden-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="vmaden-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="vmaden-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİTABANI SİSTEMLERİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="vtsistem-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="vtsistem-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="vtsistem-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="vtsistem-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="vtsistem-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="vtsistem-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="vtsistem-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="vtsistem-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="vtsistem-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="vtsistem-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMADA YENİ EĞİLİMLER
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="prgyenieğilim-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="prgyenieğilim-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Algoritmalar - Ünite 6 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Aşağıdaki algoritmalardan hangisi böl ve yönet
+stratejisini kullanan bir sıralama algoritmasıdır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Hızlı Sıralama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kabarcık Sıralama </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Eklemeli Sıralama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kabuk sıralama </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yığın sıralama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      Bunu yapmak için iki ana yaklaşım vardır:<br><br>
+İlk yaklaşımda, n elemanlı veri listesi, 2 eleman kalana kadar ikiye bölünerek yaklaşık n/2 adet alt veri seti elde edilmektedir. Ardından bu iki elemanlı alt veri kümeleri hızlıca sıralanır. Bir sonraki aşamada ise veri setleri sıra göz önünde bulundurularak birleştirilir. Bu yaklaşım <u><strong>birleştirmeli sıralama (merge sort)</strong></u> ismi
+ile anılmaktadır.<br><br>
+Diğer bir yaklaşım ise veri setinin her aşamada, ilk alt veri setindeki tüm elemanlar ikinci alt veri setindeki tüm elemanlardan daha büyük olmayacak şekilde listeyi ikiye bölme işlemini temel almaktadır. Buradaki bölme işlemi açıkça bir önceki yaklaşıma göre daha karmaşıktır ancak her aşamada parçaları tekrar bir
+araya getirmek için tek yapmamız gereken ilk sıralanan diziyi ve ardından ikinci sıralanan diziyi almaktır. Bu yaklaşım hızlı sıralama <u><strong>(quick sort)</strong></u> olarak isimlendirilir. İlk yaklaşımda, bölme işlemi çaba gerektirmez iken ikinci yaklaşımda ise birleştirme işlemi çaba gerektirmemektedir. Bu başlık altında bu iki algoritmanın detayları sunulacaktır     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Birleştirmeli sıralama algoritmasının en kötü
+durumda zaman karmaşıklığı nedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> O(n) </span><br>
+	<span class="option" data-correct="true"><b>B)</b> O(n log<sub>2</sub>(n)) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> O(log<sub>2</sub>(n)) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> O(n<sup>2</sup>) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> O(n<sup>2</sup> log<sub>2</sub>(n)) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      
+		<u><strong>Sıralama Algoritması &emsp;-&emsp; Ortalama &emsp;-&emsp; En kötü</strong></u><br>
+Kabarcık Sıralama &emsp;&emsp;-&emsp;&emsp; O(n2) &emsp;&emsp;&emsp;-&emsp;&emsp; O(n2)<br>
+Eklemeli Sıralama &emsp;&emsp;-&emsp;&emsp; O(n2) &emsp;&emsp;&emsp;-&emsp;&emsp; O(n2)<br>
+Seçmeli Sıralama &emsp;&emsp;-&emsp;&emsp; O(n2) &emsp;&emsp;&emsp;-&emsp;&emsp; O(n2)<br>
+Kabuk Sıralama &emsp;&emsp;-&emsp;&emsp; O(n log<sub>2</sub>(n)) &emsp;-&emsp;&emsp; O(n2)<br>
+Ağaç sıralama &emsp;&emsp;-&emsp;&emsp; O(n log<sub>2</sub>(n)) &emsp;&emsp;-&emsp;&emsp; O(n2)<br>
+Yığın Sıralama &emsp;&emsp;-&emsp;&emsp; O(n log<sub>2</sub>(n)) &emsp;&emsp;-&emsp;&emsp; O(n log<sub>2</sub>(n))<br>
+Hızlı Sıralama &emsp;&emsp;-&emsp;&emsp; O(n log<sub>2</sub>(n)) &emsp;&emsp;-&emsp;&emsp; O(n2)<br>
+Birleştirmeli Sıralama &emsp;-&emsp; O(n log<sub>2</sub>(n)) - O(n log<sub>2</sub>(n))  
+		
+		</div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Takas işleminin çok maliyetli olduğu bir durumda genel olarak takas işlemlerinin sayısının en aza indirilmesi için aşağıdaki sıralama algoritmalarından hangisi tercih edilmelidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Seçmeli Sıralama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kabarcık Sıralama </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Eklemeli Sıralama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kabuk sıralama </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yığın sıralama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Hızlı sıralama kullanarak sekiz tam sayıdan
+oluşan bir diziyi sıraladığımız durumda ilk bölümle işlemi sonunda elde edilen dizi aşağıdaki şekildedir.<br><br>
+21, 25, 11, 37, 49, 52, 50, 85<br><br>
+Yukarıda verilenlere göre aşağıdakilerden hangisi kesinlikle doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Bu işlemde pivot sadece 37’dir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bu işlemde pivot sadece 52’dir. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Bu işlemde pivot sadece 37 veya 49’dur. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bu işlemde pivot sadece 11’dir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bu işlemde pivot sadece 49 ve 52’dir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      Hızlı sıralama (quick sort) algoritmasında, dizi sıralanırken bir pivot eleman seçilir ve diğer elemanlar bu pivot elemanına göre sıralanır. Pivot elemanı, dizi içindeki diğer elemanları ikiye bölmek için kullanılır.<br><br>
+
+Verilen dizideki ilk bölümle işlemi sonucunda elde edilen dizi: 21, 25, 11, 37, 49, 52, 50, 85 şeklindedir.<br><br>
+
+Bu durumda pivot elemanını doğru bir şekilde tespit etmek için dizinin ortasında bir eleman seçmemiz gerekmektedir. İlgili diziye bakıldığında, 37 elemanının ortada olduğu görülmektedir. Dolayısıyla, C seçeneği doğrudur ve bu işlemde pivot elemanı sadece 37 veya 49 olabilir.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Yığın sıralama algoritmasının ortalama zaman
+karmaşıklığı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> O(n) </span><br>
+	<span class="option" data-correct="true"><b>B)</b> O(n log<sub>2</sub>(n)) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> O(log<sub>2</sub>(n)) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> O(n<sup>2</sup>) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> O(n<sup>2</sup> log<sub>2</sub>(n)) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      <u><strong>Sıralama Algoritması &emsp;-&emsp; Ortalama &emsp;-&emsp; En kötü</strong></u><br>
+Kabarcık Sıralama &emsp;&emsp;-&emsp;&emsp; O(n2) &emsp;&emsp;&emsp;-&emsp;&emsp; O(n2)<br>
+Eklemeli Sıralama &emsp;&emsp;-&emsp;&emsp; O(n2) &emsp;&emsp;&emsp;-&emsp;&emsp; O(n2)<br>
+Seçmeli Sıralama &emsp;&emsp;-&emsp;&emsp; O(n2) &emsp;&emsp;&emsp;-&emsp;&emsp; O(n2)<br>
+Kabuk Sıralama &emsp;&emsp;-&emsp;&emsp; O(n log<sub>2</sub>(n)) &emsp;-&emsp;&emsp; O(n2)<br>
+Ağaç sıralama &emsp;&emsp;-&emsp;&emsp; O(n log<sub>2</sub>(n)) &emsp;&emsp;-&emsp;&emsp; O(n2)<br>
+Yığın Sıralama &emsp;&emsp;-&emsp;&emsp; O(n log<sub>2</sub>(n)) &emsp;&emsp;-&emsp;&emsp; O(n log<sub>2</sub>(n))<br>
+Hızlı Sıralama &emsp;&emsp;-&emsp;&emsp; O(n log<sub>2</sub>(n)) &emsp;&emsp;-&emsp;&emsp; O(n2)<br>
+Birleştirmeli Sıralama &emsp;-&emsp; O(n log<sub>2</sub>(n)) - O(n log<sub>2</sub>(n))     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Aşağıdaki sıralama algoritmalarından hangisi
+en kötü zaman karmaşıklığı açısından en iyi performansa
+sahiptir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kabarcık Sıralama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Hızlı Sıralama </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Yığın Sıralama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kabuk Sıralama </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Ağaç sıralama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      
+			O(n2), O(n log<sub>2</sub>(n)) 'a göre daha yavaştır. Bu sebeple en kötü zaman karmaşıklığında en iyi performansa Yığın Sıralama ve Birleştirmeli sıralama sahiptir.<br><br>
+
+			<u><strong>Sıralama Algoritması &emsp;-&emsp; Ortalama &emsp;-&emsp; En kötü</strong></u><br>
+Kabarcık Sıralama &emsp;&emsp;-&emsp;&emsp; O(n2) &emsp;&emsp;&emsp;-&emsp;&emsp; O(n2)<br>
+Eklemeli Sıralama &emsp;&emsp;-&emsp;&emsp; O(n2) &emsp;&emsp;&emsp;-&emsp;&emsp; O(n2)<br>
+Seçmeli Sıralama &emsp;&emsp;-&emsp;&emsp; O(n2) &emsp;&emsp;&emsp;-&emsp;&emsp; O(n2)<br>
+Kabuk Sıralama &emsp;&emsp;-&emsp;&emsp; O(n log<sub>2</sub>(n)) &emsp;-&emsp;&emsp; O(n2)<br>
+Ağaç sıralama &emsp;&emsp;-&emsp;&emsp; O(n log<sub>2</sub>(n)) &emsp;&emsp;-&emsp;&emsp; O(n2)<br>
+Yığın Sıralama &emsp;&emsp;-&emsp;&emsp; O(n log<sub>2</sub>(n)) &emsp;&emsp;-&emsp;&emsp; O(n log<sub>2</sub>(n))<br>
+Hızlı Sıralama &emsp;&emsp;-&emsp;&emsp; O(n log<sub>2</sub>(n)) &emsp;&emsp;-&emsp;&emsp; O(n2)<br>
+Birleştirmeli Sıralama &emsp;-&emsp; O(n log<sub>2</sub>(n)) - O(n log<sub>2</sub>(n))     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> Aşağıda verilen listede üzerinde ikili arama algoritması kullanılarak arama işlemi gerçekleştirilecektir.<br><br>
+2, 16, 4, 6, 13, 7, 9, 11, 3, 1, 19<br><br>
+Yukarıdaki bilgilere göre 3 sayısını bulmak için kaç karşılaştırma yapılmalıdır? </p>
+	<span class="option" data-correct="true"><b>A)</b> 2 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 3 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 4 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 7 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 9 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      Liste sıralı olduğunda ikili arama algoritması kullanılabilir. Ancak verilen liste sıralı değildir, bu nedenle doğru sonucu bulabilmek için listenin önce sıralanması gerekmektedir. Sıralanmış liste: 1, 2, 3, 4, 6, 7, 9, 11, 13, 16, 19<br><br>
+
+İkili arama işlemi gerçekleştirilir. İlk orta nokta 7'dir. Hedef eleman olan 3, orta noktadan daha küçüktür. Bu nedenle arama işlemi sol yarıya odaklanır.<br><br>
+
+Bundan sonraki adımda sol yarıdaki 1, 2, 3, 4, 6,  incelenir ve 3 tam ortada olduğundan 2. aramada işlem sona erer.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> Sıralanmamış bir listede ikili arama algoritması kullanılacaktır. Bu durumda arama işlemi için en iyi zaman karmaşıklığı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> O(n) </span><br>
+	<span class="option" data-correct="true"><b>B)</b> O(n log<sub>2</sub>(n)) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> O(log<sub>2</sub>(n)) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> O(n<sup>2</sup>) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> O(n<sup>2</sup> log<sub>2</sub>(n)) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      İkili arama algoritması arama yaptığı veri setini her seferinde iki eşit parçaya bölerek devam etmektedir.Bu nedenle algoritma için en kötü ve ortalama zaman karmaşıklığı O(log2(n))dir. Arama algoritması en iyi ihtimalle aradığı değeri ilk baktığı değerde bulabilir, bu durumda ise zaman karmaşıklığı O(1) olacaktır.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> Doğrusal sıralama algoritması için en iyi durumda
+zaman karmaşıklığı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> O(n) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> O(n log<sub>2</sub>(n)) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> O(log<sub>2</sub>(n)) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> O(n<sup>2</sup>) </span><br>
+	<span class="option" data-correct="true"><b>E)</b> O(1) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      Doğrusal arama algoritmasının en kötü durum zaman karmaşıklığı ise  O(n)’dir. Genel olarak küçük boyutlu
+sırasız listeler üzerinde kullanılması önerilmektedir. Doğrusal arama algoritması özellikle büyük veri
+kümeleriyle uğraşırken oldukça verimsiz olarak kabul edilmektedir     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Aşağıda verilen liste üzerinde doğrusal arama
+algoritması kullanılacaktır.<br><br>
+
+6, 1, 2, 4, 3, 11, 19, 21, 32, 7, 9<br><br>
+
+Yukarıda verilen bilgilere göre 11 sayısını bulmak için kaç kez karşılaştırma yapılmalıdır? </p>
+	<span class="option" data-correct="true"><b>A)</b> 6 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 5 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 1 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 11 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 8 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      Doğrusal arama algoritması, verilen bir listede hedef elemanı bulmak için liste elemanlarını sırayla kontrol eder. Bu durumda, 11 sayısını bulmak için listedeki her bir elemanı kontrol etmemiz gerekecektir.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> Eklemeli sıralama ile ilgili olarak verilen bilgilerden hangisi yada hangileri doğrudur?<br><br>
+I- Değiştirerek sıralama stratejisini kullanmaktadır<br>
+
+II-Listenin belirli bir bölümünün zaten sıralanmış olduğunu varsayar<br>
+
+III- Kabarcık sıralama gibi zaman karmaşıklığına sahiptir. </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br>  "Bu sıralama stratejisinde, karşılaştırılan iki veri öncelikle sıraya konulur. Ardından bu işlem tüm veriler sıralanana kadar devam ettirilir."<br><br>
+Yukarıda verilen açıklama aşağıdakilerden hangisidir?  </p>
+	<span class="option" data-correct="false"><b>A)</b> Rassal sıralama </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Değiştirerek sıralama </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yansız sıralama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Eklemeli sıralama </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Böl ve yönet sıralama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">     Kullanıldıkları Stratejilere göre;<br><br>
+			
+<u><strong>Değiştirerek Sıralama:</strong></u> Bu sıralama stratejisinde, karşılaştırılan iki veri öncelikle sıraya konulur. Ardından bu işlem tüm veriler sıralanana kadar devam ettirilir.<br><br>
+			
+<u><strong>Seçerek Sıralama:</strong></u> Veriler içerisinde en küçük olanı bulunur ve sıraya yerleştirilir. Ardından kalan veriler arasında en küçük veri bulunur ve tekrar sıraya konulur. Bu işlem veri seti sıralanana kadar devam ettirilir.<br><br>
+			
+<u><strong>Eklemeli Sıralama:</strong></u> Verileri birer birer alarak boş bir veri yapısı içerisine uygun sırada eklenir.<br><br>
+			
+<u><strong>Böl ve Yönet Sıralama:</strong></u> Verinin sıralanması amacı ile bir veya iki veri kalana kadar problem daha küçük parçalara bölünür. Ardından en alt seviyede sıralanan parçalar yukarı seviyelere doğru birleştirilerek tüm verinin sıralanması sağlanır.<br><br>
+			
+<u><strong>Numaralandırmalı Sıralama:</strong></u> Her bir veri diğer tüm verilerle karşılaştırarak ve daha küçük değere sahip veri sayısını bulunur. Ardından veri bu pozisyona yerleştirilir.<br><br>
+			
+Yukarıda sunulan stratejiler, sıralanacak tüm verilerin bilgisayarın ana bellekte işlenebilecek büyüklükte olma varsayımına dayanmaktadır. Bu nedenle bu varsayıma sahip algoritmalar <u><strong>“dahili sıralama algoritmaları”</strong></u> olarak adlandırılırlar      </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Aşağıdaki sıralama türlerinden hangisinde veriler içerisinde en küçük olanı bulunur ve sıraya yerleştirilir ? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kabuk sıralama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kabarcık sıralama </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Seçerek sıralama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Numaralandırmalı Sıralama </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Böl ve Yönet Sıralama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">     Kullanıldıkları Stratejilere göre;<br><br>
+			
+<u><strong>Değiştirerek Sıralama:</strong></u> Bu sıralama stratejisinde, karşılaştırılan iki veri öncelikle sıraya konulur. Ardından bu işlem tüm veriler sıralanana kadar devam ettirilir.<br><br>
+			
+<u><strong>Seçerek Sıralama:</strong></u> Veriler içerisinde en küçük olanı bulunur ve sıraya yerleştirilir. Ardından kalan veriler arasında en küçük veri bulunur ve tekrar sıraya konulur. Bu işlem veri seti sıralanana kadar devam ettirilir.<br><br>
+			
+<u><strong>Eklemeli Sıralama:</strong></u> Verileri birer birer alarak boş bir veri yapısı içerisine uygun sırada eklenir.<br><br>
+			
+<u><strong>Böl ve Yönet Sıralama:</strong></u> Verinin sıralanması amacı ile bir veya iki veri kalana kadar problem daha küçük parçalara bölünür. Ardından en alt seviyede sıralanan parçalar yukarı seviyelere doğru birleştirilerek tüm verinin sıralanması sağlanır.<br><br>
+			
+<u><strong>Numaralandırmalı Sıralama:</strong></u> Her bir veri diğer tüm verilerle karşılaştırarak ve daha küçük değere sahip veri sayısını bulunur. Ardından veri bu pozisyona yerleştirilir.<br><br>
+			
+Yukarıda sunulan stratejiler, sıralanacak tüm verilerin bilgisayarın ana bellekte işlenebilecek büyüklükte olma varsayımına dayanmaktadır. Bu nedenle bu varsayıma sahip algoritmalar <u><strong>“dahili sıralama algoritmaları”</strong></u> olarak adlandırılırlar      </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> Aşağıdakilerden hangisi algoritma sıralamalarından <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Değiştirerek sıralama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Seçerek sıralama </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Eklemeli sıralama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Böl ve yönet sıralama </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Dahili sıralama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">     Kullanıldıkları Stratejilere göre;<br><br>
+			
+ <u><strong>Değiştirerek Sıralama:</strong></u> Bu sıralama stratejisinde, karşılaştırılan iki veri öncelikle sıraya konulur. Ardından bu işlem tüm veriler sıralanana kadar devam ettirilir.<br><br>
+			
+<u><strong>Seçerek Sıralama:</strong></u> Veriler içerisinde en küçük olanı bulunur ve sıraya yerleştirilir. Ardından kalan veriler arasında en küçük veri bulunur ve tekrar sıraya konulur. Bu işlem veri seti sıralanana kadar devam ettirilir.<br><br>
+			
+<u><strong>Eklemeli Sıralama:</strong></u> Verileri birer birer alarak boş bir veri yapısı içerisine uygun sırada eklenir.<br><br>
+			
+<u><strong>Böl ve Yönet Sıralama:</strong></u> Verinin sıralanması amacı ile bir veya iki veri kalana kadar problem daha küçük parçalara bölünür. Ardından en alt seviyede sıralanan parçalar yukarı seviyelere doğru birleştirilerek tüm verinin sıralanması sağlanır.<br><br>
+			
+<u><strong>Numaralandırmalı Sıralama:</strong></u> Her bir veri diğer tüm verilerle karşılaştırarak ve daha küçük değere sahip veri sayısını bulunur. Ardından veri bu pozisyona yerleştirilir.<br><br>
+			
+Yukarıda sunulan stratejiler, sıralanacak tüm verilerin bilgisayarın ana bellekte işlenebilecek büyüklükte olma varsayımına dayanmaktadır. Bu nedenle bu varsayıma sahip algoritmalar <u><strong>“dahili sıralama algoritmaları”</strong></u> olarak adlandırılırlar      </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> Sırasız bir liste verildiğinde her seferinde ardışık iki elemanı karşılaştırıp doğru büyüklük sırasına koyarak sıralama gerçekleştirir. İlk aşama sonunda sıralamanın ilk elemanı en sağa taşınmış olur. İç içe döngüler kullanır.  O(n<sup>2</sup>) zaman karmaşıklığına sahiptir.
+
+Tanımda verilen algoritma aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Kabarcık sıralama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ortalama sıralama </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bölmeli sıralama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Seçmeli sıralama </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Eklemeli sıralama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      Kabarcık sıralama algoritması, değiştirerek sıralama stratejine dayanmaktadır. Temelindeki fikir oldukça basittir. Sırasız rastgele bir liste verildiğinde, her seferinde iki elemanı karşılaştırıp doğru büyüklük sırasına koyarak sıralama gerçekleştirilir. Liste içerisindeki ardışık ikili elemanları karşılaştırarak uygun sıraya yerleştirir. Kabarcık sıralama iç içe döngüler kullandığından, en kötü ve ortalama zaman açısından O(n<sup>2</sup>) zaman karmaşıklığına sahiptir.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br>  İsmini algoritmayı geliştiren Donald Shell'den alan sıralama aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Kabuk sıralama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kabarcık sıralama </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Değiştirmeli sıralama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Seçmeli sıralama </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Radyal sıralama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br>  Değerleri küçük veya sınırlı veri setleri üzerinde çalışan, temelde karşılaştırmaya dayalı olmayan sıralama algoritması aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Radix </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Pivot </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Shell </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Petrus </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Python </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Algoritmaların hızlı sıralama listesinde diziyi ikiye bölen orta noktasına ne ad verilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Pivot </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Medyum </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Medyan </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yığın </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Indis </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> 10-20-30-40-45-50-60-70
+
+Hızlı sıralama kullanarak sekiz tam sayıdan oluşan yukarıdaki bir diziyi sıraladığımızda aşağıdakilerden hangisi kesinlikle doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Bu işlemde pivot 10 dur. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bu işlemde pivot 70 dir. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Bu işlemde pivot 40 veya 45 tir.  </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bu işlemde pivot 20 dir.  </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bu işlemde pivot 60 dir.  </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br>  Algoritmalar hakkında aşağıdaki maddelerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Algoritmaların hızlı sıralama listesinde diziyi ikiye bölen orta noktasına pivot denir.  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Donald Shell, kabuk sıralama algoritmasını geliştiren kişidir.  </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Değerleri küçük veya sınırlı veri setleri üzerinde çalışan temelde karşılaştırmaya dayalı olmayan sıralama algoritmasına Radix sıralama denir.  </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yığın (heap) ağacının en üstündeki sayıyı alarak sıralama işlemidir. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Sırasız bir liste verildiğinde, her seferinde iki elemanı karıştırıp doğru büyüklükte sıralamaya takas denir.   </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      <u><strong>Kabarcık Sıralama</strong></u>
+Kabarcık sıralama algoritması, değiştirerek sıralama stratejine dayanmaktadır. Temelindeki fikir oldukça basittir.<u> Sırasız rastgele bir liste verildiğinde, her seferinde iki elemanı karşılaştırıp doğru büyüklük sırasına koyarak sıralama gerçekleştirilir </u>    </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Kabarcık sıralama algoritması hangi sıralama stratejisine dayanır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Değiştirerek Sıralama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Numaralandırmalı Sıralama </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Seçerek Sıralama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Böl ve Yönet Sıralama </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Eklemeli Sıralama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Aşağıda verilen sıralamala algoritmalarından hangisi veya hangileri iç içe iki döngü içerir?<br><br>
+I- Kabarcık sıralama<br>                II- Eklemeli sıralama<br>          III-Seçmeli sıralamanın </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I,II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> Aşağıda verilen sıralama algoritmalarından hangisi sıralama problemine çözüm getirirken veriyi bir bütün olarak <u><strong>almaz?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Böl ve Yönet </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yığın Sıralama </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ağaç Sıralama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kabuk Sıralama </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Seçmeli Sıralama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Bir sıralama işlemini gerçekleştirebilmek için ilk tanımlanması gereken kavram aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Sıra </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Değişken </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Liste </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Ağaç </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İkileme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> "İkili arama algoritması oldukça hızlı bir algoritmadır ancak yalnızca ............ veri setleri üzerinde çalışabilir."
+Yukarıdaki boşluğa gelmesi gereken ifade aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> ikili </span><br>
+	<span class="option" data-correct="false"><b>B)</b> dağınık </span><br>
+	<span class="option" data-correct="false"><b>C)</b> rakamsal </span><br>
+	<span class="option" data-correct="true"><b>D)</b> sıralı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> eşit </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> Aşağıdakilerden hangisi yığın (heap) sıralama işleminin özelliklerinden <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Veri seti kullanılır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bir yığın ağacının en üstündeki sayıyı alarak sıralama işlemi yapılır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sıralama amacıyla kullanılan bir veri yapısıdır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bu yapıda üst düğüm daima çocuklarından büyüktür.  </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Bu yapıda üst düğüm daima en küçük olandır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Aşağıdakilerden hangisi ağaç sıralama yönteminin özelliği <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Ağaç sıralama yönteminde veri olarak sayı kullanılır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ağaç yapısı düğümlerden oluşur.  </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İkili arama ağaçlarında her bir düğümün en fazla iki çocuk düğümü bulunmaktadır.  </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Ağaç sıralamada ana fikir, sıralanacak öğeleri tek tek dengeli biçimde yerleştirmektedir.  </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Tüm elemanlar yerleştiğinde tüm öğeler doğru bir sıra ile ağaçtan çekilebilir.  </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      Ağaç sıralama yönteminde <u><strong>veri yapısı olarak ağaç</strong></u> kullanılmaktadır     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> Temel olarak başka sıralama algoritmalarının verimliliğini artıran bir algoritmadır ve içerisinde başka sıralama algoritmaları çalıştıran ve öncelikle bir aralık değeri belirlenmesini gerektiren sıralama algoritması aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Seçmeli Sıralama </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Kabuk Sıralama </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Eklemeli Sıralama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kabarcık Sıralama </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Ağaç Sıralama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> Aşağıdakilerden hangisinde bir veri setinde aranan değerin setteki tüm elemanların tek tek kontrol ederek aranması söz konusudur? </p>
+	<span class="option" data-correct="true"><b>A)</b> Doğrusal arama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Arama ağacı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kabuk araması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Değiştirerek arama </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Atlamalı arama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br>  " .........., veri seti kullanılarak oluşturulan bir yığın ağacının (heap) en üstündeki sayısını alarak sıralama işlemi yapmaktadır."<br><br>
+Yukarıdaki boşluğa gelmesi gereken en uygun ifade aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Doğrusal sıralama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Dağınık sıralama </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İkili sıralama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Linear sıralama </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Yığın sıralama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> Aşağıdakilerden hangisi algoritma sıralamalarından <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Değiştirerek sıralama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Seçerek sıralama </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Eklemeli sıralama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Böl ve yönet sıralama </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Dahili sıralama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      Kullanıldıkları Stratejilere göre;<br><br>
+			
+<u><strong>Değiştirerek Sıralama:</strong></u> Bu sıralama stratejisinde, karşılaştırılan iki veri öncelikle sıraya konulur. Ardından bu işlem tüm veriler sıralanana kadar devam ettirilir.<br><br>
+			
+<u><strong>Seçerek Sıralama:</strong></u> Veriler içerisinde en küçük olanı bulunur ve sıraya yerleştirilir. Ardından kalan veriler arasında en küçük veri bulunur ve tekrar sıraya konulur. Bu işlem veri seti sıralanana kadar devam ettirilir.<br><br>
+			
+<u><strong>Eklemeli Sıralama:</strong></u> Verileri birer birer alarak boş bir veri yapısı içerisine uygun sırada eklenir.<br><br>
+			
+<u><strong>Böl ve Yönet Sıralama:</strong></u> Verinin sıralanması amacı ile bir veya iki veri kalana kadar problem daha küçük parçalara bölünür. Ardından en alt seviyede sıralanan parçalar yukarı seviyelere doğru birleştirilerek tüm verinin sıralanması sağlanır.<br><br>
+			
+<u><strong>Numaralandırmalı Sıralama:</strong></u> Her bir veri diğer tüm verilerle karşılaştırarak ve daha küçük değere sahip veri sayısını bulunur. Ardından veri bu pozisyona yerleştirilir.<br><br>
+			
+Yukarıda sunulan stratejiler, sıralanacak tüm verilerin bilgisayarın ana bellekte işlenebilecek büyüklükte olma varsayımına dayanmaktadır. Bu nedenle bu varsayıma sahip algoritmalar <u><strong>“dahili sıralama algoritmaları”</strong></u> olarak adlandırılırlar     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> Yığın sıralama algoritmasında yer alan basamakların sırası nedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kaldırma işlemi, Takas işlemi, Yeniden yığınlama işlemi, İşlemin tekrarı </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Takas işlemi, Kaldırma işlemi, Yeniden yığınlama işlemi, İşlemin tekrarı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Takas işlemi, Yeniden yığınlama işlemi, Kaldırma işlemi, İşlemin tekrarı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yeniden yığınlama işlemi, Takas işlemi, Kaldırma işlemi, İşlemin tekrarı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kaldırma işlemi, Yeniden yığınlama işlemi, Takas işlemi,  İşlemin tekrarı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> Aşağıda verilen sıralam algoritmalarından hangisi veya hangileri böl yönet yaklaşımını kullanır?<br><br>
+
+I- Kabarcık Sıralama<br>            II- Hızlı Sıralama<br>          III- Birleştirmeli Sıralama </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve III </span><br>
+	<span class="option" data-correct="true"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I,II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br>  temp=x<br>
+x=y<br>
+
+y=temp<br><br>
+
+Yukarıda algoritmalarda tanımlanan işlem aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Takas işlemi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Alma işlemi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Verme işlemi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Eşleme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Numaralandırma </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> Aşağıda verilen sıralama algoritmalarından hangisi veya hangileri dahili sıralama algoritmaları grubunda yer alır?<br><br>
+I) Eklemeli Sıralama<br>         II) Değiştirerek Sıralama<br>      III) Böl ve Yönet Sıralama </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      Kullanıldıkları Stratejilere göre;<br><br>
+			
+<u><strong>Değiştirerek Sıralama:</strong></u> Bu sıralama stratejisinde, karşılaştırılan iki veri öncelikle sıraya konulur. Ardından bu işlem tüm veriler sıralanana kadar devam ettirilir.<br><br>
+			
+<u><strong>Seçerek Sıralama:</strong></u> Veriler içerisinde en küçük olanı bulunur ve sıraya yerleştirilir. Ardından kalan veriler arasında en küçük veri bulunur ve tekrar sıraya konulur. Bu işlem veri seti sıralanana kadar devam ettirilir.<br><br>
+			
+<u><strong>Eklemeli Sıralama:</strong></u> Verileri birer birer alarak boş bir veri yapısı içerisine uygun sırada eklenir.<br><br>
+			
+<u><strong>Böl ve Yönet Sıralama:</strong></u> Verinin sıralanması amacı ile bir veya iki veri kalana kadar problem daha küçük parçalara bölünür. Ardından en alt seviyede sıralanan parçalar yukarı seviyelere doğru birleştirilerek tüm verinin sıralanması sağlanır.<br><br>
+			
+<u><strong>Numaralandırmalı Sıralama:</strong></u> Her bir veri diğer tüm verilerle karşılaştırarak ve daha küçük değere sahip veri sayısını bulunur. Ardından veri bu pozisyona yerleştirilir.<br><br>
+			
+Yukarıda sunulan stratejiler, sıralanacak tüm verilerin bilgisayarın ana bellekte işlenebilecek büyüklükte olma varsayımına dayanmaktadır. Bu nedenle bu varsayıma sahip algoritmalar <u><strong>“dahili sıralama algoritmaları”</strong></u> olarak adlandırılırlar     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> "Örnek olarak aynı yıl içinde bulunan aylardan oluşan verileri sıralamamız istendiğinde kullanılabilecek bir sıralama algoritmasıdır."<br><br>
+Yukarıda verilen örnek aşağıdaki sıralama türlerinden hangisine aittir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Liste </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ağaç sıralama </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kabuk sıralama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Değiştirerek sıralama </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Radix sıralama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> Aşağıdaki sıralamalardan hangisi böl ve yönet yaklaşımını kullanmaktadır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Birleştirmeli sıralama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Katman sıralama </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Hızlı sıralama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Çeşitlemeli sıralama </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Radix sıralama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> Kabarcık sıralama ile ilgili olarak verilen bilgilerden hangisi yada hangileri doğrudur?<br><br>
+I-  Genel olarak, büyük listeleri sıralamak için kabarcık sıralama algoritması kullanılmalıdır<br>
+
+II) Kabarcık sıralama mümkün olan her çifti karşılaştırır<br>
+
+III) En basit sıralama algoritmalarından biridir </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="true"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      Genel olarak, büyük listeleri sıralamak için kabarcık sıralama algoritması <u><strong>kullanılmamalıdır</strong></u>. Ancak, nispeten küçük listelerde oldukça iyi bir performans sergilemektedir.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> Düzgün sıralama (smoothsort), İplik sıralama (Strand sort), Sabırlı sıralama (Patience sorting) gibi algoritmalar aşağıdaki gruplardan hangisine girmektedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Radix sıralama algoritması </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Diğer sıralama algoritmaları </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Doğrusal sıralama algoritmaları </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Birleştirmeli sıralama </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Hızlı sıralama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+		
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

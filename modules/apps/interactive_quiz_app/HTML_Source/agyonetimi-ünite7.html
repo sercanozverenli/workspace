@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="anasayfa.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA I
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama1-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama1-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama1-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama1-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama1-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama1-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama1-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama1-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama1-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama1-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          BİLİŞİM HUKUKU
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="bilisimhk-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="bilisimhk-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="bilisimhk-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="bilisimhk-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="bilisimhk-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="bilisimhk-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="bilisimhk-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="bilisimhk-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="bilisimhk-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="bilisimhk-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB'DE TELİF HAKLARI VE ETİK
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="webtelif-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="webtelif-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="webtelif-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="webtelif-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="webtelif-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="webtelif-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="webtelif-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="webtelif-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="webtelif-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="webtelif-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          AĞ YÖNETİMİ VE BİLGİ GÜVENLİĞİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="agyonetimi-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="agyonetimi-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="agyonetimi-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="agyonetimi-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="agyonetimi-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="agyonetimi-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="agyonetimi-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="agyonetimi-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="agyonetimi-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="agyonetimi-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİTABANI PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veritabaniprg-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veritabaniprg-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  </nav>
+  
+    <h4 id="ders">Ağ Yönetimi ve Bilgi Güvenliği - Ünite 7 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> E-posta iletişiminin ilk zamanlarında SMTP portu olarak aşağıdakilerden hangisi kullanılmaktaydı? </p>
+	<span class="option" data-correct="false"><b>A)</b> 20 </span><br>
+	<span class="option" data-correct="true"><b>B)</b> 25 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 45 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 80 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 625 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Günümüzde Türkiye’de SMTP geçişin engellenmesi için aşağıdaki port numaralarından hangisi kullanıma sokulmuştur? </p>
+	<span class="option" data-correct="false"><b>A)</b> 25 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 125 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 225 </span><br>
+	<span class="option" data-correct="true"><b>D)</b> 587 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 1024 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Bir MX sorgusu sonrası SPF kayıtları aşağıdaki gibi olan bir etki alanı için:<br>
+<br>
+v=spf1 include:spf-a.outlook.com include:spfb.
+outlook.com ip4:157.55.9.128/25 include: spf.
+protection.outlook.com include:spf-a.hotmail.
+com include:_spf-ssg-b.microsoft.com include:_
+spf-ssg-c.microsoft.com ~all<br><br>
+
+FROM kısmında kimse@alo.com şeklinde bir e-posta yollanmaya kalkılırsa sonuç aşağıdakilerden hangisinde en doğru biçimde tanımlanmıştır?		
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> E-posta gönderilmez </span><br>
+	<span class="option" data-correct="false"><b>B)</b> E-posta çöpe atılır </span><br>
+	<span class="option" data-correct="true"><b>C)</b> E-posta SPAM olarak işaretlenir ve gönderilir </span><br>
+	<span class="option" data-correct="false"><b>D)</b> E-posta SPAM olarak işaretlenir ve çöpe atılır </span><br>
+	<span class="option" data-correct="false"><b>E)</b> E-posta Hotmail.com sunucusuna yönlendirilir </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      "+all": Bu değer, SPF doğrulamasının her zaman başarılı olduğunu belirtir ve tüm e-postaların doğrulamayı geçtiğini gösterir.<br><br>
+
+"-all": Bu değer, SPF doğrulamasının başarısız olması durumunda e-postaların reddedileceğini belirtir. SPF doğrulaması geçmeyen e-postalar, SPF doğrulamasını geçemediği için reddedilecektir.<br><br>
+			
+"?all": Bu değer, SPF doğrulamasının sonucunun önemli olmadığını belirtir. SPF doğrulaması hakkında bir karar verilmez ve e-postaların kabul edilir.<br><br>
+			
+<strong>"~all":</strong> Bu değer, SPF doğrulamasının başarısız olması durumunda e-postaların kabul edileceğini, ancak SPF doğrulamasının geçemediğinin belirtilmesi için "SPAM" olarak işaretleneceğini gösterir.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> SPF TEXT kayıtları nerede tutulur? </p>
+	<span class="option" data-correct="true"><b>A)</b> SMTP sunucusunun bağlı olduğu etki alanı sunucularında tutulur. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> SMTP sunucusunda tutulur. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> SPF sunucusunda tutulur. Bu sunucu SMTP hizmeti
+de sağlar. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> SMTP hizmeti sağlayan MX sunucusunda tutulur. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> SPF.MX sunucusunda tutulur. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> PGP için aşağıda verilen seçeneklerden hangisi <u><strong>söylenemez?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> PGP e-posta yollamak için kullanılabilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> PGP ile mesaj güvenliği sağlanabilir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> PGP ile kimlik doğrulama sağlanabilir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> PGP ile inkâr edilememe sağlanabilir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> PGP ile mesaj bütünlüğü sağlanabilir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Bir bilgisayar, 1 bit ile şifrelenmiş mesajı kaba kuvvet yöntemiyle en çok 1 saniyede çözebiliyorsa aynı bilgisayar 4 bit ile şifrelenmiş bir mesajı en çok kaç saniyede çözebilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 2 Saniye </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 4 Saniye </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 8 Saniye </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 16 Saniye </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 32 Saniye </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> Bilgisayarlarda bulunan sertifikaların kullanım amacı aşağıdakilerden hangisinde açıklanmıştır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Bilgisayarın kime ait olduğunu kanıtlamak için kullanılır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İşletim sisteminin çalıntı olup olmadığını anlamak için kullanılır </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İstenmeyen kullanıcıların e-posta yollamasını engellemek için kullanılır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İstenmeyen e-postaları filtrelemek için kullanılır. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Kullanıcıya atanan anahtarları tutmak için kullanılır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> Bir özet fonksiyonu programı 8 bitlik özetler üretiyorsa, bu program en fazla kaç değişik veriyi özetleme kabiliyetine sahiptir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 4 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 8 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 16 </span><br>
+	<span class="option" data-correct="true"><b>D)</b> 256 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 1000 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> Bir özet fonksiyonu aşağıdaki amaçlardan hangisi için kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> E-postaya sayısal imza yaratmak için kullanılır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> E-postayı şifrelemek için kullanılır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> E postayı doğru alıcıya ulaştırmak için kullanılır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> E-postanın doğru alıcıya ulaşıp ulaşmadığını kontrol etmek için kullanılır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> E-postanın spam olmadığını kanıtlamak için kullanılır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> PGP ile tam kimlik doğrulaması yapılmış bir e-posta alıcıya ulaştığında ve alıcı tarafta kimlik doğrulama süreci çalışırken aşağıda tanımlanan işlemlerden hangisi bu süreç içerisinde <u><strong>yer almaz?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> E-postanın özeti çıkartılır. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Göndericinin gizli anahtarı karşı taraftan alınır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> E-postada gelen şifrelenmiş özet verisinin şifresi çözülür. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Göndericinin genel anahtarına ulaşılır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Karşılaştırma yapılır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> Aşağıdakilerden hangisi kendilerini kopyalayarak başka bilgisayarlara yayılma işlevine sahip zararlı küçük boyutlu program parçacıklarıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Virüsler </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Truva atı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Spam mailler </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Tuzak mailler </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Bilgisayar solucanları </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> Bir e-posta içerisinde aşağıdakilerden hangisinin olmaması e-posta göndericisini ispat etmeyi zorlaştıran bir durumdur? </p>
+	<span class="option" data-correct="true"><b>A)</b> Dijital imza </span><br>
+	<span class="option" data-correct="false"><b>B)</b> SHA algoritması </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sertifika sürümü </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sertifika seri nosu </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sertifika geçerlilik başlangıcı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Ağ üzerindeki gönderici ve alıcının birbirlerine gerçek gönderici ve alıcı olduklarını kanıtlamalarını ifade eden güvenlik servisi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Gizlilik </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Kimlik doğrulama </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İnkar edilememe </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Mesaj bütünülüğü </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kullanım kolaylığı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> SMTP protokolü, kaç yılında e-posta haberleşmesini sağlamak için tasarlanmış ve adının da çağrıştırdığı gibi oldukça basit bir protokoldür?? </p>
+	<span class="option" data-correct="false"><b>A)</b> 1969 </span><br>
+	<span class="option" data-correct="true"><b>B)</b> 1982 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 1990 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 2000 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 2012 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> I. Spam e-posta<br>
+II. Bilgisayar Solucanları<br>
+III. Oltacılar<br><br>
+Yukarıdakilerden hangisi veya hangileri e-posta trafiğinde karşılaşılan güvenlik tehditlerindendir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      E-posta trafiğinde başlıca kötü niyetli kullanıcılar aşağıdaki şekilde gruplandırılabilir:<br><br>
+
+- Spam e-posta üreticileri<br>
+- Dolandırıcılar<br>
+- Bilgisayar solucanları<br>
+- Oltacılar     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> I. Çoğunlukla kullanıcının iradesi dışında bilgisarında işlem yapılmasını sağlayan küçük boyutlu programlardır<br>
+II. Kendilerini kopyalayarak başka bir bilgisayara yayılma işlevine sahip zararlı program parçacıklarıdır<br>
+III. Kullanıcıları aldatarak kullanıcı adı ve şifre gibi özel bilgileri elde etmek için tasarlanmışlardır<br><br>
+Bilgisayar solucanları ile ilgili olarak yukarıda verilen bilgilerden hangisi veya hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      I. seçenek truva atlarını,<br> III. seçenek ise olta saldırılarını ifade etmektedir.     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> Günümüzde yaygın olarak kullanılan iletişim biçimlerinden biri olan e-posta ilk hangi yılda denenmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 1950 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 1963 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 1971 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 1985 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 1990 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Başkalarının kullanıcı adı ve şifrelerini elde etmek üzere küçük program parçacıklarını veya kodlarını e-posta yoluyla dağıtmakta ve buna aldanan kişilerin şifrelerini elde geçirenler aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Oltacılar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bulut yazılımları </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Truva atı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Spamlar   </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bilgisayar solucanları </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> 
+I. Gönderici adresinin yasal olmayan yolla kullanımının önüne geçmek için kullanılır<br> 
+II. Göndericinin mesaj gönderdiği etki alanının yetkili bir etki alanı olduğunu betimler<br> 
+III. Yetkisiz etki alanından gelen e-postaların doğrudan çöpe atılmasını sağlar<br> <br> 
+Gönderici Teyit Politikası (SPF) ile ilgili olarak yukarıdakilerden hangisi veya hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> Açık standart olup gönderici adresinin yasal olmayan yolla kullanımının önüne geçilmesi için üretilmiş bir çözüm aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> SPF </span><br>
+	<span class="option" data-correct="false"><b>B)</b> TCP </span><br>
+	<span class="option" data-correct="false"><b>C)</b> SMTP </span><br>
+	<span class="option" data-correct="false"><b>D)</b> PGP </span><br>
+	<span class="option" data-correct="false"><b>E)</b> S/MIME </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> .............. protokolünde gizli ve açık anahtarların üretimi ve dağıtımı sertifika sağlayıcılarına bırakılır. Boşluk bırakılan yere aşağıdakilerden hangisi gelmelidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> SPF </span><br>
+	<span class="option" data-correct="false"><b>B)</b> TCP </span><br>
+	<span class="option" data-correct="false"><b>C)</b> SMTP </span><br>
+	<span class="option" data-correct="false"><b>D)</b> PGP </span><br>
+	<span class="option" data-correct="true"><b>E)</b> S/MIME </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> 2019 yılında dünya çapındaki günlük e-posta trafiğinin kaç milyara ulaşılacağı tahmin edilmektedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 200 </span><br>
+	<span class="option" data-correct="true"><b>B)</b> 250 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 300 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 350 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 400 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> Hangisi Gerçekte spam olmayan e-postaya spam kararı vermek anlamına gelir ve oldukça kritik hatalar olup veri kaybına neden olabilmektedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Yanlış Pozitif Hata </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Pozitif Hata </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yanlış Negatif Hata </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Hata </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Negatif Hata </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Aşağıdakilerden hangisi “İnternet iletişimi” için <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> İnternet, uçtan uca paket trafiğinin protokollerinin ve mekanizmalarının tanımlandığı bir iletişim ortamıdır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Her iletişim noktasının kendine ait tekil bir IP adresi bulunmaktadır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bu IP adresleri aslında etki alanları bağlamında tanımlanmış özel adreslerdir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Ev kullanıcısı kendi İnternet sağlayıcısının tanımladığı etki alanı ile iletişime geçer. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> SMTP sunucuları,PGT şifreleme ile engelledikleri ölçüde spam trafiğinin bir kısmının önünü kesmektedirler. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> E-posta trafiğinde başlıca kötü niyetli kullanıcılar aşağıdaki şekilde gruplandırılabilir;<br><br>
+1- Spam e-posta üreticileri<br>
+2- Dolandırıcılar<br>
+3- Bilgisayar Solucanları<br>
+4- Oltacılar<br><br>
+Yukarıdaki sıralamalardan hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> 1, 3, 4 </span><br>
+	<span class="option" data-correct="true"><b>B)</b> 1, 2, 3, 4 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 3, 4 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 2, 4 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 1, 4 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> I. Oluşturulan bilgi öncelikle bir e-posta servisine yönlendirilir<br>
+II. E-posta iletişimi gönderici ile alıcı sunucu arasında POP3 olarak tanımlanan protokol ile sağlanmaktadır<br>
+III. Alıcı tarafındaki kullanıcılar SMTP ile tanımlanan uygulama protokolleri ile mesajlarına ulaşır<br><br>
+E-posta uygulamaları kullanarak gerçekleştirilen bir e-posta iletim süreci ile ilgili olarak yukarıdakilerden hangisi veya hangileri doğrudur? </p>
+	<span class="option" data-correct="true"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      E-posta
+iletişimi, gönderici ile alıcı sunucu arasında Basit Posta İletim Protokolü (Simple Mail Transfer Protocol – SMTP) ile tanımlanan protokol ile sağlanmaktadır. <br><br>
+
+Alıcı taraftaki kullanıcılar da, Posta Ofisi Protokolü (Post Office Protocol 3 – POP3) veya İnternet Mesaj Erişim Protokolü (Internet Message Access Protocol – IMAP) gibi yaygın uygulama protokolleriyle mesajlarına ulaşabilmektedirler.
+
+
+     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> I. Reklam içerikli mesajları yaymak<br>
+II. Kendilerini kopyalayarak başka bilgisayarlara yayılma işlevine sahip küçük program parçacıklarını yaymak <br>
+III. Alıcıları aldatarak kullanıcı adı ve şifre bilgilerini çalmak <br><br>
+Yukarıdakilerden hangisi veya hangileri spam e-posta üreticilerinin amaçlarından biri olabilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> Hem asimetrik hem de simetrik şifreleme mekanizmalarını çalıştıran yapı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> S/MIME </span><br>
+	<span class="option" data-correct="false"><b>B)</b> TCP </span><br>
+	<span class="option" data-correct="true"><b>C)</b> PGP </span><br>
+	<span class="option" data-correct="false"><b>D)</b> SPF </span><br>
+	<span class="option" data-correct="false"><b>E)</b> SMTP </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> I. E-posta sunucuları<br>
+II. E-posta uygulayıcıları<br>
+III. Kullanıcı öngörülerinin alınması<br>
+IV. E-posta içeriğinin şüphe uyandırması<br><br>
+Yukarıda sıralananlardan hangisi veya hangileri bilinçli bir kullanıcının e-posta güvenliğini sağlamada kullandığı adımlardır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I, II, IV </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II, III, IV </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II, III, IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> I. E-postanın posta sağlayıcısına ulaşması.<br>
+II. Postanın SMTP olarak şekillendirilmesi.<br>
+III. TCP bağlantısının kurulması.<br>
+IV. IMAP kullanılması.<br><br>
+Yukarıda e-posta gönderilmesi ve alınmasına ilişkin adımlar verilmiştir. Bu adımların doğru bir şekilde sıralanışı aşağıdaki seçeneklerden hangisinde verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> II-I-IV-III </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I-III-IV-II </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I-II-III-IV </span><br>
+	<span class="option" data-correct="false"><b>D)</b> III-I-II-IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I-II-IV-III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> Türk Telekom, spam e-postanın önüne geçebilmek ve kötücül trafiği azaltmak üzere hangi portu kullanan istemci paketleri engellemektedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> TCP 25 numaralı portu </span><br>
+	<span class="option" data-correct="false"><b>B)</b> TCP 587 numaralı portu </span><br>
+	<span class="option" data-correct="false"><b>C)</b> TCP 21 numaralı portu </span><br>
+	<span class="option" data-correct="false"><b>D)</b> TCP 27 numaralı portu </span><br>
+	<span class="option" data-correct="false"><b>E)</b> TCP 35 numaralı portu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> Aşağıdakilerden hangisi gelen e-postanın spam olarak nitelendirilmesini sağlamaktadır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Bir alıcıya gelen postalar içerisinde sıkça rastlanan ifadeler değerlendirilerek bir spam katsayısı çıkartılabilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Gelen postaların sayısının toplamı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Gereksiz olarak gelen postaların sayısı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Alıcıya gelen postalarda bulunan rakamların toplamı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Alıcının gelen kutusundaki toplam posta sayısı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> Kötü niyetli kullanıcılar kendi e-posta sunucularını sistemlere tanımlayıp bu sunucular üzerinden spam e-postalar yayabilmektedirler bunların önüne geçmek için kullanılan filtreleme yöntemi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> ASCII </span><br>
+	<span class="option" data-correct="false"><b>B)</b> TCP </span><br>
+	<span class="option" data-correct="true"><b>C)</b> SPF </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ADSL </span><br>
+	<span class="option" data-correct="false"><b>E)</b> POP3 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> S/MIME ilk olarak kaç yılında önerilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 1990 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 1991 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 1992 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 1994 </span><br>
+	<span class="option" data-correct="true"><b>E)</b> 1995 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> Tuzaklarına düşürdükleri kullanıcılardan tüzel kişi, kılığında çıkar sağlayan kötü niyetli e-posta kullanıcıları aşağıdakielrden hangisi ile ifade edilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Spam </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Dolandırıcılar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Oltacılar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Truva atı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bilgisayar solucanı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> E-posta SMTP tabanlı sunucular arasında transfer edilmektedir. Fakat e-posta gönderme ve alma sürecinde verinin güvenliği ne ile sağlanmaktadır? </p>
+	<span class="option" data-correct="true"><b>A)</b> PGP tarafından sağlanmaktadır </span><br>
+	<span class="option" data-correct="false"><b>B)</b> IETF tarafından sağlanmaktadır </span><br>
+	<span class="option" data-correct="false"><b>C)</b> IOMT tarafından sağlanmaktadır </span><br>
+	<span class="option" data-correct="false"><b>D)</b> IMTR tarafından sağlanmaktadır </span><br>
+	<span class="option" data-correct="false"><b>E)</b> SPM tarafından sağlanmaktadır </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> E-posta iletişiminde bazı güvenlik ilkelerinin koşulsuz sağlanması gerekmektedir. Bunlar; <br><br>
+
+1. Gizlilik <br>
+2.Kimlik Doğrulama <br>
+3. Mesaj Bütünlüğü <br>
+4. İnkar Edilememe <br>
+<br>
+Yukarıda sıralanan ilkelerden hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnızca 1 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnızca 2 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 1,2,3,4 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 1,3,4 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 1,2,3 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> 1991 yılında Phil R. Zimmermann tarafından tanımlanan ve geliştirilen, gönderilen ve alınan verilerin şifrelenmesini ve şifrelenen mesajların yeniden açılmasını sağlayan  açık kaynak kodlu bilgisayar algoritması aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Pretty Good Prıvacy </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sender Policy Framework </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Post Office Protocol </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Simple Mail Transfer Protocol </span><br>
+	<span class="option" data-correct="false"><b>E)</b> International Data Encryption </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> Bilinen en etkili şifreleme mekanizması olup şifre anahtarının uzunluğu oranında şifrelenen mesajın çözülmesi için harcanacak zaman arttığı yöntem aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Açık anahtar </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Simetrik şifreleme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kimlik Doğrulama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bulut yazılımı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Çift taraflı Şifreleme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

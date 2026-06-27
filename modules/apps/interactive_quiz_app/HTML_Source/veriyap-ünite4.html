@@ -1,0 +1,1419 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+	  
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA II
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama2-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama2-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama2-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama2-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama2-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama2-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama2-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama2-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama2-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama2-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB ARAYÜZ PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİ YAPILARI
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veriyap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veriyap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veriyap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veriyap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veriyap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veriyap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veriyap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veriyap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veriyap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veriyap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          MOBİL UYGULAMA GELİŞTİRME
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="mobilug-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="mobilug-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="mobilug-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="mobilug-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="mobilug-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="mobilug-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="mobilug-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="mobilug-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="mobilug-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="mobilug-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          UNIX SİSTEM YÖNETİMİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="unixsy-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="unixsy-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="unixsy-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="unixsy-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="unixsy-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="unixsy-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="unixsy-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="unixsy-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="unixsy-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="unixsy-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Veri Yapıları - Ünite 4 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	<button class="block-group" data-start="40" data-end="59">Part 3</button>
+  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Aşağıdakilerden hangisi başarılı bir sıralama
+algoritmasında istenmeyen durumlardandır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kaynak tüketiminin az olması </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İşlem süresinin veri boyutuyla doğrusal olarak artması </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Sıralama süresinin uzun olması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Veri setindeki verilerin farklılaşmasının algoritma performansını olabildiğince az etkilemesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sıralanacak veri setine göre algoritmanın uyumlu çalışması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Sıralama algoritmasının zaman karmaşıklığı
+incelenirken O(1) olması aşağıdakilerden hangisini ifade eder? </p>
+	<span class="option" data-correct="false"><b>A)</b> Algoritmanın çalışma süresinin veri sayısı ile doğrusal olarak arttığını </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sıralama süresinin sabit olduğunu </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sıralama süresinin veri sayısından bağımsız olduğunu </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sıralama çalışma süresinin veri türünden bağımsız olduğunu </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Algoritmaya, verilen verilerin sıralı bir şekilde verildiğini </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Verileri, ikili olarak yanındaki ile karşılaştırıp sıralayan algoritma aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Baloncuk Sıralama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Seçerek Sıralama </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ekleme Sıralama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Hızlı Sıralama </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Selection Sıralama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Verileri sıralarken, her adımda sıradaki veriyi önceki veriler arasındaki sırasına yerleştirerek yapılan sıralama algoritması aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Baloncuk Sıralama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Seçerek Sıralama </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Ekleme Sıralama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Hızlı Sıralama </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bubble Sıralama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Verileri sıralarken ilk olarak pivot elemanın
+seçildiği ardından diğer verilerin pivot elemandan
+büyük veya küçük olmasına göre sıralandığı, sıralama tamamlanana kadar bu işlemlerin devam ettirildiği sıralama algoritması aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Baloncuk Sıralama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Seçerek Sıralama </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ekleme Sıralama </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Hızlı Sıralama </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bubble Sıralama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Verileri sıralarken en küçük elemanın seçilerek önceki sıralanan elemanlar arasındaki yerine yerleştirildiği sıralama algoritması aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Baloncuk Sıralama </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Seçerek Sıralama </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ekleme Sıralama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Hızlı Sıralama </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bubble Sıralama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> 25, 33, 22, 13, 10 sayılarından oluşan bir
+dizinin <u><strong>Baloncuk</strong></u> Sıralama Algoritmasında sıralanması isteniyor. Algoritmanın çalışma aşamaları aşağıdakilerden hangisinde doğru verilmiştir? </p>
+	<span class="option" data-correct="true"><b>A)</b> <br>1. Adım ---&gt;25 22 13 10 33<br>
+2. Adım ---&gt;22 13 10 25 33<br>
+3. Adım ---&gt;13 10 22 25 33<br>
+4. Adım ---&gt;10 13 22 25 33 </span><br><br>
+	<span class="option" data-correct="false"><b>B)</b> <br>1. Adım ---&gt;10 33 22 13 25<br>
+2. Adım ---&gt;10 13 22 33 25<br>
+3. Adım ---&gt;10 13 22 33 25<br>
+4. Adım ---&gt;10 13 22 25 33 </span><br><br>
+	<span class="option" data-correct="false"><b>C)</b> <br>1. Adım ---&gt;25 33 22 13 10<br>
+2. Adım ---&gt;22 25 33 13 10<br>
+3. Adım ---&gt;10 13 22 25 33<br>
+4. Adım ---&gt;13 22 25 33 10 </span><br><br>
+	<span class="option" data-correct="false"><b>D)</b> <br>1. Adım ---&gt;25 33 22 13 10<br>
+2. Adım ---&gt;22 25 33 13 10<br>
+3. Adım ---&gt;13 22 25 33 10<br>
+4. Adım ---&gt;10 13 22 25 33 </span><br><br>
+	<span class="option" data-correct="false"><b>E)</b> <br>1. Adım ---&gt;22 25 33 13 10<br>
+2. Adım ---&gt;25 33 22 13 10<br>
+3. Adım ---&gt;13 22 25 33 10<br>
+4. Adım ---&gt;10 13 22 25 33 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> 25, 33, 22, 13, 10 sayılarından oluşan bir dizinin <u><strong>Seçerek</strong></u> Sıralama Algoritmasında sıralanması isteniyor. Algoritmanın çalışma aşamaları aşağıdakilerden hangisinde doğru verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> <br>1. Adım ---&gt;25 22 13 10 33<br>
+2. Adım ---&gt;22 13 10 25 33<br>
+3. Adım ---&gt;13 10 22 25 33<br>
+4. Adım ---&gt;10 13 22 25 33 </span><br><br>
+	<span class="option" data-correct="true"><b>B)</b> <br>1. Adım ---&gt;10 33 22 13 25<br>
+2. Adım ---&gt;10 13 22 33 25<br>
+3. Adım ---&gt;10 13 22 33 25<br>
+4. Adım ---&gt;10 13 22 25 33 </span><br><br>
+	<span class="option" data-correct="false"><b>C)</b> <br>1. Adım ---&gt;25 33 22 13 10<br>
+2. Adım ---&gt;22 25 33 13 10<br>
+3. Adım ---&gt;10 13 22 25 33<br>
+4. Adım ---&gt;13 22 25 33 10 </span><br><br>
+	<span class="option" data-correct="false"><b>D)</b> <br>1. Adım ---&gt;25 33 22 13 10<br>
+2. Adım ---&gt;22 25 33 13 10<br>
+3. Adım ---&gt;13 22 25 33 10<br>
+4. Adım ---&gt;10 13 22 25 33 </span><br><br>
+	<span class="option" data-correct="false"><b>E)</b> <br>1. Adım ---&gt;22 25 33 13 10<br>
+2. Adım ---&gt;25 33 22 13 10<br>
+3. Adım ---&gt;13 22 25 33 10<br>
+4. Adım ---&gt;10 13 22 25 33 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> 25, 33, 22, 13, 10 sayılarından oluşan bir dizinin <u><strong>Ekleme</strong></u> Sıralama Algoritmasında sıralanması
+isteniyor. Algoritmanın çalışma aşamaları aşağıdakilerden hangisinde doğru verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> <br>1. Adım ---&gt;25 22 13 10 33<br>
+2. Adım ---&gt;22 13 10 25 33<br>
+3. Adım ---&gt;13 10 22 25 33<br>
+4. Adım ---&gt;10 13 22 25 33 </span><br><br>
+	<span class="option" data-correct="false"><b>B)</b> <br>1. Adım ---&gt;10 33 22 13 25<br>
+2. Adım ---&gt;10 13 22 33 25<br>
+3. Adım ---&gt;10 13 22 33 25<br>
+4. Adım ---&gt;10 13 22 25 33 </span><br><br>
+	<span class="option" data-correct="false"><b>C)</b> <br>1. Adım ---&gt;25 33 22 13 10<br>
+2. Adım ---&gt;22 25 33 13 10<br>
+3. Adım ---&gt;10 13 22 25 33<br>
+4. Adım ---&gt;13 22 25 33 10 </span><br><br>
+	<span class="option" data-correct="true"><b>D)</b> <br>1. Adım ---&gt;25 33 22 13 10<br>
+2. Adım ---&gt;22 25 33 13 10<br>
+3. Adım ---&gt;13 22 25 33 10<br>
+4. Adım ---&gt;10 13 22 25 33 </span><br><br>
+	<span class="option" data-correct="false"><b>E)</b> <br>1. Adım ---&gt;22 25 33 13 10<br>
+2. Adım ---&gt;25 33 22 13 10<br>
+3. Adım ---&gt;13 22 25 33 10<br>
+4. Adım ---&gt;10 13 22 25 33 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> 27, 42, 25, 17, 9 sayılarından oluşan bir dizinin <u><strong>Ekleme</strong></u> Sıralama Algoritmasında sıralanması
+isteniyor. Algoritmanın çalışma aşamaları aşağıdakilerden hangisinde doğru verilmiştir? </p>
+	<span class="option" data-correct="true"><b>A)</b> <br>
+1. Adım ---&gt;27 42 25 17 9<br>
+2. Adım ---&gt;25 27 42 17 9<br>
+3. Adım ---&gt;17 25 27 42 9<br>
+4. Adım ---&gt; 9 17 25 27 42 </span><br><br>
+	<span class="option" data-correct="false"><b>B)</b> <br>
+1. Adım ---&gt;27 42 25 17 9<br>
+2. Adım ---&gt;17 25 27 42 9<br>
+3. Adım ---&gt;25 27 42 17 9<br>
+4. Adım ---&gt; 9 17 25 27 42 </span><br><br>
+	<span class="option" data-correct="false"><b>C)</b> <br>
+1. Adım ---&gt;17 25 27 42 9<br>
+2. Adım ---&gt;27 42 25 17 9<br>
+3. Adım ---&gt;25 27 42 17 9<br>
+4. Adım ---&gt; 9 17 25 27 42
+ </span><br><br>
+	<span class="option" data-correct="false"><b>D)</b> <br>
+1. Adım ---&gt;17 25 27 42 9<br>
+2. Adım ---&gt;27 42 25 17 9<br>
+3. Adım ---&gt; 9 17 25 27 42
+ </span><br><br>
+	<span class="option" data-correct="false"><b>E)</b> <br>
+1. Adım ---&gt;17 25 27 42 9<br>
+2. Adım ---&gt;25 27 42 17 9<br>
+3. Adım ---&gt; 9 17 25 27 42 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> Algoritma seçiminde, çalışılabilecek en büyük veri boyutu ve veri sayısı göz önüne alınmalıdır. Sıralama algoritmasında, ideal zaman karmaşıklığı değeri ................... olmalıdır.<br><br>
+Yukarıdaki metinde boş bırakılan yere aşağıdakilerden hangisi gelmelidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> O(1) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> arr[i] </span><br>
+	<span class="option" data-correct="false"><b>C)</b> CArray(10) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Random(100) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Q(1) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> Sıralama algoritmalarını incelemek için dizi elemanlarının rastgele üretilmiş verilerden oluşması ve
+algoritmaya ......................................... verilmesi gerekir.<br><br>
+Yukarıdaki metinde boş bırakılan yere aşağıdakilerden hangisi gelmelidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Ardışık olarak </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Sırasız olarak </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Parabolik olarak </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sıralı olarak </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yapılandırılmış olarak </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Rastgele sayı dizisini oluşturmak için C# ile birlikte gelen ........................................ kullanılabilir.<br><br>
+Yukarıdaki metinde boş bırakılan yere aşağıdakilerden hangisi gelmelidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Array dizisi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Public sekmesi </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Random sınıfı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Parabolik kümesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Fn dizisi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> Listedeki elemanları, ikili olarak yanındaki ile karşılaştırır ve sıralama yapılmak istenen yönde yer değiştirir. Artan sıralama yapılıyorsa büyük olan eleman sağ tarafa, küçük eleman sol tarafa alınarak yerleştirme yapılır.<br><br>
+		
+Yukarıdaki metinde açıklanmaya çalışılan, aşağıdaki hangi algoritma sıralamasıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Ekleme sıralama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Seçerek sıralama </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Hızlı sıralama </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Baloncuk sıralama </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Rasgele sıralama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> public void SecerekSiralama()<br>
+{<br>
+int min, temp;<br>
+for (int dis = 0; dis &lt;= enBuyuk; dis++)<br>
+{<br>
+min = dis;<br>
+for (int ic = dis + 1; ic &lt;= enBuyuk; ic++)<br>
+if (arr[ic] &lt; arr[min])<br>
+min = ic;<br>
+temp = arr[dis];<br>
+arr[dis] = arr[min];<br>
+arr[min] = temp;<br>
+}<br>
+}<br><br>
+Yukarıdaki kod bloğunda Seçerek Sıralama algoritması için C# kodu verilmiştir. Kod yapısı incelendiğinde iç içe iki adet for döngüsü vardır. Algoritmanın BigO notasyonu aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> +1 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 1 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> fx </span><br>
+	<span class="option" data-correct="false"><b>D)</b> x/y=n+1 </span><br>
+	<span class="option" data-correct="true"><b>E)</b> n kare </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      Seçerek sıralama (Selection Sort) algoritması, n elemanlı bir diziyi sıralarken iç içe iki adet döngü kullanır: birincisi dizinin elemanlarını sırayla gezerken, ikincisi ise her bir elemandan sonraki elemanları karşılaştırır ve en küçük (veya en büyük) elemanı bulur. İşte bu nedenle bu algoritmanın zaman karmaşıklığı O(n^2) olarak ifade edilir     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> public void ..................................()<br>
+{<br>
+int ic, temp;<br>
+for (int dis = 1; dis &lt;= enBuyuk; dis++)<br>
+{<br>
+temp = arr[dis];<br>
+ic = dis;<br>
+while (ic &gt; 0 && arr[ic - 1] &gt;= temp)<br>
+{<br>
+arr[ic] = arr[ic - 1];<br>
+ic -= 1;<br>
+}<br>
+arr[ic] = temp;<br>
+}<br>
+}<br><br>
+Yukarıdaki C# kodu, aşağıdaki hangi sıralama algoritması için yazılmış olabilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Ekleme sıralama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Hızlı sıralama </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Döngüsel sıralama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Baloncuk sıralama </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Seçerek sıralama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      Ekleme sıralama algoritması, iki adet döngü içerir. İlk döngü dizi elemanları üzerinde teker teker gezerken ikinci döngü sıradaki elemanı, önceki adımlarda düzenlenmiş olan elemanlar arasında olması gereken yere yerleştirir.     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> ....................................... algoritması, iki adet döngü içerir. İlk döngü dizi elemanları üzerinde teker teker gezerken ikinci döngü sıradaki elemanı, önceki adımlarda düzenlenmiş olan elemanlar arasında olması gereken yere yerleştirir<br>
+Yukarıdaki metinde boş bırakılan yere aşağıdakilerden hangisi gelmelidir?...... </p>
+	<span class="option" data-correct="false"><b>A)</b> Hızlı sıralama </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Ekleme sıralama </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Seçerek sıralama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Baloncuk sıralama </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Paylaşmalı sıralama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Dizi elemanlarından biri pivot değer olarak seçilerek algoritma başlatılır. Pivot, baştaki eleman seçilebileceği gibi rastgele bir elemanda seçilebilir. Pivotun dizi elemanlarına uygun seçilmesi algoritma başarısını etkileyecektir. Pivot seçildikten sonra dizinin diğer elemanları, pivottan küçük veya büyük olmasına göre iki gruba ayrılır. Sonraki adımda, bu iki grup kendi içlerinde tekrar bölünerek sıralanır. Grupların sıralaması için sıralama algoritması özyinelemeli (recursive) olarak çalıştırılır.<br><br>
+Yukarıda çalışma sistemi anlatılan sıralama algoritması aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Pivot sıralama algoritması </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ekleme sıralama algoritması </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Hızlı sıralama algoritması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Baloncuk sıralama algoritması </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Seçerek sıralama algoritması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> Başlangıç Pivot=14<br>
+96 15 66 90 35 94 71 61 34 14<br><br>
+		
+1. Adım Pivot 96<br>
+14 15 66 90 35 94 71 61 34 96<br><br>
+
+2. Adım Pivot 34<br>
+14 15 66 90 35 94 71 61 34 96<br><br>
+
+3. Adım Pivot 66<br>
+14 15 34 90 35 94 71 61 66 96<br><br>
+
+4. Adım Alt Grup Pivot= 61 Üst Grup Pivot=94<br>
+14 15 34 35 61 66 71 90 94 96<br><br>
+
+5. Adım Pivot=90<br>
+14 15 34 35 61 66 71 90 94 96<br><br>
+
+6. Adım Tamamlandı<br>
+14 15 34 35 61 66 71 90 94 96<br><br>
+
+Yukarıda altı aşamada çalışma sistemi verilen sıralama algoritması, aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Pivot sıralama algoritması </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ekleme sıralama algoritması </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Hızlı sıralama algoritması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Baloncuk sıralama algoritması </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Seçerek sıralama algoritması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> Diğerlerine göre daha karmaşık olmasına rağmen performansı en iyi olan sıralama algoritması aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Pivot sıralama algoritması </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ekleme sıralama algoritması </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Hızlı sıralama algoritması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Baloncuk sıralama algoritması </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Seçerek sıralama algoritması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Sıralama hangi amaçla kullanılır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Sıralama, verilerle çalışırken kullanılan temel süreçlerdendir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Sıralama nasıl tanımlanır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Sıralama; çok sayıda ögeyi büyükten küçüğe, küçükten büyüğe, uzundan kısaya, kısadan uzuna gibi ihtiyaca göre düzenleme işlemidir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> Algoritmanın performansını belirleyen unsur nedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Küçük veriler için seçilecek algoritmanın performansı, geliştirici için çok önemli olmayabilir ancak veri sayısı büyüdüğünde algoritmanın sıralama işleminde kötü performans göstermesi, geliştirilen uygulamanın performansını düşürecektir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Sıralama işlemleri nasıl gerçekleştirilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Bilgisayar bilimlerinde programın ihtiyacına göre bu işlemleri yapan algoritmalar geliştirilmiştir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> Sıralama algoritmalarının girdisi nedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Sıralama algoritmaları, ögelerden oluşan liste verilerini girdi olarak alır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> Algoritma seçiminde neye dikkat edilmelidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Algoritma seçiminde, çalışılabilecek en büyük veri boyutu ve veri sayısı göz önüne alınmalıdır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Algoritma çalışma süresiyle veri sayısı arasında nasıl bir ilişki vardır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Günümüz bilgisayarları Ghz’ler seviyesinde işlem gücüne sahip olduğu için algoritmaların performansı az sayıda veriden oluşan listelerde (örneğin 1000 eleman gibi) mili saniyeler seviyesinde olacaktır ancak veri sayısı arttığında performans farklı saniyeleri hatta dakikaları bile bulabilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> Sıralama algoritmalarını birbirinden ayıran en önemli fark nedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Farklı amaçlar için kullanılan sıralama algoritmaları görünürde benzer işlemi yapsa da onları birbirinden ayıran en önemli fark performanslarıdır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> Algoritmanın ihtiyacı olan sayılar nasıl üretilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Algoritmanın ihtiyacı olan sayılar, rastgele sayı üreteçleri ile üretilir. Böylelikle algoritmalar her çalıştırmada farklı sayılarla test edilmiş olur. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> Sıralama algoritmalarını incelemek için neye ihtiyaç duyarız? </p>
+	<span class="option" data-correct="true"><b>A)</b> Sıralama algoritmalarını incelemek için dizi elemanlarının rastgele üretilmiş verilerden oluşması ve algoritmaya sırasız olarak verilmesi gerekir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> Rastgele sayı disizi nasıl oluşturulur? </p>
+	<span class="option" data-correct="true"><b>A)</b> Rastgele sayı dizisini oluşturmak için C# ile birlikte gelen Random sınıfı kullanılabilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> Random sınıfı ile sayı nasıl oluşturulur? </p>
+	<span class="option" data-correct="true"><b>A)</b> Random sınıfı ile sayı oluştururken istenilen sayı aralığı için üst sınır bildirilebilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> Sıralama operasyonunun performansı nasıl artırılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Sıralama operasyonunun performansını arttırmak için veri setine göre algoritma seçilmesi gerekir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> Bilgisayar bilimlerinde yaygın olarak hangi sıralama algoritmaları kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Baloncuk Sıralama, Seçerek Sıralama, Ekleme Sıralama ve Hızlı Sıralama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> Baloncuk Sıralama ismi nereden gelmektedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Listenin bir başından diğer başına kadar kayan bir baloncuk görüntüsü verdiği için bu şekilde adlandırılmıştır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> Bir listedeki verilerin sıralamasında baloncuk yapısı nasıl olur? </p>
+	<span class="option" data-correct="true"><b>A)</b> Listedeki rastgele verilen elemanları artan sıra ile sıralarsak baloncuk sağa doğru kayacaktır. Azalan sıra ile sıralarsak baloncuk sola doğru kayacaktır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> Seçerek sıralama algoritması ismi nereden gelmektedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Çalışma esnasında dizi aralığındaki en küçük elemanı seçerek çalıştığı için bu isim verilmiştir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> Algoritma, sıralanacak diziyi baştan itibaren tarar. Bulduğu en küçük elemanı seçer ve dizinin 0 no’lu indeksindeki eleman ile yer değiştirir. İlk adım tamamlanmış olur. İkinci adımda, dizinin 1 no’lu indeksinden itibaren son elemana kadar tarar ve en küçük elemanı tekrar seçer. Seçilen en küçük elemanın 1 no’lu indekste bulunan elemanla yer değiştirilmesi yapıldıktan sonra 2. adım tamamlanır. n elemana sahip dizide n tekrar yapılarak işlem tamamlanır.<br><br>
+Yukarıda sözü edilen sıralama yöntemi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Selection Sort (Seçerek Sıralama)  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bubble Sort (Baloncuk Sıralama) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Insertion Sort (Ekleme  Sıralama) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Quick Sort (Hızlı Sıralama) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Standard Sort (Standart Sıralama) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> Ekleme sıralama algoritması nasıl çalışır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Çalışma adımları incelendiğinde bu algoritmanın önceki algoritmalar gibi ögeleri değiştirerek değil, yeni gelen ögeyi dizi içerisindeki yerine ekleyerek çalıştığı görülecektir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> Hızlı sıralama algoritması nasıl çalışır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Pivotun dizi elemanlarına uygun seçilmesi algoritma başarısını etkileyecektir. Pivot seçildikten sonra dizinin diğer elemanları, pivottan küçük veya büyük olmasına göre iki gruba ayrılır. Sonraki adımda, bu iki grup kendi içlerinde tekrar bölünerek sıralanır. Grupların sıralaması için sıralama algoritması özyinelemeli (recursive) olarak çalıştırılır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question41">
+	<p class="question">Soru 41:<br> Seçerek sıralamada hangi döngünün her yinelemesinden sonra dizideki en küçük değer dizideki uygun yerine atanır? </p>
+	<span class="option" data-correct="true"><b>A)</b> İç </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Dış </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Orta </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Başlangıç </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Son </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description41">Açıklama</button>
+		<div id="description41" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question42">
+	<p class="question">Soru 42:<br> Aşağıdakilerden hangisi diğer algoritmalara nazaran daha performanslı olan ancak dikkatli kodlama yapılmadığı takdirde işlem yükü olarak daha maliyetli çalışan bir sıralama algoritmasıdır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Hızlı Sıralama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ekleme Sıralama </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Seçerek Sıralama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Baloncuk Sıralama </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Veri Sıralama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description42">Açıklama</button>
+		<div id="description42" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question43">
+	<p class="question">Soru 43:<br> Temel sıralama algoritmalarından bir diğeri ise ------- algoritmasıdır. Bu algoritmaya örnek olarak kitaplığına kitapların yerleştirilmesi düşünülebilir. Rastgele dizi hâlinde bulunan kitaplar, sol taraftan başlanarak düzenlenebilir. Her adımda sıradaki kitap önceki kitaplar arasındaki yerine eklenir ve sıradaki kitap alınır.<br><br>
+Yukarıdaki paragrafta boş bırakılan yeri aşağıdakilerden hangisi doğru olarak tamamlar? </p>
+	<span class="option" data-correct="true"><b>A)</b> Ekleme Sıralama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Seçerek Sıralama </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Hızlı Sıralama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Baloncuk Sıralama </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yavaş Sıralama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description43">Açıklama</button>
+		<div id="description43" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question44">
+	<p class="question">Soru 44:<br> İç Döngü<br>
+Orta Döngü<br>
+Dış Döngü<br><br>
+Yukarıdakilerden hangileri seçerek sıralama algoritması kapsamında kullanılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve II </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description44">Açıklama</button>
+		<div id="description44" class="collapse">      Seçerek sıralama algoritmasında iki döngü kullanılır. Dış döngü, dizideki ilk ögeden bir sonraki son ögeye doğru hareket ederken iç döngü dizinin ikinci ögesinden son ögeye doğru hareket eder. Algoritma, mevcut adıma ait başlangıç ögesinden küçük ögeleri arar. İç döngünün her yinelemesinden sonra dizideki en küçük değer dizideki uygun yerine atanır     </div>
+	</div>
+</div>
+
+	
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

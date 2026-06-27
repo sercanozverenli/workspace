@@ -1,0 +1,1624 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="anasayfa.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA I
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama1-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama1-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama1-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama1-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama1-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama1-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama1-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama1-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama1-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama1-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          BİLİŞİM HUKUKU
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="bilisimhk-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="bilisimhk-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="bilisimhk-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="bilisimhk-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="bilisimhk-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="bilisimhk-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="bilisimhk-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="bilisimhk-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="bilisimhk-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="bilisimhk-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB'DE TELİF HAKLARI VE ETİK
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="webtelif-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="webtelif-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="webtelif-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="webtelif-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="webtelif-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="webtelif-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="webtelif-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="webtelif-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="webtelif-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="webtelif-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          AĞ YÖNETİMİ VE BİLGİ GÜVENLİĞİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="agyonetimi-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="agyonetimi-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="agyonetimi-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="agyonetimi-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="agyonetimi-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="agyonetimi-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="agyonetimi-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="agyonetimi-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="agyonetimi-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="agyonetimi-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİTABANI PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veritabaniprg-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veritabaniprg-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  </nav>
+  
+    <h4 id="ders">Veritabanı Programlama - Ünite 5 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	<button class="block-group" data-start="40" data-end="59">Part 3</button>
+  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Bir hareket bloğu içindeki tüm işlemlerin “ya hep, ya hiç” mantığıyla yürütülmesi, aşağıda verilmiş olan hangi ACID kuralına karşılık gelmektedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Bölünmezlik </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Tutarlılık </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İzolasyon </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Devamlılık </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kilitlenemezlik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Veritabanı sunucusu dosyalarından hareket günlüğü dosyası aşağıda verilmiş olan hangi ACID kuralını sağlamak amacıyla kullanılmaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Bölünmezlik </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Tutarlılık </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İzolasyon </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Devamlılık </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kilitlenemezlik </span>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Veritabanı sunucusu varsayılan hareket yönetim modu aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Otokayıt hareket </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Örtük hareket </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Açık hareket </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Paylaşılan hareket </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Ayrıcalıklı hareket </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Kullanıcılar tarafından başlatılıp sonlandırıldığı hareket yönetim modu aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Otokayıt hareket </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Örtük hareket </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Açık hareket </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Paylaşılan hareket </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Ayrıcalıklı hareket </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Bir hareket tarafından değiştirilmiş fakat kalıcı olarak veritabanına kayıt edilmemiş bir verinin başka bir hareket tarafından geçerli bir veri gibi okunması aşağıdaki eş zamanlılık problemlerinden hangisi? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kayıp güncelleme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Tekrarlanamayan okuma </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Kirli okuma </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Hayalet okuma </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Çift okuma </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Aynı hareket içinde yürütülen ve aynı tablo üzerinde gerçekleştirilen iki sorgulama arasında eş zamanlı olarak başka bir hareket, okunan aralık içindeki veri kümesine yeni bir kayıt eklendiğinde
+aşağıdaki eş zamanlılık problemlerinden hangisinin oluşma ihtimali vardır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kayıp güncelleme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Tekrarlanamayan okuma </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kirli okuma </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Hayalet okuma </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Çift okuma </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> Varsayılan veritabanı sunucusu izolasyon düzeyi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Kaydedilmiş okuma izolasyon düzeyi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kaydedilmemiş okuma izolasyon düzeyi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tekrarlanabilir okuma izolasyon düzeyi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Serileştirilebilir izolasyon düzeyi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Anlık görüntü izolasyon düzeyi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      
+<u><strong>Kaydedilmiş okuma,</strong></u> varsayılan MS SQL Server VTYS izolasyon düzeyidir. Kaydedilmemiş veri değişiklikleri okunamaz. Sorgu esnasında paylaşılan kilitler kullanılır ve bir hareket okuma gerçekleştirirken eş zamanlı olarak başka bir hareket aynı veri üzerinde değişiklik gerçekleştiremez. Aynı tablo üzerinde veri ekleme ve değişikliğine izin verilir. Bu izolasyon düzeyi kirli okuma problemine engel olur. Fakat, tekrarlanamayan okuma ve hayalet okuma eş zamanlılık problemlerine sebep olabilmektedir.<br><br>
+
+<u><strong>Kaydedilmemiş okuma</strong></u>, en düşük kısıtlamaya sahip izolasyon düzeyidir. Hareket tarafından seçilmiş olan veri üzerine herhangi bir kilit uygulanmaz. Yüksek eş zamanlılık sağlamakla birlikte veri tutarlılığı sağlama düzeyi düşüktür. Çünkü, veri okunduğu sırada diğer hareketler tarafından değiştirilebilmektedir. Dolayısıyla kirli okuma, hayalet okuma ve tekrarlanamayan okuma gibi eş zamanlılık problemlerine sebep olabilmektedir.<br><br>
+			
+<u><strong>Tekrarlanabilir okuma</strong></u>, aktif edildiğinde kirli okuma ve tekrarlanamayan okuma eş zamanlılık problemleri ortadan kaldırılabilmektedir. Okunan tüm kaynaklara paylaşılan (S) kilit uygulanır. Sorgunun geri döndürdüğü veri aralığına diğer hareketler tarafından eklenen yeni kayıt satırları gelebilir. Bu yüzden de hayalet okuma eş zamanlılık problemi meydana gelebilmektedir.<br><br>
+			
+<u><strong>Serileştirilebilir izolasyondüzeyi </strong></u>  en kısıtlayıcı izolasyon düzeyidir. Bir hareket bir kayıt üzerinde okuma işlemi gerçekleştirdiği sırada başka bir hareketin okunan kayıtlar üzerinde değişiklik yapmasına izin verilmez. Aynı şekilde ilgili veri aralığına yeni bir kayıt eklemesine de izin verilmemektedir. Eş zamanlılık problemlerinin tamamı çözülmekle birlikte kilitlenme ve diğer hareketlerin bloke edilmesi problemleri ile en çok bu izolasyon düzeyinde karşılaşılmaktadır.<br><br>
+			
+<u><strong>Anlık görüntü izolasyon düzeyi</strong></u> hareketin başladığı sırada okunan verinin hareket içinde tutarlı bir değerinin kullanılmasına imkan vermektedir. Veri okuma işlemi esnasında diğer hareketlerin değişiklikleri bloke edilmez. Bununla birlikte, anlık görüntü izolasyon düzeyindeki bir hareket, yapılan değişiklikleri tespit edemez. Bu izolasyon düzeyi hareket başında bir kaydın hareket sonlanana kadar hep aynı değerde okunmasını garanti etmemektedir. Kirli okuma eş zamanlılık problemine engel olur. Bununla beraber tekrarlanamayan okuma eş zamanlılık problemi oluşmasına neden olabilmektedir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> Aşağıdakilerden hangisi veritabanı sunucusu üzerindeki en kısıtlayıcı izolasyon düzeyidir. </p>
+	<span class="option" data-correct="false"><b>A)</b> Kaydedilmiş okuma izolasyon düzeyi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kaydedilmemiş okuma izolasyon düzeyi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tekrarlanabilir okuma izolasyon düzeyi </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Serileştirilebilir izolasyon düzeyi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Anlık görüntü izolasyon düzeyi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      <u><strong>Kaydedilmiş okuma,</strong></u> varsayılan MS SQL Server VTYS izolasyon düzeyidir. Kaydedilmemiş veri değişiklikleri okunamaz. Sorgu esnasında paylaşılan kilitler kullanılır ve bir hareket okuma gerçekleştirirken eş zamanlı olarak başka bir hareket aynı veri üzerinde değişiklik gerçekleştiremez. Aynı tablo üzerinde veri ekleme ve değişikliğine izin verilir. Bu izolasyon düzeyi kirli okuma problemine engel olur. Fakat, tekrarlanamayan okuma ve hayalet okuma eş zamanlılık problemlerine sebep olabilmektedir.<br><br>
+
+<u><strong>Kaydedilmemiş okuma</strong></u>, en düşük kısıtlamaya sahip izolasyon düzeyidir. Hareket tarafından seçilmiş olan veri üzerine herhangi bir kilit uygulanmaz. Yüksek eş zamanlılık sağlamakla birlikte veri tutarlılığı sağlama düzeyi düşüktür. Çünkü, veri okunduğu sırada diğer hareketler tarafından değiştirilebilmektedir. Dolayısıyla kirli okuma, hayalet okuma ve tekrarlanamayan okuma gibi eş zamanlılık problemlerine sebep olabilmektedir.<br><br>
+			
+<u><strong>Tekrarlanabilir okuma</strong></u>, aktif edildiğinde kirli okuma ve tekrarlanamayan okuma eş zamanlılık problemleri ortadan kaldırılabilmektedir. Okunan tüm kaynaklara paylaşılan (S) kilit uygulanır. Sorgunun geri döndürdüğü veri aralığına diğer hareketler tarafından eklenen yeni kayıt satırları gelebilir. Bu yüzden de hayalet okuma eş zamanlılık problemi meydana gelebilmektedir.<br><br>
+			
+<u><strong>Serileştirilebilir izolasyondüzeyi </strong></u>  en kısıtlayıcı izolasyon düzeyidir. Bir hareket bir kayıt üzerinde okuma işlemi gerçekleştirdiği sırada başka bir hareketin okunan kayıtlar üzerinde değişiklik yapmasına izin verilmez. Aynı şekilde ilgili veri aralığına yeni bir kayıt eklemesine de izin verilmemektedir. Eş zamanlılık problemlerinin tamamı çözülmekle birlikte kilitlenme ve diğer hareketlerin bloke edilmesi problemleri ile en çok bu izolasyon düzeyinde karşılaşılmaktadır.<br><br>
+			
+<u><strong>Anlık görüntü izolasyon düzeyi</strong></u> hareketin başladığı sırada okunan verinin hareket içinde tutarlı bir değerinin kullanılmasına imkan vermektedir. Veri okuma işlemi esnasında diğer hareketlerin değişiklikleri bloke edilmez. Bununla birlikte, anlık görüntü izolasyon düzeyindeki bir hareket, yapılan değişiklikleri tespit edemez. Bu izolasyon düzeyi hareket başında bir kaydın hareket sonlanana kadar hep aynı değerde okunmasını garanti etmemektedir. Kirli okuma eş zamanlılık problemine engel olur. Bununla beraber tekrarlanamayan okuma eş zamanlılık problemi oluşmasına neden olabilmektedir.       </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> Paylaşılan kilit mod uygulanmış kaynağın, ayrıcalıklı kilit modunda bir bileşeni olduğunu gösteren kilit modu aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Amaç Ayrıcalıklı ile Paylaşılan </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Amaç Güncelleştirme ile Paylaşılan </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Amaç Ayrıcalıklı ile Güncelleştirme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Amaç Güncelleştirme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Amaç Ayrıcalıklı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Kilitli kaynaklar üzerinde hem okuma hem de değişiklik yapılmasına izin verilmeyen kilit modu aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Paylaşılan </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Amaç Güncelleştirme ile Paylaşılan </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Amaç Ayrıcalıklı ile Güncelleştirme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Güncelleştirme </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Ayrıcalıklı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> Veri değişiklikleri önce nereye yazılır ?
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> hareket günlüğü </span><br>
+	<span class="option" data-correct="false"><b>B)</b> veri tabanı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> sürüm listesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> çarşaf liste </span><br>
+	<span class="option" data-correct="false"><b>E)</b> kayıt listesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> Aşağıdakilerin hangisinde MS SQL Server VTYS’nin hareket desteği sağladığı modlar tam olarak verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Dinamik, aktif, kapalı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Dinamik, aktif, pasif
+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Otomatik, kapalı, örtük </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Otomatik, açık, kapalı </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Otomatik, açık, örtük </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Hareket bloğu içinde yer alan SQL ifadelerin tamamının başarılı olarak çalıştırılması ya da hiçbirinin çalıştırılmadan hareket bloğu başlangıç durumuna geri dönülmesine ne ad verilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Bölünmezlik </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Tutarlılık </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ACID </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Eş zamanlılık </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Hareket </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br>  I. Autocommit<br> II. Explicit<br> III. Implicit<br><br> MS SQL Server VTYS  üç farklı modda hareket desteği sağlamaktadır. Yukarıdakilerden hangileri bu modlar içerisindedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> Açık Hareket Modunda kullanılan komutlardan hangisi hareket bloğu içinde geri dönüş noktaları oluşturmak için kullanılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> BEGIN TRANSACTION </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ROLLBACK TRANSACTION </span><br>
+	<span class="option" data-correct="false"><b>C)</b> COMMIT TRANSACTION </span><br>
+	<span class="option" data-correct="true"><b>D)</b> SAVE TRANSACTION </span><br>
+	<span class="option" data-correct="false"><b>E)</b> @@TRANCOUNT </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">       <strong>BEGIN TRANSACTION</strong>, açık hareket başlangıç noktasını belirler.<br><br>
+
+<strong>ROLLBACK TRANSACTION</strong>, hareket bloğu tarafından yapılmış olan değişiklikleri geri alır.<br><br>
+
+<strong>COMMIT TRANSACTION</strong>, bir hata ile karşılaşılmaz ise değişikliklerin kalıcı hâle getirilmesi amacıyla kullanılır.<br><br>
+
+<strong>SAVE TRANSACTION</strong>, hareket bloğu içinde geri dönüş noktaları oluşturmak için kullanılır.<br><br>
+
+<strong>@@TRANCOUNT</strong>, aktif hareket sayısını geri döndürür. BEGIN TRANSACTION bu değeri bir artırırken; ROLLBACK TRANSACTION ve COMMIT TRANSACTION bir azaltır.          </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br>  “Değişikliğin gerçekleşmediği salt okunur sorgular esnasında otomatik olarak oluşmaktadır. Bu kilit modunda okuma yapılan sorgu ve hareketlerin verilere erişimine izin verilir. Bununla birlikte kilit kaldırılana kadar eş zamanlı olarak farklı bir hareketin güncelleme yapmasına izin verilmez.”<br><br>Bunu söyleyen biri aşağıdaki hangi kilit modundan bahsetmektedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Paylaşılan kilit modu </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ayrıcalıklı kilit modu </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Güncelleştirme kilit modu </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Amaç kilit modu </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Şema kararlılık kilit modu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> Kilitlenmeyi önlemek amacıyla ....... adındaki sistem görev izleyicisi her beş saniyede bir yürütülür. Böylece sistemde bir kilitlenme olup olmadığı kontrol edilmiş olur.
+Yukarıdaki cümlede boş bırakılan yeri aşağıdakilerden hangisi doğru şekilde tamamlar? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kirli okuma </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kilit tutulma zamanı </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Kilitlenme izleyicisi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kritik kod bloğu </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Özel kilit </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> "Veritabanı kaynakları ya da kayıtlara başka oturum ya da hareketler tarafından yapılacak eş zamanlı erişimin engellenmesi işlemidir."
+
+Aşağıdakilerden hangisi yukarıdaki tanıma aittir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Güncelleştirme Kilit Modu </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Amaç Kilit Modu </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İzolasyon Düzeyi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kilit Modu </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Kilitleme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> MS SQL Server VTYS’nin varsayılan ................ yönetim modudur.  .................  içindeki her bir SQL komutu tamamlandıktan sonra otomatik olarak veritabanına kaydedilir.<br><br>
+Yukarıdaki pargrafta boş bırakılan yerlere gelecek ifadeler aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Güncelleme / Güncelleme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Hareket / Güncelleme </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Hareket  / Hareket </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Hareket / Devamlılık </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Hareket / Veri tabanı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> Bir hareket bloğunun veritabanı üzerinde gerçekleştirdiği değişikliklerin kalıcı hâle getirilmesi için commit; değişikliklerin geri alınması için kullanılacak ifade aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Submit </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Pullback </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Rollback </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Revoke </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Fetch </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      <strong>BEGIN TRANSACTION</strong>, açık hareket başlangıç noktasını belirler.<br><br>
+
+<strong>ROLLBACK TRANSACTION</strong>, hareket bloğu tarafından yapılmış olan değişiklikleri geri alır.<br><br>
+
+<strong>COMMIT TRANSACTION</strong>, bir hata ile karşılaşılmaz ise değişikliklerin kalıcı hâle getirilmesi amacıyla kullanılır.<br><br>
+
+<strong>SAVE TRANSACTION</strong>, hareket bloğu içinde geri dönüş noktaları oluşturmak için kullanılır.<br><br>
+
+<strong>@@TRANCOUNT</strong>, aktif hareket sayısını geri döndürür. BEGIN TRANSACTION bu değeri bir artırırken; ROLLBACK TRANSACTION ve COMMIT TRANSACTION bir azaltır.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br>  “Bir veritabanı üzerinde gerçekleştirilen bir dizi SQL işlemini kapsayan işlemler grubudur.” Söyleyen birisi aşağıdakilerden hangisinde söz etmektedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Eş zamanlılık </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ACID </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Hareket </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bölünmezlik </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Tutarlılık </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Temel olarak daha küçük parçalara bölünemeyen en küçük işlem gurubu aşağıdakilerden hangisidir ? </p>
+	<span class="option" data-correct="false"><b>A)</b> atom </span><br>
+	<span class="option" data-correct="false"><b>B)</b> hece </span><br>
+	<span class="option" data-correct="true"><b>C)</b> hareket </span><br>
+	<span class="option" data-correct="false"><b>D)</b> hücre </span><br>
+	<span class="option" data-correct="false"><b>E)</b> sözcük </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> Kısıtların dışına çıkıldığı durumda veritabanında değişikliklere izin verilmemesi aşağıdakilerden hangisi ile ilişkilidir ? </p>
+	<span class="option" data-correct="false"><b>A)</b> bölünmezlik </span><br>
+	<span class="option" data-correct="false"><b>B)</b> devamlılık </span><br>
+	<span class="option" data-correct="false"><b>C)</b> kütükleme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> izolasyon </span><br>
+	<span class="option" data-correct="true"><b>E)</b> tutarlılık </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Değiştirilmiş fakat kalıcı hale getirilmemiş bir verinin başkası tarafından geçerli bir veri gibi okunması aşağıdakilerden hangisidir ? </p>
+	<span class="option" data-correct="false"><b>A)</b> düzensiz okuma </span><br>
+	<span class="option" data-correct="true"><b>B)</b> kirli okuma </span><br>
+	<span class="option" data-correct="false"><b>C)</b> eğreti okuma </span><br>
+	<span class="option" data-correct="false"><b>D)</b> geçici okuma </span><br>
+	<span class="option" data-correct="false"><b>E)</b> kaçak okuma </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> Hareket tamamlandığında bellekte gerçekleşen veri değişiklikleri fiziksel disk üzerindeki .......... üzerine kaydedilir.<br><br>
+Yukarıdaki bilgide noktalı yere aşağıdakilerden hangisi gelmelidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Veri sistemleri </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Veri tabanları </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veri alanları </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Veri ambarı </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Veri dosyaları </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> I. Daha küçük parçalara bölünemeyen en küçük işlem grubudur.<br>
+II. SELECT,INSERT,UPDATE ve DELETE gibi SQL işlemlerini kapsar.<br>
+III. Bir hareket bloğundaki SQL işlemleri tek bir ifadeymiş gibi yürütülür.<br>
+IV. Hareket blokları içinde uygulanan değişiklikler hemen kalıcı hâle gelir.<br><br>
+Veritabanında hareket ile ilgili yukarıda verilen bilgilerden hangileri doğrudur? </p>
+	<span class="option" data-correct="true"><b>A)</b> I, II ve III </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I, II ve IV </span><br>
+	<span class="option" data-correct="false"><b>C)</b> II, III ve IV </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I, III ve IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      Hareket blokları içinde verilerde meydana gelen değişiklikler hemen kalıcı hâle gelmez. Kalıcı hâle gelebilmeleri, hareket bloğu içindeki tüm SQL ifadelerin başarılı bir şekilde gerçekleştirilmesine bağlıdır. SQL işlemleri belirlenen bazı şartlar sağlanmış ise veritabanına uygulanır ve kalıcı hâle getirilir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Veritabanı üzerinde gerçekleştirilen bir dizi SQL işlemini (SELECT,INSERT,UPDATE ve DELETE) kapsayan işlemler grubuna ne isim verilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Transaction </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Query </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ACID </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Concurency </span><br>
+	<span class="option" data-correct="false"><b>E)</b> VTYS </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br>  MS SQL Veritabanı Sunucusu  (SIX) şeklinde kısaltılan Kilit Modu nun açıklaması aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Amaç Güncelleştirme </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Amaç Ayrıcalıklı ile Paylaşılan </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Amaç Ayrıcalıklı ile Güncelleştirme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Amaç Güncelleştirme ile Paylaşılan </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Ayrıcalıklı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> Veritabanında bir arıza meydana gelse bile hareketin kalıcı olarak kaydedildiğinden emin olmak için veri hareket günlükleri hangi hareket özelliğinde saklanır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Bölünmezlik </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Devamlılık </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İzolasyon </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sağlamlık </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Tutarlılık </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> Veri üzerinde değişiklik yapılırken başkası bu veriyi okumak istediğinde veri değişikliği bitene dek verinin okunmasının engellenmesi aşağıdakilerden hangisi ile ilişkilidir ? </p>
+	<span class="option" data-correct="false"><b>A)</b> tutarlılık </span><br>
+	<span class="option" data-correct="false"><b>B)</b> kütükleme </span><br>
+	<span class="option" data-correct="true"><b>C)</b> izolasyon </span><br>
+	<span class="option" data-correct="false"><b>D)</b> devamlılık </span><br>
+	<span class="option" data-correct="false"><b>E)</b> bölünmezlik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> Veri değişikliklerinin farklı yere de kaydedilmesi aşağıdakilerden hangisi ile ilişkilidir ? </p>
+	<span class="option" data-correct="false"><b>A)</b> izolasyon </span><br>
+	<span class="option" data-correct="false"><b>B)</b> tutarlılık </span><br>
+	<span class="option" data-correct="true"><b>C)</b> devamlılık </span><br>
+	<span class="option" data-correct="false"><b>D)</b> listeleme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> bölünmezlik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> I. SET IMPLICIT_TRANSACTIONS ON Örtük hareket modunu aktifler.<br>
+II. Bir hareket bloğunun veritabanı değişikliklerinin geri alınması için commit kullanılır.<br>
+III. Bir hareket bloğunun veritabanı değişikliklerinin kalıcı hâle getirilmesi için Rollback kullanılır.<br>
+IV. Rollback ya da Commit işleminin yapılması unutulur ise örtük hareket modu problem yaratabilir.<br><br>
+Örtük hareket ile ilgili yukarıda verilen bilgilerden hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>B)</b> III ve IV </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="true"><b>D)</b> I ve IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> Aşağıdakilerden hangisi eş zamanlılık problemlerinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> kayıp güncelleme
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> kirli okuma </span><br>
+	<span class="option" data-correct="false"><b>C)</b> tekrarlanamayan okuma </span><br>
+	<span class="option" data-correct="false"><b>D)</b> hayalet okuma </span><br>
+	<span class="option" data-correct="true"><b>E)</b> tekrarlayan güncelleme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> <img src="vrtp5üntsoru34.png" alt="Soru Görseli"><br><br>
+Yukarıdaki tabloya göre aşağıdakilerden hangisi gerçekleşmiştir?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> Kirli Okuma </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Tekrarlanamayan Okuma </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Hayalet Okuma </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kaydedilmiş Okuma </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Kayıp Güncelleme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      Tablosundaki 12 numaralı buzdolabı fiyatını güncellemek için bir kullanıcı tarafından hareket 1 başlatılsın. Hareket 1’de commit ya da rollback yapılmadan eş zamanlı olarak başka bir kullanıcı tarafından hareket 2 başlatılmış olsun. <br><br>
+
+Hareket 2 fiyat güncellemesini gerçekleştirsin ve commit ifadesiyle de değişikliği kalıcı hâle getirsin. Hareket 2 tamamlandıktan sonra hareket 1’deki commit işlemi gerçekleşmektedir. Bu durumda hareket 2 sonunda gerçekleştirilen güncelleme işlemi kaybolacaktır. Bu probleme kayıp güncelleme adı verilmektedir.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> Tamamlanmış olan ya da devam eden hareketlerin gerçekleştirdiği veri değişikliklerinin VTYS’de bir arıza meydana gelse bile kalıcı olarak kaydedildiğinden emin olunması beklenmektedir. MS SQL Server VTYS’nin en önemli özelliklerinden biri, bu amaçla ___________________ dosyası tutmasıdır. Yukarıda boş bırakılan yere aşağıdakilerden hangisi gelmelidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Otokayıt </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Eş zamanlılık </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Hareket Günlüğü </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Tutarlılık </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İzolasyon </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> Aynı hareket içinde ve aynı tablo üzerinde aynı WHERE ifadesi ile iki farklı sorgulama yapılırken iki sorgulama arasında eş zamanlı olarak başka bir hareket, okunan aralık içindeki veri kümesine yeni bir kayıt eklemiş olsun. Bu durumda ikinci sorgulamada birinciye göre daha fazla kayıt okunması hangi eş zamanlılık problemi ile ilgilidir. </p>
+	<span class="option" data-correct="false"><b>A)</b> Açık Hareket </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Örtük Hareket </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kirli okuma </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kayıp güncelleme </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Hayalet okuma </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> <img src="vrtp5üntsoru37.png" alt="Soru Görseli"><br><br>
+Yukarıdaki tabloya göre aşağıdakilerden hangisi gerçekleşmiştir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Tekrarlanamayan Okuma </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Hayalet Okuma </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kaydedilmiş Okuma </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kayıp Güncelleme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kirli Okuma </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      Hareket 1 başlatıldıktan sonra satışlar tablosundan 12 numaralı üründen toplam ne kadarlık bir satış yapıldığı bilgisi elde edilmektedir. Eş zamanlı olarak hareket 2 satışlar tablosundan 12 numaralı ürüne ait tüm kayıtları silmekte ve değişiklikleri kalıcı hâle getirmektedir. Bu durumda hareket 1 içinde yapılacak olan ikinci okuma hatalı bilgi elde edilmesine sebep olmaktadır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> Bir hareket bloğunun veritabanı üzerinde gerçekleştirdiği değişikliklerin kalıcı hâle getirilmesi için hangi ifade kullanılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Rollback </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Commit </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Implicit transaction </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Update </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Select </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> Veritabanında meydana gelebilecek eş zamanlılık problemlerinin önüne geçmek için veritabanı kaynaklarına erişimi kontrol etmek ve hareketlerin birbirinden izole bir şekilde çalışabilmesi amacıyla kilitleme gerçekleştirilir.<br><br>
+
+Aşağıdakilerden hangisi varsayılan MS SQL Server VTYS izolasyon düzeyidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kaydedilmemiş okuma </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Kaydedilmiş okuma </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tekrarlanabilir okuma </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Anlık görüngü </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Serileştirilebilir izolasyon </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      <u><strong>Kaydedilmiş okuma,</strong></u> varsayılan MS SQL Server VTYS izolasyon düzeyidir. Kaydedilmemiş veri değişiklikleri okunamaz. Sorgu esnasında paylaşılan kilitler kullanılır ve bir hareket okuma gerçekleştirirken eş zamanlı olarak başka bir hareket aynı veri üzerinde değişiklik gerçekleştiremez. Aynı tablo üzerinde veri ekleme ve değişikliğine izin verilir. Bu izolasyon düzeyi kirli okuma problemine engel olur. Fakat, tekrarlanamayan okuma ve hayalet okuma eş zamanlılık problemlerine sebep olabilmektedir.<br><br>
+
+<u><strong>Kaydedilmemiş okuma</strong></u>, en düşük kısıtlamaya sahip izolasyon düzeyidir. Hareket tarafından seçilmiş olan veri üzerine herhangi bir kilit uygulanmaz. Yüksek eş zamanlılık sağlamakla birlikte veri tutarlılığı sağlama düzeyi düşüktür. Çünkü, veri okunduğu sırada diğer hareketler tarafından değiştirilebilmektedir. Dolayısıyla kirli okuma, hayalet okuma ve tekrarlanamayan okuma gibi eş zamanlılık problemlerine sebep olabilmektedir.<br><br>
+			
+<u><strong>Tekrarlanabilir okuma</strong></u>, aktif edildiğinde kirli okuma ve tekrarlanamayan okuma eş zamanlılık problemleri ortadan kaldırılabilmektedir. Okunan tüm kaynaklara paylaşılan (S) kilit uygulanır. Sorgunun geri döndürdüğü veri aralığına diğer hareketler tarafından eklenen yeni kayıt satırları gelebilir. Bu yüzden de hayalet okuma eş zamanlılık problemi meydana gelebilmektedir.<br><br>
+			
+<u><strong>Serileştirilebilir izolasyondüzeyi </strong></u>  en kısıtlayıcı izolasyon düzeyidir. Bir hareket bir kayıt üzerinde okuma işlemi gerçekleştirdiği sırada başka bir hareketin okunan kayıtlar üzerinde değişiklik yapmasına izin verilmez. Aynı şekilde ilgili veri aralığına yeni bir kayıt eklemesine de izin verilmemektedir. Eş zamanlılık problemlerinin tamamı çözülmekle birlikte kilitlenme ve diğer hareketlerin bloke edilmesi problemleri ile en çok bu izolasyon düzeyinde karşılaşılmaktadır.<br><br>
+			
+<u><strong>Anlık görüntü izolasyon düzeyi</strong></u> hareketin başladığı sırada okunan verinin hareket içinde tutarlı bir değerinin kullanılmasına imkan vermektedir. Veri okuma işlemi esnasında diğer hareketlerin değişiklikleri bloke edilmez. Bununla birlikte, anlık görüntü izolasyon düzeyindeki bir hareket, yapılan değişiklikleri tespit edemez. Bu izolasyon düzeyi hareket başında bir kaydın hareket sonlanana kadar hep aynı değerde okunmasını garanti etmemektedir. Kirli okuma eş zamanlılık problemine engel olur. Bununla beraber tekrarlanamayan okuma eş zamanlılık problemi oluşmasına neden olabilmektedir.       </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> Aşağıdakilerden hangisi en kısıtlayıcı izolasyon düzeyidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kaydedilmiş okuma </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kaydedilmemiş okuma </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tekrarlanabilir okuma </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Serileştirilebilir izolasyon </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Anlık görüntü izolasyon </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      <u><strong>Kaydedilmiş okuma,</strong></u> varsayılan MS SQL Server VTYS izolasyon düzeyidir. Kaydedilmemiş veri değişiklikleri okunamaz. Sorgu esnasında paylaşılan kilitler kullanılır ve bir hareket okuma gerçekleştirirken eş zamanlı olarak başka bir hareket aynı veri üzerinde değişiklik gerçekleştiremez. Aynı tablo üzerinde veri ekleme ve değişikliğine izin verilir. Bu izolasyon düzeyi kirli okuma problemine engel olur. Fakat, tekrarlanamayan okuma ve hayalet okuma eş zamanlılık problemlerine sebep olabilmektedir.<br><br>
+
+<u><strong>Kaydedilmemiş okuma</strong></u>, en düşük kısıtlamaya sahip izolasyon düzeyidir. Hareket tarafından seçilmiş olan veri üzerine herhangi bir kilit uygulanmaz. Yüksek eş zamanlılık sağlamakla birlikte veri tutarlılığı sağlama düzeyi düşüktür. Çünkü, veri okunduğu sırada diğer hareketler tarafından değiştirilebilmektedir. Dolayısıyla kirli okuma, hayalet okuma ve tekrarlanamayan okuma gibi eş zamanlılık problemlerine sebep olabilmektedir.<br><br>
+			
+<u><strong>Tekrarlanabilir okuma</strong></u>, aktif edildiğinde kirli okuma ve tekrarlanamayan okuma eş zamanlılık problemleri ortadan kaldırılabilmektedir. Okunan tüm kaynaklara paylaşılan (S) kilit uygulanır. Sorgunun geri döndürdüğü veri aralığına diğer hareketler tarafından eklenen yeni kayıt satırları gelebilir. Bu yüzden de hayalet okuma eş zamanlılık problemi meydana gelebilmektedir.<br><br>
+			
+<u><strong>Serileştirilebilir izolasyondüzeyi </strong></u>  en kısıtlayıcı izolasyon düzeyidir. Bir hareket bir kayıt üzerinde okuma işlemi gerçekleştirdiği sırada başka bir hareketin okunan kayıtlar üzerinde değişiklik yapmasına izin verilmez. Aynı şekilde ilgili veri aralığına yeni bir kayıt eklemesine de izin verilmemektedir. Eş zamanlılık problemlerinin tamamı çözülmekle birlikte kilitlenme ve diğer hareketlerin bloke edilmesi problemleri ile en çok bu izolasyon düzeyinde karşılaşılmaktadır.<br><br>
+			
+<u><strong>Anlık görüntü izolasyon düzeyi</strong></u> hareketin başladığı sırada okunan verinin hareket içinde tutarlı bir değerinin kullanılmasına imkan vermektedir. Veri okuma işlemi esnasında diğer hareketlerin değişiklikleri bloke edilmez. Bununla birlikte, anlık görüntü izolasyon düzeyindeki bir hareket, yapılan değişiklikleri tespit edemez. Bu izolasyon düzeyi hareket başında bir kaydın hareket sonlanana kadar hep aynı değerde okunmasını garanti etmemektedir. Kirli okuma eş zamanlılık problemine engel olur. Bununla beraber tekrarlanamayan okuma eş zamanlılık problemi oluşmasına neden olabilmektedir.       </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question41">
+	<p class="question">Soru 41:<br> Veritabanında farklı hareket blokları birbirinden bağımsız bir şekilde çalışmasına ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Bölünmezlik </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Devamlılık </span><br>
+	<span class="option" data-correct="true"><b>C)</b> İzolasyon </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sağlamlık </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Tutarlılık </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description41">Açıklama</button>
+		<div id="description41" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question42">
+	<p class="question">Soru 42:<br> Tablo yapısının değiştirildiğini gösteren özel kilit modu komutu aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Güncelleştirme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Paylaşılan </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Amaç Ayrıcalıklı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Şema Kararlılık </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Şema Değiştirme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description42">Açıklama</button>
+		<div id="description42" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question43">
+	<p class="question">Soru 43:<br> SET TRANSACTION ISOLATION LEVEL READ SERIALIZABLE;
+Yukarıdaki komutun açıklaması nedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Anlık görüntü aktif </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kaydedilmiş okuma aktif </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kaydedilmemiş okuma aktif </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Tekrarlanabilir okuma aktif </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Serileştirilebilir aktif </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description43">Açıklama</button>
+		<div id="description43" class="collapse">      
+<strong>SET TRANSACTION ISOLATION LEVEL READ COMMITTED;</strong> Kaydedilmiş okuma aktif<br><br>
+			
+<strong>SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;</strong> Kaydedilmemiş okuma aktif<br><br>
+			
+<strong>SET TRANSACTION ISOLATION LEVEL READ REPEATABLE READ;</strong> Tekrarlanabilir okuma aktif<br><br>
+			
+<strong>SET TRANSACTION ISOLATION LEVEL READ SERIALIZABLE;</strong> Serileştirilebilir aktif<br><br>
+			
+<strong>SET TRANSACTION ISOLATION LEVEL READ SNAPSHOT;</strong> Anlık görüntü aktif     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question44">
+	<p class="question">Soru 44:<br> “İlgili kaynak bileşenlerinin güncelleştirme modunda kilitlendiğini gösterir. Sadece tablo ya da sayfa düzeyinde uygulanabilir.” <br>
+<br>
+Bunu söyleyen biri aşağıdakilerden hangi özel kilit modundan bahsetmektedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Paylaşılan </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Güncelleştirme </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Amaç Güncelleştirme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Amaç Güncelleştirme ile Paylaşılan </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Toplu Güncelleştirme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description44">Açıklama</button>
+		<div id="description44" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question45">
+	<p class="question">Soru 45:<br> Veritabanı yönetim sistemlerinde kilitlenme olasılığını azaltmak amacıyla farklı yöntem ve yaklaşımlar kullanılmaktadır. Aşağıdakilerden hangisi bunlardan biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Sorgu optimizasyonu yapılmalıdır </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kilitler mümkün olduğunca kısa tutulmalıdır </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Gerekli veri tutarlılığını sağlayan en düşük izolasyon düzeyi kullanılmalıdır </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Tekrar deneme mantığı kullanılmalıdır </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Varlıklara farklı sırada erişim sağlanmalıdır </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description45">Açıklama</button>
+		<div id="description45" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question46">
+	<p class="question">Soru 46:<br> MS SQL Veritabanı Sunucusu  (BU) şeklinde kısaltılan Kilit Modu nun açıklaması aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Ayrıcalıklı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Güncelleştirme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Amaç Güncelleştirme ile Paylaşılan </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Amaç Ayrıcalıklı ile Güncelleştirme </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Toplu Güncelleştirme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description46">Açıklama</button>
+		<div id="description46" class="collapse">      Toplu Güncelleştirme: Bir tablo içine toplu kopyalama işlemi
+yapıldığında kullanılır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question47">
+	<p class="question">Soru 47:<br> <img src="vrtp5üntsoru47.png" alt="Soru Görseli"><br><br>
+Yukarıdaki tabloya göre aşağıdakilerden hangisi gerçekleşmiştir?  </p>
+	<span class="option" data-correct="false"><b>A)</b> Tekrarlanamayan Okuma </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Kirli Okuma </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Hayalet Okuma </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kaydedilmiş Okuma </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kayıp Güncelleme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description47">Açıklama</button>
+		<div id="description47" class="collapse">      Bir hareket tarafından değiştirilmiş fakat kalıcı olarak veritabanına kaydedilmemiş bir verinin başka bir hareket tarafından geçerli bir veri gibi okunması kirli okuma olarak ifade edilmektedir. Tablo 5.6’da hareket 1, 12 numaralı ürünün fiyatını güncellediği sırada eş zamanlı olarak hareket 2 başlatılıyor. Hareket 2 ürünler tablosundan 12 numaralı ürünün fiyatını bir değişkene alıyor. Hareket 2 sonrasında satışlar tablosunda bu kez 12 numaralı ürünün fiyatını güncelliyor ve commit ifadesiyle kalıcı hâle getiriyor. Hareket 2 başlayıp bitiyor. Bu esnada hareket 1’de bir hata oluşursa rollback ifadesi ile yapılmış olan fiyat güncelleme işlemi geri alınır. Bu durumda hareket 2, kirli bir okuma yapmış ve hatalı bir güncelleme ile veri tutarsızlığı yaratmış olacaktır.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question48">
+	<p class="question">Soru 48:<br> Aşağıdakilerin hangisi veritabanında hareketin (transaction) özelliklerindendir?<br><br>
+
+I-Veritabanı üzerinde gerçekleştirilen bir dizi SQL işlemini (SELECT,INSERT,UPDATE ve DELETE) kapsayan işlemler grubuna verilen isimdir.<br>
+II-Birbirinden bağımsız çalısan SQL işlemleri tek bir ifadeymiş gibi yürütülür.<br>
+III-Verilerde meydana gelen değişiklikler bazı şartlar sağlanmış ise veritabanına uygulanır ve kalıcı hâle getirilir. </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız I, II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yalnız I, III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yalnız II, III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II, III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description48">Açıklama</button>
+		<div id="description48" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question49">
+	<p class="question">Soru 49:<br> Bölünmezlikle ilişkili kavram aşağıdakilerden hangisidir ? </p>
+	<span class="option" data-correct="false"><b>A)</b> oldu bitti </span><br>
+	<span class="option" data-correct="true"><b>B)</b> ya hep ya hiç </span><br>
+	<span class="option" data-correct="false"><b>C)</b> olana dek tekrar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> olduğu kadar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> olmasa da olur </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description49">Açıklama</button>
+		<div id="description49" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question50">
+	<p class="question">Soru 50:<br> Hareket bloğu içinde bulunan tüm işlemler bazı sebeplerden dolayı başarılı bir şekilde tamamlanamadan hata oluşabilir. Aşağıdakilerden hangisi bu durumda oluşabilecek problemlere karşı veri tabanlarındaki hareket bloklarının sahip olması gereken özelliklerden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Bölünmezlik </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Tutarlılık </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İzolasyon </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Güvenirlik </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Devamlılık </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description50">Açıklama</button>
+		<div id="description50" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question51">
+	<p class="question">Soru 51:<br> “Aynı veya farklı istemciler tarafından gerçekleştirilen veritabanı hareketlerinin, bir veri veya veri grubu üzerinde aynı anda işlem gerçekleştirmeye çalışmasıdır.” diye söyleyen birisi aşağıdakilerden hangisinde söz etmektedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> ACID </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Eş zamanlılık </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Hareket </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Tutarlılık </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bölünmezlik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description51">Açıklama</button>
+		<div id="description51" class="collapse">      Eş zamanlılık (concurency): Aynı veya farklı istemciler tarafından gerçekleştirilen veritabanı hareketlerinin, bir veri veya veri grubu üzerinde aynı anda işlem gerçekleştirmeye çalışmasıdır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question52">
+	<p class="question">Soru 52:<br> Aktif hareket sayısını geri döndüren konut aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> BEGIN TRANSACTION
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> commit TRANSACTION </span><br>
+	<span class="option" data-correct="false"><b>C)</b> save TRANSACTION </span><br>
+	<span class="option" data-correct="false"><b>D)</b> rollback TRANSACTION </span><br>
+	<span class="option" data-correct="true"><b>E)</b> @@TRANCOUNT </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description52">Açıklama</button>
+		<div id="description52" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question53">
+	<p class="question">Soru 53:<br> Veri tabanlarında hareket blokları hangi özelliğe sahip <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Bölünmezlik </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Devamlılık </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İzolasyon </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Sağlamlık </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Tutarlılık </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description53">Açıklama</button>
+		<div id="description53" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question54">
+	<p class="question">Soru 54:<br> Aşağıdakilerden hangisi aktif edildiğinde kirli okuma ve tekrarlanamayan okuma eş zamanlılık problemleri ortadan kaldırılabilmektedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kaydedilmiş okuma </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kaydedilmemiş okuma </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Tekrarlanabilir okuma </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Serileştirilebilir </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Anlık görüntü </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description54">Açıklama</button>
+		<div id="description54" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question55">
+	<p class="question">Soru 55:<br> Örtük hareket modunu aktifleştirmek için aşağıdaki komutlardan hangisi yazılmalıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> COMMIT TRANSACTION; </span><br>
+	<span class="option" data-correct="true"><b>B)</b> SET IMPLICIT_TRANSACTIONS ON; </span><br>
+	<span class="option" data-correct="false"><b>C)</b> SAVE TRANSACTION; </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ROLLBACK TRANSACTION; </span><br>
+	<span class="option" data-correct="false"><b>E)</b> BEGIN TRANSACTION; </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description55">Açıklama</button>
+		<div id="description55" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question56">
+	<p class="question">Soru 56:<br> SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED<br><br>
+Yukarıdaki komutun açıklaması nedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kaydedilmiş okuma aktif </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Kaydedilmemiş okuma aktif </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tekrarlanabilir okuma aktif </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Serileştirilebilir aktif </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Anlık görüntü aktif </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description56">Açıklama</button>
+		<div id="description56" class="collapse">      <strong>SET TRANSACTION ISOLATION LEVEL READ COMMITTED;</strong> Kaydedilmiş okuma aktif<br><br>
+			
+<strong>SET TRANSACTION ISOLATION LEVEL READ UNCOMMITTED;</strong> Kaydedilmemiş okuma aktif<br><br>
+			
+<strong>SET TRANSACTION ISOLATION LEVEL READ REPEATABLE READ;</strong> Tekrarlanabilir okuma aktif<br><br>
+			
+<strong>SET TRANSACTION ISOLATION LEVEL READ SERIALIZABLE;</strong> Serileştirilebilir aktif<br><br>
+			
+<strong>SET TRANSACTION ISOLATION LEVEL READ SNAPSHOT;</strong> Anlık görüntü aktif      </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question57">
+	<p class="question">Soru 57:<br>  <img src="vrtp5üntsoru57.png" alt="Soru Görseli"><br><br>
+	Yukarıdaki SQL tablosuna göre aşağıdaki insert satırı veya satırları doğrudur?<br><br>
+
+I. INSERT INTO Calisanlar(TC_No, Adi, Bolum_No, Cinsiyet) VALUES (21365412126,'Halit Ziya',2,32); <br>
+
+II. INSERT INTO Calisanlar(TC_No, Adi, Bolum_No, Cinsiyet) VALUES (12634521624,'Mehmet Akif',2,'E'); <br>
+
+III. INSERT INTO Calisanlar(TC_No, Adi, Bolum_No, Cinsiyet) VALUES (21365412126, 2,'Hakay Duyan',22);<br>
+
+IV. INSERT INTO Calisanlar(TC_No, Adi, Bolum_No, Cinsiyet) VALUES ('Mehmet Git', 63324521624,2,'E'); <br>
+
+V. INSERT INTO Calisanlar(TC_No, Adi, Bolum_No, Cinsiyet) VALUES (65244152126,Ayşe Koş,5,K); <br><br>
+
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="true"><b>B)</b> II ve V </span><br>
+	<span class="option" data-correct="false"><b>C)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>E)</b> IV ve V </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description57">Açıklama</button>
+		<div id="description57" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question58">
+	<p class="question">Soru 58:<br> Örtük hareket modundan çıkarken aşağıdakilerden hangisi yapılmazsa tabloya başka bağlantı yapılması engellenir ? </p>
+	<span class="option" data-correct="false"><b>A)</b> write </span><br>
+	<span class="option" data-correct="false"><b>B)</b> log </span><br>
+	<span class="option" data-correct="false"><b>C)</b> save </span><br>
+	<span class="option" data-correct="true"><b>D)</b> rollback </span><br>
+	<span class="option" data-correct="false"><b>E)</b> delete </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description58">Açıklama</button>
+		<div id="description58" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question59">
+	<p class="question">Soru 59:<br> Bir veritabanı hareketi öncesi @@TRANSCOUNT=10 iken aşağıdaki başarılı hareket sonrası yeni @@TRANSCOUNT değeri ne olur?<br><br>
+BEGIN TRANSACTION<br>
+SELECT ...<br>
+INSERT ...<br>
+COMMIT TRANSACTION </p>
+	<span class="option" data-correct="false"><b>A)</b> 8 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 9 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 10 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 11 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 12 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description59">Açıklama</button>
+		<div id="description59" class="collapse">      @@TRANSCOUNT Aktif hareket sayısını geri döndürür. BEGIN TRANSACTION bu değeri bir artırırken; ROLLBACK TRANSACTION ve COMMIT TRANSACTION bir azaltır.     </div>
+	</div>
+</div>
+		
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

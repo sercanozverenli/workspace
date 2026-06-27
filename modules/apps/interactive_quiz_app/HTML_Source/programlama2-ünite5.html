@@ -1,0 +1,1595 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+	  
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA II
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama2-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama2-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama2-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama2-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama2-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama2-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama2-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama2-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama2-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama2-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB ARAYÜZ PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİ YAPILARI
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veriyap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veriyap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veriyap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veriyap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veriyap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veriyap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veriyap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veriyap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veriyap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veriyap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          MOBİL UYGULAMA GELİŞTİRME
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="mobilug-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="mobilug-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="mobilug-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="mobilug-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="mobilug-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="mobilug-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="mobilug-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="mobilug-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="mobilug-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="mobilug-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          UNIX SİSTEM YÖNETİMİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="unixsy-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="unixsy-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="unixsy-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="unixsy-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="unixsy-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="unixsy-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="unixsy-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="unixsy-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="unixsy-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="unixsy-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Programlama II - Ünite 5 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Aşağıdakilerden hangisi dosya açma şekillerinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Okuma </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yazma </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sonuna ekleme	 </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Başına ekleme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İkili mod </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      
+		
+<table style="border: 1px solid darkred; border-collapse: collapse;">
+ <caption style="caption-side: top;">Python Dosya Erişim Modları</caption>
+  <tr>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;">Mod</th>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;">Tanım</th>
+
+  </tr>
+	
+  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> r </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Okumak için bir dosya açar. Varsayılan moddur </td>
+  </tr>
+	
+	  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> w </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Yazmak için bir dosya açar. Mevcut değilse yeni bir dosya oluşturur veya dosya varsa içeriğini siler, sıfırlar </td>
+  </tr>
+	
+	
+	  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> x </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Dosya oluşturma için kullanılır. Dosya zaten varsa, işlem başarısız olur. </td>
+  </tr>
+	
+	  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> a </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> İçeriğini silmeden sonuna eklemek için bir dosya açar. Dosya mevcut değilse yeni bir dosya
+oluşturur. </td>
+  </tr>
+	
+	  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> t </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Dosyayı metin (text) modunda açar. Varsayılan moddur </td>
+  </tr>
+	
+	  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> b </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Dosyayı ikili (binary) modda açar </td>
+  </tr>
+	
+	  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> + </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Dosyayı okuma ve yazma güncellemesi için açar </td>
+  </tr>
+	
+  
+</table>		
+		</div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Dosya üzerinde yapılan işlemler bittiğinde dosyanın düzgün bir şekilde kapatılması gerekmektedir.<br> <br> 
+Bir dosya kapatılarak, dosyaya bağlı olan kaynaklar serbest bırakılmaktadır.
+Yukarıdaki tanımda bahsedilen dosya kapatma yöntemi aşağıdaki seçeneklerden hangisinde doğru olarak
+verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> exit </span><br>
+	<span class="option" data-correct="true"><b>B)</b> close </span><br>
+	<span class="option" data-correct="false"><b>C)</b> return </span><br>
+	<span class="option" data-correct="false"><b>D)</b> garbage collector </span><br>
+	<span class="option" data-correct="false"><b>E)</b> quit </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> I. r modu okumak için dosya açar<br>
+II. w modu yazmak için dosya açar<br>
+III. a modu sonuna eklemek için dosya açar<br><br>
+Yukarı maddelerden hangisi Python dosya açma işlemleri için doğru olarak verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> import os<br>
+print(os.getcwd())<br>
+print(os.listdir())<br><br>
+Yukarıda verilen örnek Python kodu ile yapılan işlem, aşağıdaki seçeneklerden hangisinde doğru olarak verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Geçerli klasörü değiştirir ve klasör içindeki dosyaları listeler </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Geçerli klasörü yazdırır ve içindeki dosya ile klasörleri listeler </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İşletim sisteminin kurulu olduğu klasörü yazdırır ve klasörleri listeler </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İşletim sisteminin kurulu olduğu klasörü yazdırır ve dosyaları listeler </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Geçerli klasör altındaki tüm dosyaları listeler </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Python programlama dilinde, yeni bir dizin oluşturmak için aşağıdaki metotlardan hangisi kullanılmalıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> createdir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> newdir </span><br>
+	<span class="option" data-correct="false"><b>C)</b> listdir </span><br>
+	<span class="option" data-correct="true"><b>D)</b> mkdir </span><br>
+	<span class="option" data-correct="false"><b>E)</b> chdir </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      Yeni bir dizin oluşturmak için os modülünün desteklediği os.mkdir() fonksiyonu bulunmaktadır. Bu
+fonksiyona parametre olarak verilen, “dosya yolu” isimli bir dizin oluşturmak için kullanılır. Oluşturulacak dizin zaten mevcut ise, bu yöntem FileExistsError hatası verecektir.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> import os<br>
+os.chdir('D:\\temp')<br>
+os.mkdir('yeni_dizin')<br>
+os.chdir('D:\\temp\\yeni_dizin')<br>
+dosya = open("metin_dosyası.txt", mode='x', encoding='utf-8')<br>
+dosya.close()<br>
+print(os.listdir())<br><br>
+Aşağıdaki seçeneklerden hangisi, yukarıda verilen örnek Python kodu ile yapılan işlem adımlarından biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Geçerli klasörü değiştirme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Geçerli klasörü listeleme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yeni dosya oluşturma </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Yeni dosyaya metin ekleme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yeni bir dizin oluşturma </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      
+<strong>os.chdir</strong> Mevcut çalışma dizini (CWD) değiştirmek için	<br>		
+<strong>os.mkdir()</strong>  Yeni bir dizin oluşturmak için<br>
+
+<strong>x</strong> Dosya oluşturma için kullanılır. Dosya zaten varsa, işlem başarısız olur.<br>
+
+<strong>listdir()</strong> Geçerli klasörü listelemek için</div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> I. Program hataları<br>
+II. Mantık hataları<br>
+III. I/O hataları<br><br>
+Yukarıdaki maddelerden hangisi Python programlama dilindeki hatalardan biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      Program yazarken programcıların ve son kullanıcıların karşılaştıkları hatalar vardır. Genel olarak 3 farklı şekilde hataları gruplayabiliriz.<br><br>
+1. Program Hataları (Syntax errors)<br>
+2. Mantık Hataları (Bug)<br>
+3. İstisnalar (Exceptions)     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> I. Bir try ifadesi birden fazla except ifadesine sahip olabilir<br>
+II. Birden fazla except ifadesinden sadece biri çalışabilir<br>
+III. except ifadesinden sonra mutlaka finally gelmelidir<br><br>
+Yukarıdaki maddelerden hangileri Python programlama dilindeki hata yakalama kuralları için doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yalnız III </span><br>
+	<span class="option" data-correct="true"><b>D)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      Bir hata yakalanırken except ifadesi ile hangi türde hataların yakalanması gerektiği belirtilebilir. Kod
+içerisindeki try ifadesi ise birden fazla except ifadesine sahip olabilir. Herhangi bir hata oluştuğu durumda ise sadece bir except ifadesi çalıştırılacaktır. Bir except ifadesi içinde de bir değer kümesi ile farklı hatalar tanımlanabilmektedir. <br><br>
+try...finally Bloğu<br>
+Hata yakalama koduna <u>isteğe bağlı olarak</u> “finally” bloğu eklenebilir. Bu kod bloğu, ister hata olsun ister olmasın çalıştırılır. Genellikle kodda kullanılan dış kaynakların serbest bırakılması amacıyla kullanılır. Örneğin bir dosya, veritabanı veya network üzerinden yapılan bir işlemde, yapılan işlem başarılı olsun olmasın kullanılan kaynakların serbest bırakılması veya temizlenmesi, bağlantının kapatılması gibi işlemler gerekmektedir. finally bloğu ile tüm bu işlemler gerçekleştirilebilir.    </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> Hata yakalama ile ilgili aşağıdaki maddelerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Program yazarken yanlış sözdizimi, hatalı metot ve parametre kullanımı program/yazım hatalarıdır </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yazım hatalarının tespiti ve düzeltilmesi kolaydır </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Mantık hataları, program çalışırken oluşan hatalardır </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Her try bloğu, bir except bloğu ile devam etmesi zorunludur </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Finally bloğu, try bloğunda hata alınmadıysa çalışır </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      try...finally Bloğu<br>
+Hata yakalama koduna <u>isteğe bağlı olarak</u> “finally” bloğu eklenebilir. <u>Bu kod bloğu, ister hata olsun ister olmasın çalıştırılır.</u> Genellikle kodda kullanılan dış kaynakların serbest bırakılması amacıyla kullanılır. Örneğin bir dosya, veritabanı veya network üzerinden yapılan bir işlemde, yapılan işlem başarılı olsun olmasın kullanılan kaynakların serbest bırakılması veya temizlenmesi, bağlantının kapatılması gibi işlemler gerekmektedir. finally bloğu ile tüm bu işlemler gerçekleştirilebilir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> def fnk( a ):<br>
+&emsp; try:<br>
+&emsp;  &emsp; print(7 / a)<br>
+&emsp; except:<br>
+&emsp;  &emsp; print("Hata oluştu!")<br>
+fnk(0)<br><br>
+Yukarıda verilen örnek Python kodunun çıktısı, aşağıdaki seçeneklerden hangisinde doğru olarak verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 7 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 0 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Hata oluştu </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ZeroDivisionError: division by zero </span><br>
+	<span class="option" data-correct="false"><b>E)</b> SyntaxError </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> dosya = open("metin_dosyası.txt",'w+')<br>
+
+Python programlama dilinde yukarıdaki kod satırı kullanılarak açılan dosyada yapılabilecek işlemler ile ilgili olarak hangisi <u><strong>söylenemez?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Açılan dosya okunabilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Açılan dosyaya yazma işlemi yapılabilir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Dosya metin (text) modunda açılmıştır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Dosya mevcut değilse yaratılır.
+
+ </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Dosya silinir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      Aşağıdaki tabloda  belirtildiği üzere +, dosyayı okuma ve yazma güncellemesi için açar.<br><br>
+
+“w” ise “Yazmak için bir dosya açar. Mevcut değilse yeni bir dosya oluşturur veya dosya varsa içeriğini siler, sıfırlar.” Dosya varsayılan mod olan text modunda açılmıştır. <br><br>
+<table style="border: 1px solid darkred; border-collapse: collapse;">
+ <caption style="caption-side: top;">Python Dosya Erişim Modları</caption>
+  <tr>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;">Mod</th>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;">Tanım</th>
+
+  </tr>
+	
+  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> r </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Okumak için bir dosya açar. Varsayılan moddur </td>
+  </tr>
+	
+	  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> w </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Yazmak için bir dosya açar. Mevcut değilse yeni bir dosya oluşturur veya dosya varsa içeriğini siler, sıfırlar </td>
+  </tr>
+	
+	
+	  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> x </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Dosya oluşturma için kullanılır. Dosya zaten varsa, işlem başarısız olur. </td>
+  </tr>
+	
+	  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> a </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> İçeriğini silmeden sonuna eklemek için bir dosya açar. Dosya mevcut değilse yeni bir dosya
+oluşturur. </td>
+  </tr>
+	
+	  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> t </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Dosyayı metin (text) modunda açar. Varsayılan moddur </td>
+  </tr>
+	
+	  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> b </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Dosyayı ikili (binary) modda açar </td>
+  </tr>
+	
+	  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> + </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Dosyayı okuma ve yazma güncellemesi için açar </td>
+  </tr>
+	
+  
+</table>     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> harita.bmp isimli dosya bir resim dosyasıdır.  <br><br>
+Hangi kod satırında bu dosyayı Python programlama dilinde açmak için en uygun yöntem kullanılmaktadır?  </p>
+	<span class="option" data-correct="false"><b>A)</b> harita = open("harita.bmp") </span><br>
+	<span class="option" data-correct="false"><b>B)</b> harita = open("harita.bmp", "r+") </span><br>
+	<span class="option" data-correct="true"><b>C)</b> harita = open("harita.bmp", "b") </span><br>
+	<span class="option" data-correct="false"><b>D)</b> harita = open("harita.bmp", "x") </span><br>
+	<span class="option" data-correct="false"><b>E)</b> harita = open("harita.bmp", "w") </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      “b” modu, dosyayı ikili (binary) modda açar.  “Bu mod, resim veya yürütülebilir dosyalar (exe uzantılı) gibi metin olmayan dosyalarla
+uğraşırken kullanılacak moddur.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> with open("metin_dosyası.txt",'w',encoding = 'utf-8') as dosya:<br>
+dosya.write("Python sınavı\n")<br><br>
+
+Yukarıdaki kodun ilk satırında yer alan “with…” deyiminin dosya işleminde kullanım sebebi nedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> “with…”  ifadesinin içindeki bloktan çıkıldığında dosyanın kendiliğinden kapatılması sağlanır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> “with…”  ifadesi sayesinde belirtilen dosya yoksa oluşturulur. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> “with…” ifadesi ile dosyaya yazılanların varolan dosyanın içeriğine eklenmesi sağlanır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> “with…” ifadesi ile dosyanın tüm içeriği silinir yeni içerikler boş dosyaya eklenir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> “with…” ifadesi, dosyaya yazma işlemi yapabilmek için zorunludur. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      Bir dosyayı kapatmanın en iyi yolu “with” deyiminin kullanılmasıdır. “with” deyimi sayesinde, with ifadesinin içindeki bloktan çıkıldığında dosyanın kapatılması sağlanmaktadır. Ayrıca close() fonksiyonu dahili olarak çağrıldığı için tekrar çağrılmasına gerek duyulmaz.     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> istiklalMarsi.txt dosyası, İstiklal Marşı’mızın ilk iki kıtasını içermektedir. Buna göre aşağıdaki kod Python’da çalıştırıldığında, hangi sonuç döndürülür?<br><br>
+
+with open("istiklalMarsi.txt",'r',encoding = 'utf-8') as dosya:<br>
+
+print(dosya.readline(6)) </p>
+	<span class="option" data-correct="true"><b>A)</b> Korkma </span><br>
+	<span class="option" data-correct="false"><b>B)</b> sancak </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Korkma, sönmez bu şafaklarda yüzen al sancak;  </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sana olmaz dökülen kanlarımız sonra helâl, </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kim bu cennet vatanın uğruna olmaz ki fedâ? </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">   readline(x=-1) : 
+Dosyadan bir satır okuyarak döndürür.<br>
+Belirtilmişse en fazla x bayt veri okur.<br><br>
+Yukarıda belirtildiği gibi;   “Dosyadan satırların bir listesini okuyarak döndürür.” Parametre belirtilmişse en fazla parametrede belirtilen bayt/ karakter okur. Sorudaki print(dosya.readline(6)) satırı dosyadaki ilk 7 bayt ile ifade edilen Korkma harflerini döndürecektir.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> Python ile yaptığımız dosya işlemlerinin hangi dizinde gerçekleştiğini bilmek için, programın mevcut çalışma dizini (Current Working Directory - CWD) bilgisine ihtiyaç duyarız. Bu bilgi nasıl elde edilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> “with” deyiminin kullanılması ile </span><br>
+	<span class="option" data-correct="false"><b>B)</b> “try… finally” bloğu kullanılarak </span><br>
+	<span class="option" data-correct="false"><b>C)</b> “os” modülünün “chdir()” yöntemi kullanılarak </span><br>
+	<span class="option" data-correct="false"><b>D)</b> “shutil” modülü içindeki “rmtree()” yöntemi kullanılarak </span><br>
+	<span class="option" data-correct="true"><b>E)</b> “os” modülünün “getcwd()” yöntemi kullanılarak </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Python ile yaptığımız dosya işlemleri, programın mevcut çalışma dizini (Current Working Directory - CWD) klasöründe gerçekleştilir. <br><br>
+Mevcut çalışma klasörünü D sürüsündeki “Temp” klasörü olarak belirlemek için aşağıdaki kod satırlarından hangisi kullanılmalıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> os.getcwd(“D:\Temp”) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> os.cwd(“D:\Temp”) </span><br>
+	<span class="option" data-correct="true"><b>C)</b> os.chdir(“D:\Temp”) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> os.mkdir(“D:\Temp”) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> os.rmdir(“D:\Temp”) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      “Mevcut çalışma dizini (CWD) değiştirmek için os.chdir() yöntemi kullanılmaktadır     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> Python dili için “shutil” modülü içindeki rmtree() metodu, parametre olarak mevcut çalışma dizini (CWD) içerisindeki bir dizin ismi verilerek kullanıldığında, ne sonuç verir? </p>
+	<span class="option" data-correct="false"><b>A)</b> İsmi verilen dizinin içeriğini listeler. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> İsmi verilen dizini içerisinde yer alan dosyalar ile beraber siler. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İsmi verilen dizinin içerisindeki dosyaları siler. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İsmi verilen dizinin bir kopyasını üretir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İsmi verilen dizini mevcut çalışma dizini (CWD) olarak belirler. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      Boş olmayan bir dizini kaldırmak için “shutil” modülü içindeki rmtree() metodu kullanılır     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Python dilinin için os modülü içinde yer alan rmdir() yöntemi aşağıdaki durumların hangisinde bir hata mesajı döndürmeden işlemi gerçekleştirebilecektir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Parametre olarak ismi verilen bir dosyayı ve içindeki verileri silme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Parametre olarak ismi verilen bir dizini ve içindeki dosyaları silme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Mevcut çalışma dizinini (CWD) silme </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Parametre olarak ismi verilen içi boş bir dizini silme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Parametre olarak ismi verilen boş bir dosyayı silme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      Mevcut çalışma dizinini (CWD) içerisindeki bir dizini silmek için kullanılmaktadır. Ancak parametre olarak verilen dizin içerisinde başka dizinler ya da dosyalar var ise, bir OSError hatası döndürmektedir.
+
+
+     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> Python programlama dilinin izin vermediği işlemlerin yapılmaya çalışılması istisnalar oluşturabilir. <br><br>
+Bu gibi durumlarda programda bir hata oluştuğunda, bir şeyler ters gittiğinde hata yakalayabilmek için ne kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> try, except ve finally işlevleri </span><br>
+	<span class="option" data-correct="false"><b>B)</b> os modülü yöntemleri </span><br>
+	<span class="option" data-correct="false"><b>C)</b> shutil modülü yöntemleri </span><br>
+	<span class="option" data-correct="false"><b>D)</b> locals()[‘__builtins__’] fonksiyonu </span><br>
+	<span class="option" data-correct="false"><b>E)</b> sys.exit() fonksiyonu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br>  Python programlama dilinde, mod alma ya da bölme işleminin ikinci işleneni sıfır olması hangi yerleşik istisnanın tetiklenmesine sebep olur? </p>
+	<span class="option" data-correct="false"><b>A)</b> UnicodeError </span><br>
+	<span class="option" data-correct="true"><b>B)</b> ZeroDivisionError </span><br>
+	<span class="option" data-correct="false"><b>C)</b> RuntimeError </span><br>
+	<span class="option" data-correct="false"><b>D)</b> FloatingPointError </span><br>
+	<span class="option" data-correct="false"><b>E)</b> MemoryError </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      
+		
+		
+<table style="border: 1px solid darkred; border-collapse: collapse;">
+ <caption style="caption-side: top;">Python Yerleşik İstisnalar ve Nedenleri</caption>
+  <tr>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;">İstisna</th>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;">Hata Nedeni</th>
+
+  </tr>
+	
+  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> AssertionError </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Koddaki assert ifadesi başarısız olduğunda tetiklenir </td>
+
+  </tr>
+	
+	  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> AttributeError </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Nitelik referansı ya da ataması başarısız olduğunda tetiklenir </td>
+
+  </tr>
+	
+	  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> EOFError </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> input() fonksiyonu ile işlem yaparken dosya sonuna ulaştığında tetiklenir </td>
+
+  </tr>
+	
+	  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> FloatingPointError </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Kayan nokta işlemi sırasında bir hata olduğunda tetiklenir </td>
+
+  </tr>
+	
+	  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> GeneratorExit </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Bir generator (iterasyon yapılabilen fonksiyonlar) close() fonksiyonu
+çağrıldığında çağırılır </td>
+
+  </tr>
+	
+	  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> ImportError </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> İçe aktarılan modül bulunamadığında verilen hatadır </td>
+
+  </tr>
+	
+	  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> IndexError </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Bir dizinin indeks değeri aralık dışında olduğunda tetiklenir </td>
+
+  </tr>
+	
+	  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> KeyError </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Sözlükte bir anahtar bulunmadığında verilen hatadır </td>
+
+  </tr>
+	
+	  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> KeyboardInterrupt </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Kullanıcı tarafından işlem iptal etme/kesme tuşuna (Ctrl+C veya Delete)
+bastığında tetiklenir </td>
+
+  </tr>
+	
+	  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> MemoryError </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Bir işleme ayrılan hafıza tükendiğinde tetiklenir </td>
+
+  </tr>
+	
+	  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> NameError </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Global ya da yerel alanda tanımlı bir değişken bulunmadığında tetiklenir </td>
+
+  </tr>
+	
+	  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> NotImplementedError </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Bir fonksiyon oluşturulmadı ise, Soyut (abstract) fonksiyonlar tarafından
+tetiklenir. </td>
+
+  </tr>
+	
+	  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> OSError </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Bir sistem işlemi, işletim sistemi ile ilgili bir hataya neden olduğunda tetiklenir </td>
+
+  </tr>
+	
+	  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> OverflowError </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Bir aritmetik işlemin sonucu, atandığı değişkenin tanımlandığı değer
+aralıklarından daha büyük olduğunda tetiklenir </td>
+
+  </tr>
+	
+	  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> ReferenceError </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Çöp toplama mekanizması tarafından temizlenmiş bir referansa erişilmeye
+çalışıldığında tetiklenir </td>
+
+  </tr>
+	
+	  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> RuntimeError </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Karşılaşılan hata başka bir kategoriye dahil edilemediğinde tetiklenir </td>
+
+  </tr>
+	
+	  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> StopIteration </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Üzerinde yineleme yapılan nesnede döndürülecek başka eleman kalmadığını
+göstermek için next() fonksiyonu tarafından tetiklenir </td>
+
+  </tr>
+	
+	  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> SyntaxError </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Python kod ayrıştırıcısı (parser) bir sözdizimi hatası ile karşılaştığında tetiklenir </td>
+
+  </tr>
+	
+		  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> IndentationError </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Kodda hatalı bir girinti olduğunda tetiklenir </td>
+
+  </tr>
+	
+		  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> TabError </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Kodda girinti tutarsız boşluk ve sekmelerden oluştuğunda tetiklenir </td>
+
+  </tr>
+	
+		  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> SystemError </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Yorumlayıcı tarafından dahili bir hata algılandığında tetiklenir </td>
+
+  </tr>
+	
+		  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> SystemExit </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> sys.exit() fonksiyonu tarafından tetiklenir </td>
+
+  </tr>
+	
+		  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> TypeError </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Bir fonksiyon veya işlem değeri, yanlış türde bir nesneye atandığında tetiklenir </td>
+
+  </tr>
+	
+		  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> UnboundLocalError </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Bir fonksiyon içinde yerel bir değişkene başvuru yapıldığında ve bu değişkene öncesinde bir değer ataması yapılmadığında tetiklenir </td>
+
+  </tr>
+	
+		  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> UnicodeError </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Unicode karakterler ile ilgili bir kodlama veya kod çözme hatası gerçekleştiğinde
+tetiklenir </td>
+
+  </tr>
+	
+		  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> UnicodeEncodeError </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Unicode karakterler ile ilgili bir kodlama hatası gerçekleştiğinde tetiklenir </td>
+
+  </tr>
+	
+		  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> UnicodeDecodeError </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Unicode karakterler ile ilgili bir kod çözme hatası gerçekleştiğinde tetiklenir </td>
+
+  </tr>
+	
+		  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> UnicodeTranslateError </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Unicode karakterler ile ilgili bir çeviri hatası gerçekleştiğinde tetiklenir </td>
+
+  </tr>
+	
+		  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> ValueError </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Bir fonksiyon doğru türde fakat uygun olmayan değerde bir parametre
+aldığında tetiklenir </td>
+
+  </tr>
+	
+		  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> ZeroDivisionError </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Mod alma ya da bölme işleminin ikinci işleneni sıfır olduğunda tetiklenir </td>
+
+  </tr>
+	
+
+	
+	
+	
+  
+	
+</table>		
+		
+		</div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Python'da dosya açmak için kullanılan fonksiyon nedir ve nasıl kullanılır? Örnekle açıklayınız. </p>
+	<span class="option" data-correct="true"><b>A)</b> Python, bir dosyayı açmak için dahili bir open() fonksiyonuna sahiptir. Bu fonksiyon, dosyayı uygun şekilde okumak veya değiştirebilmek için tanımlayıcı olarak da adlandırılan bir dosya nesnesi döndürmektedir.<br><br>
+
+Kod:<br><br>
+
+# dosyayı geçerli dizinde oluşturur:<br>
+dosya = open("ilk_dosyam.txt")
+
+# dosyayı özel olarak verilmiş dizinde oluşturur:<br>
+dosya = open("D:/dosya_arsivi/python_notları.txt") </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Python'da dosya erişim modları nelerdir? Açıklayınız. </p>
+	<span class="option" data-correct="true"><b>A)</b> Modda, dosyaya “r” okuma, “w” yazma veya “a” ekleme durumlarından biri belirtilebilir. Ayrıca dosyanın metin modunda veya ikili (binary) modda açılması da parametrik olarak belirtilebilir. Dosyanın varsayılan okuma modu ise metin modudur. Bu modda, dosyadan okurken dizeler (string) alınmaktadır. Bunun yanında, ikili mod bayt değer döndürmektedir. Bu mod, resim veya yürütülebilir dosyalar (exe uzantılı) gibi metin olmayan dosyalarla uğraşırken kullanılacak moddur.<br><br>
+
+<table style="border: 1px solid darkred; border-collapse: collapse;">
+ <caption style="caption-side: top;">Python Dosya Erişim Modları</caption>
+  <tr>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;">Mod</th>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;">Tanım</th>
+
+  </tr>
+	
+  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> r </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Okumak için bir dosya açar. Varsayılan moddur </td>
+  </tr>
+	
+	  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> w </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Yazmak için bir dosya açar. Mevcut değilse yeni bir dosya oluşturur veya dosya varsa içeriğini siler, sıfırlar </td>
+  </tr>
+	
+	
+	  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> x </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Dosya oluşturma için kullanılır. Dosya zaten varsa, işlem başarısız olur. </td>
+  </tr>
+	
+	  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> a </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> İçeriğini silmeden sonuna eklemek için bir dosya açar. Dosya mevcut değilse yeni bir dosya
+oluşturur. </td>
+  </tr>
+	
+	  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> t </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Dosyayı metin (text) modunda açar. Varsayılan moddur </td>
+  </tr>
+	
+	  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> b </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Dosyayı ikili (binary) modda açar </td>
+  </tr>
+	
+	  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> + </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Dosyayı okuma ve yazma güncellemesi için açar </td>
+  </tr>
+	
+  
+</table> </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> Python'da dosya kapatma işlemi nasıl gerçekleştirilir? Örnekle açıklayınız.  </p>
+	<span class="option" data-correct="true"><b>A)</b> Dosya kapatma işlemi close() yöntemi kullanılarak yapılmaktadır. <br><br>
+ Python’da, artık başvurulmayan nesneleri temizlemek için bir çöp toplayıcısı (Garbage Collector) yapısı bulunmaktadır, fakat dosya kapatma işlemleri için bu yapıya güvenilmemelidir.
+
+Kod:<br><br>
+
+qdosya = open("metin_dosyası.txt", encoding = 'utf-8')<br>
+# Dosya işlemlerinin yapıldığı kod bloğu<br>
+dosya.close()<br>
+
+Bu yöntem de tamamen güvenli değildir. Dosya ile işlem yaparken bir hata oluştuğunda, kod dosyayı kapatmadan çıkacaktır. Bu yüzden daha güvenli bir yol olan, hata yakalama amacıyla kullanılan try... finally bloğu kullanılmalıdır.<br><br>
+
+try:<br><br>
+
+dosya = open("metin_dosyası.txt", encoding = 'utf-8')<br>
+# Dosya işlemlerinin yapıldığı kod bloğu<br>
+finally:<br>
+
+&ensp; &ensp; dosya.close()<br><br>
+
+Bu şekilde, program akışının durmasına neden olan bir hata ortaya çıktığı durumda bile dosyanın düzgün bir şekilde kapatılması sağlanacaktır. <br><br>
+
+Bir dosyayı kapatmanın en iyi yolu “with” deyiminin kullanılmasıdır. “with” deyimi sayesinde, with ifadesinin içindeki bloktan çıkıldığında dosyanın kapatılması sağlanmaktadır. Ayrıca close() fonksiyonu dahili olarak çağrıldığı için tekrar çağrılmasına gerek duyulmaz.<br><br>
+
+Kod:<br>
+with open("metin_dosyası.txt", encoding = 'utf-8') as dosya:<br>
+# Dosya işlemlerinin yapıldığı kod bloğu</span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Dosya okumada read() yöntemi hangi amaçla kullanılır?  </p>
+	<span class="option" data-correct="true"><b>A)</b> Dosya okuma kodunda, read() yönteminin verilen sayı kadar karakter döndürdüğü görülmektedir. Dosyanın sonuna ulaşıldığında, daha fazla okuma yapılamadığı için boş veri dönmektedir.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> Python dosya metotlarından detach(), read(x) ve write(m) fonksiyonlarını tanımlayınız.
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> <br>
+<u><strong>detach():</strong></u> Temel alınan akışı (stream) arabellekten ayırarak döndürür.<br><br>
+
+<u><strong>read(x):</strong></u> Dosyadan en fazla x adet karakter okur. Negatif, None (Yok) veya boş ise dosyanın sonuna kadar okur.<br><br>
+
+<u><strong>write(m):</strong></u> Dosyaya parametre olarak verilen m dizesini yazar ve yazılan karakter sayısını döndürür. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> readline<strong>s</strong>() fonksiyonunu açıklayınız.
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> <br>
+readline<strong>s</strong>() fonksiyonu dosyanın tüm kalan satırlarının bir listesini döndürmek için kullanılır. Tüm bu okuma yöntemleri, dosyanın sonuna (EOF) ulaşıldığında boş değer döndürmektedir.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Bir dizini veya dosyayı yeniden adlandırmak için hangi fonksiyon kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Bir dizini veya dosyayı yeniden adlandırmak için rename() fonksiyonu kullanılmaktadır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> Program yazarken programcıların ve son kullanıcıların karşılaştıkları hatalar ne şekilde gruplandırılır? Açıklayınız. </p>
+	<span class="option" data-correct="true"><b>A)</b><br>
+<strong>1. Program Hataları (Syntax errors):</strong> Programlama dilinin söz dizimine uygun olmayan kod yazılması nedeniyle ortaya çıkan hataya yazım (syntax) veya çözümleme (parsing) hatası denilmektedir.<br><br>
+
+<strong>2. Mantık Hataları (Bug):</strong> Mantık hatalarının fark edilmesi, yazım hatalarına göre daha zordur. Program çalışırken işleyişe müdahale edecek, sonlanmasına neden olacak bir hata oluşmaz. Fakat, istenilenden daha farklı sonuç veriyor olması ile bu mantık hataları ortaya çıkmaktadır. <br><br>
+
+<strong>3. İstisnalar (Exceptions):</strong> Söz diziminden başarılı bir şekilde geçtikten sonra oluşan hatalara istisna denilmektedir. Sayının sıfıra bölünmesi, olmayan bir dosyaya erişim veya içe aktarılmaya çalışılan bir modülün bulunmaması gibi hatalar bunlara örnek verilebilir. Bu şekilde bir çalışma zamanı hatası meydana geldiğinde, Python programlama dili bir istisna nesnesi oluşturmaktadır. Eğer olası hatalar düzgün bir şekilde ele alınarak kullanıcıyı uyarmazsa, yorumlayıcı hatanın neden olduğu hakkında bir geri bildirimi ekrana yazdıracaktır.  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> Python yerleşik istisnalarından EOFError, OSError ve RuntimeError hatalarının nedenlerini açıklayınız. </p>
+	<span class="option" data-correct="true"><b>A)</b> <br>
+<strong>EOFError:</strong> input() fonksiyonu ile işlem yaparken dosya sonuna ulaştığında tetiklenir.<br><br>
+
+<strong>OSError:</strong> Bir sistem işlemi, işletim sistemi ile ilgili bir hataya neden olduğunda tetiklenir<br><br>
+
+<strong>RuntimeError:</strong> Karşılaşılan hata başka bir kategoriye dahil edilemediğinde tetiklenir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> print(dir(locals()['__builtins__']))<br><br>
+
+Yukarıdaki kod satırını açıklayınız. </p>
+	<span class="option" data-correct="true"><b>A)</b> locals()[‘__builtins__’] fonksiyonu yardımıyla, dahili istisnalar, fonksiyonlar ve niteliklerden oluşan bir modül elde edilir. Elde edilen bu modülün özniteliklerinin metin dizeleri olarak listelenmesi ise “dir” fonksiyonu vasıtasıyla gerçekleşir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> Python'da yerleşik istisnalardan UnicodeError, ValueError, ZeroDivisionError hatalarının nedenlerini açıklayınız. </p>
+	<span class="option" data-correct="true"><b>A)</b> <strong>UnicodeError:</strong> Unicode karakterler ile ilgili bir kodlama veya kod çözme hatası gerçekleştiğinde tetiklenir.<br><br>
+
+<strong>ValueError:</strong> Bir fonksiyon doğru türde fakat uygun olmayan değerde bir parametre aldığında tetiklenir.<br><br>
+
+<strong>ZeroDivisionError:</strong> Mod alma ya da bölme işleminin ikinci işleneni sıfır olduğunda tetiklenir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> Python'da hata yakalamak için kullanılan ifade nedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Hata yakalamak için try ifadesi kullanılmaktadır. Kod içerisinde bir hata/istisna oluşturabilecek durumlar try cümleciği içerisinde yazılır. Kodun üreteceği herhangi bir hata durumunda, except yan cümleciği içerisinde yazılan kod bloğu çalışacaktır. Böylece bir hata durumunda yapılması gereken işlem kullanıcı tarafından belirlenmiş olacaktır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> Python'da hata yakalamada except ifadesinin rolünü açıklayınız. </p>
+	<span class="option" data-correct="true"><b>A)</b> Bir hata yakalanırken except ifadesi ile hangi türde hataların yakalanması gerektiği belirtilebilir. Kod içerisindeki try ifadesi ise birden fazla except ifadesine sahip olabilir. Herhangi bir hata oluştuğu durumda ise sadece bir except ifadesi çalıştırılacaktır. Bir except ifadesi içinde de bir değer kümesi ile farklı hatalar tanımlanabilmektedir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+		
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

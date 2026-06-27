@@ -1,0 +1,1559 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="anasayfa.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA I
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama1-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama1-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama1-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama1-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama1-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama1-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama1-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama1-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama1-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama1-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          BİLİŞİM HUKUKU
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="bilisimhk-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="bilisimhk-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="bilisimhk-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="bilisimhk-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="bilisimhk-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="bilisimhk-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="bilisimhk-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="bilisimhk-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="bilisimhk-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="bilisimhk-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB'DE TELİF HAKLARI VE ETİK
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="webtelif-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="webtelif-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="webtelif-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="webtelif-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="webtelif-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="webtelif-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="webtelif-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="webtelif-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="webtelif-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="webtelif-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          AĞ YÖNETİMİ VE BİLGİ GÜVENLİĞİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="agyonetimi-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="agyonetimi-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="agyonetimi-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="agyonetimi-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="agyonetimi-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="agyonetimi-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="agyonetimi-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="agyonetimi-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="agyonetimi-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="agyonetimi-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİTABANI PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veritabaniprg-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veritabaniprg-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  </nav>
+  
+    <h4 id="ders">Programlama I - Ünite 8 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+</div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Türetilen sınıftan gelen bazı özelliklerin değiştirilebilmesine ve nesne üzerinden çağrılabilmesine ne ad verilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Çok biçimlilik </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Public metot </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Soyut sınıf </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Arayüz </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Mühürlü sınıf </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Aşağıdaki metot üzerine yazma (override) kurallarından hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> final ve static olarak tanımlanmış metotlar “override” edilemez </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kurucu/Yapıcı “constructor” metotlar “override” edilemez </span><br>
+	<span class="option" data-correct="true"><b>C)</b> “override” edilecek metot tanımlanırken, “protected” ve “private” anahtar kelimeleri kullanılmalıdır </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Temel, üst sınıf içinde “private” olarak tanımlı metotlar “override” edilemez </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Temel, üst sınıftan kalıtım ile alınan metotların dönüş tipleri ve parametreleri değiştirilemez </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      • Final ve static olarak tanımlanmış metotlar “override” edilemez.<br>
+• Kurucu/Yapıcı “constructor” metotlar “override” edilemez.<br>
+• Temel, üst sınıf içinde “private” olarak tanımlı metotlar “override” edilemez.<br>
+• Temel, üst sınıftan kalıtım ile alınan metotların dönüş tipleri ve parametreleri değiştirilemez.<br>
+• Alt, türetilen sınıftaki “override” olarak tanımlanacak metot, üst sınıftaki metot ile aynı isimde olmalıdır.<br>
+• “override” edilecek metot tanımlanırken, “virtual” ve “override” anahtar kelimeleri kullanılmalıdır.<br>
+• “override” işlemi uygulanan metodun erişim belirleyicisinin seviyesi yükseltilebilir fakat düşürülemez.     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> İki tane arayüzü (interface) uygulayan bir sınıfta, arayüzlerin ikisinde de tesadüfen aynı imza ve isim ile tanımlı birer metot varsa sonucu ne olur? </p>
+	<span class="option" data-correct="false"><b>A)</b> İki arayüzü de uygular </span><br>
+	<span class="option" data-correct="true"><b>B)</b> En az bir arayüzü uygular </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Aynı isme ve imzaya sahip </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bir sınıf birden fazla arayüzü uygulayamaz </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Çalışma zamanı hatası (runtime exception) verir </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> I. Soyut (abstract) sınıflar da arayüzler (interface) gibi metot bildirimi yapabilir<br>
+II. Soyut sınıflarda normal sınıflardaki gibi metotlar hazırlanabilir<br>
+III. Sınıflar, soyut sınıflardan kalıtım ile türetilemez<br><br>
+Soyut sınıflar ile ilgili yukarıdaki maddelerden hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yalnız III </span><br>
+	<span class="option" data-correct="true"><b>D)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> ………… sınıfların amacı kalıtım olduğundan, bu
+sınıflardan normal sınıflar gibi “new” anahtar kelimesi ile yeni nesne oluşturulamaz. Bu sınıflardan sadece yeni sınıflar türetilebilir.<br><br>
+Yukarıda boş bırakılan yere aşağıdaki seçeneklerden hangisi gelmelidir?</p>
+	<span class="option" data-correct="false"><b>A)</b> Arayüz (interface) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Türetilmiş </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Somut </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Statik </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Soyut </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> I. Soyut bir sınıfın içinde en az bir tane soyut metot olmalıdır.<br>
+II. Bir sınıfın içinde soyut metot varsa o sınıf da soyut olarak tanımlanmalıdır.<br>
+III. Bir sınıf bir tane soyut sınıftan türetilebilir.<br><br>
+Soyut sınıflar ile ilgili yukarıdaki maddelerden hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> Bu sınıflar, nesne yönelimli programlamanın
+kalıtım özelliğini engellemek istediğimiz durumlarda kullanılır. Sabit özellikleri ve metotları olan sınıflardır.<br> <br> 
+Yukarıda tanımı verilen sınıf türü aşağıdaki seçeneklerden hangisinde doğru olarak verilmiştir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Mühürlü (sealed) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Üstüne yazma (override) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Soyut (abstract) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Arayüz (interface) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kurucu (constructor) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> Arayüz (interface) özellikleri ile ilgili aşağıdakilerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Veri elemanı yani değişken içeremezler </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Tanımlı fonksiyon ve özelliklerin gövdeleri yoktur. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tanımlı elemanların erişim belirleyicileri ön tanımlı olarak “public” tanımlıdır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Elemanlarında abstract, virtual gibi kalıtım yapılabileceğine dair belirteçler kullanılmaz. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Arayüz türünden “new” operatörü ile yeni nesne oluşturulabilir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      <strong>Arayüz oluştururken uyulması gereken kısıtları da şu şekilde sıralayabiliriz:</strong><br><br><br>
+• Arayüzler veri elemanı yani değişken içeremezler.<br><br>
+• Arayüzde tanımlı fonksiyon ve özelliklerin gövdeleri yoktur, sadece şablon şeklinde tanımlıdır. Metot bildiriminden sonra “;” işareti konulmalıdır.<br><br>
+• Arayüzde tanımlı elemanların erişim belirleyicileri ön tanımlı olarak “public” tanımlıdır, başka bir erişim belirleyici kullanılamaz. Kullanılması durumunda derleyici hata verecektir.<br><br>
+• Arayüz elemanlarında abstract, virtual gibi kalıtım yapılabileceğine dair belirteçler kullanılmaz. Tüm elemanlar abstract tanımlı gibi kullanılır.<br><br>
+• Arayüz türünden referans tanımı yapılabilir fakat “new” operatörü ile yeni nesne oluşturulamaz.<br><br>
+• Bir sınıf sadece bir sınıftan türetilebilir iken, birden fazla arayüzü destekleyebilir.<br><br>
+• Arayüzler de sınıfların diğer sınıflardan türetildiği gibi diğer arayüzlerden türetilebilir. Böylece türetildiği arayüzün bütün elemanlarını da taşırlar.<br><br>
+• Arayüzler, yapıcı (constructor) ve yıkıcı (destructor) metot içeremezler.<br><br>
+• Yapıların “struct”, başka sınıflardan türetilmesine izin verilmemektedir. Lakin yapılar da birden fazla arayüzü destekleyebilirler.<br><br>
+• Bir sınıf ya da bir yapı “struct”, bir arayüzü destekliyorsa ilgili arayüz elemanlarının “public” olarak tanımlanması zorunludur.<br><br>
+• Sınıf isminden sonra gelen “:” işaretinden sonra bir sınıf geliyorsa, buna türetilme, miras alma, kalıtma ya da “extend” etmek diyebiliriz. Eğer bir arayüz geldi ise buna da uygulamak ya da “implement” etmek diyebiliriz.
+			
+		</div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> I. Arayüz (Interface)<br>
+II. Sınıf (Class<br>
+III. Yapı (Struct)<br><br>
+Yukarıdaki yapılardan hangileri arayüz (interface) uygulayabilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Hata yakalama ile ilgili aşağıdaki maddelerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Program yazarken yanlış sözdizimi, hatalı metot ve parametre kullanımı derleme zamanı hatalarıdır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Derleme zamanı hatalarının tespiti ve düzeltilmesi kolaydır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Çalışma zamanı hataları ise, genelde mantıksal hatalardan kaynaklanır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Her try bloğu, bir catch bloğu ile devam etmesi zorunludur. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Finally bloğu, try bloğunda hata alınmadıysa çalışır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      En sondaki “finally”
+bloğu isteğe bağlı olarak eklenir, zorunlu değildir. Bu bloktaki kodlar, “catch” bloğu tarafından ister hata yakalansın ister yakalanmasın yine de çalıştırılacaktır.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> C# programlama dilinde arayüzlerin tanımlanması için hangi anahtar kelimesi kullanılmaktadır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Interface </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Base </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Override </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Abstract </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sealed </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> C# programlama dilinde, hataların yakalanıp yönetilmesi için hangi sınıf kullanılmaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Convert </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Class </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Exception  </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Static </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Catch </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Soyut “abstract” sınıflar ne olarak tanımlanamazlar? </p>
+	<span class="option" data-correct="false"><b>A)</b> Base </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Statik </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Override </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Interface </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Sealed </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> Bir sınıf ya da bir yapı “struct”, bir arayüzü destekliyorsa ilgili arayüz elemanlarının ne olarak tanımlanması zorunludur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Abstract  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İnterface </span><br>
+	<span class="option" data-correct="false"><b>C)</b> New </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Public </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Struct </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> Aşağıdaki program parçacıklarından hangisinde Metot Üzerine Yazma vardır? </p>
+	<span class="option" data-correct="false"><b>A)</b> class C1 {<br>
+     &emsp;public void Metod1()<br>
+    &emsp;{<br>
+          &emsp;&emsp;Console.WriteLine("Merhaba Dünya");<br>
+    &emsp;}<br>
+}<br>
+class C2 {<br>
+     &emsp;public void Metod1()<br>
+    &emsp;{<br>
+         &emsp;&emsp;Console.WriteLine("Merhaba Evren");<br>
+     &emsp;}<br>
+} </span><br><br><br>
+	<span class="option" data-correct="true"><b>B)</b>  class C1 {<br>
+     &emsp;public void Metod1()<br>
+    &emsp;{<br>
+          &emsp;&emsp;Console.WriteLine("Merhaba Dünya");<br>
+    &emsp;}<br>
+}<br>
+class C2 : C1{<br>
+     &emsp;public void Metod1()<br>
+    &emsp;{<br>
+          &emsp;&emsp;Console.WriteLine("Merhaba Evren");<br>
+     &emsp;}<br>
+} </span><br><br><br>
+	<span class="option" data-correct="false"><b>C)</b> class C1 {<br>
+     &emsp;public void Metod1()<br>
+    &emsp;{<br>
+          &emsp;&emsp;Console.WriteLine("Merhaba Dünya");<br>
+    &emsp;}<br>
+}<br>
+class C2 {<br>
+     &emsp;public void Metod2()<br>
+    &emsp;{<br>
+          &emsp;&emsp;Console.WriteLine("Merhaba Evren");<br>
+     &emsp;} <br>
+    &emsp;public static void Metod1()<br>
+    &emsp;{<br>
+          &emsp;&emsp;Console.WriteLine("Merhaba Dünya");<br>
+    &emsp;}<br>
+} </span><br><br><br>
+	<span class="option" data-correct="false"><b>D)</b> class C1:C2 {<br>
+     &emsp;public void Metod1()<br>
+    &emsp;{<br>
+          &emsp;&emsp;Console.WriteLine("Merhaba Dünya");<br>
+    &emsp;}<br>
+}<br>
+class C2 {<br>
+     &emsp;public void Metod2()<br>
+    &emsp;{<br>
+          &emsp;&emsp;Console.WriteLine("Merhaba Evren");<br>
+     &emsp;} <br>
+} </span><br><br><br>
+	<span class="option" data-correct="false"><b>E)</b> class C1 {<br>
+     &emsp;public void Metod1()<br>
+    &emsp;{<br>
+          &emsp;&emsp;Console.WriteLine("Merhaba Dünya");<br>
+    &emsp;}<br>
+     &emsp;public void Metod1()<br>
+    &emsp;{<br>
+          &emsp;&emsp;Console.WriteLine("Merhaba Evren");<br>
+     &emsp;}<br>
+} </span><br><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      Metot Üzerine Yazma (Method Overriding) işlemi, bir alt sınıfta (türetilen sınıf) bulunan metotun, üst sınıfta (temel sınıf) aynı isimli metodu ezmeye çalıştığı durumlarda gerçekleştirilir. Bu işlemde, alt sınıftaki metotun, üst sınıftaki metodu ezip kendi işlevini gerçekleştirmesi sağlanır.
+
+B şıkkındaki kodlarda C2 sınıfı, C1 sınıfından türetilmiş bir alt sınıftır. Bu nedenle C2 sınıfı, C1 sınıfındaki tüm özellikleri ve metotları miras almıştır. C2 sınıfındaki Metod1(), C1 sınıfındaki Metod1() metodu ile aynı isme sahiptir ve C1 sınıfındaki Metod1() metodu ezilebilir durumdadır.
+
+C2 sınıfındaki Metod1() metodu, C1 sınıfındaki Metod1() metodunu ezerek kendi işlevini gerçekleştirir. Bu nedenle, C2 sınıfından bir nesne oluşturulduğunda, Metod1() metodu C2 sınıfındaki Metod1() metodu tarafından eşleştiği için C1 sınıfındaki Metod1() metodu değil, C2 sınıfındaki Metod1() metodu çağrılır. Bu, Metot Üzerine Yazma işlemi olarak adlandırılır.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> namespace ConsolApp3<br>
+		{<br>
+			&emsp;internal class Program<br>
+			&emsp;{<br> 
+				&emsp;&emsp;class C1<br>
+				&emsp;&emsp;{<br> 
+					&emsp;&emsp;&emsp;public void Metod1 ()<br>
+					&emsp;&emsp;&emsp;{<br>
+		
+						&emsp;&emsp;&emsp;&emsp;Console.Writeline("Merhaba Dünya");<br>
+					&emsp;&emsp;&emsp;}<br>
+				&emsp;&emsp;}<br>
+				&emsp;&emsp;class C2: C1<br>
+				&emsp;&emsp;{ <br>
+					&emsp;&emsp;&emsp;public void Metod1 ()<br>
+					&emsp;&emsp;&emsp;{<br>
+		
+						&emsp;&emsp;&emsp;&emsp;Console.Writeline("Merhaba Evren");<br>
+					&emsp;&emsp;&emsp;}<br>
+				&emsp;&emsp;}<br>
+		
+				&emsp;&emsp;public void Metod1 ()<br>
+				&emsp;&emsp;{<br>
+		
+					&emsp;&emsp;&emsp;Console.Writeline("Merhaba Dünya");<br>
+				&emsp;&emsp;}<br>
+		
+				&emsp;&emsp;static void Main (string[] args)<br>
+				&emsp;&emsp;{<br>
+		
+					&emsp;&emsp;&emsp;Metod1();<br>
+					&emsp;&emsp;&emsp;C1 c1 = new C1();<br>
+					&emsp;&emsp;&emsp;c1.Metod1();<br>
+					&emsp;&emsp;&emsp;C2 c2=new C2();<br>
+					&emsp;&emsp;&emsp;c2.Metod1();	<br>	
+				&emsp;&emsp;}<br>
+			&emsp;}<br>
+		}
+		</p>
+	<span class="option" data-correct="false"><b>A)</b> Merhaba Arkadaş<br>
+Merhaba Evren<br>
+
+Merhaba Dünya </span><br><br>
+	<span class="option" data-correct="false"><b>B)</b> Merhaba Arkadaş<br>
+Merhaba Evren<br>
+
+Merhaba Evren </span><br><br>
+	<span class="option" data-correct="false"><b>C)</b> Merhaba Arkadaş<br>
+Merhaba Dünya<br>
+
+Merhaba Dünya </span><br><br>
+	<span class="option" data-correct="true"><b>D)</b> Merhaba Arkadaş<br>
+Merhaba Dünya<br>
+
+Merhaba Evren </span><br><br>
+	<span class="option" data-correct="false"><b>E)</b> Merhaba Arkadaş<br>
+Merhaba Arkadaş<br>
+
+Merhaba Arkadaş
+
+ </span><br><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      Program başladığında, Main fonksiyonu çalıştırılır.<br><br>
+
+Main fonksiyonu içerisindeki Metod1() çağrısı gerçekleşir.<br><br>
+
+Çağrılan Metod1() fonksiyonu, sınıf içerisinde bulunmadığı için C#'ın kendi bulunduğu dosyadaki diğer sınıflardan çağırmamız gerekmektedir. Bu sebeple, sınıf adı ile birlikte çağrılır: ConsolApp3.Program.Metod1().<br><br>
+
+Metod1() fonksiyonu, "Merhaba Arkadaş" yazısını ekrana yazdırır.<br><br>
+
+C1 sınıfından c1 adında bir örnek oluşturulur.<br><br>
+
+c1.Metod1() fonksiyonu çağrılır. Bu fonksiyon C1 sınıfı içerisindeki Metod1() fonksiyonunu çağıracaktır.<br><br>
+
+C1.Metod1() fonksiyonu çalıştığında, "Merhaba Dünya" yazısı ekrana yazdırılır.<br><br>
+
+C2 sınıfından c2 adında bir örnek oluşturulur.<br><br>
+
+c2.Metod1() fonksiyonu çağrılır. Bu fonksiyon, C2 sınıfı içerisindeki Metod1() fonksiyonunu çağıracaktır.<br><br>
+
+C2.Metod1() fonksiyonu çalıştığında, "Merhaba Evren" yazısı ekrana yazdırılır.<br><br>
+
+Sonuç olarak program, aşağıdaki çıktıyı verecektir:<br><br>
+
+Merhaba Arkadaş<br>
+Merhaba Dünya<br>
+Merhaba Evren <br>    </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> Döngüyü bitirebilecek bir kontrol şartı eklenmeyen bir while döngüsü aşağıdakilerden hangi hatayı verme potansiyeline sahiptir? </p>
+	<span class="option" data-correct="false"><b>A)</b> for ifadesinin çalışmaması </span><br>
+	<span class="option" data-correct="false"><b>B)</b> if kullanımının zorlaşması </span><br>
+	<span class="option" data-correct="false"><b>C)</b> else if kullanılamaması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> else ifadelerinin anlamını yitirmesi </span><br>
+	<span class="option" data-correct="true"><b>E)</b> sonsuz döngü </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> I. Final ve static olarak tanımlanmış metotlar “override” edilemez.<br> 
+II. Temel, üst sınıf içinde “private” olarak tanımlı metotlar “override” edilir.<br>  
+III. “override” edilecek metot tanımlanırken, “virtual” ve “override” anahtar kelimeleri kullanılır. <br> <br> 
+Yukarıdakilerden hangisi ya da hangileri metotların üzerine yazma kurallarındandır?  </p>
+	<span class="option" data-correct="true"><b>A)</b> I, III </span><br>
+	<span class="option" data-correct="false"><b>B)</b> II, III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I, II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I, II, III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yalnız III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> I. Arayüzler veri elemanı içerir. <br>
+II. Arayüzler diğer arayüzlerden türetilebilir.<br>
+III. Bir sınıf birden fazla arayüzü destekleyebilir.<br>
+IV. Arayüzde tanımlı fonksiyon ve özelliklerin gövdeleri yoktur. <br><br>
+Yukarıdakilerden hangisi arayüz oluştururken uyulması gereken kısıtlardır?  </p>
+	<span class="option" data-correct="false"><b>A)</b> I, II, III </span><br>
+	<span class="option" data-correct="false"><b>B)</b> II, III </span><br>
+	<span class="option" data-correct="true"><b>C)</b> II, III, IV </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I, II, III, IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II, IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      <strong>Arayüz oluştururken uyulması gereken kısıtları da şu şekilde sıralayabiliriz:</strong><br><br><br>
+• Arayüzler veri elemanı yani değişken içeremezler.<br><br>
+• Arayüzde tanımlı fonksiyon ve özelliklerin gövdeleri yoktur, sadece şablon şeklinde tanımlıdır. Metot bildiriminden sonra “;” işareti konulmalıdır.<br><br>
+• Arayüzde tanımlı elemanların erişim belirleyicileri ön tanımlı olarak “public” tanımlıdır, başka bir erişim belirleyici kullanılamaz. Kullanılması durumunda derleyici hata verecektir.<br><br>
+• Arayüz elemanlarında abstract, virtual gibi kalıtım yapılabileceğine dair belirteçler kullanılmaz. Tüm elemanlar abstract tanımlı gibi kullanılır.<br><br>
+• Arayüz türünden referans tanımı yapılabilir fakat “new” operatörü ile yeni nesne oluşturulamaz.<br><br>
+• Bir sınıf sadece bir sınıftan türetilebilir iken, birden fazla arayüzü destekleyebilir.<br><br>
+• Arayüzler de sınıfların diğer sınıflardan türetildiği gibi diğer arayüzlerden türetilebilir. Böylece türetildiği arayüzün bütün elemanlarını da taşırlar.<br><br>
+• Arayüzler, yapıcı (constructor) ve yıkıcı (destructor) metot içeremezler.<br><br>
+• Yapıların “struct”, başka sınıflardan türetilmesine izin verilmemektedir. Lakin yapılar da birden fazla arayüzü destekleyebilirler.<br><br>
+• Bir sınıf ya da bir yapı “struct”, bir arayüzü destekliyorsa ilgili arayüz elemanlarının “public” olarak tanımlanması zorunludur.<br><br>
+• Sınıf isminden sonra gelen “:” işaretinden sonra bir sınıf geliyorsa, buna türetilme, miras alma, kalıtma ya da “extend” etmek diyebiliriz. Eğer bir arayüz geldi ise buna da uygulamak ya da “implement” etmek diyebiliriz.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> Aşağıdakilerden hangisi C# programlama dilinde hata sınıflarında ortak kullanılan özelliklerden hatayı gönderen uygulama ya da nesnenin adıdır?  </p>
+	<span class="option" data-correct="true"><b>A)</b> Source </span><br>
+	<span class="option" data-correct="false"><b>B)</b> InnerException </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ToString  </span><br>
+	<span class="option" data-correct="false"><b>D)</b> TargetSite </span><br>
+	<span class="option" data-correct="false"><b>E)</b> StackTrac </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">       <strong>Hata sınıflarında ortak kullanılan özellikler vardır. Bunları da kısaca:</strong><br><br>
+
+<u><strong>• HelpLink:</strong></u> Programcı tarafından oluşturulmuş, hata ile ilgili yardım dosyasının yolunu tutar.<br>
+<u><strong>• InnerException:</strong></u> catch bloğu içinden fırlatılan hataya yol açan durumun Exception nesnesi.<br>
+• Source: Hatayı gönderen uygulama ya da nesnenin adıdır.<br>
+<u><strong>• StackTrace:</strong></u> Hatanın oluştuğu yer ile ilgili detaylı bilgi verir.<br>
+<u><strong>• TargetSite:</strong></u> Hatayı fırlatan metot ile ilgili bilgi verir.<br>
+<u><strong>• ToString:</strong></u> Hata ile ilgili oluşturulan metnin tümünü string olarak verir.      </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Temel sınıf sadece kalıtım amacı ile kullanılacaksa, sınıf oluşturulurken hangi anahtar kelimesini kullanırız? </p>
+	<span class="option" data-correct="false"><b>A)</b> New </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Abstract </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Override </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bahse </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Class </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Aşağıdakilerden hangisi sabit özelliklere ve metotlara sahip bir sınıfa ihtiyaç duyulduğunda kullanılan anahtar kelimedir?  </p>
+	<span class="option" data-correct="false"><b>A)</b> Interface </span><br>
+	<span class="option" data-correct="false"><b>B)</b> New </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Base </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Abstract </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Sealed </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> Aşağıdakilerden hangisi C# programlama dilinde hata sınıflarında ortak kullanılan özelliklerden biri <u><strong>değildir?</strong></u>  </p>
+	<span class="option" data-correct="false"><b>A)</b> HelpLink </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Throw </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ToString </span><br>
+	<span class="option" data-correct="false"><b>D)</b> StackTrace </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Source </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      <strong>Hata sınıflarında ortak kullanılan özellikler vardır. Bunları da kısaca:</strong><br><br>
+
+<u><strong>• HelpLink:</strong></u> Programcı tarafından oluşturulmuş, hata ile ilgili yardım dosyasının yolunu tutar.<br>
+<u><strong>• InnerException:</strong></u> catch bloğu içinden fırlatılan hataya yol açan durumun Exception nesnesi.<br>
+• Source: Hatayı gönderen uygulama ya da nesnenin adıdır.<br>
+<u><strong>• StackTrace:</strong></u> Hatanın oluştuğu yer ile ilgili detaylı bilgi verir.<br>
+<u><strong>• TargetSite:</strong></u> Hatayı fırlatan metot ile ilgili bilgi verir.<br>
+<u><strong>• ToString:</strong></u> Hata ile ilgili oluşturulan metnin tümünü string olarak verir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Aşağıdaki önermelerden hangisi doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Bir Interface bir Abstract sınıftan türetilebilir. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Bir sınıf birden fazla Interface kullanabilir </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Interface içerisindeki metotlar Private olarak tanımlanmalıdır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bir Interface başka bir Interface'ten türetilemez. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Interface ile Abstract aynı şeylerdir.  </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      <strong>Arayüz oluştururken uyulması gereken kısıtları da şu şekilde sıralayabiliriz:</strong><br><br><br>
+• Arayüzler veri elemanı yani değişken içeremezler.<br><br>
+• Arayüzde tanımlı fonksiyon ve özelliklerin gövdeleri yoktur, sadece şablon şeklinde tanımlıdır. Metot bildiriminden sonra “;” işareti konulmalıdır.<br><br>
+• Arayüzde tanımlı elemanların erişim belirleyicileri ön tanımlı olarak “public” tanımlıdır, başka bir erişim belirleyici kullanılamaz. Kullanılması durumunda derleyici hata verecektir.<br><br>
+• Arayüz elemanlarında abstract, virtual gibi kalıtım yapılabileceğine dair belirteçler kullanılmaz. Tüm elemanlar abstract tanımlı gibi kullanılır.<br><br>
+• Arayüz türünden referans tanımı yapılabilir fakat “new” operatörü ile yeni nesne oluşturulamaz.<br><br>
+• Bir sınıf sadece bir sınıftan türetilebilir iken,<strong> birden fazla arayüzü destekleyebilir</strong>.<br><br>
+• Arayüzler de sınıfların diğer sınıflardan türetildiği gibi diğer arayüzlerden türetilebilir. Böylece türetildiği arayüzün bütün elemanlarını da taşırlar.<br><br>
+• Arayüzler, yapıcı (constructor) ve yıkıcı (destructor) metot içeremezler.<br><br>
+• Yapıların “struct”, başka sınıflardan türetilmesine izin verilmemektedir. Lakin yapılar da birden fazla arayüzü destekleyebilirler.<br><br>
+• Bir sınıf ya da bir yapı “struct”, bir arayüzü destekliyorsa ilgili arayüz elemanlarının “public” olarak tanımlanması zorunludur.<br><br>
+• Sınıf isminden sonra gelen “:” işaretinden sonra bir sınıf geliyorsa, buna türetilme, miras alma, kalıtma ya da “extend” etmek diyebiliriz. Eğer bir arayüz geldi ise buna da uygulamak ya da “implement” etmek diyebiliriz.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> I. Soyut sınıflarda hem metot bildirimine hem de metot oluşturulmasına izin verilmektedir.<br>
+II. Soyut sınıflardan sadece yeni sınıflar türetilebilir.<br>
+III. Soyut sınıftan türetilen sınıflarda, bildirimi yapılan metotların tanımlanması gerekmektedir.<br>
+IV. Soyut sınıflarda “new” anahtar kelimesi ile yeni nesne oluşturulur. <br><br>
+ Yukarıdaki soyut sınıf ile ilgili ifadelerden hangileri doğrudur?  </p>
+	<span class="option" data-correct="false"><b>A)</b> I,II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I, III </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I, II, III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II, III, IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, III, IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      soyut sınıflardan doğrudan nesne örnekleri oluşturulamaz. Çünkü soyut sınıflar, genellikle somutlaştırılamayan kavramsal bir yapıyı temsil etmek için kullanılır ve bir anlamda tamamlanmamışlardır. Bu nedenle, soyut sınıflardan doğrudan nesne oluşturulamaz. Ancak, soyut sınıflar, bir veya daha fazla alt sınıf tarafından genişletilebilir ve alt sınıflarından nesne örnekleri oluşturulabilir.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> I. Yanlış sözdizimi<br>
+II. Hatalı metot ve parametre kullanımı<br>
+III. Erişim belirleyicilerin doğru kullanılmaması <br><br>
+ Yukarıdakilerden hangisi ya da hangileri C# programlama dilinde derleme zamanı hatalarındandır? </p>
+	<span class="option" data-correct="false"><b>A)</b> I,II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I, III </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I, II, III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II, III, </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yalnız I </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Arayüzler, fark edilebilmeleri amacıyla geleneksel olarak isimleri hangi harf ile başlatılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> G </span><br>
+	<span class="option" data-correct="false"><b>B)</b> P </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> H </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> Aşağıdakilerden hangisi syntax yazım hatalarından kaynaklanır? </p>
+	<span class="option" data-correct="false"><b>A)</b> editör çeşidi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> arayüz </span><br>
+	<span class="option" data-correct="true"><b>C)</b> derleme zamanı hataları (compiler error) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> çalışma zamanı hataları (runtime error) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> main </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> Arayüzde tanımlı elemanların erişim belirleyicileri ön tanımlı olarak ne şekilde tanımlıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Override </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Public </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Virtual </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Abstract  </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Base </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> Soyut bir metot türetilmiş bir sınıf tarafından yeniden tanımlandığında aşağıdaki anahtar kelimelerden hangisi kullanılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Overloads </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Override </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Base </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Virtual </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Abstract </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> <strong>Aşağıdaki kod çalıştırıldığında sonuç ne olur?</strong><br><br>
+		abstract class C1<br>
+			&emsp;{<br>
+				&emsp;&emsp;public int i;<br>
+				&emsp;&emsp;public abstract void display ();<br>
+			&emsp;}<br>
+			&emsp;class C2 : C1<br>
+			&emsp;{<br>
+				&emsp;&emsp;public int j;<br>
+				&emsp;&emsp;public int topl;<br>
+				&emsp;&emsp;public override void display ()<br>
+				&emsp;&emsp;{<br>
+					&emsp;&emsp;&emsp;topl = i + j;<br>
+					&emsp;&emsp;&emsp;Console.Writeline (+i + "\n" + +j);<br>
+					&emsp;&emsp;&emsp;Console.Writeline ("toplam:" + topl);<br>
+				&emsp;&emsp;}<br>
+			&emsp;}<br>
+			&emsp;class Program<br>
+			&emsp;{<br>
+				&emsp;&emsp;static void Main(string[] args)<br>
+				&emsp;&emsp;{<br>
+					&emsp;&emsp;&emsp;C1 obj = new C2();<br>
+					&emsp;&emsp;&emsp;obj.i = 10;<br>
+					&emsp;&emsp;&emsp;C2 obj1 = new C2();<br>
+					&emsp;&emsp;&emsp;obj1.j = 20;<br>
+					&emsp;&emsp;&emsp;obj.display();<br>
+					&emsp;&emsp;&emsp;Console.Readline();<br>
+				&emsp;&emsp;}<br>
+			&emsp;}<br>
+		</p>
+	<span class="option" data-correct="false"><b>A)</b> 10<br>
+20<br>
+
+toplam:10 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 20<br>
+0<br>
+
+toplam:30 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 0<br>
+10<br>
+
+toplam:20
+
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 10<br>
+20<br>
+
+toplam:30 </span><br>
+	<span class="option" data-correct="true"><b>E)</b> 10<br>
+0<br>
+
+toplam:10 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      - Önce C1 sınıfı tanımlanıyor. Bu sınıfın içinde i adlı bir public int özelliği ve display() adlı bir soyut yöntemi bulunuyor.<br><br>
+			
+- C2 sınıfı tanımlanıyor ve C1 sınıfından miras alıyor. C2 sınıfının içinde j, topl adlı public int özellikleri ve display() yönteminin override edilmiş bir sürümü bulunuyor. Bu yöntem, i ve j özelliklerinin toplamını hesaplar ve sonuçları ekrana yazdırır.<br><br>
+			
+- Main yöntemi oluşturuluyor ve ilk olarak obj adlı bir C1 türünde değişken tanımlanıyor ve new C2() kullanılarak bir C2 nesnesine atanıyor. Daha sonra obj.i = 10 kullanılarak i özelliği 10 olarak ayarlanıyor.<br><br>
+			
+- Ardından obj1 adlı bir C2 nesnesi oluşturuluyor ve obj1.j = 20 kullanılarak j özelliği 20 olarak ayarlanıyor.<br><br>
+			
+- Son olarak obj.display() yöntemi çağrılıyor. Ancak burada dikkat etmemiz gereken şey, obj değişkeninin aslında bir C2 nesnesi olmasına rağmen, C1 türünde tanımlandığıdır. Bu nedenle, display() yöntemi çağrıldığında, C1 sınıfının sürümü çalıştırılacak, ancak C2 sınıfının sürümü çalıştırılmayacaktır. Bu nedenle, j özelliği kullanılmayacaktır ve sonuçta 10, 0 ve 10 olarak çıktı alınacaktır.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> Aşağıdakilerden hangisi, kalıtım yoluyla türetilmiş sınıfın özelliğidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Hiyerarşinin bozulması </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Türetildiği sınıfın tüm özelliklerinin miras alınması </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Üst sınıfın private özelliklerinin yeniden ve farklı olarak tanımlanması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Override özelliğin kaybolması </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Süslü parantez kullanım zorunluluğunun kaybolması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> Aşağıdakilerden hangisi C# programlama dilinde bağımsız değişken hatasıdır?  </p>
+	<span class="option" data-correct="true"><b>A)</b> Argument Exception </span><br>
+	<span class="option" data-correct="false"><b>B)</b> DivideByZeroException </span><br>
+	<span class="option" data-correct="false"><b>C)</b> NullReferanceException </span><br>
+	<span class="option" data-correct="false"><b>D)</b> IOException </span><br>
+	<span class="option" data-correct="false"><b>E)</b> IndexOutOfRangeException </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      
+		<u><strong>Argument Exception</strong></u> Bağımsız değişken hatası<br>
+<u><strong>ArraytypeMistmatchException</strong></u> Dizi elemanına yanlış türde veri ataması hatası<br>
+<u><strong>DivideByZeroException</strong></u> Sıfıra bölme hatası<br>
+<u><strong>Exception</strong></u> Tüm genel hatalar için<br>
+<u><strong>IndexOutOfRangeException</strong></u> Dizide indeks sınırlarının aşılması<br>
+<u><strong>InvalidCastException</strong></u> Geçersiz tür dönüşümleri ile ilgili hata sınıfı<br>
+<u><strong>IOException</strong></u> Giriş/Çıkış, dosya işlemleri sistem hata sınıfı<br>
+<u><strong>NullReferanceException</strong></u> Bellekte yer ayrılmamış nesnenin üyelerine erişim, referans hatası<br>
+<u><strong>OutofMemoryException</strong></u> Programın çalışması için bellekte yeterli yer kalmaması<br>
+StackOverFlowException Stack bölgesinde yeterli yer kalmaması hatası</div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> Türetilen sınıfın metoduna işlem önceliği verebilmek için, “virtual” olmayan bir metodu, override edebilmede hangi anahtar sözcüğünü kullanırız? </p>
+	<span class="option" data-correct="true"><b>A)</b> New </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Class </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Foreach </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Console </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Ovidius </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> Temel sınıfın virtual olmayan bir metodunu yeni türetilmiş bir metotla değiştirerek bir temel sınıfın verilerini ve davranışını değiştirmek için aşağıdaki anahtar sözcüklerden hangisi kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> New </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Class </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Foreach </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Console </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Ovidius </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> İstisnai durum yakalama şablonu aşağıda hangi seçenekte doğru tanımlanmıştır? </p>
+	<span class="option" data-correct="true"><b>A)</b> <br>try<br>
+{<br>
+// istisnai durum gösterebilecek kod bloğu<br>
+}<br>
+catch( &lt;exception_type&gt; ex )<br>
+{<br>
+// istisnai durum olunca çalıştırılacak kod bloğu<br>
+}<br>
+finally<br>
+{<br>
+// istisnai durum olup olmadığına bakmaksızın çalışacak kod bloğu<br>
+} </span><br><br>
+	<span class="option" data-correct="false"><b>B)</b> <br>try<br>
+{<br>
+// istisnai durum gösterebilecek kod bloğu<br>
+}<br>
+finally( &lt;exception_type&gt; ex )<br>
+{<br>
+// istisnai durum olunca çalıştırılacak kod bloğu<br>
+}<br>
+catch<br>
+{<br>
+// istisnai durum olup olmadığına bakmaksızın çalışacak kod bloğu<br>
+} </span><br><br>
+	<span class="option" data-correct="false"><b>C)</b> <br>finally<br>
+{<br>
+// istisnai durum gösterebilecek kod bloğu<br>
+}<br>
+try( &lt;exception_type&gt; ex )<br>
+{<br>
+// istisnai durum olunca çalıştırılacak kod bloğu<br>
+}<br>
+catch<br>
+{<br>
+// istisnai durum olup olmadığına bakmaksızın çalışacak kod bloğu<br>
+} </span><br><br>
+	<span class="option" data-correct="false"><b>D)</b> <br>catch<br>
+{<br>
+// istisnai durum gösterebilecek kod bloğu<br>
+}<br>
+try( &lt;exception_type&gt; ex )<br>
+{<br>
+// istisnai durum olunca çalıştırılacak kod bloğu<br>
+}<br>
+finally<br>
+{<br>
+// istisnai durum olup olmadığına bakmaksızın çalışacak kod bloğu<br>
+} </span><br><br>
+	<span class="option" data-correct="false"><b>E)</b> <br>finally<br>
+{<br>
+// istisnai durum gösterebilecek kod bloğu<br>
+}<br>
+catch( &lt;exception_type&gt; ex )<br>
+{<br>
+// istisnai durum olunca çalıştırılacak kod bloğu<br>
+}<br>
+try<br>
+{<br>
+// istisnai durum olup olmadığına bakmaksızın çalışacak kod bloğu<br>
+} </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      Şablonda belirtilen “try” anahtar kelimesi ile başlayan kod bloğu, çalışma zamanı hatası olabileceği düşünülen kodların bulunduğu yerdir. Bu blok içinde oluşabilecek hatalar “catch” bloğu tarafından yakalanır ve bu kod bloğu içindeki kodun çalışmasını sağlar. “try” dan sonra “catch” bloğunun eklenmesi zorunludur. Eğer “try” bloğunda bir hata oluşmaz ise bu bloktaki kodlar çalıştırılmayacaktır. En sondaki “finally” bloğu ise isteğe bağlı olarak eklenir, zorunlu değildir. Bu bloktaki kodlar, “catch” bloğu tarafından ister hata yakalansın ister yakalanmasın yine de çalıştırılacaktır.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> Aşağıdaki seçeneklerden hangisi  finally bloğu için doğru bir tanımlama içerir? </p>
+	<span class="option" data-correct="false"><b>A)</b> finally bloğu içerisindeki kodlar try ve catch bloğundaki kodlar çalıştıktan sonra çalıştırılır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> finally bloğu içerisindeki kodlar catch bloğu içerisindeki kodlar çalıştırılmadığı takdirde çalıştırılır. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> finally bloğu içerisindeki kodlar catch bloğundaki kodların çalışmasından bağımsız daima çalıştırılır.  </span><br>
+	<span class="option" data-correct="false"><b>D)</b> finally bloğu içerisindeki kodlar ancak catch bloğu içerisindeki kodlar çalıştırıldıktan sonra çalıştırılır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Try Catch içerisinde birden fazla finally bloğu kullanılabilir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> Aşağıdakilerden hangisi, tanımlanan metotları sanal metot haline getirir? </p>
+	<span class="option" data-correct="false"><b>A)</b> void </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Console.ReadLine </span><br>
+	<span class="option" data-correct="true"><b>C)</b> virtual </span><br>
+	<span class="option" data-correct="false"><b>D)</b> class </span><br>
+	<span class="option" data-correct="false"><b>E)</b> public </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> Bir sınıfın içinde bir soyut metot tanımı yapıldıysa, o sınıfın da soyut olarak ne şekilde tanımlanması gerekmektedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Soyut metot </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Override </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Abstract </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İnterface </span><br>
+	<span class="option" data-correct="false"><b>E)</b> New </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> Çok kod yazarak hata almak, aşağıdakilerden hangisinde artışa neden olur? </p>
+	<span class="option" data-correct="true"><b>A)</b> tecrübe </span><br>
+	<span class="option" data-correct="false"><b>B)</b> işletim sisteminde bozulma </span><br>
+	<span class="option" data-correct="false"><b>C)</b> yapısal program çalışma hızında artış </span><br>
+	<span class="option" data-correct="false"><b>D)</b> nesne yönelimli programların çalışma hızında artış </span><br>
+	<span class="option" data-correct="false"><b>E)</b> editör değiştirilmesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+			
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

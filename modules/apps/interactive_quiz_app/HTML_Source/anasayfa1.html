@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+<link rel="icon" type="image/png" href="icon.png">	  
+  <style>
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+
+			body.dark-mode .container-fluid {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border: solid rgb(226, 223, 210) 1px;
+			border-radius: 5px;
+			background-color: rgb(113, 121, 126, 0.9) !important;
+			margin-top: 75px;
+			padding: 2px;
+			width: 450px;
+			height:200px;
+		}
+	
+			body.dark-mode #uyari {
+			background-color: rgb(113, 121, 126) !important;
+			border-radius: 5px;
+			font-size: 20px;
+			letter-spacing: 2px;
+			font-weight: bold;
+			color: aliceblue;
+			-webkit-text-stroke: 1px black;
+		}
+
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid black;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 2px;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		}
+
+	  
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+		
+	}
+	
+	.container-fluid {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: solid black 1px;
+	border-radius: 5px;
+	background-color: #F5F5F5;
+	margin-top: 75px;
+		padding: 2px;
+		max-width:  400px;
+		width: 100%;
+		height:200px;
+	}
+		  #uyari {
+		  //background-color: aliceblue;
+		  border-radius: 5px;
+		  font-size: 20px;
+		  letter-spacing: 2px;
+		  font-weight: bold;
+		  color: aliceblue;
+		  -webkit-text-stroke: 1px black;
+	}
+	
+
+
+    </style>
+  </head>
+  <body>
+	  
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          BİLİŞİM TEKNOLOJİLERİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="bilisimtek-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="bilisimtek-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="bilisimtek-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="bilisimtek-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="bilisimtek-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="bilisimtek-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="bilisimtek-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="bilisimtek-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="bilisimtek-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="bilisimtek-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB TABANLI KODLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wtk-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wtk-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wtk-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wtk-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wtk-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wtk-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wtk-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wtk-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wtk-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wtk-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          KULLANICI DENEYİMİ TASARIMI
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="kdt-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="kdt-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="kdt-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="kdt-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="kdt-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="kdt-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="kdt-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="kdt-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="kdt-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="kdt-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          İŞLEM TABLOSU PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="itp-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="itp-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="itp-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="itp-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="itp-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="itp-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="itp-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="itp-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="itp-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="itp-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          DİJİTAL DÖNÜŞÜM
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="digitald-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="digitald-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="digitald-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="digitald-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="digitald-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="digitald-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="digitald-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="digitald-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="digitald-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="digitald-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+
+<div class="container-fluid" align="center" max-width="400px" height="150px">
+	<div id="uyari">
+Lütfen Menü Aracılığıyla <br> Ders ve Ünite Seçimi Yapın
+	</div>
+	
+	<div id="unlem"><img src="unlem.png" width="30px" height="75px">
+	</div>
+</div>
+
+
+<script>
+
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////
+
+/////////////kırık link yönlendirme//////////
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+
+////////////////////////////////////////////// 
+
+</script>
+  </body>
+
+  </html>

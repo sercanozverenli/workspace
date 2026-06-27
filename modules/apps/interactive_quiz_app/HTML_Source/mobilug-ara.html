@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+	  
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA II
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama2-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama2-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama2-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama2-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama2-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama2-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama2-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama2-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama2-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama2-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB ARAYÜZ PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİ YAPILARI
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veriyap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veriyap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veriyap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veriyap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veriyap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veriyap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veriyap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veriyap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veriyap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veriyap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          MOBİL UYGULAMA GELİŞTİRME
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="mobilug-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="mobilug-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="mobilug-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="mobilug-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="mobilug-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="mobilug-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="mobilug-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="mobilug-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="mobilug-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="mobilug-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          UNIX SİSTEM YÖNETİMİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="unixsy-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="unixsy-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="unixsy-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="unixsy-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="unixsy-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="unixsy-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="unixsy-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="unixsy-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="unixsy-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="unixsy-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Mobil Uygulama Geliştirme - Çıkmış Sorular (Ara Sınav) </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Genellikle belirli bir işletim sistemi üzerinde çalışacak şekilde özel olarak geliştirilen uygulama türü aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> İleri web uygulamaları </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Web tabanlı uygulamalar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Çapraz platform uygulamalar </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Yerel uygulamalar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Hibrit uygulamalar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> I. Dart tarafından desteklenmektedir.<br>
+II. Lisanslı bir platformdur.<br>
+III. Birden fazla kod tabanı kullanmaktadır.<br>
+IV. JavaScript’in yanı sıra ARM veya Intel makine kodunu derlemektedir.<br><br>
+Yukarıdakilerden hangileri mobil uygulama geliştirmek için kullanılan platformlardan biri olan Flutter için <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve III </span><br>
+	<span class="option" data-correct="true"><b>C)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> III ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      Flutter 2017 yılında Google tarafından piyasaya sürülen açık kaynak kodlu bir çerçeve (framework) olarak mobil başta olmak üzere, web, masaüstü ve gömülü uygulamalar geliştirmek için kullanılabilen bir platformdur. Özellikle hibrit uygulamalar geliştirmek için oldukça uygundur. Tek bir kod tabanı kullanan Flutter, yerel ve çok platformlu uygulamalar geliştirmek için uygundur. Herhangi bir hata durumunda hatanın tespiti ve çözümü oldukça nettir. JavaScript’in yanı sıra ARM veya Intel makine kodunu derlemektedir. Google tarafından desteklendiği için pek çok geliştirici ve dünyaca ünlü marka tarafından güvenilir izlenimi bulunan Flutter, küresel geliştiricilerden oluşan bir topluluk tarafından sürekli desteklenmektedir.<br><br>
+
+Flutter, herhangi bir platformda hızlı uygulamalar için optimize edilmiş bir programlama dili olan Dart tarafından desteklenmektedir. Android ve iOS’ta uygulama geliştirmek için Dart dilini temel almaktadır. Ayrıca iOS ve Android’e özgü programlama dillerini bilmeksizin tek bir platformda eş zamanlı olarak uygulama geliştirilebilmektedir. Dart diğer dillere göre oldukça kolay bir dil olarak betimlenmektedir.     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> I. Java<br>
+II. Scala<br>
+III. Kotlin<br>
+IV. Access<br><br>
+Yukarıdakilerden hangileri mobil uygulama geliştirmek için kullanılan programlama dilleri arasında yer alır?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve III
+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> II ve IV </span><br>
+	<span class="option" data-correct="false"><b>D)</b> III ve IV </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      Mobil Uygulama Geliştirmek İçin Kullanılan Programlama Dilleri<br><br>
+
+- Java 
+- Javascript 
+- HTML5
+- Swift
+- C# 
+- C++ 
+- Objective C
+- Python 
+- Kotlin
+- Scala
+- Dart 
+- Ruby
+- Rust 
+- Lua 
+- PHP      </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> -------, telefon/akıllı telefon, tablet, akıllı saat veya akıllı gözlük gibi bir taşınabilir aygıtta çalışacak şekilde geliştirilen bir yazılım türüdür.<br><br>
+
+Yukarıdaki tanımda boş bırakılan yeri aşağıdakilerden hangisi doğru şekilde tamamlar?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> İşletim sistemi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Scala </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Flutter </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Mobil uygulama </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bellenim </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Aşağıdakilerden hangisi bir mobil uygulama
+mağazası <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Microsoft Store </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Xamarin </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Amazon Appstore </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Opera Mobil Store </span><br>
+	<span class="option" data-correct="false"><b>E)</b> BlackBerry World </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      Faaliyetine <u><strong>devam eden</strong></u>mobil uygulama mağazaları.<br><br>
+
+• Google Play Store,<br>
+• App Store,<br>
+• Huawei AppGallery,<br>
+• Amazon Appstore,<br>
+• Microsoft Store, <br>
+• Opera Mobil Store, <br>
+• Samsung Galaxy Store,<br>
+• BlackBerry World<br>
+• OpenStore for Ubuntu Touch<br><br>
+
+Ayrıca,<br>
+• Firefox Marketplace,<br>
+• Windows Phone Store,<br>
+• Nokia Store,<br>
+• HP App Catalog<br>			
+gibi <u><strong>yayın hayatı sona eren ve kullanılmayan</strong></u>mobil uygulama mağazaları da bulunmaktadır.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Aşağıdakilerden hangisi Nielsen’in menü
+tasarımı için önerdiği rehber listeye göre doğrudur? </p>
+	<span class="option" data-correct="true"><b>A)</b> Uzun sayfalar için yapışkan menüler kullanılabilmelidir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Büyük ekranlarda küçük menüler kullanılmalıdır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İçerik önizlemesine izin verilmemelidir </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Arkaplan ile kontrast oluşturan bağlantı renklerini kullanmaktan kaçınılmalıdır </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Menü bağlantıları etkileşimli görünmemelidir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      Nielsen’in Menü Tasarımı İçin Önerdiği Rehber Liste<br><br>
+Görünürlük<br>
+&emsp; • Büyük ekranlarda küçük menü veya simge kullanılmamalı<br>
+&emsp; • Menüleri beklenen yerlerde olmalı<br>
+&emsp; • Menü bağlantıları etkileşimli görünmeli<br>
+&emsp; • Menüler yeterli görselliğe sahip olmalı<br>
+&emsp; • Arkaplan ile kotrast oluşturan bağlantı renkleri kullanılmalı<br><br>
+
+Mevcut Konum<br>
+&emsp; • Görünen ekran menü seçenekleri içinde ‘nerede’ bulunduğunu söylemeli<br>
+&emsp; • Anlaşılır bağlantı etiketleri kullanılmalı<br>
+&emsp; • Gerekiyorsa içerik önizlemesine izin verilmeli<br>
+&emsp; • İlgili içerik önizlemesine izin verilmeli <br>
+&emsp; • Görsel iletişimden yararlanılmalı<br><br>
+
+Kolay Kullanım<br>
+&emsp; • Menü bağlantılarını kolayca dokunabilmeli veya tıklanabilmeli<br>
+&emsp; • Açılır menüler küçük veya büyük olmamalı<br>
+&emsp; • Uzun sayfalar için ‘yapışkan’ menüler düşünülebilir<br>
+&emsp; • Sık kullanılan komutlara kolay erişim için optimizasyon		
+		</div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> -------, bir bilgisayar programı, mobil uygulama veya web arayüzü ile etkileşimin nasıl tasarlandığını, görselliğini ve fonksiyonel anlaşılabilirliğini inceler.<br><br>
+
+Yukarıdaki cümlede boş bırakılan yeri aşağıdakilerden hangisi doğru şekilde tamamlar? </p>
+	<span class="option" data-correct="false"><b>A)</b> Ergonomi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sezgisellik </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Erişilebilirlik </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Verimlilik </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Kullanılabilirlik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> Dünya Çapında Ağ Konsorsiyumu Web
+Erişilebilirlik Girişiminin yayınladığı rehber hangi isimle adlandırılır?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> CERN </span><br>
+	<span class="option" data-correct="false"><b>B)</b> W3C </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ISO </span><br>
+	<span class="option" data-correct="true"><b>D)</b> WCAG </span><br>
+	<span class="option" data-correct="false"><b>E)</b> WAI </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> I. Araç<br>
+II. Verimlilik<br>
+III. Çevre<br>
+IV. Etkililik<br><br>
+Yukarıdakilerden hangisi/hangileri ISO 9241-11 standardına göre kullanım bağlamı arasında yer alır?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız IV </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve II </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> III ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      ISO
+9241-11 standardına göre kullanım bağlamı<br><br>
+- Kullanıcı<br>
+- Görev<br>
+- Araç<br>
+- Çevre     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> I.İnternet bağantısı gerektirmeden çalışabilen uygulamalar mevcuttur.<br>
+II.Mobil web sitelerine oranla daha zengin bir kullanıcı deneyimi sunar.<br>
+III.Maliyeti mobil web sitelere oranla daha uygundur.<br>
+IV.Mobil Web sitelerine oranla cihaz fonksiyonlarına erişimi sınırlıdır.<br><br>
+
+Yukarıdakilerden hangileri mobil uygulamalar ile ilgili olarak doğrudur? </p>
+	<span class="option" data-correct="true"><b>A)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> III ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> Flutter ile ilgili aşağıdaki ifadelerden hangisi doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yapılan değişikliklerin uygulamaya yansıması uzun sürmektedir. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Render motoru olarak mobile-first 2d render motorunu kullanmaktadır </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Uygulama geliştirme süresi uzun sürmektedir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Linux işletim sisteminde kullanmaya uygun değildir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> IOS işletim sistemli cihazlar için widget desteği yoktur </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      Flutter’ın özellikleri şu şekilde sıralanabilir:<br> <br>
+			
+• Flutter, esnek yapıya sahip SDK’dır.<br> <br>
+			
+• Flutter, Windows, Linux ve MacOS gibi ortamlara rahatlıkla kurulabilir ve bu ortamlarda uygulama geliştiriciler çalışabilir.<br> <br>
+			
+• Uygulamaları hızlı geliştirmeyi sağlar.<br> <br>
+			
+• Flutter hızlı bir şekilde yeniden yüklenebilir, hızlı ve kolay bir şekilde deneme yapılabilir, kullanıcı arayüzünün oluşturulması, yeni özelliklerin eklenmesi ve hataların da hızlı bir şekilde giderilmesi mümkündür.<br> <br>
+			
+• Güzel ve kullanışlı arayüzler geliştirmeyi sağlar.<br> <br>
+			
+• Flutter’a yerleşik olan Android Materyal Tasarımı ve Cupertiona Widget’lerin varlığı, zengin hareket API’leri, platform farkındalığı ile kullanıcılara rahat bir kullanım sağlar.<br> <br>
+			
+• Flutter, render motoru olarak Mobile-first 2D render motorunu, framework olarak react-style framework’ü kullanmaktadır.<br> <br>
+			
+• Flutter, Android ve iOS işletim sistemli cihazlarda kullanılan Widget desteğine sahiptir.<br> <br>
+			
+• Flutter, Hot Reload özelliğine sahiptir. Bu özellik ile gerçek zamanlı düzenleme yapılabilmektedir. Yani uygulamalar geliştirilirken Hot Reload özelliği ile yapılan değişiklikler uygulamaya hemen yansımaktadır.<br> <br>
+			
+• Flutter ile uygulama geliştirildiğinde uygulamalar Android işletim sistemine sahip cihazlarda Android sürümünün en az Jelly Bean v16 üzeri ve daha sonraki sürümler olması beklenirken; iOS işletim sistemine sahip cihazlarda iOS sürümünün en az 8 ve daha sonraki sürümler olması beklenmektedir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> Aşağıdakilerden hangisi Android Studio'da
+bulunan menüler aracılığıyla yapılabilen işlemler ile ilgili <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Üzerinde çalışılan projeye ayarlar eklenebilir. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Yazı puntosu değiştirilebilir </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kodun yer değiştirmesi (aşağı satıra, yukarı satıra) sağlanabilir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> APK analiz edilebilir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Dipnotlardan anlam çıkarılabilir </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      Android Studio’da bu menülerle neler yapılabileceği anlaşılmaktadır.<br>
+
+Menülerde yapılabilecek özellikleri özetlemek gerekirse;<br><br>
+• Yeni bir proje açılabilir.<br>
+• Var olan proje bilgisayardaki konumunda bulunarak tekrar açılabilir.
+• Üzerinde çalışılan son proje açılabilir ya da üzerinde çalışılan proje kapatılabilir.<br>
+• Ayarlar açılabilir ve Android Studio’nun ayarları değiştirilebilir.<br>
+• Menülerde proje yapısı ile projenin eklenti versiyonuna, SDK konumuna ve değişken gibi özelliklere ulaşmak ve değişiklikler yapmak mümkündür.<br>
+• Üzerinde çalışılan projeye ayarlar eklenebilir ya da projeye nihai hali verildiğinde dışa aktarılabilir.<br>
+• İşlemin geri-ileri alınması ya da seçilen bir kod parçacığının kesilmesi, kopyalanması, yolunun kopyalanması, istenilen yere yapıştırılması ya da silinmesi sağlanabilir. Bunun yanı sıra arama, kolonları seçme, satırları ayırma, birleştirme gibi projede gerekli düzenlemeler yapılabilir.<br>
+• Android Studio’da bir proje üzerinde çalışırken çalışma ekranında görünmesi istenilen özelliklerin görünmesi ya da kaldırılması sağlanabilir. Örneğin bir projedeki problemlerin nerede olduğunun görülmesi için problemler ekranının açık olması süreci kolaylaştırabilir.<br>
+• Üzerinde çalışılan projede gezinim yapılabilir. Örneğin proje dosyasında bulunan sınıflara, dosyalara, sembollere veya aksiyonlara ulaşılabilirken; hata alınan noktalara de geçiş (önceki, sonraki hata) yapılabilir. Ya da proje dosyasında hazırlanmış emmet kod parçacıklarına veya son düzenlenen veya
+bir önceki düzenlenen kod konumuna da geçiş sağlanabilir. Bu ve benzeri gezinimler kolaylıkla yapılabilmektedir.<br>
+• Farklı metodların (override, implement, vb.) uygulanması sağlanırken; kod yazarken kod tamamlama da sağlanabilir.<br>
+• Kodun yer değiştirmesini (aşağı satıra, yukarı satıra) de menülerden yapmak mümkündür.<br>
+• Kodlar denetlenebilir, dipnotlardan anlam çıkarılabilir.<br>
+• Yeni proje yapılabilir.<br>
+• APK analiz edilebilir.<br>
+• Üzerinde çalışılan proje çalıştırılabilir.<br>
+• Üzerinde çalışılan proje için gerekli olan pencerelerin açılması-kapanması sağlanabilir.<br>
+• Help menüsü ile de genel olarak Android Studio’nun kullanımı hakkında bilgilere erişilebilir.
+		</div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> I. Vektör imajlar sağlar.<br>
+II. Ram kullanımı diğer IDE’lere kıyasla yüksektir. <br>
+III. Tüm Android platformları emülatörle destekler.<br>
+IV. Kısıtlanmış bir destek sunar.<br><br>
+Yukarıdakilerden hangisi/hangileri Android Studio’nun avantajları arasında yer alır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız IV </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve II </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> III ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      Android Studio’nun üstünlükleri:<br><br>
+
+• Google Cloud için (Google Cloud Platform, Google Cloud Messaging ve Google App Engine) yerleşik destek sunar.<br>
+• Tüm Android platformları (cihaz ve sürümleri) emülatör ile destekler niteliktedir.<br>
+• Android Studio, güçlü bir kod düzenleyici ve geliştirici araçları sunan IntelliJ IDEA’ya dayanmaktadır.<br>
+• Github entegrasyonu ve sık kullanılan uygulama özelliklerini oluşturmaya yardımcı hazır şablonlar barındırır.<br>
+• Vektör imajlar sağlar.<br>
+• C ++ ve NDK desteği içerir.<br>
+• Birleşik Modelleme Dili (UML), yazılım modelleri çizmenin, tasarımların taslağını oluşturmanın veya var olan tasarımları ve sistemleri belgelemenin standart bir yolu olan UML diyagramı desteği sağlar.<br>
+• Ücretsizdir.     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> I. Windows için 32-bit Microsoft Windows işletim sistemi<br>
+II. MacOS için en az 4 GB RAM<br>
+III. Minimum 8 GB boş disk (IDE + Android SDK + Android Emülatör)<br>
+IV. Linux için en az 8 GB RAM<br><br>
+Yukarıdakilerden hangileri Android Studio için kurulum gereksinimleri arasında yer alır? </p>
+	<span class="option" data-correct="false"><b>A)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve IV </span><br>
+	<span class="option" data-correct="true"><b>E)</b> III ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      - 64-bit Microsoft Windows 8/10<br>
+- Tüm işletim sistemleri için 8 GB RAM veya daha fazlası<br>
+     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> Geliştirilen bir mobil uygulamada, anlık
+olarak uygulamanın mobil cihazlarda nasıl görüneceğinin kontrol edilebilmesi için aşağıdakilerden hangisi kullanılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Java </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Android Studio </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Flutter </span><br>
+	<span class="option" data-correct="false"><b>D)</b> NDK </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Emülatör </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Flutter’da aydınlık(açık) tema modu için
+aşağıdaki fonksiyonlardan hangisi kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> ThemeData.light() </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ThemeCenter.light() </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ThemeData.dark() </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ThemeScrollView.dark() </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ThemeAlert.light() </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> I. Bir alt öğenin kullanılabilir dikey alanını dolduracak şekilde genişlemesi için spacer widget’ı kullanılır.<br>
+II. Row widget’ı, children olarak aldığı Widget’ları yatayda sıralar.<br>
+III. Color parametresi içerisine children tipinde bir değer alır.<br>
+IV. Column widget’ının en önemli özelliklerinden ikisi main axis ve cross axis alignment’tır.<br><br>
+Yukarıdakilerden hangileri Flutter'da yer alan layout ile ilgili doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>B)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>C)</b> II ve IV </span><br>
+	<span class="option" data-correct="false"><b>D)</b> III ve IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      - Bir alt öğenin kullanılabilir dikey alanını dolduracak şekilde genişlemesi için  column kullanılır.<br><br>
+			
+- Color parametresi ise içerisine Colors tipinde bir değer alır.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Flutter’da ara yüz bileşenlerinin <u><strong>temel</strong></u> amacı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Veritabanını yönetmek </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Etkileşimi artırmak </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Daha fazla gelir elde etmek </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Platform bağımsız bir yapıya sahip olmak </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Cihazın pil ömrünü uzatmak </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> Flutter'da ikonları ortalamak için kullanılan widget aşağıdakilerden hangisidir?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> Drawer </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Home </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Routes </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Spacer </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Appbar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      Spacer Widget’ı Column veya Row Widget’ının içine child olarak eklendiğinde diğer child Widget’ları öteler. Spacer, Satır veya Sütun gibi bir Flex kapsayıcısındaki widget’lar arasındaki aralığı ayarlamak için kullanılabilecek, ayarlanabilir, boş bir aralayıcı oluşturur. Spacer widget’ı herhangi bir kullanılabilir alanı
+kaplayacaktır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> Flutter'da butona basıldığında konsol çıktısı alabilmek için aşağıdaki fonksiyonlardan hangisi kullanılır? ** </p>
+	<span class="option" data-correct="true"><b>A)</b> onPressed() </span><br>
+	<span class="option" data-correct="false"><b>B)</b> voidDialog()
+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> child() </span><br>
+	<span class="option" data-correct="false"><b>D)</b> print() </span><br>
+	<span class="option" data-correct="false"><b>E)</b> icon() </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      Sınavda iptal edilmiştir.<br><br>
+		
+		onPressed cevabı doğrudur ancak bir fonksiyon değildir. ElevatedButton widgetinin bir özelliğidir ve Print fonksiyonu ile birlikte kullanılarak konsol çıktısı alınır.</div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Aşağıdakilerden hangisi mobil uygulama
+geliştirmek için kullanılan platformlardan biri <u><strong>değildir?</strong></u>  </p>
+	<span class="option" data-correct="false"><b>A)</b> Solar 2D </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Xamarin </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Lua </span><br>
+	<span class="option" data-correct="false"><b>D)</b> React Native </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Apache Cordova </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      <u><strong>Mobil Uygulama Geliştirmek İçin Kullanılan Platformlar</strong></u> <br><br>
+
+- Solar 2D (Corona SDK) <br>
+- Flutter <br>
+- Apache Cordova (Phone Gap) <br>
+- Codename One<br> 
+- React Native <br>
+- Qt <br>
+- Appery.io <br>
+- Sencha Ext JS (Sencha Touch) <br>
+- Xamarin     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> I. Navigasyonun, yüzey alanı sınırlı olan bir cihazda kullanımı web sitelerinden farklılıklar göstermektedir.<br>
+II. Navigasyon bağlamında kullanılan hamburger menüler içeriği saklar ve gerektiğinde kullanıcı tarafından etkinleştirilebilir.<br>
+III. Hamburger menülerin ekranda kapladığı yer ve konum açısından keşfedilmeleri problem olabilir.<br>
+IV. Mobil tasarımda verimlilik açısından en fazla üç sekme kullanılmalıdır.<br><br>
+Yukarıda verilenlerden hangileri navigasyon(gezinme) ile ilgili olarak doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> III ve IV </span><br>
+	<span class="option" data-correct="true"><b>D)</b> I, II ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, III ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      En fazla
+<u><strong>beş sekmeye kadar</strong></u> verimli sonuç alınan mobil tasarımda, kullanıcı hangi işlem bölgesinde olduğunu kolaylıkla keşfedebilir     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> Android Studio’da Flutter projesi
+oluşturulduktan sonra proje yazımı aşağıdaki dosyalardan hangisinin içerisinde gerçekleşir? </p>
+	<span class="option" data-correct="true"><b>A)</b> main.dart </span><br>
+	<span class="option" data-correct="false"><b>B)</b> main.py </span><br>
+	<span class="option" data-correct="false"><b>C)</b> index.css </span><br>
+	<span class="option" data-correct="false"><b>D)</b> main.js </span><br>
+	<span class="option" data-correct="false"><b>E)</b> index.php </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Flutter'da yatayda ve dikeyde child Widget’ını ortalamak için aşağıdakilerden hangisi kullanılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Locale </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Home </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Center </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Row </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Spacer </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> Uyarı diyalogları aşağıdaki parametrelerden
+hangisini aldığında kullanıcıya sunulan seçenekler belirlenir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Content </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Share </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Shape </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Action </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Title </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      Uyarı diyaloglarının alabildiği dört adet özellik vardır bunlar Title, Action, Content
+ve Shape’ dir.<br><br>
+
+Title başlığı belirleyen parametredir içerisine verilen Widget’ı başlık olarak diyalogun en üstünde oluşturur.<br><br>
+			
+Content ise içerik kısmımı şekillendirilir. Kullanıcının hangi işlemi yaptığı hakkında bilgi vermek içindir. Content içerisine Text Widget verip kullanılabilir.<br><br>
+			
+Action parametresinde ise kullanıcıya sunulan seçenekler belirlenir. Örnek olarak bir galeri uygulamasında fotoğraf silme uyarısı için kullanıcının silmekte emin olup olmadığını belirleneceği seçenekler burada verilir. Action parametresine liste içerisinde Widget’lar verilebilir. Bunlar buton olabilir.<br><br>
+			
+Shape parametresi ise diyalog ekranını şekillendirmek için kullanılır. Örneğin aşağıdaki kod parametre olarak girildiğinde diyalogun kenarları ovalleşir.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> C programlama dilinin bir türevi olan -------, nesne yönelimli genel amaçlı bir programlama dili olarak, Apple firmasının iOS ve MacOS işletim sistemleri için uygulama geliştirmek için oldukça uygundur. Swift geliştirilmeden önce Apple tarafından iOS uygulamalarının geliştirilmesinde temel programlama dili olarak kullanılmıştır.
+Yukarıdaki açıklamada boş bırakılan yeri aşağıdakilerden hangisi doğru bir şekilde tamamlar? </p>
+	<span class="option" data-correct="false"><b>A)</b> Ruby </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kotlin </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Python </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Objective C </span><br>
+	<span class="option" data-correct="false"><b>E)</b> C++ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> - Çoğu insanın "uygulama" kelimesini
+duyduğunda aklına gelen ilk uygulama türüdür.<br><br>
+- Genellikle belirli bir işletim sistemi (iOS,
+Android, Windows vb.) üzerinde çalışacak
+şekilde özel olarak geliştirilen uygulama
+türüdür.<br><br>
+- Hedef kitleye erişim sağlamak için farklı işletim
+sistemleri için ayrı uygulamalar tasarlamak
+gerekmektedir.<br><br>
+Yukarıda özellikleri verilen mobil uygulama türü aşağıdakilerden hangisidir?
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Yerel uygulama
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Çapraz platform uygulama
+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Hibrit uygulama
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Web tabanlı uygulama
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İleri web uygulaması
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> Belirli bir ürünü, sistemi kullanması beklenen
+hedef kitle olarak tanımlanan kullanılabilirlik bileşeni aşağıdakilerden hangisidir?
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Kullanıcı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Araç </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Görev </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bağlam </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Arayüz </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> -----'nin temel amacı, hazırlanan tasarımlarda
+tutarlılığı ve uyumluluğu sağlamaktır.<br><br>
+Yukarıdaki boşluğu aşağıdakilerden hangisi doğru bir şekilde tamamlar? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kullanılabilirlik testler </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Model temelli yaklaşım </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sezgiseller </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Tasarım rehberleri
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Uzman değerlendirmeler </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> I. Esnek yapıya sahip SDK’dır.<br>
+II. Hot Reload özelliğine sahiptir.<br>
+III. Yalnızca Android işletim sistemli cihazlar için
+uygulama geliştirmeye olanak tanır.<br><br>
+Yukarıdakilerden hangisi/hangileri Flutter’ın özelliklerindendir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II  </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> Üzerinde çalışılan projeye hata ayıklama aracı
+olarak tanımlanan debuggerların eklenmesi, Android Studio’da araç çubuğunda da yer alan hangi menü aracılığıyla yapılmaktadır?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> Run App with Coverage </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Project Structure </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sync Project with Gradle Files  </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Debug App </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Attach Debugger to Android Process </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> Flutter'da SimpleDialog'un şeklini
+değiştirmek için kullanılması gereken özellik aşağıdakilerden hangisidir?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> actions </span><br>
+	<span class="option" data-correct="false"><b>B)</b> hashCode </span><br>
+	<span class="option" data-correct="false"><b>C)</b> content </span><br>
+	<span class="option" data-correct="false"><b>D)</b> alignment </span><br>
+	<span class="option" data-correct="true"><b>E)</b> shape </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> Aşağıdakilerinden hangisi Widgetları yatayda sıralamak için kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Row </span><br>
+	<span class="option" data-correct="false"><b>B)</b> cacheExtent </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Column </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Spacer </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Physics </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+	  
+		
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

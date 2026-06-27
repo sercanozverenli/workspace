@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+	  
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA II
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama2-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama2-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama2-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama2-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama2-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama2-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama2-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama2-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama2-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama2-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB ARAYÜZ PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİ YAPILARI
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veriyap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veriyap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veriyap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veriyap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veriyap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veriyap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veriyap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veriyap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veriyap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veriyap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          MOBİL UYGULAMA GELİŞTİRME
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="mobilug-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="mobilug-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="mobilug-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="mobilug-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="mobilug-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="mobilug-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="mobilug-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="mobilug-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="mobilug-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="mobilug-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          UNIX SİSTEM YÖNETİMİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="unixsy-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="unixsy-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="unixsy-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="unixsy-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="unixsy-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="unixsy-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="unixsy-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="unixsy-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="unixsy-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="unixsy-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Web Arayüz Programlama - Çıkmış Sorular (Final) </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+ 
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> function islem(a, b) {<br>
+ &emsp; let c = a + b;<br>
+ &emsp; let d = 0;<br><br>
+
+ &emsp; for (let i = a; i &lt; c; i++) {<br>
+ &emsp; &emsp; if (i==b) {<br>
+ &emsp; &emsp; &emsp; d++<br>
+ &emsp; &emsp; &emsp; }<br>
+ &emsp; else<br>
+ &emsp; {<br>
+ &emsp; &emsp; d--<br>
+ &emsp; &emsp; }<br>
+ &emsp; }<br>
+ &emsp; return d;<br>
+}<br>
+let sonuc = islem(2, 4);<br>
+console.log(sonuc);<br><br>
+Yukarıdaki kod bloğunun çıktısı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 2 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 1 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 0 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> -1 </span><br>
+	<span class="option" data-correct="true"><b>E)</b> -2 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      a 2 olarak ayarlanır, b 4 olarak ayarlanır.<br><br>
+c değişkeni, a + b yani 2 + 4 olarak hesaplanır ve c 6 olur.<br><br>
+Döngü başlar: i 2'den başlar ve c 6'ya kadar devam eder.<br><br>
+İlk adımda, i 2 ve 4 olan b'ye eşit değil, bu nedenle d bir azaltılır ve d -1 olur.<br><br>
+İkinci adımda, i 3 ve 4 olan b'ye eşit değil, bu nedenle d bir azaltılır ve d -2 olur.<br><br>
+Üçüncü adımda, i 4 ve 4 olan b'ye eşit, bu nedenle d bir artırılır ve d -1 olur.
+Dördüncü adımda i 5 olur ve 4 olan b'ye eşit değil bu nedenle d bir azaltılır ve -2 olur.<br><br>
+Beşinci adımda i c'den yani 6'dan küçük olamak zorunda olacağı i arttırılmaz ve for döngüsü sonlanır . d son olarak -2 olmuş olur.<br><br>
+Sonuç olarak, console.log(sonuc) ifadesi -2'i ekrana yazdıracaktır.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> let dizi1  = [ '1', '2'];<br>
+let dizi2 = [ '3', '4'];<br>
+let dizi = dizi1.concat(dizi2);<br>
+dizi.push('5');<br>
+console.log(dizi[3]);<br><br>
+Yukarıdaki kod bloğunun çıktısı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 1 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 2 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 3 </span><br>
+	<span class="option" data-correct="true"><b>D)</b> 4 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 5 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      İki dizi tanımlanır: dizi1 ve dizi2. Her ikisi de içinde iki string öğesi içeren dizilerdir.<br><br>
+
+concat yöntemi kullanılarak dizi1 ve dizi2 birleştirilir ve dizi adlı yeni bir dizi oluşturulur. dizi şu anda ['1', '2', '3', '4'] değerlerini içerir.<br><br>
+
+push yöntemi kullanılarak dizinin sonuna '5' stringi eklenir. dizi şimdi ['1', '2', '3', '4', '5'] şeklinde görünmektedir.<br><br>
+
+Son olarak, console.log(dizi[3]); ifadesi kullanılarak dizinin 3. elemanı (dizilerde indeksler 0'dan başlar) ekrana yazdırılır. Bu da 4'tür
+     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Aşağıdakilerden hangisi Javascript'te birden
+fazla yorum satırı yazmak için kullanılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> $ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> # </span><br>
+	<span class="option" data-correct="true"><b>C)</b> /* */ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> * </span><br>
+	<span class="option" data-correct="false"><b>E)</b> // </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Aşağıdakilerden hangisi Javascript'in
+özelliklerinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Dilin ilk adı LiveScript olarak belirlenmiştir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> React, Angular, Vue gibi web çatılarının alt
+yapısı JavaScript ile hazırlanmıştır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İlk olarak Netscape Navigator tarayıcısında
+kullanmak için geliştirilmiştir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Web sunucu programlama yapılabilir. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Derlenen bir programlama dilidir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      Javascript 1995 yılında Netscape çalışanlarından Brendan Eich tarafından geliştirildi. Netscape Navigator tarayıcısında kullanmak için geliştirilen bu dilin ilk adı LiveScript olarak belirlendi ancak o dönem Java dilinin popüler olması nedeniyle isim değişikliğine gidildi. Java ile karıştırılan JavaScript yapı olarak birbirinden farklı dillerdir. Java derlenen(compile) bir dil olmasına rağmen JavaScript betik(script) bir dildir.<br><br>
+Derlenen programlama dilleri, derleme işleminden sonra işletim sistemine uygun bir çıktı üretirler. Örneğin Windows için .exe uzantılı bir çıktı üretirler. Program çalıştırılmak istendiğinde bu çıktının çalıştırılması yeterlidir.
+Betik diller çalışmak için bir ortama ihtiyaç duyar. Yazılan kodlar, ortamlar tarafından her defasında yorumlanır. Bu yüzden betik diller, yorumlamalı diller olarak da adlandırılır.<br><br>
+HTML ve CSS bir programlama dili olmamasına rağmen JavaScript programlama dilidir. Diğer programlama dillerinde olduğu gibi döngüler, koşullar gibi özelliklere sahiptir. Günümüzde yaygın olarak kullanılan birçok web çatısının(React, Angular, Vue gibi) alt yapısı JavaScript ile hazırlanmıştır. Kullanımı oldukça yaygındır.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> JavaScript'te let ve const anahtar
+kelimelerinin geldiği ECMAScript(ES) sürümü aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> ES5 </span><br>
+	<span class="option" data-correct="true"><b>B)</b> ES6 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ES7 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ES8 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ES9 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> HTML sayfasını dinamik hale getirmek
+amacıyla yeni bir olay eklemek için hangi JavaScript metodu kullanılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> document.lookupPrefix </span><br>
+	<span class="option" data-correct="true"><b>B)</b> document.addEventListener </span><br>
+	<span class="option" data-correct="false"><b>C)</b> document.createComment </span><br>
+	<span class="option" data-correct="false"><b>D)</b> document.normalize
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> document.isEqualNode </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> JavaScript'te bir seçicinin kullanıldığı bütün ögelere ulaşmak için kullanılan metod aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> getElementByClass() </span><br>
+	<span class="option" data-correct="false"><b>B)</b> getElementByTagName() </span><br>
+	<span class="option" data-correct="false"><b>C)</b> getElementById() </span><br>
+	<span class="option" data-correct="false"><b>D)</b> getElementByClassName() </span><br>
+	<span class="option" data-correct="true"><b>E)</b> querySelectorAll() </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> const dizi = [5,6,7,8,9,10,11,12];<br>
+function Fonksiyon(deger)<br>
+ {<br>
+ return deger % 3 == 0;<br>
+ }<br>
+console.log(dizi.filter(Fonksiyon));<br><br>
+Yukarıdaki kod bloğunun çıktısı aşağıdakilerden hangisidir?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> ['8', '10', '12'] </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ['5', '6', '12'] </span><br>
+	<span class="option" data-correct="true"><b>C)</b> ['6', '9', '12'] </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ['5', '7' ,'9']
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ['9', '11', '12'] </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> Kullanıcının ihtiyaçlarına göre kendi
+etiketlerini tanımlayabildiği işaretleme dili aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> XML </span><br>
+	<span class="option" data-correct="false"><b>B)</b> JSON </span><br>
+	<span class="option" data-correct="false"><b>C)</b> FETCH </span><br>
+	<span class="option" data-correct="false"><b>D)</b> API </span><br>
+	<span class="option" data-correct="false"><b>E)</b> AJAX </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> JavaScript ile bir fonksiyonu promise
+nesnesi dönen yapıya dönüştürmek için hangi anahtar kelime kullanılabilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> async </span><br>
+	<span class="option" data-correct="false"><b>B)</b> resolve </span><br>
+	<span class="option" data-correct="false"><b>C)</b> reject </span><br>
+	<span class="option" data-correct="false"><b>D)</b> then </span><br>
+	<span class="option" data-correct="false"><b>E)</b> catch </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> XMLHttpRequest ile ilgili aşağıdaki
+ifadelerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> HTTP istekleri yapılmasına izin veren bir tarayıcı nesnesidir. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Sadece XML formatında çalışabilmektedir </span><br>
+	<span class="option" data-correct="false"><b>C)</b> XMLHTTPRequest sayesinde dosyalar yüklenebilir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> XMLHTTPRequest sayesinde dosyalar indirilebilir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Tüm modern tarayıcılar tarafından desteklenir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      Ajax’ın temeli XMLHttpRequest yada kısaca XHR nesnesidir. XMLHttpRequest, JavaScript’te HTTP istekleri yapılmasına izin veren yerleşik bir tarayıcı nesnesidir. Adında “XML” kelimesi bulunmasına rağmen sadece XML formatında değil, her türlü veri formatı ile çalışabilmektedir. XMLHTTPRequest sayesinde dosyalar yüklenmesi, indirilmesi gibi birçok işlem yapılabilir. Tüm modern tarayıcılar tarafından desteklenir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> Aşağıdaki HTTP metodlarından hangisi
+sunucudan veri talep ederken sorgu parametrelerini URL ile birlikte gönderir?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> CONNECT </span><br>
+	<span class="option" data-correct="false"><b>B)</b> TRACE </span><br>
+	<span class="option" data-correct="true"><b>C)</b> GET </span><br>
+	<span class="option" data-correct="false"><b>D)</b> POST </span><br>
+	<span class="option" data-correct="false"><b>E)</b> DELETE </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Single Page Application(Tek Sayfa Uygulama)
+(SPA) ile ilgili aşağıdaki ifadelerden hangisi <u><strong>yanlıştır?</strong></u>  </p>
+	<span class="option" data-correct="false"><b>A)</b> Sayfaların yüklenmesi hızlıdır </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Birden çok view(görünüm) içerir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sadece kullanıcının görüntülediği ekran ile ilgili view(görünüm) aktif olur.
+ </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Web siteleri birçok sayfalık uygulamalardan oluşmaktadır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kullanıcı uygulamaya ilk girdiğinde sayfa ile ilgili HTML, CSS ve JavaScript dosyaları yüklenir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      Web uygulamalarında, kullanıcının ekranında gördüğü her sayfa view (görünüm) olarak adlandırılır.<br><br>
+
+Herhangi bir web uygulamasında birden çok view olabilir. Örneğin; bir e-ticaret sitesinde kullanıcıların giriş yaptığı, giriş yaptıktan sonra ürünlerin listelendiği veya kullanıcı bilgilerinin gösterildiği sayfaların her biri farklı bir view olarak adlandırılır.<br><br>
+
+Kullanıcılar, viewlerin değişmesini sayfa değişmesi olarak ilişkilendirebilir. Yani bir web sayfasında yeni bir görünüm geldiğinde, kullanıcı yeni bir sayfa yüklendiğini düşünür. Geleneksel yöntemlerle hazırlanan web sitelerinde durum böyleydi. Bir web uygulaması birden çok farklı sayfadan oluşmaktaydı.<br><br>
+
+Single Page Application(Tek Sayfa Uygulama) (SPA) yapısında web siteleri tek sayfalık uygulamalardan oluşmaktadır. Uygulamalar tek sayfadan oluşmasına rağmen, birden çok view içerir. Sadece kullanıcının görüntülediği ekran ile ilgili olan view aktif olur, diğerleri ekranda gösterilmez. Örneğin kullanıcı giriş yapmak istediğinde oturum açma ekranına ait view aktif olur, diğerleri pasif olur.     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> React komponent yapısı ile ilgili
+aşağıdakilerden hangisi doğrudur? </p>
+	<span class="option" data-correct="true"><b>A)</b> Fonksiyon komponentler Hooks yapısı sayesinde state yapısı kullanabilir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sınıf komponentleri birbirleriyle iletişim hâlinde değildir.  </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Fonksiyon komponentler parametre olarak veri alamaz. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Fonksiyonel komponentler, uygulamadaki diğer komponentlerle iletişim hâlindedir </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Fonksiyon komponentler, basit XML fonksiyonlarıdır </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> React ile alt eleman olan komponentlere
+doğrudan veri aktarmak için kullanılan yapı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> State </span><br>
+	<span class="option" data-correct="false"><b>B)</b> JSX </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Props </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Npm </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Babel </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> JSX ile ilgili aşağıdaki ifadelerden hangisi
+<u><strong>yanlıştır?</strong></u>  </p>
+	<span class="option" data-correct="true"><b>A)</b> CSS'i HTML’in içine koymamıza olanak sağlar. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> JavaScript ve XML kelimelerinin kısaltması ile oluþturulmuþtur. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> HTML yazarken JavaScript kodu kullanılması gereken yerlerde { } içine JavaScript kodu yazılabilir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> React tarafýndan kullanılır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> HTML ve JavaScript kodlarını birlikte yazmaya olanak sağlar. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      Geleneksel HTML dokümanlarından farklı olarak JSX, JavaScript’i HTML’e koymak yerine
+HTML’i JavaScript’e koymamıza izin veriyor     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> let a=2<br>
+let b=4<br>
+let c=3<br>
+d=(a*b-c)%2<br>
+console.log(d)<br><br>
+Yukarıdaki Javascript kodunun ekran çıktısı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> 1 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 2 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 3 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 4 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 5 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      % mod işaretidir. Bölümünden kalanı verir. <br><br>
+	
+		3'ün 2'ye bölümündne kalan 1'dir.</div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> const nesne={"a": 1, "b": 2, "c": 3, "d": 4} <br>
+const {a, d, b, c}=nesne<br>
+let e = a+b*c-d<br>
+console.log(e);<br><br>
+Yukarıdaki Javascript kodunun ekran çıktısı aşağıdakilerden hangisidir?		
+</p>
+	<span class="option" data-correct="true"><b>A)</b> 3 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 5 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 7 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 11 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 16 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      1+2*3-4=3     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> React ile ilgili aşağıdakilerden hangisi
+<u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Kullanıcı arayüzleri oluştuşturmayı amaçlar. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Sadece web uygulamalarında kullanılabilir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ana hedefi esnek ve basit olmaktır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bir JavaScript kütüphanesidir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Komponent tabanlıdır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      React, Facebook için çalışan yazılım mühendisi olan Jordane Walke tarafından 2011 yılında piyasaya sürüldü. Komponent tabanlı bir konsept kullanarak bildirimsel kullanıcı arayüzleri oluşturmaya odaklanan bir JavaScript kütüphanesidir. React’ın ana hedefi kapsamlı, hızlı, bildirime dayalı, esnek ve basit olmaktır.<br><br>
+
+React ilk olarak web uygulamaları için geliştirilmiştir. Daha sonra mobil platformlara uygulama üretebilecek şekilde farklı versiyonları yayımlanmıştır. Web uygulamaları için kullanılan sürümleri doğrudan React veya ReactJS, mobil için kullanılan sürümleri ise React Native olarak adlandırılır. React Native ile hem Android cihazlar için hemde IOS platformlar için uygulama geliştirilebilir. Bu sayede mobil yazılım dünyasında da popüler olabilmiştir.<br><br>
+
+React’ın bugünkü popülaritesi, diğer tüm ön uç geliştirme kütüphanelerinin popülaritesini gölgede bıraktı. Nedenlerini inceleyecek olursak;<br>
+
+• Dinamik uygulamaların kolay oluşturulması: React, JavaScript’in aksine daha az kod yazarak çok hızlı bir şekilde uygulama geliştirmeyi sağlar.<br>
+• Gelişmiş performans: React, Sanal DOM kullanır. Böylece web uygulamalarını daha hızlı günceller.<br>
+• Yeniden kullanılabilir komponentler: Komponentler, herhangi bir React uygulamasının yapı taşlarıdır.<br>
+Tek bir uygulama genellikle birden çok komponentten oluşur. Bu komponentlerin kendi mantığı ve kontrolleri vardır. Uygulama boyunca yeniden kullanılabilirler. Bu sayede uygulamanın geliştirme süresini önemli ölçüde azaltır.<br>
+• Hızlı öğrenme eğrisi: Temel HTML ve JavaScript kavramlarını bazı eklemelerle birleştirdiği için React’ı öğrenmesi kolaydır. Yine de diğer araçlarda ve çerçevelerde olduğu gibi, React’ın kitaplığını doğru bir şekilde anlamak için biraz zaman harcamanız gerekiyor.<br>
+• Hem web hem de mobil uygulamaların geliştirilmesi için kullanılabilir: Daha önce bahsedildiği gibi, React’in kendisinden türetilen, oldukça popüler olan ve güzel mobil uygulamalar oluşturmak için kullanılan React Native versiyonu vardır.<br>
+• Tek yönlü veri akışı: React, tek yönlü bir veri akışını takip eder. Bu, geliştiricilerin bir React uygulaması tasarlarken genellikle alt komponentleri üst komponentlerin içine yerleştirdiği anlamına gelir.<br><br>
+Veriler tek bir yönde aktığından, bir uygulamada hata ayıklamak ve bir sorunun nerede olduğunu bilmek daha kolay hâle gelir. Tek yönlü veri akışı avantaj olduğu kadar dezavantajda denilebilir. Proje büyüdükçe veri taşımanın zorlaşması durum yönetim araçlarının kullanılmasını gerektirir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> Async fonksiyonlarda kullanılabilen "await"
+anahtar kelimesi aşağıdaki hangi metod yerine kullanılabilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> resolve() </span><br>
+	<span class="option" data-correct="false"><b>B)</b> async() </span><br>
+	<span class="option" data-correct="false"><b>C)</b> catch() </span><br>
+	<span class="option" data-correct="true"><b>D)</b> then()  </span><br>
+	<span class="option" data-correct="false"><b>E)</b> reject() </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      Async fonksiyonlarda kullanılabilen await anahtar kelimesi, promise nesnesi ile kullanılabilen .then() yerine kullanılabilir. <br><br>
+Await, async fonksiyon içindeki asenkron komutun tamamlanmasını bekler ve bir
+sonraki satıra geçmesini engeller.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> I. İstemci taraflı doğrulama yapabilir.<br>
+II. HTML sayfası ile etkileşim sağlamaktadır.<br>
+III. Sunucu uygulamaları gerçekleştirebilir.<br>
+IV. .NET teknolojileri arasında yer alır.<br><br>
+Yukarıdakilerden hangileri Javascript kullanmanın avantajlarındandır? </p>
+	<span class="option" data-correct="false"><b>A)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> III ve IV </span><br>
+	<span class="option" data-correct="true"><b>D)</b> I, II ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II, III ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Javascript'te diziler ile kullanılabilen
+metotlarla ilgili aşağıdakilerden hangisi doğrudur? </p>
+	<span class="option" data-correct="true"><b>A)</b> concat(): İki diziyi birleştirir.
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> pop(): Dizinin sonuna bir eleman ekler ve dizinin uzunluğunu döndürür. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> shift(): Dizinin elemanlarını alfabetik olarak sıralar.
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> slice(): Dizinin bir ögesini arar ve konumunu döndürür.
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> sort(): Dizinin ilk elemanını kaldırır ve kaldırılan elemanı döner.
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> JavaScript DOM ile bir HTML ögesinin stil
+kuralları arasında geçiş yapılabilmesi için kullanılan metod aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> element.classList.add()
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> element.classList.contains()
+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> element.classList.remove()
+ </span><br>
+	<span class="option" data-correct="true"><b>D)</b> element.classList.toggle()
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> element.classList.toString()
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> let toplam = 0;<br>
+const sayilar = [-1, 0, 1, 2];<br>
+sayilar.forEach(topla);<br>
+function topla(sayi){<br>
+toplam+=sayi+1<br>
+}<br>
+console.log(toplam);<br><br>
+Yukarıdaki JavaScript kodunun ekran çıktısı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 5 </span><br>
+	<span class="option" data-correct="true"><b>B)</b> 6 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 7 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 8 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 9 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> Kullanıcıların tüm web sayfasını yeniden
+yükleme zahmetine girmeden verileri görüntülemesine yardımcı olan özellik aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> AJAX </span><br>
+	<span class="option" data-correct="false"><b>B)</b> SOAP </span><br>
+	<span class="option" data-correct="false"><b>C)</b> REST API
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> REQUEST </span><br>
+	<span class="option" data-correct="false"><b>E)</b> XML </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> Aşağıdaki HTTP durum kodu sınıflarından
+hangisi yönlendirme amacıyla kullanılır?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> 1xx </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 2xx </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 3xx </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 4xx </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 5xx </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Gerçek DOM'un sık sık güncelleme
+ihtiyacından kaynaklı olarak ortaya çıkan
+sorunları çözmek amacıyla aşağıdakilerden
+hangisi geliştirilmiştir?
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Sanal Dom
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sanal Makina 
+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sanal Sunucu
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> JSX </span><br>
+	<span class="option" data-correct="false"><b>E)</b> React Rooter
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> React'ta komponentler ile ilgili
+aþaðýdakilerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Komponentler arası veri aktarımı Babel ile yapılır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kullanıcıya arayüz oluşturur.
+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Uygulamaya dahil etmek kolaydır.
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Fonksiyon ve sınıf komponentleri olmak üzere ikiye ayrılır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> React'ın temel yapı taşıdır.
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	
+	  
+	
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

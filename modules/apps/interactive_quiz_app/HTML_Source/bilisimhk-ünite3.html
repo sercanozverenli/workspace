@@ -1,0 +1,1766 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	  <link rel="icon" type="image/png" href="icon.png">
+  <style>
+	   .block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="anasayfa.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA I
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama1-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama1-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama1-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama1-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama1-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama1-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama1-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama1-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama1-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama1-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          BİLİŞİM HUKUKU
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="bilisimhk-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="bilisimhk-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="bilisimhk-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="bilisimhk-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="bilisimhk-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="bilisimhk-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="bilisimhk-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="bilisimhk-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="bilisimhk-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="bilisimhk-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB'DE TELİF HAKLARI VE ETİK
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="webtelif-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="webtelif-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="webtelif-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="webtelif-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="webtelif-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="webtelif-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="webtelif-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="webtelif-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="webtelif-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="webtelif-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          AĞ YÖNETİMİ VE BİLGİ GÜVENLİĞİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="agyonetimi-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="agyonetimi-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="agyonetimi-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="agyonetimi-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="agyonetimi-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="agyonetimi-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="agyonetimi-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="agyonetimi-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="agyonetimi-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="agyonetimi-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİTABANI PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veritabaniprg-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veritabaniprg-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  </nav>
+  
+    <h4 id="ders">Bilişim Hukuku - Ünite 3 </h4>
+	  	  	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	<button class="block-group" data-start="40" data-end="59">Part 3</button>
+	<button class="block-group" data-start="60" data-end="79">Part 4</button>
+</div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Aşağıdakilerden hangisi kişisel verilerin işlenmesinin Anayasa ile belirlenmiş meşru temelidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> İlgili kişinin açık rızası </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yönetmelikle öngörülmüş olma </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İlgili kişinin eşinin onay vermesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Veri işleme gereksiniminin ortaya çıkması </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İdarenin veri işlemenin gerekliliğine karar vermesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Aşağıdakilerden hangisi Avrupa İnsan Hakları Sözleşmesi’nin 8. maddesi uyarınca özel yaşama müdahalenin hukuka uygun kabul edilebilmesi için gerçekleşmesi gerekli olan koşullardan biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Veri işleme koşullarının yasa ile belirlenmiş olması </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Veri işlemenin 8. maddenin 2. fıkrasında belirlenen nedenlerden birine yönelik olması </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Müdahalenin demokratik bir toplumda gerekli olması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Müdahalenin orantılı olması </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Müdahalenin idarenin bir kararına dayanması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Türk Ceza Kanunu’nda göre aşağıdaki eylemlerden hangisi suç olarak<u><strong> düzenlenmemiştir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Kişisel verilerin hukuka aykırı olarak kayıt edilmesi </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Kişisel verilerin hukuka aykırı olarak yok edilmesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kişisel verilerin hukuka aykırı olarak yayılması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kişisel verilerin hukuka aykırı olarak ele geçirilmesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kişisel verilerin kanunda belirlenen süre geçmiş olmasına karşın sistem içerisinde yok edilmemesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> İşçinin kişisel verilerinin korunması ile ilgili aşağıdaki ifadelerden hangisi doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> İşveren işçinin kişisel verilerini dilediği gibi işleyebilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İşveren işçiye ilişkin olarak iş yerinde topladığı
+verileri dilediği gibi aktarabilir. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> İşveren işçinin kişisel verilerini hizmet sözleşmesinin
+ifası için zorunlu olduğu ölçüde kullanabilir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İşveren işçinin kişisel verilerini hiç bir durumda
+işleyemez. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İşveren işçinin verilerini gerekçe göstermek
+kaydıyla her durumda işleyebilir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Aşağıdaki yasa metinlerden hangilerinde kişisel verilerin korunmasına yönelik düzenlemelere yer verilmemiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Türk Ceza Kanunu </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Türk Borçlar Kanunu </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Elektronik Ticaret Kanunu </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Elektronik Haberleşme Kanunu </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Karayolları Trafik Kanunu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Türk Ceza Kanunu’nda kişisel verilerin korunmasına yönelik hükümlerde aşağıdaki yaptırımlardan hangisi öngörülmüştür? </p>
+	<span class="option" data-correct="false"><b>A)</b> Uyarma </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İdari para cezası </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Para cezası </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Hapis cezası </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Meslekten men etme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> Kişisel verilerle ilgili aşağıdaki ifadelerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Türkiye’de çerçeve nitelikte kapsayıcı bir Kişisel Verilerin Korunması Kanunu yürürlüktedir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Türkiye, kişisel verilerin korunmasına ilişkin 108 sayılı Avrupa Konseyi Sözleşmesini imzalamış ancak onaylanmamıştır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Türkiye Cumhuriyeti Anayasası uyarınca Avrupa İnsan Hakları Sözleşmesi yasa hükmündedir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Türk Medeni Kanunu’nun kişilik haklarının korunmasına ilişkin 24 ve 25. madde hükümleri bazı konularda kişisel verilerin korunmasını destekleyici niteliktedir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Elektronik Ticaret Kanunu uyarınca hizmet sağlayıcı elektronik ticaret işlemleri dolayısıyla elde ettiği kişisel verilerin güvenliğinden sorumludur. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> Aşağıdakilerden hangisi kişisel verilerin etkin korunmasını destekleyici unsurlardan biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Çerçeve nitelikte bir yasal düzenleme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Veri korumayı destekleyici teknik önlemlerin alınması </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veri korumaya yönelik bireysel önlemlerin alınması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Veri koruma alanında farkındalık arttırıcı çalışmaların yapılması </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Kişisel verilerin sınırsız şekilde işlenmesini sağlayıcı hukuksal düzenlemelerin yapılması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> Kişisel Verilerin Korunması Kanunu uyarınca Kişisel Verileri Koruma Kurulu üyeleri nasıl belirlenir? </p>
+	<span class="option" data-correct="true"><b>A)</b> TBMM ve Cumhurbaşkanı tarafından seçilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bakanlar Kurulu ve Cumhurbaşkanı tarafından seçilir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yüksek Öğretim Kurulu (YÖK) seçer. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Türkiye Barolar Birliği tarafından seçilir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Halk seçer. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Aşağıdakilerden hangisi Türkiye’de kişisel verilerin korunması alanında yaşanan sorunlardan biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Kişisel verilerin güvenliğine ilişkin eksiklikler </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Çerçeve niteliğinde bir yasal düzenlemenin bulunmaması </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Konuya ilişkin bazı düzenlemelerde yaptırım
+sistemindeki eksiklikler </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kolay ulaşılabilir bazı anahtar bilgiler aracılığıyla
+başka bilgilere erişilebilmesi </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Kişisel verilerin hukuka aykırı ele geçirilmesine
+karşı herhangi bir yaptırımın öngörülmemesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      Öncelikle TCK’nin 135. maddesi uyarınca kişisel verilerin hukuka aykırı olarak kaydedilmesi suçtur. Buna göre kişisel verileri hukuka aykırı olarak kayıt eden kimseye bir yıldan üç yıla kadar hapis cezasının verilmesi öngörülmüştür.
+
+     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> Aşağıdakilerden hangisi  AİHM'e göre özel yaşamın korunmasına kamu müdahalesinin olabileceği durumlardan biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Ulusal güvenlik </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Suç işlenmesinin önlenmesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kamu emniyeti </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Dirlik ve düzenin korunması </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Kamu otoritesinin güçlendirilmesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      Bu hakkın kullanılmasına bir kamu otoritesinin müdahalesi, ancak <br>
+- Ulusal güvenlik, <br>
+- Kamu emniyeti, <br>
+- Ülkenin ekonomik refahı, <br>
+- Dirlik ve düzenin korunması, <br>
+- Suç işlenmesinin önlenmesi, <br>
+- Sağlığın veya ahlakın veya başkalarının hak ve özgürlüklerinin korunması için, <br><br>
+
+
+demokratik bir toplumda gerekli olan ölçüde ve yasayla öngörülmüş olmak koşuluyla söz konusu olabilir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> TCK'ya göre,  kişisel verileri hukuka aykırı olarak kayıt etmenin hukuki karşılığı nedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Bir yıldan üç yıla kadar hapis cezasının verilmesi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bir yıldan iki yıla kadar hapis cezasının verilmesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Beş ile onbin lira arası para cezası verilmesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kamu hizmetlerinden men </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Üç yıldan beş yıla kadar hapis cezasının verilmesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      <u><strong>TCK 135:</strong></u> Kişisel verilerin hukuka aykırı olarak kaydedilmesi suçtur. Buna göre kişisel verileri hukuka aykırı olarak kayıt eden kimseye <u>bir yıldan üç yıla kadar</u> hapis cezasının verilmesi öngörülmüştür. Kişilerin ahlaki eğilimlerine, cinsel yaşamlarına, sağlık durumlarına ve sendikal bağlantılarına ilişkin bilgileri hukuka aykırı olarak kaydeden kimse de aynı yaptırım ile cezalandırılacaktır.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Aşağıdakierden hangisi Kişisel Verileri Koruma Kurulu'nun görevleri arasındadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Veri korunması ile ilgili teknolojik gelişmeleri takip etmek </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kişisel verilerle ilgili haklarının ihlal edildiğini ileri sürenlerin şikâyetlerini üst mercilere iletmek </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Özel nitelikli kişisel verilerin işlenmesi için aranan yeterli önlemleri belirleme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Görev alanına giren konularla ilgili makamlara talimat vermek. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      <u><strong>Kurulun görev ve yetkileri şunlardır:</strong></u><br>
+a) Kişisel verilerin, temel hak ve özgürlüklere uygun şekilde işlenmesini sağlamak.<br>
+b) Kişisel verilerle ilgili haklarının ihlal edildiğini ileri sürenlerin şikâyetlerini karara bağlamak.<br>
+c) Şikâyet üzerine veya ihlal iddiasını öğrenmesi durumunda resen görev alanına giren konularda kişisel verilerin kanunlara uygun olarak işlenip işlenmediğini incelemek ve gerektiğinde bu konuda geçici önlemler almak.<br>
+ç) Özel nitelikli kişisel verilerin işlenmesi için aranan yeterli önlemleri belirlemek.<br>
+d) Veri Sorumluları Sicilinin tutulmasını sağlamak.<br>
+e) Kurulun görev alanı ile Kurumun işleyişine ilişkin konularda gerekli düzenleyici işlemleri yapmak.<br>
+f ) Veri güvenliğine ilişkin yükümlülükleri belirlemek amacıyla düzenleyici işlem yapmak.<br>
+g) Veri sorumlusunun ve temsilcisinin görev, yetki ve sorumluluklarına ilişkin düzenleyici işlem yapmak.<br>
+ğ) Bu Kanunda öngörülen idari yaptırımlara karar vermek     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> Kişisel verilerin korunmasının normatif temelini oluşturan ve Anayasa'da yer alan temel hak ve özgürlük aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kişinin yaşama hakkı </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Kişinin maddi ve manevi varlığını geliştirme hakkı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kişinin çalışma hakkı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kişinin ifade özgürlüğü </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kişinin bilgi edinme hakkı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      Anayasa’nın başlangıç 6. paragrafında ve 17/1 hükmünde kişinin maddi ve manevi varlığını koruma ve geliştirme hakkı hüküm altına alınmıştır. Bunun yanında Anayasa uyarınca “Devletin temel amaç ve görevleri” arasında “insanın maddi ve manevi varlığının gelişmesi için gerekli şartları hazırlamaya çalışmak” (m.5) yer alır.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> Kişisel verilerin korunması bakımından çerezlerin (cookie) kullanımına getirilen sınırlamanın yer aldığı kanun aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Elektronik ticaret kanunu </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kişisel verilerin korunması kanunu </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Elektronik haberleşme kanunu </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Borçlar Kanunu </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Medeni Kanun </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      Çerez, kullanıcı bir İnternet sitesini ziyaret ettiğinde bağlantı kurduğu cihazın sabit diskine kaydedilen bir tür tanımlama dosyası olarak tarif edilebilir. Bu dosyalarda kişilerin ziyaret ettiği siteler gibi bazı bilgiler saklanabilmektedir. 51. maddenin 3. fıkrası uyarınca:
+“Elektronik haberleşme şebekeleri, haberleşmenin sağlanması dışında abonelerin/kullanıcıların terminal cihazlarında bilgi saklamak veya saklanan bilgilere erişim sağlamak amacıyla işletmeciler tarafından ancak ilgili abonelerin/kullanıcıların
+verilerin işlenmesi hakkında açık ve kapsamlı olarak bilgilendirilmeleri ve açık rızalarının alınması kaydıyla kullanılabilir     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Türk Borçlar Kanunu'nda işçilerin kişisel verilerinin korunmasına ilişkin düzenleme kapsamında aşağıdaki önermelerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> İşçinin birçok bilgisine işverenin iş akdi süresince ulaşabilmesi dezavantajlı bir durumdur </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İşçiye ait kişisel veriler hizmet sözleşmesinin ifası için zorunlu olduğu ölçüde kullanılabilir </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İşçinin kişisel verileri ancak işe yatkınlığıyla ilgili bilgiler ise kullanılabilir </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Türk Borçlar Kanunu'daki düzenleme asgari oranda veri tutulması ilkesi ile uyumludur </span><br>
+	<span class="option" data-correct="true"><b>E)</b> İşçinin kişisel verilerinin korunması ILO'nun özel bir sözleşmesi bulunmaktadır </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      Uluslararası Çalışma Örgütünün (International Labour Organization -ILO) <u><strong>konuya ilişkin bir sözleşme kabul etmediği</strong></u> ancak işçinin kişisel verilerinin korunmasına ilişkin uygulama ilkelerini belirlediği görülmektedir.     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> Aşağıdakilerden hangisi  Kişisel Verilerin Korunması Kuruluna üye olabilmek için aranan şartlardan biri<u><strong> değildir?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Üyelerin üye çoğunluğuyla seçilmiş olması </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kurumun görev alanındaki konularda bilgi ve deneyim sahibi olması </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Herhangi bir siyasi parti üyesi olmaması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> En az dört yıllık lisans düzeyinde yüksek öğrenim görmüş olması </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 14/7/1965 tarihli ve 657 sayılı Devlet Memurları Kanununun 48 inci maddesinin birinci fıkrasının (A) bendinin (1), (4), (5), (6) ve (7) numaralı alt bentlerinde belirtilen nitelikleri taşıması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Aşağıdakilerden hangisi Kişisel Verileri Koruma Kurulunun görevleri arasında <u><strong>yer almaz?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Kişisel verilerin, temel hak ve özgürlüklere uygun şekilde işlenmesini sağlamak. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kişisel verilerle ilgili haklarının ihlal edildiğini ileri sürenlerin şikâyetlerini karara bağlamak. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Özel nitelikli kişisel verilerin işlenmesi için aranan yeterli önlemleri belirlemek. </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Veri Sorumluları Sicilinin tutulmasını sağlamak ve onu düzenli aralıklarla kamu ile paylaşmak. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kurul görev alanı ile Kurumun işleyişine dair konularda gerekli düzenleyici işlemleri yapmak. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      <u><strong>Kurulun görev ve yetkileri şunlardır:</strong></u><br>
+a) Kişisel verilerin, temel hak ve özgürlüklere uygun şekilde işlenmesini sağlamak.<br>
+b) Kişisel verilerle ilgili haklarının ihlal edildiğini ileri sürenlerin şikâyetlerini karara bağlamak.<br>
+c) Şikâyet üzerine veya ihlal iddiasını öğrenmesi durumunda resen görev alanına giren konularda kişisel verilerin kanunlara uygun olarak işlenip işlenmediğini incelemek ve gerektiğinde bu konuda geçici önlemler almak.<br>
+ç) Özel nitelikli kişisel verilerin işlenmesi için aranan yeterli önlemleri belirlemek.<br>
+d) Veri Sorumluları Sicilinin tutulmasını sağlamak.<br>
+e) Kurulun görev alanı ile Kurumun işleyişine ilişkin konularda gerekli düzenleyici işlemleri yapmak.<br>
+f ) Veri güvenliğine ilişkin yükümlülükleri belirlemek amacıyla düzenleyici işlem yapmak.<br>
+g) Veri sorumlusunun ve temsilcisinin görev, yetki ve sorumluluklarına ilişkin düzenleyici işlem yapmak.<br>
+ğ) Bu Kanunda öngörülen idari yaptırımlara karar vermek      </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> Türk hukuk sisteminde yasal düzeyde, kişisel verilerin korunmasına ilişkin en kapsamlı koruma aşağıdakilerden hangisinde yer alır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Türk Ceza Kanunu </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Medeni Kanun </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İskan Kanunu </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Anayasa </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Avrupa İnsan Hakları Sözleşmesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> Türk Ceza Kanunu’nun kaçıncı maddesi ile, kişisel verilerin korunması alanında temel ilkelerden biri olan verilerin süresiz olarak tutulmaması gerekliliğinin karşılandığı söylenebilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 135 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 136 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 137 </span><br>
+	<span class="option" data-correct="true"><b>D)</b> 138 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 139 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Aşağıdaki düzenlemelerden hangisinde kişisel verilerin korunmasına ilişkin düzenleme <u><strong>yer almamaktadır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Türk Medeni Kanunu </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Türk Ceza Kanunu </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Türk Borçlar Kanunu </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Elektronik Ticaret Kanunu </span><br>
+	<span class="option" data-correct="true"><b>E)</b> İskan Kanunu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Aşağıdakilerden hangisi Türkiye’de kişisel verilerin korunması alanında yaşanan sorunlardan biridir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Kişisel verilerin korunmasının bir insan hakkı olduğu ve yarışan çıkarlar arasında dengenin sağlanması gerekliliği temelinde yasal düzenlemenin bulunmaması </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kişisel verilerin korunmasına yönelik temel ilkeleri belirleyerek önleyici koruma sağlayacak yasal düzenlemenin bulunmaması </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Elektronik haberleşme sektöründe kişisel verilerin korunmasına yönelik düzenlemelerde yaptırımların bulunmaması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kişisel verilerin hukuka aykırı ele geçirilmesine karşı herhangi bir yaptırımın öngörülmemesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Elektronik ticaret sektöründe kişisel veriler işlenirken uyulacak temel kuralların düzenlenmemesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> Kişisel verinin tanımı konusunda mevzuatımızda açıklayıcı hükümlerin son derece sınırlı olması ve temel ilkelerin düzenlememesi nedeniyle TCK kapsamında suçun unsurları içinde aşağıdakilerden hangisinin belirlenmesinde zorluk yaşanmaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Fail </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kusur </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Nedensellik bağı </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Hukuka aykırılık </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Mağdur </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+s
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Kişisel verilerin korunması kanunu hangi yılda yasalaşmıştır? </p>
+	<span class="option" data-correct="false"><b>A)</b> 2008 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 2010 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 2012 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 2014 </span><br>
+	<span class="option" data-correct="true"><b>E)</b> 2016 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> Kişisel Verilerin Korunması Kurulunu oluşturan üye sayısı aşağıdakilerden hangisidir?  </p>
+	<span class="option" data-correct="false"><b>A)</b> On </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yüz </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kırkbir </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Altı </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Dokuz  </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      Kurul, dokuz üyeden oluşur. Kurulun beş üyesi Türkiye Büyük Millet Meclisi, dört üyesi Cumhurbaşkanı tarafından seçilir.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> Bir kullanıcıya İnternet üzerinden bir hizmet ya da ürün edinirken en güçlü gizlilik ayarlarının uygulandığı gizlilik ayarı aşağıdakilerden hangisidir?  </p>
+	<span class="option" data-correct="false"><b>A)</b> Dizayn aracılılığıyla gizlilik </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Varsayılanlar aracılılığıyla gizlilik </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veri korunması aracılığıyla gizlilik </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Model aracılılığıyla gizlilik </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Basamaklandırılan gizlilik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      “Dizayn aracılılığıyla gizlilik” (privacy by design, PbD) ya da “varsayılanlar aracılılığıyla gizlilik” (privacy by default) bu kapsamda verilebilecek bir kaç örnektir. PbD ile hedeflenen veri korumasının sağlanması, kişinin kendi verileri üzerinde denetime sahip olması ve kuruluşların sürdürülebilir rekabet avantajı elde etmesidir. Bu doğrultuda teknoloji geliştirilirken özel yaşamın gizliliği hakkı merkezli bir yaklaşım benimsenmelidir. <u><strong>“Varsayılanlar aracılılığıyla gizlilik” </strong>ise bir kullanıcıya İnternet üzerinden bir hizmet ya da ürün edinirken en güçlü gizlilik ayarlarının uygulanmasıdır.</u>     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Türk Ceza Kanunu’nda kişisel verilerin korunmasına yönelik hükümlerde aşağıdaki yaptırımlardan hangisi öngörülmüştür? </p>
+	<span class="option" data-correct="false"><b>A)</b> Uyarma </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İdari para cezası </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Para cezası </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Hapis cezası </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Meslekten men etme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      TCK’nin 136. maddesinde ise kişisel verileri hukuka aykırı olarak başkasına vermek, yaymak ve ele geçirmek suçu düzenlenmiştir. Buna göre; “Kişisel verileri, hukuka aykırı olarak bir başkasına veren, yayan veya ele geçiren kişi, iki yıldan dört yıla kadar hapis cezası ile cezalandırılır”.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> 6563 sayılı Elektronik Ticaretin Düzenlenmesi Hakkında Kanunu kaç yılında kabul edilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 2012 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 2013 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 2014 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 2015 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 2016 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> I. Ulusal güvenlik<br>
+II. Kamu güvenliği<br>
+III. Ülkenin ekonomik refahı<br>
+Yukarıdakilerden hangisi AİHS m.8/2'de özel ve aile yaşamına saygı hakkına istisna getiren meşru amaçlardandır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I, II </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II, III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AİHS 8/2 hükmü uyarınca özel ve aile yaşamına müdahale:<br>
+- Sınırlı sayımla belirtilmiş amaçlardan bir ya da birkaçına yönelik; <br>
+- Yasada öngörülmüş ve <br>
+- Demokratik toplum için gerekli ve <br>
+- Öngörülen amaç ile orantılı olması durumunda meşrudur.
+
+<strong>Sınırlı sayımla belirlenen ve özel ve aile yaşamına saygı hakkına istisna getiren meşru amaçlar ise şunlardır:</strong> <br>
+- Ulusal güvenlik, <br>
+- Kamu güvenliği, <br>
+- Ülkenin ekonomik refahı, <br>
+- Dirlik ve düzenin korunması, <br>
+- Suç işlenmesinin önlenmesi, <br>
+- Sağlığın veya ahlakın veya başkalarının haklarının korunması.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> I. Haberleşmenin dinlenmesi<br>
+II. Haberleşmenin kaydedilmesi<br>
+III. Haberleşmenin saklanması<br>
+IV. Haberleşmenin kesilmesi<br>
+V. Haberleşmenin takip edilmesi<br>
+Yukarıda verilen eylemlerden hangileri Elektronik Haberleşme Kanunu kapsamında yasaklanmıştır? </p>
+	<span class="option" data-correct="false"><b>A)</b> I-II-III </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I-III-V </span><br>
+	<span class="option" data-correct="false"><b>C)</b> II-III-V </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II-III-IV </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Hepsi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> Kişisel verilerin korunmasıyla ilgili aşağıdaki ifadelerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Türkiye Cumhuriyeti Anayasası uyarınca Avrupa İnsan Hakları Sözleşmesi yasa hükmündedir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Elektronik Ticaret Kanunu uyarınca hizmet sağlayıcı elektronik ticaret işlemleri dolayısıyla elde ettiği kişisel verilerin güvenliğinden sorumludur </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Türkiye, kişisel verilerin korunmasına ilişkin Avrupa Konseyi Kişisel Verilerin Korunması Sözleşmesi imzalamış ancak onaylanmamıştır </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Türk Medeni Kanunu’nun kişilik haklarının korunmasına ilişkin 24 ve 25. madde hükümleri bazı konularda kişisel verilerin korunmasını destekleyici niteliktedir </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Türkiye'de Kişisel Verilerin Korunması Kanunu 2008 yılında yasalaşmıştır </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      Kişisel Verilerin Korunması Kanunu 2016 yılında yasalaşmıştır     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> Aşağıdakilerden hangisi AİHS 8/2 hükmü uyarınca özel ve aile yaşamına müdahale kapsamında <u><strong>yer almaz?</strong></u>  </p>
+	<span class="option" data-correct="true"><b>A)</b> Kamu otoritesinin müdahalesinin olması  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sınırlı sayımla belirtilmiş amaçlardan bir ya da bir kaçına yönelik olması </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Demokratik toplum için gerekli olması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yasada öngörülmüş olması </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Öngörülen amaç ile orantılı olması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">     <strong> AİHS 8/2 hükmü uyarınca özel ve aile yaşamına müdahale:<br></strong>
+- Sınırlı sayımla belirtilmiş amaçlardan bir ya da birkaçına yönelik; <br>
+- Yasada öngörülmüş ve <br>
+- Demokratik toplum için gerekli ve <br>
+- Öngörülen amaç ile orantılı olması durumunda meşrudur.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> I. Kayıt etme<br>
+II. Toplama<br>
+III. Kullanma<br><br>
+Yukarıdakilerden hangisi kişisel verilerin işlenmesi kapsamında gerçekleştirilen eylemlerden biri kabul edilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I, II, III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> I. kişisel verilerin hukuka aykırı kayıt etmek<br>
+II. verileri hukuka aykırı verme, yayma veya ele geçirmek<br>
+III. gereken sürelerin geçmesine karşın verileri yok etmemek<br><br>
+1 Haziran 2005 tarihinde yürürlüğe giren yeni Türk Ceza Kanunu uyarınca yukarıdakilerden hangisi ya da hangileri suç olarak kabul edilmektedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II, ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> Yeni Borçlar Kanunu’nun kaçıncı maddesi uyarınca “İşveren, işçiye ait kişisel verileri, ancak işçinin işe yatkınlığıyla ilgili veya hizmet sözleşmesinin ifası için zorunlu olduğu ölçüde kullanabilir” ibaresi geçerlidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 418 </span><br>
+	<span class="option" data-correct="true"><b>B)</b> 419 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 420 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 421 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 422 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> Aşağıdakilerden hangisi elektronik ticaret ve elektronik haberleşme sektörlerinde kişisel veriler işlenirken uyulacak temel kuralların düzenlendiği kanunlardan birisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Elektronik Ticaret Kanunu </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İskan Kanunu </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Türk Vatandaşlık Kanunu </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yabancılar ve Uluslararası Koruma Kanunu </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Milletlerarası Özel Hukuk ve Usul Hukuku Hakkında Kanun </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> Aşağıdakilerden hangisi AİHS 8/2 hükmü uyarınca özel ve aile yaşamına müdahalede  sınırlı sayımla belirlenen ve özel ve aile yaşamına saygı hakkına istisna getiren meşru amaçlardan biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Ulusal güvenlik </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kamu güvenliği </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ülkenin ekonomik refahı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Dirlik ve düzenin korunması </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Suç işlenmesinin önlenmemesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      <strong>Sınırlı sayımla belirlenen ve özel ve aile yaşamına saygı hakkına istisna getiren meşru amaçlar ise şunlardır:</strong> <br>
+- Ulusal güvenlik, <br>
+- Kamu güvenliği, <br>
+- Ülkenin ekonomik refahı, <br>
+- Dirlik ve düzenin korunması, <br>
+- Suç işlenmesinin önlenmesi, <br>
+- Sağlığın veya ahlakın veya başkalarının haklarının korunması.      </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> Kişisel Verilerin Korunması Kurulu ile ilgili aşağıda verilen bilgilerden hangisi doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kurul, Kanunun 18. maddesi ile görev ve yetkilerini görev alanına giren konularla ilgili kurumlara bağlı olarak yerine getirir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Görev alanına giren konularla ilgili olarak organ, makam, merci veya kişi, Kurula tavsiye veya telkinde bulunabilir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kurula üye olabilmek için kurumun görev alanındaki konularda bilgi ve deneyim sahibi olmak yeterlidir. </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Kurulun üyeleri Türkiye Büyük Millet Meclisi ve Cumhurbaşkanı tarafından seçilir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kurul, on üyeden oluşur. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      - Kanunun 18. maddesi ile “görev ve yetkilerini <u><strong>kendi sorumluluğu altında, bağımsız</strong></u> olarak” yerine getireceği belirtilen bir Kişisel Verileri Koruma Kurulu oluşturulması öngörülmektedir. <br>
+<br>
+- Kurul, bu Kanunla ve diğer mevzuatla verilen görev ve yetkilerini kendi sorumluluğu altında, bağımsız olarak yerine getirir ve kullanır. <u><strong>Görev alanına giren konularla ilgili olarak hiçbir organ, makam, merci veya kişi, Kurula emir ve talimat veremez, tavsiye veya telkinde bulunamaz</strong></u>. <br>
+- Kurul, <u><strong>dokuz</strong></u> üyeden oluşur. <br>
+- Kurulun beş üyesi <strong>Türkiye Büyük Millet Meclisi</strong>, dört üyesi <strong>Cumhurbaşkanı</strong> tarafından seçilir. <br>
+<br>
+Kurula üye olabilmek için aşağıdaki şartlar aranır: <br>
+- (a) Kurumun görev alanındaki konularda bilgi ve deneyim sahibi olmak. <br>
+- (b) 14/7/1965 tarihli ve 657 sayılı Devlet Memurları Kanunu’nun 48 inci maddesinin birinci fıkrasının (A) bendinin (1), (4), (5), (6) ve (7) numaralı alt bentlerinde belirtilen nitelikleri taşımak. <br>
+- (c) Herhangi bir siyasi parti üyesi olmamak. <br>
+- (ç) En az dört yıllık lisans düzeyinde yükseköğrenim görmüş olmak.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> İşçinin kişisel verilerinin korunmasına yönelik bir hükmün yer aldığı kanun aşağıdakilerden hangisidir?  </p>
+	<span class="option" data-correct="false"><b>A)</b> Türk Medeni Kanunu </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Türk Ceza Kanunu </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Türk Borçlar Kanunu </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İcra ve İflas Kanunu </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sosyal Güvenlik Kanunu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> TCK'nın 138. maddesine göre, "Kanunların belirlediği sürenin geçmiş olmasına karşın verileri sistem içinde yok etmekle yükümlü olanlara görevlerini yerine getirmediklerinde bir yıldan iki yıla kadar hapis cezası verilir." Bu madde kişisel verilerin korunması alanındaki hangi ilkeyi yansıtmaktadır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Verilerin süresiz olarak tutulmaması gerekliliği </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Açıklık ilkesini </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Şeffaflık ilkesini </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Özel hayatın gizliliği ilkesini </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kamu yararı ilkesini </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question41">
+	<p class="question">Soru 41:<br> “Usulüne göre yürürlüğe konulmuş Milletlerarası antlaşmalar kanun hükmündedir” Anayasanın kaçıncı maddesidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 89 </span><br>
+	<span class="option" data-correct="true"><b>B)</b> 90 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 91 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 92 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 93 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description41">Açıklama</button>
+		<div id="description41" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question42">
+	<p class="question">Soru 42:<br> Türk Ceza Kanunu’nun kaçıncı maddesi uyarınca kişisel verileri hukuka aykırı olarak başkasına vermek, yaymak ve ele geçirmek suçu düzenlenmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 132
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 133 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 134 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 135 </span><br>
+	<span class="option" data-correct="true"><b>E)</b> 136 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description42">Açıklama</button>
+		<div id="description42" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question43">
+	<p class="question">Soru 43:<br> Soruşturma, inceleme, denetleme veya uzlaşmazlığa konu olan kişisel veriler ilgili süreç tamamlanıncaya kadar kişisel verilere ve ilişkili diğer sistemlere yapılan erişimlere ilişkin işlem kayıtları kaç yıl asgari olarak abonelik süresince saklanacağı hüküm altına alınmıştır? </p>
+	<span class="option" data-correct="false"><b>A)</b> 1 </span><br>
+	<span class="option" data-correct="true"><b>B)</b> 2 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 3 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 5 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 6 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description43">Açıklama</button>
+		<div id="description43" class="collapse">      Soruşturma, inceleme, denetleme veya uzlaşmazlığa konu olan kişisel veriler ilgili süreç tamamlanıncaya kadar kişisel verilere ve ilişkili diğer sistemlere yapılan erişimlere ilişkin işlem kayıtları iki yıl, <br>
+Kişisel verilerin işlenmesine yönelik abonelerin/kullanıcıların rızalarını gösteren kayıtlar asgari olarak abonelik süresince saklanacağı hüküm altına alınmıştır.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question44">
+	<p class="question">Soru 44:<br> Türk Medeni Kanunu'nun kaçıncı maddesinde  kişiliğe yönelik saldırılara karşı temel ilkeye yer verilmiştir? </p>
+	<span class="option" data-correct="true"><b>A)</b> 24 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 25 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 26 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 27 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 28 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description44">Açıklama</button>
+		<div id="description44" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question45">
+	<p class="question">Soru 45:<br> Türkiye İstatistik Kanunu’nun ilgili hükümleri uyarınca istatistik amacıyla gerçek kişilerin de dâhil olduğu “istatistikî birimler”den her türlü bilgi istenebileceği, bu isteğin istenilen şekil, süre ve standartlarda ücretsiz olarak karşılanmasının zorunlu olacağı ve bu zorunluluğu yerine getirmeyenlerin idari para cezası yaptırımı ile karşılaşacağına yönelik hükmü Anayasa Mahkemesi iptal ederken kişisel verilerin korunmasını hangi kapsamda görmüştür? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yaşama hakkı ve sağlığa ulaşım hakkı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Seyahat özgürlüğü ve eşitlik ilkesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İfade özgürlüğü ve özel yaşamın gizliliği </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Özel yaşamın gizliliği ve düşünce özgürlüğü </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Çalışma hakkı ve izin hakkı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description45">Açıklama</button>
+		<div id="description45" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question46">
+	<p class="question">Soru 46:<br> Kişisel verileri, hukuka aykırı olarak bir başkasına veren, yayan veya ele geçiren kişi ne kadar süre ile hapis cezası ile cezalandırılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> İki yıldan dört yıla </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Dört yıldan altı yıla </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Altı yıldan sekiz yıla </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sekiz yıldan on yıla </span><br>
+	<span class="option" data-correct="false"><b>E)</b> On yıldan on iki yıla </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description46">Açıklama</button>
+		<div id="description46" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question47">
+	<p class="question">Soru 47:<br> I. Kişisel verilerin, temel hak ve özgürlüklere uygun şekilde işlenmesini sağlamak<br> 
+II. Özel nitelikli kişisel verilerin işlenmesi için aranan yeterli önlemleri belirlemek<br> 
+III. Veri güvenliğine ilişkin yükümlülükleri belirlemek amacıyla düzenleyici işlem yapmak<br> <br> 
+Yukarıdakilerden hangisi veya hangileri Kişisel Verileri Koruma Kurulu'nun görev ve yetkileri arasındadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnızca I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnızca III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I-II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I-III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I-II-III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description47">Açıklama</button>
+		<div id="description47" class="collapse">      <u><strong>Kurulun görev ve yetkileri şunlardır:</strong></u><br>
+a) Kişisel verilerin, temel hak ve özgürlüklere uygun şekilde işlenmesini sağlamak.<br>
+b) Kişisel verilerle ilgili haklarının ihlal edildiğini ileri sürenlerin şikâyetlerini karara bağlamak.<br>
+c) Şikâyet üzerine veya ihlal iddiasını öğrenmesi durumunda resen görev alanına giren konularda kişisel verilerin kanunlara uygun olarak işlenip işlenmediğini incelemek ve gerektiğinde bu konuda geçici önlemler almak.<br>
+ç) Özel nitelikli kişisel verilerin işlenmesi için aranan yeterli önlemleri belirlemek.<br>
+d) Veri Sorumluları Sicilinin tutulmasını sağlamak.<br>
+e) Kurulun görev alanı ile Kurumun işleyişine ilişkin konularda gerekli düzenleyici işlemleri yapmak.<br>
+f ) Veri güvenliğine ilişkin yükümlülükleri belirlemek amacıyla düzenleyici işlem yapmak.<br>
+g) Veri sorumlusunun ve temsilcisinin görev, yetki ve sorumluluklarına ilişkin düzenleyici işlem yapmak.<br>
+ğ) Bu Kanunda öngörülen idari yaptırımlara karar vermek       </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question48">
+	<p class="question">Soru 48:<br> Aşağıdakilerden hangisi Kişisel Verilerin Korunması Kurulunun görev ve yetkileri arasında <u><strong>değildir?</strong></u>  </p>
+	<span class="option" data-correct="false"><b>A)</b> Kişisel verilerin, temel hak ve özgürlüklere uygun şekilde işlenmesini sağlamak </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kişisel verilerle ilgili haklarının ihlal edildiğini ileri sürenlerin şikâyetlerini karara bağlamak </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veri Sorumluları Sicilinin tutulmasını sağlamak </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Kurumun görev alanındaki konularda bilgi ve deneyim sahibi olmak </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Veri güvenliğine ilişkin yükümlülükleri belirlemek amacıyla düzenleyici işlem yapmak </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description48">Açıklama</button>
+		<div id="description48" class="collapse">        <u><strong>Kurulun görev ve yetkileri şunlardır:</strong></u><br>
+a) Kişisel verilerin, temel hak ve özgürlüklere uygun şekilde işlenmesini sağlamak.<br>
+b) Kişisel verilerle ilgili haklarının ihlal edildiğini ileri sürenlerin şikâyetlerini karara bağlamak.<br>
+c) Şikâyet üzerine veya ihlal iddiasını öğrenmesi durumunda resen görev alanına giren konularda kişisel verilerin kanunlara uygun olarak işlenip işlenmediğini incelemek ve gerektiğinde bu konuda geçici önlemler almak.<br>
+ç) Özel nitelikli kişisel verilerin işlenmesi için aranan yeterli önlemleri belirlemek.<br>
+d) Veri Sorumluları Sicilinin tutulmasını sağlamak.<br>
+e) Kurulun görev alanı ile Kurumun işleyişine ilişkin konularda gerekli düzenleyici işlemleri yapmak.<br>
+f ) Veri güvenliğine ilişkin yükümlülükleri belirlemek amacıyla düzenleyici işlem yapmak.<br>
+g) Veri sorumlusunun ve temsilcisinin görev, yetki ve sorumluluklarına ilişkin düzenleyici işlem yapmak.<br>
+ğ) Bu Kanunda öngörülen idari yaptırımlara karar vermek      </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question49">
+	<p class="question">Soru 49:<br> Elektronik Ticaretin Düzenlenmesi Hakkında Kanunu 6.  maddesi uyarınca aşağıdakilerden hangisinin yapılması kanuna <u><strong>aykırıdır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Ticari elektronik iletileri, alıcılara ancak önceden onayları alınmak kaydıyla göndermek </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Onayları, yazılı olarak veya her türlü elektronik iletişim araçlarıyla almak </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Alıcının iletişime geçmek amacıyla bilgilerini vermesi hâlinde, ticari elektronik iletiler için ayrıca almamak. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Esnaf ve tacirlere önceden onay alınmaksızın ticari elektronik iletiler gönderilebilir. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Pazarlama ve reklam amaçlı olan iletileri onay almaksızın mesaj göndermek. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description49">Açıklama</button>
+		<div id="description49" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question50">
+	<p class="question">Soru 50:<br> Kişisel Verilerin Korunması Kanunu'na göre, aşağıdakilerden hangisi özel nitelikli kişisel veri olarak kabul edilmektedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Dil </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Cinsiyet </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Irk </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yaş </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Eğitim </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description50">Açıklama</button>
+		<div id="description50" class="collapse">      Kişisel Verilerin Korunması Kanunu kapsamında kişilerin <br>
+“ırkı, etnik kökeni, siyasi düşüncesi, felsefi inancı, dini, mezhebi veya diğer inançları, kılık ve kıyafeti, dernek, vakıf ya da sendika üyeliği, sağlığı, cinsel hayatı, ceza mahkûmiyeti ve güvenlik tedbirleriyle ilgili verileri ile biyometrik ve genetik verileri”<br>
+özel nitelikli (hassas) kişisel veri olarak kabul edilmiş ve işlenmesi yasaklanmıştır.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question51">
+	<p class="question">Soru 51:<br> Kişisel Verilerin Korunması Kanunu kaç bölümden oluşmaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> 6 </span><br>
+	<span class="option" data-correct="true"><b>B)</b> 7 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 8 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 9 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 10 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description51">Açıklama</button>
+		<div id="description51" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question52">
+	<p class="question">Soru 52:<br> Kişisel verilerin korunması ile ilgili olarak aşağıdakilerden hangisi medeni hukuk kapsamında <u><strong>yer almamaktadır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Kişinin onur ve saygınlığı korunmaktadır </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kişinin adı ve resmi üzerindeki hakları korunmaktadır </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kişiliğe yönelik saldırılara karşı koruma </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kişiliğe yönelik saldırılara karşı hukuksal yollar </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Kişisel veriyi hukuka aykırı kullanana karşı hapis cezası </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description52">Açıklama</button>
+		<div id="description52" class="collapse">      Hapis cezası TCK'da düzenlenmektedir.      </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question53">
+	<p class="question">Soru 53:<br> Türk hukukunda kişisel verilerin korunmasının normatif temeli aşağıdakilerden hangisinde bulunur? </p>
+	<span class="option" data-correct="true"><b>A)</b> Anayasa </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kanun </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tüzük </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yönetmelik </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Genelge </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description53">Açıklama</button>
+		<div id="description53" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question54">
+	<p class="question">Soru 54:<br> Türkiye Avrupa Konseyi Kişisel Verilerin Korunması Sözleşmesi’ni hangi yılda imzalamıştır? </p>
+	<span class="option" data-correct="false"><b>A)</b> 1980 </span><br>
+	<span class="option" data-correct="true"><b>B)</b> 1981 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 1982 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 1983 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 1984 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description54">Açıklama</button>
+		<div id="description54" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question55">
+	<p class="question">Soru 55:<br> Türk Ceza Kanununa göre, kişisel verilerin korunmasını hukuka aykırı bir şekilde ihlal eden bir kişinin karşılaşacağı yaptırım aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> İdari para cezası </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Uyarma </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kınama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yükselmenin durdurulması </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Hapis </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description55">Açıklama</button>
+		<div id="description55" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question56">
+	<p class="question">Soru 56:<br> Aşağıdakilerden hangisi "Herkes özel ve aile yaşamına, konutuna ve haberleşmesine saygı gösterilmesi hakkına sahiptir" hükmünün yer aldığı AİHS'teki sözleşmenin maddesidir?  </p>
+	<span class="option" data-correct="false"><b>A)</b> Özgürlük ve güvenlik hakkı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Adil yargılanma hakkı </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Özel ve aile yaşamına saygı hakkı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Düşünce, vicdan ve din özgürlüğü </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Evlenme hakkı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description56">Açıklama</button>
+		<div id="description56" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question57">
+	<p class="question">Soru 57:<br> Kişisel verilerle ilgili aşağıdaki ifadelerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Türkiye’de çerçeve nitelikte kapsayıcı bir Kişisel Verilerin Korunması Kanunu yürürlüktedir. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Türkiye, kişisel verilerin korunmasına ilişkin  Avrupa Konseyi Kişisel Verilerin Korunması Sözleşmesini imzalamış ve onaylamıştır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Türkiye Cumhuriyeti Anayasası uyarınca Avrupa İnsan Hakları Sözleşmesi yasa hükmündedir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Türk Medeni Kanunu’nun kişilik haklarının korunmasına ilişkin 24 ve 25. madde hükümleri bazı konularda kişisel verilerin korunmasını destekleyici niteliktedir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Elektronik Ticaret Kanunu uyarınca hizmet sağlayıcı elektronik ticaret işlemleri dolayısıyla elde ettiği kişisel verilerin güvenliğinden sorumludur. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description57">Açıklama</button>
+		<div id="description57" class="collapse">      Türkiye, taraf devletlerin metinde yer alan ilkeleri mevzuatlarına yansıtmalarını zorunlu kılan Avrupa Konseyi Kişisel Verilerin Korunması Sözleşmesi’ni 28 Ocak 1981’de imzalamıştır. Belirtmek gerekir ki bu gereklilik hâlen yerine getirilmediği için <u><strong>Türkiye, bugün 46 devletin taraf olduğu bu Sözleşme’yi imzalayıp onaylamayan Avrupa Konseyi üyesi tek devlettir.</strong></u>     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question58">
+	<p class="question">Soru 58:<br> Türk Ceza Kanunu'nda aşağıdaki eylemlerden hangisine yönelik düzenlemeye <u><strong>yer verilmemiştir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Kişisel verileri hukuka aykırı olarak verme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kişisel verileri hukuka aykırı olarak kayıt etme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kişisel verileri hukuka aykırı olarak toplama </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Kişisel verileri hukuka aykırı olarak kullanma </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kişisel verileri hukuka aykırı olarak aktarma </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description58">Açıklama</button>
+		<div id="description58" class="collapse">      TCK’nin 135. maddesi uyarınca kişisel verilerin hukuka aykırı olarak kaydedilmesi suçtur. Buna göre kişisel verileri hukuka aykırı olarak kayıt eden kimseye bir yıldan üç yıla kadar hapis cezasının verilmesi öngörülmüştür. Kişilerin ahlaki eğilimlerine, cinsel yaşamlarına, sağlık durumlarına ve sendikal bağlantılarına ilişkin bilgileri hukuka aykırı olarak kaydeden kimse de aynı yaptırım ile cezalandırılacaktır. TCK’nin 135. maddesinde yalnızca verilerin işlenmesinin bir türü olan kayıt etme suç olarak belirlenmiştir. Oysa kişisel verilerin işlenmesi yalnızca kayıt etmeyi değil, toplanma, kullanma, aktarma gibi çeşitli eylemleri içeren bir süreçtir. TCK’nin hükümlerinde bu eylemlerin bir kısmına ilişkin düzenlemeler bulunmaktadır. <u><strong>Ancak özellikle kişisel verilerin hukuka aykırı olarak kullanılmasına ilişkin düzenlemeye yasada yer verilmediği görülmektedir.</strong></u> Bu durumda hukuka uygun şekilde toplanan ve kayıt altına alınan kişisel verilerin sonraki kullanımlarında oluşabilecek aykırılıklar yaptırımsız kalabilir.      </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question59">
+	<p class="question">Soru 59:<br> AİHM verdiği kararlarla, kişisel verilerin korunmasında temel ilkelerin büyük bir bölümünü Sözleşme’nin kaçıncı maddesi kapsamında tanımaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> 4 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 5 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 6 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 7 </span><br>
+	<span class="option" data-correct="true"><b>E)</b> 8 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description59">Açıklama</button>
+		<div id="description59" class="collapse">      AİHM verdiği kararlarla, kişisel verilerin korunmasında temel ilkelerin büyük bir bölümünü Sözleşme’nin 8. maddesi kapsamında tanımaktadır.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question60">
+	<p class="question">Soru 60:<br> Elektronik Haberleşme Kanunu’nun “kişisel verilerin işlenmesi ve gizliliğinin korunması” kenar başlıklı 51. maddesi kaç yılından itibaren veri işleme süreçlerine ilişkin kuralları belirleyen bir hüküm hâlini aldı? </p>
+	<span class="option" data-correct="false"><b>A)</b> 2012 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 2013 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 2014 </span><br>
+	<span class="option" data-correct="true"><b>D)</b> 2015 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 2016 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description60">Açıklama</button>
+		<div id="description60" class="collapse">      Elektronik Haberleşme Kanunu’nun “kişisel verilerin işlenmesi ve gizliliğinin korunması” kenar başlıklı 51. maddesi 2015 yılından itibaren veri işleme süreçlerine ilişkin kuralları belirleyen bir hüküm hâlini aldı.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question61">
+	<p class="question">Soru 61:<br> Kanunların belirlediği sürenin geçmiş olmasına karşın verileri sistem içinde yok etmekle yükümlü olanlara görevlerini yerine getirmediklerinde ne kadar hapis cezası verilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Bir yıldan iki yıla kadar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İki yıldan üç yıla kadar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Üç yıldan dört yıla kadar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Dört yıldan beş yıla kadar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Beş yıldan altı yıla kadar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description61">Açıklama</button>
+		<div id="description61" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question62">
+	<p class="question">Soru 62:<br> I. Demokratik bir toplum ölçüsü<br>
+II. Suç işlenmesinin önlenmesi amacı<br>
+III. Yasada öngörülmesi<br>
+IV. Başkalarının hak ve özgürlüklerinin korunması amacı<br><br>
+Yukarıda sayılardan hangileri kişisel verilerin korunması için dikkate alınan AİHS'in 8. maddesinde bir kamu otoritesinin hakka müdahalesi için aranan şartlardandır?  </p>
+	<span class="option" data-correct="false"><b>A)</b> I, III </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I,II,IV </span><br>
+	<span class="option" data-correct="false"><b>C)</b> II,IV </span><br>
+	<span class="option" data-correct="false"><b>D)</b> III,IV </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I,II,III,IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description62">Açıklama</button>
+		<div id="description62" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question63">
+	<p class="question">Soru 63:<br> I. Kurul 10 üyeden oluşur.<br>
+II. Kurulun 5 üyesini Türkiye Büyük Miller Meclisi seçer.<br>
+III.  Kurulun 3 üyesini halk seçer.<br>
+IV. Kurula üye olabilmek için 4 yıllık lisans mezunu olmak gerekir.<br><br>
+Kişisel Verilerin Korunması Kurulu ile ilgili olarak yukarıdaki bilgilerin hangisi ya da hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>D)</b> II ve IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description63">Açıklama</button>
+		<div id="description63" class="collapse">      
+- Kurul, bu Kanunla ve diğer mevzuatla verilen görev ve yetkilerini kendi sorumluluğu altında, bağımsız olarak yerine getirir ve kullanır. <br>
+- Görev alanına giren konularla ilgili olarak hiçbir organ, makam, merci veya kişi, Kurula emir ve talimat veremez, tavsiye veya telkinde bulunamaz. <br>
+- Kurul, dokuz üyeden oluşur. <br>
+- Kurulun beş üyesi Türkiye Büyük Millet Meclisi, dört üyesi Cumhurbaşkanı tarafından seçilir. <br>
+- Kurula üye olabilmek en az dört yıllık lisans düzeyinde yükseköğrenim görmüş olma şartı aranır.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question64">
+	<p class="question">Soru 64:<br> İşçinin kişisel verilerinin korunmasının yakından incelenmesine ve kimi yerlerde özel düzenlemelerin konusu olmasına neden olmuştur. Uluslararası düzenlemelere bakıldığında aşağıdakilerden hangisinin konuya ilişkin bir sözleşme kabul etmediği ancak işçinin kişisel verilerinin korunmasına ilişkin uygulama ilkelerini belirlediği görülmektedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Gıda ve Tarım Örgütü </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Birleşmiş Milletler Eğitim, Bilim ve Kültür Örgütü </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Uluslararası Çalışma Örgütü </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Uluslararası Tarımsal Kalkınma Fonu </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Uluslararası Sivil Havacılık Örgütü </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description64">Açıklama</button>
+		<div id="description64" class="collapse">      Uluslararası Çalışma Örgütü (International Labour Organization -ILO)     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question65">
+	<p class="question">Soru 65:<br> Aşağıdakilerden hangisi Kişisel Verileri Koruma Kuruluna üye olabilmek içingereken şartlar arasında <u><strong>yer almaz?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Kurumun görev alanındaki konularda bilgi ve deneyim sahibi olmak </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 14/7/1965 tarihli ve 657 sayılı Devlet Memurları Kanununun 48 inci maddesinin birinci fıkrasının (A) bendinin (1), (4), (5), (6) ve (7) numaralı alt bentlerinde belirtilen nitelikleri taşımak. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Herhangi bir siyasi parti üyesi olmamak </span><br>
+	<span class="option" data-correct="true"><b>D)</b> İlgili alana yönelik araştırma ve çalışmalar yapmış olmak </span><br>
+	<span class="option" data-correct="false"><b>E)</b> En az dört yıllık lisans düzeyinde yükseköğrenim görmüş olmak </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description65">Açıklama</button>
+		<div id="description65" class="collapse">      Kurula üye olabilmek için aşağıdaki şartlar aranır:<br><br>
+a) Kurumun görev alanındaki konularda bilgi ve deneyim sahibi olmak.<br>
+b) 14/7/1965 tarihli ve 657 sayılı Devlet Memurları Kanununun 48 inci maddesinin birinci fıkrasının (A) bendinin (1), (4), (5), (6) ve (7) numaralıalt bentlerinde belirtilen nitelikleri taşımak.<br>
+c) Herhangi bir siyasi parti üyesi olmamak.<br>
+ç) En az dört yıllık lisans düzeyinde yükseköğrenim görmüş olmak.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question66">
+	<p class="question">Soru 66:<br> Anayasa Mahkemesi kaç yılından itibaren bireysel başvuruları da kabul etmeye başlamıştır? </p>
+	<span class="option" data-correct="false"><b>A)</b> 2010 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 2011 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 2012 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 2013 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 2014 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description66">Açıklama</button>
+		<div id="description66" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question67">
+	<p class="question">Soru 67:<br> I. Genel kolluk kuvvetlerinin bilgisayarlarında otel motel, yurt, misafirhane gibi konaklama yerlerinde kalan kişilerin kişisel verilerinin toplanması zorunluluğu.<br>
+II. Türkiye İstatistik Kanunu’nun ilgili hükümleri uyarınca istatistik amacıyla gerçek kişilerin de dâhil olduğu “istatistikî birimler”den her türlü bilgi istenebilir.<br>
+III. Hastane ve polikliniklerde kimlik doğrulaması amacıyla biyometrik yöntemlerin kullanılması.<br>
+IV. Nüfus cüzdanlarında din hanesinin bulunması.<br><br>
+Yukarıda hükümlerden hangileri kişisel verilerin korunması çerçevesinde Anayasa Mahkemesi tarafından Anayasaya aykırı olmadığı kararına bağlanmıştır? </p>
+	<span class="option" data-correct="false"><b>A)</b> I-II-III </span><br>
+	<span class="option" data-correct="false"><b>B)</b> II-III-IV </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I-III-IV </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yalnızca II </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Hepsi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description67">Açıklama</button>
+		<div id="description67" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question68">
+	<p class="question">Soru 68:<br>  Türk Ceza Kanunu’nun kaçıncı maddesi uyarınca kişisel verilerin hukuka aykırı olarak kaydedilmesi suçtur? </p>
+	<span class="option" data-correct="false"><b>A)</b> 130 </span><br>
+	<span class="option" data-correct="true"><b>B)</b> 135 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 140 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 145 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 150 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description68">Açıklama</button>
+		<div id="description68" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"</button> </footer>
+		
+    <script>
+		
+			///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 119));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}	
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

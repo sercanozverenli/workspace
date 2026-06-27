@@ -1,0 +1,1506 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+	  
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA II
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama2-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama2-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama2-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama2-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama2-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama2-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama2-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama2-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama2-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama2-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB ARAYÜZ PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİ YAPILARI
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veriyap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veriyap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veriyap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veriyap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veriyap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veriyap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veriyap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veriyap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veriyap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veriyap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          MOBİL UYGULAMA GELİŞTİRME
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="mobilug-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="mobilug-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="mobilug-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="mobilug-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="mobilug-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="mobilug-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="mobilug-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="mobilug-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="mobilug-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="mobilug-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          UNIX SİSTEM YÖNETİMİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="unixsy-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="unixsy-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="unixsy-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="unixsy-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="unixsy-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="unixsy-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="unixsy-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="unixsy-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="unixsy-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="unixsy-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Web Arayüz Programlama - Ünite 6 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Aşağıdakilerden hangisi Modern JavaScript
+özelliklerini içeren sürümlerdendir? </p>
+	<span class="option" data-correct="false"><b>A)</b> LiveScript </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ES1 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ES2 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ES3 </span><br>
+	<span class="option" data-correct="true"><b>E)</b> ES5 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Aşağıdaki seçeneklerden hangisinde Arrow
+fonksiyonun kullanımı doğru verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> let topla= function(x, y) {<br>
+ &emsp; return x + y;<br>
+} </span><br><br>
+	<span class="option" data-correct="true"><b>B)</b> const topla = (x, y) =&gt; x + y; </span><br><br>
+	<span class="option" data-correct="false"><b>C)</b> function topla(x, y){<br>
+return x + y<br>
+} </span><br><br>
+	<span class="option" data-correct="false"><b>D)</b> . function topla(x, y)=&gt;{<br>
+return x + y<br>
+} </span><br><br>
+	<span class="option" data-correct="false"><b>E)</b> topla(x,y)=&gt;{return x + y} </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Dizinin belirtilen şartı sağlayan ilk elemanının index numarasını öğrenmek için kullanılması gereken metod aşağıdakilerden hangisinde doğru verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> filter()	
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> find()	 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> findIndex() </span><br>
+	<span class="option" data-correct="false"><b>D)</b> forEach()	 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> forIndex() </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> const notlar= [13, 36, 60, 70, 75]<br><br>
+
+Yukarıda verilen notlar dizesinin 50’den büyük olan elemanlarını ekrana yazdırmak için kullanılacak komut aşağıdakilerden hangisinde doğru verilmiştir? </p>
+	<span class="option" data-correct="true"><b>A)</b><br> notlar.forEach(not=&gt;{<br>
+ &emsp; if (not&gt;50){<br>
+ console.log(not);<br>
+ }<br>
+}) </span><br><br>
+	<span class="option" data-correct="false"><b>B)</b><br> function buyuk(not){<br>
+  &emsp; return not&gt;50<br>
+}<br>
+&emsp; console.log(notlar.find(buyuk)); </span><br><br>
+	<span class="option" data-correct="false"><b>C)</b><br> function buyuk(not){<br>
+ &emsp; return not&gt;50<br>
+}<br>
+console.log(notlar.filter(buyuk)); </span><br><br>
+	<span class="option" data-correct="false"><b>D)</b><br> function buyuk(not){<br>
+ &emsp; return not&gt;50<br>
+}<br>
+console.log(notlar.findIndex-(buyuk)); </span><br><br>
+	<span class="option" data-correct="false"><b>E)</b><br> function buyuk(not){<br>
+ &emsp; return not&gt;50<br>
+}<br>
+console.log(notlar.forEach(buyuk)) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> const notlar= [13, 36, 60, 70, 75]<br><br>
+
+Yukarıda verilen notlar dizesinin 50’den büyük ilk elemanını ekrana yazdırmak için kullanılacak komut aşağıdakilerden hangisinde doğru verilmiştir? </p>
+		
+	<span class="option" data-correct="false"><b>A)</b><br> notlar.forEach(not=&gt;{<br> 
+ &emsp; if (not&gt;50){<br> 
+ &emsp; &emsp; console.log(not);<br> 
+ &emsp; }<br> 
+}) </span><br><br>
+		
+		
+	<span class="option" data-correct="true"><b>B)</b><br> function buyuk(not){<br> 
+ &emsp; return not&gt;50<br> 
+}<br> 
+console.log(notlar.find(buyuk)); </span><br><br>
+		
+		
+	<span class="option" data-correct="false"><b>C)</b><br> function buyuk(not){<br> 
+ &emsp; return not&gt;50<br> 
+}<br> 
+console.log(notlar.filter(buyuk));<br>  </span><br><br>
+		
+		
+	<span class="option" data-correct="false"><b>D)</b><br> function buyuk(not){<br> 
+ &emsp; return not&gt;50<br> 
+}<br> 
+console.log(notlar.findIndex-(buyuk)); </span><br><br>
+		
+		
+	<span class="option" data-correct="false"><b>E)</b><br> function buyuk(not){<br> 
+ &emsp; return not&gt;50<br> 
+}<br> 
+console.log(notlar.forEach(buyuk)) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> const notlar= [13, 36, 60, 70, 75]<br><br>
+
+Yukarıda verilen notlar dizesinin 50’den büyük ilk elemanları ile yeni bir dize oluşturmak için kullanılacak komut aşağıdakilerden hangisinde doğru
+verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b><br> notlar.forEach(not=&gt;{<br>
+ &emsp; if (not&gt;50){<br>
+ &emsp; &emsp; console.log(not);<br>
+ &emsp; }<br>
+}) </span><br><br>
+	<span class="option" data-correct="false"><b>B)</b><br> function buyuk(not){<br>
+ &emsp; return not&gt;50<br>
+}<br>
+let altKume= notlar.find(buyuk) </span><br><br>
+	<span class="option" data-correct="true"><b>C)</b><br> function buyuk(not){<br>
+ &emsp; return not&gt;50<br>
+}<br>
+let altKume= notlar.filter(buyuk) </span><br><br>
+	<span class="option" data-correct="false"><b>D)</b><br> function buyuk(not){<br>
+ &emsp; return not&gt;50<br>
+}<br>
+let altKume= notlar.findIndex(buyuk) </span><br><br>
+	<span class="option" data-correct="false"><b>E)</b><br> function buyuk(not){<br>
+ &emsp; return not&gt;50<br>
+}<br>
+console.log(notlar.forEach(buyuk)) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> &lt;p class="text" id="p1"&gt;Paragraf&lt;/p&gt;<br><br>
+
+Yukarıdaki ögeye ulaşmak için kullanılması gereken komut aşağıdakilerin hangisinde doğru verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> let text= document.getElementByClassName("p2") </span><br>
+	<span class="option" data-correct="false"><b>B)</b> let text= document.getElementById("text") </span><br>
+	<span class="option" data-correct="false"><b>C)</b>  let text= document.getElementByTagName("p2") </span><br>
+	<span class="option" data-correct="true"><b>D)</b> let text= document.getElementByClassName("text") </span><br>
+	<span class="option" data-correct="false"><b>E)</b> let text= document.querySelector("text") </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> Web sayfasında bulunan tüm “text” sınıf adına sahip ögeleri seçmek için kullanılması gereken komut aşağıdakilerden hangisinde doğru verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> let text= document.getElementByClassName("p2") </span><br>
+	<span class="option" data-correct="false"><b>B)</b> let text= document.getElementById("text") </span><br>
+	<span class="option" data-correct="false"><b>C)</b> let text= document.getElementByTagName("p2") </span><br>
+	<span class="option" data-correct="true"><b>D)</b> let text= document.querySelectorAll(".text") </span><br>
+	<span class="option" data-correct="false"><b>E)</b> let text= document.querySelector("text") </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> &lt;div class="content"&gt;<br>
+ &emsp; &lt;p class="paragraf" id="p1"&gt;paragraf 1&lt;/p&gt;<br>
+ &emsp; &lt;p class="paragraf" id="p2"&gt;paragraf 2&lt;/p&gt;<br>
+ &emsp; &lt;p class="paragraf" id="p3"&gt;paragraf 3&lt;/p&gt;<br>
+&lt;/div&gt;<br><br>
+
+Yukarıdaki HTML dokümanında “paragraf 2” metnini, “yeni paragraf ” metni ile değiştirmek için kullanılması gereken kod aşağıdakilerden hangisinde doğru verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> document.getElementById(".p2")="yeni paragraf" </span><br>
+	<span class="option" data-correct="false"><b>B)</b> document.querySelector(".p2").innerHTML="yeni paragraf" </span><br>
+	<span class="option" data-correct="true"><b>C)</b> document.querySelector("#p2").innerHTML="yeni paragraf" </span><br>
+	<span class="option" data-correct="false"><b>D)</b> document.querySelectorAll("#p2").innerHTML="yeni paragraf" </span><br>
+	<span class="option" data-correct="false"><b>E)</b> document.getElementById(".p2").innerHTML="yeni paragraf" </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> &lt;div class="content"&gt;<br>
+ &emsp; &lt;p class="paragraf" id="p1"&gt;paragraf 1&lt;/p&gt;<br>
+ &emsp; &lt;p class="paragraf" id="p2"&gt;paragraf 2&lt;/p&gt;<br>
+ &emsp; &lt;p class="paragraf" id="p3"&gt;paragraf 3&lt;/p&gt;<br>
+&lt;/div&gt;<br><br>
+
+Yukarıdaki HTML dokümanında “paragraf 2” metnini dokümandan kaldırmak için kullanılması gereken
+kod aşağıdakilerin hangisinde doğru verilmiştir?</p>
+	<span class="option" data-correct="true"><b>A)</b> document.getElementById("p2").remove() </span><br>
+	<span class="option" data-correct="false"><b>B)</b> document.querySelector(".p2").remove() </span><br>
+	<span class="option" data-correct="false"><b>C)</b> document.querySelector("p2").remove() </span><br>
+	<span class="option" data-correct="false"><b>D)</b> document.querySelectorAll("#p2").remove() </span><br>
+	<span class="option" data-correct="false"><b>E)</b> document.getElementById(".p2").remove() </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> Aşağıda Arrow fonksiyonlarına ilişkin olarak verilen ifadelerden hangisi doğrudur? </p>
+	<span class="option" data-correct="true"><b>A)</b> Arow fonksiyonlar normal fonksiyon tanımlamalarına göre daha temiz kod yazılmasını sağlar. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Arow fonksiyonlar Javascript ES5 sürümü ile gelen özelliklerden birisidir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Arow fonksiyon işlemlerinde fonksiyon, aldığı x ve y parametrelerini bölerek geri döndürür. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Arrow fonksiyonlarda function, return anahtar kelimelerine ve süslü parantez kullanımı gereklidir </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Arrow fonksiyon işleminde birden fazla satırda işlem yapılacaksa süslü parantez ve return anahtar kelimesinin kullanılması gerek yoktur. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> const yaslar = [16, 35, 38, 13, 42]<br>
+function yasKontrol(yas) {<br>
+ return yas &gt;= 18;<br>
+}<br>
+console.log(yaslar.find(yasKontrol));<br>
+//çıktı: ?<br><br>
+
+Yukarıdaki örnekte yasKontrol fonksiyonunda dönen true değerine göre kod bloğu çalıştırıldığında, dizide ekrana yazdırılan ilk örnek hangi sayı olur? </p>
+	<span class="option" data-correct="false"><b>A)</b> 38 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 16 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 35 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 13 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 42 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> const dizi1=[3,5,7]<br>
+const dizi2=[2,4,6]<br>
+const dizi3=[...dizi1,...dizi2]<br>
+console.log(dizi3);<br>
+// çıktı: [?]<br><br>
+
+Spread operatörü ile yukarıda verilen diziye ilişkin nasıl bir sonuç ortaya çıkar? </p>
+	<span class="option" data-correct="true"><b>A)</b> [3,5,7,2,4,6]
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> [2,3,4,5,6,7]
+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> [3,5,7]
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> [2,4,6] </span><br>
+	<span class="option" data-correct="false"><b>E)</b> [2,4,6,3,5,7] </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      Spread Operatörü
+Kelime anlamı yaymak/yayılmış olan spread operatörü, dizi gibi yinelenebilir nesneleri ögelerine ayırmak için kullanılır. Örneğin bir dizideki tüm elemanlara aynı anda ulaşmak için dizinin önüne spread operatörü olan üç nokta (...) konulabilir.     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> const notlar= [17, 26, 40, 80, 37]
+Yukarıdaki notların 40’tan büyük olanlarını yazdırmak için kullanılacak komut aşağıdakilerden hangisinde doğru verilmiştir? </p>
+	<span class="option" data-correct="true"><b>A)</b> notlar.forEach(not=&gt;{<br>
+ if (not&gt;40){<br>
+ console.log(not);<br>
+ }<br>
+}) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> function buyuk(not){<br>
+ return not&gt;40<br>
+}<br>
+console.log(notlar.findIndex-(buyuk)); </span><br>
+	<span class="option" data-correct="false"><b>C)</b> function buyuk(not){<br>
+ return not450<br>
+}<br>
+console.log(notlar.forEach(buyuk)) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> function buyuk(not){<br>
+ return not&gt;40<br>
+}<br>
+console.log(notlar.filter(buyuk)); </span><br>
+	<span class="option" data-correct="false"><b>E)</b> function buyuk(not){<br>
+ return not&gt;40<br>
+}<br>
+console.log(notlar.find(buyuk)); </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> &lt;div class="content"&gt;<br>
+ &lt;p class="paragraf" id="a1"&gt;açıklama 1&lt;/p&gt;<br>
+ &lt;p class="paragraf" id="a2"&gt;açıklama 2&lt;/p&gt;<br>
+ &lt;p class="paragraf" id="a3"&gt;açıklama 3&lt;/p&gt;<br>
+&lt;/div&gt;<br><br>
+
+Yukarıda yer alan HTML dokümanına dayalı olarak “açıklama 3” metnini dokümandan kaldırmak için aşağıdaki kod kullanımlarından hangisi doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> document.querySelector(".a3").remove() </span><br>
+	<span class="option" data-correct="false"><b>B)</b> document.querySelectorAll("#a3").remove() </span><br>
+	<span class="option" data-correct="false"><b>C)</b> document.querySelector("a3").remove() </span><br>
+	<span class="option" data-correct="false"><b>D)</b> document.getElementById(".a3").remove() </span><br>
+	<span class="option" data-correct="true"><b>E)</b> document.getElementById("a3").remove() </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> &lt;div class="content"&gt;<br>
+ &lt;p class="parça" id="p1"&gt;parça 1&lt;/p&gt;<br>
+ &lt;p class="parça" id="p2"&gt;parça 2&lt;/p&gt;<br>
+ &lt;p class="parça" id="p3"&gt;parça 3&lt;/p&gt;<br>
+&lt;/div&gt;<br><br>
+		
+Yukarıdaki yer alan HTML dokümanında “parça 2” metnini, “yeni parça” olarak değiştirmek için aşağıdaki kod kullanımlarından hangisi doğru olarak verilmiştir? </p>
+	<span class="option" data-correct="true"><b>A)</b> document.querySelector("#p2").innerHTML="yeni parça" </span><br>
+	<span class="option" data-correct="false"><b>B)</b> document.getElementById(".p2").innerHTML="yeni parça" </span><br>
+	<span class="option" data-correct="false"><b>C)</b> document.querySelector(".p2").innerHTML="yeni parça" </span><br>
+	<span class="option" data-correct="false"><b>D)</b> document.querySelectorAll("#p2").innerHTML="yeni parça" </span><br>
+	<span class="option" data-correct="false"><b>E)</b> document.getElementById(".p2")="yeni parça" </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> Aşağıdakilerden hangisi ECMA Script’in hiçbir zaman yayınlanmayan güncellemesidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> ES1 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ES2 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ES3 </span><br>
+	<span class="option" data-correct="true"><b>D)</b> ES4 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> LiveScript </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      1996 yılında, ECMA (European Computer Manufacturers Association) International adlı bir standartlar organizasyonu, tüm tarayıcı üreticilerinin uygulayabileceği ECMAScript (ES) adlı standart oluşturdu. Javascript, ES’nin en iyi bilinen uygulamaları iken, ActionScript (Macromedia/Adobe Systems) ve JScript (Microsoft’tan) ES’in diğer uygulamalarıdır. ECMA Script’in ilk üç sürümü olan ES1, ES2, ES3 yıllık güncellemelerdi, ancak ES4 bazı anlaşmazlıklar nedeniyle hiçbir zaman yayımlanmadı. On yıl  sonra(yani 2009 yılında) ES5, birkaç eklemeyle piyasaya sürüldü.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Aşağıdakilerden hangisi ECMA Script’in 2019 yılında yayımlanan versiyonu ES10 ile gelen özellikler arasında yer alır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Asenkron Tekrarlama </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Array.flat() ve Array.flatMap() </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Düzenli İfade İyileştirmeleri </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Rest/Spread Özellikleri </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Modül Import İsimlendirmeleri </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      ES10, 2019 yılında yayımlanan ECMAScript sürümüdür. Bu sürüm ile gelen özelliklerden bazıları aşağıda listelenmiştir.<br><br>
+• Array.flat() ve Array.flatMap()<br>
+• String.trimStart() ve String.trimEnd()<br>
+• try/catch yapısı     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> Aşağıdakilerden hangisi ECMA Script’in ES5 sürümü kapsamında nesnenin bir dizi olup olmadığını kontrol eder ve sonucu true veya false olarak döndürür? </p>
+	<span class="option" data-correct="true"><b>A)</b> isArray() </span><br>
+	<span class="option" data-correct="false"><b>B)</b> forEach() </span><br>
+	<span class="option" data-correct="false"><b>C)</b> filter() </span><br>
+	<span class="option" data-correct="false"><b>D)</b> reduce() </span><br>
+	<span class="option" data-correct="false"><b>E)</b> indexOf() </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      ES5, önceki sürümün yayımlanmasından on yıl sonra, 2009’da piyasaya sürüldü. Önceki sürümlerde, Javascript dili eksiklikleri nedeni ile eleştiriliyordu ancak bu sürümden itibaren dilin yapısında ilerlemeler sağlandı. ES5 sürümüyle birlikte gelen özelliklerden bazıları aşağıda listelenmiştir.<br><br>
+• USE STRICT<br>
+JS’nin önceki sürümleri, tanımlanmamış değişkenlerin kullanımına izin verir. Ancak ES5 ile gelen
+‘USE STRICT ‘ özelliği kullanıldığında tanımlanmayan değişkenlerde hata verir.<br><br>
+			
+• Yeni Dizi Yöntemleri<br>
+&emsp; - isArray(): Bu yöntem, nesnenin bir dizi olup olmadığını kontrol eder ve sonucu true veya false olarak döndürür.<br>
+&emsp; - forEach():Dizide bulunan her öge için fonksiyonu yürütür.<br>
+&emsp; - map(): Bu yöntem, dizinin (haritanın kullanıldığı) her ögesini eşleyerek yeni bir dizi oluşturur.<br>
+&emsp; - filter(): Belirtilen koşullara uyan dizi ögelerinin geçmesini sağlayarak filtrelenen ögeleri içeren yeni bir dizi oluşturur.<br>
+&emsp; - reduce(): Dizideki her ögeye bir fonksiyon uygular ve diziyi tek bir ögeye indirger.<br>
+&emsp; - indexOf(): Bir dizideki ilk eşleşmenin indeks numarasını döndürür. Bulamazsa -1 döndürür.<br><br>
+			
+• JSON Desteği<br>
+&emsp; - parse(): Bir nesneye benzeyen bir JSON dizesini ayrıştırır<br>
+&emsp; - stringify(): Bu yöntem, bir nesneyi bir JSON dizesine dönüştürür.<br><br>
+			
+• Yeni Tarih Metotları<br>
+&emsp; - now(): 1 Ocak 1970 tarihinden itibaren geçen zamanı milisaniye cinsinden verir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> “ECMA Script’in ES5 sürümüne kadar değişken tanımında yalnızca var anahtar kelimesi kullanılıyordu” Aşağıdakilerden hangisi ES6 ile birlikte gelen ve blok kapsamlı değişkenlerin tanımlanabilmesini sağlayan anahtar kelimeleridir? </p>
+	<span class="option" data-correct="true"><b>A)</b> let ve const </span><br>
+	<span class="option" data-correct="false"><b>B)</b> is ve Array </span><br>
+	<span class="option" data-correct="false"><b>C)</b> for ve Each </span><br>
+	<span class="option" data-correct="false"><b>D)</b> index ve Of </span><br>
+	<span class="option" data-correct="false"><b>E)</b> reduce ve filter </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      ES6 JavaScript ES5 ile modern dil özellikleri kazanmaya başladı ancak yinede yetersizdi. Dilin modern yapıya kavuşması ES6 ile hızlandı. ES6 sürümünün yayımlandığı 2015’ten itibaren dildeki eksiklikler hızla giderildi. Bu sürüm ile Javascript, geliştiricilerin hayatını kolaylaştırma konusunda büyük bir başarıya imza attı ve modern bir programlama dilinin beklentilerine ulaştı. ES6 ile gelen özelliklerden bazıları aşağıda listelenmiştir.<br><br>
+
+<strong>• let ve const Anahtar Kelimeleri</strong><br>
+ES5’e kadar değişken tanımında yalnızca var anahtar kelimesi kullanılıyordu. ES6 ile birlikte gelene let ve const anahtar kelimeleri ile blok kapsamlı değişkenler tanımlanabilir oldu. Önceki bölümde her iki anahtar kelimeden de bahsedilmişti.<br><br>
+			
+<strong>• FOR..OF</strong><br>
+for...of hem for...in hem de forEach() için bir alternatiftir. Diziler, Haritalar, Kümeler ve dizeler gibi yinelenebilir veri yapılarını döngüye sokar.<br><br>
+
+<strong>• Varsayılan Parametreler</strong><br>
+Fonksiyon parametrelerine hiçbir değer iletilmediğinde veya tanımsız değer gönderildiğinde, fonksiyonun varsayılan değerler ile çalıştırılmasını sağlar.<br><br>
+
+<strong>• REST(...) Operatörü</strong><br>
+Rest Operatörü, fonksiyon parametrelerini işlemek için kullanılır. Söz dizimi olarak üç nokta(...) kullanır.<br><br>
+			
+<strong>• Spread Operatör</strong><br>
+Spread Operator dizilerle birlikte kullanılır ve söz dizimi Rest Operator ile tamamen aynıdır (...). Bir dizinin içeriğini bölmek için kullanılır.<br><br>
+			
+<strong>• Arrow fonksiyonlar</strong><br>
+Fonksiyon yazmayı basitleştirmek için geliştirilmiştir. İlerleyen konularda ayrıntılı incelenecektir.<br><br>
+			
+<strong>• Promise</strong><br>
+ES6’da Asenkron Programlamayı daha kolay gerçekleştirebilmek için bazı özellikler gelmiştir. İlerleyen bölümlerde ayrıntılı olarak incelenecektir.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Javascript bu adla kullanılmadan önce hangi adlarla kullanılmıştır?  </p>
+	<span class="option" data-correct="true"><b>A)</b> Geliştirme aşamasında <strong>Mocha</strong> olarak adlandırıldı ve ilk olarak Netscape Navigator 2.0 ile <strong>LiveScript</strong> olarak adlandırıldı. Son olarak, Netscape Navigator 2.0 Beta 3 yayımlandığında <strong>Javascript</strong> adı verildi. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> ES5 sürümüyle birlikte gelen özellikler hangileridir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> ES5 sürümüyle birlikte gelen özelliklerden bazıları aşağıda listelenmiştir.<br><br>
+		
+<strong>• USE STRICT</strong><br>
+JS’nin önceki sürümleri, tanımlanmamış değişkenlerin kullanımına izin verir. Ancak ES5 ile gelen ‘USE STRICT ‘ özelliği kullanıldığında tanımlanmayan değişkenlerde hata verir.<br><br>
+		
+<strong>• Yeni Dizi Yöntemleri</strong><br>
+&emsp; - <u>isArray():</u> Bu yöntem, nesnenin bir dizi olup olmadığını kontrol eder ve sonucu true veya false olarak döndürür.<br>
+&emsp; - <u>forEach():</u> Dizide bulunan her öge için fonksiyonu yürütür.<br>
+&emsp; - <u>map():</u> Bu yöntem, dizinin (haritanın kullanıldığı) her ögesini eşleyerek yeni bir dizi oluşturur.<br>
+&emsp; - <u>filter():</u> Belirtilen koşullara uyan dizi ögelerinin geçmesini sağlayarak filtrelenen ögeleri içeren yeni bir dizi oluşturur.<br>
+&emsp; - <u>reduce():</u> Dizideki her ögeye bir fonksiyon uygular ve diziyi tek bir ögeye indirger.<br>
+&emsp; - <u>indexOf():</u> Bir dizideki ilk eşleşmenin indeks numarasını döndürür. Bulamazsa -1 döndürür.<br><br>
+		
+<strong>• JSON Desteği</strong><br>
+&emsp; - <u>parse():</u> Bir nesneye benzeyen bir JSON dizesini ayrıştırır<br>
+&emsp; - <u>stringify():</u> Bu yöntem, bir nesneyi bir JSON dizesine dönüştürür.<br><br>
+		
+<strong>• Yeni Tarih Metotları</strong><br>
+&emsp; - <u>now():</u> 1 Ocak 1970 tarihinden itibaren geçen zamanı milisaniye cinsinden verir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> ES6 ile gelen özellikler hangileridir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> ES6 ile gelen özelliklerden bazıları aşağıda listelenmiştir.<br><br>
+		
+<strong>• let ve const Anahtar Kelimeleri</strong>
+ES5’e kadar değişken tanımında yalnızca var anahtar kelimesi kullanılıyordu. ES6 ile birlikte gelene let ve const anahtar kelimeleri ile blok kapsamlı değişkenler tanımlanabilir oldu. Önceki bölümde her iki anahtar kelimeden de bahsedilmişti.<br><br>
+<strong>• FOR..OF</strong><br>
+for...of hem for...in hem de forEach() için bir alternatiftir. Diziler, Haritalar, Kümeler ve dizeler gibi yinelenebilir veri yapılarını döngüye sokar.<br><br>
+		
+<strong>• Varsayılan Parametreler</strong><br>
+Fonksiyon parametrelerine hiçbir değer iletilmediğinde veya tanımsız değer gönderildiğinde, fonksiyonun varsayılan değerler ile çalıştırılmasını sağlar.<br><br>
+		
+<strong>• REST(...) Operatörü</strong><br>
+Rest Operatörü, fonksiyon parametrelerini işlemek için kullanılır. Söz dizimi olarak üç nokta(...) kullanır.<br><br>
+		
+<strong>• Spread Operatör</strong><br>
+Spread Operator dizilerle birlikte kullanılır ve söz dizimi Rest Operator ile tamamen aynıdır (...). Bir dizinin içeriğini bölmek için kullanılır.<br><br>
+		
+<strong>• Arrow fonksiyonlar</strong><br>
+Fonksiyon yazmayı basitleştirmek için geliştirilmiştir. <br><br>
+		
+<strong>• Promise</strong><br>
+ES6’da Asenkron Programlamayı daha kolay gerçekleştirebilmek için bazı özellikler gelmiştir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> ES9 ile gelen özellikler hangileridir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b><br> • Asenkron Tekrarlama<br>
+Asenkron tekrarlanabilir bir nesne, for-await-of yardımıyla bir döngü yinelemesi olarak kullanılabilir.<br><br>
+• Düzenli İfade İyileştirmeleri<br>
+• Rest/Spread Özellikleri </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> ES10 ile gelen özellikler hangileridir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b><br> • Array.flat() ve Array.flatMap()<br>
+• String.trimStart() ve String.trimEnd()<br>
+• try/catch yapısı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> ES11 ile yeni gelen özellikler hangileridir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b><br> • BigInt<br>
+• matchAll<br>
+• Modül Import İsimlendirmeleri </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> ES12 ile birlikte gelen özelliklerden sık kullanılanları hangileridir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b><br> • String.prototype.replaceAll()<br>
+• Promise.any<br>
+• WeakRef<br>
+• &&=, ||= ve ??= operatörleri<br>
+• Sayısal Ayırıcılar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> filter() metodunun işlevi nedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> JavaScript ile birlikte gelen filter() metodu, dizi elemanlarını belirtilen koşula göre
+filtreler ve yeni diziye ekler. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> forEach() metodu hangi amaçla kullanılır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> for yapısından daha sade olan forEach(), dizi elemanları arasında tek tek dolaşmak için kullanılan metottur. for yapısının kısıtlı ama daha sade kullanımına sahip hâlidir.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> Spread operatörühangi amaçla kullanılır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> spread operatörü, dizi gibi yinelenebilir nesneleri ögelerine ayırmak için kullanılır. Örneğin bir dizideki tüm elemanlara aynı anda ulaşmak için dizinin önüne spread operatörü olan üç nokta (...) konulabilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> Modül yapısının işlevi nedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Modül yapısı bir sayfada yazılan kodun başka sayfalarda da kullanılabilmesine olanak verir. Proje içerisinde sürdürülebilirliği arttırır. Örneğin projede yazdığınız yaş hesaplayan fonksiyonu modül yapısı sayesinde diğer sayfalarda da kullanılabilir.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> getElementById() metodunun işlevi nedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> DOM işlemleri yaparken kullandığımız metotlardan olan getElementById() ile id’sini bildiğimiz ögeleri seçebiliriz. Bir id değeri sayfada tek ögeyi işaretleyeceği için bu metodla tek bir ögeyi seçebiliriz.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> querySelector() metodunun işlevi nedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> HTML ögelerine CSS seçicileri kullanarak da erişilebilir. querySelector() metodu içerisine yazılan CSS seçisini kullanarak ilgili HTML ögesini bulur ve döner. Bu metot ile yazılan CSS kuralları, etiket, sınıf, id veya HTML özelliği gibi seçicilerden oluşabilir.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> querySelectorAll() hangi durumlarda kullanılır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> HTML sayfamızda bulunan elemanlardan sadece birisini seçmek istediğimizde querySelector() metodu kullanılabilir. Bu metot birden çok eleman olduğunda yalnızca ilk elemanı döndürür.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> innerText ve innerHTML özelliklerinin farkı nedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> DOM yapısını kullanarak ulaştığımız öğgelerin içeriği, JavaScript ile kolayca düzenlenebilir. Öge seçildikten sonra, metin içeriğini değiştirmek için innerText özelliği veya HTML içeriğini değiştirmek için innerHTML özelliği kullanılabilir.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> createElement() ve appendChild() metodlarının farkı nedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> DOM yapısına JavaScript kullanarak yeni ögeler eklenebilir. Yeni bir ögeyi oluşturmak için createElement() metodu kullanılabilir. Ögeyi dokümana eklemek için appendChild() metodu kullanılabilir.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> firstElementChild özelliği hangi amaçla kullanılır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Kapsayıcının altında bulunan ilk ögeye ulaşmak için firstElementChild özelliği kullanılabilir.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> lastElementChild özelliği hangi amaçla kullanılır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Kapsayıcının altında bulunan Son ögeye ulaşmak için lastElementChild özelliği kullanılabilir.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> element.classList.add() metodu hangi amaçla kullanılır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> JavaScript ile HTML ögelerine stil kuralları yazabileceğiniz gibi, daha önceden hazırladığınız stil kurallarını atayabilir veya kaldırabilirsiniz. Ögeye sınıf eklemek için element.classList.add() metodu kullanılabilir.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> addEventListener() metodu hangi amaçla kullanılır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> HTML sayfaya yeni bir event eklemek için addEventListener() metodu kullanılmalıdır.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

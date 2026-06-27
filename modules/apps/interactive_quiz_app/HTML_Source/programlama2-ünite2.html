@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+	  
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA II
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama2-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama2-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama2-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama2-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama2-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama2-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama2-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama2-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama2-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama2-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB ARAYÜZ PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİ YAPILARI
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veriyap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veriyap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veriyap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veriyap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veriyap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veriyap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veriyap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veriyap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veriyap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veriyap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          MOBİL UYGULAMA GELİŞTİRME
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="mobilug-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="mobilug-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="mobilug-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="mobilug-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="mobilug-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="mobilug-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="mobilug-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="mobilug-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="mobilug-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="mobilug-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          UNIX SİSTEM YÖNETİMİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="unixsy-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="unixsy-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="unixsy-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="unixsy-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="unixsy-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="unixsy-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="unixsy-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="unixsy-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="unixsy-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="unixsy-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Programlama II - Ünite 2 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> a = 50<br>
+b = 10<br>
+.... a .... b ....<br>
+&emsp; print("Python öğreniyorum!")<br><br>
+Yukarıda verilen örnek Python kodunda, a değişkeni değerinin b değişkeni değerinden büyük olduğu durumda ekrana “Python öğreniyorum!” yazdırması için boş bırakılan yerlere sırasıyla aşağıdaki seçeneklerden hangisi gelmelidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> for, &gt;, : </span><br>
+	<span class="option" data-correct="true"><b>B)</b> if, &gt;, : </span><br>
+	<span class="option" data-correct="false"><b>C)</b> elif, &gt;, : </span><br>
+	<span class="option" data-correct="false"><b>D)</b> if, &lt;, : </span><br>
+	<span class="option" data-correct="false"><b>E)</b> while, &lt;, : </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> x = 1<br>
+.... x &lt; 6 ....<br>
+&emsp; print(x)<br>
+&emsp; x += 1<br><br>
+Yukarıda verilen örnek Python kodunda, x değişkeni değerinin 6 dan küçük olduğu durumda ekrana x değerini yazdırarak x değişkeninin değerini bir arttırması için boş bırakılan yerlere sırasıyla aşağıdaki seçeneklerden hangisi gelmelidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> for, : </span><br>
+	<span class="option" data-correct="false"><b>B)</b> if, : </span><br>
+	<span class="option" data-correct="false"><b>C)</b> else, : </span><br>
+	<span class="option" data-correct="false"><b>D)</b> elif, : </span><br>
+	<span class="option" data-correct="true"><b>E)</b> while, : </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> i = 0<br>
+while i &lt; 20:<br>
+&emsp; i += 1<br>
+&emsp; if i == 3:<br>
+&emsp; &emsp; ....<br>
+&emsp; elif ....<br>
+&emsp; &emsp; print("5 in katları", i)<br>
+&emsp; print(i)<br><br>
+Yukarıda verilen örnek Python kodunda, i değişkenin değeri 3 olduğunda bir sonraki iterasyona devam eden, i değişkeninin değeri 5’in katı olduğunda da ekrana yazdırması için boş bırakılan yerlere sırasıyla aşağıdaki seçeneklerden hangisi gelmelidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> break, i / 5 == 0 : </span><br>
+	<span class="option" data-correct="false"><b>B)</b> break, i % 5 == 0 : </span><br>
+	<span class="option" data-correct="true"><b>C)</b> continue, i % 5 == 0 : </span><br>
+	<span class="option" data-correct="false"><b>D)</b> pass, i == 5 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> continue, i == 5 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block"> 
+	<div id="question4">
+	<p class="question">Soru 4:<br> meyveler = ["armut", "elma", "portakal",
+"şeftali"]<br>
+for m in meyveler:<br>
+&emsp; if m == "portakal":<br>
+&emsp; &emsp; ....<br>
+&emsp; print(m)<br><br>
+Yukarıda verilen örnek Python kodunda, m değişkenin değeri portakal’a eşit olduğunda ekrana yazdırmadan bir sonraki iterasyona devam etmesi için boş bırakılan yere sırasıyla aşağıdaki seçeneklerden hangisi gelmelidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> break </span><br>
+	<span class="option" data-correct="true"><b>B)</b> continue </span><br>
+	<span class="option" data-correct="false"><b>C)</b> pass </span><br>
+	<span class="option" data-correct="false"><b>D)</b> else </span><br>
+	<span class="option" data-correct="false"><b>E)</b> next </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> meyveler = ["armut", "elma", "portakal",
+"şeftali", "karpuz"]<br>
+altkume = []<br>
+for i in range(1, 3):<br>
+&emsp; altkume.append( meyveler[i] )<br>
+print(altkume)<br><br>
+Yukarıda verilen örnek Python kodunun çıktısı aşağıdaki seçeneklerden hangisinde doğru verilmiştir? </p>
+	<span class="option" data-correct="true"><b>A)</b> [‘elma’, ‘portakal’] </span><br>
+	<span class="option" data-correct="false"><b>B)</b> [‘armut’, ‘elma’, ‘portakal’] </span><br>
+	<span class="option" data-correct="false"><b>C)</b> [‘armut’, ‘elma’, ‘portakal’, ‘şeftali’] </span><br>
+	<span class="option" data-correct="false"><b>D)</b> [‘elma’, ‘portakal’, ‘şeftali’] </span><br>
+	<span class="option" data-correct="false"><b>E)</b> [‘armut’, ‘elma’] </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      range fonksiyonu ile 1-3 aralığındai indisler belirtilmiştir. Range'de ilk değer dahil, son değer dahil değildir. Yani indisi 1 ve 2 olanları verir. 3 dahil değildir.<br><br>
+	Not: İndisler 0'dan başlar</div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> for x in range(6): print(x)<br><br>
+Yukarıda verilen örnek Python kodu çıktısı için
+aşağıdaki seçeneklerden hangisi doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Ekrana 1 den 6 ya kadar sayıları yazar </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Ekrana 0 dan 5 e kadar sayıları yazar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kullanıcının girdiği bir x değeri 0 ile 6 arasında ise ekrana yazar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Ekrana 6 tane x yazar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Hatalı bir kod, çalışmaz </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      6 dahil değildir.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> 2numaralı-derslik_kapasitesi = 40
+Yukarıda verilen Python değişken tanımı için aşağıdaki seçeneklerden hangisi doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Değişken adındaki “-” işareti kaldırılırsa hata düzelir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Değişken adındaki 2 ve “_” işareti kaldırılırsa hata düzelir </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Değişken adındaki 2 ve “-” işareti kaldırılırsa hata düzelir </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Değişken değeri “40” şeklinde atanırsa hata düzelir </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Değişken isminde bir hata bulunmamaktadır </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      Kitapta Ünite sorularında cevap E olarak belirtilmiş ancak bu yanlış. Değişken isimleri sayı ile başlayamaz ve "-" içeremez.<br><br>
+Değişken Adlandırma Kuralları<br>
+• Değişken isimleri a, b, c gibi kısa isimler olabileceği gibi, bu_uzun_bir_degisken_ismidir gibi uzun olarak da tanımlanabilir.<br>
+• Değişken isimleri sayı ile başlayamaz.<br>
+• Harf ya da “_” alt çizgi ile başlayabilir.<br>
+• Değişkenler büyük/küçük harf duyarlıdır. Yani Anadolu ve anadolu iki farklı değişken olarak tanımlanır.<br>
+• Değişken isimlerinde ( -, +, /, *, #, ?, .) ve boşluk gibi özel karakterler kullanılamaz.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> I. Öntanımlı<br>
+II. Global<br>
+III.Yerel<br><br>
+Kapsam, program içinde tanımlanmış bir değişkenin erişilebilir olduğu alan için kullanılan bir kavramdır. Bu bilgi ışığında, yukarıdaki seçeneklerden
+hangileri Python programlama dilindeki kapsamlar arasında yer almaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III
+ </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      Herhangi bir anda, en az üç iç içe kapsam vardır.<br><br>
+1. Yerel adlara sahip mevcut fonksiyonun kapsamı<br>
+2. Global isimlere sahip modülün kapsamı<br>
+3. Yerleşik/Öntanımlı adlara sahip en dıştaki
+kapsam     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> def dis_fonk():<br>
+&emsp; b = 20<br>
+&emsp; a = 7<br>
+&emsp; def ic_fonk():<br>
+&emsp; &emsp; b = 8<br>
+&emsp; ic_fonk()<br>
+&emsp; print("a:", a, " b:",b)<br>
+a = 10<br>
+dis_fonk()<br><br>
+
+Yukarıdaki Python kodunun çıktısı aşağıdakilerden hangisidir?<br>
+  </p>
+	<span class="option" data-correct="true"><b>A)</b> a: 7 b: 20 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> a: 10 b: 20 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> a: 7 b: 8 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> a: 10 b: 8 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> a: 8 b: 20 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      Yukarıdaki kod bloğunda a değişkeni 10 olarak globalde tanımlansa da print olarak yazdırılan a değeri 7 olur Çünkü print dış fonksion kapsamında yapılmıştır.    </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> def dis_fonk():<br>
+&emsp; b = 20<br>
+&emsp; def ic_fonk():<br>
+&emsp; &emsp; c = 30<br>
+a = 10<br><br>
+Yukarıdaki Python kodu için aşağıdakilerden hangisi <u><strong>söylenemez?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> a değişkeni global ad alanında tanımlıdır </span><br>
+	<span class="option" data-correct="false"><b>B)</b> b değişkeni, dış fonksiyon olarak tanımlı dis_fonk() öğesinin yerel ad alanındadır </span><br>
+	<span class="option" data-correct="false"><b>C)</b> c değişkeni, dış fonksiyonun içindeki bir iç fonksiyon olan ic_fonk() öğesinin içinde tanımlanmıştır </span><br>
+	<span class="option" data-correct="false"><b>D)</b> c değişkeni, iç içe yerel ad alanındadır </span><br>
+	<span class="option" data-correct="true"><b>E)</b> ic_fonk fonksiyonundan a değişkenine değer ataması yapılabilir </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      E seçeneği yanlıştır. a değişkeni ic_fonk fonksiyonunun içinde tanımlanmamıştır ve bu nedenle ic_fonk fonksiyonundan a değişkenine erişmek mümkün değildir.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> sayılar = [11, 26, 20, 34, 42, 77, 55, 3, 4, 91];<br><br>
+Python programlama dili kullanılarak, yukarıdaki verilen sayılar isimli liste veri tipindeki değişkenin her bir elemanına 5 eklenmek istenmektedir. Bunu yapmak için hangi akış kontrolü yapısını kullanmak uygun olacaktır? </p>
+	<span class="option" data-correct="false"><b>A)</b> If… else kontrolü </span><br>
+	<span class="option" data-correct="true"><b>B)</b> for döngüsü </span><br>
+	<span class="option" data-correct="false"><b>C)</b> pass deyimi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> break deyimi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> (range) fonksiyonu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> Python programlama dili kullanarak bir sayı dizisi oluşturmak; örneğin 3’ten 30’a kadar üçer üçer ilerleyen sayılardan oluşan bir liste değişkeni yaratmak için kullanılabilecek en uygun komut hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> If… else kontrolü
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> continue deyimi
+
+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> pass deyimi
+
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> break deyimi
+
+ </span><br>
+	<span class="option" data-correct="true"><b>E)</b> (range) fonksiyonu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> sayılar = range(0, 10, 2);<br>
+
+Yukarıdaki range fonksiyonu ile oluşturulan sayılar isimli liste değişkeninin kaç elemanı vardır? </p>
+	<span class="option" data-correct="false"><b>A)</b> 10 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 20 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 2 </span><br>
+	<span class="option" data-correct="true"><b>D)</b> 5 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 0 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      0'dan 10'a kadar (10dahil değil 0 dahil) 2'şer arttırır.<br><br>
+
+		0, 2, 4, 6, 8 toplam 5 eleman</div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> Şekildeki akış diyagramı Python programlama dilindeki hangi akış kontrolünü ifade etmektedir?<br>
+<span style="color: darkred; margin-left: 60px;"><img src="prg1.JPG" alt="Programlama II - Ünite 2 Alıştırma Soruları " style="width: 50%;"></span> </p>
+	<span class="option" data-correct="false"><b>A)</b> for döngüsü </span><br>
+	<span class="option" data-correct="false"><b>B)</b> if… elif… else kontrolü </span><br>
+	<span class="option" data-correct="false"><b>C)</b> range fonksiyonu </span><br>
+	<span class="option" data-correct="true"><b>D)</b> while döngüsü </span><br>
+	<span class="option" data-correct="false"><b>E)</b> pass deyimi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      Koşul doğru olduğu sürece çalışmaya devam eden koşulun yanlış olduğu noktada çıkış yapan döngü yapısı while döngü yapısıdır.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> Python programlama dilinde kod içerisinde bir ifade için yapılması gereken kontrol işlemleri sayıca fazla ise, C#, Java ve JavaScript gibi programlama dillerindeki switch deyimi if..else blokları yerine kullanılabilecek bir switch… case akış kontrolörü yoktur.<br><br>
+switch-case yapısı yerine Python programcıları aşağıdakilerden hangisini kullanırlar? </p>
+	<span class="option" data-correct="false"><b>A)</b> iç içe if ifadeleri </span><br>
+	<span class="option" data-correct="true"><b>B)</b> sözlük eşleşmesi (dictionary mapping) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> if...elif...else İfadesi
+
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> for...else döngüsü
+
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> break deyimi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Python’daki for döngüsü, bir dizi (list, tuple, string) veya diğer yinelenebilir/tekrarlanabilir nesneler üzerinde yineleme yapmak için kullanılır. for döngüsünün dizi üzerindeki her bir tekrarına ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> sözlük eşleşmesi (dictionary mapping) </span><br>
+	<span class="option" data-correct="true"><b>B)</b> geçiş (iterasyon) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> sözdizimi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ad alanı (namespace) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> liste </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> Python’un hazır fonksiyonlarından hangisi aracılığıyla bazı nesnelerin RAM’deki adresini alabiliriz? </p>
+	<span class="option" data-correct="false"><b>A)</b> range() </span><br>
+	<span class="option" data-correct="false"><b>B)</b> print() </span><br>
+	<span class="option" data-correct="true"><b>C)</b> id() </span><br>
+	<span class="option" data-correct="false"><b>D)</b> len() </span><br>
+	<span class="option" data-correct="false"><b>E)</b> input() </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Python dilindeki id(), print() vb. gibi yerleşik işlevler programın herhangi bir bölümünde her zaman kullanılabilirler. Bu işlevler hangi ad alanı içinde yer alırlar? </p>
+	<span class="option" data-correct="false"><b>A)</b> Genel (Global) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yerel (Local) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Modül </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Fonksiyon </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Ön tanımlı (Built in) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> <span style="color: darkred; margin-left: 60px;"><img src="prg2.JPG" alt="Programlama II - Ünite 2 Alıştırma Soruları " style="width: 60%;"></span> <br> Yukarıdaki kod çalıştırıldığında 3 satırdan oluşan bir çıktı üretecektir. Aşağıdakilerden hangisi bu satırlardan biridir?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> Python dilini öğrenmek inanılmaz </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Phyton ile yapabildiklerim muhteşem </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Python ile çalışmak harika </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Python ile çalışmak inanılmaz </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Python dilini öğrenmek harika </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">       satır başlangıçlarına verilen girintilere bağlı olarak fonksiyonların ve bunlar içerisinde tanımlanan değişkenlerin ad alanları değişmektedir. Buna kodun üreteceği çıktı 3 satırdan oluşacak ve satırlar sırası ile; <br>
+“Python dilini öğrenmek muhteşem”, <br>
+“Phyton ile yapabildiklerim inanılmaz” ve <br>
+“Python ile çalışmak harika” şeklinde olacaktır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> hayvanlar = ["Sarman", "Minnoş", "Tırmık", "Karabaş", "Pamuk"]<br>
+for isim in hayvanlar:<br>
+
+&emsp;if isim == "Karabaş":<br>
+
+&emsp;&emsp;#boş bırakılan yer<br>
+
+ print(isim)<br>
+
+Yukarıda verilen örnek Python kodunda, isim değişkenin değeri “Karabaş” değerine eşit olduğunda, ekrana yazdırmadan bir sonraki iterasyona devam etmesi için boş bırakıla </p>
+	<span class="option" data-correct="false"><b>A)</b> break </span><br>
+	<span class="option" data-correct="false"><b>B)</b> pass </span><br>
+	<span class="option" data-correct="false"><b>C)</b> else </span><br>
+	<span class="option" data-correct="true"><b>D)</b> continue </span><br>
+	<span class="option" data-correct="false"><b>E)</b> next </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Algoritma nedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Bir problemin çözümünde kullanılan sıralı ve mantıksal adımların tümüne algoritma adı verilmektedir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Algoritma için neler söylenebilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Algoritmanın bir programlama dili ile hazırlanmasına gerek yoktur. Bir başlangıç ve bitişinin olması gerekmektedir. Karşılaşılabilecek tüm ihtimalleri kapsayacak nitelikte olmalı ve mutlaka belirli bir adım sonunda bitmelidir, bitmeyen bir döngü içinde çalışmamalıdır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> Algoritmaların görselleştirilmesinde  ne kullanılmaktadır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Akış diyagramları </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Algoritmalarda kullanılan akış kontrol elemanları hakkında ne söylenebilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Algoritmalarda kullanılan akış kontrol elemanları, her programlama dilinde birbirine benzer şekildedir. Aralarında sadece sözdizimi/syntax olarak küçük farklar olabilmektedir. Akış diyagramlarındaki ilişkilere göre, dile özgü kontrol elemanları ile program kodları hazırlanır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> Akış Diyagramı nedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Algoritmanın da tüm dünya tarafından kabul edilmiş çeşitli semboller ile gösterilmesine de Akış Diyagramı adı verilmektedir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> "if" ve "else" ifadeleri nerelerde kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Yalnızca belirli bir koşul yerine getirildiğinde bir kodu yürütmek istediğimizde karar verme gereklidir. “if” ifadesi bir koşulu kontrol ederek karar vermek için kullanılır. Eğer koşul doğruysa, bir ifade bloğu çalıştırılır (if bloğu denir), aksi takdirde başka bir
+ifade bloğunu işleriz (else bloğu olarak adlandırılır). Kontrol kodunun diğer kontrol ifadeleri olan “if” ve “else” ise isteğe bağlı olarak akışa uygun şekilde kullanılabilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Python’daki for döngüsü ne için kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Python’daki for döngüsü, bir dizi (list, tuple, string) veya diğer yinelenebilir/tekrarlanabilir nesneler üzerinde yineleme yapmak için kullanılır. Bir dizi üzerindeki her tekrara geçiş (iterasyon) denir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> Döngülerin görevi nedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Döngüler, içerdikleri kod bloklarının birden fazla sayıda çalışmasını sağlayan yapılardır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> For döngüsü sözdizimi nasıldır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> <strong>for:</strong> Bir döngü başlatır<br>
+<strong>değer:</strong> Döngünün her bir yenilemesinde sıradaki değeri alan geçici
+bir değişkendir<br>
+<strong>in:</strong> İşlem yapılacak her bir değeri diğerlerinden ayırır<br>
+<strong>liste:</strong> Sıralı olarak üzerinde işlem tekrarı yapmak istenilen nesnedir<br>
+<strong>İki nokta üst üste:</strong> altındaki sekme ile belirtilmiş kod bloğunun
+çalıştırılma talimatını verir<br>
+döngü gövdesi: Tekrar edilerek yapılması istenen işlemlerin yazıldığı kod bloğudur </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> Range() fonksiyonu ne için kullanılır?  </p>
+	<span class="option" data-correct="true"><b>A)</b> Range() fonksiyonu bir sayı dizisi oluşturmak için kullanılmaktadır.  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> Bir for döngüsünü durdurmak  ya da döngüden çıkmak için ne kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> break  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> While döngüsü ne zaman kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Bu döngü genellikle önceden kaç kez işlem tekrarı yapılacağı bilinmeyen durumlarda kullanılır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> Python’da break ve continue ifadeleri ne zaman kullanılır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Python’da break ve continue ifadeleri normal bir döngünün akışını değiştirmek için kullanılmaktadır </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> Python’da bir yorum ve pass deyimi arasındaki fark nedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Python’da bir yorum ve pass deyimi arasındaki farkı, yorumlayıcının bir yorumu tamamen yok sayarken, pass deyimini yok saymamasıdır diyebiliriz. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> Pass deyimi genellikle hangi durumlarda kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Pass deyimi genellikle bir işlevi olmaması gereken fakat sözdizimi olarak bir ifade eklenmesi gereken durumlarda kullanılır </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> Ad, isim diye bahsedilen kavramları açıklayınız? </p>
+	<span class="option" data-correct="true"><b>A)</b> Ad, isim diye bahsedilen kavramlar, değişkenler için kullanılan kavramlardır. Değişkenlere kurallar çerçevesinde istenilen isim verilebilir. Bu isimler, hafızada tutulan verinin adresini işaret eder. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> Ad alanı nedir? 
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Ad alanı, aynı amaç için oluşturulmuş sınıflar, fonksiyonlar ve özellikleri bir çatı altında toplayan yapıya verilen isimdir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> Kapsam nedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Kapsam, bir programın herhangi bir önek olmadan bir ad alanına doğrudan erişilebildiği kısımdır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> Herhangi bir alanda yer alan iç içe kapsamlar hangileridir?  </p>
+	<span class="option" data-correct="true"><b>A)</b> Herhangi bir anda, en az üç iç içe kapsam vardır.<br><br>
+1. Yerel adlara sahip mevcut fonksiyonun kapsamı<br>
+2. Global isimlere sahip modülün kapsamı<br>
+3. Yerleşik/Öntanımlı adlara sahip en dıştaki kapsam </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> Bir fonksiyon içinde bir değişkene başvuru yapıldığında sırasıyla hangi adımlar izlenir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Bir fonksiyon içinde bir değişkene başvuru yapıldığında, ilk önce yerel ad alanında, ardından global ad alanında ve son olarak yerleşik ad alanında aranır. Başka bir fonksiyonun içinde bir fonksiyon varsa, yerel kapsamın içine yeni bir kapsam yerleştirilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1620 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+	  
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA II
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama2-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama2-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama2-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama2-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama2-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama2-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama2-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama2-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama2-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama2-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB ARAYÜZ PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİ YAPILARI
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veriyap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veriyap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veriyap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veriyap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veriyap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veriyap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veriyap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veriyap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veriyap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veriyap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          MOBİL UYGULAMA GELİŞTİRME
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="mobilug-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="mobilug-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="mobilug-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="mobilug-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="mobilug-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="mobilug-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="mobilug-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="mobilug-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="mobilug-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="mobilug-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          UNIX SİSTEM YÖNETİMİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="unixsy-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="unixsy-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="unixsy-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="unixsy-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="unixsy-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="unixsy-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="unixsy-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="unixsy-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="unixsy-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="unixsy-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Mobil Uygulama Geliştirme - Ünite 3 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	<button class="block-group" data-start="40" data-end="59">Part 3</button>
+  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Aşağıdakilerden hangisi Android Studio’nun
+özelliklerinden biridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Tüm iOS platformları için emülatör desteği sunma </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Vektör imajlar sağlama </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Asp.net desteği içerme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Ücretli olma </span><br>
+	<span class="option" data-correct="false"><b>E)</b> NDK içermeme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Android Studio kurulumu için gerekli olan
+özelliklerden ekran çözünürlüğü Windows, MacOS ve Linux işletim sistemleri için minimum kaçtır? </p>
+	<span class="option" data-correct="false"><b>A)</b> 800 x 600 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 1024 x 768 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 1280 x 800 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 1400 x 1050 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 1920 x 1080 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> I. Dracula<br>
+II. Mercan Yeşili<br>
+III.Light<br>
+Yukarıdakilerden hangisi ya da hangileri Android Studio kullanıcı ara yüz renk seçeneklerindedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yalnız III </span><br>
+	<span class="option" data-correct="true"><b>D)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Android Studio’da bir mobil uygulama geliştirirken aşağıdakilerden hangisi için uygulama <u><strong>geliştirilemez?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Tablet </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Akıllı Televizyon </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Giyilebilir Teknoloji </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Otomobil </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Analog Saat </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Android Studio menüleri kullanılarak aşağıdakilerden hangisi <u><strong>yapılamaz?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Var olan proje bilgisayardaki konumundan bulunarak tekrar açılabilir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kodlar denetlenebilir, dipnotlardan anlam çıkarılabilir. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Yazı fontu değiştirilebilir </span><br>
+	<span class="option" data-correct="false"><b>D)</b> APK analiz edilebilir </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Üzerinde çalışılan proje çalıştırılabilir </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Android Studio ara yüzünde araç çubuğunda
+yer alan Debug app ile aşağıdakilerden hangisi yapılabilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Üzerinde çalışılan projedeki hatalar ayıklanır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Uygulamaların çalıştırılmasında kaynak kodların test edilmesi sağlanır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Hazırlanan projenin çalıştırıldığı ortamdaki testine bakılır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Üzerinde çalışılan projeye hata ayıklama aracı olarak tanımlanan debuggerler eklenir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bilgisayara kurulan Android SDK ve JDK bileşenlerinin kurulu olduğu konuma erişilmesi
+sağlanır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> I. Esnek yapıya sahip SDK’dır.<br> 
+II. Android ve iOS işletim sistemli cihazlarda kullanılan widget desteğine sahiptir.<br> 
+III.Hot reload özelliğine sahiptir.<br> 
+Yukarıdakilerden hangisi ya da hangileri Flutter’ın özelliklerindendir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve II </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I-II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> Flutter eklentisinin Android Studio’ya eklenebilmesi için izlenmesi gereken adımlar aşağıdakilerden hangisinde sırasıyla doğru olarak verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> File → Settings → Marketplace → Plugins → “Flutter” araması yapma → Install </span><br>
+	<span class="option" data-correct="true"><b>B)</b> File → Settings → Plugins → Marketplace → “Flutter” araması yapma → Install </span><br>
+	<span class="option" data-correct="false"><b>C)</b> File → Plugins → Settings → Marketplace → “Flutter” araması yapma → Install </span><br>
+	<span class="option" data-correct="false"><b>D)</b> File → Marketplace → Settings → Plugins → “Flutter” araması yapma → Install </span><br>
+	<span class="option" data-correct="false"><b>E)</b> File → Plugins → Settings → Marketplace → “Flutter” araması yapma → Install </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> Flutter eklentisinin Android Studio’ya eklenebilmesi için gerekli olan eklenti aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> IdeaVim </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Scala  </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Dart </span><br>
+	<span class="option" data-correct="false"><b>D)</b> JPA Buddy </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Protobuf </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> I. Mobil cihazı yan-dikey döndürme<br>
+II. Mobil cihazda ekran görüntüsü alma<br>
+III.Açık uygulamaları görme<br>
+Yukarıdakilerden hangisi veya hangileri Android Studio’ya eklenen emülatör ile yapılabilmektedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I-II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> Flutter eklentisi yüklendikten sonra sorun olup olmadığı hangi komutu ile kontrol edilmektedir?  </p>
+	<span class="option" data-correct="false"><b>A)</b> Path </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Flutter doctor </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Restart </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Reload </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Marketplace </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> Uygulama geliştiricilerin mobil uygulama geliştirirken senkron olarak yaptıkları işlemlerin mobil cihazlarda nasıl göründüğünü görebildiği özellik aşağıdakilerden hangisidir?  </p>
+	<span class="option" data-correct="false"><b>A)</b> Flutter </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Android Studio </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Dart SDK </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Flutter doctor </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Emulatör </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Türkiye İstatistik Kurumu (2021) verilerine göre mobil telefon (cep telefonu veya akıllı telefon) sahiplik oranı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> % 70,3 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> % 78,3 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> % 82,3 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> % 92,3 </span><br>
+	<span class="option" data-correct="true"><b>E)</b> % 99,3 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> Aşağıdakilerden hangisi mobil uygulama geliştirirken kullanılan diller arasında değildir? </p>
+	<span class="option" data-correct="false"><b>A)</b> C++ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kotlin </span><br>
+	<span class="option" data-correct="false"><b>C)</b> C </span><br>
+	<span class="option" data-correct="false"><b>D)</b> XML </span><br>
+	<span class="option" data-correct="true"><b>E)</b> YMH </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> Google tarafından geliştirilen açık kaynak kodlu uygulama geliştirme platformudur. Ücretsiz olan ve Android veya iOS işletim sistemine sahip cihazlar için uygulama geliştirmeye olanak sağlayan bu platform aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Windows </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Linux </span><br>
+	<span class="option" data-correct="false"><b>C)</b> MacOS </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Flutter </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Widget </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Flutter Projesi Oluşturmak için Android Studio’ya Flutter ve Dart eklentileri ekledikten ve gerekli SDK ayarları yapıldıktan sonra Flutter projesi açma aşamasına geçilebilir. Öncelikle Android Studio’da aşağıdaki hangi adımlar doğru olarak takip edilmelidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> File → Settings → Marketplace → Plugins </span><br>
+	<span class="option" data-correct="false"><b>B)</b> File → New → Settings → Plugins </span><br>
+	<span class="option" data-correct="false"><b>C)</b> File → Plugins → New Flutter Project </span><br>
+	<span class="option" data-correct="false"><b>D)</b> File → New →Marketplace → Settings </span><br>
+	<span class="option" data-correct="true"><b>E)</b> File → New → New Flutter Project </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> Flutter ile uygulama geliştirildiğinde uygulamalar Android işletim sistemine sahip cihazlarda Android sürümünün iOS işletim sistemine sahip cihazlarda iOS sürümünün en az kaç sürümü olması beklenmektedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 2 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 3 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 4 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 6 </span><br>
+	<span class="option" data-correct="true"><b>E)</b> 8 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      Flutter ile uygulama geliştirildiğinde uygulamalar Android işletim sistemine sahip cihazlarda Android sürümünün en az Jelly Bean v16 üzeri ve daha sonraki sürümler olması beklenirken; iOS işletim sistemine sahip cihazlarda iOS sürümünün en az 8 ve daha sonraki sürümler olması beklenmektedir.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br>  Flutter, Hot Reload özelliğine sahiptir. Bu özellik ile gerçek zamanlı düzenleme yapılabilmektedir. Yani uygulamalar geliştirilirken Hot Reload özelliği aşağıdakilerden hangisinin karşılığıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Esnek yapıya sahip </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kullanışlı arayüzler geliştirir </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Render motoru olarak kullanılır </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Yapılan değişiklikler uygulamaya hemen yansır </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Hızlı bir şekilde yeniden yüklenir </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> Aşağıdakilerden hangisi Flutter Platformunun özellikleri arasında <u><strong>yer almaz?</strong></u>  </p>
+	<span class="option" data-correct="false"><b>A)</b> Esnek yapıya sahip SDK’dır </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Sadece Windows ve Linux ortamlarında çalıştırabilir </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Uygulamaları hızlı geliştirmeyi sağlar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Hızlı bir şekilde yeniden yüklenebilir, hızlı ve kolay bir şekilde deneme yapılabilir </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Hot Reload özelliği ile gerçek zamanlı düzenleme yapılabilmektedir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      • Flutter, esnek yapıya sahip SDK’dır.<br>
+• Flutter, Windows, Linux ve MacOS gibi ortamlara rahatlıkla kurulabilir ve bu ortamlarda uygulama geliştiriciler çalışabilir.<br>
+• Uygulamaları hızlı geliştirmeyi sağlar.<br>
+• Flutter hızlı bir şekilde yeniden yüklenebilir, hızlı ve kolay bir şekilde deneme yapılabilir, kullanıcı arayüzünün oluşturulması, yeni özelliklerin eklenmesi ve hataların da hızlı bir şekilde giderilmesi mümkündür.<br>
+• Güzel ve kullanışlı arayüzler geliştirmeyi sağlar.<br>
+• Flutter’a yerleşik olan Android Materyal Tasarımı ve Cupertiona Widget’lerin varlığı, zengin hareket API’leri, platform farkındalığı ile kullanıcılara rahat bir kullanım sağlar.<br>
+• Flutter, render motoru olarak Mobile-first 2D render motorunu, framework olarak react-style framework’ü kullanmaktadır.<br>
+• Flutter, Android ve iOS işletim sistemli cihazlarda kullanılan Widget desteğine sahiptir.<br>
+• Flutter, Hot Reload özelliğine sahiptir. Bu özellik ile gerçek zamanlı düzenleme yapılabilmektedir. Yani uygulamalar geliştirilirken Hot Reload özelliği ile yapılan değişiklikler uygulamaya hemen yansımaktadır.
+
+
+     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> Aşağıdakilerden hangisi Android Studio'nun windows işletim sistemine kurulum gereksinimleri arasında <u><strong>yer almaz?</strong></u>  </p>
+	<span class="option" data-correct="false"><b>A)</b> 64-bit Microsoft Windows 8/10 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 8 GB RAM veya daha fazlası </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Minimum 1280 x 800 ekran çözünürlüğü </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Minimum 8 GB boş disk </span><br>
+	<span class="option" data-correct="true"><b>E)</b> GNU C Kütüphanesi (glibc) 2.31 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Aşağıdakilerden hangisi Flutter’ın özelliklerinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Güzel ve kullanışlı arayüzler geliştirmeyi sağlar. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Esnek yapıya sahip SDK’dır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Uygulamaları hızlı geliştirmeyi sağlar. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Android ve iOS işletim sistemli cihazlarda kullanılan Widget desteğine sahiptir. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Hat Cupertiona özelliğine sahiptir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      • Flutter, esnek yapıya sahip SDK’dır.<br>
+• Flutter, Windows, Linux ve MacOS gibi ortamlara rahatlıkla kurulabilir ve bu ortamlarda uygulama geliştiriciler çalışabilir.<br>
+• Uygulamaları hızlı geliştirmeyi sağlar.<br>
+• Flutter hızlı bir şekilde yeniden yüklenebilir, hızlı ve kolay bir şekilde deneme yapılabilir, kullanıcı arayüzünün oluşturulması, yeni özelliklerin eklenmesi ve hataların da hızlı bir şekilde giderilmesi mümkündür.<br>
+• Güzel ve kullanışlı arayüzler geliştirmeyi sağlar.<br>
+• Flutter’a yerleşik olan Android Materyal Tasarımı ve Cupertiona Widget’lerin varlığı, zengin hareket API’leri, platform farkındalığı ile kullanıcılara rahat bir kullanım sağlar.<br>
+• Flutter, render motoru olarak Mobile-first 2D render motorunu, framework olarak react-style framework’ü kullanmaktadır.<br>
+• Flutter, Android ve iOS işletim sistemli cihazlarda kullanılan Widget desteğine sahiptir.<br>
+• Flutter, Hot Reload özelliğine sahiptir. Bu özellik ile gerçek zamanlı düzenleme yapılabilmektedir. Yani uygulamalar geliştirilirken Hot Reload özelliği ile yapılan değişiklikler uygulamaya hemen yansımaktadır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Projenin bilgilerini, kaynak kullanımı için gerekli olan izin durum bilgilerini saklayan dosya aşağıdakilerden hangisidir?  </p>
+	<span class="option" data-correct="true"><b>A)</b> AndroidManifest.xml  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> activity_main.xml </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Language.xml </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Project.xml </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Main.xml </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> Aşağıdakilerden hangisi mobil uygulama geliştirirken kullanılan diller arasında <u><strong>yer almaz?</strong></u>  </p>
+	<span class="option" data-correct="false"><b>A)</b> Java </span><br>
+	<span class="option" data-correct="false"><b>B)</b> XML </span><br>
+	<span class="option" data-correct="false"><b>C)</b> C++ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kotlin  </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Linux </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Flutter, render motoru olarak aşağıdaki hangi Mobile-first kaç render motorunu kullanmaktadır? </p>
+	<span class="option" data-correct="true"><b>A)</b> 2D </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 3D </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 4D </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 5D </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 8D </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      Flutter, render motoru olarak Mobile-first 2D render motorunu, framework olarak react-style framework’ü kullanmaktadır     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> Güncellenen Kotlin eklentisinin sorunsuz çalışabilmesi Android Studio’da hangi butonuna tıklanması gerekmektedir?  </p>
+	<span class="option" data-correct="true"><b>A)</b> Restart </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Reload </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Finish </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Get from VCS </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Customize </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> Android Studio, Google tarafından uygulama geliştiricilere kolaylık sunması amacıyla IntelliJ IDEA’ya dayalı olarak tasarlanmış bir platformdur. Android Studio’nun en önemli özelliği aşağıdakilerden hangisinin desteğinin sağlanmasıdır denebilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Vektör imajlar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Asp.net </span><br>
+	<span class="option" data-correct="false"><b>C)</b> NDK </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Emülatör </span><br>
+	<span class="option" data-correct="false"><b>E)</b> IdeaVim </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Aşağıdakilerden hangisi Android Studio'nun üstünlükleri arasında <u><strong>yer almaz?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Ram kullanımı diğer IDE’lere kıyasla yüksektir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Tüm Android platformları emülatör ile destekler niteliktedir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Güçlü bir kod düzenleyici ve geliştirici araçları sunan IntelliJ IDEA’ya dayanmaktadır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Github entegrasyonu ve hazır şablonlar barındırır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Vektör imajlar sağlar. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      Android Studio’nun üstünlükleri:<br><br>
+• Google Cloud için (Google Cloud Platform, Google Cloud Messaging ve Google App Engine) yerleşik destek sunar.<br>
+• Tüm Android platformları (cihaz ve sürümleri) emülatör ile destekler niteliktedir.<br>
+• Android Studio, güçlü bir kod düzenleyici ve geliştirici araçları sunan IntelliJ IDEA’ya dayanmaktadır.<br>
+• Github entegrasyonu ve sık kullanılan uygulama özelliklerini oluşturmaya yardımcı hazır şablonlar barındırır.<br>
+• Vektör imajlar sağlar.
+
+
+     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> Flutter eklentisi yüklendikten sonra sorun olup olmadığı hangi komutu ile kontrol edilmektedir?  </p>
+	<span class="option" data-correct="false"><b>A)</b> Path </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Flutter doctor </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Restart </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Reload </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Marketplace </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> Flutter’ın Android Studio’ya kurulumunda yeni eklenti kurmak için hangi sekme kullanılmaktadır?  </p>
+	<span class="option" data-correct="true"><b>A)</b> Marketplace </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Settings </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Plugins </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Install </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Accept </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> “Plugins” bağlantısı ile Android Studio’ya eklentiler yüklenmesi mümkün olabilmektedir. Yüklenen eklentiler hangi bağlantı altında görüntülenebilmektedir?  </p>
+	<span class="option" data-correct="true"><b>A)</b> Installed </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Reload </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Coppied </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Reversed </span><br>
+	<span class="option" data-correct="false"><b>E)</b> All </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br>  Flutter ile uygulama geliştirildiğinde uygulamalar Android işletim sistemine sahip cihazlarda Android sürümünün aşağıdakilerden en az Jelly Bean v kaç sürümü olması beklenir? </p>
+	<span class="option" data-correct="false"><b>A)</b> v6 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> v8 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> v10 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> v12 </span><br>
+	<span class="option" data-correct="true"><b>E)</b> v16 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      Flutter ile uygulama geliştirildiğinde uygulamalar Android işletim sistemine sahip cihazlarda Android sürümünün en az Jelly Bean v16 üzeri ve daha sonraki sürümler olması beklenirken; iOS işletim sistemine sahip cihazlarda iOS sürümünün en az 8 ve daha sonraki sürümler olması beklenmektedir.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> I. Tüm Android platformları emülatör ile desteklemektedir.<br>
+II. iCloud için yerleşik destek sunar.<br>
+III. Ücretsizdir.<br><br>
+Yukarıdakilerden hangisi ya da hangileri Android Studio'nun özelliklerindendir? </p>
+	<span class="option" data-correct="true"><b>A)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      II. seçenek yanlıştır. iCloud için değil <u>Google Cloud</u> için yerleşik destek sunar.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> Üzerinde çalışılan projeye hata ayıklama aracının eklenmesi Android Studio'da araç çubuğunda da yer alan hangi menü aracılığıyla yapılmaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Run App with Coverage </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Attach Debugger to Android Proces - Debugger hata ayıklama aracıdır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Debug App </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Project Structure </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sync Project Grandle Files </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      <strong>“Run App with Coverage”</strong> ile uygulamaların çalıştırılmasında
+kaynak kodların test edilmesi sağlanır.<br><br>
+
+<strong>“Attach Debugger to Android Process”</strong> ile üzerinde çalışılan projeye hata ayıklama
+aracı olarak tanımlanan debuggerler <u>eklenir.</u><br><br>
+			
+<strong>“Debug App”</strong> ile üzerinde çalışılan projedeki hatalar ayıklanır.  <br><br>
+			
+<strong>“Project Structure”</strong> ile bilgisayara kurulan Android SDK ve JDK bileşenlerinin kurulu olduğu konuma erişilmesi sağlanır.<br>
+<br>
+			
+<strong>“Sync Project with Gradle Files”</strong> ile proje dosyalarının gradle dosyalarına uygun biçimde eşitlenmesini sağlar			
+    </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> Android Studio'da emülatör kurulumunda aşağıdakilerden hangisi yapılmazsa sonraki aşamaya <u><strong>geçilmez?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Sistem görseli seçimi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Proje sloganı seçimi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Proje adı yazımı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kullanıcı adı yazımı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Proje türü seçimi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      Sistem görseli (system image)     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> Android Studio'ya eklenebilecek eklentiler aşağıdaki bağlantılardan hangisi ile eklenebilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> File </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Plugin </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Projects </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Customize </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Edit </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> Android Studio nasıl bir platformdur?
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Android Studio, Google tarafından uygulama geliştiricilere kolaylık sunması amacıyla IntelliJ IDEA’ya dayalı olarak tasarlanmış bir platformdur. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> Android Studio’nun üstünlükleri nelerdir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> <br>
+Android Studio’nun üstünlükleri aşağıdaki gibidir. <br>
+
+- Google Cloud için (Google Cloud Plat- form, Google Cloud Messaging ve Google App Engine) yerleşik destek sunar.<br><br>
+
+- Tüm Android platformları (cihaz ve sürüm- leri) emülatör ile destekler niteliktedir.<br><br>
+
+- Android Studio, güçlü bir kod düzenleyici ve geliştirici araçları sunan IntelliJ IDEA’ya dayanmaktadır.<br><br>
+
+- Github entegrasyonu ve sık kullanılan uygulama özelliklerini oluşturmaya yardımcı hazır şablonlar barındırır.<br><br>
+
+- Vektör imajlar sağlar.<br><br>
+
+- C ++ ve NDK desteği içerir.<br><br>
+
+- Birleşik Modelleme Dili (UML), yazılım modelleri çizmenin, tasarımların taslağını oluşturmanın veya var olan tasarımları ve sistemleri belgelemenin standart bir yolu olan UML diyagramı desteği sağlar.<br><br>
+
+- Ücretsizdir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> Android Studio’nun sınırlılıkları nelerdir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> <br>
+Android Studio’nun sınırlılıkları nelerdir?<br><br>
+
+- Java, C, C++, Kotlin ve XML gibi dil destekleri olmasına rağmen kısıtlanmış bir desteği sunmaktadır.<br><br>
+
+- Ram kullanımı diğer IDE’lere kıyasla yüksektir.<br><br>
+
+- Android işletim sistemli cihazlar için mobil uygulama geliştirilebilir.
+
+		
+		</span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> MacOs için android studio kurulum gereksinimleri nelerdir? </p>
+	<span class="option" data-correct="true"><b>A)</b> <br>
+MacOs için android studio kurulum gereksinimleri aşağıda sıranlanmıştır:<br><br>
+
+- MacOS 10.14 (Mojave) veya daha üstü<br>
+- ARM tabanlı chipset veya 2. Nesil Intel Core veya Hypervisor.<br>
+- Framework için desteklenen daha yenisi<br>
+- 8 GB RAM veya daha fazlası<br>
+- Minimum 8 GB boş disk (IDE + Android SDK + Android Emülatör)Minimum 1280 x 800 ekran çözünürlüğü </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> Windows için android studio kurulum gereksinimleri nelerdir? </p>
+	<span class="option" data-correct="true"><b>A)</b> <br>
+Windows için android studio kurulum gereksinimleri:<br><br>
+		
+- 64-bit Microsoft Windows 8/10<br>
+- X86_64 CPU Mimarisi; Intel Core 2. Nesil veya daha yenisi veya Windows Hypervisor için desteklenen AMD CPU<br>
+- 8 GB RAM veya daha fazlası<br>
+- Minimum 8 GB boş disk (IDE + Android SDK + Android Emülatör)<br>
+- Minimum 1280 x 800 ekran çözünürlüğü </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question41">
+	<p class="question">Soru 41:<br> Linux için android studio kurulum gereksinimleri nelerdir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> <br>
+Linux için android studio kurulum gereksinimleri:<br><br>
+- Gnome, KDE’yi veya Unity DE’yi destekleyen herhangi 64-bit Linux dağıtıcısı; GNU C Kütüphanesi (glibc) 2.31 veya daha sonrası<br>
+- X86_64 CPU Mimarisi; Intel Core 2. Nesil veya daha yenisi veya AMD Virtualization (AMD-V) ve SSSE3 için desteklenen AMD işlemci<br>
+- 8 GB RAM veya daha fazlası<br>
+- Minimum 8 GB boş disk (IDE + Android SDK + Android Emülatör)<br>
+- Minimum 1280 x 800 ekran çözünürlüğü </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description41">Açıklama</button>
+		<div id="description41" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question42">
+	<p class="question">Soru 42:<br> Android Studio’nun bilgisayara kurulumunun gerçekleştirilebilmesi için öncelikle ne yapılması gerekmektedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Android Studio’nun bilgisayara kurulumunun gerçekleştirilebilmesi için öncelikle kurulum dosyasının bilgisayara indirilmesi gerekmektedir.  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description42">Açıklama</button>
+		<div id="description42" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question43">
+	<p class="question">Soru 43:<br> Android Studio programı bilgisayara kurulurken ne zaman “Do not import settings” ayarı seçilmelidir?
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Android Studio programı bilgisayara ilk kez kuruluyorsa önceden bilgisayarda Android Studio’ya ilişkin kayıtlı ayar olmadığı için “Do not import settings” ayarı seçilir. Ancak önceden kurulmuş Android Studio kaldırılıp tekrar kuruluyorsa eski ayarlara ihtiyaç olabileceği için eski ayarları yüklemek faydalı olabilir.
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description43">Açıklama</button>
+		<div id="description43" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question44">
+	<p class="question">Soru 44:<br> Android Studio’yu kullanırken hangi amaçla “Don’t Send” butonuna tıklanmalıdır?  </p>
+	<span class="option" data-correct="true"><b>A)</b> Android studio açılışında, android studio’yu kullanırken kullanıcı istatistiklerinin Google ile paylaşılıp paylaşılmayacağı bilgisi bulunmaktadır. Bu noktada karar kullanıcılara aittir. Bu bölümde kullanıcı istatistiklerinin Google ile paylaşılmaması için “Don’t Send” butonuna tıklanarak açılışa devam edilmektedir.  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description44">Açıklama</button>
+		<div id="description44" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question45">
+	<p class="question">Soru 45:<br> Android Studio’nun açılış ekranınında “New Projects” , “Open” ve “Get from VCS” ne anlam taşımaktadır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Android Studio’nun açılış ekranının basit bir arayüze sahip olduğu söylenebilir. Burada Projects bölümünde “New Projects” butonu ile yeni bir proje oluşturulabilir. “Open” butonu ile önceden var olan bir projenin açılması sağlanabilir. “Get from VCS” ile önceden hazırlanmış olan projelerin versiyon kontrol sistemi ile sisteme yüklenmesi sağlanır. Versiyon kontrol sistemi, önceden hazırlanan projelerin değişik sürümlerine erişmeyi ve bu sürümlerin korunmasını sağlamaktadır.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description45">Açıklama</button>
+		<div id="description45" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question46">
+	<p class="question">Soru 46:<br> Android Studio’da bulunan menülerde yapılabilecek özellikler nelerdir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> <br>
+Android Studio’da bulunan menülerde yapılabilecek özellikler; <br><br>
+- Yeni bir proje açılabilir.<br><br>
+- Var olan proje bilgisayardaki konumunda bulunarak tekrar açılabilir.<br><br>
+- Üzerinde çalışılan son proje açılabilir ya da üzerinde çalışılan proje kapatılabilir.<br><br>
+- Ayarlar açılabilir ve Android Studio’nun ayarları değiştirilebilir.<br><br>
+- Menülerde proje yapısı ile projenin eklenti versiyonuna, SDK konumuna ve değişken gibi özelliklere ulaşmak ve değişiklikler yapmak mümkündür.<br><br>
+- Üzerinde çalışılan projeye ayarlar eklenebilir ya da projeye nihai hali verildiğinde dışa aktarılabilir.<br><br>
+- İşlemin geriileri alınması ya da seçilen bir kod parçacığının kesilmesi, kopyalanması, yolunun kopyalanması, istenilen yere yapıştırılması ya da silinmesi sağlanabilir. Bunun yanı sıra arama, kolonları seçme, satırları ayırma, birleştirme gibi projede gerekli düzenlemeler yapılabilir.<br><br>
+- Android Studio’da bir proje üzerinde çalışırken çalışma ekranında görünmesi istenilen özelliklerin görünmesi ya da kaldırılması sağlanabilir. Örneğin bir projedeki problemlerin nerede olduğunun görülmesi için problemler ekranının açık olması süreci kolaylaştırabilir.<br><br>
+- Üzerinde çalışılan projede gezinim yapılabilir. Örneğin proje dosyasında bulunan sınıflara, dosyalara, sembollere veya aksiyonlara ulaşılabilirken; hata alınan noktalara de geçiş (önceki, sonraki hata) yapılabilir. Ya da proje dosyasında hazırlanmış emmet kod parçacıklarına veya son düzenlenen veya bir önceki düzenlenen kod konumuna da geçiş sağlanabilir. Bu ve benzeri gezinimler kolaylıkla yapılabilmektedir.<br><br>
+- Farklı metodların (override, implement, vb.) uygulanması sağlanırken; kod yazarken kod tamamlama da sağlanabilir.<br><br>
+- Kodun yer değiştirmesini (aşağı satıra, yukarı satıra) de menülerden yapmak mümkündür.<br><br>
+- Kodlar denetlenebilir, dipnotlardan anlam çıkarılabilir.<br><br>
+- Yeni proje yapılabilir.<br><br>
+- APK analiz edilebilir.<br><br>
+- Üzerinde çalışılan proje çalıştırılabilir.<br><br>
+- Üzerinde çalışılan proje için gerekli olan pencerelerin açılması-kapanması sağlanabilir.<br><br>
+- Help menüsü ile de genel olarak Android Studio’nun kullanımı hakkında bilgilere erişilebilir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description46">Açıklama</button>
+		<div id="description46" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question47">
+	<p class="question">Soru 47:<br> Flutter nasıl bir platformdur?
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Flutter, Google tarafından geliştirilen açık kaynak kodlu uygulama geliştirme platformudur.
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description47">Açıklama</button>
+		<div id="description47" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question48">
+	<p class="question">Soru 48:<br> Flutter’ın özellikleri nelerdir? </p>
+	<span class="option" data-correct="true"><b>A)</b> <br>
+Flutter’ın özellikleri şu şekilde sıralanabilir:<br><br>
+
+- Flutter, esnek yapıya sahip SDK’dır.<br>
+- Flutter, Windows, Linux ve MacOS gibi ortamlara rahatlıkla kurulabilir ve bu ortamlarda uygulama geliştiriciler çalışabilir.<br>
+- Uygulamaları hızlı geliştirmeyi sağlar.<br>
+- Flutter hızlı bir şekilde yeniden yüklenebilir, hızlı ve kolay bir şekilde deneme yapılabilir, kullanıcı arayüzünün oluşturulması, yeni özelliklerin eklenmesi ve hataların da hızlı bir şekilde giderilmesi mümkündür.<br><br>
+- Güzel ve kullanışlı arayüzler geliştirmeyi sağlar.<br><br>
+- Flutter’a yerleşik olan Android Materyal Tasarımı ve Cupertiona Widget’lerin varlığı, zengin hareket API’leri, platform farkındalığı ile kullanıcılara rahat bir kullanım sağlar.<br><br>
+- Flutter, render motoru olarak Mobile-first 2D render motorunu, framework olarak react-style framework’ü kullanmaktadır.<br><br>
+- Flutter, Android ve iOS işletim sistemli cihazlarda kullanılan Widget desteğine sahiptir.<br><br>
+- Flutter, Hot Reload özelliğine sahiptir. Bu özellik ile gerçek zamanlı düzenleme yapılabilmektedir. Yani uygulamalar geliştirilirken Hot Reload özelliği ile yapılan değişiklikler uygulamaya hemen yansımaktadır.<br><br>
+- Flutter ile uygulama geliştirildiğinde uygulamalar Android işletim sistemine sahip cihazlarda Android sürümünün en az Jelly Bean v16 üzeri ve daha sonraki sürümler olması beklenirken; iOS işletim sistemine sahip cihazlarda iOS sürümünün en az 8 ve daha sonraki sürümler olması beklenmektedir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description48">Açıklama</button>
+		<div id="description48" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question49">
+	<p class="question">Soru 49:<br> Flutter’ın Android Studio’ya Kurulumu dikkate alındığından Flutter’ın Windows işletim sistemli bir bilgisayara kurulumu için işletim sisteminin özellikleri ne olmalıdır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Flutter’ın Windows işletim sistemli bir bilgisayara kurulumu için işletim sisteminin Windows 7 SP1 ve daha sonrası (64-bit), x86-64 tabanlı, 1.64GB boş disk kapasitesi, Windows PowerShell 5.0 ve daha yenisi ve Windows 2.x için Git gereksinimlerine ihtiyaç duyulmaktadır. Bu gereksinimler diğer işletim sistemlerine sahip bilgisayarlar için değişmektedir.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description49">Açıklama</button>
+		<div id="description49" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question50">
+	<p class="question">Soru 50:<br> ' flutter doctor ' komutu ne işe yaramaktadır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Flutter eklentisi yüklendikten sonra flutter doctor komutu ile sorun olup olmadığı kontrol edilmelidir. Sorun varsa ilgili satırdaki bilgilendirme kullanılarak sorun çözülmelidir.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description50">Açıklama</button>
+		<div id="description50" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question51">
+	<p class="question">Soru 51:<br> Flutter projesi oluşturma adımları nelerdir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Android Studio’ya Flutter ve Dart eklentileri ekledikten ve gerekli SDK ayarları yapıldıktan sonra Flut- ter projesi açma aşamasına geçilebilir. Öncelikle Android Studio’da “File → New → New Flutter Project” adımları takip edilir.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description51">Açıklama</button>
+		<div id="description51" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question52">
+	<p class="question">Soru 52:<br> Flutter projesinde 'A new Flutter Project' komutu ne zaman gözlenir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Proje adı girildikten sonra isteğe bağlı olarak projenin konumu değiştirilebilir. Projenin açıklaması kısmına da bilgi girilebilir. Bilgi girilmediği takdirde default olarak gelen “A new Flutter Project.” açıklaması kalacaktır. Bu bilgiler girildikten sonra “Finish” butonuna tıklanır. “Finish” butonuna tıklandığında Android Studio’da oluşturulan Flutter projesi çalışma ekranına ulaşılacaktır
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description52">Açıklama</button>
+		<div id="description52" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question53">
+	<p class="question">Soru 53:<br> Flutter proje yazımı sol panelde bulunan hangi klasör ve dosya üzerinde gerçekleştirilmektedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Proje yazımı sol panelde bulunan “Lib” klasörü içerisinde bulunan main. dart dosyası üzerinde gerçekleştirilmektedir.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description53">Açıklama</button>
+		<div id="description53" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question54">
+	<p class="question">Soru 54:<br> Emülatör kurulumunda “AVD Manager” bağlantısından sonra gelinen ilk ekranda hangi butona tıklanmalıdır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> “AVD Manager” bağlantısından sonra gelinen ilk ekranda “Create Virtual Devices” butonuna tıklanır
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description54">Açıklama</button>
+		<div id="description54" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question55">
+	<p class="question">Soru 55:<br> Emülatör programı kurulduktan sonra üç noktaya tıklandığında hangi özelliklere ulaşılabilir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Mobil cihazı açma-kapama, mobil cihazın sesini artırma-azaltma, mobil cihazı yan-dikey döndürme, mobil cihazda ekran görüntüsü alma, zoom yapma, geri alma, Home ve Overview butonlarıyla ana ekrana dönme ve açık uygulamaları görme gibi temel kontrol etme yapılabildiği gibi üç noktaya tıklandığında ek özellikler de açılmaktadır. Bu özellikler ile uygulama kontrolü sağlıklı yapılabilmektedir.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description55">Açıklama</button>
+		<div id="description55" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

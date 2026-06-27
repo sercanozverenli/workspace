@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          ALGORİTMALAR
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="alg-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="alg-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="alg-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="alg-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="alg-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="alg-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="alg-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="alg-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="alg-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="alg-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB SUNUCU PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wsp-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wsp-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wsp-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wsp-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wsp-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wsp-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wsp-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wsp-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wsp-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wsp-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİ MADENCİLİĞİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="vmaden-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="vmaden-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="vmaden-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="vmaden-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="vmaden-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="vmaden-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="vmaden-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="vmaden-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="vmaden-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="vmaden-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİTABANI SİSTEMLERİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="vtsistem-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="vtsistem-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="vtsistem-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="vtsistem-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="vtsistem-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="vtsistem-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="vtsistem-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="vtsistem-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="vtsistem-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="vtsistem-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMADA YENİ EĞİLİMLER
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="prgyenieğilim-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="prgyenieğilim-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Web Sunucu Programlama - Ünite 6 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Aşağıdakilerden hangisi PHP’de tanımlanmış
+bir fonksiyon ismi olabilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> yeni fonksiyon </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 1yeni fonksiyon </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yeni fonksiyon </span><br>
+	<span class="option" data-correct="true"><b>D)</b> _YeniFonksiyon </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 1YeniFonksiyon </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	
+  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question"><span style="color:darkred; font-weight: bold; margin-left: 30px;">2. ve 3. soruları 2. sorudaki kod bloğunu dikkate alarak yanıtlayınız.</span><br><br>
+Soru 2:<br> &lt;?php<br>
+function uyari(){<br>
+&emsp;&emsp;echo "Dikkat";<br>
+}
+uyari();<br>
+?&gt;<br><br>
+Yukarıdaki kod bloğunda tanımlanmış olan fonksiyonun ismi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> function </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Dikkat </span><br>
+	<span class="option" data-correct="true"><b>C)</b> uyari </span><br>
+	<span class="option" data-correct="false"><b>D)</b> echo </span><br>
+	<span class="option" data-correct="false"><b>E)</b> php </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Kod bloğunun çıktısı aşağıdakilerden
+hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> function </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Dikkat </span><br>
+	<span class="option" data-correct="false"><b>C)</b> "Dikkat" </span><br>
+	<span class="option" data-correct="false"><b>D)</b> echo </span><br>
+	<span class="option" data-correct="false"><b>E)</b> php </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> &lt;?php<br>
+function topla($sayi1, $sayi2) {<br>
+X $sayi1 + $sayi2;<br>
+}<br>
+echo topla(4,5) + ;<br>
+?&gt;<br><br>
+Yukarıdaki kod bloğunda, çıktının “9” olması için,
+x yerine hangi ifade gelmelidir?
+		</p>
+	<span class="option" data-correct="true"><b>A)</b> return </span><br>
+	<span class="option" data-correct="false"><b>B)</b> echo </span><br>
+	<span class="option" data-correct="false"><b>C)</b> topla </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 9 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> + </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      Not: echo topla(4,5) + ; buradaki + işareti muhtemelen yanlışlıkla konulmuş.<br><br>
+			
+			Fonksiyon içerisindeki "topla($sayi1, $sayi2)" ifadesi, belirtilen iki sayıyı toplar. Ancak, toplama işlemi sonucunu geri döndürmek için "return" ifadesinin kullanılması gerekmektedir.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Aşağıdaki ifadelerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Fonksiyonlar birden çok argüman içerebilir </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Argüman isimleri & işareti ile başlar. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Argümanlar, fonksiyon isminden sonra parantez
+içerisinde yazılır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Argümanlara varsayılan bir değer atanabilir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Argümanların aldığı değerler daha sonra güncellenebilir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      Değişken isimlerinde olduğu gibi, argüman isimleri de “$” işareti ile başlar.     </div>
+	</div>
+</div>
+		
+		
+
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question"><span style="color: darkred; font-weight: bold; margin-left: 30px;">6. ve 7. soruları 6. sorudaki kod bloğunu dikkate alarak yanıtlayınız.</span><br><br>
+Soru 6:<br> &lt;?php<br>
+function Meyve($mey="Karpuz"){<br>
+&emsp;&emsp;echo "Meyvemiz $mey";<br>
+}<br>
+Meyve('Üzüm');<br><br>
+?&gt;<br><br> Yukarıdaki kod bloğunun çıktısı aşağıdakilerden
+hangisidir?</p>
+	<span class="option" data-correct="false"><b>A)</b> Karpuz </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Meyvemiz Karpuz </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Üzüm </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Meyvemiz Üzüm </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Meyve </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      Meyve() fonksiyonu tanımlandığında, $mey parametresine varsayılan bir değer olarak "Karpuz" atanmıştır. Ancak, fonksiyon çağrısı sırasında Meyve('Üzüm') şeklinde geçerli bir değer verildiğinde, bu değer $mey parametresinin değerini "Üzüm" olarak değiştirir.<br><br>
+Bu nedenle, echo "Meyvemiz $mey"; ifadesi fonksiyon çağrısı sırasında geçilen değere bağlı olarak "Meyvemiz Üzüm" şeklinde bir çıktı üretecektir.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> “Meyve” isimli fonksiyonun argümanının
+varsayılan değeri aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Karpuz </span><br>
+	<span class="option" data-correct="false"><b>B)</b> $mey </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Üzüm </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Meyve </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Meyvemiz </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+		
+<div class="question-block">
+	<div id="question8">
+	<p class="question"><span style="color: darkred; font-weight: bold; margin-left: 30px;">8., 9. ve 10. soruları 8. sorudaki kod bloğunu dikkate alarak yanıtlayınız.</span><br><br>
+Soru 8:<br> &lt;?php
+function faktor($sayi) {
+if ($sayi &lt; 2) {
+return 1;
+} else {
+return ($sayi * faktor($sayi-1));
+}
+}
+echo faktor(X);
+?&gt;<br><br>
+Yukarıdaki örnekte, Özyinelemeli olarak
+oluşturulmuş olan fonksiyonun ismi aşağıdakilerden
+hangisidir?
+		
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> $sayi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> sayi </span><br>
+	<span class="option" data-correct="true"><b>C)</b> faktor </span><br>
+	<span class="option" data-correct="false"><b>D)</b> return </span><br>
+	<span class="option" data-correct="false"><b>E)</b> X </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> Yukarıdaki örnekte, X ifadesi yerine 1 sayısı konursa, çıktı aşağıdakilerden hangisi olur? </p>
+	<span class="option" data-correct="false"><b>A)</b> 0 </span><br>
+	<span class="option" data-correct="true"><b>B)</b> 1 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 2 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 3 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 4 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      1! = 1     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Yukarıdaki kod bloğunun çıktısının “120”
+olması için, X aşağıdakilerden hangisi olmalıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> 4 </span><br>
+	<span class="option" data-correct="true"><b>B)</b> 5 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 6 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 7 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 12 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      5! = 120     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> PHP’de fonksiyonların sonuçları hangi komut ile doğrudan ekrana yazdırılabilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> echo </span><br>
+	<span class="option" data-correct="false"><b>B)</b> return </span><br>
+	<span class="option" data-correct="false"><b>C)</b> function </span><br>
+	<span class="option" data-correct="false"><b>D)</b> global </span><br>
+	<span class="option" data-correct="false"><b>E)</b> if </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> function topla($arg1, $arg2){<br>
+   return $arg1+$arg2;<br>
+}<br>
+$deger=topla(10,20);<br>
+   echo "Toplam:". $deger;<br>
+?&gt;<br><br>
+
+Yukarıdaki kodun çıktısı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Toplam: 30 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Toplam: 10 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Toplam: 20 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Toplam: 50 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Toplam: 60 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      topla() adında bir fonksiyon tanımlanır. Bu fonksiyon, $arg1 ve $arg2 isimli iki parametre alır ve bu parametrelerin toplamını hesaplayarak geri döndürür (return ifadesi ile).<br><br>
+
+Fonksiyon çağrısı yapılır: topla(10, 20);. Bu çağrıda, arg1 değeri olarak 10, arg2 değeri olarak 20 kullanılır ve fonksiyonun döndürdüğü değer $deger değişkenine atanır.<br><br>
+
+$deger değişkeni, fonksiyonun hesapladığı toplamı (30) içerir.<br><br>
+
+echo komutu ile "Toplam: 30" yazdırılır. $deger değişkeninin içeriği, metin içine yerleştirilerek ekrana yazdırılır.<br><br>
+
+Sonuç olarak, ekrana "Toplam: 30" yazdırılır. Fonksiyon çağrısı ile parametrelerin toplamı hesaplandığı için çıktı 30 olur.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Aşağıdakilerden hangisi PHP'de fonksiyonlarda fonksiyon dışında tanımlanmış değişkenlerin kullanılması için kullanılan komuttur?  </p>
+	<span class="option" data-correct="false"><b>A)</b> require </span><br>
+	<span class="option" data-correct="false"><b>B)</b> include </span><br>
+	<span class="option" data-correct="false"><b>C)</b> echo </span><br>
+	<span class="option" data-correct="false"><b>D)</b> return </span><br>
+	<span class="option" data-correct="true"><b>E)</b> global </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> PHP dilindeki kullanıcı tanımlı fonksiyonlar ile ilgili olarak aşağıdakilerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Fonksiyon isimlerinin ilk karakteri yalnızca alfabedeki harfler veya altçizgi “_” olabilir. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Fonksiyon isimleri yalnızca büyük harfle başlar. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Fonksiyon isimleri büyük-küçük harflere duyarlıdır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Fonksiyon isimleri benzersiz olmalıdır.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Fonksiyon isimleri boşluk içeremez. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> function kiyasla($sayi1, $sayi2){<br>
+     &emsp;$fark=$sayi1-$sayi2;    <br>    
+
+        &emsp;&emsp;if($fark &gt; 0){<br>
+           &emsp;&emsp;&emsp;$sonuc=  "Birinci sayı ikinciden büyüktür."; <br>  
+
+        &emsp;&emsp;}<br>
+       &emsp;&emsp;if($fark &lt; 0){<br>
+           &emsp;&emsp;&emsp;$sonuc=  "Birinci sayı ikinciden küçüktür.";  <br> 
+
+        &emsp;&emsp;}<br>
+       &emsp;&emsp;if($fark == 0){<br>
+           &emsp;&emsp;&emsp;$sonuc=  "İki sayı birbirine eşittir."; <br>
+        &emsp;&emsp;}<br>
+      &emsp;return $sonuc;<br>
+}<br>
+echo kiyasla(19.8, 19.8);<br>
+
+Yukarıda verilen PHP kod parçasında kullanıcı tanımlı kiyasla($arg1, $arg2) fonksiyonunun ekrana yazdıracağı sonuç ne olacaktır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Birinci sayı ikinciden büyüktür. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> İki sayı birbirine eşittir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İkinci sayı birinciden büyüktür. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İkinci sayı birinciden küçüktür. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Birinci sayı ikinciden küçüktür. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      Yukarıdaki PHP kod parçasında, kiyasla($sayi1, $sayi2) adında bir kullanıcı tanımlı fonksiyon bulunmaktadır. Bu fonksiyon, iki sayıyı karşılaştırarak sonuç metnini döndürür<br><br>
+kiyasla(19.8, 19.8) fonksiyon çağrısı yapılır. Fonksiyona sayi1 değeri olarak 19.8 ve sayi2 değeri olarak da 19.8 verilir.<br><br>
+
+Fonksiyon içinde, $fark değişkenine sayi1 ve sayi2 arasındaki fark atanır. Burada, 19.8 - 19.8 işlemi yapıldığı için $fark değeri 0 olur.<br><br>
+
+İlk if bloğu çalışır ve $fark değeri 0 olduğu için "İki sayı birbirine eşittir." metni $sonuc değişkenine atanır.<br><br>
+
+return $sonuc; ifadesi ile fonksiyondan "İki sayı birbirine eşittir." metni döndürülür.<br><br>
+
+echo komutu ile fonksiyon çağrısının döndürdüğü sonuç metni ekrana yazdırılır.<br><br>
+
+Sonuç olarak, ekrana "İki sayı birbirine eşittir." yazdırılır, ç     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> function yinele($a, $b){ <br> 
+  &emsp;if ($a &lt;= $b) {<br>
+
+     &emsp;&emsp;echo "$a\n";<br>
+
+yinele($a + 1, $b);<br>
+
+      &emsp;&emsp;}<br>
+
+}<br><br>
+
+Yukarıda yer alan fonksiyonda, eğer a değeri b'den küçük veya eşit ise, b değerine ulaşana kadar 1 artacak ve kendini tekrar edecektir. Bunu sağlamak için özel bir fonksiyon yapısı kullanılmıştır. Fonksiyonu dikkatle inceleyerek bu yapıdaki fonksiyonların ne şekilde adlandırıldığını belirtiniz. </p>
+	<span class="option" data-correct="false"><b>A)</b> Fonksiyon içinde fonksiyon </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Global ifadesi ile dışarıdan değer kullanan fonksiyon
+
+ </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Özyinelemeli fonksiyon
+
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Argümanlarının varsayılan bir değeri olan fonksiyon </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Argüman içermeyen fonksiyon </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      Özyinelemeli fonksiyonlar, kendi içinde tekrar kendisini içeren fonksiyonlardır. Bu tarz fonksiyonlar, belirli bir koşul yerine gelene kadar kendini tekrar eder. Fonksiyon her çağrıldığında, parametreler ilgili koşula bağlı olarak yenilenir ve bu işlem hedef değere ulaşana kadar devam eder.     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> function Hesapla($yaricap, $cikti="cevre"){<br>
+&emsp;if($cikti == "cevre"){<br>
+         &emsp;&emsp;return pi() * 2 * $yaricap;<br>
+    &emsp;}<br>
+    &emsp;if($cikti == "alan"){<br>
+       &emsp;&emsp;return pi() * pow($yaricap, 2);<br>
+    &emsp;}<br>
+}<br><br>
+Yukarıda yer alan PHP kod parçasındaki fonksiyonun yapısını inceleyiniz. Aşağıdaki isimlendirmelerden hangisi, bu yapıdaki bir fonksiyonu tanımlamak için kullanılmaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Fonksiyon içinde fonksiyon </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Global ifadesi ile dışarıdan değer kullanan fonksiyon </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Özyinelemeli fonksiyon </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Argüman içermeyen fonksiyon </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Argümanlarının varsayılan bir değeri olan fonksiyon </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      Kod incelendiğinde, verilen fonksiyonda görülen en önemli özelliği $cikti değişkenine “cevre” değerininin varsayılan olarak atanmış olmasıdır. Fonksiyon içerisinde $cikti değişkeninin “alan” değerini alması durumunda yapılacaklar da tanımlanmıştır. Fonksiyon çağrılırken ikinci argüman için herhangi bir tanımlama yapılmazsa, fonksiyon dairenin çevre hesaplamasını verecektir. <br><br>Bir fonksiyon tanımlarken, fonksiyonun argümanlarına varsayılan bir değer atanabilir. Bu değer, sonradan başka bir değer atanmaması halinde fonksiyonun döndüreceği değer olacaktır
+     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> function Yuvarla($deger){<br>
+ &emsp;if($deger &gt; 1000){<br>
+         &emsp; &emsp;return floor($deger);<br>
+     &emsp;}<br>
+ &emsp;if($deger &lt;= 1000){<br>
+          &emsp; &emsp;return ceil($deger);<br>
+     &emsp;}<br>
+ }<br>
+function Topla ($sayi1, $sayi2){<br>
+return Yuvarla($sayi1+$sayi2);<br>
+}<br><br>
+Yukarıda yer alan PHP kod parçasındaki Topla($arg1, $arg2) fonksiyonunun yapısını inceleyiniz. Aşağıdaki isimlendirmelerden hangisi, bu yapıdaki bir fonksiyonu tanımlamak için kullanılmaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Global ifadesi ile dışarıdan değer kullanan fonksiyon </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Özyinelemeli fonksiyon </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Fonksiyon içinde fonksiyon </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Argümanlarının varsayılan bir değeri olan fonksiyon </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Argüman içermeyen fonksiyon </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      Topla($arg1, $arg2) fonksiyonu içerisinden Yuvarla(arg1) fonksiyonun çağrıldığı görülmektedir.<br><br> Bu durum Fonksiyon içinde fonksiyon'a örnektir.<br><br>
+Not: Özyinelemeli fonksiyonlar, bir fonksiyonun kendi kendini çağırmasıyla çalışırken, fonksiyon içinde fonksiyon kullanımı, bir fonksiyonun içinde başka bir fonksiyonun tanımlanıp kullanılmasıdır. Bu yüzden  ikisi farklı kavramlardır.
+     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> Aşağıdakilerden hangisi PHP dilinde  kullanıcı tanımlı bir fonksiyonun ismi <u><strong>olamaz?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> 1Veritabani() </span><br>
+	<span class="option" data-correct="false"><b>B)</b> _veritabani1()
+
+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> veritabani1()
+
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Veritabani1()
+
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Veri1Tabani()
+
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      Fonksiyon isimlerinin ilk karakteri yalnızca alfabedeki harfler veya altçizgi “_” olabilir. Bu yüzden numerik ifade ile başlayamaz.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> I. Fonksiyon isimlerinin ilk karakteri yalnızca alfabedeki harfler veya altçizgi “_” olabilir.<br>
+II. Fonksiyon isimleri büyük-küçük harflere duyarlıdır.<br>
+III. Fonksiyon isimleri benzersiz olmalıdır.<br>
+IV. Fonksiyon isimleri boşluk içerebilir.<br><br>
+Yukarıdaki PHP’de kullanıcı tanımlı fonksiyonların isimlendirilmesi ile ilgili ifadelerden hangileri doğrudur?  </p>
+	<span class="option" data-correct="false"><b>A)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve III </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I, II, III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I, II, IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II, III, IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> function dizi() {<br>
+   &emsp;$spor=["Futbol", "Basketbol", "Voleybol"];<br>
+&emsp;return $spor;<br>
+}
+$dizi=dizi();<br>
+   &emsp;echo $dizi[2]<br>
+?&gt;<br><br>
+Yukarıda kod bloğunun çıktısı aşağıdakilerden hangisidir?  </p>
+	<span class="option" data-correct="false"><b>A)</b> Futbol </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Basketbol </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Voleybol </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Spor </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 2 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      Dizi indexklemede dizi elemanları 0'dan başlar. Bu yüzden 2. indis Voleybol'dur.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> $dis_degisken=25;<br> 
+function bol($ic_degisken)<br> 
+{<br> 
+    &emsp;&emsp;global $dis_degisken;<br> 
+    &emsp;&emsp;return $dis_degisken / $ic_degisken;<br> 
+}<br> 
+echo "25/5=" . bol(5);<br> 
+?&gt;<br> <br> 
+Yukarıdaki kod bloğunun çıktısı aşağıdakilerden hangisidir?  </p>
+	<span class="option" data-correct="false"><b>A)</b> =5 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 25/5 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 25/5=5 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 5 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 25 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      bol(5) fonksiyonu ile dışarıdan çağrılan global dis_degisken yani 25 ile  ic_degisken'e yani 5'e bölünür ve bu değer geri döndürülür. 25/5, 5'e eşittir. Bu yüzden bol(5) fonksiyonu 5 değerini döndürür. <br><br>
+<br>
+echo komutu ile 25/5 yazdırılmış "." işareti ile bol(5) fonksiyonunun sonucu yani 5 ile birleştirilerek yazdırılmıştır. Nihai çıktı 25/5=5  </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> Aşağıdakilerden hangisi PHP'de return fonksiyonu ile ilgili bir ifadedir?  </p>
+	<span class="option" data-correct="false"><b>A)</b> Fonksiyona bilgi taşımak için kullanılır. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Fonksiyon sonuçlarını tekrar işleme alabilmek için kullanılır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Fonksiyon dışında tanımlanmış değişkenlerin kullanılması için kullanılır.  </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bir işin diğer bir işe bağımlı olduğu durumlarda kullanılabilir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kendi içinde tekrar kendisini içeren fonksiyonlardır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      Fonksiyonlarımızın sonuçlarını, önceki örneklerde olduğu gibi “echo” komutu ile doğrudan ekrana
+yazdırabilir veya tekrar işleme alabilmek için öncesinde “return” ile döndürebiliriz. Fonksiyon return komutuna kadar çalışır ve return komutu işlendikten sonra fonksiyon sona erer     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> PHP dilindeki kullanıcı tanımlı fonksiyonlar ile ilgili olarak aşağıdakilerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Fonksiyon isimlerinin ilk karakteri yalnızca alfabedeki harfler veya altçizgi “_” olabilir. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Fonksiyon isimleri yalnızca büyük harfle başlar. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Fonksiyon isimleri büyük-küçük harflere duyarlıdır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Fonksiyon isimleri benzersiz olmalıdır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Fonksiyon isimleri boşluk içeremez </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> PHP dilindeki include ve require komutları ile ilgili olarak hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Her iki komut da bir dosyanın içine başka bir dosyada yer alan kodu eklemek için kullanılır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> require komutu ile çağrılan dosya bulunamaz ise takip eden komutlar çalıştırılmaz. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> include komutu ile çağrılan dosya bulunamaz ise takip eden komutlar çalışmaya devam eder. </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Bu iki komut arasında hiçbir fark yoktur. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Her iki komut temelde aynı biçimde çalışır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      Bir dosyanın içine başka bir dosyada yer alan kodu eklemek için kullanılan bu komutlar temelde aynı biçimde çalışmakla beraber, require komutu ile çağrılan dosya bulunamaz ise takip eden komutlar çalıştırılmaz ancak include komutu ile çağrılan dosya bulunamaz ise takip eden komutlar çalışmaya devam eder. Bu sebeple “Bu iki komut arasında hiçbir fark yoktur.” demek doğru olmayacaktır.
+
+
+     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> I. require ve include komutları temelde aynı şekilde çalışır.<br>
+
+II. require komutu kullanıldığında çağrılacak PHP dosyası bulunamazsa ana dosyadaki kodlar çalışır.<br>
+
+III. include komutu kullanıldığında çağrılan dosya yerinde bulunamazsa da ana dosyadaki kodlar çalışacaktır.<br>
+
+IV. require ve include komutları kod bloğunda birlikte kullanılır. <br><br>
+
+Yukarıdaki include ve require komutları ile ilgili ifadelerden hangileri doğrudur?  </p>
+	<span class="option" data-correct="true"><b>A)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>B)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I, II, III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II, III, IV  </span><br>
+	<span class="option" data-correct="false"><b>E)</b> III, IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      Bir dosyanın içine başka bir dosyada yer alan kodu eklemek için kullanılan bu komutlar temelde aynı biçimde çalışmakla beraber, require komutu ile çağrılan dosya bulunamaz ise takip eden komutlar çalıştırılmaz ancak include komutu ile çağrılan dosya bulunamaz ise takip eden komutlar çalışmaya devam eder.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> PHP'de bir alışveriş sitesinden alışveriş yapılması için öncelikle siteye üye olunması işlemi için aşağıdaki fonksiyonlardan hangisi kullanılır?  </p>
+	<span class="option" data-correct="false"><b>A)</b> Kendini çağıran fonksiyon </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Değer döndürme fonksiyonu </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Varsayılan bir değeri olan fonksiyon </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Özyinelemeli fonksiyon </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Fonksiyon içinde fonksiyon </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> Aşağıdakilerden hangisi PHP'de her çağrıldığında, parametreler ile ilgili koşula bağlı olarak yenilenen ve bu işlem hedef değere ulaşana kadar devam eden fonksiyondur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Varsayılan Bir Değeri Olan Fonksiyonlar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Değer döndürme fonksiyonu </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Argüman içeren fonksiyon </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Özyinelemeli fonksiyon </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Fonksiyon içinde fonksiyon </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> PHP dilinde bazen, bir fonksiyon içerisinde, fonksiyon dışında tanımlanmış değişkenlerin kullanılması gerekebilir. Ancak fonksiyonlar kendi kapsamları dışındaki değişkenleri kullanamazlar. Fonksiyon dışında tanımlanmış bir değişkeni fonksiyonun içinde kullanmak için hangi ifadeden yararlanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> global </span><br>
+	<span class="option" data-correct="false"><b>B)</b> return </span><br>
+	<span class="option" data-correct="false"><b>C)</b> include </span><br>
+	<span class="option" data-correct="false"><b>D)</b> require </span><br>
+	<span class="option" data-correct="false"><b>E)</b> echo </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

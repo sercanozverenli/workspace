@@ -1,0 +1,2716 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	  <link rel="icon" type="image/png" href="icon.png">
+  <style>
+	  .block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		text-align: justify;
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="anasayfa.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA I
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama1-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama1-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama1-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama1-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama1-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama1-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama1-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama1-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama1-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama1-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          BİLİŞİM HUKUKU
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="bilisimhk-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="bilisimhk-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="bilisimhk-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="bilisimhk-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="bilisimhk-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="bilisimhk-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="bilisimhk-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="bilisimhk-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="bilisimhk-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="bilisimhk-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB'DE TELİF HAKLARI VE ETİK
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="webtelif-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="webtelif-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="webtelif-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="webtelif-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="webtelif-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="webtelif-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="webtelif-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="webtelif-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="webtelif-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="webtelif-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          AĞ YÖNETİMİ VE BİLGİ GÜVENLİĞİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="agyonetimi-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="agyonetimi-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="agyonetimi-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="agyonetimi-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="agyonetimi-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="agyonetimi-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="agyonetimi-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="agyonetimi-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="agyonetimi-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="agyonetimi-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİTABANI PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veritabaniprg-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veritabaniprg-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  </nav>
+  
+    <h4 id="ders">Bilişim Hukuku - Çıkmış Sorular (Ara Sınav) </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	<button class="block-group" data-start="40" data-end="59">Part 3</button>
+	<button class="block-group" data-start="60" data-end="79">Part 4</button>
+	<button class="block-group" data-start="80" data-end="99">Part 5</button>
+	<button class="block-group" data-start="100" data-end="119">Part 6</button>
+	<button class="block-group" data-start="120" data-end="139">Part 7</button>	  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> 5369 Sayılı Evrensel Hizmet Kanunu’nun 2. maddesine göre,  "İşaret, sebmbol, ses, görüntü ve elektrik işaretlerine dönüştürülebilen her türlü verinin kablo, telsiz, optik, elektrik, manyetik, elektromanyetik, elektrokimyasal, elektromekanik ve diğer iletim sistemleri vasıtasıyla iletilmesini, gönderilmesini ve alınmasını" ifade eden kavram hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Alt yapı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Veri sağlayıcı </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Elektronik haberleşme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Evrensel hizmet </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Trafik bilgisi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Türkiye'de ilk internet bağlantısını gerçekleştiren üniversite hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Ortadoğu Teknik Üniversitesi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İstanbul Teknik Üniversitesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İstanbul Üniversitesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Anadolu Üniversitesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Ankara Üniversitesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Aşağıdakilerden hangisi bir bölgesel internet kayıt merkezi (RIR) <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> IANA </span><br>
+	<span class="option" data-correct="false"><b>B)</b> APNIC </span><br>
+	<span class="option" data-correct="false"><b>C)</b> LACNIC </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ARIN </span><br>
+	<span class="option" data-correct="false"><b>E)</b> AfriNIC </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      	İnternet adreslemesini yönetmek için birlikte çalışan beş RIR vardır:<br>
+														1-İnternet Numaraları için Amerikan Kayıt Defteri (ARIN) - ABD, Kanada, Antarktika ve Karayipler bölgesi<br>
+														2-Asya-Pasifik Ağ Bilgi Merkezi (APNIC) - Asya, Avustralya, Yeni Zelanda<br>
+														3-Afrika Ağı Bilgi Merkezi (AfriNIC) - Afrika<br>
+														4-Reseaux IP Europeens Ağ Koordinasyon Merkezi (RIPE NCC) - Avrupa, Rusya, Orta Asya, Orta Doğu<br>
+														5-Latin Amerika ve Karayipler Ağı Bilgi Merkezi (LACNIC) - Latin Amerika ve Karayipler<br><br>
+														İnternet Tahsisli Sayılar Otoritesi <u>(IANA)</u> ise her bir RIR'a adresler tahsis eder ve bu da onları İnternet servis sağlayıcıları (İSS), devlet kurumları, büyük işletmeler ve eğitim kurumları gibi büyük bölgesel kuruluşlara tahsis eder.</div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Bilgisayar tarafından üzerinde işlem yapılabilen her türlü değer aşağıdaki hangi kavramla ifade edilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Erişim </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yayın </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Veri </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İzleme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İçerik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> İnternet üzerindeki veri iletişimi ......... olarak adlandırılan ana iletişim hatları üzerinden sağlanır <br><br>
+									Yukarıdaki boşluğa gelecek uygun terim aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yayın </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Hyper text </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Mail transfer </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Backbone </span><br>
+	<span class="option" data-correct="false"><b>E)</b> File transfer </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Federal Almanya Anayasa Mahkemesi 1983 yılında verdiği ve etkisi ülke sınırlarını aşan "Nüfus Sayımı" kararında kişisel verilerin korunmasını aşağıdaki haklardan hangisine dayandırmaktadır </p>
+	<span class="option" data-correct="false"><b>A)</b> Haberleşme hakkı </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Kişiliğin serbestçe geliştirilmesi hakkı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Mülkiyet hakkı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Seçme ve seçilme hakkı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Katılma hakkı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> Waren ve Barendeis'in, "........."nı geliştirdikleri ünlü makalelerini bireyin özel yaşamından beslenen azgın basının insan onuru, bireysel özerklik gibi önemli değerleri yok etmesi korkusundan hareketle kaleme alındığı bilinmektedir. <br><br>
+									Yukarıdaki boşluğa gelecek olan ifade aşağıdakilerden hangisidir?</p>
+	<span class="option" data-correct="false"><b>A)</b> Katılma hakkı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kişiliği geliştirme hakkı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bilgilerin geleceğini belirleme hakkı </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Yalnız bırakılma hakkı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Haberleşmenin gizliliği hakkı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> ......... olarak adlandırılabilecek dış çember, kişinin herkesle paylaşabileceği, kamuya açık yaşam alanlarını içerir. İkinci olarak ........., belirli kimselerle ve belirli ölçüde paylaştığı yaşam parçalarını kapsar. En içte kalan ......... ise kişinin yalnıca kendine saklamak istediği alanı oluşturur ve özel yaşam içinde değerlendirilir. <br><br>
+									Yukarıdaki boşluklara sırasıyla aşağıdakilerden hangisi gelmelidir?</p>
+	<span class="option" data-correct="false"><b>A)</b> Genel yaşam alanı - Hassas alan - Sır alanı  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Genel yaşam alanı - Hassas alan - Özel yaşam alanı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sır alanı - Özel yaşam alanı - Genel yaşam alanı </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Genel yaşam alanı - Özel yaşam alanı - Sır alanı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Özel yaşam alanı - Hassas alan - Genel yaşam alanı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> "Bu bilgilerin işlenmesi kural olarak yasaktır, ancak bazı sınırlı durumlarda ve veri koruma ilkelerini güçlü bir biçimde uygulayarak işlenmeleri olanaklıdır." <br><br>
+									Yukarıdaki açıklamaya göre aşağıdaki bilgilerden hangisi bu kapsamda <u><strong>değerlendirilemez?</strong></u></p>
+	<span class="option" data-correct="true"><b>A)</b> İletişim bilgisi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Felsefi inanç bilgisi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Etnik köken bilgisi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Siyasal görüş bilgisi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Cinsel yaşam bilgisi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> İhbarcılar, muhalifler, utangaç kişiler, görüşlerini açıklamalarının kendilerini olumsuz bir şekilde etkileyeceğini düşünenler, kişisel verilerinin toplanmamasını ve hareketlerinin izlenmesini istemeyenler için ......... oldukça yararlıdır <br><br>
+									Yukarıdaki boşluğa uygun gelecek ifade aşağıdakilerden hangisidir?</p>
+	<span class="option" data-correct="false"><b>A)</b> Belirlilik </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yüzeysellik </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Anonimlik </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Süreklilik </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Mutlaklık </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> Türk Borçlar Kanunu 419. maddesi uyarınca kişisel verilere ilişkin düzenleme, hangi sözleşme türünün ifası bağlamında bir hüküm içermektedir </p>
+	<span class="option" data-correct="false"><b>A)</b> Satım sözleşmesi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kira sözleşmesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kefalet sözleşmesi </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Hizmet sözleşmesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Eser sözleşmesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> Türkiye, taraf devletlerin metinde yer alan ilkeleri mevzuatlarına yansıtmalarını zorunlu kılan Avrupa Konseyi Kişisel Verilen Korunması Sözleşmesi'ni kaç yılında imzalamıştır. </p>
+	<span class="option" data-correct="false"><b>A)</b> 1970 </span><br>
+	<span class="option" data-correct="true"><b>B)</b> 1981 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 1994 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 2002 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 2007 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Elektronik Haberleşme Kanunu kapsamında sunulan hizmetlere ilişkin olarak; kişisel verilerin işlenmesine yönelik abonelerin/kullanıcıların rızalarını gösteren kayıtlar <u><strong>asgari</strong></u> ne kadar süreyle saklanır?</p>
+	<span class="option" data-correct="false"><b>A)</b> Üç yıl </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Abonelik süresince </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İki yıl  </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Abonelik süresinin bitiminden itibaren 4 yıl </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Beş yıl </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> ......... kullanıcı bir İnternet sitesini ziyaret ettiğinde bağlantı kurduğu cihazın sabit diskine kaydedilen bir tür tanımlama dosyası olarak tarif edilebilir.  <br><br>
+		Yukarıdaki boşluğa gelecek teri aşağıdakilerden hangisdir </p>
+	<span class="option" data-correct="false"><b>A)</b> Ticari ileti </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İleti </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Hassas veri </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Veri </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Çerez </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> "1- Herkes özel ve aile yaşamına, konutuna ve haberleşmesine saygı gösterilmesi hakkına sahiptir. <br>
+		2- Bu hakkın kullanılmasına bir kamu otoritesinin müdahalesi, ancak ulusal güvenlik, kamu emniyeti, ülkenin ekonomik refahı, dirlik ve düzenin korunması, suç işlenmesinin önlenmesi, sağlığın veya ahlakın veya başkalarının hak ve özrgürlüklerinin korunması için, demokratik bir toplumda gerekli olan ölçüde ve yasayla öngörülmüş olmak koşuluyla söz konusu olabilir."<br><br> Kişisel verilerin korunmasını bu madde içinde değerlendiren hukuksal düzenleme aşağıdakilerden hangisinde yer almaktadır.</p>
+	<span class="option" data-correct="false"><b>A)</b> Türkiye Cumhuriyeri 1982 Anayasası </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kişisel Verileri Koruma Kanunu </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Birleşmiş Milletler İnsan Hakları Sözleşmesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Türk Ceza Kanunu </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Avrupa İnsan Hakları Sözleşmesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Aşağıdakilerden hangisi bilişim sistemine girme suçunun konusunun <u><strong>oluşturamaz?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Bilgisayar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sanal Bellek (USB) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> CD </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Disket </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Uydu alıcısı (Dekoder) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> Başkasına ait banka veya kredi kartını kullanmak suretiyle yarar sağlama suçu bakımından aşağıdakilerden hangisinde fail hakkında şahsi cezasızlık sebebi söz konusu <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Aynı evde yaşadığı ablasının banka kartını kullanan kardeş </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Evlat edinenin kredi kartını kullanan evlatlık </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Boşandığı eşinin kredi kartını kullanan eski eş </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Annesinin banka kartını kullanan çocuk </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kayınvalidesinin kredi kartını kullanan damat </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Türkiye'de bilişim suçlarına ilişkin <u><strong>ilk</strong></u> düzenleme kaç yılında olmuştur? </p>
+	<span class="option" data-correct="false"><b>A)</b> 1989 </span><br>
+	<span class="option" data-correct="true"><b>B)</b> 1991 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 2000 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 2002 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 2007 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> Suçla korunan hukuki değerin ait olduğu kimse ......... olarak nitelendirilir. <br><br>Yukarıdaki cümlede boş bırakılan yeri aşağıdakilerden hangisi doğru şeklde tamamlar?</p>
+	<span class="option" data-correct="true"><b>A)</b> mağdur </span><br>
+	<span class="option" data-correct="false"><b>B)</b> fail </span><br>
+	<span class="option" data-correct="false"><b>C)</b> suçun konusu </span><br>
+	<span class="option" data-correct="false"><b>D)</b> fiil </span><br>
+	<span class="option" data-correct="false"><b>E)</b> içtima </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> Tek suç işleme kararının icrası kapsamında aynı kimseye ait değişik bilişim sistemlerine veya aynı kimseye ait tek bir bilişim sisteminin değişik parçalarına giren veya orada kalan kimse bakımından ...... suça ilişkin düzenlemeler uygulama alanı bulacaktır.  <br><br>
+		Yukarıdaki boşluğa gelecek uygun ifade aşağıdakilerden hangisidir?</p>
+	<span class="option" data-correct="false"><b>A)</b> Neticesiz </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Neticeli </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Seçimlik hareketli </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Şekli </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Zincirleme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Aşağıdakilerden hangisi kitle iletişim araçları yoluyla özgürce yayın yapabilmek ile yakından ilgili insan hak veya özgürlüklerinden biridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Özel Yaşamın Gizliliği </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Örgütlenme Hakkı </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Düşünceyi Açıklama Özgürlüğü </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yaşam Hakkı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İnanç Hürriyeti </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Aşağıdakilerden hangisi “dar anlamda bilişim suçlarına” örnek teşkil eder? </p>
+	<span class="option" data-correct="false"><b>A)</b> Siber Terör </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Manipülasyon </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Hırsızlık </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Dolandırıcılık </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Yetkisiz Erişim </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> 1.	Aşağıdakilerden hangisi, “Verilerin kaliteli olması ilkesi” ile <u><strong>uyuşmayacak</strong></u> mahiyettedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Toplanma ve sonrasında işlenme amaçlarına uygun, ilgili olma, aşırı olmama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Belirli, açık ve meşru amaçlar için toplanma </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Amacın gerektirdiğinden daha uzun süre tutulma </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Doğru ve eğer gerekli ise güncel olarak tutulma </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Hukuka ve dürüstlük kurallarına uygun işleme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Türkiye'de <u><strong>ilk</strong></u> internet bağlantısını 12 Nisan 1993 tarihinde Türkiye Bilimsel ve Teknik Araştırma Kurumu (TÜBİTAK) destekli bir proje ile gerçekleştiren Türk Üniversitesi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Hacettepe Üniversitesi </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Orta Doğu Teknik Üniversitesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İstanbul Teknik Üniversitesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bilkent Üniversitesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yıldız Teknik Üniversitesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> Bilgisayara komut veren ve belli durumlarda belli şekilde çalışmasını düzenleyen, işlemleri sıraya koyan, belli yapılar oluşturabilen komut dizilimlerine ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> TCP/IP Protokolü </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Veri </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yetkisiz Erişim </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Bilgisayar Programı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bilişim Sistemi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> Şahıslara ait bilgilerin üzerinde
+gerçekleştirilen, toplama, kaydetme, düzenleme, saklama, uyarlama veya değiştirme, geri alma, danışma, kullanma, ileti ile açığa çıkarma, yayma veya başka bir şekilde oluşturma, sıraya koyma veya birleştirme, engelleme, silme veya yok etme gibi otomatik olan veya olmayan araçlarla kişisel veri üzerinde gerçekleştirilen eylemlere ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kişisel Verilerin Düzenlenmesi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kişisel Verilerin Çalınması </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kişisel Verilerin Korunması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kişisel Verilere Yetkisiz Erişim </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Kişisel Verilerin işlenmesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Bilgisayarlarla örülmüş birden fazla haberleşme ağının birlikte meydana getirdikleri, iletişim ortamına ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Netvvork </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sanal Dünya </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bilişim </span><br>
+	<span class="option" data-correct="true"><b>D)</b> İnternet </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bilişim Alanı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> Bilişim Teknolojileri ve İnsan Hakları ile ilgili aşağıdaki ifadelerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Bilgisayar teknolojilerinde hızlı gelişim ve ağların ağı internet’in ortaya çıkışı insan yaşamını Sanayi Devrimi ile kıyaslanır ölçüde bir dönüşüme uğratmıştır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Başta Batı Avrupa olmak üzere dünyanın pek çok yerinde devlet ve yurttaş ilişkilerinin insan hakları ekseninde değerlendirilmesini gerekli kılmıştır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> II. Dünya savaşı sonrasında pek çok devletin anayasasında ve uluslararası metinlerde temel hak ve özgürlükleri sağlamaya yönelik güçlü koruma rejimleri oluşturulmuştur. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Akıllı telefonlar, e-posta adresleri, kapalı devre televizyon sistemleri, sosyal paylaşım siteleri gibi bilişim ürünleri kısa bir süre içinde yaygınlaşmıştır. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Bilişim teknolojilerindeki gelişmeler, insan hakları ile alakası olmayan, teknolojik gelişmelerdir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> Kişisel verilerin korunması ile ilgili aşağıdaki ifadelerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Kişisel verilerin korunmasının temel bir insan hakkı olması reddedilen bir yaklaşımdır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kişisel verilerin korunması, kendisinden daha köklü haklarla yakından ilişkilidir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kişisel verilerin ekonomik özellikleri de vardır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kişisel verilerin korunmasının özel yaşamın gizliliği ile çok yakın bir ilişkisi mevcuttur. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kişisel verilerin korunması, insan onuru ve temel özgürlüklere hizmet etmektedir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> Bilişim ve Bilişim Hukuku ile ilgili aşağıdaki ifadelerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Verilerin uluslararası kullanımından doğan sorunlar devletler hukukunun; bilişim hukukundaki soruşturma, kovuşturma ve yargılama yöntemleri ise medeni usul hukuku ile ceza muhakemesi hukukunun kapsamına girmektedir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yazılımların korunması, kullanılması, bunlara ilişkin sözleşmeler ve ihlaller fikri mülkiyet hukukunun konusuna girmektedir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bilişim hukukunun uğraş alanı, multi-disipliner bir yapıya sahip olması sebebiyle çok geniş olup, birçok hukuk dalı ile iç içe geçmiştir. </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Bilişim aracılığıyla işlenen suçlar, özel hayatın gizliliği, kişisel verilere karşı işlenen suçlar, banka veya kredi kartları aracılığıyla işlenen suçlar gibi konular anayasa hukukunun konusudur. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kamu kurum ve kuruluşlarında bilgisayarların kullanılmasına ilişkin sorunlar idare hukukunun alanına girmektedir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> TCK m. 244/1’e göre, bir bilişim sisteminin işleyişini engelleyen veya bozan kişiye verilecek ceza aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Bir yıldan beş yıla kadar hapis cezası </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bir yıldan on yıla kadar hapis cezası </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bir yıldan beş yıla kadar hapis cezası veya para cezası </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bir yıldan on yıla kadar hapis cezası veya para cezası </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bir yıl hapis cezası veya para cezası </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> Elektronik Ticaret Kanunu ile ilgili aşağıdaki ifadelerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Kendisiyle iletişime geçilmesi amacıyla alıcının iletişim bilgilerini vermesi hâlinde, ayrıca onay alınmaz. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Elektronik Ticaret Kanunu, elektronik olsun olmasın, her türlü ticari işte uygulama bulacaktır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Esnaf ve tacirlere önceden onay alınmaksızın ticari elektronik iletiler gönderilebilir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Ticari elektronik ileti gönderilmesi onayı, yazılı olarak veya her türlü elektronik iletişim araçlarıyla alınabilir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Ticari elektronik iletiler, alıcılara ancak önceden onayları alınmak kaydıyla gönderilebilir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> Bilişim Sistemine Girme Suçu ile ilgili aşağıdaki ifadelerden hangisi doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Bu suçu işlediği tespit edilen kişiye yalnızca adlî para cezası verilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bir bilişim sisteminin yalnızca bir kısmına giren ve orada kalmaya devam eden kimse bu suçu işlememiştir. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Bir bilişim sisteminin bütününe girmiş olan ve orada kalmaya devam eden kimse bu suçu işlemiştir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kanun’da suç olarak tanımlanan fiillerin, bedeli karşılığı yararlanılabilen sistemler hakkında işlenmesi hâlinde, verilecek ceza yarı oranında <u>arttırılır</u>. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kanun'da suç olarak tanımlanan fiil nedeniyle sistemin içerdiği veriler yok olur veya değişirse üç yıldan on yıla kadar hapis cezasına hükmolunur. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> Kişisel Verileri Koruma Kurulu kaç üyeden oluşur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yedi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sekiz </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Dokuz </span><br>
+	<span class="option" data-correct="false"><b>D)</b> On iki </span><br>
+	<span class="option" data-correct="false"><b>E)</b> On beş </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      Kurul,
+dokuz üyeden oluşur. Kurulun beş üyesi Türkiye
+Büyük Millet Meclisi, dört üyesi Cumhurbaşkanı
+tarafından seçilir.      </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> Türk Ceza Kanunu 136. Maddesince düzenlenen; kişisel verileri hukuka aykırı olarak başkasına vermek, yaymak ve ele geçirmek suçu ile ilgili aşağıdaki ifadelerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Suçu işlemek için bahsedilen eylemlerden bir tanesini gerçekleştirmek yeterlidir. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Bu suç için 5 yıldan 8 yıla kadar hapis cezası öngörülmüştür. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Hukuka uygun kaydedilmiş bilgileri hukuka aykırı olarak ele geçiren kişi de cezalandırılır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Düzenlemenin amacı kişisel verilerin yetkisiz kişilerin eline geçmesini önlemektir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bu suç hakkında hapis cezası öngörülmüştür. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      Kişisel verileri, hukuka aykırı olarak bir başkasına veren, yayan veya ele geçiren kişi, iki yıldan dört yıla kadar hapis cezası ile cezalandırılır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> Bilişim sistemini engelleme, bozma, verileri yok etme veya değiştirme suçu ile Igili aşağıdaki ifadelerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Bilişim sistemini engelleme, bozma, verileri yok etme veya değiştirme suçu ile korunan hukuki değer bireylerin mal varlığı ve bilişim sisteminin güvenliğidir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bilişim sistemindeki verileri bozan kişi 6 aydan 3 yıla kadar hapis ceza ile cezalandırılır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bilişim sistemindeki verileri bozma suçu bir kamu kurum veya kuruluşuna karşı işlenirse verilecek ceza yarı oranında arttırılır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bilişim sistemindeki verileri yok eden kişi 6 aydan 3 yıla kadar hapis cezası ile cezalandırılır. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Bilişim sisteminin işleyişini engelleyen veya bozan kişi idari para cezası ile cezalandırılır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> Kişinin işlemeyi kastettiği bir suçu elverişli hareketlerle doğrudan doğruya icraya başlayıp da elinde olmayan nedenlerle <u><strong>tamamlayamamasına</strong></u> Ceza Hukuku’nda ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kast </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Teşebbüs </span><br>
+	<span class="option" data-correct="false"><b>C)</b> iştirak </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kusurluluk </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İçtima </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> Kişisel verilerin korunmasına ilişkin 6553 sayılı Elektronik Ticaretin Düzenlenmesinin yer aldığı kanun kaç yılında kabul edilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 2011 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 2012 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 2013 </span><br>
+	<span class="option" data-correct="true"><b>D)</b> 2014 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 2015 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> Bilgilerin soyut halde belirli bir formata dönüştürülmüş haline ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> internet </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Program </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Veri </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Extranet </span><br>
+	<span class="option" data-correct="false"><b>E)</b> intranet </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> Aşağıdakilerden hangisi Türkiye’de Kişisel Verilerin Korunmasıyla ilgili olan ve yaygın olarak kullanılan veri tabanlarından biri <u><strong>değildir? </strong></u></p>
+	<span class="option" data-correct="true"><b>A)</b> TELNET </span><br>
+	<span class="option" data-correct="false"><b>B)</b> MERNİS </span><br>
+	<span class="option" data-correct="false"><b>C)</b> UYAP </span><br>
+	<span class="option" data-correct="false"><b>D)</b> MOBESE </span><br>
+	<span class="option" data-correct="false"><b>E)</b> POLNET </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question41">
+	<p class="question">Soru 41:<br> Aşağıdakilerden hangisi “verilerin kaliteli olması ilkesi” ile <u><strong>bağdaşmaz?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Doğru ve eğer gerekli ise güncel olarak tutulma </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Dürüstlük kurallarına uygun işleme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Hukuka uygun işleme </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Verileri olabildiğince uzun saklama </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Meşru amaçlar için toplanma </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description41">Açıklama</button>
+		<div id="description41" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question42">
+	<p class="question">Soru 42:<br> İnternet üzerindeki tüm bilgilere bakabilmek ve bu bilgilerle etkileşim halinde olabilme imkânı veren uygulama programına ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Domain name </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Web tarayıcısı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bilişim alanı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bilişim sistemi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> World wide web </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description42">Açıklama</button>
+		<div id="description42" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question43">
+	<p class="question">Soru 43:<br> Aşağıdakilerden hangisi Bilişim Hukuku bağlamında ilgili kişinin katılımı ve denetimine yönelik ilkelerden biridir? </p>
+	<span class="option" data-correct="true"><b>A)</b> İlgilinin kendisine ilişkin bilgileri düzeltme hakkı olması </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İlgilinin bilgilendirilmemesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İlgilinin bilgilendirilmemesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İlgilinin veri işleme sürecinden soyutlanması </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İlgilinin rızası olmadan kişisel bilgilerinin ticarileştirilmesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description43">Açıklama</button>
+		<div id="description43" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question44">
+	<p class="question">Soru 44:<br> Aşağıdakilerden hangisi Telekomünikasyon İletişim Başkanlığının (Yeni adıyla BTK) görevlerinden biridir? </p>
+	<span class="option" data-correct="true"><b>A)</b> internet alanındaki uluslararası kurum ve kuruluşlarla iş birliği ve koordinasyonun sağlanması </span><br>
+	<span class="option" data-correct="false"><b>B)</b> internet üzerindeki bilgilere ulaşma imkanı sağlayan programların hazırlanması </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Verilerin toplanarak bilgisayarda işleme tabi tutulması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bilgisayar işletim sistemlerinin pazarlanmas </span><br>
+	<span class="option" data-correct="false"><b>E)</b> internet üzerinde erişilebilir bilgilerin dijital olarak depolanması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description44">Açıklama</button>
+		<div id="description44" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question45">
+	<p class="question">Soru 45:<br> Bilgisayar tarafından üzerinde işlem yapılan her türlü değerdir; sayısal birimlere dönüştürülmüş bilgidir.<br>
+Verilen bilgiye göre tanımlanan terim aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Bilişim Alanı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> internet Yer Sağlayıcısı </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Veri </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bilişim Sistemi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> internet </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description45">Açıklama</button>
+		<div id="description45" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question46">
+	<p class="question">Soru 46:<br> Bilişim suçları ile ilgili aşağıdaki ifadelerden hangisi doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Vergi Hukuku’nun bir alt dalıdır. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Bilişim sistemleri aracılığıyla işlenebilen suçlardır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bilgisayar ve benzeri elektronik aletlerin çalınması bu suçlardandır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yalnızca iş yerinde işlenebilen suçlardır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bilerek işlenen suçlara verilen hukuki addır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description46">Açıklama</button>
+		<div id="description46" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question47">
+	<p class="question">Soru 47:<br> Kişisel verilerin korunması hakkı aşağıda sunulan haklardan hangisi ile ilgili <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> insan onuru </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Düşünceyi açıklama özgürlüğü </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Seçme ve seçilme hakkı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Haberleşme özgürlüğü </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Özel yaşamın gizliliği </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description47">Açıklama</button>
+		<div id="description47" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question48">
+	<p class="question">Soru 48:<br> Aşağıdakilerden hangisi Bilişim Hukuku’nun ortaya çıkış nedenlerinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Klasik hukuk dallarının modern problemleri çözmede tek başına yetersiz kalması </span><br>
+	<span class="option" data-correct="false"><b>B)</b> internet üzeri alışverişlerin artması ve bunun neden olduğu sorunlar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> internet üzerinden suç işlenmesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Teknolojik gelişmeler </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Artan lobi faaliyetleri </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description48">Açıklama</button>
+		<div id="description48" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question49">
+	<p class="question">Soru 49:<br> TCK. madde 138 gereği, Kanunların belirlediği sürenin geçmiş olmasına karşın verileri sistem içinde yok etmekle yükümlü olanlara görevlerini yerine <u><strong>getirmediklerinde</strong></u> verilecek hapis ceza süresi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Üç yıldan dört yıla </span><br>
+	<span class="option" data-correct="false"><b>B)</b> iki yıldan üç yıla </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Bir yıldan iki yıla </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Altı aydan bir yıla </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bir aydan altı aya </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description49">Açıklama</button>
+		<div id="description49" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question50">
+	<p class="question">Soru 50:<br> II. Dünya Savaşı sırasında Nazilerin gözaltındaki kişilerin telefon faturalarını inceleyerek bu kişilerin iletişim halinde bulundukları şahısları tespit etmeleri hangi ilkenin doğrudan ihlalidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Mülkiyetin korunması </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Özel haberleşmenin gizliliği </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Seyahat özgürlüğü </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Düşünceyi açıklama özgürlüğü </span><br>
+	<span class="option" data-correct="false"><b>E)</b> inanç hürriyeti </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description50">Açıklama</button>
+		<div id="description50" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question51">
+	<p class="question">Soru 51:<br> İzinsiz bilişim sistemine girme suçu ile korunan hukuki değer aşağıdakilerden hangisinde doğru şekilde ifade edilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Bireyin konutundaki özel alanı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bireyin konut dokunulmazlığı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bireyin vücut bütünlüğü </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bireyin sanal alandaki kamusal alanı </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Bireyin sanal alandaki özel alanı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description51">Açıklama</button>
+		<div id="description51" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question52">
+	<p class="question">Soru 52:<br> Bir şüphelinin kullandığı bilgisayar programları ile bilgisayar kütüklerinde arama yapılmasına, bilgisayar kayıtlarından kopya çıkarılmasına bu kayıtların çözülerek metin haline getirilmesine hangi merciin talebi üzerine kim karar verir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Cumhuriyet Savcısı / Hâkim </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Valilik / Hâkim </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yargıtay Başsavcısı / Uyuşmazlık Mahkemesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yargıtay Başsavcısı / Anayasa Mahkemesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Valilik / Cumhuriyet Savcısı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description52">Açıklama</button>
+		<div id="description52" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question53">
+	<p class="question">Soru 53:<br> Aşağıdakilerden hangisi Türkiye’de kişisel verilerin korunmasına yönelik <u><strong>temel</strong></u> düzenlemelerden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Türk Borçlar Kanunu </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Türk Ceza Kanunu </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Elektronik Haberleşme Kanunu </span><br>
+	<span class="option" data-correct="true"><b>D)</b> İcra-İflas Kanunu </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Türk Medeni Kanunu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description53">Açıklama</button>
+		<div id="description53" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question54">
+	<p class="question">Soru 54:<br> İzinsiz Bilişim Sistemine girme suçu ile ilgili aşağıdakilerden hangisi ileri <u><strong>sürülemez?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Bu suç kesintisiz bir suçtur. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bu suç herkes tarafından işlenebilir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Hukuka aykırı olarak sisteme girip orada kalmakla suç oluşur. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Herkes bu suçun mağduru olabilir. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Bu suçun maddi konusu konut ve ona ait müştemilattır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description54">Açıklama</button>
+		<div id="description54" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question55">
+	<p class="question">Soru 55:<br> Banka ve kredi kartlarının kötüye kullanılması suçu ile ilgili aşağıdakilerden hangisi ileri <u><strong>sürülemez?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Suçun oluşması için kredi kartının fiziken ele geçirilmesi gerekli değildir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Rıza ile kartın kullanılması durumunda bu suçun işlenmesi söz konusu olmaz. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Bu suçun tek mağduru T.C. Merkez Bankası’dır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Suçun konusunu banka ve kredi kartları oluşturmaktadır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bu suç herkes tarafından işlenebilir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description55">Açıklama</button>
+		<div id="description55" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question56">
+	<p class="question">Soru 56:<br> Aşağıdakilerden hangisi kişisel verilerin korunmasının “Anayasal temelleri hakkında” ileri sürülen ifadelerden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Anayasa’da direkt olarak kişisel verilerin korunmasına ilişkin hiçbir düzenleme bulunmamaktadır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> “insan onuru” kavramı Anayasa Mahkemesi kararları ışığında kişisel verilerin korunmasıyla da ilgilidir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Anayasa’ya göre herkes, kendisiyle ilgili kişisel verilerin korunmasını isteme hakkına sahiptir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Anayasa’ya göre kişisel veriler ancak kanunda gösterilen hallerde veya kişinin açık rızasıyla işlenebilir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 	Kişinin maddi ve manevi varlığını geliştirme hakkı bu konuda yol gösterici bir Anayasal düzenlemedir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description56">Açıklama</button>
+		<div id="description56" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question57">
+	<p class="question">Soru 57:<br> Aşağıdakilerden hangisi Türkiye’de Kişisel Verilerin Korunmasıyla ilgili olan ve yaygın olarak kullanılan veri tabanlarından biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> MOBESE </span><br>
+	<span class="option" data-correct="false"><b>B)</b> UYAP </span><br>
+	<span class="option" data-correct="true"><b>C)</b> PTT </span><br>
+	<span class="option" data-correct="false"><b>D)</b> MERNİS </span><br>
+	<span class="option" data-correct="false"><b>E)</b> POLNET </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description57">Açıklama</button>
+		<div id="description57" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question58">
+	<p class="question">Soru 58:<br> Şahıs A, kendisine atılı banka ve kredi kartlarının kötüye kullanılması suçunu sehven işlediğini, aslında kendi kredi kartından alışveriş yapma niyetinde olduğunu ifade etmiştir. Yapılan incelemede bu yalan bir ifade olarak vasıflandırılmıştır.<br>
+Bu olaydada, bahsi geçen suçun hangi özelliği ön plana çıkmaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Bu suça teşebbüs mümkündür. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Etkin pişmanlık halinde cezada indirime gidilir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tehdit ile bu suça itilen kişinin cezalandırılması gerekir. </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Bu suç kasten işlenebilen bir suçtur. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Aynı evde yaşayan kardeşlerin bu suçu başka bir kardeş aleyhine işlemeleri halinde ceza verilmez. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description58">Açıklama</button>
+		<div id="description58" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question59">
+	<p class="question">Soru 59:<br> Aşağıdakilerden hangisi 1 Haziran 2005 tarihinde yürürlüğe giren Türk Ceza Kanunu uyarınca suç olarak düzenlenen kapsamlardan biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Kişisel verilerin hukuka aykırı olarak verilmesi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kişisel verilerin hukuka aykırı olarak yayılması </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kişisel verilerin hukuka aykırı olarak kayıt edilmesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kişisel verilerin hukuka aykırı olarak ele geçirilmesi </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Kişisel verilerin bir hukuka aykırılık iddiasıyla mahkemece talep edilmesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description59">Açıklama</button>
+		<div id="description59" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question60">
+	<p class="question">Soru 60:<br> Kişisel verilerin korunması kanunu kaç bölümden oluşur? </p>
+	<span class="option" data-correct="true"><b>A)</b> Yedi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sekiz </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Dokuz </span><br>
+	<span class="option" data-correct="false"><b>D)</b> On bir </span><br>
+	<span class="option" data-correct="false"><b>E)</b> On üç </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description60">Açıklama</button>
+		<div id="description60" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question61">
+	<p class="question">Soru 61:<br> 2.	İçerik, yer ve erişim sağlayıcılarına genel olarak ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Bilişim hukuku süjeleri </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İnternet etkinlikleri </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Erişim nesneleri </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İnternet verileri </span><br>
+	<span class="option" data-correct="true"><b>E)</b> İnternet süjeleri </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description61">Açıklama</button>
+		<div id="description61" class="collapse">      İnternetin sunduğu hizmetlerin yerine getirilmesinin sağlayan ve internet sektöründe faaliyet gösterenlere internet sujeleri denmektedir.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question62">
+	<p class="question">Soru 62:<br> 3.	5809 sayılı Elektronik Haberleşme Kanunu gereğince, elektronik haberleşme sektöründe rekabeti tesis etmeye ve korumaya, rekabeti engelleyici, bozucu veya kısıtlayıcı uygulamaların giderilmesine yönelik düzenlemeleri yapmak, bu amaçla ilgili pazarlarda etkin piyasa gücüne sahip işletmecilere ve gerekli hallerde diğer işletmecilere yükümlülükler getirmek ve mevzuatın öngördüğü tedbirleri almak ile görevlendirilmiş kurum aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Bilgi Teknolojileri ve İletişim Kurumu </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Rekabet Kurumu </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İçişleri Bakanlığı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kişisel Verileri Koruma Kurumu </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Enerji Piyasası Düzenleme Kurumu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description62">Açıklama</button>
+		<div id="description62" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question63">
+	<p class="question">Soru 63:<br> 4.	B.Tanör’ün tanımına göre; “insanın serbestçe düşünce ve bilgilere ulaşabilmesi, edindiği düşünce ve kanaatlerden dolayı bunları tek başına ya da başkalarıyla birlikte (dernek, toplantı, sendika vb.) çeşitli yollarla (söz, basın, sinema, tiyatro vb.) serbestçe açıklayabilmesi, savunabilmesi, başkalarına aktarabilmesi ve yayabilmesi anlamına” gelen hak / özgürlük aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Toplantı ve dernek kurma özgürlüğü </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Anonimlik hakkı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Özel yaşamın gizliliği hakkı </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Düşünceyi açıklama özgürlüğü </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Adil yargılanma hakkı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description63">Açıklama</button>
+		<div id="description63" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question64">
+	<p class="question">Soru 64:<br> 5.	Belirli ya da belirlenebilir bir kişiye ilişkin her türlü bilgiye ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> İnternet servis sağlayıcısı </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Kişisel veri </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Özel engelleme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Paylaşım </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Elektronik posta </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description64">Açıklama</button>
+		<div id="description64" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question65">
+	<p class="question">Soru 65:<br> 5651 sayılı internet ortamında yapılan yayınların düzenlenmesi ve bu yayınlar yoluyla işlenen suçlarla mücadele edilmesi hakkında Kanun’un 2. maddesine göre belirtilen	bakanlık	aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> İçişleri Bakanlığı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Çevre ve Şehircilik Bakanlığı </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Ulaştırma,	Denizcilik	ve	Haberleşme Bakanlığı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Dışişleri Bakanlığı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Adalet Bakanlığı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description65">Açıklama</button>
+		<div id="description65" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question66">
+	<p class="question">Soru 66:<br> Aşağıdakilerden hangisi kişisel verilerin korunması hakkı ile <u><strong>doğrudan</strong></u> bağlantılı haklardan biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> İspat hakkı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Özel hayatın gizliliği hakkı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Düşünceyi açıklama özgürlüğü hakkı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bilgilerin geleceğini belirleme hakkı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Özel haberleşmenin gizliliği hakkı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description66">Açıklama</button>
+		<div id="description66" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question67">
+	<p class="question">Soru 67:<br> Özellikle II. Dünya savaşı sonrasında pek çok devletin anayasasında ve uluslararası metinlerde temel hak ve özgürlükleri sağlamaya yönelik güçlü koruma rejimleri oluşturulmuştur. Bu durum başta Batı Avrupa olmak üzere dünyanın pek çok yerinde devlet ve yurttaş ilişkilerinin ------- ekseninde değerlendirilmesini gerekli kılmıştır.
+<br>
+Yukarıdaki parçada boş bırakılan yeri aşağıdakilerden hangisi doğru şekilde tamamlar?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> eğitim seviyesi </span><br>
+	<span class="option" data-correct="true"><b>B)</b> insan hakları </span><br>
+	<span class="option" data-correct="false"><b>C)</b> güvenlik </span><br>
+	<span class="option" data-correct="false"><b>D)</b> politika </span><br>
+	<span class="option" data-correct="false"><b>E)</b> sosyal sınıf </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description67">Açıklama</button>
+		<div id="description67" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question68">
+	<p class="question">Soru 68:<br> Elektronik Haberleşme Kanunu’nun “kişisel verilerin işlenmesi ve gizliliğinin korunması” kenar başlıklı 51. maddesi dikkate alındığında, elektronik haberleşme ve ilgili trafik verisine ilişkin <u><strong>temel</strong></u> kural aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Mutlak aleniyet </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Aleniyet </span><br>
+	<span class="option" data-correct="true"><b>C)</b> İlke olarak gizlilik </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Halka açıklık </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Mutlak gizlilik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description68">Açıklama</button>
+		<div id="description68" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question69">
+	<p class="question">Soru 69:<br> Birçok klasik suçun, bilişim sistemlerinde veya bilişim sistemlerinden de yararlanılarak işlenmesi mümkündür.
+<br>
+Buna	göre,	aşağıdakilerden	hangisi	bu suçlardan biri <u><strong>değildir?</strong></u>
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Bilişim sistemini yapılandırma </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Dolandırıcılık </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Taciz </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Hakaret ve sövme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Tehdit ve şantaj </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description69">Açıklama</button>
+		<div id="description69" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question70">
+	<p class="question">Soru 70:<br> İzinsiz bilişim sistemine girme suçunun maddi konusu aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Bilgisayar veya parçalarından herhangi biri </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kişilerin özel verileri veya bilgisayardan biri </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kişilerin özel verileri veya parçalarından herhangi biri </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Bilişim sistemi veya parçalarından herhangi biri </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bilişim sistemi ve kişilerin özel verileri </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description70">Açıklama</button>
+		<div id="description70" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question71">
+	<p class="question">Soru 71:<br> Yeni Borçlar Kanunu’nun 419. maddesi uyarınca “İşveren, işçiye ait kişisel verileri, ancak işçinin işe yatkınlığıyla ilgili veya hizmet sözleşmesinin ifası için zorunlu olduğu ölçüde kullanabilir.”
+<br>
+Buna göre, Borçlar Kanunu’ndaki mevcut düzenlemenin daha yakından ilgili olduğu hukuk alanı aşağıdakilerden hangisidir?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> Uluslararası Ticari Tahkim Hukuku </span><br>
+	<span class="option" data-correct="true"><b>B)</b> İş Hukuku </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İcra ve İflas Hukuku </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Uluslararası Deniz Hukuku </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Deniz Ticaret Hukuku </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description71">Açıklama</button>
+		<div id="description71" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question72">
+	<p class="question">Soru 72:<br> <u>Tek</u> kişi tarafından işlenebilen bilişim sistemine girme suçunun, birden fazla kimse tarafından bir <u><strong>işbirliği</strong></u> içerisinde işlenmesine ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> İçtima </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Teşebbüs </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kast </span><br>
+	<span class="option" data-correct="true"><b>D)</b> İştirak </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kusurluluk </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description72">Açıklama</button>
+		<div id="description72" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question73">
+	<p class="question">Soru 73:<br> AİHM'nin açılımı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Avrupa İnsan Hakları Mahkemesi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Avrupai İnsan ve Hukuk Merkezi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Asya İnsan Hakları Mahkemesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Avrupa İnsan Hakları Merkezi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Avrupa İnsan ve Hayvan Hakları Mahkemesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description73">Açıklama</button>
+		<div id="description73" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question74">
+	<p class="question">Soru 74:<br> I. İnsan onuru<br>
+II. Seçme ve seçilme hakkı<br>
+III. Seyahat özgürlüğü<br>
+IV. Özel yaşamın gizliliği<br><br>
+Yukarıdaki hak ve ilkelerden hangileri,
+bilişim alanında kişisel verilerin korunması
+ile doğrudan bağlantılıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="true"><b>D)</b> I ve IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, III ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description74">Açıklama</button>
+		<div id="description74" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question75">
+	<p class="question">Soru 75:<br> Avrupa İnsan Hakları Mahkemesi; belge
+eşleştirme, kişisel bilgilere yetkisiz ulaşım, verilerin gereğinden uzun süre sistemlerde tutulması, DNA profillerinin değerlendirilmesi gibi konularda aşağıdaki haklardan hangisine ait ilkeleri kullanır? </p>
+	<span class="option" data-correct="false"><b>A)</b> İfade Hürriyeti </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Toplantı ve Dernek Kurma Özgürlüğü </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Özel Yaşamın Gizliliği Hakkı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Adil Yargılanma Hakkı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Düşünce, Vicdan ve Din Özgürlüğü </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description75">Açıklama</button>
+		<div id="description75" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question76">
+	<p class="question">Soru 76:<br> Okunması ve akılda tutulması kolay olan ve
+aranan adres sahipleri ile ilişkilendirilebilen
+simgesel isimlerle yapılan adreslemede,
+karşılığı olan internet protokolü numarasını
+bulan ve kullancıya veren sisteme ne ad
+verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Elektronik haberleşme hizmeti </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Erişim yükümlüsü </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Elektronik kimlik bilgisi </span><br>
+	<span class="option" data-correct="true"><b>D)</b> İnternet alan adı sistemi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Elektronik haberleşme sektörü </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description76">Açıklama</button>
+		<div id="description76" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question77">
+	<p class="question">Soru 77:<br> Avrupa İnsan Hakları Sözleşmesi ile ilgili
+aşağıdaki ifadelerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> AİHS 8/2 hükmü uyarınca özel ve aile yaşamına müdahale, yasada öngörülmesi halinde gerçekleştirilebilir. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> AİHS 8/2 hükmü uyarınca özel ve aile yaşamına müdahale, idarenin sınırsız takdir yetkisine bırakılmıştır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> AİHS 8/2 hükmü uyarınca özel ve aile yaşamına müdahale sınırlı sayımla belirtilmiş amaçlarla gerçekleştirilebilir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> AİHS 8/2 hükmü uyarınca özel ve aile yaşamına müdahale, öngörülen amaç ile orantılı olması durumunda meşrudur. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> AİHS 8/2 hükmü uyarınca özel ve aile yaşamına müdahale, demokratik toplum için gerekli olması halinde meşrudur. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description77">Açıklama</button>
+		<div id="description77" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question78">
+	<p class="question">Soru 78:<br> İnsanoğlunun teknik, ekonomik ve toplumsal
+alanlardaki iletişiminde kullandığı ve bilimin
+dayanağı olan bilginin özellikle elektronik
+makineler aracılığıyla düzenli ve akla uygun
+bir biçimde işlenmesi bilimine ne ad verilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Bilişim </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bilgisayar sistemleri </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Mekatronik </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Enformasyon yönetimi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Siber savaş </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description78">Açıklama</button>
+		<div id="description78" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question79">
+	<p class="question">Soru 79:<br> Aşağıdakilerden hangisi “toplu kullanım
+sağlayıcı” kavramını ifade eder? </p>
+	<span class="option" data-correct="false"><b>A)</b> Hizmet ve içerikleri barındıran sistemleri sağlayan veya işleten gerçek veya tüzel kişidir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İnternet ortamı üzerinden kullanıcılara sunulan her türlü bilgi veya veriyi üreten, değiştiren ve sağlayan gerçek veya tüzel kişidir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İnternet ortamında alan ve içeriğine belirsiz sayıda kişilerin ulaşabileceği verilerdir </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Mülki İdare Amiridir </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Kişilere belli bir yerde ve belli bir süre internet ortamı kullanım olanağı sağlayan kişidir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description79">Açıklama</button>
+		<div id="description79" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question80">
+	<p class="question">Soru 80:<br> Aşağıdakilerden hangisi “geniş anlamda
+bilişim suçlarına” örnek teşkil eder? </p>
+	<span class="option" data-correct="false"><b>A)</b> Verilere yönelik suçlar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yetkisiz erişim </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Tehdit </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bilişim ağlarına yönelik suçlar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sanal tecavüz </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description80">Açıklama</button>
+		<div id="description80" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question81">
+	<p class="question">Soru 81:<br> Bilişim <u><strong>ile</strong></u> doğrudan ilgili ilk hukuksal düzenleme hangi yıl gerçekleştirilmiştir? </p>
+	<span class="option" data-correct="true"><b>A)</b> 1970 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 1980 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 1985 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 1990 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 1995 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description81">Açıklama</button>
+		<div id="description81" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question82">
+	<p class="question">Soru 82:<br> Aşağıdakilerden hangisi <u><strong>hassas</strong></u> olarak kabul edilen veri türlerinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Dinsel inanç </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Ad-soyad </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Siyasal görüş </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sağlığa ilişkin bilgiler </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sendika üyeliği </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description82">Açıklama</button>
+		<div id="description82" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question83">
+	<p class="question">Soru 83:<br> Kanunların belirlediği sürenin geçmiş olmasına karşın verileri sistem içinde yok etmekle yükümlü olanlara görevlerini yerine getirmediklerinde bir yıldan iki yıla kadar hapis cezası verilir.<br><br>
+Yukarıda yer alan hüküm aşağıdakilerin
+hangisinde düzenlenmiştir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Türk Ceza Kanunu </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Türk Medeni Kanunu </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Türk Borçlar Kanunu </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Elektronik Ticaret Kanunu </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Avrupa İnsan Hakları Sözleşmesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description83">Açıklama</button>
+		<div id="description83" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question84">
+	<p class="question">Soru 84:<br> TCK’nin 135. maddesi uyarınca kişisel verilerin hukuka aykırı olarak kaydedilmesi -------. <br><br> 
+Yukarıdaki cümlede boş bırakılan yeri aşağıdakilerden hangisi doğru şekilde
+tamamlar? </p>
+	<span class="option" data-correct="false"><b>A)</b> haksız fiildir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> kusurdur </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ağırlaştırıcı nedendir </span><br>
+	<span class="option" data-correct="false"><b>D)</b> yükümlülüktür </span><br>
+	<span class="option" data-correct="true"><b>E)</b> suçtur </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description84">Açıklama</button>
+		<div id="description" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question85">
+	<p class="question">Soru 85:<br> İzinsiz bilişim sistemine girme suçunun,
+özgü suç olma niteliğinin <u><strong>bulunmaması</strong></u> ile
+ilgili aşağıdaki ifadelerden hangisi
+doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Bu suç yalnızca Türkiye'de işlenebilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bu suç yalnızca devlet memurları tarafından
+işlenebilir. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Herkes suçun faili olabilir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bu suç her yerde işlenebilir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bu suç yalnızca yeterli eğitime sahip
+şahıslarca işlenebilir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description85">Açıklama</button>
+		<div id="description85" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question86">
+	<p class="question">Soru 86:<br> Türk Borçlar Kanunu kapsamında, kişisel
+verilerin korunması konusu ile ilgili aşağıdaki ifadelerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Türk Borçlar Kanununda işçinin kişisel
+verilerinin korunmasına yönelik bir hüküm
+yer almaktadır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İşçiye ait kişisel veriler ancak işe yatkınlığın
+ölçülmesi için kullanılabilir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yeni Borçlar Kanununun 419. Maddesi
+uyarınca iş hukuku alanında kişisel verilerin
+korunması amaçlanmıştır </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İş ilişkisi, işçinin dezavantajlı olduğu bir
+durum olduğundan, işçinin kişisel verilerinin
+korunması önemlidir. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> İşveren işçiye ait her türlü kişisel veriyi,
+herhangi bir sınırlama olmaksızın elde edip
+işleyebilir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description86">Açıklama</button>
+		<div id="description86" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question87">
+	<p class="question">Soru 87:<br> TCK’nın 244. maddesinde sistemi engelleme,
+bozma, verileri yok etme veya değiştirmeye ilişkin
+düzenlemeye yer verilmiştir.<br><br>
+Bu suçla korunan hukuki değer
+aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> İnsan Hakları </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Bilişim sisteminin işlerliğini sağlayan
+yazılımlar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Dijital Kamusal Alan </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Widget </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bilişim Hukuku </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description87">Açıklama</button>
+		<div id="description87" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question88">
+	<p class="question">Soru 88:<br> “(1) Herkes,kendisini ilgilendiren kişisel verilerinin korunması hakkına sahiptir. <br>
+(2)Bu veriler, adil bir şekilde, belirli amaçlar için ve ilgili kişinin rızasına veya yasa ile öngörülmüş diğer meşru bir temele dayanarak tutulur.Herkes, kendisi hakkında toplanmış verilere erişme ve düzelttirme hakkına sahiptir.<br>
+(3) Bu kurallara uyulması bağımsız bir makam tarafından denetlenir”.<br><br>
+		Kişisel verilerin korunması hakkını ayrı bir
+maddeyle bu şekilde düzenleme altına alan
+belge hangisidir?</p>
+	<span class="option" data-correct="true"><b>A)</b> Avrupa Birliği Temel Haklar Şartı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> BM Bireysel ve Siyasal Haklara İlişkin
+Uluslararası Sözleşmesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Türkiye Cumhuriyeti 1982 Anayasası </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Avrupa İnsan Hakları Sözleşmesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Almanya Anayasası </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description88">Açıklama</button>
+		<div id="description88" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question89">
+	<p class="question">Soru 89:<br> Bilişim sisteminin içinde işlemciye sürekli
+anlamsız komutlar vererek bilişim sisteminin
+çökertilmesine ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Hacking </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Truva atı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Salam tekniği </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Tavşanlar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bukalemunlar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description89">Açıklama</button>
+		<div id="description89" class="collapse">      Sistem güvenliğinin
+			kırılıp içeri girilmesi (<strong>hacking</strong>);<br><br>
+			Yararlıbir yazılımın içine fark edilmeyecek küçüklüktezararlı yazılımlar konulmasıyla bilişim sisteminegirilmesi (Truva atı/Trojen horse);<br><br>
+			Çok fazla kaynaktan (örneğin çok sayıda banka hesabından) kaynak başına çok az toplamda ise çok miktarda hukuka aykırı yarar sağlanması (<strong>salam tekniği</strong>);<br><br>
+			Bilişim sisteminin içinde işlemciye sürekli anlamsız komutlar vererek bilişim sisteminin çökertilmesi (<u><strong>tavşanlar/rabbits</strong></u>);<br><br>
+			Sistemin bakım için geçici bir süre kapatılması uyarısından sonra sistemden kullanıcı adları, şifreler gibi bilgilerin çalınması (<strong>bukalemunlar/chameleon</strong>); <br><br>
+			Sistemi çökertmek için tasarlanan mantık bombaları ve bilişim virüsleri;<br><br>
+			DoS ve DDoS saldırıları ile hedef bilgisayarın kimseye hizmet veremez hale getirilmesi;<br><br>
+			<strong>Phising</strong> denilen yöntemlerle kişilerin kredi kartları numaralarının çalınması verilebilir     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question90">
+	<p class="question">Soru 90:<br> Aşağıdaki yazarlardan hangileri “yalnız
+bırakılma hakkını” geliştirmişlerdir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Tapscott ve Rachels </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Prosser ve Rachels </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Lee ve Brandeis </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Prosser ve Cavoukian </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Warren ve Brandeis </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description90">Açıklama</button>
+		<div id="description90" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question91">
+	<p class="question">Soru 91:<br> ------- bir seri bilginin, sistemin belli bir yönde çalışmasını sağlamak için bir araya gelmiş şeklidir.<br><br>
+		Yukarıdaki boşluğu aşağıdakilerden hangisi doğru şekilde tamamlar?</p>
+	<span class="option" data-correct="false"><b>A)</b> Çerez </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İleti </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Program </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Ağ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Veri </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description91">Açıklama</button>
+		<div id="description91" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question92">
+	<p class="question">Soru 92:<br> 1982 Anayasasının 20. maddesinin son fıkrası şu şekildedir: “Herkes, kendisiyle ilgili kişisel
+				verilerin korunmasını isteme hakkına sahiptir. Bu
+				hak, kişinin kendisiyle ilgili kişisel veriler
+				hakkında bilgilendirilme, bu verilere erişme,
+				bunların düzeltilmesini veya silinmesini talep
+				etme ve amaçları doğrultusunda kullanılıp
+				kullanılmadığını öğrenmeyi de kapsar. Kişisel
+				veriler, ancak kanunda öngörülen hallerde veya
+				kişinin açık rızasıyla işlenebilir. Kişisel verilerin
+				korunmasına ilişkin esas ve usuller kanunla
+				düzenlenir”.<br><br>
+				Yukarıdaki düzenleme hangi yıl Anayasaya
+				eklenmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 2002 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 2008 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 2010 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 2017 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 2019 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description92">Açıklama</button>
+		<div id="description92" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question93">
+	<p class="question">Soru 93:<br> Türk Ceza Kanunun 135. maddesi uyarınca
+kişisel verilerin hukuka aykırı olarak kaydedilmesi
+suçtur. Buna göre kişisel verileri hukuka aykırı
+olarak kayıt eden kimseye ------- hapis cezasının
+verilmesi öngörülmüştür. <br><br>
+Yukarıdaki boşluğa aşağıdakilerden hangisi
+gelmelidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Altı aydan iki yıla kadar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Altı aydan üç yıla kadar </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Bir yıldan üç yıla kadar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bir yıldan beş yıla kadar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İki yıldan beş yıla kadars </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description93">Açıklama</button>
+		<div id="description93" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question94">
+	<p class="question">Soru 94:<br> Türk Ceza Kanunun 243/2 maddesine göre
+bilişim sistemine girme suçunun, bedeli
+karşılığı yararlanılabilen sistemler hakkında
+işlenmesi hâlinde, verilecek ceza hangi
+oranda indirilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Yarı oranına kadar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 1/3 oranına kadar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 1/4 oranına kadar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 1/5 oranına kadar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 1/6 oranına kadar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description94">Açıklama</button>
+		<div id="description94" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question95">
+	<p class="question">Soru 95:<br> Reklam ve tanıtım amaçlı hazırlanan, web
+siteleri ile gazetelerde başlık ya da alt kısmında yer alabilecek ölçülerde ya da afiş olarak tasarlanmış kurumsal iletişim ögesine ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> İlan </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Banner </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Arama motoru </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Spider </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Web-hosting </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description95">Açıklama</button>
+		<div id="description95" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question96">
+	<p class="question">Soru 96:<br> Taraf iraderinin elektronik ortamda yani
+yüz yüze gelmeksizin karşılaştığı ve uyuştuğu elektronik ortamda kurulmuş sözleşmelere ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Sputnik </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ara hizmet sağlayıcı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Arpanet </span><br>
+	<span class="option" data-correct="true"><b>D)</b> e-sözleşme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bilişim </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description96">Açıklama</button>
+		<div id="description96" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question97">
+	<p class="question">Soru 97:<br> İnternet ortamında herkese açık çeşitli
+						servislerde yapılacak filtreleme, perdeleme ve izleme esaslarına göre donanım üretilmesi veya yazılım yapılmasına ilişkin asgari kriterleri belirleme görevi aşağıdakilerden
+						hangisine aittir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Ağır Ceza Mahkemesi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Asliye Ceza Mahkemesi </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Bilgi Teknolojileri ve İletişim Kurumu </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Erişim Sağlayıcıları Birliği </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Toplu Kullanım Sağlayıcısı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description97">Açıklama</button>
+		<div id="description97" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question98">
+	<p class="question">Soru 98:<br> Verilerin korunması ile veri güvenliği
+arasındaki <u><strong>temel</strong></u> fark aşağıdakilerden
+hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Veri güvenliği gerçek kişilerin korunmasını
+öncelikli olarak hedefler. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Verilerin korunmasının ilk hedefi verilerin
+savunulmasıdır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İkisi de devlet güvenliğini sağlamaya
+yöneliktir, veri güvenliği daha sert önlemler
+alınmasını öngörür. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Verilerin korunması gereksizdir. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Veri güvenliği doğrudan verilerin
+korunmasını hedefler. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description98">Açıklama</button>
+		<div id="description98" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question99">
+	<p class="question">Soru 99:<br> Banka ve kredi kartlarının kötüye kullanılması
+suçunda korunan değer ile ilgili aşağıdaki
+ifadelerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> İlgili maddenin birinci fıkrasındaki suç ile
+bireylerin malvarlığı koruma altına alınmıştır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Söz konusu suçlar ile korunması amaçlanan
+hukuksal değere ilişkin ipuçları madde
+gerekçesinde verilmiştir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İlgili maddenin ikinci ve üçüncü fıkrasındaki
+suçlarla malvarlığının yanında, banka ve
+kredi kartlarının sahihliğine ilişkin kamu
+güveninin devamlılığı koruma altına
+alınmıştır. </span><br>
+	<span class="option" data-correct="true"><b>D)</b> İlgili maddedeki düzenleme ile fikri ve sınai
+mülkiyet de korumaya kavuşturulmuştur. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Suç tipi, banka veya kredi kartlarının hukuka
+aykırı olarak kullanılması suretiyle
+bankaların veya kredi sahiplerinin zarara
+sokulmasını, bu yolla çıkar sağlanmasını
+önlemek ve failleri cezalandırmak amacıyla
+kaleme alınmıştır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description99">Açıklama</button>
+		<div id="description99" class="collapse">      <strong>TCK m.245’te banka ve kredi kartlarının kötüye kullanılması hüküm altına alınmıştır. </strong> <br>Söz konusu düzenleme şu şekildedir;<br><br>
+			
+			Madde 245 - (1) Başkasına ait bir banka veya kredi kartını, her ne suretle olursa olsun ele geçiren veya elinde
+bulunduran kimse, kart sahibinin veya kartın kendisine verilmesi gereken kişinin rızası olmaksızın bunu kul-lanarak veya kullandırtarak kendisine veya başkasına yarar sağlarsa, üç yıldan altı yıla kadar hapis ve beşbin güne kadar adlî para cezası ile cezalandırılır.<br><br>
+(2) Başkalarına ait banka hesaplarıyla ilişkilendirilerek sahte banka veya kredi kartı üreten, satan, devreden, satın alan veya kabul eden kişi üç yıldan yedi yıla kadar hapis ve onbin güne kadar adli para cezası ile cezalandırılır.<br><br>
+			
+(3) Sahte oluşturulan veya üzerinde sahtecilik yapılan bir banka veya kredi kartını kullanmak suretiyle kendisine veya başkasına yarar sağlayan kişi, fiil daha ağır cezayı gerektiren başka bir suç oluşturmadığı takdirde, dört yıldan sekiz yıla kadar hapis ve beşbin güne kadar adlî para cezası ile cezalandırılır.<br><br>
+			
+(4) Birinci fıkrada yer alan suçun;<br>
+&emsp;&nbsp;a) Haklarında ayrılık kararı verilmemiş eşlerden birinin,<br>
+&emsp;&nbsp;b) Üstsoy veya altsoyunun veya bu derecede kayın hısımlarından birinin veya evlat edinen veya evlâtlığın,<br>
+&emsp;&nbsp;c) Aynı konutta beraber yaşayan kardeşlerden birinin zararına olarak işlenmesi halinde, ilgili akraba hakkında cezaya hükmolunmaz.<br><br>
+(5) Birinci fıkra kapsamına giren fiillerle ilgili olarak bu Kanunun malvarlığına karşı suçlara ilişkin etkin pişmanlık hükümleri uygulanır.
+     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question100">
+	<p class="question">Soru 100:<br> TCK’nın 138. maddesine göre, “Kanunların belirlediği sürenin geçmiş olmasına karşın verileri sistem içinde yok etmekle yükümlü olanlara görevlerini yerine getirmediklerinde bir yıldan iki yıla kadar hapis cezası verilir”. Hükme 2014 yılında eklenen fıkra uyarınca ise “Suçun konusunun Ceza Muhakemesi Kanunu hükümlerine göre ortadan kaldırılması veya yok edilmesi gereken veri olması hâlinde verilecek ceza -------<br><br>
+Yukarıdaki parçada boş bırakılan yeri aşağıdakilerden hangisi doğru şekilde tamamlar? </p>
+	<span class="option" data-correct="true"><b>A)</b> bir kat artırılır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> iyi hal indirimine tabi tutulur. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> yarı yarıya azaltılır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> verilmez. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> iki kat artırılır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description100">Açıklama</button>
+		<div id="description100" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question101">
+	<p class="question">Soru 101:<br> Elektronik ortamda açık ve örtülü irade açıklamalarıyla ilgili aşağıdaki ifadelerden
+hangisi <u><strong>yanlıştır? </strong></u></p>
+	<span class="option" data-correct="true"><b>A)</b> Bilişim ortamlarında esas olan örtülü irade açıklamasıyla sözleşme kurulmasıdır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Borçlar Kanunu, irade açıklamasının açık ya da örtülü olabileceğini söylemektedir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Borçlar Kanunu, örtülü kabulü, belirli bir süre susmaya veya başka bir deyişle reddetmeme hâlinde kabul etmiş ve sözleşmenin kurulacağını hükme bağlamıştır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bilişim sistemlerinde bir irade açıklamasından bahsedebilmek için kural olarak açık bir irade açıklamasına ihtiyaç olduğu söylenebilir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bilişim sisteminde sadece ekrandaki teklifin belli bir zaman içinde reddedilmemesi irade açıklaması olarak kabul edilemez. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description101">Açıklama</button>
+		<div id="description101" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question102">
+	<p class="question">Soru 102:<br> İnternet ortamındaki verilere etki etmeksizin bilgi ve verilerin takip edilmesine ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> İçerik Sağlayıcı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Trafik Bilgisi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yayın </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kişisel Veri </span><br>
+	<span class="option" data-correct="true"><b>E)</b> İzleme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description102">Açıklama</button>
+		<div id="description102" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question103">
+	<p class="question">Soru 103:<br> Aşağıdakilerden hangisi toplu kullanım
+sağlayıcılara örnek teşkil eder? </p>
+	<span class="option" data-correct="true"><b>A)</b> İnternet cafe </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Backbone </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İnternet Reklamı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Widget </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İnternet Tarayıcısı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description103">Açıklama</button>
+		<div id="description103" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question104">
+	<p class="question">Soru 104:<br> Veri nakillerini izleme suçu açısından
+aşağıdaki bilgilerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Suçun manevi unsuru kasttır </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Suçun maddi unsuru, veri nakillerini sisteme
+girmeksizin teknik araçlarla hukuka aykırı
+olarak izlemektir </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Suçu oluşturan fiillerin hangi amaçla
+gerçekleştirildiğinin bir önemi yoktur </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Suçun oluşması için izlemeye bağlı olarak
+dış dünyada ayrıca bir neticenin, değişikliğin
+meydana gelmesi aranır. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Suç hareket suçudur </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description104">Açıklama</button>
+		<div id="description104" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question105">
+	<p class="question">Soru 105:<br> 5651 sayılı İnternet Ortamında Yapılan
+Yayınların Düzenlenmesi ve Bu Yayınlar
+Yoluyla İşlenen Suçlarla Mücadele Edilmesi
+Hakkında Kanun’un 2. maddesine göre; bir
+internet ortamına bağlanarak kullanım
+olanağı kazanılmasına ne ad verilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Erişim </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Dijitalleşme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Erişim Sağlayıcı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İçerik </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İnternet </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description105">Açıklama</button>
+		<div id="description105" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question">
+	<p class="question">Soru 106:<br> Bilgisayarları da kapsayan ve özellikle
+bilgisayar ve bu tür aygıtların yer aldığı bir
+alan, verileri toplayıp yerleştirdikten sonra
+bunları otomatik işlemlere tabi tutma imkânı
+veren manyetik sistemlere ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> İnternet Yer Sağlayıcısı </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Bilişim Sistemi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Web Tarayıcısı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> TCP/IP Protokolü </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bilişim Trafiği </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description106">Açıklama</button>
+		<div id="description106" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question107">
+	<p class="question">Soru 107:<br> Aşağıdakilerden hangisi kişisel verilerin korunmasına yönelik düzenlemelerin yer verildiği kanunlardan biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Türk Ceza Kanunu </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Karayolları Trafik Kanunu </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Türk Borçlar Kanunu </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Elektronik Haberleşme Kanunu </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Elektronik Ticaret Kanunu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description107">Açıklama</button>
+		<div id="description107" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question108">
+	<p class="question">Soru 108:<br> Anayasa’nın 90. maddesi uyarınca “Usulüne göre yürürlüğe konulmuş Milletlerarası antlaşmalar ------- hükmündedir”. <br><br>
+		Yukarıdaki cümlede boş bırakılan yeri
+aşağıdakilerden hangisi doğru şekilde
+tamamlar?</p>
+	<span class="option" data-correct="true"><b>A)</b> Kanun </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Mahkeme kararı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yönerge </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Anayasa </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Örf - adet </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description108">Açıklama</button>
+		<div id="description108" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question109">
+	<p class="question">Soru 109:<br> Elektronik ortamda akdedilecek sözleşmelere ilişkin olarak Tüketicinin Korunması Hakkında Kanunun tercih ettiği kavram aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Zımni Sözleşme </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Mesafeli Sözleşme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Karşılıksız Sözleşme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Şarta bağlı Sözleşme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Gayrimenkul Satış vaadi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description109">Açıklama</button>
+		<div id="description109" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question110">
+	<p class="question">Soru 110:<br> Aşağıdakilerden hangisi İnternet Kurulu’nda temsil <u><strong>edilmez?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Radyo Televizyon Üst Kurulu </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Adalet Bakanlığı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Üniversiteler </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Dışişleri Bakanlığı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Ulaştırma Bakanlığı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description110">Açıklama</button>
+		<div id="description110" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question111">
+	<p class="question">Soru 111:<br> Güvenli elektronik imza ile imzalanan elektronik belgenin hukuki mahiyeti aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Senet </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Uzman görüşü </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Belge </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kesin hüküm </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Poliçe </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description111">Açıklama</button>
+		<div id="description111" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question112">
+	<p class="question">Soru 112:<br> Aşağıdakilerden hangisi elektronik ortamda yapılan sözleşmeler hakkında ileri <u><strong>sürülemez?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Sözleşmenin kurulması için irade açıklamalarına ihtiyaç duyulmaktadır. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Elektronik ortamda kurulan bir sözleşmeye yalnızca Borçlar Kanunu hükümleri uygulanır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bazı sözleşmelerin kurulabilmesi için güvenli elektronik imzaya ihtiyaç duyulabilmektedir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bazı durumlarda, elektronik ortamda kurulan bir sözleşmenin taraflarından biri tüketicidir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Elektronik ortamda irade açıklamasının kaynağı gerçek şahıslar olabileceği gibi bir yazılım da olabilmektedir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description112">Açıklama</button>
+		<div id="description112" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question113">
+	<p class="question">Soru 113:<br> 5651 sayılı kanun gereğince, İnternet ortamı üzerinden kullanıcılara sunulan her türlü bilgi veya veriyi üreten, değiştiren ve sağlayan gerçek veya tüzel kişiler aşağıdaki kavramlardan hangisi ile ifade edilmektedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Erişim Sağlayıcı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İnternet Ortamı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yer Sağlayıcı </span><br>
+	<span class="option" data-correct="true"><b>D)</b> İçerik Sağlayıcı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Başkanlık </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description113">Açıklama</button>
+		<div id="description113" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question114">
+	<p class="question">Soru 114:<br> Aşağıdaki haklardan hangisi kişisel verilerin korunması kapsamında ilgili kişinin katılımı ve denetimine yönelik <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> İlgilinin veriyi önemsememe hakkı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İlgilinin otomatik kararların konusu olmama
+hakkı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İlgilinin veri işlemeye itiraz hakkı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İlgilinin kendisine ilişkin bilgileri düzeltme hakkı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İlgilinin kendisine ilişkin bilgilere erişim hakkı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description114">Açıklama</button>
+		<div id="description114" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question115">
+	<p class="question">Soru 115:<br> “İşveren, işçiye ait kişisel verileri, ancak işçinin işe yatkınlığıyla ilgili veya hizmet sözleşmesinin ifası için zorunlu olduğu ölçüde kullanabilir.”<br><br>
+
+İşçinin kişisel verilerinin korunmasına yönelik yukarıdaki hüküm, aşağıdaki kanunlardan hangisinde yer almaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Elektronik Haberleşme Kanunu </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Türk Borçlar Kanunu </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Elektronik Ticaret Kanunu </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kişisel Verilerin Korunması Kanunu </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Türk Medeni Kanunu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description115">Açıklama</button>
+		<div id="description115" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question116">
+	<p class="question">Soru 116:<br> Türk Ceza Kanuna göre bir bilişim sisteminin bütününe hukuka aykırı olarak giren kimseye ------- yıla kadar hapis veya adli para cezası verilir.<br><br>
+
+Yukarıda boş bırakılan yeri aşağıdakilerden hangisi doğru şekilde tamamlar? </p>
+	<span class="option" data-correct="true"><b>A)</b> 1 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 2 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 3 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 4 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 5 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description116">Açıklama</button>
+		<div id="description116" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question117">
+	<p class="question">Soru 117:<br> Bilişim hukukunun ilk ortaya çıkış sürecinde savunulan ve bu hukuk dalının devletler tarafından
+değil de kullanıcılar ve sistem operatörleri tarafından kendiliğinden ortaya konan ve ------
+olarak isimlendirilen bir kısım kuralların toplanarak, merkezileştirilmeden; “öz düzenleme” ve
+“ iş birliğine dayalı düzenleme” yöntemleriyle düzenlenmesine ilişkin düşünceler, bugün için
+kabul edilmemektedir. Yukarıdaki boş bırakılan yeri aşağıdakilerden hangisi doğru şekilde tamamlar? <br><br></p>
+	<span class="option" data-correct="true"><b>A)</b> Netiket </span><br>
+	<span class="option" data-correct="false"><b>B)</b> TELNET </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ICANN </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bilgi teknolojileri </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ARPANET </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description117">Açıklama</button>
+		<div id="description117" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question118">
+	<p class="question">Soru 118:<br> Yasak Cihaz ve programlar suçunun faili ile ilgili aşağıdaki ifadelerden hangisi doğrudur? </p>
+	<span class="option" data-correct="true"><b>A)</b> Herkes suçun faili olabilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız on sekiz yaşından büyükler suçun olabilir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yalnız kamu görevlileri suçun faili olabilir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yalnız erkeler suçun faili olabilir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yalnız kadınlar suçun faili olabilir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description118">Açıklama</button>
+		<div id="description118" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question119">
+	<p class="question">Soru 119:<br> “Bilgilerin geleceğini belirleme hakkı”, aşağıdakilerden hangisi tarafından türetilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> ABD Yüksek Mahkemesi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Türk Yargıtayı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İngiltere Lordlar Kamarası </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Fransız Danıştayı </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Alman Anayasa Mahkemesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description119">Açıklama</button>
+		<div id="description119" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question120">
+	<p class="question">Soru 120:<br> Kişisel Verileri Koruma Kurulana ilişkin aşağıdaki bilgilerden hangisi doğrudur? </p>
+	<span class="option" data-correct="true"><b>A)</b> Kurul üyeleri herhangi bir siyasi partiye üye olamaz. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kurul üyelerinin tamamını Cumhurbaşkanı seçer. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Üyelerin ortaöğretim mezunu olmaları yeterlidir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Toplam üye sayısı ondur. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İlgili bakanın emir ve talimatlarına uygun hareket ederler. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description120">Açıklama</button>
+		<div id="description120" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question121">
+	<p class="question">Soru 121:<br> Sistemin bakım için geçici bir süre kapatılması uyarısından sonra sistemden kullanıcı adları,
+şifreleri gibi bilgilerin çalınmasına ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Tavşanlar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Salam tekniği </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Bukalemunlar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Truva atı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Hacking </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description121">Açıklama</button>
+		<div id="description121" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question122">
+	<p class="question">Soru 122:<br> Birleşmiş Millet internete erişimi temel bir insan hakkı olarak hangi yıl tanımıştır? </p>
+	<span class="option" data-correct="true"><b>A)</b> 2011 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 2012 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 2013 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 2014 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 2015 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description122">Açıklama</button>
+		<div id="description122" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question123">
+	<p class="question">Soru 123:<br> Bilişim ile doğrudan ilgili ilk hukuksal düzenleme 1970 yılında Almanya’nın hangi eyaletinde
+yapılmıştır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Hessen </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Berlin </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bayern </span><br>
+	<span class="option" data-correct="false"><b>D)</b> NRW </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Hamburg </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description123">Açıklama</button>
+		<div id="description123" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question124">
+	<p class="question">Soru 124:<br> 5369 sayılı Evrensel Hizmet Kanununa göre evrensel hizmet ile ilgili aşağıdaki ifadelerden
+hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Evrensel hizmetin sunulmasında ve ulaşılmasında devamlılık esastır. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Evrensel hizmetten, Türk vatandaşı herkes, bölge ve yaşadığı yer ayrımı gözetilmeksizin
+yararlanır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Evrensel hizmet, fert başına gayrisafi yurt içi hasıla tutarı da göz önünde bulundurularak
+karşılanır ve makul fiyat seviyesinde sunulur. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Düşük Gelirliler, engelliler ve sosyal desteğe ihtiyacı olan grupların da evrensel hizmetten
+yararlanabilmesi için uygun fiyatlandırma ve teknoloji seçeneklerinin uygulanabilmesine
+yönelik tedbirler alınır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Evrensel hizmet, önceden belirlenmiş hizmet kalitesi standartlarında sunulur. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description124">Açıklama</button>
+		<div id="description124" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question125">
+	<p class="question">Soru 125:<br> Kişisel Verileri Koruma Kurulunun kaç üyesi Cumhurbaşkanı tarafından seçilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 1 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 2 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 3 </span><br>
+	<span class="option" data-correct="true"><b>D)</b> 4 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 5 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description125">Açıklama</button>
+		<div id="description125" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question126">
+	<p class="question">Soru 126:<br> 765 sayılı TCK’nın ---- ibaresi yerine 5237 sayılı TCK’da aynı anlamı taşımak üzere tercih edilen
+bilişim sistemi tabirinden bir veya birden fazla bölümlerden oluşan ve belirli bir sonuca ulaşmak
+için iş birliği sistemiyle çalışan ve güvenlik araçlarıyla da korunan bir bütün anlaşılmalıdır. <br><br>Yukarıda boş bırakılan yeri aşağıdakilerden hangisi doğru şekilde tamamlar?</p>
+	<span class="option" data-correct="false"><b>A)</b> Veri topluluğu </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bilişim topluluğu </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veri sistemi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Otomatik sistem </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Bilgileri otomatik olarak işleme tabi tutmuş sistem </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description126">Açıklama</button>
+		<div id="description126" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question127">
+	<p class="question">Soru 127:<br> ----- göre özel yaşamın gizliliği hakkı dört tür haksız fiile karşı, dört tür çıkarı korumaktadır.
+<br><br> Yukarıda boş bırakılan yeri aşağıdakilerden hangisi doğru şekilde tamamlar? </p>
+	<span class="option" data-correct="false"><b>A)</b> Rachels </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Westin </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Cavoutkian </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Tapscott </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Prosser </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description127">Açıklama</button>
+		<div id="description127" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+		
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

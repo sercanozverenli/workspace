@@ -1,0 +1,1577 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+	  
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA II
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama2-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama2-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama2-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama2-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama2-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama2-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama2-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama2-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama2-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama2-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB ARAYÜZ PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİ YAPILARI
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veriyap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veriyap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veriyap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veriyap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veriyap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veriyap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veriyap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veriyap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veriyap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veriyap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          MOBİL UYGULAMA GELİŞTİRME
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="mobilug-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="mobilug-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="mobilug-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="mobilug-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="mobilug-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="mobilug-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="mobilug-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="mobilug-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="mobilug-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="mobilug-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          UNIX SİSTEM YÖNETİMİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="unixsy-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="unixsy-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="unixsy-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="unixsy-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="unixsy-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="unixsy-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="unixsy-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="unixsy-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="unixsy-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="unixsy-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Mobil Uygulama Geliştirme - Ünite 6 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	<button class="block-group" data-start="40" data-end="59">Part 3</button>
+	  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Dart dilinde “Future” kavramının tanımı aşağıdakilerden hangisidir?  </p>
+	<span class="option" data-correct="true"><b>A)</b> Future asenkron çalışmaların sonucunu temsil eder </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Future senkronize çalışmaların sonucunu temsil eder. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Future tamamlanmış çalışmaların sonucunu temsil eder. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Future başarı ile tamamlanmış çalışmaların sonucunu temsil eder. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Future taslak halinde olan çalışmaların sonucunu temsil eder. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> I. Async<br>
+II. Await<br>
+III. Future<br><br>
+Yukarıdaki ifadelerden hangisi veya hangileri asenkron metotlarda kullanılması zorunlu <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Aşağıdakiler metotlardan hangisi Sqflite kütüphanesi ile veri çekmek için kullanılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Execute </span><br>
+	<span class="option" data-correct="true"><b>B)</b> RawQuery </span><br>
+	<span class="option" data-correct="false"><b>C)</b> RawSql </span><br>
+	<span class="option" data-correct="false"><b>D)</b> RawSelect </span><br>
+	<span class="option" data-correct="false"><b>E)</b> RawInsert </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Aşağıdaki metotlardan hangi Sqflite kütüphanesi ile veri eklemek için <u><strong>kullanılmaz?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Execute </span><br>
+	<span class="option" data-correct="false"><b>B)</b> RawQuery </span><br>
+	<span class="option" data-correct="false"><b>C)</b> RawInsert </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Insert </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Update </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Aşağıdaki metotlardan hangi Sqflite kütüphanesi ile veri güncellemek için <u><strong>kullanılmaz?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Execute </span><br>
+	<span class="option" data-correct="false"><b>B)</b> RawQuery </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Insert </span><br>
+	<span class="option" data-correct="false"><b>D)</b> RawUpdate </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Update </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Dart dilinde değişken tanımlarken değişkenin null değer alabileceğini belirtmek için aşağıdakilerden hangisi kullanılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> ! (Ünlem işareti) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> % (Yüzde işareti) </span><br>
+	<span class="option" data-correct="true"><b>C)</b> ? (Soru işareti) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> # (Diyez işareti) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> $ (Dolar işareti) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> I. Veriler Json formatına dönüştürülerek
+işlenir.<br>
+II. Veritabanından gelen veriler Map ile modellere dönüştürülür.<br>
+III. Veriler XML formatına dönüştürülerek işlenir.<br>
+Yukarıdakilerden hangisi veya hangileri model kullanımı ile ilgili doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yalnız III </span><br>
+	<span class="option" data-correct="true"><b>D)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> Aşağıdaki metotlardan hangisi API’ler ile kayıt eklerken kullanılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Http.get </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Http.put </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Http.post </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Http.delete </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Http.copy </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> Aşağıdaki metotlardan hangisi API’ler ile kayıt güncellerken kullanılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Http.get </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Http.put </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Http.post </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Http.delete </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Http.copy </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Aşağıdaki metotlardan hangisi API’ler ile kayıt silerken kullanılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Http.get </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Http.put </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Http.post </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Http.delete </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Http.copy </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> Sqflite kütüphanesi ile veri güncellemek için aşağıdaki metotlardan hangisi kullanılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Insert </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Update </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Text </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Table </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Format </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> API ile veri getirme işlemi için aşağıdakilerden hangisi kullanılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> http.post() </span><br>
+	<span class="option" data-correct="false"><b>B)</b> http.list() </span><br>
+	<span class="option" data-correct="false"><b>C)</b> http.take() </span><br>
+	<span class="option" data-correct="false"><b>D)</b> http.put() </span><br>
+	<span class="option" data-correct="true"><b>E)</b> http.get() </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> True/False (1/0) şeklinde kayıtlar için hangi SQLite Veri Tipi kullnılır?  </p>
+	<span class="option" data-correct="true"><b>A)</b> INTEGER  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> REAL </span><br>
+	<span class="option" data-correct="false"><b>C)</b> TEXT  </span><br>
+	<span class="option" data-correct="false"><b>D)</b> BLOB </span><br>
+	<span class="option" data-correct="false"><b>E)</b> PRIMARY KEY </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      Boolean olarak SQLite herhangi bir veri tipine sahip değildir. True/False (1/0) şeklinde kayıtlar için INTEGER kullanılabilir.     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> SQL cümlesinin kullanılmadığı, tablo adı ve parametrelerin girildiği ve metot güncelleme işleminin yapıldığı komut aşağıdakilerden hangisidir?  </p>
+	<span class="option" data-correct="false"><b>A)</b> Query </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Insert </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Update </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Delete </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Copy </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> Veri tabanı oluşturulurken eğer tablolarında oluşturulması isteniyorsa aşağıdaki metotlardan hangisi kullanılır?  </p>
+	<span class="option" data-correct="true"><b>A)</b> onCreate </span><br>
+	<span class="option" data-correct="false"><b>B)</b> onDowngrada </span><br>
+	<span class="option" data-correct="false"><b>C)</b> onUpgrade </span><br>
+	<span class="option" data-correct="false"><b>D)</b> onExecute </span><br>
+	<span class="option" data-correct="false"><b>E)</b> onInsert </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Mobil uygulamalarda tek kayıtın yanı sıra birçok yerde çoklu kayıt getirilmesi gerekebilir. ............. kayıtların liste şeklinde istenildiği formatta görüntülemeye izin veren, kaydırma olayını destekleyen bir Widgettir.<br><br>
+Yukarıdaki ifadede yer alan boşluğa aşağıda verilenlerden hangisi gelmelidir?  </p>
+	<span class="option" data-correct="true"><b>A)</b> ListView </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Select  </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Update </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Delete  </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Select  </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> SQL ile tablo oluşturmak için aşağıdakilerden hangisi kullanılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Make table </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Lite table </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Create table </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Primary key </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Execute </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Dart programlama dilinde uzun süre alacağı düşünülen işlemlerin asenkron olarak gerçekleştirilmesi sırasında aşağıda verilen hangi anahtar kelime kullanılarak o işlemin tamamlanmasının beklenmesi sağlanabilir?  </p>
+	<span class="option" data-correct="true"><b>A)</b> await  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> async </span><br>
+	<span class="option" data-correct="false"><b>C)</b> void </span><br>
+	<span class="option" data-correct="false"><b>D)</b> then </span><br>
+	<span class="option" data-correct="false"><b>E)</b> future </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> Mobil uygulamalarda SQLite ne amaçla kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Veri saklama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Grafik oluşturma </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Animasyon yapma </span><br>
+	<span class="option" data-correct="false"><b>D)</b> E-mail yönetme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Mobil uygulama üretme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> Aşağıdakilerden hangisi SQLite veri tabanının özelliklerinden biridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Konfigürasyon gerektirir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Pahalıdır </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Açık kaynaklıdır </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kullanımı zordur </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Flutter’de kullanılmaz </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      Sqlite herhangi bir sunucuya ihtiyaç olmadan, platformdan bağımsız olarak çalışan, özel
+bir konfigürasyon gerektirmeyen özellikle mobil uygulamalar için popüler olan, C tabanlı bir veritabanıdır. Bireysel veya ticari her türlü geliştirmeler için ücretsizdir. Diğer veritabanlarında olduğu gibi SQL dilini destekler ve sütun türlerinde tanımlamalarda farklılık gösterebilir. SQlite<br>
+• Ücretsiz,<br>
+• Açık kaynaklı,<br>
+• Konfigürasyon gerektirmeyen kullanımı kolay bir veritabanıdır.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Aşağıdakilerden hangisi SQLite veri tiplerinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> INTEGER : Sadece tam sayılar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> REAL : Ondalıklı sayılar
+
+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> TEXT : Metin ifadeleri
+
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> BLOB : Binary </span><br>
+	<span class="option" data-correct="true"><b>E)</b> VOID: Boş veri </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      SQLite Veri Tipleri
+Sqlite diğer veri tabanlarına göre daha az veri tipine sahiptir. Bunlar:<br><br>
+INTEGER : Sadece tam sayıları<br>
+REAL : Ondalıklı sayılar<br>
+TEXT : Metin ifadeleri<br>
+BLOB : Binary<br><br>
+Boolean olarak SQLite herhangi bir veri tipine sahip değildir. True/False (1/0) şeklinde kayıtlar için INTEGER kullanılabilir. Tarih/Saat işlemleri içinde özel bir veri tipi yoktur. Bunlar için Text, Real ve Integer veri tipleri kullanılabilir. Fakat genel olarak tarih işlemleri için Text kullanılır ve yyyy-MM-dd HH:mm.ss formatında kaydedilir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Asenkron işlemlerden await komutu ile ilgili aşağıdaki ifadelerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> İşlemin tamamlanmasının beklenmesi sağlanır </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İçinde olduğu metodun asenkron olduğunun belirtilmesi gerekir </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İşleme cevap geldikten sonra işleme devam edilecektir </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Satırda gerçekleşen eylem uzun sürdüğünde kullanılır </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Then, işlemin bitmesinden sonra kullanılır </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      <u><strong>Future ifadesi kullanıldığında</strong></u> then, işlemin bitmesinden sonra kullanılır.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> SQLite kullanırken sadece tam sayıları belirtmek için ............,  ondalık sayılar için ...........,  metin için ............ ve binary için .......... veri tipi kullanılmalıdır. <br><br>
+Yukarıda verilen ifadede boş bırakılan yerlere sırasıyla aşağıda verilenlerden hangisinin gelmesi gerekmektedir?  </p>
+	<span class="option" data-correct="false"><b>A)</b> real-integer-text-blob </span><br>
+	<span class="option" data-correct="false"><b>B)</b> blob-integer-text-real </span><br>
+	<span class="option" data-correct="true"><b>C)</b> integer-real-text-blob </span><br>
+	<span class="option" data-correct="false"><b>D)</b> integer-real-blob-text </span><br>
+	<span class="option" data-correct="false"><b>E)</b> text-integer-real-blob </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Eğer Dart dilinde bir metot içerisinde await ile bir işlem beklenecekse bu metot ............  ile tanımlanır ve böylece metot işlemlerinin tamamlanmasından sonra yapılacak işlemlerde belirlenebilir.<br><br>
+Yukarıdaki ifadede boş bırakılan yere aşağıdakilerden hangisi gelmelidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> then  </span><br>
+	<span class="option" data-correct="true"><b>B)</b> future  </span><br>
+	<span class="option" data-correct="false"><b>C)</b> asyn </span><br>
+	<span class="option" data-correct="false"><b>D)</b> void </span><br>
+	<span class="option" data-correct="false"><b>E)</b> siraAl </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> Aşağıdakilerden hangisi Sqlite kurulumu özellikleri arasında <u><strong>yer almaz?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Herhangi bir sunucuya ihtiyaç olmadan çalışır </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Platformdan bağımsız olarak çalışır </span><br>
+	<span class="option" data-correct="false"><b>C)</b> C tabanlı bir veritabanıdır </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Ticari geliştirmeler için ücretlidir</span><br>
+	<span class="option" data-correct="false"><b>E)</b> Açık kaynaklıdır </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> I. Herhangi bir sunucuya ihtiyaç duyulmaz.<br>
+II. Platformdan bağımsız olarak çalışamaz.<br>
+III. Özel bir konfigürasyon gerektirmez. <br>
+IV. Bireysel veya ticari her türlü geliştirmeler için ücretsizdir. <br><br>
+Yukarıda SQlite ile ilgili verilen özelliklerden hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I, II ve III </span><br>
+	<span class="option" data-correct="true"><b>D)</b> I, III ve IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II ve IV  </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      Sqlite herhangi bir sunucuya ihtiyaç olmadan, platformdan bağımsız olarak çalışan, özel
+bir konfigürasyon gerektirmeyen özellikle mobil uygulamalar için popüler olan, C tabanlı bir veritabanıdır. Bireysel veya ticari her türlü geliştirmeler için ücretsizdir.      </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> SQLite kütüphanesinde yazılan kod ile veri tabanı oluşturulduktan sonra  eğer tablolarında oluşturulması isteniyorsa openDatabase altında hangi metodun  çağrılması gerekmektedir?  </p>
+	<span class="option" data-correct="true"><b>A)</b> onCreate </span><br>
+	<span class="option" data-correct="false"><b>B)</b> onUpgrade </span><br>
+	<span class="option" data-correct="false"><b>C)</b> onDowngrada </span><br>
+	<span class="option" data-correct="false"><b>D)</b> db.Execute </span><br>
+	<span class="option" data-correct="false"><b>E)</b> openDatabase </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> -Tabloda veri silindikten sonra, silinen satır sayısını geri döndürür.<br>
+-Update işlemleri execute ve rawQuery ile de yapılabilir.<br>
+-Fakat bu metotlar silinen satır sayısını geri döndürmez.<br><br>
+Yukarıda özellikleri verilen Sqlite işlemlerini yapabilmek için kullanılan method aşağıdakilerin hangisinde yer almaktadır?  </p>
+	<span class="option" data-correct="true"><b>A)</b> rawDelete </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Delete </span><br>
+	<span class="option" data-correct="false"><b>C)</b> rawInsert </span><br>
+	<span class="option" data-correct="false"><b>D)</b> rawUpdate </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Execute </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> İşlemler bir değişken yada bir nesneye atanırken nesnenin "Future" anahtar kelimesi ile tanımlanması ne anlama gelmektedir?  </p>
+	<span class="option" data-correct="false"><b>A)</b> İşlemlerin eş zamanlı olarak gerçekleşeceği </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Nesnenin işlemlerinin zaman alacağı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Hatalar/eksiklikler olabileceği  </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İşlemin gerçekleşmesi beklenmeden diğer satıra geçileceği </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İşleme müdahale edilmesi gerektiği </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> Veri tabanına yeni kayıt eklemek için aşağıdakilerden hangisi kullanılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Update </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Insert </span><br>
+	<span class="option" data-correct="false"><b>C)</b> RawQuery </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Execute </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Add </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> Flutter ile API’den veri alma ve bir değişkene atama için aşağıdaki metotlardan hangisi kullanılır?  </p>
+	<span class="option" data-correct="true"><b>A)</b> http.get() </span><br>
+	<span class="option" data-correct="false"><b>B)</b> http.post() </span><br>
+	<span class="option" data-correct="false"><b>C)</b> http.put() </span><br>
+	<span class="option" data-correct="false"><b>D)</b> http.delete() </span><br>
+	<span class="option" data-correct="false"><b>E)</b> http.paste() </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> SQL ile tablo oluşturmak için aşağıdakilerden hangisi kullanılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Make table </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Lite table </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Create table </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Primary key </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Execute </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> Otomatik model oluşturmak için ilk olarak yapılması gereken aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Proje için yeni bir dart dosyası açıp modeli projeye eklemek </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Örnek bir json verisi oluşturmak </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Değişkenler tanımlarken yanlarına soru işareti (?) ekleyerek değişkenlerin null değer alabileceğini belirtmek </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Ayarlardaki a QucikType:Just Types başlığındaki kutucuğu boşaltmak </span><br>
+	<span class="option" data-correct="false"><b>E)</b> QuickType eklentisinin dilini ayarlamak </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> "Execute" komutu ile aşağıdaki işlemlerden hangisini gerçekleştirmeye yöneliktir?  </p>
+	<span class="option" data-correct="true"><b>A)</b> Parametre olarak girilen SQL komutunu çalıştırır </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Parametre olarak girilen Select cümlesini çalıştırır ve dönen veriyi alır </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Eklenen satıra ait birincil anahtarı geri döndürür </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Tabloda veri güncelledikten sonra güncellenen satır sayısını geri döndürü </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Tabloda veri silindikten sonra, silinen satır sayısını geri döndürür </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> -Genel SQL çalıştırma metodudur.<br>
+-Parametre olarak girilen Select cümlesini çalıştırır.<br>
+-Dönen veriyi alır.<br>
+- Bu veri List türünden nesneler atanıp kullanılabilir.<br><br>
+Yukarıda özellikleri verilen metod aşağıda verilenlerin hangisinde yer almaktadır?  </p>
+	<span class="option" data-correct="false"><b>A)</b> query </span><br>
+	<span class="option" data-correct="false"><b>B)</b> rawInsert </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Execute </span><br>
+	<span class="option" data-correct="true"><b>D)</b> rawQuery </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Database db </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> Veri işlemede hangi boyutlar önemli görülmektedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Veri işlemede, veriyi alma/yazma, anlamlı bir şekilde saklama, getirme, raporlama, güncelleme, silme işlemleri önem arz eder.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> Veri işlemede hangi boyutlar önemli görülmektedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Veri işlemede, veriyi alma/yazma, anlamlı bir şekilde saklama, getirme, raporlama, güncelleme, silme işlemleri önem arz eder.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> API teknolojisi hangi işlemleri kullanarak veri çekme ve gönderme yapar?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> API teknolojisi GET ve POST işlemleri yaparak karşı taraftan veri çekme ve veri gönderme işlemlerine imkan verir.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> Asenkron programlama tekniğinin kullanılması neden gereklidir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> API kullanıyorsa internet hızı, karşıdaki serverın cevap verme hızı, çağrılacak verinin boyutuna bağlı olarak zaman alabilmektedir. İşlemin yapılması için zamanın uzaması demek zaman zaman donmalara, kasılmalara, dahi hatalara neden olabilmektedir. Bu nedenle asenkron programlama tekniği gereklidir.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> Dart programlama dilinde de bu gibi uzun süre alacağı düşünülen işlemler asenkron olarak gerçekleştirilir. Hangi anahtar kelimeyle işlemin tamamlanmasının beklenmesi sağlanabilir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> await anahtar kelimesiyle
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question41">
+	<p class="question">Soru 41:<br> Eğer bir metotta await anahtar kelimesi kullanılarak belirli işlem(ler)in sonucunun beklenmesi gerekiyorsa içinde olduğu metoun da asenkron bir metot olduğunun belirtilmesi gerekir. Bu durumu sağlayabilmek için hangi ifadeye ihtiyaç vardır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> async </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description41">Açıklama</button>
+		<div id="description41" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question42">
+	<p class="question">Soru 42:<br> onError, catchError ifadeleri hangi durumda kullanılabilir? 
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Hata ile karşılaşılması durumunda kullanılır.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description42">Açıklama</button>
+		<div id="description42" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question43">
+	<p class="question">Soru 43:<br> Sqlite'ın başlıca özellikleri nelerdir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Sqlite herhangi bir sunucuya ihtiyaç olmadan, platformdan bağımsız olarak çalışan, özel bir konfigürasyon gerektirmeyen özellikle mobil uygulamalar için popüler olan, C tabanlı bir veritabanıdır. Bireysel veya ticari her türlü geliştirmeler için ücretsizdir.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description43">Açıklama</button>
+		<div id="description43" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question44">
+	<p class="question">Soru 44:<br> pub.dev websitesinin özelliği nedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Bu adresten SQlite kütüphaneleri arattığınızda bir çok farklı kütüphaneye erişilebilir.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description44">Açıklama</button>
+		<div id="description44" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question45">
+	<p class="question">Soru 45:<br> SQL ile tablo oluşturma kodlarını kullanırken ilk komut nedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> "create table"
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description45">Açıklama</button>
+		<div id="description45" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question46">
+	<p class="question">Soru 46:<br> SQL'de tablolar genel olarak veri tabanı oluşturulduğu zaman onCreate metodu içerisinde oluşturulur. Eğer daha sonra herhangi bir tablo eklenecek, silinecek veya güncellenecekse veri tabanının hangi metodu kullanılır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Execute </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description46">Açıklama</button>
+		<div id="description46" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question47">
+	<p class="question">Soru 47:<br> SQLite veri tipleri arasında bulunan INTEGER neyi ifade eder?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Sadece tam sayıları
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description47">Açıklama</button>
+		<div id="description47" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question48">
+	<p class="question">Soru 48:<br> SQLite veri tipleri arasında bulunan REAL neyi ifade eder?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Ondalıklı sayılar
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description48">Açıklama</button>
+		<div id="description48" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question49">
+	<p class="question">Soru 49:<br> SQLite veri tipleri arasında bulunan TEXT neyi ifade eder?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Metin ifadeleri
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description49">Açıklama</button>
+		<div id="description49" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question50">
+	<p class="question">Soru 50:<br> SQLite veri tipleri arasında bulunan BLOB neyi ifade eder?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Binary </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description50">Açıklama</button>
+		<div id="description50" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question51">
+	<p class="question">Soru 51:<br> SQLite'de tarih işlemleri için kullanılan format nedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> yyyy-MM-dd
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description51">Açıklama</button>
+		<div id="description51" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question52">
+	<p class="question">Soru 52:<br> SQLite'de saat işlemleri için kullanılan format nedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> HH:mm.ss
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description52">Açıklama</button>
+		<div id="description52" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question53">
+	<p class="question">Soru 53:<br> ListView nasıl bir widget'dir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> ListView kayıtların liste şeklinde istenildiği formatta görüntülemeye izin veren, kaydırma olayını destekleyen bir widget'tir.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description53">Açıklama</button>
+		<div id="description53" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question54">
+	<p class="question">Soru 54:<br> Flutter’da güncelleme işlemleri için hangi metotlar kullanılabilir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Flutter’da güncelleme işlemleri için rawQuery kullanılabileceği gibi güncelleme sorguları çalıştırmaya yönelik rawUpdate metodu da kullanılabilir.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description54">Açıklama</button>
+		<div id="description54" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question55">
+	<p class="question">Soru 55:<br> API’lerde ekleme, güncelleme ve silme işlemleri için sırasıyla hangi metodlar kullanılır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> post, put ve delete kullanılır.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description55">Açıklama</button>
+		<div id="description55" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question56">
+	<p class="question">Soru 56:<br> API'de kayıt silmek için hangi komut gereklidir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Silme işleminde http.delete() metodu kullanılır.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description56">Açıklama</button>
+		<div id="description56" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+	
+		
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

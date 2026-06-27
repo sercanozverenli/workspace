@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          ALGORİTMALAR
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="alg-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="alg-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="alg-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="alg-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="alg-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="alg-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="alg-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="alg-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="alg-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="alg-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB SUNUCU PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wsp-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wsp-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wsp-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wsp-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wsp-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wsp-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wsp-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wsp-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wsp-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wsp-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİ MADENCİLİĞİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="vmaden-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="vmaden-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="vmaden-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="vmaden-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="vmaden-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="vmaden-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="vmaden-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="vmaden-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="vmaden-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="vmaden-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİTABANI SİSTEMLERİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="vtsistem-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="vtsistem-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="vtsistem-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="vtsistem-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="vtsistem-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="vtsistem-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="vtsistem-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="vtsistem-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="vtsistem-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="vtsistem-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMADA YENİ EĞİLİMLER
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="prgyenieğilim-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="prgyenieğilim-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Web Sunucu Programlama - Ünite 7 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	<button class="block-group" data-start="40" data-end="59">Part 3</button>
+  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Aşağıdaki sıralamalardan hangisi ortam türlerine göre webde kullanılan veri türleri sınıflaması için doğru bir sıralamadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Sayısal, sözel ve mantıksal </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İlişkisel, tekil ve çoğul </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Form nesnesi, PHP değişkeni, Veritabanı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Dağınık, dağıtık, sistematik </span><br>
+	<span class="option" data-correct="false"><b>E)</b> String, int, number </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Aşağıdakilerden hangisi PHP değişkeni olarak veri tipleri arasında <u><strong>yer almaz?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> string </span><br>
+	<span class="option" data-correct="false"><b>B)</b> integer </span><br>
+	<span class="option" data-correct="false"><b>C)</b> float </span><br>
+	<span class="option" data-correct="true"><b>D)</b> password </span><br>
+	<span class="option" data-correct="false"><b>E)</b> boolean </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> GET ve POST ile veri gönderme açısından
+aşağıdakilerden hangisi <u><strong>söylenemez?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> GET ile gönderilen veri adres çubuğunda görülür. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> POST GET’e göre daha güvenli bir yöntemdir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> GET başlangıç düzeyli kullanımda daha uygun bir yöntemdir. </span><br>
+	<span class="option" data-correct="true"><b>D)</b> GET method, POST ise action ile birlikte kullanılır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> GET-POST yönteminde tarayıcı önemli bir
+faktör değildir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      “action” tagi ile verinin hangi sayfaya gönderileceği, “method” tagi ile de hangi yöntemle gönderileceği belirtilmektedir.<br><br>
+method= “get” veya method= “post” şeklinde kullanılır     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Aşağıdakilerden hangisi Input elementinde
+kullanılan Type parametreleri için doğru <u><strong>değildir? </strong></u></p>
+	<span class="option" data-correct="false"><b>A)</b> text ile metin girişi sağlanır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> hidden gizli veri göndermeye yarar. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> radio tek seçenekli bir seçim sağlar. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> number sayısal bir giriş oluşturur. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> reset veri gönderimini sağlar. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      <u><strong>reset:</strong></u>  Submitin tamamlayıcı olup, submit için doldurulan inputların içini sıfırlar.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> “placeholder” parametresi veri girişinde aşağıdaki işlevlerden hangisini yerine getirmektedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Metin kutusunun içinde başlangıç değeri görünmesini sağlar. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Satıra veri girilmeden geçilmesini engeller. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Metin kutusunun içine veri girişini engeller. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Daha önce girilen değerlerin listelenmesini sağlar. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Giriş formatı ortaya koyar. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">   <u><strong>placeholder:</strong></u>   Input ile oluşturulan metin kutusunun içinde default olarak bilgi gelmesi (Örneğin“Adınızı
+Giriniz” gibi) sağlanır. Ancak imleç ile metin kutusuna tıklanması durumunda otomatik olarak yazılan kaybolmaktadır. Kullanımı placeholder=“Adınızı Giriniz”şeklindedir.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Aşağıdaki parametrelerden hangisi input ile metin kutusuna veri girişini zorunlu hale getirir? </p>
+	<span class="option" data-correct="true"><b>A)</b> required </span><br>
+	<span class="option" data-correct="false"><b>B)</b> readonly </span><br>
+	<span class="option" data-correct="false"><b>C)</b> autocomplete </span><br>
+	<span class="option" data-correct="false"><b>D)</b> value </span><br>
+	<span class="option" data-correct="false"><b>E)</b> placeholder </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> Adres bilgisi gibi çok satırlı metin girişi için aşağıdaki etiketlerinden hangisi kullanılmalıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> input </span><br>
+	<span class="option" data-correct="true"><b>B)</b> textarea </span><br>
+	<span class="option" data-correct="false"><b>C)</b> multiple wrap </span><br>
+	<span class="option" data-correct="false"><b>D)</b> function </span><br>
+	<span class="option" data-correct="false"><b>E)</b> select </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> &lt;a href= “sonuc.php?ad=Ahmet”&gt; şeklindeki bir kullanım için aşağıdakilerden hangisi <u><strong>söylenemez?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Gizli bir gönderim söz konusudur. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Veri gönderimi yapılmaktadır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ad isimli bir değişken vardır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Ahmet gönderilen değerdir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Link kullanımı söz konusudur. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> SESSION kullanımı için aşağıdakilerden
+hangisinin söylenmesi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Gizli bir gönderim söz konusudur. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Veritabanı bağlantısını sağlar. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> POST’a yakın bir veri gönderim yöntemidir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kendine ait kullanım kuralları vardır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> SESSION’un sunucu bilgisayarda oluşturulur. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      SESSION, PHP'de kullanıcı oturum bilgilerini sunucuda saklamak için kullanılan bir mekanizmadır. Veritabanı bağlantısı için doğrudan SESSION kullanılmaz. SESSION, genellikle kullanıcı oturumlarını yönetmek ve kullanıcıların bilgilerini farklı sayfalar arasında saklamak için kullanılır. Veritabanı bağlantısı ise veritabanına erişim ve sorgulama işlemleri için kullanılan farklı bir yapıdır ve SESSION ile bağlantılı değildir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Dosya gönderiminde accept hangi işlemi yerine getirmektedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Gönderilecek dosya türlerinin filtrelenmesi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Dosya yolunun belirtilmesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veri güvenliğinin sağlanması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Veri aktarım onayının sağlanması </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Başarısızlık durumunda yönlendirme işleminin
+yapılması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> Aşağıdakilerden hangisi autocomplete parametresi için tanımlanan bir görev <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Değer olarak on veya off değerlerini alır </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Disabled veritabanından bilgi çekilip sadece gösterilmesi istenilen, verinin bozulması istenilmeyen durumlarda kullanılabilir </span><br>
+	<span class="option" data-correct="false"><b>C)</b> On atanması durumunda metin kutusu içerisine daha önce girilmiş olan değerler listelenir ve kullanıcı doğrudan bunlardan tıklayarak giriş yapabilir </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Off olması durumunda ise bu işlem iptal edilecek, her defasında yeni veri girişi yapılacaktır </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Örnek kullanımı<br>
+ &lt;input type="text" name="ad" autocomplete="on"&gt;<br>
+ şeklindedir </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      "Disabled veritabanından bilgi çekilip sadece gösterilmesi istenilen, verinin bozulması istenilmeyen durumlarda kullanılabilir" ibaresi autocomplete parametresi için tanımlanan bir görev değildir. Bu ibare, disabled parametresi için tanımlanan bir görevdir.
+
+     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> <span style="color: darkred; margin-left: 30px;"><img src="wsp2.png" alt="Web Sunucu Progrlama Ünite 7 Alıştırma Soruları " style="width: 90%;"> </span> <br><br>
+Verilen ekran çıktısı için hangi input veri tipi kullanılmıştır? </p>
+	<span class="option" data-correct="true"><b>A)</b> checkbox </span><br>
+	<span class="option" data-correct="false"><b>B)</b> pattern </span><br>
+	<span class="option" data-correct="false"><b>C)</b> text </span><br>
+	<span class="option" data-correct="false"><b>D)</b> number </span><br>
+	<span class="option" data-correct="false"><b>E)</b> radio </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Ülkemiz için "tel" veri inputunda telefon girişini şekilsel olarak doğru alabilmek için aşağıdaki tanımlamalardan hangisi kullanılmalıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> [0-9]{3}[0-9]{2}[0-9]{2}[0-9]{3} </span><br>
+	<span class="option" data-correct="true"><b>B)</b> [0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2} </span><br>
+	<span class="option" data-correct="false"><b>C)</b> [0-9]{3}[0-9]{3}[0-9]{3}[0-9]{1} </span><br>
+	<span class="option" data-correct="false"><b>D)</b> [0-9]{2}[0-9]{2}[0-9]{2}[0-9]{4} </span><br>
+	<span class="option" data-correct="false"><b>E)</b> [0-9]{3}[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{1} </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      Ülkemizde telefonlar 555-444-33-22 sıralamasında olduğu için, 3,3,2,2 diziliminde olması gerekmektedir.     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> Aşağıdakilerden hangisi value parametresinin görevlerinden biridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> input ile oluşturulan metin kutusunun içinde default olarak bilgi gelmesi sağlanır </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sayısal ve tarihsel verilerin sınır aralığı tanımlanmasında kullanılır </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kaç karakter uzunluğunda metin girilebileceğini belirtir </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Değer olarak on veya off değerlerini alır </span><br>
+	<span class="option" data-correct="true"><b>E)</b> metin kutusu içerisinde değer aktarmak için kullanılır </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      <u><strong>value:</strong></u> placeholder gibi metin kutusu içerisinde değer aktarmak için kullanılır. Ancak metin kutusuna tıklanmasında veri kaybolmaz, delete veya backspace tuşları ile silinebilir. Genellikle daha önce girilen bir değişkene ait değerin alınmasında kullanılır. Bunun
+amacı üyelik gibi bir işlemde yanlış bir değer girilmesi durumunda, tüm formun yeniden doldurulması yerine girilen değerlerin tekrar bu kısma getirilmesidir. Kullanımı value=“Ahmet” veya value=&lt;?php $ad ?&gt; şeklinde olabilmektedir     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> Metinin ne kadar uzunlukta olması (genişliği) gerektiğini gösteren parametre aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> value </span><br>
+	<span class="option" data-correct="false"><b>B)</b> min ve max </span><br>
+	<span class="option" data-correct="false"><b>C)</b> maxlenght </span><br>
+	<span class="option" data-correct="false"><b>D)</b> type </span><br>
+	<span class="option" data-correct="true"><b>E)</b> size </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Veri için aşağıda yazılanlardan hangisi doğru <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Veri, olgu, kavram veya komutların, iletişim, yorum ve işlem için elverişli biçimli gösterimi şeklinde tanımlanmaktadır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Veri, bilgilerin sunucu ortamında saklanıldığı kullanıcıdan/ortamlardan alınan girdileri ifade etmektedir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sosyal medyada veya ticari bir sitede yapılan paylaşımlar, yapılan yorumlar, başkaları tarafından birisine verilen yanıtlar, ürüne verilen puanlar bir veridir </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Veri girişinde en çok kullanılan veri türünün metin türü olduğu ifade edilebilir. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Matematiksel bir işlem yapılması mantıken hatalı olan veriler, metin veri tipinde değerlendirilemez. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      Matematiksel bir işlem yapılması mantıken hatalı olan veriler, <strong>metin veri tipinde değerlendirilebilir.</strong>      </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> Veri türü olarak kullanılan boolean tarzı veri tipi için aşağıdakilerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Program içi kontrolde etkin olarak kullanım potansiyeli bulunmaktadır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Programcı kullanıcıya yönelik farklı senaryolar için boolean veri tipi ile geri planda istediği kontrollerini yapabilmektedir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> PHP ileri düzey işlemlerinde de boolean veri tipini kullanmaktadır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bir değişkenin tanımlı olup olmadığının belirlenmesi boolean olarak if(isset($metin)) şeklinde sorgulanmaktadır. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Boolean uzun kullanım şekli if(isset($metin)==false) şeklindedir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      Boolean bir kontrol olup uzun kullanım şekli if(isset($metin)==<u><strong>true</strong></u>) şeklinde olmalıdır.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br>  Input Elementinde En Sık Kullanılan “checkbox Type” parametresinin görevi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Resim, belge vb. dosyaları göndermede kullanılır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Formun onayını yani action’daki adrese gönderimini sağlar. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Birden fazla yapılabilecek (sevilen müzik türleri vb) seçimlerde kullanılır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Tek satırlık sayısal bir giriş alanı (not, maaş vb.) tanımlar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> E-posta girilmesinde kullanılır. Girilen epostanın geçerliğini de kontrol eder. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> Aşağıdakilerden hangisi formlara ihtiyaç duyulan bilgilerin alınmasında en çok kullanılan form elementidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> &lt;form&gt; &lt;/form&gt; </span><br>
+	<span class="option" data-correct="true"><b>B)</b> &lt;input type= ""&gt; </span><br>
+	<span class="option" data-correct="false"><b>C)</b> &lt;input name&gt; </span><br>
+	<span class="option" data-correct="false"><b>D)</b> &lt;/form&gt; &lt;input&gt; </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Hiçbiri </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> Aşağıdakilerden hangisi required parametresinin görevidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Metin kutusu içerisinde değer aktarmak için kullanılır </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Input ile oluşturulan metin kutusunun içinde default olarak bilgi gelmesi sağlanır </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Hangi veri türünde giriş olacağı bu parametre ile ayarlanır </span><br>
+	<span class="option" data-correct="false"><b>D)</b> On atanması durumunda metin kutusu içerisine daha önce girilmiş olan değerler listelenir ve kullanıcı doğrudan bunlardan tıklayarak giriş yapabilir </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Input satırına eklenen bu parametre ilgili metin kutusuna değer girilmemesi durumunda formun gönderilmesine izin verilmez </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Input elementinde metin kutusu içerisinde değer aktarmak için kullanılan, metin kutusuna tıklandığında verinin kaybolmadığı, delete veya backspace tuşları ile silinebilen ve genellikle daha önce girilen bir değişkene ait değerin alınmasında kullanılan parametre aşağıdakilerden hangisidir?  </p>
+	<span class="option" data-correct="false"><b>A)</b> required </span><br>
+	<span class="option" data-correct="false"><b>B)</b> readonly </span><br>
+	<span class="option" data-correct="false"><b>C)</b> autocomplete </span><br>
+	<span class="option" data-correct="true"><b>D)</b> value </span><br>
+	<span class="option" data-correct="false"><b>E)</b> placeholder </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> SESSION kullanımında oluşturulan SESSION’un tanımlı olup olmadığı ve kullanım kontrolü aşağıdakilerden hangisini gerektirir? </p>
+	<span class="option" data-correct="false"><b>A)</b> sil.php komutu gerektirir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> session_destroy(); komutu gerektirir </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ID numarası gerektirir </span><br>
+	<span class="option" data-correct="false"><b>D)</b> “select from” sql komutu gerektirir </span><br>
+	<span class="option" data-correct="true"><b>E)</b> if kontrolü gerektirir </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      Oluşturulan SESSION’un tanımlı olup olmadığı ve kullanım kontrolü ise web programlama ile ilgili olup if kontrolü gerektirir.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> Bir duyuru sayfasında beş adet duyuru metni bulunmaktadır. Bu metinlerin her birine bir id numarası verilmiştir. Gerektiğinde değişiklik yapmak amacıyla duyuru metinlerinin sonuna sil ve düzenle seçenekleri eklemek için aşağıdaki parametrelerden hangisi kullanılmaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> select </span><br>
+	<span class="option" data-correct="false"><b>B)</b> textarea </span><br>
+	<span class="option" data-correct="false"><b>C)</b> name </span><br>
+	<span class="option" data-correct="true"><b>D)</b> href </span><br>
+	<span class="option" data-correct="false"><b>E)</b> file </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      Her bir ilanın sonuna silme ve düzenleme gibi işlemler için iki adet (silme ve güncelleme) href ile link verilmektedir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Inputta hangi tipte yer alırsa alsın bu parametrenin kullanılması durumunda veri girişi almak yerine input içerisinde sadece verilerin görüntülenmesi sağlanabilen parametre aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Readonly </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Value </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Disabled </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Size </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Autocomplete </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> Aşağıdakilerden hangisi Web ortamında PHP ile bir veritabanı uygulamasını gerçekleştirecek bir kişi için PHP değişkeni olarak bir veri tipi değildir? </p>
+	<span class="option" data-correct="true"><b>A)</b> color </span><br>
+	<span class="option" data-correct="false"><b>B)</b> string </span><br>
+	<span class="option" data-correct="false"><b>C)</b> integer </span><br>
+	<span class="option" data-correct="false"><b>D)</b> float </span><br>
+	<span class="option" data-correct="false"><b>E)</b> boolean </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> Aşağıdakilerden hangisi Input elementinde en sık kullanılan Type parametreleri ile görev eşleşmesi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> password - girilen metni şifreli (*******) şekilde gösterir </span><br>
+	<span class="option" data-correct="true"><b>B)</b> hidden - tıklanabilir buton sunar ve onclick gibi eventler'i sayesinde javascript dahil site içi farklı etkileşim fırsatları sunar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> radio - Format submit edilmesi durumunda gizli bir değişken tanımlar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> textarea - adres bilgisi, şikayet konusu gibi çoklu satıra dayalı veri girişinde kullanılır </span><br>
+	<span class="option" data-correct="false"><b>E)</b> reset - Submit'in tamamlayıcı olup, submit için doldurulan input'ların içini sıfırlar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      "tıklanabilir buton sunar ve onclick gibi eventler'i sayesinde javascript dahil site içi farklı etkileşim fırsatları sunar" <u><strong>button</strong></u> tanımıdır.<br><br> <u><strong>hidden: Formun submit edilmesi durumunda gizil bir değişken tanımlar.</strong></u> 
+    </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br>  Aşağıdakilerden hangisi disabled parametresinin görevidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> input ile ekranda gösterilecek metin veya sayı miktarını gösterir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Inputta hangi tipte yer alırsa alsın bu parametrenin kullanılması durumunda veri girişi
+almak yerine input içerisinde sadece verilerin görüntülenmesi sağlanabilir </span><br>
+	<span class="option" data-correct="false"><b>C)</b> On atanması durumunda metin kutusu içerisine daha önce girilmiş olan değerler listelenir ve kullanıcı doğrudan bunlardan tıklayarak giriş yapabilir </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Off olması durumunda ise bu işlem iptal edilecek, her defasında yeni veri girişi yapılacaktır </span><br>
+	<span class="option" data-correct="true"><b>E)</b> bu parametrenin kullanımı durumunda formla birlikte değer gönderilmemektedir </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> I. Kullanıcının veri girerken girilen değerin görünmesini istenilmediği yerlerde gizleyerek girmeyi sağlar.<br>
+II. Cinsiyet, maaş aralığı gibi tek seçim olan yerlerde veri almak için kullanılır.<br>
+
+III. Her bir seçeneğin name’i aynı olan butonlar bulunur.<br>
+
+IV. Herhangi bir değerin ilk açılışta seçili olması istenirse o input satırına checked tagi eklenir.<br>
+
+V. Sayısal veri girişinde kullanılır ve max, min gibi parametreler de kullanılmaktadır.<br><br>
+
+Yukarıdakilerden hangileri radio veri giriş türünün özellikleridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> I-II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> II-III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I-IV </span><br>
+	<span class="option" data-correct="true"><b>D)</b> II-III-IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I-IV-V </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      Formlarda kullanılan bir diğer veri giriş türü ise radio’dur. Radio cinsiyet, yaşanılan yerleşim yeri türü, maaş aralığı gibi tek seçim olan yerlerde veri almak için kullanılan bir parametredir. Eğer herhangi bir değerin ilk açılışta seçili olması istenirse bu durumda o input satırına checked tagi eklenmelidir    </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> Formda dilek ve öneriler kısmını oluşturmak için aşağıdaki type türlerinden hangisi kullanılmaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> file </span><br>
+	<span class="option" data-correct="true"><b>B)</b> textarea </span><br>
+	<span class="option" data-correct="false"><b>C)</b> select </span><br>
+	<span class="option" data-correct="false"><b>D)</b> value </span><br>
+	<span class="option" data-correct="false"><b>E)</b> action </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      HTML ortamında çok satırlı veri girişi için kullanılacak type türü ise textarea’dır. Textarea adres, detaylı şikayet metni gibi veri girişlerinde kullanılır ve input etiketi haricinde kendi etiketi ile kullanılan bir elementtir. 
+
+
+     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> Input elementinde ki görevi “Tek bir seçenek seçilebilen (cinsiyet, sınıf, okul türü vb) seçimde kullanılır” olan input elementinin type’i aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Radio </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Tel </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Textarea </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Reset </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Button </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> I. Form nesnesi olarak veri tipi - checkbox<br> 
+II. Veritabanı (MYSQL) olarak veri tipi - vharchar<br> 
+
+III.  PHP değişkeni olarak veri tipi- decimal<br> 
+
+IV. PHP değişkeni olarak veri tipi- radio<br> 
+
+V. Form nesnesi olarak veri tipi - integer<br> <br> 
+
+Yukarıdakilerden hangilerinde Web’de kullanılan ortamlara göre veri türleri doğru eşleştirilmiştir? </p>
+	<span class="option" data-correct="true"><b>A)</b> I-II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> II-III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I-II-III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II-III-IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> III-IV-V </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      Web’de Kullanılan Ortamlara Göre Veri Türleri:<br>
+
+<u><strong>Form nesnesi olarak veri tipi</strong></u><br>
+• text<br>
+• number<br>
+• password<br>
+• checkbox<br>
+• radio<br>
+• hidden<br>
+• color<br>
+• date<br>
+• time<br>
+• datetime-local<br>
+• email<br>
+• file<br>
+• image<br>
+• tel<br>
+• url<br>
+• submit<br>
+• button<br>
+• reset vb.<br>
+
+<u><strong>PHP değişkeni olarak veri tipi</strong></u><br>
+• string<br>
+• integer<br>
+• float<br>
+• boolean<br>
+
+<u><strong>Veritabanı (MYSQL) olarak veri tipi</strong></u> <br>
+• int<br>
+• tinyint<br>
+• smallint<br>
+• medıumınt<br>
+• bigint<br>
+• decimal<br>
+• float<br>
+• double<br>
+• char<br>
+• vharchar<br>
+• text<br>
+• date<br>
+• boolean vb. <br>    </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> Sayısal ve tarihsel verilerin sınır aralığı tanımlanmasında kullanılan; örneğin yaşı 18 ile 60 yaş arasında olanlara yönelik bir veri alınacaksa kullanılabilen; required eklenerek zorunlu hale getirilebilen; eğer tarihsel bir sınırlama yapılacaksa bu durumda  da doğum tarihi sınırlaması yapabilen parametre aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> required </span><br>
+	<span class="option" data-correct="true"><b>B)</b> min ve max </span><br>
+	<span class="option" data-correct="false"><b>C)</b> placeholder </span><br>
+	<span class="option" data-correct="false"><b>D)</b> maxlength </span><br>
+	<span class="option" data-correct="false"><b>E)</b> readonly </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> Aşağıdakilerden hangisi veri girişini düzenleyen ve form nesnesine göre farklılık gösteren parametrelerden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> linux </span><br>
+	<span class="option" data-correct="false"><b>B)</b> placeholder </span><br>
+	<span class="option" data-correct="false"><b>C)</b> disabled </span><br>
+	<span class="option" data-correct="false"><b>D)</b> autocomplete </span><br>
+	<span class="option" data-correct="false"><b>E)</b> readonly </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> Aşağıdakilerden hangisi PHP değişkeni olarak veri tipine örnektir? </p>
+	<span class="option" data-correct="false"><b>A)</b> text </span><br>
+	<span class="option" data-correct="false"><b>B)</b> number </span><br>
+	<span class="option" data-correct="false"><b>C)</b> tinyint </span><br>
+	<span class="option" data-correct="false"><b>D)</b> decimal </span><br>
+	<span class="option" data-correct="true"><b>E)</b> string </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      <u><strong>PHP değişkeni olarak veri tipi</strong></u><br>
+• string<br>
+• integer<br>
+• float<br>
+• boolean<br>     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> Aşağıdakilerden hangisi form nesnesi olarak veri tipi örneklerinden biridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> string </span><br>
+	<span class="option" data-correct="false"><b>B)</b> tinyint </span><br>
+	<span class="option" data-correct="false"><b>C)</b> vharchar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> double </span><br>
+	<span class="option" data-correct="true"><b>E)</b> password </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      
+<u><strong>Form nesnesi olarak veri tipi</strong></u><br>
+• text<br>
+• number<br>
+• password<br>
+• checkbox<br>
+• radio<br>
+• hidden<br>
+• color<br>
+• date<br>
+• time<br>
+• datetime-local<br>
+• email<br>
+• file<br>
+• image<br>
+• tel<br>
+• url<br>
+• submit<br>
+• button<br>
+• reset vb.<br>     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> Bir formda yazılan bilgileri temizlemek amacıyla type parametresi kullanılarak aşağıdaki buton yapılarından hangisi eklenmelidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> reset </span><br>
+	<span class="option" data-correct="false"><b>B)</b> submit </span><br>
+	<span class="option" data-correct="false"><b>C)</b> text </span><br>
+	<span class="option" data-correct="false"><b>D)</b> method </span><br>
+	<span class="option" data-correct="false"><b>E)</b> action </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> SESSION ile veri girişi ve aktarımı için aşağıdakilerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> SESSION kullanımında ilk akla gelen kavram “oturum açma” işlemi olarak düşünülmektedir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> SESSION gerek oturum açma işlemi, gerekse diğer süreç işlemlerinde sayfalar arasında gizil şekilde veri gönderme amacı ile kullanılabilecek bir yöntemdir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> SESSION formun POST yöntemine daha yakındır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> SESSION’lar sunucu bilgisayarda oluşturulur. </span><br>
+	<span class="option" data-correct="true"><b>E)</b>  &lt;a href&gt; veri gönderim yöntemi açısından formların POST yöntemine benzer </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">       &lt;a href&gt; veri gönderim yöntemi açısından formların GET yöntemine benzerken, SESSION formun POST yöntemine daha yakındır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> I. Hidden: Birden fazla yapılabilecek (sevilen müzik türleri vb) seçimlerde kullanılır.<br>
+II. Textarea: Adres bilgisi, şikayet konusu gibi çoklu satıra dayalı veri girişinde kullanılır. <br>
+
+III. Radio: Tek bir seçenek seçilebilen (cinsiyet, sınıf, okul türü vb) seçimde kullanılır. <br>
+
+IV. Text: Tek satırlık sayısal bir giriş alanı (not, maaş vb.) tanımlar.<br>
+
+V. Submit: Formun onayını yani action’daki adrese gönderimini sağlar. <br><br>
+
+Yukarıdaki input elementinde en sık kullanılan type değerlerine yönelik açıklamalardan hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> I-II-III </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I-III-IV </span><br>
+	<span class="option" data-correct="true"><b>C)</b> II-III-V </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I-III-V </span><br>
+	<span class="option" data-correct="false"><b>E)</b> III-IV-V </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      <u><strong>hidden:</strong></u> Formun submit edilmesi durumunda gizil bir değişken tanımlar.<br><br><u><strong>checkbox:</strong></u> Birden fazla yapılabilecek (sevilen müzik türleri vb) seçimlerde kullanılır.<br><br>
+
+<u><strong>text:</strong></u> Tek satırlık bir <strong>metin (ad, soyad vb.)</strong> giriş alanı tanımlar.<br><br>
+
+<u><strong>number:</strong></u> Tek satırlık <strong>sayısal bir giriş alanı (not, maaş vb.)</strong> tanımlar.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> HTML veri türlerinde hangi dosya türünün seçilebileceği filtreleme işlemi (accept parametresi) ile yapılmaktadır. Aşağıdakilerden hangisinde tüm videoları seçmek için kullanılacak format doğru yazılmıştır? </p>
+	<span class="option" data-correct="false"><b>A)</b> ”accept=video/*” </span><br>
+	<span class="option" data-correct="false"><b>B)</b> accept ”video*” </span><br>
+	<span class="option" data-correct="true"><b>C)</b> accept=”video/*” </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ”accept”=video/*” </span><br>
+	<span class="option" data-correct="false"><b>E)</b> accept/*=”video” </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">       Accept ile tüm resimleri seçmek için <u><strong>accept=”image/*”,</strong></u> tüm videoları seçmek için accept=”video/*”, tüm ses dosyalarını için <u><strong>accept=”audio/*”</strong></u> ve tüm ses, video ve ses dosyalarını seçilebilir hale getirmek için accept=”audio/*,image/*,video/*” yani , ile “ ” işareti arasında istenilen formatların kullanılması gerekir. Eğer özel bir belge dosyası, yani uzantı seçilecekse bu durumda dosya adları yine accept kısmında accept=”.doc, ,.xls” şeklinde belirtilmelidir. Aslında burada belirtilen dosya türleri desteklenen MIME_type ile ifade edilmektedir.     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> Tek satırlık bir ad soyad girişi yapmak için aşağıdaki type parametrelerinden hangisi kullanılır?  </p>
+	<span class="option" data-correct="false"><b>A)</b> submit </span><br>
+	<span class="option" data-correct="true"><b>B)</b> text </span><br>
+	<span class="option" data-correct="false"><b>C)</b> password </span><br>
+	<span class="option" data-correct="false"><b>D)</b> reset </span><br>
+	<span class="option" data-correct="false"><b>E)</b> button </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question41">
+	<p class="question">Soru 41:<br> Html link etiketi ile aşağıdaki şıklardan hangisi doğru <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Html’de linkler temelde sayfalar arasında geçiş işlemi için kullanılır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kullanılan form etiketi ise Link etiketidir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Link eğer yazı ise sayfada bu yazının tıklanabilir olduğu mavi renkli ve altı çizili olarak vurgu hale getirilerek vurgulanmaktadır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> HTML veri türlerinin gönderilmesinde kullanılan bir diğer parametre ise file parametresidir. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> html bir etiketidir ve bu yönü ile PHP ile hiçbir ilişkisi bulunmamaktadır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description41">Açıklama</button>
+		<div id="description41" class="collapse">      Formlar bir html etiketidir ve bu yönü ile PHP ile <u><strong>dolaylı yoldan ilişkisi olduğu söylenebilir.</strong></u>     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question42">
+	<p class="question">Soru 42:<br> I. Gönderilen verinin çekilmesi için<br> $_POST[‘name’] kullanılır.<br>
+II. Tarayıcının adres çubuğunda gönderilen veriler görülür.<br>
+
+III. Verinin gönderiminde güvenilirdir.<br>
+
+IV. Programlamaya başlangıç seviyesinde bu metod ile başlanabilir.<br>
+
+V. Sitenin yayın sürecinde güvenliği sağlamak için bu metod kullanılabilir.<br><br>
+
+Yukarıdakilerden hangileri <u><strong>GET Metodu</strong></u> özellikleri arasında yer alır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="true"><b>B)</b> II ve IV </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I-III-IV </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II-III-IV-V </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I-II-III-IV-V </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description42">Açıklama</button>
+		<div id="description42" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question43">
+	<p class="question">Soru 43:<br> Web programcılığında veri türlerinin işlenme aşamaları aşağıdakilerden hangisinde doğru bir şekilde sıralanmıştır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Veri türleri formları verisi - php verisi - veritabanı verisi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Veri türleri formları verisi - veritabanı verisi - php verisi  </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veritabanı verisi - php verisi - veri türleri formları verisi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Php verisi - veri türleri formları verisi - veritabanı verisi  </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Php verisi - veritabanı verisi - veri türleri formları verisi   </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description43">Açıklama</button>
+		<div id="description43" class="collapse">      PHP ortamında site tasarımı gerçekleştirecek bir programcının üç farklı ortamda veri türleri konusu karşısına gelmektedir. Bu veri türlerinin programcı açısından ele alınması
+durumunda;<br><br>
+Veri türleri formlardan verinin alınması, PHP ortamında işlenmesi ve Veritabanı işlemlerinde kullanılması şeklinde sıralanabilir     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question44">
+	<p class="question">Soru 44:<br> Aşağıdakilerden hangisi post metodu özelliklerinden biridir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Veriler gizil gönderilir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Tarayıcının adres çubuğunda gönderilen veriler görülür. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Görünür olduğu için tam bir veri güvenliği sağlamamaktadır </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Gönderilen verinin çekilmesi için $_GET[‘name’] kullanılır </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Programlamaya başlangıç seviyesinde bu metodla ile başlanılması önerilebilir </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description44">Açıklama</button>
+		<div id="description44" class="collapse">      Tarayıcının adres çubuğunda gönderilen veriler görülmez. Gizil gönderilir.<br>
+
+(ör: www.sitephp.com/uyeol.php )<br>
+
+Verinin gönderiminde GET’e göre daha güvenilirdir.<br>
+
+Gönderilen verinin çekilmesi için $_POST[‘name’] kullanılır.<br>
+
+İleri düzey programlama seviyesinde veya sitenin yayın sürecinde güvenliği sağlama adına POST metodunun kullanılması önerilebilir     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question45">
+	<p class="question">Soru 45:<br> if kontrolnün işlevi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Session'ın tanımlı olup olmadığını kontrol eder. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Değerin silinip silinmediğini kontrol eder. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Çıkışın yapılıp yapılmadığını kontrol eder. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Verinin taşınıp taşınmadığını kontrol eder. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Post'un düzenlenip düzenlenmediğini kontrol eder. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description45">Açıklama</button>
+		<div id="description45" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

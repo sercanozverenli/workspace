@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+	  
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA II
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama2-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama2-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama2-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama2-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama2-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama2-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama2-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama2-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama2-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama2-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB ARAYÜZ PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİ YAPILARI
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veriyap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veriyap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veriyap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veriyap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veriyap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veriyap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veriyap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veriyap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veriyap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veriyap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          MOBİL UYGULAMA GELİŞTİRME
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="mobilug-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="mobilug-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="mobilug-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="mobilug-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="mobilug-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="mobilug-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="mobilug-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="mobilug-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="mobilug-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="mobilug-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          UNIX SİSTEM YÖNETİMİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="unixsy-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="unixsy-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="unixsy-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="unixsy-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="unixsy-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="unixsy-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="unixsy-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="unixsy-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="unixsy-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="unixsy-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Programlama II - Çıkmış Sorular (Final) </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 1</button>
+	  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Aşağıdakilerden hangisi Python'da
+dahili/yerleşik hata türü <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> EOFError </span><br>
+	<span class="option" data-correct="false"><b>B)</b> IndexError </span><br>
+	<span class="option" data-correct="true"><b>C)</b> LoopError </span><br>
+	<span class="option" data-correct="false"><b>D)</b> KeyError </span><br>
+	<span class="option" data-correct="false"><b>E)</b> SyntaxError </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      
+<u><strong>AssertionError :</strong></u> Koddaki assert ifadesi başarısız olduğunda tetiklenir.<br><br>
+
+<u><strong>AttributeError :</strong></u> Nitelik referansı ya da ataması başarısız olduğunda tetiklenir.<br><br>
+
+<u><strong>EOFError :</strong></u> input() fonksiyonu ile işlem yaparken dosya sonuna ulaştığında tetiklenir.<br><br>
+
+<u><strong>FloatingPointError :</strong></u> Kayan nokta işlemi sırasında bir hata olduğunda tetiklenir.<br><br>
+
+<u><strong>GeneratorExit :</strong></u> Bir generator (iterasyon yapılabilen fonksiyonlar) close() fonksiyonu çağrıldığında çağırılır.<br><br>
+
+<u><strong>ImportError :</strong></u> İçe aktarılan modül bulunamadığında verilen hatadır.<br><br>
+
+<u><strong>IndexError :</strong></u> Bir dizinin indeks değeri aralık dışında olduğunda tetiklenir.<br><br>
+
+<u><strong>KeyError :</strong></u> Sözlükte bir anahtar bulunmadığında verilen hatadır.<br><br>
+
+<u><strong>KeyboardInterrupt :</strong></u> Kullanıcı tarafından işlem iptal etme/kesme tuşuna (Ctrl+C veya Delete) bastığında tetiklenir.<br><br>
+
+<u><strong>MemoryError :</strong></u> Bir işleme ayrılan hafıza tükendiğinde tetiklenir.<br><br>
+
+<u><strong>NameError :</strong></u> Global ya da yerel alanda tanımlı bir değişken bulunmadığında tetiklenir.<br><br>
+
+<u><strong>NotImplementedError :</strong></u> Bir fonksiyon oluşturulmadı ise, Soyut (abstract) fonksiyonlar tarafından tetiklenir.<br><br>
+
+<u><strong>OSError :</strong></u> Bir sistem işlemi, işletim sistemi ile ilgili bir hataya neden olduğunda tetiklenir.<br><br>
+
+<u><strong>OverflowError :</strong></u> Bir aritmetik işlemin sonucu, atandığı değişkenin tanımlandığı değer aralıklarından daha büyük olduğunda tetiklenir.<br><br>
+
+<u><strong>ReferenceError :</strong></u> Çöp toplama mekanizması tarafından temizlenmiş bir referansa erişilmeye çalışıldığında tetiklenir.<br><br>
+
+<u><strong>RuntimeError :</strong></u> Karşılaşılan hata başka bir kategoriye dahil edilemediğinde tetiklenir<br><br>
+
+<u><strong>StopIteration :</strong></u> Üzerinde yineleme yapılan nesnede döndürülecek başka eleman kalmadığını göstermek için next() fonksiyonu tarafından tetiklenir.<br><br>
+
+<u><strong>SyntaxError :</strong></u> Python kod ayrıştırıcısı (parser) bir sözdizimi hatası ile karşılaştığında tetiklenir<br><br>
+
+<u><strong>IndentationError :</strong></u> Kodda hatalı bir girinti olduğunda tetiklenir
+TabError Kodda girinti tutarsız boşluk ve sekmelerden oluştuğunda tetiklenir.<br><br>
+
+<u><strong>SystemError :</strong></u> Yorumlayıcı tarafından dahili bir hata algılandığında tetiklenir
+SystemExit sys.exit() fonksiyonu tarafından tetiklenir.<br><br>
+
+<u><strong>TypeError :</strong></u> Bir fonksiyon veya işlem değeri, yanlış türde bir nesneye atandığında tetiklenir.<br><br>
+
+<u><strong>UnboundLocalError :</strong></u> Bir fonksiyon içinde yerel bir değişkene başvuru yapıldığında ve bu değişkene öncesinde bir değer ataması yapılmadığında tetiklenir.<br><br>
+
+<u><strong>UnicodeError :</strong></u> Unicode karakterler ile ilgili bir kodlama veya kod çözme hatası gerçekleştiğinde tetiklenir.<br><br>
+
+<u><strong>UnicodeEncodeError :</strong></u> Unicode karakterler ile ilgili bir kodlama hatası gerçekleştiğinde tetiklenir.<br><br>
+
+<u><strong>UnicodeDecodeError :</strong></u> Unicode karakterler ile ilgili bir kod çözme hatası gerçekleştiğinde tetiklenir.<br><br>
+
+<u><strong>UnicodeTranslateError :</strong></u> Unicode karakterler ile ilgili bir çeviri hatası gerçekleştiğinde tetiklenir<br><br>
+
+<u><strong>ValueError :</strong></u> Bir fonksiyon doğru türde fakat uygun olmayan değerde bir parametre
+aldığında tetiklenir.<br><br>
+
+<u><strong>ZeroDivisionError :</strong></u> Mod alma ya da bölme işleminin ikinci işleneni sıfır olduğunda tetiklenir</div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Python'da bir dosyayı açmak için kullanılan
+fonksiyon aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> file() </span><br>
+	<span class="option" data-correct="false"><b>B)</b> fopen() </span><br>
+	<span class="option" data-correct="true"><b>C)</b> open() </span><br>
+	<span class="option" data-correct="false"><b>D)</b> fileopen() </span><br>
+	<span class="option" data-correct="false"><b>E)</b> file_open() </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Aşağıdakilerden hangisi Python'da dosyayı
+satır satır okumak için kullanılan bir yöntemdir? </p>
+	<span class="option" data-correct="false"><b>A)</b> read(1) </span><br>
+	<span class="option" data-correct="true"><b>B)</b> readline() </span><br>
+	<span class="option" data-correct="false"><b>C)</b> line() </span><br>
+	<span class="option" data-correct="false"><b>D)</b> readlines(1) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> firstline() </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Aşağıdaki kod bloğunda x parametresini alan fn isimli bir fonksiyon tanımlanmıştır.<br><br>
+def fn(x):<br>
+&emsp;try:<br>
+&emsp;&emsp;print(5/x)<br>
+&emsp;except:<br>
+&emsp;&emsp;print("Hata oluştu")<br>
+fn(0)<br><br>
+
+Yukarıdaki kod bloğunun ekran çıktısı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> ZeroDivisionError: division by zero </span><br>
+	<span class="option" data-correct="false"><b>B)</b> FloatingPointError </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 0.0 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 5 </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Hata oluştu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      Verilen kod bloğu bir hata yakalama işlemi (try-except) içeriyor ve bu hata yakalama bloğu içinde sıfıra bölme hatası (ZeroDivisionError) yakalanmaya çalışıyor. Ancak, hata yakalama bloğu içinde herhangi bir hata türünü belirtmediği için (genel bir except kullanıldığı için) hangi hatanın oluştuğu hakkında ayrıntılı bilgi verilmez.<br><br>
+
+Dolayısıyla, except bloğu çalıştığında ekrana yazdırılan mesaj "Hata oluştu" olur. Kod, sıfıra bölme hatasını yakalamış olsa bile, hangi türde bir hata olduğunu belirtmediği için "ZeroDivisionError: division by zero" gibi özel bir hata mesajı görüntülenmez.<br><br>
+
+Bu nedenle doğru yanıt "E) Hata oluştu" olacaktır.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> class Kopek:<br>
+&emsp;def yuru(self):<br>
+&emsp;&emsp;return "*yuruyor*"<br>
+&emsp;def konus(self):<br>
+&emsp;&emsp;return "Woof!"<br>
+class JackRusselTerrier(Kopek):<br>
+&emsp;def konus(self):<br>
+&emsp;&emsp;return "Arff!"<br><br>
+bobo = JackRussellTerrier()<br>
+print(bobo.yuru())<br><br>
+Yukarıdaki kod bloğunun ekran çıktısı
+aşağıdakilerden hangisidir?
+		
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> *yuruyor* </span><br>
+	<span class="option" data-correct="false"><b>B)</b> AttributeError </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Woof!
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Arff! </span><br>
+	<span class="option" data-correct="false"><b>E)</b> SyntaxError </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      Kopek adında bir sınıf (class) tanımlanır ve bu sınıfın içinde yuru ve konus adında iki metot (method) bulunur.<br><br>
+
+JackRusselTerrier, Kopek sınıfından türetilmiş bir alt sınıftır (inheritance). Bu sınıfın içinde konus adında bir metot bulunur, ancak yuru metodu tanımlanmaz.<br><br>
+
+bobo adında bir JackRussellTerrier nesnesi oluşturulur.<br>
+
+bobo.yuru() ifadesi ile bobo nesnesinin yuru metodu çağrılır. Ancak JackRusselTerrier sınıfı yuru metodunu tanımlamamıştır. Bu durumda Python, üst sınıf olan Kopek sınıfındaki yuru metodunu kullanır ve bu metot "yuruyor" ifadesini döndürür.<br><br>
+
+Sonuç olarak, print(bobo.yuru()) ifadesi *yuruyor* metnini ekrana yazdırır ve doğru yanıt "A) yuruyor" olacaktır.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> class Insan<br>
+&emsp;def __init__(self, name)<br>
+&emsp;&emsp;self.name = name		
+&emsp;def namePrint(self):<br>
+&emsp;&emsp;print(self.name)<br>
+person1 = Insan("Ali")<br>
+person2 = Insan("Ayşe")<br>
+person1.namePrint()<br><br>
+Yukarıdaki kod bloğunun ekran çıktısı aşağıdakilerden hangisidir?		
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Ali </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ayşe </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ali Ayşe </span><br>
+	<span class="option" data-correct="false"><b>D)</b> person1 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kod hata verir </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      Insan sınıfı tanımlanır.<br><br>
+
+Insan sınıfının __init__ metodu tanımlanır. Bu metot, self (kendisi) ve name adında bir parametre alır ve self.name özelliğine name parametresinin değerini atar. Yani, her bir insan nesnesinin bir adı (name) olur.<br><br>
+
+namePrint adında başka bir metot tanımlanır. Bu metot sadece self.name özelliğini ekrana yazdırır.<br><br>
+
+person1 adında bir Insan nesnesi oluşturulur ve bu nesneye "Ali" adı atanır.<br><br>
+
+person2 adında başka bir Insan nesnesi oluşturulur ve bu nesneye "Ayşe" adı atanır.<br><br>
+
+person1.namePrint() ifadesi çağrıldığında, person1 nesnesinin namePrint metodu çalışır ve self.name olan "Ali" değeri ekrana yazdırılır.<br><br>
+
+Bu nedenle, person1.namePrint() çağrısının çıktısı "Ali" olur.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> Python diline göre aşağıdakilerin hangisinde
+CricketFan sınıfı PartyAnimal sınıfından doğru bir şekilde miras alır?  </p>
+	<span class="option" data-correct="false"><b>A)</b> 
+from party import PartyAnimal </span><br>
+	<span class="option" data-correct="false"><b>B)</b> PartyAnimal = CricketFan() </span><br>
+	<span class="option" data-correct="false"><b>C)</b> an = PartyAnimal()
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> CricketFan = PartyAnimal() </span><br>
+	<span class="option" data-correct="true"><b>E)</b> class CricketFan(PartyAnimal) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> Python nesne yönelimli programlamada
+değişken ve metotlara erişimin kısıtlanması olarak ifade edilen kavram aşağıdakilerden hangisidir?
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Kapsülleme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Soyutlama </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Çok Biçimlilik </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Metotlar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kalıtım </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> Aşağıdaki parametrelerden hangisi
+Python'da MySQL veritabanına bağlanmak için <u><strong>kullanılmaz?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> table </span><br>
+	<span class="option" data-correct="false"><b>B)</b> password </span><br>
+	<span class="option" data-correct="false"><b>C)</b> host </span><br>
+	<span class="option" data-correct="false"><b>D)</b> user </span><br>
+	<span class="option" data-correct="false"><b>E)</b> database </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      Bu metot vasıtasıyla, veritabanı sunucusu, kullanıcı, şifre ve veritabanı adı gibi bilgileri parametre olarak alarak, MySQLConnection nesnesi döndürmektedir. Ayrıca bu bilgiler kullanıcıdan alınarak bu metot tetiklenebilir.<br><br>
+
+Kod:<br>
+import mysql.connector<br>
+veritabani = mysql.connector.connect(<br>
+&emsp; host="localhost",<br>
+&emsp; user="kullanıcı_adı",<br>
+&emsp; password="kurulum_şifresi",<br>
+&emsp; database="veritabanı_adı"<br>
+)<br><br>
+print( veritabani )    </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Python'da MySQL veritabanı oluşturmak için
+aşağıdakilerden hangisi kullanılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> SHOW DATABASE </span><br>
+	<span class="option" data-correct="false"><b>B)</b> SELECT*FROM </span><br>
+	<span class="option" data-correct="true"><b>C)</b> CREATE DATABASE </span><br>
+	<span class="option" data-correct="false"><b>D)</b> INSERT INTO </span><br>
+	<span class="option" data-correct="false"><b>E)</b> CREATE TABLE </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> Veritabanında tablo oluşturulurken, tabloya
+eklenen her bir kayıt için benzersiz bir anahtar, değer içeren bir sütun da oluşturulmalıdır. Bu sütuna ------- adı verilir.<br><br>
+ Yukarıdaki cümlede boş bırakılan yeri aşağıdakilerden hangisi doğru şekilde tamamlar? </p>
+	<span class="option" data-correct="false"><b>A)</b> tablo </span><br>
+	<span class="option" data-correct="false"><b>B)</b> offset anahtar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> yabancı anahtar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> benzersiz anahta </span><br>
+	<span class="option" data-correct="true"><b>E)</b> birincil anahtar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> Python'da veritabanına girilmesi istenen
+verilerin kaydedilmesi için aşağıdakilerden hangisi kullanılır?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> veritabani.write() </span><br>
+	<span class="option" data-correct="false"><b>B)</b> veritabani.add() </span><br>
+	<span class="option" data-correct="false"><b>C)</b> veritabani.insert() </span><br>
+	<span class="option" data-correct="false"><b>D)</b> veritabani.execute()
+ </span><br>
+	<span class="option" data-correct="true"><b>E)</b> veritabani.commit() </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Django'nun temele aldığı mimari aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> MVVM </span><br>
+	<span class="option" data-correct="false"><b>B)</b> MVC </span><br>
+	<span class="option" data-correct="false"><b>C)</b> WAF </span><br>
+	<span class="option" data-correct="true"><b>D)</b> MVT </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Zend </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> Django’da arayüzler aşağıdaki dosyalardan
+hangisinde oluşturulur?  </p>
+	<span class="option" data-correct="false"><b>A)</b> manage.py </span><br>
+	<span class="option" data-correct="false"><b>B)</b> wsgi.py </span><br>
+	<span class="option" data-correct="false"><b>C)</b> settings.py </span><br>
+	<span class="option" data-correct="true"><b>D)</b> views.py </span><br>
+	<span class="option" data-correct="false"><b>E)</b> urls.py </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> Web uygulaması geliştirmek için oluşturulan
+proje klasörünün paket olarak algılanabilmesi için aşağıdaki dosyalardan hangisini barındırması gerekir? </p>
+	<span class="option" data-correct="false"><b>A)</b> manage.py </span><br>
+	<span class="option" data-correct="false"><b>B)</b> settings.py </span><br>
+	<span class="option" data-correct="true"><b>C)</b> __init__.py </span><br>
+	<span class="option" data-correct="false"><b>D)</b> urls.py </span><br>
+	<span class="option" data-correct="false"><b>E)</b> wsgi.py </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Django'da migration dosyalarının çalıştırılarak veritabanı ile eşleştirilip güncellenmesi için kullanılan komut aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> python manage.py createsuperuser </span><br>
+	<span class="option" data-correct="true"><b>B)</b> python manage.py migrate </span><br>
+	<span class="option" data-correct="false"><b>C)</b> python manage.py migratedb </span><br>
+	<span class="option" data-correct="false"><b>D)</b> python manage.py updatedb </span><br>
+	<span class="option" data-correct="false"><b>E)</b> python manage.py runserver </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      manage.py: Bu dosya, proje ile komut satırı aracılığıyla iletişim kurmak için hazırlanmış yerel bir
+Django-admin’dir. Veritabanı senkronizasyonu, geliştirme sunucusu başlatma gibi görevleri gerçekleştirmeye yarayan komut satırı yardımcı programıdır. <br><br>
+
+Models dosyasında yapılan tüm değişiklikler için öncelikle makemigration sonra da migrate komutu çalıştırılarak veritabanı güncellenmelidir. Bunun haricinde başka bir tablo güncelleme komutu yazılmasına gerek yoktur</div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> Aşağıdakilerden hangisi Python'da geçerli
+dizine ulaşmak için kullanılan fonksiyondur? </p>
+	<span class="option" data-correct="true"><b>A)</b> getcwd()  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> chdir() </span><br>
+	<span class="option" data-correct="false"><b>C)</b> mkdir() </span><br>
+	<span class="option" data-correct="false"><b>D)</b> rmdir()  </span><br>
+	<span class="option" data-correct="false"><b>E)</b> listdir()  </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Aşağıdakilerden nesne tanımlarından hangisi
+<u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> dog = Kopek("Jamie",3) </span><br>
+	<span class="option" data-correct="true"><b>B)</b> pupper = new Kopek("Jamie")  </span><br>
+	<span class="option" data-correct="false"><b>C)</b> jamie = Kopek() </span><br>
+	<span class="option" data-correct="false"><b>D)</b> puppy = Kopek("Jamie") </span><br>
+	<span class="option" data-correct="false"><b>E)</b> dog = Kopek("Jamie")
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> Veri tabanına veri eklemek kullanılan SQL
+komutu aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> INSERT NEW </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ALTER TABLE </span><br>
+	<span class="option" data-correct="true"><b>C)</b> INSERT INTO </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ADD NEW </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ADD RECORD
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> Aşağıdakilerden hangisi web isteği (web
+request) ve web yanıtı (web response) döndüren Python metodudur? </p>
+	<span class="option" data-correct="true"><b>A)</b> Arayüz (View) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Şablon (Template) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Uygulama (Application) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Model </span><br>
+	<span class="option" data-correct="false"><b>E)</b> CRUD </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Aşağıda dosya.txt dosyasından alınan alınan bir kesit ve bu kesiti okumak için kullanılan bir kod bloğu verilmiştir.<br><br>
+
+
+Herkese merhaba<br>
+Bugün sınav günü<br>
+herkese başarılar diliyorum<br><br>
+
+
+myfile = open ("dosya.txt", "r")<br>
+str = myfile.readline(7)<br>
+str = myfile.readline()<br>
+str = myfile.readline(8)<br>
+print(str)<br>
+mtfile.close()<br><br>
+
+Buna göre yukarıdaki kod bloğunun ekran çıktısı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Herkese merhaba<br>
+Bugün sınav günü<br>
+herkese başarılar diliyorum </span><br><br>
+
+	<span class="option" data-correct="false"><b>B)</b> Herkese </span><br><br>
+	<span class="option" data-correct="true"><b>C)</b> Bugün sı
+ </span><br><br>
+	<span class="option" data-correct="false"><b>D)</b> Herkese merhaba </span><br><br>
+	<span class="option" data-correct="false"><b>E)</b> Bugün sınav günü </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Python'da dosya nesnesinin geçerli
+konumunu belirtip bir tamsayı değeri döndüren dosya metodu aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> flush() </span><br>
+	<span class="option" data-correct="false"><b>B)</b> isatty()
+ </span><br>
+	<span class="option" data-correct="true"><b>C)</b> tell()
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> read()
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> seek()
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> 
+class Kopek:<br>
+&emsp;	def __init__(self, ad, yas):<br>
+&emsp;	&emsp;	self.ad = ad<br>
+&emsp;	&emsp;	self.yas = yas<br><br>
+	
+		<br>
+<br>
+Yukarıdaki Kopek sınıfından bir nesne oluşturmak için kullanılması gereken söz dizimi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kopek.__init__("Lesi", 3) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kopek() </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Kopek("Lesi", 3) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kopek.create("Lesi", 3) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kopek("Lesi") </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> "==` operatörünü aşırı yüklemek için
+kullanılan temel aşırı yükleme metodu aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> __eq__()
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> __sub__()
+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> __ne__()
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> __comp__()
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> __equal__()
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> SQL dilini kullanarak, “ogrenci” tablosunun
+“ad” text alanı “Mehmet” olan tüm kayıtları seçen söz dizimi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> SELECT * FROM ogrenci WHERE ad LIKE
+'*Mehmet*' </span><br>
+	<span class="option" data-correct="false"><b>B)</b> SELECT [all] FROM ogrenci WHERE
+ad='Mehmet' </span><br>
+	<span class="option" data-correct="false"><b>C)</b> SELECT [all] FROM ogrenci WHERE ad
+LIKE 'Mehmet' </span><br>
+	<span class="option" data-correct="true"><b>D)</b> SELECT * FROM ogrenci WHERE
+ad='Mehmet' </span><br>
+	<span class="option" data-correct="false"><b>E)</b> SELECT * FROM ogrenci WHERE ad LIKE
+'%Mehmet%' </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> 
+cursor = connection.cursor()<br> <br>
+		
+# Veri çekme SQL komutu<br>
+select_sql = "SELECT * FROM ogrenciler"<br><br>
+		
+# Veriyi çek<br>
+cursor.execute(select_sql)<br>
+veriler = cursor.<strong>?</strong><br><br>
+for veri in veriler:<br>
+&emsp; print(veri)<br><br>
+
+Yukarıdaki Python kodunda "?" yerine gelmesi gereken fonksiyon aşağıdakilerden hangisidir?		
+		
+		
+		</p>
+	<span class="option" data-correct="false"><b>A)</b> fetch()
+ </span><br>
+	<span class="option" data-correct="true"><b>B)</b> fetchall()
+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> read_data()
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> read()
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> get()
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Mevcut bir projede 'anadolum' adlı yeni bir
+uygulamayı başlatmak için kullanılması gereken Django komutu aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> python manage.py startapp anadolum </span><br>
+	<span class="option" data-correct="false"><b>B)</b> python manage.py runserver anadolum </span><br>
+	<span class="option" data-correct="false"><b>C)</b> python manage.py create anadolum </span><br>
+	<span class="option" data-correct="false"><b>D)</b> python manage.py build anadolum </span><br>
+	<span class="option" data-correct="false"><b>E)</b> python manage.py migrate anadolum </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> Python içerisindeki tüm modelleri tarayarak
+migration dosyalarını oluşturan komut aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> python manage.py createmigration
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> python manage.py openmigration
+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> python manage.py migrate
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> python manage.py migrates
+ </span><br>
+	<span class="option" data-correct="true"><b>E)</b> python manage.py makemigrations
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

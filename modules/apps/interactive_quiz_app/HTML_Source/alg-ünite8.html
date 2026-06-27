@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          ALGORİTMALAR
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="alg-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="alg-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="alg-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="alg-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="alg-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="alg-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="alg-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="alg-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="alg-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="alg-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB SUNUCU PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wsp-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wsp-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wsp-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wsp-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wsp-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wsp-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wsp-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wsp-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wsp-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wsp-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİ MADENCİLİĞİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="vmaden-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="vmaden-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="vmaden-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="vmaden-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="vmaden-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="vmaden-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="vmaden-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="vmaden-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="vmaden-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="vmaden-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİTABANI SİSTEMLERİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="vtsistem-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="vtsistem-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="vtsistem-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="vtsistem-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="vtsistem-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="vtsistem-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="vtsistem-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="vtsistem-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="vtsistem-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="vtsistem-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMADA YENİ EĞİLİMLER
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="prgyenieğilim-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="prgyenieğilim-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Algoritmalar - Ünite 8 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	<button class="block-group" data-start="40" data-end="59">Part 3</button>
+  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Makine öğrenmesinde veri kümesinde yer alan
+örnek sayısının yeterli olması ve örneklerin gerçek değerlerinin bilinmesi durumunda ilgili problemin çözümü için ------- bir yaklaşım tercih edilir.<br><br>
+Yukarıdaki cümlede boş bırakılan yeri aşağıdakilerden hangisi doğru şekilde tamamlar? </p>
+	<span class="option" data-correct="true"><b>A)</b> Gözetimli </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Gözetimsiz </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kümeleme Tabanlı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Boyut İndirgeme Tabanlı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Beklenti-maksimizasyonu tabanlı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Makine öğrenmesi yöntemleri temel ------- başlık altında toplanır.<br> <br> 
+Yukarıdaki cümlede boş bırakılan yeri aşağıdakilerden hangisi doğru şekilde tamamlar? </p>
+	<span class="option" data-correct="false"><b>A)</b> 5 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 4 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 3 </span><br>
+	<span class="option" data-correct="true"><b>D)</b> 2 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 1 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      Makine öğrenmesi alanında kullanılan yaklaşımlar gözetimli ve gözetimsiz olmak üzere temel iki sınıfa
+ayrılır. Bu iki sınıfa ek olarak özellikle girdi olarak kullanılan etiketli veri kümesinin yetersiz olması durumunda kullanılacak yaklaşımları içeren yarı-gözetimli ve pekiştirmeli öğrenme yöntemleri de mevcuttur     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Aşağıdaki yöntemlerden hangisinde veri kümesinde yer alan örneklerin ait oldukları sınıf/küme bilgisi mevcut <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> k-en yakın komşu sınıflandırması </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Lasso regresyonu </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Kümeleme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Doğrusal regresyon </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Naive Bayes sınıflandırması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Aşağıdakilerden hangisi sınıflandırma problemlerinde doğru sınıfa atanan örnek sayısının toplam örnek sayısına oranını ifade eder? </p>
+	<span class="option" data-correct="false"><b>A)</b> Duyarlılık </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ortalama kare hatası </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kesinlik </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Doğruluk </span><br>
+	<span class="option" data-correct="false"><b>E)</b> F1 değeri </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Aşağıdakilerden hangisi regresyon problemlerinde başarım ölçmek için kullanılabilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Duyarlılık </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Ortalama kare hatası </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kesinlik </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Doğruluk </span><br>
+	<span class="option" data-correct="false"><b>E)</b> F1 değeri </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      Ortalama kare hatası:<br>
+Regresyon problemlerinde sıklıkla
+kullanılan bir performans metriğidir. Basitçe, tahminlenen değer ile gerçek değer arasındaki farkların ortalamasıdır. Ortalama kare hatası değerinin yüksek olması tahminlerin hatalı olduğu ve tahminlerde gerçek
+değerlerden uzaklaşıldığına dair belirti olarak kabul edilir.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Aşağıdaki yöntemlerden hangisi veri kümesinde
+sınırlı sayıda etiketli örnek olduğu durumda tercih edilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Gözetimli öğrenme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Gözetimsiz öğrenme </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Yarı-gözetimli öğrenme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Hepsi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> k-en yakın komşu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> Genetik algoritmalarda her bir örnek ------- ile ifade edilir.<br><br>
+Yukarıdaki cümlede boş bırakılan yeri aşağıdakilerden hangisi doğru şekilde tamamlar? </p>
+	<span class="option" data-correct="false"><b>A)</b> Popülasyon </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Kromozom dizini </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Çaprazlama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Mutasyon </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Doğal seçilim </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> 1. tekrar üreme<br>
+2. çaprazlama<br>
+3. çıkartma<br>
+4. mutasyon<br>
+5. seçme<br><br>
+Yukarıdaki ifadelerden kaç tanesi genetik algoritmalarda yeni örnekler üretmek için kullanılabilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 1 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 2 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 3 </span><br>
+	<span class="option" data-correct="true"><b>D)</b> 4 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 5 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">       Genetik algoritmaların işleyişi sırasında mevcut popülasyon üzerinde uygulanarak popülasyonun değişmesine sebep olan işlemlere, genetik operatörler denir. Bunlar;<br><br>
+- Seçme,<br>
+- Tekrar üreme, <br>
+- Çaprazlama <br>
+- Mutasyon operatörleridir.      </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> ------- algoritmalar yalnızca yetkili iki tarafça bilinen bir anahtarın kullanılmasıyla çalışan kriptografik
+algoritmalardır.<br><br>
+Yukarıdaki cümlede boş bırakılan yeri </p>
+	<span class="option" data-correct="false"><b>A)</b> Asimetrik </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Simetrik </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sıralı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Anahtarlı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Hepsi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Simetrik ve asimetrik şifrelemeler ile ilgili aşağıdaki ifadelerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Asimetrik şifreleme algoritmalarında bir genel ve bir özel anahtar olmak üzere bir çift anahtar kullanılır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Simetrik şifreleme algoritmalarında mesajın hem şifrelenmesi hem de şifresinin çözülmesi için genelde aynı anahtar kullanılır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Asimetrik şifreleme algoritmalarında kullanılan anahtarlar matematiksel olarak ilişkilidir. </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Asimetrik şifreleme algoritmalarında kullanılan bir anahtar biliniyor ise diğerini kolayca hesaplamak mümkündür. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Asimetrik şifreleme algoritmalarında kolayca tersine çevrilemeyen matematiksel problemler kullanılır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      Bu yaklaşımda genel anahtar biliniyor ise özel anahtarı belirlemek hesaplama açısından <u><strong>olanaksız</strong></u> olmalıdır     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> Verilen bir sınıf için doğru tahminlenen örnek sayısının <u>o sınıf etiketi ile etiketlenen</u> toplam örnek sayısına oranı olarak tanımlanan başarım metriğine ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Hata matrisi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Doğruluk </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Kesinlik </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Duyarlılık </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Ortalama kare hatası </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      Kesinlik metriği hata matrisinde yer alan TP değerinin TP+FP değerine bölünmesi ile elde edilir. Diğer bir deyişle verilen bir sınıf için doğru tahminlenen örnek sayısının o sınıf etiketi ile etiketlenen toplam örnek sayısına oranıdır. Çok sınıflı problemlerde her bir sınıf için ilgili değer hesaplanarak ortalama kesinlik değeri başarım sonucu olarak kullanılır     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> Aşağıdakilerden hangisi yada hangileri yapay sinir hücrelerinin girdi işleme sürecindeki temel bileşenler arasında yer alır?<br><br>
+I- Aktivasyon fonksiyonu<br>          II-  Ağırlık değeri<br>         III- Toplama/birleştirme fonksiyonu </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      Yapay sinir hücrelerinin girdi işleme sürecinde <u>aktivasyon fonksiyonu, ağırlık değeri ve toplama/birleştirme fonksiyonu</u> temel bileşenler olarak kabul edilir. Bu bileşenlerin başarımı sinir ağının sonuç performansını doğrudan etkiler     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Aşağıdakilerden hangisi veya hangileri simetrik algoritmaların avantajları arasında yer alır? <br><br>
+I-Anahtar boyunun kısa olması<br> II- Donanım ile birlikte kullanılabilmeleri<br> III- Hızlı olmaları </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      Simetrik algoritmalar anahtar boyunun kısa olması, donanım ile birlikte kullanılabilmeleri, hızlı olmaları gibi güçlü yanlara sahiptir. <br><br>
+Bunun yanısıra güvenli anahtarın dağıtımındaki zorluk, kimlik doğrulama
+ve bütünlük ilkeleri hizmetlerini güvenli bir şekilde yerine getirmenin kolay olmaması gibi farklı açılardan
+ise zayıflıkları vardır.      </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> Aşağıdakilerden hangisi insanların öğrenme yeteneklerini taklit etmeyi hedefleyen algoritmaların kullanıldığı bir araştırma alanıdır.? </p>
+	<span class="option" data-correct="true"><b>A)</b> Makine öğrenmesi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Algoritma </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Gözetimsiz Öğrenme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Pekiştirmeli Öğrenme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Gözetimli Öğrenme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> Aşağıdakilerden hangisi yazılım etmeninin verilen ortamda en yüksek ödül miktarına ulaşabilmesi için hangi eylemleri yapması gerektiği üzerine kurulmuştur? </p>
+	<span class="option" data-correct="true"><b>A)</b> Pekiştirmeli öğrenme algoritmaları </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Serbest öğrenme algoritmaları </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Gözetimli öğrenme algoritmaları </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kümeleme öğrenme algoritmaları </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Regresyon </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Aşağıdakilerden hangisi temel amaç veri kümesini adımsal olarak böl-fethet yöntemiyle alt gruplara bölerek çözüme yaklaşmaktır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Karar ağaçlarında </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kök düğümlerde </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kesinlik metriğinde </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Terminal düğümlerinde </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yapay Sinir Ağlarında </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> Bu yaklaşım hem etiketli hem de etiketsiz verileri kullanır. Bu algoritmalarda sınırlı sayıdaki etiketli veri kullanılarak ilk eğitim gerçekleştirilir. Ardından bir miktar etiketsiz veri tahminleme süreci sonucunda etiketlenerek eğitim veri kümesi genişletilir. Bu işlem yeteri kadar etiketli veri örneği elde edilene kadar tekrarlanarak süreç tamamlanır.<br><br>
+
+Yukarıda sözü edilen makine öğrenmesi yaklaşımı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Yarı gözetimli öğrenme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Gözetimli öğrenme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Gözetimsiz öğrenme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Pekiştirmeli öğrenme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kümeleyerek öğrenme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Sınıflamaya dayalı makine öğrenmesi algoritmalarında tahmin edilen sınıf ile gerçek durumun örtüşmesi;<br><br>
+I. Doğru pozitif<br>
+II. Yanlış pozitif<br>
+III. Doğru negatif<br>
+IV. Yanlış negatif<br><br>
+durumlarından hangilerinde görülür? </p>
+	<span class="option" data-correct="false"><b>A)</b> I ve II </span><br>
+	<span class="option" data-correct="true"><b>B)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> III ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> Aşağıdakilerden hangisi genetik algoritmaların bileşenleri arasında yer alır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Çaprazlama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Düğüm </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Asimetrik şifreleme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yaprak </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yapay sinir ağları </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      Genetik algoritmaların işleyişi sırasında mevcut popülasyon üzerinde uygulanarak popülasyonun değişmesine sebep olan işlemlere, genetik operatörler denir. Bunlar;<br><br>
+- Seçme,<br>
+- Tekrar üreme, <br>
+- Çaprazlama <br>
+- Mutasyon operatörleridir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> Bir araştırma kapsamında eğer çıktı-bağımlı değişken biliniyor, yani etiketlenmişse, aşağıdaki sınıflardan hangisi altında yer alan bir istatistiksel yöntem kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Gözetimli </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Gözetimsiz </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Pekiştirmeli </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Non-parametrik </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Denetimsiz </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Gözetimli öğrenme aşağıda verilen problemlerin hangisine veya hangilerine çözüm üretebilir?<br> <br> 
+I- Sınıfandırma <br>           II- Kümeleme <br>          III- Regresyon </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I,II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      Gözetimli öğrenmede iki temel problem üzerinde çözüm üretilebilir. Bunlardan ilki sınıflandırma problemidir. Sınıflandırma verilen bir örneğin bilinen sınıflardan hangisine ait olduğunun saptanmasıdır. <br><br>
+
+Gözetimli algoritmalar sınıflandırma dışında değer tahminleme amaçlı da kullanılırlar. Bu durumda ilgili problem sürekli bir problem olarak kabul edilerek regresyon ismiyle anılır. Regresyon algoritmalarında mevcut örneklerin değerleri göz önünde bulundurularak bir tahminde bulunulur.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Aşağıda verilen katmanlardan hangisi veya hangileri tek katmanlı algılayıcılarda bulunur?<br><br>
+I- Gizli katmanlar <br>              II- Girdi katmanı<br>             III- Çıktı katmanı </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve III </span><br>
+	<span class="option" data-correct="true"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I,II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      Tek katmanlı algılayıcılarda bir girdi bir de çıktı katmanı olur. <br><br>
+Çok katmanlı ağlarda ise giriş, gizli katmanlar ve çıktı katmanı yer alır     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> Aşağıda verilen katmanlardan hangisi veya hangileri çok katmanlı algılayıcılarda bulunur?<br><br>
+I- Giriş katmanı <br>              II- Gizli katmanlar<br>             III- Çıktı katmanı </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I,II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      Tek katmanlı algılayıcılarda bir girdi bir de çıktı katmanı olur. <br><br>
+Çok katmanlı ağlarda ise giriş, gizli katmanlar ve çıktı katmanı yer alır     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Aşağıdakilerden hangisi mesajları şifrelemek ve deşifre etmek için kullanılan süreç veya kurallar dizisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Kriptografik algoritmalar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Mutasyon </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Çaprazlama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yapa sinir ağları </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Karar Ağaçları </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> Aşağıda verilen problemlerden hangisi makine öğrenmesinde gözetimsiz öğrenme için uygundur? </p>
+	<span class="option" data-correct="true"><b>A)</b> Kullanıcının girdiği WEB sitelerine bakıp uygun WEB sitesi önerme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Borsa takip edip yatırım için uygun şirket önerme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Hava tahmini yapma </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Birçok resmi inceleyip resmin hayvan resmi içerip içwermediğine karar vermek. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Güvenlik kameralarından plaka tanımlamak </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> Böl fethet yöntemi aşağıdaki hangi makine öğrenmesi algoritması için uygundur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Regresyon analizi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yapay Sinir Ağları </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Karar Ağaçları </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Genetik Algoritmalar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Şifreleme Algoritmaları </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> İnsan düşünce ve öğrenme sisteminine en yakın geliştirilmiş model aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Yapay Sinir Ağları </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Karar Ağaçları </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Genetik Algoritmalar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kriptografik Algoritmalar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Asimetrik Anahtar Algoritmaları </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> Aşağıdaki alanlardan kaç tanesi genetik algoritmaların kullanım alanları arasında yer alır?<br><br>
+
+1. Görüntü kontrolü,  <br>
+2. Optimizasyon, <br>
+3. Yapay sinir ağı tasarımı, <br>
+4. Atölye çizelgeleme, <br>
+5. Elektronik devre tasarımı </p>
+	<span class="option" data-correct="true"><b>A)</b> 5 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 4 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 3 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 2 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 1 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">       Bu algoritmaların; <br><br>
+
+- Atölye çizelgeleme, <br>
+- Yapay sinir ağı tasarımı, <br>
+- Görüntü kontrolü, <br>
+- Elektronik devre tasarımı, <br>
+- Optimizasyon, <br>
+- Uzman sistemler,<br>
+- Paketleme problemleri, <br>
+- Gezgin satıcı problemi, <br>
+- Ekonomik model çıkarma  <br>
+<br>
+vb. bir çok farklı alanda kullanımı görülmektedir      </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> Aşağıdakilerden hangisi gözetimli öğrenmeye bir örnektir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Müşteri segmentlerini belirlemek için müşteri verilerini kümeleme </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Bir evin fiyatını konumu, büyüklüğü ve oda sayısı gibi özelliklerine göre tahmin etme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Görüntü ve video verisi sıkıştırma </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Müşterileri davranışlarına veya tercihlerine göre gruplara ayırma </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Finansal verilerdeki hileli işlemlerin tespiti </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> Hata matrisi kullanılarak kesinlik metriği nasıl bulunur? </p>
+	<span class="option" data-correct="false"><b>A)</b> FP değerinin TN+FN+FP değerine bölünmesiyle elde edilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> TP değerinin TN+FN+FP değerine bölünmesiyle elde edilir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> TN değerinin TN-FN değerine bölünmesiyle elde edilir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> TP değerinin TP-FP değerine bölünmesiyle elde edilir.  </span><br>
+	<span class="option" data-correct="true"><b>E)</b> TP değerinin TP+FP değerine bölünmesiyle elde edilir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> F1 değerinin hesaplanması ile ilgili aşağıda verilen hangi seçenek <u><strong>doğru bir önerme içermez?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> F1 değeri hesaplanmasında duyarlılık değeri kullanılır </span><br>
+	<span class="option" data-correct="false"><b>B)</b> F1 değeri hesaplanmasında duyarlılık değeri kullanılır </span><br>
+	<span class="option" data-correct="false"><b>C)</b> F1 değeri hesaplanmasında TP (Doğru Pozitif) değeri kullanılır. </span><br>
+	<span class="option" data-correct="true"><b>D)</b> F1 değeri hesaplanmasında TN (Doğru Negatif) değeri kullanılır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> F1 değeri hesaplanmasında FP (Yanlış Pozitif) değeri kullanılır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      <u><strong>Kesinlik metriği</strong></u> hata matrisinde yer alan <u><strong>TP değerinin TP+FP değerine bölünmesi</strong></u> ile elde edilir. Diğer bir deyişle verilen bir sınıf için doğru tahminlenen örnek sayısının o sınıf etiketi ile etiketlenen toplam örnek sayısına oranıdır. Çok sınıflı problemlerde her bir sınıf için ilgili değer hesaplanarak ortalama kesinlik değeri başarım sonucu olarak kullanılır. <br>
+<br>
+<u><strong>Duyarlılık değeri</strong></u> ise verilen bir sınıf için doğru tahminlenen örnek sayısının <u><strong>(TP) o sınıfa ait toplam örnek sayısına (TP+FN)</strong></u> oranı olarak hesaplanır. Diğer bir deyişle bir sınıfa ait örneklerin ne oranda o sınıfa ait olarak tahminlendiğini gösteren bir göstergedir.<br><br>
+<u><strong>Bu iki metriğin harmonik ortalaması F1 değerini verir.</strong></u>     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> Aşağıda verilen seçeneklerden entropi hesabı yapılmak istendiğinde hangi seçeneğin entropisi 0 (sıfır) olur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Bir torbada 5 kırmızı 5 siyah topun olduğu ve görmeden rastgele seçilen top için entropi hesabı yapılması durumu.  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bir torbada 50 kırmızı  50 siyah topun olduğu ve görmeden rastgele seçilen top için entropi hesabı yapılması durumu.  </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bir torbada 1000 kırmızı 1 siyah topun olduğu ve görmeden rastgele seçilen top için entropi hesabı yapılması durumu.  </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Bir torbada 10 kırmızı ve 0 (sıfır) siyah topun olduğu ve görmeden rastgele seçilen top için entropi hesabı yapılması durumu.  </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bir torbada 1 kırmızı 1 siyah topun olduğu ve görmeden rastgele seçilen top için entropi hesabı yapılması durumu.  </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      Entropi basitçe veri kümesindeki düzensizliğin bir ifadesidir. Örneğin; kırmızı ve mavi topların olduğu bir torbada, mavi topların sayısı kırmızı topların sayısı ile aynı ise rastgele seçilen bir topun rengini tahmin etmek kolay olmayacaktır. Diğer bir deyişle düzensizlik yüksektir. Ancak tek bir kırmızı top ve 10 adet mavi topun olduğu bir torbada düzensizlik azdır dolayısıyla tahminleme de daha başarılı olacaktır     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> Sınıflandırma probleminde ayırt ediciliği bulunan kategorik veya kategorik olmayan özelliklere ne ad verilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Öznitelik </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sınıflama </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Çaprazlama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Boyut indirgeme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Algortima </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> Aşağıdakilerden hangisi yada hangileri gözetimsiz öğrenmenin uygulama hedefleri arasındadır?<br><br>
+I- Kümeleme<br>                  II- Boyut indirgeme<br>               III-Regresyon </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="true"><b>B)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I,II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> Aşağıdakilerden hangisi veya hangileri genetik algoritmalarda performansı etkileyen faktörler arasında yer alır?<br> <br> 
+I- Çaprazlama ve mutasyon işlemlerinin olasılıkları<br> 
+II- Popülasyon büyüklüğü<br> 
+III- Maksimum nesil sayısı </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I,II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> Aşağıdakilerden hangisi belirli bir problemin çözülmesine veya bir amaca ulaşılmasına yönelik olarak kurgulanan işlem basamaklarını ifade eder. </p>
+	<span class="option" data-correct="true"><b>A)</b> Algoritma </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Regresyon </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kümeleme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sınıflandırma </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Boyut indirgeme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> Aşağıdakilerden hangisi makine öğrenmesinde kullanılabilecek gözetimsiz öğrenme yöntemlerinden biridir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Kümeleme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Lojistik regresyon </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Doğrusal regresyon </span><br>
+	<span class="option" data-correct="false"><b>D)</b> k-en yakın komşular </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Karar ağaçları </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> Pekiştirmeli öğrenme aşağıdaki durumlardan hangisi veya hangileri ile gözetimli öğrenmeden ayrılır?<br><br>
+I- Ortamla etkileşimin sürekli olması<br>
+
+II- Optimal olmayan eylemlerin düzeltilmemesi<br>
+
+III- Etiket bilgisinin verilmemesi </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I,II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> Aşağıdakilerden hangisi insan müdahalesine gerek olmadan veri içinde saklı kalıpları veya veri gruplamalarını keşfetmeyi amaçlar? </p>
+	<span class="option" data-correct="true"><b>A)</b> Gözetimsiz öğrenme algoritmaları </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Gözetimli öğrenme algoritmaları </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Pekiştirmeli öğrenme algoritmaları </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Durağan öğrenme algoritmaları </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yarı öğrenme algoritmaları </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> Aşağıda verilen seçeneklerde hangisi çok katmanlı sinir ağları için <u><strong>yanlış</strong></u> bir önerme içermektedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Çok katmanlı yapay sinir ağlarında öğrenme işlemi geri yayılım algoritması kullanılarak yapılır. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Tek katmanlı bir sinir ağında sadece çıktı katmanı bulunur.  </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Çok katmanlı bir sinir ağında giriş katmanı gizli katman ve çıkış katmanı bulunur.  </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Çok katmanlı bir sinir ağında birden fazla gizli katman olabilir.  </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yapay sinir ağları gözetimli ve gözetimsiz öğrenme amacıyla kullanılabilir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      Tek katmanlı algılayıcılarda bir girdi bir de çıktı katmanı olur.<br><br>
+Çok katmanlı ağlarda ise giriş, gizli katmanlar ve çıktı katmanı yer alır     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question41">
+	<p class="question">Soru 41:<br> Yalnızca yetkili iki tarafça bilinen bir anahtarın kullanılmasıyla çalışan algoritmalara ne ad verilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Simetrik şifreleme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Asimetrik şifreleme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Genetik </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Doğrusal </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Gözetimsiz </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description41">Açıklama</button>
+		<div id="description41" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question42">
+	<p class="question">Soru 42:<br> Makine öğrenmesinin performasını ölçmek amaçlı kullanılan doğruluk, kesinlik ve F1 metrikleri hangi aralıkta değer alırlar? </p>
+	<span class="option" data-correct="true"><b>A)</b> 0-1 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 1-5 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 0-10 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 5-15 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 0-100 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description42">Açıklama</button>
+		<div id="description42" class="collapse">      Makine öğrenmesinin performasını ölçmek amaçlı kullanılan doğruluk, kesinlik ve F1 metrikleri [0 1] aralığında değer alırlar. İlgili değerin bire yakın olması başarımın yüksek olduğunu ifade eder.
+
+
+     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question43">
+	<p class="question">Soru 43:<br> Aşağıdakilerden hangisinde, verileri sınıflandıran veya veri değerlerini tahmin eden algoritmaları eğitmek için tamamiyle etiketli bir veri kümesi kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Gözetimli öğrenme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Pekistirmeli Ögrenme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kümeleme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yarı-Gözetimli Ögrenme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Gözetimsiz Ögrenme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description43">Açıklama</button>
+		<div id="description43" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question44">
+	<p class="question">Soru 44:<br> Aşağıdakilerden hangisi bir genel anahtar ve bir özel anahtar olmak üzere bir çift anahtar gerektirir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Asimetrik şifreleme algoritmaları </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Mutasyonlar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Genetik algoritmalar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Gelişmiş şifre standartları </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Simetrik Şifreleme Algoritmaları </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description44">Açıklama</button>
+		<div id="description44" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question45">
+	<p class="question">Soru 45:<br> Aşağıda seçeneklerden hangisi temel makine öğrenmesi algoritmalarından birisi <u><strong>değildir?</strong></u>  </p>
+	<span class="option" data-correct="false"><b>A)</b> Gözetimli öğrenme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yarı-Gözetimli Öğrenme </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Öznitelikli Öğrenme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Pekiştirmeli Öğrenme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Gözetimsiz Öğrenme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description45">Açıklama</button>
+		<div id="description45" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question46">
+	<p class="question">Soru 46:<br> Hata matrisi kullanılarak duyarlılık değeri nasıl bulunur? </p>
+	<span class="option" data-correct="false"><b>A)</b> TP değerin TP+TN  toplamına bölünmesiyle elde edilir.  </span><br>
+	<span class="option" data-correct="true"><b>B)</b> TP değerin TP+FN  toplamına bölünmesiyle elde edilir.  </span><br>
+	<span class="option" data-correct="false"><b>C)</b> TN değerin TP+FN  toplamına bölünmesiyle elde edilir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> TN değerin TN+FN  toplamına bölünmesiyle elde edilir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> TN değerin TN+FP  toplamına bölünmesiyle elde edilir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description46">Açıklama</button>
+		<div id="description46" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+		
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

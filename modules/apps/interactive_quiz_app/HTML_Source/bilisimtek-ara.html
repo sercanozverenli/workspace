@@ -1,0 +1,2559 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+	  
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          BİLİŞİM TEKNOLOJİLERİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="bilisimtek-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="bilisimtek-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="bilisimtek-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="bilisimtek-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="bilisimtek-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="bilisimtek-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="bilisimtek-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="bilisimtek-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="bilisimtek-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="bilisimtek-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB TABANLI KODLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wtk-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wtk-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wtk-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wtk-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wtk-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wtk-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wtk-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wtk-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wtk-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wtk-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          KULLANICI DENEYİMİ TASARIMI
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="kdt-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="kdt-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="kdt-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="kdt-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="kdt-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="kdt-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="kdt-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="kdt-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="kdt-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="kdt-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          İŞLEM TABLOSU PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="itp-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="itp-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="itp-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="itp-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="itp-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="itp-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="itp-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="itp-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="itp-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="itp-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          DİJİTAL DÖNÜŞÜM
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="digitald-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="digitald-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="digitald-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="digitald-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="digitald-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="digitald-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="digitald-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="digitald-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="digitald-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="digitald-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Bilişim Teknolojileri - Çıkmış Sorular (Ara Sınav) </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	<button class="block-group" data-start="40" data-end="59">Part 3</button>
+	<button class="block-group" data-start="60" data-end="79">Part 4</button>
+	<button class="block-group" data-start="80" data-end="99">Part 5</button>
+
+  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> İkinci nesil bilgisayarlar dönemi olarak
+adlandırılan dönem aşağıdakilerden hangisidir?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> 1945’e kadar üretilen elektromekanik
+bilgisayarlar dönemi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 1965-1972 yılları arasında üretilen tümleşik
+devreli bilgisayarlar dönemi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 1946-1958 yıları arasında üretilen vakum
+tüplü bilgisayarlar dönemi
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 1972’den sonra üretilen yüksek ölçekli
+tümleştirmeli bilgisayarlar dönemi
+ </span><br>
+	<span class="option" data-correct="true"><b>E)</b> 1959-1964 yılları arasında üretilen
+transistörlü bilgisayarlar dönemi
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Satılmak amacıyla üretilen ilk bilgisayar
+aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> EDSAC </span><br>
+	<span class="option" data-correct="false"><b>B)</b> EDVAC </span><br>
+	<span class="option" data-correct="false"><b>C)</b> SSEC </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ENIAC </span><br>
+	<span class="option" data-correct="true"><b>E)</b> UNIVAC </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Aşağıdakilerden hangisi bilgisayarlarda
+transistör kullanımının etkilerinden biri
+<u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Maliyet ve fiyatları artırır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Daha esnek tasarımlara olanak sağlar. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bilgisayarları küçültür. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bellek ve hız kapasitelerini artırır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Enerji tüketimini azaltır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Elektron tüpü yardımıyla elektronik dalının
+doğmasını sağlayan, böylece radyo ve
+televizyon yayınının yanı sıra birbirine çok
+uzak yerler arasında telefonla haberleşmeyi
+de olanaklı hale getiren bilim insanı
+aşağıdakilerden hangisidir?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> Herman Hollerith </span><br>
+	<span class="option" data-correct="false"><b>B)</b> James Clerk Maxwell
+ </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Lee de Forest
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Charles Babbage  </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Leonardo Fibonacci
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Algoritması oluşturulabilen herhangi bir
+problemin, mekanik bir işlem makinesi ile
+çözülebileceğinin ortaya konulmasını
+kanıtlayan soyut araç aşağıdakilerden
+hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Lee de Forest’ın vakum tüpü </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Babbage’ın analitik makinesi </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Turing makinesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Shannon’un mantık devreleri </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Maxwell denklemleri </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Modern bilgisayarın ilkelerini ilk olarak 1936 tarihli “Hesaplanabilir Sayılar” adlı makalesinde ortaya koyan bilgisayar bilimci aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Alan Turing </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Gottfried Wilhelm von Leibniz </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Willhelm  Schickard </span><br>
+	<span class="option" data-correct="false"><b>D)</b> John von Neumann </span><br>
+	<span class="option" data-correct="false"><b>E)</b> William Thomson </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> Bilgisayar sistemlerinin veya elektronik
+cihazların gözle görülen elle tutulan somut fiziksel parçalarına ne ad verilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Donanım </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Derleyici </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yazılım </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Geliştirme kiti </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bellenim </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> Ana bellek, birincil bellek veya sistem belleği
+adı da verilen bilgisayar iç donanımı
+aşağıdakilerden hangisidir?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> Salt Okunur Bellek (ROM) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Anakart </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Merkezi İşlem Birimi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sabit Disk </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Rastgele Erişim Belleği (RAM)
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> Üzerinde donanımların taşındığı ve bilgisayar
+sistemlerinin iskeleti görevi gören temel
+donanım aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Grafik İşleme Ünitesi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sabit Disk </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Anakart </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Rastgele Erişim Belleği (RAM) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Merkezi İşlem Birimi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Üçüncü Nesil Bilgisayarlar ile ilgili aşağıdaki
+ifadelerden hangisi <u><strong>yanlıştır?</strong></u>
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> 1963-1972 yılları arasındaki dönemi
+kapsamaktadır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bu nesil, “hesaplama” ve” bilgiyi işleme
+gücü”nde büyük kazanımlar getirmiştir </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bu dönemde ticari pazarda başlayan
+entegre devre (mikroçip) teknolojisi ile
+bilgisayarların kullanımında büyük artış
+yaşanmaya başlanmıştır. </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Temel devreleri oluşturmak için kullanılan
+teknolojiden, uygulamalar yazmak için
+kullanılan programlama dillerine kadar
+bilgisayar sistemi tasarımının ve mimarisinin
+tüm seviyelerinde birkaç önemli gelişmenin
+yaşandığı bir dönemdir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bu dönem, manyetik çekirdekler yerine
+kullanılmaya başlanan yarı iletken
+belleklerin yaygınlaştığı dönemdir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> İşletim sistemlerinde sistem kaynakları
+tarafından verilen komutları yorumlayan ve
+bu komutları işlemek için sistem kaynaklarını
+kullanan işlev aşağıdakilerden hangisidir?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> Dosya yönetimi
+ </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Komut yorumlama
+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sistem performansı kontrolü
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İletişim yönetimi
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Güvenlik modülü </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> Aşağıdakilerden hangisi Linux/Unix tabanlı
+sunucu işletim sistemlerinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Debian </span><br>
+	<span class="option" data-correct="false"><b>B)</b> RedHat </span><br>
+	<span class="option" data-correct="true"><b>C)</b> MeeGo </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Pardus </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Fedora </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> I. Monolitik ve mikro çekirdeklerin
+ melezleştirilerek performanslarını artırmaya
+ yönelik geliştirilmiş çekirdek türüdür.<br>
+II. Mikro çekirdekler gibi küçüktür.<br>
+III. Monolitik çekirdeklerin parçalı olmayan
+yapısından hareketle geliştirilmiş
+çekirdeklerdir.<br><br>
+Ekzo çekirdeklerle ilgili yukarıdaki
+ifadelerden hangileri doğrudur?
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> Kapalı kaynak kodlu işletim sistemleri ve
+yazılımlar ile ilgili aşağıdaki ifadelerden
+hangisi doğrudur?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> Mozilla Firefox kapalı kaynak kodlu bir
+tarayıcıdır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kapalı kaynak kod hareketinin en önemli
+öncülerinden biri Linux çekirdeği ve bu
+çekirdekten üretilmiş yüzlerce Linux dağıtımı
+işletim sistemleridir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kapalı kaynak kodlu bir yazılımda hatalar
+düzeltilebilir, işlevler iyileştirilebilir veya
+yazılım geliştiricinin kendi ihtiyaçlarına göre
+uyarlanabilir. </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Kâr amacı gütmektedirler. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kaynak kodları üzerinde herkesin değişiklik
+yapıp, yazılımın istenildiği gibi
+özelleştirilebildiği sistemlerdir.
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> Aşağıdakilerden hangisi işletim sisteminin
+yapması gereken işlerden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> İşlerin öncelikli olanlarını tespit etmek </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Donanım kaynaklarını kullanırken
+kullanıcıların tüm detayları görmelerine
+imkân vermek
+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Mevcut iş yükünü kontrol ederek bu işleri bir
+sıraya göre yerine getirmek </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kısa sürede fazla işlem yapabilme
+kapasitesine sahip olmak </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Donanımların uyumlu bir şekilde çalışmasını
+sağlamak
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> -------, bireylerin taleplerine değil işletmelerin özel
+ihtiyaçlarına odaklanırlar. Genellikle iş süreçlerini
+basitleştirerek bir şirket içindeki verimliliği ve
+performansı artırmak için kullanılırlar.<br><br>
+Yukarıdaki cümlede boş bırakılan yeri
+aşağıdakilerden hangisi doğru olarak
+tamamlar? </p>
+	<span class="option" data-correct="false"><b>A)</b> Tüketici odaklı yazılımlar </span><br>
+	<span class="option" data-correct="true"><b>B)</b> İş odaklı yazılımlar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Web odaklı yazılımlar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Mobil odaklı yazılımlar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bulut odaklı yazılımlar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> Aşağıdakilerden hangisi günümüzde
+kullanılan genel amaçlı tipik bir proje yönetim
+yazılımının sahip olması gereken
+özelliklerden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Performans raporlama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İş akışları ve rol tanımlamaları oluşturabilme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bildirim ve uyarı mekanizmaları </span><br>
+	<span class="option" data-correct="true"><b>D)</b> ERP yazılımlarıyla entegre olabilme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Masaüstü ve mobil cihazlardan erişim </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Aşağıdakilerden hangisi HTTP (Hyper Text
+Transfer Protocol) döngüsünün ögelerinden biri <u><strong>değildir?</strong></u>
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> Web sayfası
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> HTTP isteği
+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> HTTP yanıtı </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Web onayı
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Web adresi
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> Aşağıdakilerden hangisi son yıllarda yaygın
+olarak kullanılan uygulama yazılımı satış
+modellerinden biri <u><strong>değildir?</strong></u>
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> Abonelik </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Açık kaynak
+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Donationware </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Shareware </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Freeware </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> Uygulamanın “deneme sürümü” adı altında
+<u><strong>daha az</strong></u> işlevselliğe sahip bir versiyonunun
+ücretsiz olarak sunulduğu ve kullanıcıların
+ücretli tam sürüm için teşvik edildiği satış
+modeli aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Perakende </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Donationware </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Abonelik </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Freeware </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Shareware </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Sadece “doğru” ya da “yanlış” (“0” ya da “1”)
+değeri alabilen bir “p” önermesi üzerinde
+uygulanabilen “ve”, “veya”, “değil” gibi
+mantıksal operatörler yardımıyla sözel mantık
+problemlerinin cebirsel olarak ifade
+edilebilmesine olanak sağlayan kavramsal
+araç aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Analitik makine
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İkili sayı sistemi
+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Logaritma </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Fark makinesi
+ </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Boole cebir </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> <u><strong>İlk</strong></u> süper bilgisayar olan CDC6600 hangi yıllarda icat edilmiştir?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> 1950’ler </span><br>
+	<span class="option" data-correct="true"><b>B)</b> 1960’lar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 1970’ler </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 1980’ler </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 1990’lar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> I. Uygulama yazılımları ve sistem yazılımları
+arasında veya iki farklı uygulama yazılımı
+arasında aracılık görevi yapan uygulamaları
+tanımlamak için ara katman yazılımı
+(middleware) adı verilen uygulamalar
+kullanılmaktadır.<br>
+II. Uygulama yazılımı işletim sistemlerini ve
+yardımcı yazılımları kapsamaktadır.<br>
+III. Sistem yazılımları, bilgisayarı kullanıcı
+tarafından verilen komutları yürütmeye
+yönlendirir ve bir kullanıcının verilerini işleyen
+herhangi bir programı içerdiği söylenebilir.<br><br>
+Yazılımlarla ilgili yukarıdaki ifadelerden
+hangisi/hangileri doğrudur? </p>
+	<span class="option" data-correct="true"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Merkezi İşlem Birimi ile ilgili aşağıdaki
+ifadelerden hangisi <u><strong>yanlıştır?</strong></u>
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> Merkezi işlem birimi; aritmetik, mantıksal
+işlemleri ve karar mekanizmalarıyla ilgili
+süreçleri “aritmetik mantık birimi” aracılığıyla
+gerçekleştirmektedir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Merkezi İşlem Biriminin Kontrol Ünitesi
+komutları bellekten çıkarır, kodu çözer ve
+işlemleri yürütür. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Merkezi işlem birimi makine dili adı verilen
+düşük seviyeli kodlama sistemi ile
+çalışmaktadır.
+ </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Bilgisayarın monitör, TV veya projektör gibi
+bir video görüntüleme aygıtına grafik bilgileri
+göndermesini sağlamaktadır.  </span><br>
+	<span class="option" data-correct="false"><b>E)</b> “İşlemci” adı da verilmektedir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> Verilerin geçici olarak depolandığı ve ilgili birimlere ulaştırıldığı belleğe ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Merkezi işlem birimi (central processing
+unit/CPU)
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Salt okunur bellek (Read-only
+memory/ROM)
+ </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Rastgele Erişim Belleği (Random Access
+Memory /RAM)
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İşleme birimi (execution unit/EU) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Video kartı (video card) / ekran kartı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> Yayımcılık endüstrisi tarafından yüksek
+derecede ayrıntılı görüntüler yakalamak ve
+taramak için kullanılan yazıcı türü
+aşağıdakilerden hangisidir?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> Film ve slayt tarayıcılar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kart tarayıcı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> El tipi tarayıcı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yaprak beslemeli tarayıcı </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Drum tarayıcı
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> İşletim sistemlerinin donanımlara mevcut işi durdurup veya ara verip farklı iş ve işlemleri gerçekleştirmesini sağlayan sinyallerine ne ad verilir?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> Soyutlama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Semafor </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Kesme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sistem çağrıları
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kök dizini
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> Kişisel bilgisayarlarda kullanılan <u><strong>ilk</strong></u> grafik
+kullanıcı arayüzüne sahip işletim sistemi
+aşağıdakilerden hangisidir?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> Linux </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Alto Executive </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Apple Lisa
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Microsoft Windows  </span><br>
+	<span class="option" data-correct="false"><b>E)</b> MS-DOS
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> Aşağıdakilerden hangisinde “uygulama
+yazılımı” doğru olarak tanımlanmıştır? </p>
+	<span class="option" data-correct="false"><b>A)</b> İnternetten bağımsız olarak çalışan ve
+kullanıcı komutlarını donanımlara aktarmak
+için geliştirilen bilgisayar programlarına
+uygulama yazılımı denir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Web ve mobil cihazlardan kullanıcı
+isteklerini yerine getirmek için geliştirilmiş
+bilgisayar programlarına uygulama yazılımı
+denir. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Belli amaçlar doğrultusunda kullanıcıların
+komutlarını yerine getirmek amacıyla
+tasarlanan bilgisayar programlarına
+uygulama yazılımı adı verilir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İşletim sisteminin genel fonksiyonlarının
+dışında kalan işlemler için geliştirilmiş
+masaüstü bilgisayar programlarına
+uygulama yazılımı adı verilir.  </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Uygulama yazılımı, donanımdan bağımsız
+olarak çalışan bilgisayar programlarının
+genel adıdır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> Aşağıdakilerden hangisinde “uygulama
+yazılımı” doğru olarak tanımlanmıştır? </p>
+	<span class="option" data-correct="false"><b>A)</b> İnternetten bağımsız olarak çalışan ve
+kullanıcı komutlarını donanımlara aktarmak
+için geliştirilen bilgisayar programlarına
+uygulama yazılımı denir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Web ve mobil cihazlardan kullanıcı
+isteklerini yerine getirmek için geliştirilmiş
+bilgisayar programlarına uygulama yazılımı
+denir. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Belli amaçlar doğrultusunda kullanıcıların
+komutlarını yerine getirmek amacıyla
+tasarlanan bilgisayar programlarına
+uygulama yazılımı adı verilir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İşletim sisteminin genel fonksiyonlarının
+dışında kalan işlemler için geliştirilmiş
+masaüstü bilgisayar programlarına
+uygulama yazılımı adı verilir.  </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Uygulama yazılımı, donanımdan bağımsız
+olarak çalışan bilgisayar programlarının
+genel adıdır.
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> ............ uygulamaları, ağ tabanlı görevleri
+gerçekleştirmek için web tarayıcılarını ve
+teknolojilerini kullanan yazılımlar olarak
+tanımlanabilirler.
+Yukarıdaki cümlede boş bırakılan yeri
+aşağıdakilerden hangisi doğru olarak
+tamamlar? </p>
+	<span class="option" data-correct="false"><b>A)</b> Bilgisayar </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Web </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Mobil cihaz </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bulut </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Masaüstü </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> Aşağıdakilerden hangisi son yıllarda
+enformasyon toplumunun başlıca sorunları
+arasında <u><strong>yer almaz?</strong></u>
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> Gerçek-sonrasının (post-truth) yarattığı
+zihinsel dağınıklık </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kişisel verilerin güvenliğinin korunmas </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Dijital gözetimin yol açtığı mahremiyet ihlali </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Bireylerin bilgi toplumuna aynı oranda
+geçmemiş olması </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sosyal medya ile toplumun manipülasyonu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> Aşağıdakilerden hangisi bir mikrobilgisayar
+<u><strong>değildir?</strong></u>
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Data General Nova
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Commodore Pet </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tandy TRS-80
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Apple I </span><br>
+	<span class="option" data-correct="false"><b>E)</b> MITS Altair 8800 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> Problemlerin doğru çözümlerine ulaşmak
+için uygulanan adımlar kümesine “algoritma”
+adını veren bilim adamı aşağıdakilerden
+hangisidir?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> Gottfried Wilhelm Leibniz </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Leonardo Fibonacc </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Blaise Pascal
+ </span><br>
+	<span class="option" data-correct="true"><b>D)</b> El-Harizmi
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> John Napier </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> Aşağıdakilerden hangisi ses kartlarının
+takılabildiği yuvalardan biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> ATA </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ISA </span><br>
+	<span class="option" data-correct="false"><b>C)</b> PCI </span><br>
+	<span class="option" data-correct="false"><b>D)</b> USB </span><br>
+	<span class="option" data-correct="false"><b>E)</b> PCMCIA </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> Dünyanın <u><strong>ilk</strong></u> mekanik hesaplama makinesini
+tasarlayan kişi kimdir?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> John Napier </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Wilhelm Schickard </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Gottfried Wilhelm von Leibniz </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Charles Babbage </span><br>
+	<span class="option" data-correct="false"><b>E)</b> El-Cezeri </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> Aşağıdakilerden hangisi bir çıkış
+donanımıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Lazer işaretleyici
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Web kamera </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Oyun kumandası </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yüz ve resim tarayıcı </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Projeksiyon cihazı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> Kişisel bilgisayarlar hangi bilgisayar nesli
+döneminde ortaya çıkmıştır?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> Üçüncü nesil bilgisayarlar </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Dördüncü nesil bilgisayarlar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Beşinci nesil bilgisayarlar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Altıncı nesil bilgisayarlar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yedinci nesil bilgisayarlar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> Aşağıdakilerden hangisi açık kaynak kodlu
+işletim sistemleriyle karşılaştırıldığında
+kapalı kaynak kodlu işletim sistemleri için
+<u><strong>söylenemez?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Kılavuzlar ve belgeler genellikle iyi
+yazılmıştır ve ayrıntılı talimatlar içerir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kullanımı daha kolaydır </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Geliştiricilerin izin verdiği ölçüde
+özelleştirilebilir ve kişiselleştirilebilir </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Güvenlidir ancak güncellemeler ve güvenlik
+yamaları da geliştiricilerinin inisiyatifindedir. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Daha yavaş ve düşük performanslı ürünlerdir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> Aşağıdakilerden hangisi işletim sistemlerinin
+temel yönetim işlevlerinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Aygıt yönetimi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Dosya yönetimi
+ </span><br>
+	<span class="option" data-correct="true"><b>C)</b> İletişim yönetimi
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bellek yönetimi
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İşlem/süreç yönetimi
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question41">
+	<p class="question">Soru 41:<br> Tizen işletim sistemi aşağıdaki ortamların
+hangisi için kullanıma <u><strong>sunulmamıştır?</strong></u>
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Masaüstü bilgisayarlar (Tizen Desktop) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Akıllı TV (Tizen TV)
+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Akıllı telefonlar, tabletler (Tizen Mobile) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Araç içi bilgi eğlence sistemleri (Tizen IVI) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Giyilebilir cihazlar (Tizen Wearable)
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description41">Açıklama</button>
+		<div id="description41" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question42">
+	<p class="question">Soru 42:<br> - Büyük ölçekli kuruluşlarda, bilgi işlem
+merkezlerinde, bankalarda, fabrikalarda işlemlerin daha hızlı ve daha güvenli gerçekleştirilmesi için kurulan özel işletim sistemleridir. <br><br>
+- Donanım, yazılım ve ağ konfigürasyonu açısından en üst düzeyde kullanıma uygun bir şekilde tasarlanmışlardır.<br><br>
+Kullanıcıları yönetmek, güvenlik ve diğer yönetim süreçlerini uygulamak için merkezi bir arayüz sağlamaktadır.<br><br>
+Yukarıdaki paragrafta sözü edilen işletim sistemi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kişisel masaüstü işletim sistemleri </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Mobil işletim sistemleri </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Sunucu işletim sistemler </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Cihazlara gömülü işletim sistemleri
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Multimedya işletim sistemleri
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description42">Açıklama</button>
+		<div id="description42" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question43">
+	<p class="question">Soru 43:<br> I. Antivirüs<br>
+II. Yüz tanıma<br>
+III. Kamera<br>
+IV. USB<br>
+V. Parmak izi<br><br>
+Yukarıdakilerden hangileri işletim sisteminin
+güvenlik modülünün sistem verilerini kötü
+amaçlı yazılım tehdidine karşı koruma
+araçlarındandır? </p>
+	<span class="option" data-correct="false"><b>A)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>B)</b> II ve IV </span><br>
+	<span class="option" data-correct="false"><b>C)</b> IV ve V
+ </span><br>
+	<span class="option" data-correct="true"><b>D)</b> I, II ve V
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> III, IV ve V
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description43">Açıklama</button>
+		<div id="description43" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question44">
+	<p class="question">Soru 44:<br> İşletmelerin yerel sunucular, sanal makineler,
+depolama birimleri, ağlar, işletim sistemleri
+gibi varlıklarının bir benzerini sanal olarak
+bulut ortamında oluşturabilmelerine olanak
+sağlayan <u><strong>en temel</strong></u> bulut modeli
+aşağıdakilerden hangisidir?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> Ürün olarak yazılım </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Hizmet olarak platform </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Hizmet olarak yazılım </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sunucusuz bilgi işlem </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Hizmet olarak altyapı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description44">Açıklama</button>
+		<div id="description44" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question45">
+	<p class="question">Soru 45:<br> I. Microsoft 365<br>
+II. Google G Suite<br>
+III. Zoho Workplace<br>
+IV. Apache Open Office<br>
+V. Apple iWork<br><br>
+Yukarıdaki ofis yazılımlarından
+hangisi/hangileri bulut bilişim desteklidir?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve II </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I, II ve III
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I, II, III ve IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II, III, IV ve V
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description45">Açıklama</button>
+		<div id="description45" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question46">
+	<p class="question">Soru 46:<br> Aşağıdakilerden hangisi masaüstü
+uygulamaların bir özelliğidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kalem ve sesli komutlar ile de tümleşik
+olarak çalışabilirler. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Metin girişleri varsayılan olarak sanal
+klavyeler aracılığıyla yapılır </span><br>
+	<span class="option" data-correct="false"><b>C)</b> steğe bağlı olarak dikey ve yatay ekran
+görünümü arasında geçiş yapabilirler. </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Belirli donanım gereksinimlerine göre
+geliştirilirler ve kullanmak için işletim
+sistemlerine kurulmaları gerekir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Gesture adı verilen hafifçe dokunma, hızlıca
+kaydırma, sıkma ve genişletme gibi parmak
+hareketlerine tepki verecek biçimde
+tasarlanırlar. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description46">Açıklama</button>
+		<div id="description46" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question47">
+	<p class="question">Soru 47:<br> Aşağıdakilerden hangisi, Microsoft Office
+uygulamalarını kod yazarak yönetmeye imkân
+veren; belgeleri, e-postaları, veritabanlarını,
+formları, e-tabloları ve sunuları yazmak,
+biçimlendirmek ve değiştirmek için karmaşık
+iş süreçlerindeki tekrarlanan görevlerin
+otomasyonunu sağlayan olay güdümlü bir
+programlama dilidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> HTML </span><br>
+	<span class="option" data-correct="false"><b>B)</b> XML </span><br>
+	<span class="option" data-correct="true"><b>C)</b> VBA </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ePUB </span><br>
+	<span class="option" data-correct="false"><b>E)</b> PDF </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description47">Açıklama</button>
+		<div id="description47" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question48">
+	<p class="question">Soru 48:<br> “Değişikliklere, türetilmiş çalışmalara ve
+orijinal yazılımın lisansıyla aynı koşullar
+altında dağıtılmasına izin verilmelidir.”
+ifadesi açık kaynak kodlu yazılım
+lisanslarında hangi kriteri tanımlar?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> Yazarın kaynak kodunun bütünlüğü </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Lisans dağıtımı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ücretsiz yeniden dağıtım </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Diğer yazılımları kısıtlama </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Türetilmiş eserler </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description48">Açıklama</button>
+		<div id="description48" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question49">
+	<p class="question">Soru 49:<br> Sayısal bilgisayar devreleri tasarımının
+matematiksel temelini oluşturan bilim insanı
+aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> George Boole </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Charles Babbage </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Joseph Henry
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Blaise Pascal </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Gottfried Wilhelm Leibniz </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description49">Açıklama</button>
+		<div id="description49" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question50">
+	<p class="question">Soru 50:<br> Aşağıdakilerden hangisi bir yazılımın özgür
+olarak nitelendirilmesi için gereken temel
+işlevselliklerden biri <u><strong>değildir?</strong></u>
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> Kullanıcılar yazılımın nasıl çalışma mantığını
+öğrenme ve değiştirebilmek hakkına sahip
+olmalıdır. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Kullanıcılar yazılıma ücretsiz sahip
+olabilmelidir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kullanıcılar yazılımın kopyalarını
+dağıtabilmelidir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kullanıcılar herhangi bir amaç için, istedikleri
+şekilde yazılımı çalıştırabilmelidir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kullanıcılar yazılımın kaynak koduna
+ulaşabilmelidir.
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description50">Açıklama</button>
+		<div id="description50" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question51">
+	<p class="question">Soru 51:<br> Napier’in logaritma yöntemini birbiri
+üzerinde kayan iki cetvel üzerinde
+ölçeklendirerek sürgülü hesap cetvelini icat
+eden mucit aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Oughtred </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Fibonacci </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Leibniz </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Pascal </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Thomas </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description51">Açıklama</button>
+		<div id="description51" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question52">
+	<p class="question">Soru 52:<br> Akım verildiğinde bir devreden geçmekte
+olan diğer akımı kesen, akım verilmediğinde
+ise devreden geçmekte olan diğer akımın
+geçmeye devam etmesine izin veren anahtar
+aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Lee de Forest’ın elektron tüpü </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Jacquard’ın delikli kart sistemi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> John Logie Baird’in mekanik televizyonu </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Edison’un kineteskopu </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Henry’nin elektromekanik rölesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description52">Açıklama</button>
+		<div id="description52" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question53">
+	<p class="question">Soru 53:<br> Aşağıdakilerden hangisi dijital olarak alınan
+ses sinyallerini analog ses sinyallerine,
+analog ses sinyallerini de bilgisayarın
+anlayacağı şekilde dijital sinyallere
+dönüştürür? </p>
+	<span class="option" data-correct="false"><b>A)</b> Switch </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Ses Kartı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Router </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Modem </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Ağ Kartı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description53">Açıklama</button>
+		<div id="description53" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question54">
+	<p class="question">Soru 54:<br> Çok işlemcili bilgisayarların, bir milyondan
+fazla bileşenli yongaların, bilgisayar
+ağlarının yaygın kullanımının, tek kullanıcılı iş
+istasyonlarının artan kullanımının ve yarı
+iletken belleklerin tüm bilgisayarlarda
+standart hale geldiği bilgisayar nesli dönemi
+aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> İkinci nesil bilgisayarlar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Üçüncü nesil bilgisayarlar </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Beşinci nesil bilgisayarlar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Altıncı nesil bilgisayarlar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yedinci nesil bilgisayarlar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description54">Açıklama</button>
+		<div id="description54" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question55">
+	<p class="question">Soru 55:<br> Kaynak kodları kapalı olmasına rağmen açık
+kaynak kodlu Unix tabanlı Darwin işletim
+sistemi üzerine kurulu işletim sistemi
+aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Symbian </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Windows Mobile </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tizen </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Android </span><br>
+	<span class="option" data-correct="true"><b>E)</b> iOS
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description55">Açıklama</button>
+		<div id="description55" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question56">
+	<p class="question">Soru 56:<br> Çoğunlukla kâr amacı gütmeyen
+organizasyonlar ve serbest geliştiriciler
+tarafından tercih edilen; uygulamanın
+kullanıcılara ücretsiz olarak sunulduğu ve
+uygulamanın devamlılığının sağlanması için
+kullanıcıların bağış ve sponsorluk yapmaya
+teşvik edildiği yazılım satış modeli
+aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Abonelik </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Shareware </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Donationware </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Freeware </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Perakende </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description56">Açıklama</button>
+		<div id="description56" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question57">
+	<p class="question">Soru 57:<br> Bilgi toplumu ile ilgili aşağıdaki ifadelerden
+hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Ürünlerin tasarımına yönelik bilgi çalışması
+ön plana çıkar. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Eğitim, sağlık, tasarım, planlama,
+denetleme, hukuk vb. hizmet sektöründe
+çalışanların oranı artar. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Rutin işlerin değeri azalır, yaratıcı faaliyetleri
+kapsayan işlerin değeri yükselir. </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Fiziksel ürünlerin üretimine yönelik
+faaliyetler ön plana çıkmıştır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Toplumun genelinin eğitim düzeyi yükselir,
+uzmanlaşma artar. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description57">Açıklama</button>
+		<div id="description57" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question58">
+	<p class="question">Soru 58:<br> Aşağıdakilerden hangisi bilgisayarın çıkış
+donanımlarından biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Hoparlör </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yazıcı (printer) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Çizici (plotter) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Projeksiyon cihazı
+ </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Barkod okuyucu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description58">Açıklama</button>
+		<div id="description58" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question59">
+	<p class="question">Soru 59:<br> Aşağıdakilerden hangisi işletim
+sistemlerinde kullanılan bir dosya yönetim
+sistemi <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> EXT4 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> HFS+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> FAT </span><br>
+	<span class="option" data-correct="false"><b>D)</b> NTFS </span><br>
+	<span class="option" data-correct="true"><b>E)</b> TIFF </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description59">Açıklama</button>
+		<div id="description59" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question60">
+	<p class="question">Soru 60:<br> ......... yazılım geliştiricilerin sistem kurulumuna ve
+yönetimine daha az kaynak ayırarak doğrudan
+tasarım ve geliştirme süreçlerine
+odaklanabilmelerini mümkün kıldı.<br><br>
+
+Yukarıdaki cümlede boş bırakılan yeri
+aşağıdakilerden hangisi doğru olarak
+tamamlar? </p>
+	<span class="option" data-correct="false"><b>A)</b> Veri tabanı yönetim sistemleri
+ </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Bulut bilişim
+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Mobil teknolojiler </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Açık kaynak kod kullanımı
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bilgi ve iletişim teknolojileri
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description60">Açıklama</button>
+		<div id="description60" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question61">
+	<p class="question">Soru 61:<br> İnternete erişimin dünya nüfusunun yüzde
+30’undan yüzde 53,6’sına yaklaşık iki kat
+arttığı dönem aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 1990’lı yıllar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 2000’li yıllar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 1980’li yıllar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 1970’li yıllar </span><br>
+	<span class="option" data-correct="true"><b>E)</b> 2010’lu yıllar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description61">Açıklama</button>
+		<div id="description61" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question62">
+	<p class="question">Soru 62:<br> Mekanik hesap makineleri döneminden
+elektromekanik hesap makineleri dönemine
+geçilmesini sağlayan makine aşağıdakilerden
+hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Ohdner’in dört işlem makinesi </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Hollerith’in delikli kart makinesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Charles Baabag’ın Analitik Makinesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Lee de Forest’in elektron tüpü
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Joseph Henry’nin elektromekanik rölesi
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description62">Açıklama</button>
+		<div id="description62" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question63">
+	<p class="question">Soru 63:<br> SRAM ve DRAM için aşağıdaki ifadelerden
+hangisi <u><strong>söylenemez?</strong></u>
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> DRAM’ler daha ucuzdur ve güç tüketimi
+SRAM’lerden daha azdır. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> SRAM verileri geçici olarak saklarken DRAM
+kalıcı olarak saklar. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> SRAM işlemci, sabit sürücü ve önbellek gibi
+çeşitli donanımlarında küçük miktarlarda
+kullanılmaktadır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> SRAM’ler hızlıdır ve erişim süresi birkaç
+nanosaniye aralığındadır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> SRAM üretimi DRAM’den daha hızlı olsa da
+daha pahalıdır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description63">Açıklama</button>
+		<div id="description63" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question64">
+	<p class="question">Soru 64:<br> I. Özellikle Hindistan gibi sosyoekonomik olarak
+düşük seviyeli ülkelerde bu işletim sistemi
+gün geçtikçe popüler hâle gelmektedir.<br>
+II. 1997 yılında ilk olarak PDA adı verilen kişisel
+dijital asistanlara yani cep bilgisayarlarına
+yönelik olarak hazırlanmıştır.<br>
+III. Mozilla vakfının 2016 yılında geliştirmeyi
+durdurduğu Firefox OS işletim sisteminin
+devamı niteliğindedir.<br><br>
+KaiOS işletim sistemi ile ilgili yukarıda
+verilen bilgilerden hangisi/hangileri
+doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve II </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description64">Açıklama</button>
+		<div id="description64" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question65">
+	<p class="question">Soru 65:<br> Aşağıdakilerden hangisi işletim sistemlerinin
+bilgisayar sisteminin güvenliğindeki rolüyle
+ilgili <u><strong>değildir?</strong></u>
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> İşletim sistemleri gizlilik ve güvenlik adına
+kullanıcıların ve işletmelerin verilerini
+güvende tutan özelliklere sahiptir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İşletim sistemlerinin sürekliliğin sağlanması
+için güncellemelerinin yapılması,
+bakımlarının ve güvenlik yamalarının
+yüklenmesi gerekmektedir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İşletim sistemleri üzerinde bütünleşik olarak
+gelen güvenli duvarları ve antivirüsler
+olduğu gibi, üçüncü parti yazılımlarla da
+gizlilik ve güvenlik en üst düzeyde
+tutulabilmektedir. </span><br>
+	<span class="option" data-correct="true"><b>D)</b> İşletim sistemleri çökmelere karşı pek çok
+mekanizma kullanarak bu problemleri
+gidermeye çalışmakta ve verilerin
+kaybolmasına engel olmaktadır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sistemin hatalardan arıtılmış olması,
+yalnızca yerel dosyalarda değil ağ güvenliği
+önlemlerini de almış olması ve yeni hataları
+önleyecek şekilde çalışması gerekmektedir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description65">Açıklama</button>
+		<div id="description65" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question66">
+	<p class="question">Soru 66:<br> Aşağıdakilerden hangisi bulut bilişim için
+<u><strong>söylenemez?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Bulut bilişim çalışma ekiplerinin rutin
+görevler yerine daha önemli iş hedeflerine
+odaklanmalarını mümkün kılar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bulut sağlayıcılar, işletmelerin bilişim
+güvenliğini güçlendiren ve verilerini,
+uygulamalarını ve altyapılarını potansiyel
+tehditlerden korumaya yardımcı olan çok
+çeşitli politikalar, teknolojiler ve kontroller
+sunar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bulut bilişim bilişim kaynaklarının internet
+bağlantısı olan herhangi bir yerden cihaz
+bağımsız (akıllı telefon, tablet, dizüstü vb.)
+olarak sadece bir web tarayıcısı aracılığıyla
+yönetilebilmesini sağlar. </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Bulut bilişim donanım kurulumu, yazılım
+güncellemeleri ve sistem bakımı gibi çok
+sayıda bilişim teknolojileri yönetim
+görevlerinin düzenli olarak yapılmasını
+gerektirir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bulut bilişim ile sistem kaynaklarının
+performansı anlık olarak takip edilebilir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description66">Açıklama</button>
+		<div id="description66" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question67">
+	<p class="question">Soru 67:<br> İlişkisel veritabanlarının tam zıttı olarak
+yapılandırılmamış veya yarı yapılandırılmış
+verilerin depolanmasına ve yönetilmesine
+olanak sağlayan, büyük veri yaklaşımıyla
+birlikte son dönemlerde popülerlik kazanan
+veritabanı türü aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Belge Veritabanlar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İlişkisel Veritabanları </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bulut Veritabanları </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Nesne Yönelimli Veritabanları </span><br>
+	<span class="option" data-correct="true"><b>E)</b> NoSQL Veritabanları </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description67">Açıklama</button>
+		<div id="description67" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question68">
+	<p class="question">Soru 68:<br> I. Verileri kalıcı olarak depolayan bellektir.<br>
+II. RAM belleğe; ana bellek, birincil bellek veya
+sistem belleği adı da verilmektedir.<br>
+III. Bilgisayar önyüklenirken işletim sisteminin ve
+sürücülerin parçaları bu belleğe
+yüklenmektedir.<br><br>
+
+Rastgele Erişim Belleği (RAM) ile ilgili
+yukarıdaki ifadelerden hangileri doğrudur?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve III </span><br>
+	<span class="option" data-correct="true"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II ve III
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description68">Açıklama</button>
+		<div id="description68" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question69">
+	<p class="question">Soru 69:<br> Aşağıdakilerden hangisi bir SaaS özelliği
+<u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Bu modelde, işletmeler yazılım seviyesinde
+erişim ve yapılandırma hakkına sahip
+olduğu gibi uygulamanın üzerinde çalıştığı
+bulut altyapısını ve platformunu da
+yönetebilirler. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Uygulama yazılımlarını internet üzerinden
+abonelik temelinde dağıtmak için kullanılan
+bir bulut modelidir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Uygulamaların yönetim, yazılım
+yükseltmeleri ve güvenlik yamaları gibi tüm
+bakım işlemleri bulut üzerinden
+gerçekleştirilir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kullanıcılar genellikle telefonlarından,
+tabletlerinden veya masaüstü
+bilgisayarlarından bir web tarayıcısıyla
+uygulamaya internet üzerinden bağlanır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Microsoft Office 365, Google Apps,
+Salesforce bu model ile geliştirilen
+uygulamalara örnek verilebilir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description69">Açıklama</button>
+		<div id="description69" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question70">
+	<p class="question">Soru 70:<br> Aşağıdakilerden hangisi bilgisayarlar için
+olağanüstü bir yıl olan 1951’de üretilen bilgisayarlardan biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> IBM 701 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> LEO </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Whirlwind </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Ferranti Mark 1 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> UNIVAC </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description70">Açıklama</button>
+		<div id="description70" class="collapse">      IBM firması <u><strong>1952-53</strong></u> yılları ara-sında  piyasaya  19  adet  IBM  701  bilgisayarı  sattı.  1953 yılı sonunda tüm dünyada en fazla 100 adet bilgisayarın bulunduğu varsayılmaktadır.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question71">
+	<p class="question">Soru 71:<br> IBM firmasının 1954 yılında pazara sürdüğü,
+manyetik tamburlu diske sahip olan, 1954-62 yılları arasında tüm dünyada 2.000 adet kurularak büyük ticari başarı elde eden ve TC Karayolları Genel Müdürlüğüne 1960 yılında kurularak Türkiye’nin ilk bilgisayarı olan bilgisayar modeli aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> IBM System 360
+ </span><br>
+	<span class="option" data-correct="true"><b>B)</b> IBM 650
+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> IBM 701 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> IBM 1400 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> IBM 7090 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description71">Açıklama</button>
+		<div id="description71" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question72">
+	<p class="question">Soru 72:<br> I. Kanada kökenli bilim insanı Reginald
+Fessenden radyo dalgaları ile ses iletimini gerçekleştirdi.<br>
+II. Heinrich Rudolf Hertz elektromanyetik dalgaların havada iletilebildiğini kanıtladı.<br>
+III. Haber, eğlence ve spor gibi alanlarda ilk ticari radyo yayınları birçok merkezde birden başladı.<br>
+IV. Guglielmo Marconi havadaki radyo dalgalarına dayalı ticari kablosuz telgraf sistemini oluşturdu.<br>
+V. James Clerk Maxwell elektromanyetik dalgaların boş alanda yayılabileceğini gösterdi.<br><br>
+Yukarıda verilen iletişim teknolojilerinde yaşanan gelişmelerin gerçekleşme sırası aşağıdakilerden hangisinde doğru olarak verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> I - II - III - IV - V </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I - III - II - V - IV </span><br>
+	<span class="option" data-correct="false"><b>C)</b> III - I - II - V - IV </span><br>
+	<span class="option" data-correct="true"><b>D)</b> V - II - IV - I - III
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> V - III - II - I - IV
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description72">Açıklama</button>
+		<div id="description72" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question73">
+	<p class="question">Soru 73:<br> İşletim sistemleri, bilgisayar sistemlerinin ilk açılış anından itibaren devreye girmesi gereken sistemlerdir. Açma tuşuna basıldığı anda ------- adı verilen açılış ekranı devreye girmektedir.<br>
+------ bilgisayar donanımlarını kontrol eder ve tanımlar. -------, donanım taraması esnasında bir problemle karşılaştığında sesli ve görsel olarak hata mesajı yayınlar ve bilgisayarın açılışını hata düzelene kadar durdurur. Daha sonra -------, işletim sistemini yükleme aşamasına geçer.<br><br>
+Yukarıdaki cümlede boş bırakılan yeri aşağıdaki terimlerden hangisi doğru şekilde tamamlar? </p>
+	<span class="option" data-correct="false"><b>A)</b> SSD </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ATA </span><br>
+	<span class="option" data-correct="true"><b>C)</b> BIOS </span><br>
+	<span class="option" data-correct="false"><b>D)</b> RAM </span><br>
+	<span class="option" data-correct="false"><b>E)</b> SATA </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description73">Açıklama</button>
+		<div id="description73" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question74">
+	<p class="question">Soru 74:<br> I. Apple Computers'ın Apple I bilgisayarını
+tanıtması<br>
+II. General Motors’un işletim sistemi geliştirmesi<br>
+III. IBM OS/360 işletim sisteminin yayınlanması<br>
+IV. Microsoft firmasının MS-DOS’u ortaya çıkarması<br>
+V. Xerox Alto için Alto Executive’in geliştirilmesi <br><br>
+Yukarıdaki gelişmelerden hangileri Üçüncü Nesil işletim sistemleri dönemine aittir? </p>
+	<span class="option" data-correct="false"><b>A)</b> I, II ve V </span><br>
+	<span class="option" data-correct="true"><b>B)</b> I, III ve V </span><br>
+	<span class="option" data-correct="false"><b>C)</b> II, III ve IV </span><br>
+	<span class="option" data-correct="false"><b>D)</b> III, IV, V </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II, III ve V </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description74">Açıklama</button>
+		<div id="description74" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question75">
+	<p class="question">Soru 75:<br> İşletim sistemlerindeki kullanıcı arayüzleri ile ilgili aşağıdaki ifadelerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Simgelere, düğmelere ve menülere tıklamak için fareyi kullanmaya olanak tanır. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> İşletim sistemlerinin kalbi gibidir ve donanım aygıtlarıyla yazılım ve uygulamaları birbirine bağlayan, iletişimi kuran bileşendir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kullanıcı arayüzleri, donanımda gerçekleşen karmaşık işlemleri soyutlamakta ve kullanıcıya hissettirmemektedir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Her işletim sisteminde farklı bir görünüme sahip olabilir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kullanıcıların işletim sistemlerini daha rahat ve kolay kullanabilmeleri için tasarlanmıştır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description75">Açıklama</button>
+		<div id="description75" class="collapse">      <u><strong>Çekirdek  (core)</strong></u>,  işletim  sistemlerinin  kalbi  gi-bidir ve donanım aygıtlarıyla yazılım ve uygulama-ları birbirine bağlayan, iletişimi kuran ve araların-da senkronizasyonu sağlayan bileşendir.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question76">
+	<p class="question">Soru 76:<br> Aşağıdakilerden hangisi tüketici odaklı
+yazılımlara ait bir özelliktir?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> Genellikle iş süreçlerini basitleştirerek bir
+şirket içindeki verimliliği ve performansı
+artırmak için kullanılırlar. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bu yazılımlar bireylerin taleplerine değil
+işletmelerin özel ihtiyaçlarına odaklanırlar. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Bu uygulamalar, çoğunlukla ticari amaçla
+geliştirilirler ve geliştiriciler gelirlerini
+uygulama satın alımlarından veya reklam
+gösterimlerinden kazanırlar. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İş akışlarına uygunluk ve güvenlik gibi daha
+profesyonel gereksinimler ön planda tutulur. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Ücretsiz yazılımların iş dünyasına yönelik bir
+dizi ek hizmetle bütünleştirilerek ticari olarak
+pazarlanan sürümleridir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description76">Açıklama</button>
+		<div id="description76" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question77">
+	<p class="question">Soru 77:<br> Kısa metinler, görev listeleri, ekran
+görüntüleri ya da ses kayıtları gibi her türlü enformasyonu hızlıca oluşturmak, saklamak ve paylaşmak için özelleştirilmiş yazılımlar aşağıdakilerden hangisidir?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> Veritabanı yönetim sistemler </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sunum uygulamaları </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Elektronik tablolar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kelime işlemciler </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Not alma uygulamaları </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description77">Açıklama</button>
+		<div id="description77" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question78">
+	<p class="question">Soru 78:<br> Aşağıdakilerden hangisi bir uygulama
+yazılımı <u><strong>değildir?</strong></u>
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> Ses, müzik ve video oynatıcılar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Antivirüs programları </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Yardımcı programlar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Ofis paketleri
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Veritabanı programları
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description78">Açıklama</button>
+		<div id="description78" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question79">
+	<p class="question">Soru 79:<br> Aşağıdakilerden hangisi üçüncü nesil
+bilgisayarlar dönemine ait bir gelişme <u><strong>değildir?</strong></u>
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Transistörlerin bilgisayarlarda daha sık
+kullanılmaya başlanması
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Manyetik çekirdekler yerine yarı iletken
+belleklerin kullanılmaya başlanması
+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Karmaşık işlemcilerin verimli bir şekilde
+tasarlanmasını sağlayan mikro
+programlamanın yaygınlaşması
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İşletim sistemlerinin tasarımı ve kullanımının
+yaygınlaşması
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Entegre devrelerin kullanılmaya başlanması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description79">Açıklama</button>
+		<div id="description79" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question80">
+	<p class="question">Soru 80:<br> Önceden hesaplanmış cetveller yardımıyla
+çarpma ve bölme işlemlerini toplama ve çıkarma işlemlerine indirgeyerek kolaylaştıran araç aşağıdakilerden hangisidir?
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Logaritma </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Algoritma </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Çift girişli kayıt </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İkili sayı sistemi
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sürgülü hesap cetveli </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description80">Açıklama</button>
+		<div id="description80" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question81">
+	<p class="question">Soru 81:<br> Aşağıdaki bilgisayarların tarihi ile ilgili
+verilen eşleştirmelerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Birinci Nesil Bilgisayarlar- İkili sayı sistemine dayalı EDVAC geliştirilmiştir. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Beşinci Nesil Bilgisayarlar- Kişisel bilgisayarlar bu dönemde yaygınlaşmaya başlamıştır.  </span><br>
+	<span class="option" data-correct="false"><b>C)</b>  Dördüncü Nesil Bilgisayarlar- Süper bilgisayarlar ortaya çıkmıştır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Üçüncü Nesil Bilgisayarlar- Bilgisayar faresi icat edilmiştir </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Altıncı Nesil Bilgisayarlar- Kuantum bilgisayarlar dikkat çekmektedir.  </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description81">Açıklama</button>
+		<div id="description81" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question82">
+	<p class="question">Soru 82:<br> Ekranlarla ilgili aşağıdaki ifadelerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> OLED organik ışık yayan diyot olarak LED
+teknolojisinin bir üst sürümüdür.  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> LCD, sıvı kristal ekran anlamına gelir. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> LCD teknolojisi yayıcı iken OLED’in
+teknolojisi aktarıcı olarak nitelendirilebilir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Ekranlarda LED’ler, likit kristal ekranı
+aydınlatmak için kullanılan arka ışıktır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> OLED ekranın ışığı piksel piksel kontrol
+edilebilir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description82">Açıklama</button>
+		<div id="description82" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question83">
+	<p class="question">Soru 83:<br> İşletim sistemlerinin bir depolama biriminde içinde hiyerarşik bir ağaç yapısı biçiminde alt dizinlerin ve dosyaların oluşturulmasını ve yönetilmesini sağladıkları depolama başlangıç dizini aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Sabit dizin </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Birinci dizin </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sıkıştırılmış dizin </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Varsayılan dizin </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Kök dizin </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description83">Açıklama</button>
+		<div id="description83" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question84">
+	<p class="question">Soru 84:<br> Aşağıdakilerden hangisi bir işletim
+sisteminde çekirdeğin özelliklerinden biridir?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> API adı verilen uygulama programlama arayüzlerini ve komutları içermekte olup, komutların yorumlanmasında sorumludur </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Donanımda gerçekleşen karmaşık işlemler soyutlanmakta ve kullanıcıya hissettirilmemektedir. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Donanım aygıtlarıyla yazılım ve uygulamaları birbirine bağlayan, iletişimi kuran ve aralarında senkronizasyonu sağlayan bileşendir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kullanıcıların işletim sistemlerini daha rahat ve kolay kullanabilmeleri, arka planda gerçekleşen süreçleri farketmeden işlemlerini gerçekleştirebilmeleri amacıyla tasarlanan bileşenlerdir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Simgelere, düğmelere ve menülere tıklamak için fareyi kullanmaya olanak tanır ve her şey grafik ve metin kombinasyonu kullanılarak ekranda açıkça görüntülenir.
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description84">Açıklama</button>
+		<div id="description84" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question85">
+	<p class="question">Soru 85:<br> Yerel kaynaklar yerine yer ve zamandan
+bağımsız olarak tamamen internet üzerinden erişilebilen ve yönetilebilen yazılım, sistem ya da platform tabanlı hizmetler bütünü aşağıdakilerden hangisidir?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> Masaüstü uygulamaları
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 
+Mobil uygulamalar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Web uygulamaları </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Bulut bilişim uygulamaları </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İstemci sunucu uygulamaları </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description85">Açıklama</button>
+		<div id="description85" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question86">
+	<p class="question">Soru 86:<br> Aşağıda verilen Mobil uygulamalara ilişkin
+ifadelerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Kamera, mikrofon gibi cihaz donanımlarına doğrudan erişebilirler.
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İnternet bağlantısı olmaksızın çevrimdışı çalışabilirler. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Web uygulamalarına oranla geliştirme maliyetleri daha düşüktür. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Web uygulamalarına göre daha hızlı ve işlevseldirler. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Cep telefonu, tablet ve akıllı saat gibi mobil cihazlarda kullanılmak üzere geliştirilmiş uygulamalardır.
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description86">Açıklama</button>
+		<div id="description86" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question87">
+	<p class="question">Soru 87:<br> Windows, MacOS, Linux ve benzeri masaüstü
+işletim sistemlerinin tamamına yakınında web tarayıcısı, kişiler, takvim, e-posta, metin editörü, medya oynatıcı ve hesap makinesi gibi pek çok temel uygulama yazılımı hangi dağıtım yöntemiyle sunulur? </p>
+	<span class="option" data-correct="true"><b>A)</b> Ön yüklü dağıtım </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Dergi eki CD-ROM’larda dağıtım </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Uygulama paylaşım platformlarından dağıtım </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kurumsal web sitesinden dağıtım </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Uygulama marketleriyle dağıtım </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description87">Açıklama</button>
+		<div id="description87" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question88">
+	<p class="question">Soru 88:<br> I. Apple 1 bilgisayarının piyasaya sürülmesi<br>
+II. MITS Altair 8800 setinin pazarlanması<br>
+III. Commodore Pet ve Tandy TRS-80'in üretilmesi<br>
+IV. Intel 8080 mikroişlemcisinin üretilmesi<br>
+V. Altair Basic 4K'nın pazarlanması<br><br>
+Mikrobilgisayar dönemini başlatan yukarıdaki gelişmeler aşağıdakilerden hangisinde doğru sırada verilmiştir?  </p>
+	<span class="option" data-correct="false"><b>A)</b> I-II-III-IV-V </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I-III-V-IV-II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> II-I-IV-III-V </span><br>
+	<span class="option" data-correct="true"><b>D)</b> IV-II-V-I-III
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> V-I-II-IV-III
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description88">Açıklama</button>
+		<div id="description88" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question89">
+	<p class="question">Soru 89:<br> Sadece toplama ve çıkarma için değil, aynı
+zamanda uzun çarpma ve bölme işlemleri için hareketli bir taşıyıcı kullanarak dijital mekanik bir hesap makinesi geliştiren bilim adamı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Charles Babbage </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Gottfried Wilhelm von Leibniz </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Wilhelm Schickard </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Blaise Pascal </span><br>
+	<span class="option" data-correct="false"><b>E)</b> John Napier </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description89">Açıklama</button>
+		<div id="description89" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question90">
+	<p class="question">Soru 90:<br> I. Zip Drive adlı floppy disk (disket) tanıtılmıştır.<br>
+II. İlk “iPhone” Apple firması tarafından
+tanıtılmıştır.<br>
+III. Commodore Amiga 1000 adlı kişisel
+bilgisayar tanıtılmıştır.<br>
+IV. Apple şirketinin ilk bilgisayarı “Apple I”
+tanıtılmıştır.<br><br>
+''Altıncı Nesil Bilgisayarlar'' ile ilgili
+yukarıdaki ifadelerden hangileri doğrudur? </p>
+	<span class="option" data-correct="true"><b>A)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> III ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description90">Açıklama</button>
+		<div id="description90" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question91">
+	<p class="question">Soru 91:<br> Bir uygulamanın başka bir uygulama veya bir
+işletim sistemi, veritabanı, ağ vb. ile iletişim kurmasına ve fonksiyonlarını kullanmasına izin veren arayüzler aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Graphical User Interface (GUI) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bus Interface Unit (BIU) </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Application Programming Interface (API) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Network Interface Card (NIC) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Fiber Distributed Data Interface (FDDI) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description91">Açıklama</button>
+		<div id="description91" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question92">
+	<p class="question">Soru 92:<br> Aşağıdakilerden hangisi elektronik tablolara ait bir özelliktir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Veritabanı bağlantısıyla veri alma ve gönderme süreçleri otomatikleştirilebilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Tez, kitap, öykü ve benzeri eserler yazılabilir, basit çizimler yapılabilir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Özgeçmiş, dilekçe, mektup ve benzeri yazışmalar hazırlanabilir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Metin belgeleri görseller, şekiller ve grafikler ile zenginleştirilebilir </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bülten, gazete ve dergi mizanpajları tasarlanabilir ve etiket tasarlanıp basılabilir </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description92">Açıklama</button>
+		<div id="description92" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question93">
+	<p class="question">Soru 93:<br> I. HTML<br>
+II. TCP/IP<br>
+III. WWW<br>
+IV. e-Posta<br>
+V. HTTP<br><br>
+Avrupa Nükleer Araştırma Merkezi CERN
+laboratuvarlarında çalışan Tim Berners Lee
+yukarıdaki teknolojilerden hangilerini
+geliştirmiştir?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> I, II ve III </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I, II ve IV </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I, III ve V </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II, III ve IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> III, IV ve V </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description93">Açıklama</button>
+		<div id="description93" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+
+		
+			
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

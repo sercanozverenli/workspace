@@ -1,0 +1,1590 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="anasayfa.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA I
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama1-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama1-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama1-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama1-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama1-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama1-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama1-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama1-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama1-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama1-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          BİLİŞİM HUKUKU
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="bilisimhk-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="bilisimhk-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="bilisimhk-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="bilisimhk-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="bilisimhk-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="bilisimhk-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="bilisimhk-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="bilisimhk-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="bilisimhk-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="bilisimhk-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB'DE TELİF HAKLARI VE ETİK
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="webtelif-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="webtelif-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="webtelif-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="webtelif-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="webtelif-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="webtelif-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="webtelif-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="webtelif-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="webtelif-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="webtelif-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          AĞ YÖNETİMİ VE BİLGİ GÜVENLİĞİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="agyonetimi-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="agyonetimi-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="agyonetimi-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="agyonetimi-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="agyonetimi-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="agyonetimi-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="agyonetimi-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="agyonetimi-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="agyonetimi-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="agyonetimi-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİTABANI PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veritabaniprg-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veritabaniprg-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  </nav>
+  
+    <h4 id="ders">Web'de Telif Hakları ve Etik - Ünite 5 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	<button class="block-group" data-start="40" data-end="59">Part 3</button>
+ 
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Aşağıdakilerden hangisi web tasarım ortamı
+ile ilgili bilinmesi gerekenler arasında <u><strong>yer almaz?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Tarayıcı uyumluluk sorunları </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Web dilleri arasındaki farklar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bağlantı hızı farklılıkları </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Tarayıcı önbelleği ve indirme hızı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Aygıt ve işletim sistemi sorunları </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Aşağıdakilerden hangisi web tasarımında
+farklı bilgisayar sistemleri ile ilgili bilinmesi gereken hususlardan biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Ekran boyutları </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Renk derinliği </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tarayıcı türü ve sürümü </span><br>
+	<span class="option" data-correct="true"><b>D)</b> İşletim sistemi türü </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yazı tipi seçenekleri </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Aşağıdakilerden hangisi esnek/uyarlanabilir
+tasarım avantajları arasında <u><strong>yer almaz?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Farklı cihazlar için farklı tasarımlar gerçekleştirilerek tam uyumluluk sağlar  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kullanıcı içerik görünümünü kontrol eder </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Birden fazla cihaz için daha fazla esneklik sağlar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Metin tabanlı yerleşimler ve daha basit tasarımlar
+için daha uygundur </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Daha az yatay kaydırma şansı vardır </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Aşağıdakilerden hangisi Nielsen’ e göre, kullanıcıların baskın okuma düzenleri sırasında <u><strong>yer almaz?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Kullanıcılar ilk önce sayfanın üst kısmını okurlar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kullanıcılar sayfayı biraz aşağıya çekip sayfayı
+tekrar tarar </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Kullanıcılar sayfayı yakınlaştırıp tararlar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kullanıcılar içeriği soldan dikey bir hareketle tarar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İçerik oldukça yavaş ve sistematik bir şekilde
+taranır </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">   Nielsen’
+e göre, kullanıcıların baskın okuma düzenleri
+şu sırayı izlemektedir:  <br><br> 
+			
+
+• Kullanıcılar ilk önce sayfanın üst kısmını okumuşlardır.<br>
+• Ardından, kullanıcılar sayfayı biraz aşağıya çekip sayfayı tekrar tarar. Bu tarama, tipik olarak ilk taramadan daha kısadır.<br>
+• Sonunda, kullanıcılar içeriği soldan dikey bir hareketle tarar. Bazen bu, içeriğin oldukça yavaş ve sistematik bir şekilde taranması olarak gerçekleşir.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Eşzamansız JavaScript ve XML anlamına gelen
+kavram aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> PHP </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Ajax </span><br>
+	<span class="option" data-correct="false"><b>C)</b> JQuery </span><br>
+	<span class="option" data-correct="false"><b>D)</b> HTML </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Web Servisi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Bir web sitesinin gerçek HTML dosyası dışındaki görünümü tanımlamak için kullanılan teknoloji aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> XML </span><br>
+	<span class="option" data-correct="false"><b>B)</b> XHTML </span><br>
+	<span class="option" data-correct="false"><b>C)</b> jQuery </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Ajax </span><br>
+	<span class="option" data-correct="true"><b>E)</b> CSS </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> Aşağıdakilerden hangisi “telif hakkı sahibinden izin almak zorunda kalmadan telif hakkıyla korunan materyalin sınırlı kullanımına izin veren” düzenlemedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Lisans </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Etik </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yaratıcı Beraberlikler </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Adil Kullanım İlkesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Patent Hukuku </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> İnternet siteleri üzerinde belirli bir ücret karşılığında reklam yerleşimlerine ilgili görsel ya da hareketli resimlerin konularak hedef kitleye ulaşmayı hedefleyen reklam türü hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Banner Reklamcılığı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Eposta Reklamcılığı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sosyal Medya Reklamcılığı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Web Sitesi Reklamcılığı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Arama Motoru Reklamcılığı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      <strong>İnternet reklamcılık türleri aşağıdaki gibidir:<br><br></strong>
+
+
+<u><strong>• Web Sitesi:</strong></u> İnternet üzerinde insanların ulaşabildiği bir site oluşturmak; yazılı, resimli hatta sesli, görüntülü olarak şirketin vermek istediği mesajları, bilgilendirmeleri, servis ve ürünleri mevcut ve potansiyel müşterilere ulaştırmanın en kolay yollarından biridir.<br><br>
+			
+<u><strong>• Arama Motoru</strong></u> Reklamcılığı: İnternet üzerinde bir konuda bilgi almak isteyen insanların ilk başvurduğu kaynaklar arama motorlarıdır. Dünya üzerinde insanların günde milyarlarca sorgu ile arama işlemi gerçekleştirip aradıkları bilgiye ulaşmak istedikleri düşünüldüğünde, arama motorları internetin en önemli organik ziyaretçi kaynaklarından biridir.<br><br>
+			
+<u><strong>• Eposta Reklamcılığı:</strong></u> Bir ürün, hizmet, bildiri hakkında müşteri ya da hedef kitleye eposta yolu ile yapılan reklamcılık türüdür. Günümüzde her ne kadar eposta reklamcılığı suistimal edilerek “Spam Mail” kavramına dönüşse de doğru bir şekilde kullanıldığında eposta reklamcılığı, site ya da direkt olarak ürün ve hizmetleri tanıtmanın hızlı yollarından biridir. Düzenli olarak yapılan bülten şeklinde toplu eposta gönderimleri ile hem hedef kitle daha fazla etkileşim içinde olabilir hem de hizmetle alakalı gelişmeleri herhangi bir zahmete girmeden ulaşmaları sağlanmaktadır.<br><br>
+			
+<u><strong>• Banner Reklamcılığı:</strong></u> İnternet siteleri üzerinde belirli bir ücret karşılığında reklam yerleşimlerine ilgili görsel ya da hareketli resimlerin konularak hedef kitleye ulaşmayı hedeflemektedir. Banner reklamcılığı; doğru hedef kitlenin analiz edildiği ve talebin olabileceği siteler üzerinde doğru yerleşimde, doğru şekilde uygulandığında direkt olarak satışa yönelik etki gösteren önemli bir internet reklamcılığı parçasıdır.<br><br>
+			
+<u><strong>• Sosyal Medya Reklamcılığı:</strong></u> Sosyal medya kullanıcı sayısının günden güne arttığı günümüzde internet reklamlarının en etkili yöntemlerinden biri de sosyal medya reklamlarıdır. Hedeflenen kişilerin hangi sosyal ağı etkin kullandıklarını belirlemeli ve o sosyal medya üzerinden reklam kampanyası başlatılmalıdır.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> Aşağıdakilerden hangisi reklam verenlerin
+çevrimiçi reklam oluştururken odaklandıkları hususlar arasında <u><strong>yer almaz?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Doğru anahtar kelimeleri seçme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Anahtar kelimeleri düzenleme </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Anahtar kelimeleri pazarlama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bir ürün veya hizmetle ilgili etkili anahtar kelimeler için araştırma </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Reklam oluşturmak için anahtar kelimeleri düzenleme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      Reklam verenler, bir çevrimiçi reklam oluştururken aşağıdaki hususlara odaklanır:<br><br>
+• Bir ürün veya hizmetle ilgili etkili anahtar<br>
+kelimeler için araştırma<br>
+• Doğru anahtar kelimeleri seçme<br>
+• Birbiri ile ilgili anahtar kelimeleri gruplama<br>
+• Reklam oluşturmak için anahtar kelimeleri<br>
+düzenleme     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Aşağıdakilerden hangisi Evrensel Tasarım İlkeleri arasında <u><strong>yer almaz?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Kullanım Esnekliği </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Düşük Fiziksel Çaba </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Basit ve Sezgisel Kullanım </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Ağır Fiziksel Çaba </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Hatalara Tolerans </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      - Adil kullanım, <br>
+- Kullanım esnekliği, <br>
+- Basit ve sezgisel kullanım, <br>
+- Algılanabilir bilgi,
+- Hatalara tolerans, <br>
+- Düşük fiziksel çaba, <br>
+- Yaklaşmaya ve kullanıma uygun ölçüler<br>
+- Mekan 
+		</div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> Aşağıdakilerden hangisi tüm insanlar için ortamlar tasarlamak amacıyla oluşturulan evrensel tasarım ilkelerinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Adil kullanım </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Algılanabilir bilgi </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Hataları engelleme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Hatalara tolerans </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yaklaşmaya ve kullanıma uygun ölçüler </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">       - Adil kullanım, <br>
+- Kullanım esnekliği, <br>
+- Basit ve sezgisel kullanım, <br>
+- Algılanabilir bilgi,
+- Hatalara tolerans, <br>
+- Düşük fiziksel çaba, <br>
+- Yaklaşmaya ve kullanıma uygun ölçüler<br>     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> "Temel olarak bir web sitesinin görme engelli ziyaretçiler için ekran okuyucuları, işitme özürlü ziyaretçileri için ses kullanmadan, renk körlüğü olan kişileri veya başka engelli olanları da kapsayan, engellilerin kullanabileceği bir web sitesi yeteneğidir."<br><br>
+Tanımı yapılan kavram aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Erişilebilirlik </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ajax </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bağlantı Metni </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bant Genişliği </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Çıkma Oranı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Bir web tasarımcısından; <br>
+	- Engelli kişilerin ziyaret edeceği, <br>
+	- Eş zamansız veri alımına izin veren ve <br>
+	- Kullanıcılara büyük miktarda veri aktarabilecek bir site tasarlaması istenmiştir. <br><br>
+
+Bu beklentilere göre tasarım yapılırken en çok önem verilmesi gereken özellikler hangi seçenekte doğru bir şekilde verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Erişilebilirlik, Bağlantı metni, Çıkma oranı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ajax, Çözünürlük, İstemci taraflı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bağlantı metni, Gezinme, Ön yüz </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Erişilebilirlik, Ajax, Bant genişliği </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Ön yüz, Bant genişliği, Gezinme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> I. Engelli ve engelli olmayan kişiler için eşit erişim<br>
+II. Karmaşık olmayan, kolay anlaşılır tasarım<br>
+III. İsteyene sesli, isteyene metin olarak sunulan içerik<br><br>
+Hangi seçenekte yukarıda sıralanan durumlar ile evrensel tasarım ilkeleri doğru bir şekilde eşleştirilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> I. Kullanım esnekliği, II. Düşük fiziksel çaba, III. Algılanabilir bilgi </span><br>
+	<span class="option" data-correct="true"><b>B)</b> I. Adil kullanım, II. Basit ve sezgisel kullanım, III. Kullanım esnekliği  </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I. Düşük fiziksel çaba, II. Adil kullanım, III. Basit ve sezgisel kullanım </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I. Algılanabilir bilgi, II. Düşük fiziksel çaba, III. Adil kullanım </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I. Düşük fiziksel çaba, II. Hatalara tolerans, III. Kullanım esnekliği </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> Aşağıdaki seçeneklerden hangisi yaşlı veya engelli bireylerin de web sitesine erişimini kolaylaştıracak adımlardan biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Ekrandaki metinlerin seslendirilmesi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Videolara açıklayıcı yazılar eklenmesi </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Aynı sayfada farklı yazı tiplerinin kullanılması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Başlıkların hiyerarşik düzenlenmesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sayfada beyaz alanların bırakılması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      Bir web sitesi tasarımında özellikle yaşlı ve engelli kullanıcılar için<br><br>
+
+ metin büyüklüğü, <br>
+renk/kontrast ayarları, <br>
+sayfa içinde gezinme tercihleri ve sesli içerik alternatifleri sunulması <br>
+Renklerin, yazı tiplerinin ve büyüklerinin düzenlenmesi <br>
+Yazı boyutunun 12 pikselden küçük olmaması ve yazı tipinin okunaklı olan bir yazı tipi ailesinden seçilmesi <br>
+Okumayı kolaylaştırmak için beyaz alanların bırakılması gerekmektedir. 
+
+
+     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> "Basamaklı stil sayfası anlamına gelen ___________________,bir HTML etiketinin nasıl görüneceğini belirleme olanağı sağlamakla birlikte,HTML 4.0’da bir problemi çözmemizi ve dosyamızın daha anlaşılır olmasını da sağlar." Yukarıdaki ifadede boş bırakılan yere aşağıdakilerden hangisi gelmelidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> CSS </span><br>
+	<span class="option" data-correct="false"><b>B)</b> WWW </span><br>
+	<span class="option" data-correct="false"><b>C)</b> JavaScript </span><br>
+	<span class="option" data-correct="false"><b>D)</b> W3C </span><br>
+	<span class="option" data-correct="false"><b>E)</b> HTTP </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> Aşağıdakilerden hangisi bir ziyaretçinin şu anda üzerinde bulunduğu web sayfası hakkında bilgi sunan başlığın içerdiği verilerdir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Üst Veriler </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Köprü </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kullanıcı Grafik Arabirimi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Gezinme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Çözünürlük </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Hangisi genellikle dinamik web uygulamaları oluşturmak için kullanılır ve bir ziyaretçinin bulunduğu sayfayı yeniden yüklemek zorunda kalmadan eş zamansız veri alımına izin verir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Ön Yüz </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bant Genişliği
+ </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Ajax </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Köprü </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Gezinme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> Evrensel Tasarım İlkeleri çerçevesinde hangi tasarım kullanımı kullanıcının tecrübe, bilgi, dil becerileri ya da o anki konsantrasyon ve dikkat düzeyine bağlı olmaksızın, kolay anlaşılmalı, rahat olmalıdır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Basit ve Sezgisel Kullanım
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Adil Kullanım
+
+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Düşük Fiziksel Çaba </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yaklaşmaya ve Kullanıma Uygun Ölçüler ve Mekân </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Hatalara Tolerans </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> Web sitesi tasarımı yapılırken aşağıdakilerden hangisi esas alınır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yazı tipi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yüklenme hızı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tarayıcı türü </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Tarayıcı sürümü </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Ekran çözünürlüğü </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br>  Bir web sitesinin yapımı planlanırken dikkat edilmesi gereken husulardan biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> İçeriğe ve kullanıcıların ihtiyaçlarına erişmek </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Tasarım içeriği tamamlamalı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tasarım okuyucuyu desteklemeli </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Benzer içerik grupları dikkate alınmadan yapılandırmalı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Tasarım mantıksal olarak bölünmeli </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      Benzer içerik gruplarını ortaya çıkaracak şekilde yapılandırmalıdır.
+		
+  Bir web sitesinin tasarımını planlarken;<br><br>
+- İçeriğe ve kullanıcıların ihtiyaçlarına erişmek her zaman tasarım kararlarını yönlendirmeli <br>
+- Tasarımı içeriği tamamlamalı ve okuyucuyu desteklemeli<br>
+- Tasarım mantıksal olarak bölünmeli, <br>
+- Benzer içerik gruplarını ortaya çıkaracak şekilde yapılandırılmalı ve sonra gezinme yoluyla içeriğe erişim sağlanmalıdır.<br>
+- Her zaman içeriği sergileyen ve kolay erişime izin veren basit ve doğrudan tasarımlar seçilmeli, <br>
+- Kullanıcıyı yanlış yönlendirebilecek gereksiz teknoloji ve karmaşık görsel tasarımlar bir kenara koyulmalıdır.   </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Web sayfası tasarlarken birden çok tarayıcıda düzgün şekilde görüntülenebilir olarak hazırlanmasının nedeni nedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> HTML etiketlerinin yorumlama mantığının tarayıcıdan tarayıcıya değişmesi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Web sayfasının kişiye özel olması </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Web sayfasının zor anlaşılabilir olması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> HTML etiketlerinin yorumlama mantığının her tarayıcıda aynı olması </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Web tasarımcılarının her sayfada imzalarının yer alması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> Masaüstü bilgisayar çözünürlüğünde en popüler bilgisayar ekranı çözünürlüğü hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 1920x1080 </span><br>
+	<span class="option" data-correct="true"><b>B)</b> 1366x768 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 1440x900 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 1280x800 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 1280x720 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      Ağustos 2016-2017 Dünya Çapında Masaüstü Ekran Çözünürlüğü İstatistikleri Masaüstü bilgisayar çözünürlüğünde en popüler bilgisayar ekranı çözünürlüğü 1366x768, en yaygın ikinci ekran çözünürlüğü ise 1920x1080. Görüldüğü gibi kütüphane ve birçok çalışma alanından eri- şimin yaygın olduğu zamandaki çözünürlük olan 1024x768 altıncı sıraya gerilemiştir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> I.Kullanımın amacı ve karakteri<br>
+II.Telif hakkı alınmış çalışmanın doğası<br>
+III.Telif hakkı alınmış eserin tamamıyla bağlantılı olarak kullanılacak iş miktarı<br>
+IV.Kullanımın pazardaki etkisi veya telif hakkıyla korunan çalışmanın değeri<br><br>
+Yukarıda sıralanan faktörler aşağıdakilerden hangisinin belirlenmesinde göz önünde bulundurulmalıdır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Adil kullanım </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kullanıcı grafik arabirimi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Üst veriler </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Çözünürlük </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Erişilebilirlik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      Adil kullanımın belirlenmesinde kullanımın amacı ve karakteri, telif hakkı alınmış çalışmanın doğası, telif hakkı alınmış eserin tamamıyla bağlantılı olarak kullanılacak iş miktarı, kullanımın pazardaki etkisi veya telif hakkıyla korunan çalışmanın değeri göz önünde bulundurulması gereken faktörlerdir. Diğer seçenekler web tasarım jargonlarıyla ilgilidir.
+
+
+     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> Aşağıdakilerden hangisi Web sağlayıcının çoklu tarayıcılarda uyumluluğunu sağlamak için yapılması gerekenlerden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> W3C standartlarını takip etmek </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Hedef kitleyi bilmek </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kodun onaylanması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sayfaların birden fazla tarayıcı tarafından taranması </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Bağlantı hızını düşürmek </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      Web sayfalarının çoklu tarayıcılarda uyumluluğunu sağlamak için W3C standartları takip edilmeli, kod onaylanmalı, hedef kitle bilinmeli ve sayfalar birden fazla tarayıcıda test edilmelidir.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> Aşağıdakilerden hangisi sabit tasarım avantajlarındandır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kullanıcı içerik görünümünü kontrol eder </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Daha az yatay kaydırma şansı vardır </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Birden fazla cihaz için daha fazla esneklik sağlar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Metin tabanlı yerleşimler ve daha basit tasarımlar için uygundur </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Tasarımcı içerik görünümünü kontrol eder </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      <strong>Sabit tasarım avantajları;</strong><br><br>
+
+• Tasarımcı içerik görünümünü kontrol eder<br>
+• Daha karmaşık sayfa düzenlerine izin verir<br>
+• Metin uzunluğu üzerinde daha fazla kontrol sağlar<br>     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Aşağıdakilerden hangisi erişilebilirliğin dört ilkesinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Algılanabilirlik </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Çalışılabilirlik </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Anlaşılabilirlik </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Ulaşılabilirlik </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sağlamlık </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> I-Grafik Tasarımı<br>
+II-Siteye Erişecek Kullanıcı Özellikleri<br>
+III-Kodlama<br><br>
+Yukarıda verilen maddelerden hangisi ya da hangileri web tasarım sürecinde göz önünde bulundurulması gereken bileşenlerdendir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> Adil kullanımın belirlenmesinde göz önünde bulundurulması gereken faktörlerden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Kullanımın amacı ve karakteri </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Telif hakkı alınmış çalışmanın doğası </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Kullanımın türü </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kullanımın pazardaki etkisi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Telif hakkıyla korunan çalışmanın değeri </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      Adil kullanımın belirlenmesinde göz önünde bulundurulması gereken faktörler şunlardır:<br><br>
+
+- Kullanımın amacı ve karakteri, <br>
+- Telif hakkı alınmış çalışmanın doğası, <br>
+- Telif hakkı alınmış eserin tamamıyla bağlantılı olarak kullanılacak iş miktarı,<br>
+- Kullanımın pazardaki etkisi,<br>
+- Telif hakkıyla korunan çalışmanın değeri.
+
+
+     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> Tasarım, gerekli bilgiyi kullanıcılara, ortam koşullarından bağımsız ya da kullanıcının farklı düzeydeki duyusal algılama becerilerine uygun olarak, etkin biçimde iletmesi evrensel tasarım ilkelerinden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Basit ve Sezgisel Kullanım </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Algılanabilir Bilgi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Hatalara Tolerans </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Düşük Fiziksel Çaba </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yaklaşmaya ve Kullanıma Uygun Ölçüler ve Mekân </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> Aşağıdakilerden hangisi web sitelerinde tasarım ve içerik dengesi ile ilgili doğru bir ifade <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Tasarım bölünmemelidir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Gezinme yoluyla içeriğe erişim sağlanmalıdır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tasarım okuyucuyu desteklemelidir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Doğrudan tasarımlar seçilmelidir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Tasarımı içeriği tamamlamalıdır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      Bir web sitesinin tasarımını planlarken;<br><br>
+- İçeriğe ve kullanıcıların ihtiyaçlarına erişmek her zaman tasarım kararlarını yönlendirmeli <br>
+- Tasarımı içeriği tamamlamalı ve okuyucuyu desteklemeli<br>
+- Tasarım mantıksal olarak bölünmeli, <br>
+- Benzer içerik gruplarını ortaya çıkaracak şekilde yapılandırılmalı ve sonra gezinme yoluyla içeriğe erişim sağlanmalıdır.<br>
+- Her zaman içeriği sergileyen ve kolay erişime izin veren basit ve doğrudan tasarımlar seçilmeli, <br>
+- Kullanıcıyı yanlış yönlendirebilecek gereksiz teknoloji ve karmaşık görsel tasarımlar bir kenara koyulmalıdır.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br>  I. Tasarımcı içerik görünümünü kontrol eder.<br>
+II. Daha karmaşık sayfa düzenlerine izin verir.<br>
+III. Metin tabanlı yerleşimler ve daha basit tasarımlar için uygundur.<br><br>
+
+Yukarıdakilerden hangileri sabit tasarım avantajları arasındadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="true"><b>B)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">       <strong>Sabit tasarım avantajları;</strong><br><br>
+
+• Tasarımcı içerik görünümünü kontrol eder<br>
+• Daha karmaşık sayfa düzenlerine izin verir<br>
+• Metin uzunluğu üzerinde daha fazla kontrol sağlar<br>      </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> I. Tasarımcı içerik görünümünü kontrol eder.<br>
+II. Metin uzunluğu üzerinde daha fazla kontrol sağlar.<br>
+III. Daha az yatay kaydırma şansı vardır.<br><br>
+
+Yukarıdakilerden hangileri sabit tasarım avantajları arasındadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      <strong>Sabit tasarım avantajları;</strong><br><br>
+
+• Tasarımcı içerik görünümünü kontrol eder<br>
+• Daha karmaşık sayfa düzenlerine izin verir<br>
+• Metin uzunluğu üzerinde daha fazla kontrol sağlar<br>       </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> Aşağıdakilerden hangisi Evrensel Tasarım İlkeleri’nin sanal ortamdaki karşılığıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Tolerans </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Adil kullanım </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sezgisel kullanım </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kullanım esnekliği </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Web erişilebilirliği </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> Aşağıda web tasarım süreci ile ilgili verilen bilgilerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Web tasarımcılarının karşılaştıkları en büyük zorluklardan biri, birden çok tarayıcının düzgün şekilde görüntüleyebileceği sayfalar tasarlamaktır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> HTML etiketlerinin yorumlama mantığı, tarayıcıdan tarayıcıya değişir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tarayıcı ve sürüm seçenekleri kullanıcılara bağlı olarak geniş ölçüde değişebilir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Mobil tarayıcıların yaygın kullanımı, tasarımcıların görevinin karmaşıklığına katkıda bulunmaktadır. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Sitenin farklı bağlantı hızlarında çalışıp çalışmadığının test edilmesine gerek yoktur. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> Web tasarım jargonunda bir web sayfasından diğerine, aynı sitede veya başka bir web sayfasındaki bir bağlantı adı verilen metin veya resimler aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Grafik arabirimi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Üst veriler </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Köprü </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bağlantı metni </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Önbellek </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> Web erişilebilirliğinin içerik, yardımcı teknikler de dahil olmak üzere çok çeşitli kullanıcı aracıları tarafından güvenilir bir şekilde yorumlanması ilkesi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Algılanabilirlik </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Çalışabilirlik </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Anlaşılabilirlik </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Sağlamlık </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Açıklık </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> İnternet reklamcılığı ile ilgili aşağıdaki bilgilerden hangisi doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Dağıtım avantajı sınırlıdır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Banner reklamlar sadece dönemsel olarak gösterilebilir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Dil kullanımı reklamın yayınlandığı sitenin dili ile uyumludur. </span><br>
+	<span class="option" data-correct="true"><b>D)</b> İlgiye göre reklam üzerinde anlık değişiklikler yapılabilir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İnternet reklamları yüksek bir bütçe gerektirir </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> Aşağıdaki seçeneklerden hangisi web sitesinde kullanılacak bir içeriğin telif sorunu oluşturmaması ve adil kullanım ilkesine uygunluğunun belirlenmesinde göz önünde bulundurulması gereken bir faktördür? </p>
+	<span class="option" data-correct="true"><b>A)</b> Kulanım amacı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Eserin popülerliği </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kullanım sayısı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Eserin menşei </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Tıklanma sayısı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      Bu kuralın uygulanabilmesi için; kullanmanın amacı ve niteliği, bu kullanımın ticarî amaç taşıyıp taşımadığı ve eserin niteliği önemlidir.
+
+
+     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> Web tasarım süreci ile ilgili seçeneklerden hangisi doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Tüm kullanıcılar en son teknolojik imkanlara sahip olmalıdır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Tüm kullanıcıların internet hızları aynı olmalıdır. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Tasarımcılar sayfalarını farklı ortamlarda test etmelidirler. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Tasarımlar geniş ekranlı monitörlere göre düzenlenmelidir </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Her web uygulaması için kodlamalar aynıdır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question41">
+	<p class="question">Soru 41:<br> Bir web sitesi tasarlanırken kullanıcının istediği bilgiye ulaşması için en fazla kaç defa tıklama yapması uygun olur? </p>
+	<span class="option" data-correct="true"><b>A)</b> 3 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 4 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 5 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 1 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 2 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description41">Açıklama</button>
+		<div id="description41" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question42">
+	<p class="question">Soru 42:<br> Bir kullanımın adil olup olmadığını belirlemek için dikkate alınması gereken birtakım faktörler vardır. Aşağıdakilerden hangisi adil kullanım belirlenmesinde kullanılan faktörlerden biri değildir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kullanımın amacı ve karakteri </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Telif hakkı alınmış çalışmanın doğası </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Telif hakkı alınmış eserin tamamıyla bağlantılı olarak kullanılacak iş miktarı </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Patentlerin yayınlanması </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kullanımın pazardaki etkisi veya telif hakkıyla korunan çalışmanın değeri </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description42">Açıklama</button>
+		<div id="description42" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question43">
+	<p class="question">Soru 43:<br> İnternet sayfalarında yazı tipi seçenekleriyle ilgili aşağıdakilerden hangisi doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yüklü yazı tipleri bütün bilgisayarlarda aynıdır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Web için farklı yazı tipleri kullanılmalıdır </span><br>
+	<span class="option" data-correct="true"><b>C)</b> CSS kullanılarak farklı stiller yaratılabilir </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Fontlardan stil oluşturmak için HTML kullanılmalıdır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Her kullanıcının aygıtında yüklü olan yazı tipinin görünmesi sağlanmalıdır </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description43">Açıklama</button>
+		<div id="description43" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question44">
+	<p class="question">Soru 44:<br> Aşağıdakilerden hangisi bir tıklama başına ödeme reklamının iş akışı içerisinde <u><strong>yer almaz?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Reklam veren, reklamla ilişkili bir anahtar kelime listesi belirtir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Arama motoru, eşleşen reklamları bulur ve sonuç sayfasına yerleştirir. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Reklam alan, reklam her tıklandığında ne kadar ücret istediğini belirler. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Reklam veren, küçük bir metin reklam oluşturur. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bir kullanıcı reklamı tıklarsa reklam verenin web sitesine yönlendirilir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description44">Açıklama</button>
+		<div id="description44" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question45">
+	<p class="question">Soru 45:<br>Aşağıdakilerden hangisi esnek/uyarlanabilir tasarım avantajlarından <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Tasarımcı içerik görünümünü kontrol eder </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Daha az yatay kaydırma şansı vardır </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Birden fazla cihaz için daha fazla esneklik sağlar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Metin tabanlı yerleşimler ve daha basit tasarımlar için uygundur </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kullanıcı içerik görünümünü kontrol eder </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description45">Açıklama</button>
+		<div id="description45" class="collapse">      Açıklama Yok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question46">
+	<p class="question">Soru 46:<br> Web tasarım jargonunda bir web sitesinin gerçek HTML dosyası(ları) dışındaki görünümü tanımlamak için kullanılan terim nedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Erişilebilirlik </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ajax </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İstemci taraflı </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Basamaklı Stil Şablonu(CSS) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Ön yüz </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description46">Açıklama</button>
+		<div id="description46" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question47">
+	<p class="question">Soru 47:<br> İnternet reklamcılığı ile ilgili aşağıdaki bilgilerden hangisi doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Dağıtım avantajı sınırlıdır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Banner reklamlar sadece dönemsel olarak gösterilebilir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Dil kullanımı reklamın yayınlandığı sitenin dili ile uyumludur. </span><br>
+	<span class="option" data-correct="true"><b>D)</b> İlgiye göre reklam üzerinde anlık değişiklikler yapılabilir </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İnternet reklamları yüksek bir bütçe gerektirir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description47">Açıklama</button>
+		<div id="description47" class="collapse">      İnternet üzerinden yapılan reklamlar; düşük bütçeyle etkileşim sağlayabilirler, hazırlanma süreci daha kolaydır, tanıtımı
+yapılan ürün hakkında bilgi edinmek daha kolaydır, dağıtım süresi konusunda daha esnektir, farklı dil seçeneklerini kullanabilir, tüketicilerin satın alma ve kullanım alışkanlıklarına uyum sağlamak adına gerektiğinde anlık değişiklikler yapılabilir.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question48">
+	<p class="question">Soru 48:<br> Web erişilebilirliğinin içerik, yardımcı teknikler de dahil olmak üzere çok çeşitli kullanıcı aracıları tarafından güvenilir bir şekilde yorumlanması ilkesi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Algılanabilirlik </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Çalışabilirlik </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Anlaşılabilirlik </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Sağlamlık </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Açıklık </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description48">Açıklama</button>
+		<div id="description48" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question49">
+	<p class="question">Soru 49:<br>  I. Adil kullanım<br>
+II. Kullanım esnekliği<br>
+III. Basit ve sezgisel kullanım<br>
+IV. Algılanabilir bilgi<br>
+V. Erişilebilirlik<br><br>
+Evrensel tasarım ilkeleri aşağıdakilerden hangisinde doğru olarak verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve II </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I, II, III ve IV </span><br>
+	<span class="option" data-correct="false"><b>D)</b> IV ve V </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I ve V </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description49">Açıklama</button>
+		<div id="description49" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question50">
+	<p class="question">Soru 50:<br> Seçeneklerden hangisi farklı bilgisayar sistemleri veya mobil tarama cihazlarına uyumlu olacak bir tasarım yaparken dikkat edilmesi gereken hususlar arasında <u><strong>yer almaz?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Ekran boyutları </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Renk derinliği </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tarayıcı türü </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yazı tipi </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Yazı boyutu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description50">Açıklama</button>
+		<div id="description50" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question51">
+	<p class="question">Soru 51:<br> I-Bir ürün veya hizmetle ilgili etkili anahtar kelimeler için araştırma<br>
+II- Doğru anahtar kelimeleri seçme <br>
+III- Birbiri ile ilgili anahtar kelimeleri gruplama<br><br>
+
+Reklam verenler, bir çevrimiçi reklam oluştururken yukarıdaki hususlardan hangilerine odaklanırlar? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description51">Açıklama</button>
+		<div id="description51" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question52">
+	<p class="question">Soru 52:<br> Etkileşim tasarımı kavramı ilk olarak Bill Moggridge ve Bill Verplank tarafından ne zaman tanımlanmıştır? </p>
+	<span class="option" data-correct="false"><b>A)</b> 1950'lerde </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 1960'larda </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 1970'lerde </span><br>
+	<span class="option" data-correct="true"><b>D)</b> 1980'lerde </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 1990'larda </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description52">Açıklama</button>
+		<div id="description52" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question53">
+	<p class="question">Soru 53:<br> Aşağıdakilerden hangisi bir metni basılı bir dergide okumaya göre web sitesinden okumanın sağladığı avantajlardan biridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Sayfalar arasında okuyucunun istediği gibi dolaşabilmesi. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Gerektiğinde tıklanabilir metinler ve resimler eklenebilmesi. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bilginin önemini vurgulayan metin ve görsel tasarımların kullanabilmesi. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Konuyu destekleyen şekiller ve renkler kullanılabilmesi. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Okuyuculara doğrusal olmayan bir okuma yöntemi sunabilmesi. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description53">Açıklama</button>
+		<div id="description53" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question54">
+	<p class="question">Soru 54:<br> Bir web sitesinin tasarımının tüm kullanıcılara hitap edebiliyor olması nasıl belirlenmektedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> W3C standartlarına uyumlu hale getirilmeli </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Farklı bağlantı hızlarında çalışıp çalışmadığı test edilmeli </span><br>
+	<span class="option" data-correct="false"><b>C)</b> CCS standartlarına uyumlu hale getirilmeli </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Web tasarımcısı saha analizleri yapmalı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> En yüksek internet hızına göre test edilmeli </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description54">Açıklama</button>
+		<div id="description54" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question55">
+	<p class="question">Soru 55:<br> I. Tasarımda ızgara yapısı ve kullanıcının dikkatini çekmek için onu nasıl kullanılacağı düşünülmelidir<br>
+
+II. Bilgilerin göreli önemini bildirmek için metin ağırlığı ve boyutu kullanılmalıdır<br>
+
+III. Kullanıcıların içeriği gezmesinde yardımcı olmak için anlamlı başlıklar kullanılmalıdır<br>
+
+IV. İçerik, kurallarla veya aktif beyaz boşluklarla bölümlere bölünmelidir<br>
+
+V. Konumu veya konuyu desteklemek için şekiller ve renkler kullanılmalıdır<br><br>
+
+Yukardaki hususlardan hangilerini Web tasarımcısı siteyi yaparken göz önünde bulundurmalıdır? </p>
+	<span class="option" data-correct="true"><b>A)</b> I, II, III, IV ve V </span><br>
+	<span class="option" data-correct="false"><b>B)</b> II, III, IV ve V </span><br>
+	<span class="option" data-correct="false"><b>C)</b> III, IV ve V </span><br>
+	<span class="option" data-correct="false"><b>D)</b> IV ve V </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II, III ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description55">Açıklama</button>
+		<div id="description55" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+		
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+	  
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA II
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama2-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama2-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama2-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama2-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama2-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama2-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama2-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama2-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama2-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama2-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB ARAYÜZ PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİ YAPILARI
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veriyap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veriyap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veriyap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veriyap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veriyap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veriyap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veriyap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veriyap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veriyap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veriyap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          MOBİL UYGULAMA GELİŞTİRME
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="mobilug-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="mobilug-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="mobilug-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="mobilug-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="mobilug-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="mobilug-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="mobilug-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="mobilug-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="mobilug-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="mobilug-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          UNIX SİSTEM YÖNETİMİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="unixsy-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="unixsy-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="unixsy-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="unixsy-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="unixsy-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="unixsy-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="unixsy-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="unixsy-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="unixsy-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="unixsy-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Veri Yapıları - Ünite 2 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	<button class="block-group" data-start="40" data-end="59">Part 3</button>
+  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> I.	 Aynı türden birçok değişkeni saklamak
+için kullanılır.<br>
+II.	 İçerdiği veriler int, string veya kullanıcı tanımlı bir sınıf olabilir.<br>
+III.	Veriler eklenirken kendi içinde sıralanabilir.<br><br>
+
+Dizi (Array) veri yapısı için yukarıda verilen özelliklerden hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Aşağıda verilen dizi tanımlamalarından hangisi yanlıştır? </p>
+	<span class="option" data-correct="false"><b>A)</b> int[] sayi_dizisi = { 13, 4, 26, -7, 0 }; </span><br>
+	<span class="option" data-correct="true"><b>B)</b> int[26] notlar; </span><br>
+	<span class="option" data-correct="false"><b>C)</b> int[] film_numalari = new int[44]; </span><br>
+	<span class="option" data-correct="false"><b>D)</b> int[] degiskenler = new int[70]; </span><br>
+	<span class="option" data-correct="false"><b>E)</b> string[] dizi = new string[56]; </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      boyut belirtilirken [] içinde boyut belirtilir ve bu boyutun sadece new anahtar kelimesiyle oluşturulduğunda belirtilmesi gerekir. Bu nedenle doğru tanım şu şekilde olmalıdır:<br><br>
+
+
+int[] notlar = new int[26];     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> int[,] sayilar = new int[,] =<br>
+{<br>
+ { 4, -6, -7 }<br>
+ { -11, 4, 0 },<br>
+ { -12, -9, 15 },<br> 
+ { 6, 19, -3 },<br>
+ { 9, -56, 9 },<br>
+};<br><br>
+Yukarıda verilen kod parçacığının işlevi aşağıdakilerin hangisinde doğru olarak verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Tek boyutlu dizi tanımlaması </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Çift boyutlu dizi tanımlaması </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Küme tanımlaması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Hashtable tanımlaması </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Hashmap tanımlaması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      İki boyutlu olduğunu belirten bir [,] operatörü kullanılmıştır.    </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> I.	 Veriler key-value (anahtar-değer) şeklinde tutulmaktadır<br> 
+II.	 Veri türü object’tir, yani tüm veri türleri kullanılabilir<br> 
+III. Key değiştirilemez ve boş değer içeremez ama value değiştirilebilir ve boş değer içerebilir<br><br>
+Bir HashTable veri yapısı için yukarıda verilen özelliklerden hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Bu veri yapısının en önemli varsayımlarından
+biri, <u><strong>Anahtara</strong></u> dayalı bir <u><strong>Değer</strong></u> için çok hızlı arama yapabilen, O(1) işlem karmaşıklığında arama işlemi olması gerekmektedir.<br><br>
+Aşağıdaki maddelerden hangisinde bu işlemi yapan veri yapısı <u>bileşeni</u> doğru olarak verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Hashtable </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Hashset </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Hashmap </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Hash fonksiyonu </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Dictionary </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      Hash tablosunun en önemli varsayımlarından biri; Anahtara dayalı bir Değer için çok hızlı arama
+yapabilen, O(1) işlem karmaşıklığında arama işlemi yapabilmesi gerekmektedir. Bu amaca ulaşmak için
+Hash Fonksiyonu kullanılmaktadır. Değerin bulunabileceği bir Kova dizini (bucket) oluşturmak için
+Anahtar (key) gerekmektedir. Böylece anahtarın bir değerini bulmanız gerekiyorsa koleksiyondaki tüm
+ögelerin üzerinden tek tek geçilmesi gerekmez çünkü anahtara karşılık gelen uygun bir kovayı kolayca bulmak
+ve değeri almak için hash fonksiyonunu kullanabilirsiniz     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Hashtable sayi_isim = new Hashtable();<br>
+sayi_isim.Add(1,"Bir");<br>
+sayi_isim.Add(2,"İki");<br>
+sayi_isim.Add(3,"Üç");<br>
+sayi_isim.Add(2, "İki");<br><br>
+foreach(DictionaryEntry kvp in sayi_isim)<br>
+Console.Write("Anahtar: {0}, Değer: {1} - ", kvp.Key, kvp.Value);<br><br>
+Yukarıda verilen kod parçasının çıktısı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Anahtar: 3, Değer: Üç - Anahtar: 2, Değer: İki
+- Anahtar: 1, Değer: Bir -  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Anahtar: 1, Değer: Bir - Anahtar: 2, Değer: İki
+- Anahtar: 3, Değer: Üç - </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Anahtar: 1, Değer: Bir - Anahtar: 2, Değer: İki
+- Anahtar: 3, Değer: Üç - Anahtar: 2, Değer: İki </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Anahtar: 2, Değer: İki, Anahtar: 3, Değer: Üç
+- Anahtar: 2, Değer: İki - Anahtar: 1, Değer:
+Bir - </span><br>
+	<span class="option" data-correct="true"><b>E)</b> run-time exception: item has already been added </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      Aynı anahtar değeri olan "2" iki kez eklenmeye çalışıldı. Hashtable veri yapısı, anahtarlarının benzersiz (unique) olmasını gerektirir. Dolayısıyla, aynı anahtarla tekrar eklemeye çalıştığınızda, bir istisna (exception) oluşur. Bu nedenle çıktı "run-time exception: item has already been added" (çalışma zamanı istisnası: öğe zaten eklenmiş) olacaktır.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> I.	 Kod satırının try-catch bloğuna yerleştirilmesi<br>
+II.	 ContainKey kullanılarak ögenin var olup olmadığının kontrol edilmesi<br>
+III.	TryGetValue yönteminin kullanılması<br><br>
+Sözlük işlemlerinde hatalardan kaçınmak için yukarıdaki maddelerden hangileri uygulanabilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b>  I ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> Hash tabloları ile ilgili sınıflar, ögelerin sırasını tutmaz. Bu nedenle koleksiyondaki verilere anahtarlara göre sıralanmış şekilde erişmek gerekiyorsa bunların kullanımdan önce sıralanması gerekir.<br><br>
+Yukarıda belirtilen sorunu çözmek ve anahtarları her zaman sıralı tutmak için hangi veri yapısı kullanılmalıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Hashmap </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Hashtable </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sorted map </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sorted table </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Sorted Dictionaries </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      Sıralanmış Sözlükler (Sorted Dictionaries) Hash tabloları ile ilgili sınıfların hem genel olmayan hem de genel türevleri, ögelerin sırasını tutmaz bu nedenle koleksiyondaki verilere anahtarlara göre sıralanmış şekilde erişmek gerekiyorsa bunların kullanımdan önce sıralanması gerekir ancak bu sorunu çözmek ve anahtarları her zaman sıralı tutmak için başka bir veri yapısı, sıralanmış sözlük kullanılabilir. Böylece gerektiğinde tasnif edilmiş koleksiyona kolayca ulaşılabilir.<br><br>
+Sıralanmış sözlük, System.Collections.Generic ad alanında bulunan SortedDictionary genel sınıfı kullanılarak tanımlanmaktadır. SortedDictionary sınıfının yeni bir örneği oluşturulurken anahtar ve değerler için veri tipi belirtilebilir.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> Sıralanmış sözlük sınıfı (Sorted Dictionary) için aşağıdaki özelliklerden hangisi tanımlı <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Count </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Add </span><br>
+	<span class="option" data-correct="true"><b>C)</b> ContainsIndex </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ContainsKey </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Remove </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      Dizin oluşturucunun yanı sıra sınıf, saklanan ögelerin sayısını <u><strong>(Count)</strong></u> almayı ve ayrıca anahtar veya değer koleksiyonunu <u><strong>(sırasıyla Keys ve Values)</strong></u> döndürmeyi mümkün kılan birkaç özellikle donatılmıştır ayrıca yeni bir öge eklemek <u><strong>(Add)</strong></u>, bir ögeyi kaldırmak <u><strong>(Remove)</strong></u>, tüm ögeleri kaldırmak <u><strong>(Clear)</strong></u> ve ayrıca koleksiyonun belirli bir anahtarı içerip içermediğini kontrol etmek <u><strong>(Contains ve ContainsKey)</strong></u> veya belirli bir değer (ContainsValue) bulma gibi bazı mevcut yöntemleri kullanabilirsiniz.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> <span style="color: darkred; margin-left: 30px;"><img src="veriyap9.JPG" alt="Veri Yapıları - Ünite 2 Alıştırma Soruları " style="width: 40%;"></span><br><br>
+	Yukarıda verilen kümelerde seçili alanın gösterimi aşağıdakilerden hangisidir?	
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> A \ B </span><br>
+	<span class="option" data-correct="false"><b>B)</b> B \ A </span><br>
+	<span class="option" data-correct="true"><b>C)</b> A ∆ B </span><br>
+	<span class="option" data-correct="false"><b>D)</b> A ∪ B </span><br>
+	<span class="option" data-correct="false"><b>E)</b> A ∩ B </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      A Δ B şeklinde gösterilen simetrik fark da kümeler üzerinde yapılan işlemlerden biridir. Son küme,
+iki kümenin birleşimi olarak yorumlanabilir, yani (A \ B) ve (B \ A). Bu nedenle, A veya B olmak üzere
+yalnızca bir kümeye ait ögeler içermektedir. Her iki kümeye de ait olan ortak ögeler sonuçtan çıkartılır.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> Veri yapıları, bilgisayardaki verileri etkin bir şekilde kullanılabilecek şekilde düzenlemenin özel bir yoludur. Aşağıdakilerden hangisi sık kullanılan veri yapılardan <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Permütasyon </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sözlük </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Küme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Dizi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Liste </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> Bir dizi, bitişik bellek konumlarında depolanan ögeler topluluğudur. Buradaki amaç, aynı türden birden fazla ögeyi bir arada saklamaktır. Bu yapıda, bir temel değere yani dizinin ilk ögesinin bellek konumuna (genellikle dizinin adı ile gösterilir) bir ........................... eklenerek her bir ögenin konumunun hesaplanması kolaylaştırılmaktadır.<br><br>
+Yukarıda yer alan metindeki boşluğa aşağıdakilerden hangisi gelmelidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Küme </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Ofset </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sembol </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Değişken </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kelime </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br>  Bir tek boyutlu dizi, şu değerlere sahip yedi eleman içersin: a, n, a, d, o, l ve u. İlk elemanın indeksi 0’a eşitse son elemanın indeksi kaç olur? </p>
+	<span class="option" data-correct="true"><b>A)</b> 6 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> -6 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 7 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> -7 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 5 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> Hash tablosunun en önemli varsayımlarından biri; Anahtara dayalı bir Değer için çok hızlı arama
+yapabilen, O(1) işlem karmaşıklığında arama işlemi yapabilmesi gerekmektedir. Bu amaca ulaşmak için Hash Fonksiyonu kullanılmaktadır. Değerin bulunabileceği bir Kova dizini (bucket) oluşturmak için ................................................ gerekmektedir.<br><br>
+Yukarıda yer verilen metindeki boş bırakılan yere aşağıdakilerden hangisi gelmelidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Anahtar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Algoritma </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Dizi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sözlük </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Küme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> Hashtable sınıfı, hash tablosuyla ilgili sınıfların jenerik olmayan bir varyantıdır ancak anahtar ve değer için bir değişken tipi belirlenmesine izin vermediği için önemli bir sınırlaması vardır. <br><br>
+Sözlük veri yapısında bu sınırlama kaldırılmıştır. DictionaryEntry sınıfının Key ve Value özelliklerinin ikisi de nesne türündedir bu nedenle tüm anahtarlar ve değerler aynı tipte olsa bile .......................................................................... işlemleri yapılması gerekmektedir.<br><br>
+
+Yukarıda yer verilen metindeki boş kısma aşağıdakilerden hangisi gelmelidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Çarpma ve ters fonksiyon </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Değer verme ve permütasyon </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Kutulama ve kutudan çıkarma </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kümeleme ve kombinasyon </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İndeksleme ve kümeleme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Hash tabloları ile ilgili sınıfların hem genel olmayan hem de genel türevleri, ögelerin sırasını tutmaz bu nedenle koleksiyondaki verilere anahtarlara göre sıralanmış şekilde erişmek gerekiyorsa bunların kullanımdan önce sıralanması gerekir ancak bu sorunu çözmek ve anahtarları her zaman sıralı tutmak için başka bir veri yapısı olarak aşağıdakilerden hangisi kullanılabilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Karma küme </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Sıralanmış sözlük </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Fonksiyonel küme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Aritmetik sözlük </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sıralanmış küme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> C# dilinde uygulama geliştirirken System.Collections.Generic ad alanından HashSet sınıfının sağladığı yüksek performanslı işlemlerden yararlanılabilir. HashSet sınıfı, kümedeki ögelerin sayısını döndüren Count dahil olmak üzere birkaç özellik içermektedir. Ayrıca, küme işlemlerini gerçekleştirmek için birçok yöntem kullanılabilir.<br><br>
+Yaygın olarak kullanılan bir yöntemde, parametre olarak gönderilen küme ile yöntemin çağrıldığı geçerli kümeyi değiştirmeyi mümkün kılarak aşağıdakilerden hangisi oluşturulamaz? </p>
+	<span class="option" data-correct="false"><b>A)</b> Birleşim </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kesişme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Çıkarma </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Toplama </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Simetrik fark </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      İlk yöntem grubu, parametre olarak gönderilen küme ile aşağıdakileri oluşturmak için yöntemin çağrıldığı geçerli kümeyi değiştirmeyi mümkün kılmaktadır:<br><br>
+• Birleşim (UnionWith)<br>
+• Kesişme (IntersectWith)<br>
+• Çıkarma (ExceptWith)<br>
+• Simetrik fark (SmetricExceptWith)<br><br>
+
+Bunların arasında toplama bulunmamaktadır     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> List; dizine göre erişilebilen ve sıralama, arama ve listeyi değiştirme yöntemlerine sahip, kesin olarak girilmiş nesneler topluluğudur. System.Collections.Generic ad alanı altında gelen ArrayList’in genel sürümüdür. <br><br>
+Aşağıdakilerden hangisi, List'nin özellikleri arasında <u><strong>yer almaz?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> List, IList arayüzünü uygulayan ArrayList’in eşdeğeridir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> System.Collections.Generic ad alanı altında gelir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ögeler, Add(), AddRange() yöntemleri veya koleksiyon başlatıcı sözdizimi kullanılarak eklenebilir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Ögelere bir dizin geçirilerek erişilebilir, örneğin listem[0]. İndeksler sıfırdan başlar. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> List, belirtilen türdeki ögeleri içerebilir. Derleme zamanı tür denetimi sağlar ve kutulama/kutudan çıkarma işlemlerini gerçekleştirir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      List, belirtilen türdeki ögeleri içerebilir. Derleme zamanı tür denetimi sağlar ve genel olduğu için kutulama/kutudan çıkarma (boxing/unboxing) <u><strong>gerçekleştirmez.</strong></u>     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> Dizi ögelerine varsayılan değerler atayarak başlatmak için hangi operatör kullanılabilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Dizi ögelerine varsayılan değerler atayarak başlatmak için “new” operatörü kullanılabilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> using System;<br> 
+
+public class Program<br> 
+{<br> 
+&emsp; public static void Main()<br> 
+&emsp; {<br> 
+&emsp; &emsp; &emsp; string[] months = {"Ocak", "Şubat", "Mart", "Nisan", "Mayıs",
+"Haziran", "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık" } ;<br> 
+
+&emsp; &emsp; &emsp; foreach (string month in months)<br> 
+&emsp; &emsp; &emsp; {<br> 
+&emsp; &emsp; &emsp; &emsp; Console.WriteLine( month );<br> 
+&emsp; &emsp; &emsp; }<br> 
+&emsp; }<br> 
+}<br> <br> 
+
+Yukarıda verilen kod parçasının çıktısı nedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Kod Çıktısı<br> 
+Ocak<br> 
+Şubat<br> 
+Mart<br> 
+Nisan<br> 
+Mayıs<br> 
+Haziran<br> 
+Temmuz<br> 
+Ağustos<br> 
+Eylül<br> 
+Ekim<br> 
+Kasım<br> 
+Aralık </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> int[, ,] sayilar = new int[2, 3, 4];<br><br>
+Yukarıda verilen dizi tanımlaması kaç boyutludur? </p>
+	<span class="option" data-correct="true"><b>A)</b> Üç boyutlu bir dizi tanımlamasıdır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Her bir elemanın başka bir dizi olduğu tek boyutlu bir dizi olarak da tanımlanabilen ayrıca bu tür iç dizilerin farklı uzunluklara sahip olabildiği veya boş da olabildiği dizilere ne denir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Pürüzlü dizi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> Hash çakışması (hash collision) kavramı nedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Hash fonksiyonunun rolü oldukça kritiktir ve ideal olarak tüm anahtarlar için benzersiz bir sonuç üretmesi beklenmektedir ancak farklı anahtarlar için aynı sonucun üretilmesi de mümkündür. Böyle bir duruma hash çakışması (hash collision) denir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Sıralanmış sözlük, System.Collections.Generic ad alanında bulunan hangi genel sınıfı
+kullanılarak tanımlanmaktadır? </p>
+	<span class="option" data-correct="true"><b>A)</b> SortedDictionary  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> Ulaşılmak istenilen bir öge koleksiyonda olmadığı takdirde nasıl bir hata alınacaktır? </p>
+	<span class="option" data-correct="true"><b>A)</b> KeyNotFoundException  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> Belirli bir anahtar için karşılık gelen bir değer varsa onu döndürmek veya bulunamadıysa null döndürmek için hangi yöntem kullanılabilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> TryGetValue  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Koleksiyonda depolanan tüm çiftleri yinelemek istendiğinde hangi döngü kullanılabilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> foreach döngüsü </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> Yinelenen ögeleri ve belirli bir düzeni olmayan farklı nesnelerden oluşan bir koleksiyona ne denir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Küme, yinelenen ögeleri ve belirli bir düzeni olmayan farklı nesnelerden oluşan bir koleksiyondur bu nedenle yalnızca belirli bir elemanın kümede olup olmadığını öğrenebilirsiniz. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> using System;<br>
+
+using System.Collections.Generic;<br>
+
+public class SiraliSozlukOrnek<br>
+
+{ <br>
+
+&emsp; public static void Main(string[] args)<br>
+
+&emsp; {<br>
+
+&emsp; &emsp; SortedDictionary&lt;string, string&gt; isimler = new SortedDictionary&lt;string,   string&gt;();<br>
+
+&emsp; &emsp; isimler.Add("1","Sadık");<br>
+
+&emsp; &emsp; isimler.Add("4","Lütfi");<br>
+
+&emsp; &emsp; isimler.Add("5","Halil");<br>
+
+&emsp; &emsp; isimler.Add("3","Kadri");<br>
+
+&emsp; &emsp; isimler.Add("2","İrfan");<br>
+
+&emsp; &emsp; foreach (KeyValuePair&lt;string, string&gt; kv in isimler)<br>
+
+&emsp; &emsp; {   <br>
+
+&emsp; &emsp; &emsp; Console.WriteLine(kv.Key+" "+kv.Value);<br>
+
+&emsp; &emsp; }<br>
+
+&emsp; }<br>
+
+}<br><br>
+
+Yukarıda verilen kod parçasının çıktısı nedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Kod Çıktısı<br>
+1 Sadık<br>
+2 İrfan<br>
+3 Kadri<br>
+4 Lütfi<br>
+5 Halil </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      
+Verilen kod parçası, SortedDictionary kullanarak sıralanmış bir sözlük oluşturur ve bu sözlüğe beş çift ekler. Her çiftte bir anahtar ve bir değer bulunur. Anahtarlar sayısal olarak sıralanmış olsa da (1, 2, 3, 4, 5), SortedDictionary kullanıldığı için anahtarlar sıralanmış bir şekilde saklanır ve bu sıralama anahtarların dizilimine göre gerçekleşir.<br><br>
+
+Ardından, foreach döngüsü kullanarak bu sıralı sözlüğü gezinir ve her çiftin anahtarını ve değerini ekrana yazdırır.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> B’nin üyeleri değil, A’nın üyeleri olan ögeleri içeren küme hangi işlemle gösterilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> A \ B’nin sonuç kümesi, B’nin üyeleri değil, A’nın üyeleri olan ögeleri içerir.  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> using System;<br>
+
+using System.Collections.Generic;<br>
+
+public class HelloWorld<br>
+
+{<br>
+
+&emsp; public static void Main(string[] args)<br>
+
+&emsp; {<br>
+
+&emsp; &emsp; Listnames = new List()<br>
+
+&emsp; &emsp; {<br>
+
+&emsp; &emsp; &emsp; &emsp; "Melek", "Mükremin", "Jülide", "Ali Ziya", "Leyla", "Emine", "melek", "Jale", "Bayram"<br>
+
+&emsp; &emsp; };<br>
+
+&emsp; &emsp; SortedSet sorted = new SortedSet(<br>
+
+&emsp; &emsp; &emsp; names,<br>
+
+&emsp; &emsp; &emsp; Comparer.Create((a, b) =&gt; a.ToLower().CompareTo(b.ToLower()))<br>
+		
+&emsp; &emsp; );<br>
+
+&emsp; &emsp; foreach (string name in sorted)<br>
+
+&emsp; &emsp; {<br>
+
+&emsp; &emsp; &emsp; Console.WriteLine(name);<br>
+
+&emsp; &emsp; }<br>
+
+&emsp; }<br>
+
+}<br><br>
+
+Yukarıda verilen kod parçasının çıktısı nedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Kod Çıktısı<br>
+Ali Ziya<br>
+Bayram<br>
+Emine<br>
+Jale<br>
+Jülide<br>
+Leyla<br>
+Melek<br>
+Mükremin </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      Verilen kod parçası, bir List koleksiyonu oluşturur ve bu koleksiyona bir dizi ad ekler. Ardından bu koleksiyonu SortedSet kullanarak sıralar. Sıralama işlemi sırasında büyük-küçük harf farklılıkları dikkate alınmaz çünkü karşılaştırma işlemi sırasında isimler küçük harfe çevrilir.<br><br>
+ İsimler alfabetik sıraya göre sıralanırken büyük harf küçük harf farklılıkları göz ardı edilir.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> Gerektiğinde liste boyutunu düzenleme gereksinimi karşılayan ilk veri yapısı, System.Collections ad alanından hangi sınıf tarafından temsil edilen dizi listesidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> ArrayList  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> using System;<br>
+using System.Collections;<br>
+
+public class Program<br>
+{<br>
+&emsp; public static void Main()<br>
+&emsp; {<br>
+&emsp; &emsp; ArrayList arrayList = new ArrayList();<br>
+&emsp; &emsp; arrayList.AddRange(new int[] { 4, 3, -1 });<br>
+&emsp; &emsp; arrayList.Add(7);<br>
+&emsp; &emsp; arrayList.AddRange(new object[] { "Rabia", "Elif", "Kerem" });<br>
+&emsp; &emsp; arrayList.Insert(5, 7.8);<br>
+
+&emsp; &emsp; foreach (object element in arrayList)<br>
+&emsp; &emsp; {<br>
+&emsp; &emsp; &emsp; Console.WriteLine(element);<br>
+&emsp; &emsp; }<br>
+&emsp; }<br>
+}<br><br>
+
+Yukarıda verilen kod parçasının çıktısı nedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Kod Çıktısı<br>
+4<br>
+3<br>
+-1<br>
+7<br>
+Rabia<br>
+7.8<br>
+Elif<br>
+Kerem </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      Bu kod parçası, bir ArrayList koleksiyonu kullanarak çeşitli veri tiplerini depolar ve bunları ekrana yazdırır.<br><br>
+
+ArrayList nesnesi olan arrayList oluşturulur.<br><br>
+
+arrayList, AddRange yöntemi kullanılarak bir tamsayı dizisi eklenir: {4, 3, -1}.<br><br>
+
+arrayList, Add yöntemi kullanılarak bir tamsayı olan 7 eklenir.<br><br>
+
+arrayList, AddRange yöntemi kullanılarak bir nesne dizisi eklenir: {"Rabia", "Elif", "Kerem"}. ArrayList, farklı veri tiplerini içerebileceği için bu diziye dizideki herhangi bir veri türü eklenir.<br><br>
+
+arrayList, Insert yöntemi kullanılarak 7.8 değeri, 5. indise eklenir. Bu, diziyi aşağıdaki gibi oluşturur: {4, 3, -1, 7, "Rabia", 7.8, "Elif", "Kerem"}.<br><br>
+
+Bir foreach döngüsü kullanılarak arrayList içindeki her öğe işlenir.<br><br>
+
+Döngü her öğeyi alır ve ekrana yazdırır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> Bir ögeyi koleksiyon içinde belirli bir konuma yerleştirmek için hangi metod kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Insert metodu  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> Ögenin dizi listesindeki ilk bulduğu konumu döndürürken hangi metod kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> IndexOf metodu, ögenin dizi listesindeki ilk bulduğu konumu döndürürken LastIndexOf metodu ise ögenin son bulunduğu dizin değerini döndürmektedir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> Parametre olarak iletilen değere eşit olan dizindeki ögeyi kaldırırken hangi yöntem kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Elemanları dizi listesinden çıkarmak için Remove, RemoveAt ve RemoveRange olmak üzere birden
+fazla yöntem kullanılabilmektedir. İlki (Remove), parametre olarak sağlanan değerin ilk oluşumunu kaldırır.
+<u><strong>RemoveAt</strong></u> yöntemi, parametre olarak iletilen değere eşit olan dizindeki ögeyi kaldırırken diğer metot
+(RemoveRange) belirtilen dizinden başlayarak belirtilen sayıda ögenin kaldırılmasını sağlamaktadır. Ayrıca
+tüm ögeler kaldırılmak istendiğinde Clear yöntemi kullanılabilir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> Güçlü yazılan bir listeden yararlanmak istenirse gerektiğinde boyutu artırılıp azaltılabilen koleksiyonu temsil eden hangi sınıf kullanılabilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Generic List sınıfı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> Dizine göre erişilebilen ve sıralama, arama ve listeyi değiştirme yöntemlerine sahip, kesin olarak girilmiş nesneler topluluğuna ne denir? </p>
+	<span class="option" data-correct="true"><b>A)</b> List&lt;T&gt;; dizine göre erişilebilen ve sıralama, arama ve listeyi değiştirme yöntemlerine sahip, kesin olarak
+girilmiş nesneler topluluğudur. System.Collections.Generic ad alanı altında gelen ArrayList’in genel
+sürümüdür. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      List&lt;T&gt; Özellikleri<br>
+• List&lt;T&gt;, IList&lt;T&gt; arayüzünü uygulayan ArrayList’in eşdeğeridir.<br>
+• System.Collections.Generic ad alanı altında gelir.<br>
+• List&lt;T&gt;, belirtilen türdeki ögeleri içerebilir. Derleme zamanı tür denetimi sağlar ve genel olduğu için kutulama/kutudan çıkarma (boxing/unboxing) gerçekleştirmez.<br>
+• Ögeler, Add(), AddRange() yöntemleri veya koleksiyon başlatıcı sözdizimi kullanılarak eklenebilir.<br>
+• Ögelere bir dizin geçirilerek erişilebilir, örneğin listem[0]. İndeksler sıfırdan başlar.<br>
+• List&lt;T&gt;, ArrayList’ten daha hızlı ve daha az hataya açık çalışır.<br>
+List&lt;T&gt; genel bir koleksiyondur bu nedenle depolayabileceği veri türü için bir tür parametresi belirtilmesi gerekmektedir.     </div>
+	</div>
+</div>
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> Aşağıdaki veri yapılarından hangisinin eleman sayısı ilk değer atama işleminden sonra değiştirilemez? </p>
+	<span class="option" data-correct="true"><b>A)</b> Dizi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sözlük </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Küme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Hash Tabloları </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Dizi Listesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      Burada dizi olarak ifade edilen metin dizisidir. Dizi işlemlerinde önemli olan, bir dizideki eleman sayısının ilk değer atama (initialization) işleminden sonra değiştirilememesidir.     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> Aşağıdaki yapılardan hangisi anahtara dayalı bir değer için çok hızlı arama yapabilmektedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Hash tabloları </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sözlükler </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sıralanmış sözlükler </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Karma kümeler </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sıralanmış kümeler </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question41">
+	<p class="question">Soru 41:<br> Sıralanmış sözlük yapısında ulaşılmak istenen öge koleksiyonda bulunamaz ise aşağıdaki hatalardan hangisi alınacaktır? </p>
+	<span class="option" data-correct="true"><b>A)</b> KeyNotFoundException </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Run-time exception </span><br>
+	<span class="option" data-correct="false"><b>C)</b> OutOfMemory </span><br>
+	<span class="option" data-correct="false"><b>D)</b> No such file or directory </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Type mismatch </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description41">Açıklama</button>
+		<div id="description41" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question42">
+	<p class="question">Soru 42:<br> Aşağıdakilerden hangisi sözlük veri yapısının hash tablosundan farkını açıklar? </p>
+	<span class="option" data-correct="true"><b>A)</b> Anahtar ve değer için bir değişken tipi belirlenmesine izin verir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Belirli bir ögeye erişmek için dizinleyiciyi kullanılabilir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Anahtar null değerine eşit olamaz. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Aynı anahtar birden fazla kullanılamaz. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İndeksleyici kullanılarak belirli bir ögeye kolayca erişilebilir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description42">Açıklama</button>
+		<div id="description42" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question43">
+	<p class="question">Soru 43:<br> IsProperSupersetOf yöntemi ile aşağıdaki ilişkilerden hangisi kontrol edilebilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Parametre olarak iletilen kümenin bir alt kümesi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Parametre olarak iletilen kümenin bir üst kümesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Parametre olarak  geçirilen kümenin uygun bir alt kümesi </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Parametre olarak geçirilen kümenin uygun bir üst kümesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Parametre olarak  geçirilen kümenin uygun üyesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description43">Açıklama</button>
+		<div id="description43" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question44">
+	<p class="question">Soru 44:<br> Kümeler ile ilgili aşağıdakilerden hangisi <u><strong>hatalıdır?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Bazı algoritmalarda çeşitli veriler içeren kümeler üzerinde işlem yapmak gerekmektedir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Küme, yinelenen ögeleri ve belirli bir düzeni olmayan farklı nesnelerden oluşan bir koleksiyondur. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kümeler; birleştirme, kesişme, çıkarma ve simetrik fark gibi matematiksel işlemlerle sıkı bir şekilde ilişkilidir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bir küme, tam sayı veya dize değerleri gibi çeşitli verileri depolayabilir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> A \ B’nin sonuç kümesi, A’nın üyeleri değil, B’nin üyeleri olan ögeleri içerir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description44">Açıklama</button>
+		<div id="description44" class="collapse">     A \ B, A'nın üyesi olan ama B'nin üyesi olmayan üyeleri ifade eder.    </div>
+	</div>
+</div>
+
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

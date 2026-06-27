@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="anasayfa.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA I
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama1-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama1-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama1-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama1-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama1-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama1-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama1-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama1-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama1-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama1-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          BİLİŞİM HUKUKU
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="bilisimhk-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="bilisimhk-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="bilisimhk-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="bilisimhk-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="bilisimhk-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="bilisimhk-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="bilisimhk-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="bilisimhk-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="bilisimhk-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="bilisimhk-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB'DE TELİF HAKLARI VE ETİK
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="webtelif-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="webtelif-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="webtelif-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="webtelif-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="webtelif-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="webtelif-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="webtelif-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="webtelif-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="webtelif-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="webtelif-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          AĞ YÖNETİMİ VE BİLGİ GÜVENLİĞİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="agyonetimi-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="agyonetimi-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="agyonetimi-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="agyonetimi-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="agyonetimi-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="agyonetimi-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="agyonetimi-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="agyonetimi-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="agyonetimi-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="agyonetimi-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİTABANI PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veritabaniprg-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veritabaniprg-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  </nav>
+  
+    <h4 id="ders">Bilişim Hukuku - Ünite 5 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> İnternet ortamı üzerinden kullanıcılara sunulan her türlü bilgi veya veriyi üreten, değiştiren ve sağlayan gerçek veya tüzel kişilere ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yer sağlayıcı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Toplu kullanım sağlayıcı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Erişim sağlayıcı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Fiziksel sağlayıcı </span><br>
+	<span class="option" data-correct="true"><b>E)</b> İçerik sağlayıcı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> İnternet ortamında yapılan yayınların içeriklerini izleyerek, 5651 s. Kanun kapsamına giren suçların işlendiğinin tespiti halinde, bu yayınlara erişimin engellenmesine yönelik olarak yine 5651 s. Kanunda öngörülen gerekli tedbirleri almak aşağıdakilerden hangisinin görevidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Kurum </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bakanlık </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yer sağlayıcı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Erişim sağlayıcılar birliği </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Cumhurbaşkanlığı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Aşağıdakilerden hangisi 5651 s. Kanunun 8.
+maddesi kapsamı dışındaki erişimin engellenmesi kararlarının uygulanmasını sağlamak üzere kurulmuştur? </p>
+	<span class="option" data-correct="true"><b>A)</b> Erişim Sağlayıcıları Birliği </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bilgi Teknolojileri ve İletişim Kurumu </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yer Sağlayıcılar Birliği </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İçerik sağlayıcılar Birliği </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Adalet Bakanlığı Bilgi İşlem Dairesi Başkanlığı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Yönetmelikle belirlenen esas ve usuller çerçevesinde tanıtıcı bilgilerini kendilerine ait inter-net ortamında kullanıcıların ulaşabileceği şekilde ve güncel olarak bulundurma yükümlülüğünü ihlal eden yer sağlayıcılar bakımından hangi tür bir hukuki yaptırım öngörülmüştür? </p>
+	<span class="option" data-correct="true"><b>A)</b> İdari para cezası </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Adli para cezası </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Hapis cezası </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Müsadere </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sürgün </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Ticari amaçlı toplu kullanım sağlayıcıların
+faaliyette bulunabilmeleri için aşağıdaki mercilerin hangisinden izin almaları gerekir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Ulaştırma ve Altyapı Bakanlığı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Belediye başkanından </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Emniyet Müdürlüğünden </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bilgi Teknolojileri ve İletişim Kurumundan </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Mülki amirden </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Erişimin engellenmesi koruma tedbirine başvurulabilmesi bakımından kanun koyucu katalog suçların işlendiği hususunda en az aşağıdaki şüphe derecesinden hangisine ulaşmış olmalıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Basit şüphe </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Makul şüphe </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Yeterli şüphe </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kuvvetli şüphe </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kesin şüphe </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> Aşağıdakilerden hangisi erişimin engellenmesi
+koruma tedbirine karar verilebilmesi bakımından internet yayını içeriğinin oluşturması gereken katalog suçlardan biridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Soykırım </span><br>
+	<span class="option" data-correct="true"><b>B)</b> İntihara yönlendirme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Görevi kötüye kullanma </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Rüşvet </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sahtecilik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      Katalog suçlar
+		
+		a. 26/9/2004 tarihli ve 5237 sayılı Türk Ceza Kanununda yer alan;
+1. İntihara yönlendirme (madde 84),
+2. Çocukların cinsel istismarı (madde 103, birinci fıkra),
+3. Uyuşturucu veya uyarıcı madde kullanılmasını kolaylaştırma (madde 190),
+4. Sağlık için tehlikeli madde temini (madde 194),
+5. Müstehcenlik (madde 226),
+6. Fuhuş (madde 227),
+7. Kumar oynanması için yer ve imkân sağlama (madde 228) suçları.<br><br>
+
+b. 25/7/1951 tarihli ve 5816 sayılı Atatürk Aleyhine İşlenen Suçlar Hakkında Kanunda yer alan suçlar.</div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> Aşağıdakilerden hangisi önleme amaçlı olarak
+içeriğin çıkartılması veya erişimin engellenmesi tedbirine başvurma nedenlerinden biri değildir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Milli güvenlik ve kamu düzeninin korunması </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Suç işlenmesinin önlenmesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yaşam hakkının korunması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Genel Sağlığın korunması </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Suç faillerinin yakalanması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      Tedbir, <br>
+- Yaşam hakkı ile kişilerin can ve mal güvenliğinin korunması, <br>
+- Millî güvenlik ve kamu düzeninin korunması, <br>
+- Suç işlenmesinin önlenmesi<br>
+- Genel sağlığın korunması<br>
+sebeplerinden bir veya birkaçına bağlı olarak verilebilecektir (5651 s.K. m.8/A/1).     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> Gecikmesinde sakınca bulunan hallerde, özel
+hayatın gizliliğinin ihlali nedeniyle, içeriğe erişimin engellenmesi tedbirinin uygulanması bakımından doğrudan emir verme yetkisine sahip olan merci aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Başkan </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ulaştırma Bakanı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Başbakan </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Erişim Sağlayıcılar Birliği </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Cumhurbaşkanı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Aşağıdakilerden hangisi normal şartlarda önleme amaçlı olarak içeriğin çıkartılması veya erişimin engellenmesi tedbirine karar verecek mercilerden biridir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Hakim </span><br>
+	<span class="option" data-correct="false"><b>B)</b> C. Savcısı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ulaştırma Bakanlığı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bilgi Teknolojileri ve İletişim Kurumu </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Başbakanlık </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> Aşağıdakilerden hangisi, Bilgi Teknolojileri ve İletişim Kurumunun görevlerinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> İnternetin güvenli kullanımını sağlamak </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bilişim şuurunu geliştirmeye yönelik çalışmalar yapmak </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İnternet yayınlarının içeriklerindeki suçları tespit etmek </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Suç tespit edilirse, yayınlara erişimin engellenmesine yönelik tedbirleri almak. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> 8. madde kapsamına girmeyen erişimin engellenmesi kararlarını uygulamak </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      8. madde kapsamına girmeyen erişimin engellenmesi kararlarını uygulamak, Erişim Sağlayıcıları Birliğinin görevleri arasındadır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> İnternet ortamındaki yayınlarda düzenin sağlanması bakımından kanun koyucu, aşağıdakilerden hangisine bilgilendirme yükümlülüğü getirmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kurum </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Yer sağlayıcı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Toplu kullanım sağlayıcı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Başkan </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Birlik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      İnternet ortamındaki yayınlarda düzenin sağlanması bakımından kanun koyucu içerik, yer ve erişim sağlayıcılarına bilgilendirme yükümlülüğü getirmiştir.      </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Erişimin engellenmesi ve/veya içeriğin çıkartılmasıyla ilgili tedbirler kapsamında, şüpheli veya sanığı ya da bir delili elde etmek, duruşmanın yapılmasını yahut hükmün infazını teminat altına almak amacıyla başvurulan muhakeme işlemlerine ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Önleme amaçlı olarak erişimin engellenmesi tedbiri </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kişilik haklarının ihlaline bağlı olarak içeriğin yayından çıkartılması tedbiri </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Özel hayatın gizliliğinin ihlali nedeniyle içeriğe erişimin engellenmesi tedbiri </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Önleme amaçlı olarak içeriğin çıkartılması tedbiri </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Erişimin engellenmesi koruma tedbiri </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> Erişimin engellenmesi kararını hangi merciler vermektedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Hakim/Cumhuriyet Baş Savcısı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kurum/Bakanlık </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bilgi Teknolojileri ve İletişim Kurumu Başkanı/Hakim </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Siber Suçlar Daire Başkanlığı/Hakim </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yargıtay Başsavcısı/Anayasa Mahkemesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> Aşağıda Erişim Sağlayıcılar Birliği hakkında verilen bilgilerden hangisi yanlıştır? </p>
+	<span class="option" data-correct="false"><b>A)</b> 5651 s.K.’nın 8. maddesi kapsamı dışındaki erişimin engellenmesi kararlarının uygulanmasını sağlamaya yönelik bir birliktir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Söz konusu birlik, özel hukuk tüzel kişiliğini haizdir. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Söz konusu birliğin merkezi İstanbul'dadır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Birliğin gelirleri, üyeleri tarafından ödenecek ücretlerden oluşur. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bu birliğe üye olmayan internet servis sağlayıcıları faaliyette bulunamaz </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      Söz konusu birlik, özel hukuk tüzel kişiliğini haizdir ve birliğin merkezi Ankara’dır      </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Yer sağlayıcı, yer sağladığı hizmetlere ilişkin trafik bilgilerini ne kadar süre ile saklamakla yükümlüdür? </p>
+	<span class="option" data-correct="true"><b>A)</b> 1 yıldan az ve 2 yıldan fazla olmamak üzere </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 6 aydan az 2 yıldan fazla olmamak üzere </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 18 aydan az 3 yıldan fazla olmamak üzere </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 2 yıldan az 3 yıldan fazla olmamak üzere </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 3 yıldan az 5 yıldan fazla olmamak üzere </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> Aşağıdakilerden hangisi erişim sağlayıcılarının yükümlülüklerinden birisi <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Herhangi bir kullanıcısının yayınladığı hukuka aykırı içerikten, bu Kanun hükümlerine uygun olarak haberdar edilmesi halinde erişimi engellemek </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Kendisi aracılığıyla erişilen bilgilerin içeriklerinin hukuka aykırı olup olmadıklarını ve sorumluluğu gerektirip gerektirmediğini kontrol etmek </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Erişimi engelleme kararı verilen yayınlarla ilgili olarak alternatif erişim yollarını engelleyici tedbirleri almak </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kurumun talep ettiği bilgileri talep edilen şekilde kuruma teslim etmek ve kurumca bildirilen tedbirleri almak </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sağladığı hizmetlere ilişkin, yönetmelikte belirtilen trafik bilgilerini altı aydan az ve iki yıldan fazla olmamak üzere yönetmelikte belirlenecek süre kadar saklamak </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br>  I. İçerik sağlayıcısı<br>
+II. Ulaştırma Bakanlığı<br>
+III. Sulh ceza hakimi<br>
+IV. Yer sağlayıcısı<br><br>
+İnternet ortamında yapılan yayın içeriği nedeniyle kişilik haklarının ihlal edildiğini iddia eden gerçek ve tüzel kişiler ile kurum ve kuruluşlar, yukarıdakilerden hangisine veya hangilerine başvurarak içeriğin kaldırılmasını talep edebilirler?  </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I, II ve IV </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I, II, III ve IV </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, III ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      Kişilik haklarının ihlal edildiğini iddia eden gerçek ve tüzel kişiler ile kurum ve kuruluşlar, içerik sağlayıcısına, buna ulaşamaması halinde yer sağlayıcısına başvurarak uyarı yöntemi ile içeriğin yayından çıkarılmasını isteyebileceği gibi doğrudan sulh ceza hakimine başvurarak içeriğe erişimin engellenmesini de isteyebilir.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> Ticari amaçla, kişilere belli bir yerde belli süre internet ortamı sağlayan ve bunun için mülki amirden izin alması gereken gerçek ya da tüzel kişilere ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> İçerik Sağlayıcılar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yer Sağlayıcılar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Erişim Sağlayıcılar </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Toplu Kullanım Sağlayıcılar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Erişim Sağlayıcılar Birliği </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> Erişimin Engellenmesi Koruma Tedbiri ile ilgili olarak aşağıdakilerden hangisi doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Koruma tedbirlerinin uygulanmasını belirli koşulların varlığına bağlamak temel hakların korunması için gerekli değildir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Koruma tedbirlerinin ilk göze çarpan özelliği bunların temel haklara müdahale oluşturmamalarıdır. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Şüpheli veya sanığı ya da bir delili elde etmek, duruşmanın ya- pılmasını yahut hükmün infazını teminat altına almak amacıyla başvurulan, her birisi bir veya birden fazla temel hakka müdahale teşkil eden mu- hakeme işlemlerine koruma tedbirleri denilmektedir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kanun koyucu 5651 s.K.’da da internet yayınları yoluyla işlenen suçlarla mücadele adına erişimin engellenmesi koruma tedbirine yer vermemiştir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İnternet yayınları yoluyla işlenen suçlarla mücadele adına erişimin engellenmesi koruma tedbirinin klasik bir koruma tedbiridir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Aşağıdakilerden hangisi Bilgi Teknolojileri ve İletişim Kurumunun görevleri arasında yer almaz? </p>
+	<span class="option" data-correct="false"><b>A)</b> İnternet ortamında yapılan ve bu Kanun kapsamına giren suçları oluşturan içeriğe sahip faaliyet ve yayınları önlemeye, internetin güvenli kullanımını sağlamaya, bilişim şuurunu geliştirmeye yönelik çalışmalar yapmak, </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İnternet ortamında yapılan yayınların içeriklerini izleyerek, bu Kanun kapsamına giren suçların işlendiğinin tespiti halinde, bu yayınlara erişimin engellenmesine yönelik olarak bu Kanunda öngörülen gerekli tedbirleri almak. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kurum tarafından işletmecilerin yetkilendirilmeleri ile mülkî idare amirlerince ticarî amaçlı toplu kullanım sağlayıcılara verilecek izin belgelerinde filtreleme ve bloke etmede kullanılacak sistemlere ve yapılacak düzenlemelere yönelik esas ve usûlleri belirlemek. </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Yer sağlanan hizmetlere ilişkin trafik bilgilerini bir yıldan az ve iki yıldan fazla olmamak üzere yönetmelikte belirlenecek süre kadar saklamakla ve bu bilgilerin doğruluğunu, bütünlüğünü ve gizliliğini sağlamak. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İnternet ortamında herkese açık çeşitli servislerde yapılacak filtreleme, perdeleme ve izleme esaslarına göre donanım üretilmesi veya yazılım yapılmasına ilişkin asgari kriterleri belirlemek. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      <u><strong>Bilgi Teknolojileri ve İletişim Kurumunun Görevleri:</strong></u><br><br>
+
+Bakanlık, kolluk kuvvetleri, ilgili kamu kurum ve kuruluşları ile içerik, yer ve erişim sağlayıcılar ve ilgili sivil toplum kuruluşları arasında koordinasyon oluşturarak internet ortamında yapılan ve bu Kanun kapsamına giren suçları oluşturan içeriğe sahip faaliyet ve yayınları önlemeye, internetin güvenli kullanımını sağlamaya, bilişim şuurunu geliştirmeye yönelik çalışmalar yapmak, bu amaçla, gerektiğinde, her türlü giderleri yönetmelikle belirlenecek esas ve usuller dahilinde Kurumca karşılanacak çalışma kurulları oluşturmak.<br><br>
+			
+İnternet ortamında yapılan yayınların içeriklerini izleyerek, bu Kanun kapsamına giren suçların işlendiğinin tespiti halinde, bu yayınlara erişimin engellenmesine yönelik olarak bu Kanunda öngörülen gerekli tedbirleri almak.<br><br>
+			
+İnternet ortamında yapılan yayınların içeriklerinin izlenmesinin hangi seviye, zaman ve şekilde yapılacağını belirlemek.<br><br>
+			
+Kurum tarafından işletmecilerin yetkilendirilmeleri ile mülkî idare amirlerince ticarî amaçlı toplu kullanım sağlayıcılara verilecek izin belgelerinde filtreleme ve bloke etmede kullanılacak sistemlere ve yapılacak düzenlemelere yönelik esas ve usûlleri belirlemek.<br><br>
+			
+İnternet ortamındaki yayınların izlenmesi suretiyle bu Kanunun 8 inci maddesi ile 8/A maddesinde sayılan suçların işlenmesini önlemek için izleme ve bilgi ihbar merkezi dahil, gerekli her türlü teknik altyapıyı kurmak veya kurdurmak, bu altyapıyı işletmek veya işletilmesini sağlamak.<br><br>
+			
+İnternet ortamında herkese açık çeşitli servislerde yapılacak filtreleme, perdeleme ve izleme esaslarına göre donanım üretilmesi veya yazılım yapılmasına ilişkin asgari kriterleri belirlemek.<br><br>
+			
+Bilişim ve internet alanındaki uluslararası kurum ve kuruluşlarla işbirliği ve koordinasyonu sağlamak.<br><br>
+			
+Bu Kanunun 8 inci maddesinin birinci fıkrasında sayılan suçların, internet ortamında işlenmesini konu alan her türlü temsili görüntü, yazı veya sesleri içeren ürünlerin tanıtımı, ülkeye sokulması, bulundurulması, kiraya verilmesi veya satışının önlenmesini teminen yetkili ve görevli kolluk kuvvetleri ile soruşturma mercilerine, teknik imkânları dahilinde gereken her türlü yardımda bulunmak ve koordinasyonu sağlamak.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Hâkim, mahkeme veya gecikmesinde sakınca bulunan hallerde Cumhuriyet savcısı tarafından verilen erişimin engellenmesi kararının gereği, en geç kaç saat içinde yerine getirilmelidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 1 </span><br>
+	<span class="option" data-correct="true"><b>B)</b> 4 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 8 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 12 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 24 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      Hakim, mahkeme veya gecikmesinde sakınca bulunan hallerde Cumhuriyet savcısı tarafından verilen erişimin engellenmesi kararının birer örneği, gereği yapılmak üzere kuruma gönderilir. Erişimin engellenmesi kararının gereği, derhal ve en geç kararın bildirilmesi anından itibaren dört saat içinde yerine getirilir.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> 5651 sayılı kanunda belirtilen internet ortamında herkese açık çeşitli servislerde yapılacak filtreleme, perdeleme ve izleme esaslarına göre donanım üretilmesi veya yazılım yapılmasına ilişkin asgari kriterleri belirlemek görevini aşağıdaki kurumlardan hangisi yerine getirmektedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Ulaştırma Bakanlığı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Erişim Sağlayıcılar Birliği </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Elektronik Haberleşme Birimi </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Bilgi Teknolojileri Ve İletişim Kurumu </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İnternet Geliştirme Kurumu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Önleme Amaçlı Olarak İçeriğin Çıkartılması ve/veya Erişimin Engellenmesi Tedbiri ile ilgili olarak aşağıdakilerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Kanun koyucu belirli durumlarda önleme amaçlı olarak içeriğin çıkartılması ve/veya erişimin engellenmesi kararı verilebilmesine de imkân tanımıştır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Belirli durumlarda önleme amaçlı olarak içeriğin çıkartılması ve/veya erişimin engellenmesi kararı verilebilmesine kapsamında sadece içeriğin çıkartılmasına veya sadece erişimin engellenmesine karar verilebileceği gibi, aynı anda hem içeriğin çıkartılması hem de erişimin engellenmesi kararı verilebilmesi mümkündür. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tedbirin önleme amaçlı uygulanabiliyor olması, erişimin adli amaçlı engellenmesi tedbirinden bu kurumu ayırmaktadır. </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Örneğin suç işlemek amacıyla kurulmuş bir örgüt adına kişilerin bir internet sitesi üzerinden suç işlemeye yönelik haberleştiklerine dair makul sebepler varsa, henüz ortada işlenmiş bir suç olmadığından internet sitesine erişimin engellenmesine ve/veya bazı içeriklerin çıkartılmasına karar verilemez. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İnternet sitesi üzerinden halkı kin ve düşmanlığa tahrik ederek, suç teşkil edecek eylemlerde bulunma çağrısı yapılıyorsa; hem halkı kin ve düşmanlığa tahrik suçu işlenmiş hem de ileride başka suçların işlenecek olması tehlikesi ortaya çıkmış olacaktır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> I. İntihara yönlendirme<br>
+II. Çocukların cinsel istismarı<br>
+III. Uyuşturucu veya uyarıcı madde kullanılmasını kolaylaştırma<br>
+IV. Sağlık için tehlikeli madde temini<br>
+V. Müstehcenlik<br>
+VI. Fuhuş<br>
+VII. Kumar oynanması için yer ve imkân sağlama<br><br>
+Yukarıdakilerden hangileri erişimin engelleme sebepleridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> I, II, IV, VI </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I, III, V, VII </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I, II, III, IV, V, VI, VII </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II, IV, VI </span><br>
+	<span class="option" data-correct="false"><b>E)</b> III, V, VII </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      a. 26/9/2004 tarihli ve 5237 sayılı Türk Ceza Kanununda yer alan;
+1. İntihara yönlendirme (madde 84),
+2. Çocukların cinsel istismarı (madde 103, birinci fıkra),
+3. Uyuşturucu veya uyarıcı madde kullanılmasını kolaylaştırma (madde 190),
+4. Sağlık için tehlikeli madde temini (madde 194),
+5. Müstehcenlik (madde 226),
+6. Fuhuş (madde 227),
+7. Kumar oynanması için yer ve imkân sağlama (madde 228) suçları.<br><br>
+
+b. 25/7/1951 tarihli ve 5816 sayılı Atatürk Aleyhine İşlenen Suçlar Hakkında Kanunda yer alan suçlar.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> Aşağıdaki suçlardan hangisini oluşturan yayınlara ilişkin olarak erişimin engellenmesi kararı re’sen Başkan tarafından verilebilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> İntihara yönlendirme </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Çocukların cinsel istismarı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Uyuşturucu veya uyarıcı madde kullanılmasını kolaylaştırma </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sağlık için tehlikeli madde temini </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kumar oynanması için yer ve imkân sağlama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      Buna göre, içeriği
+katalog suçları oluşturan yayınların içerik veya yer sağlayıcısının yurt dışında bulunması halinde veya içerik veya yer sağlayıcısı yurt içinde bulunsa bile, içeriği çocuğun cinsel istismarı (TCK m.103/1), müstehcenlik (TCK m.226) ve fuhuş (TCK m.227) suçları oluşturan yayınlara ilişkin olarak erişimin engellenmesi kararı re’sen Başkan tarafından verilir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Erişim Sağlayıcıları Birliği'nin kuruluş amacı hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> İnternet kullanım eğitimleri ile halkı bilinçlendirmek. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İnternet erişimim yaygınlaştırılması </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Siber suçlara yönelik önlemleri almak </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İnternet güvenliğine yönelik önlemler üretmek </span><br>
+	<span class="option" data-correct="true"><b>E)</b> 8. madde kapsamına girmeyen erişimin engellenmesi kararlarının uygulanması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> Yer sağlayıcının yükümlülükleri bakımından hangisi doğru <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Yer sağladığı içeriği kontrol etmek veya hukuka aykırı bir faaliyetin söz konusu olup olmadığını araştırmakla yükümlüdür. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yer sağladığı hizmetlere ilişkin trafik bilgilerini bir yıldan az ve iki yıldan fazla olmamak üzere yönetmelikte belirlenecek süre kadar saklamakla ve bu bilgilerin doğruluğunu, bütünlüğünü ve gizliliğini sağlamakla da yükümlüdür.  </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yer sağlayıcılık bildiriminde bulunmayan veya 5651 s.K.’da öngörülen diğer yükümlülüklerini yerine getirmeyen yer sağlayıcı hakkında, Başkan tarafından on bin Türk Lirasından yüz bin Türk Lirasına kadar idari para cezası verilmesi de hükme bağlanmıştır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kanun koyucu yer sağlayıcının, kural olarak yer sağladığı içerik bakımından denetim sorumluluğunun olmadığını kabul etmiştir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yer sağladığı içeriğin hukuka aykırı olduğundan haberdar edilmesi üzerine, söz konusu içeriği yayından çıkarma yükümlülüğü vardır </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      Kanun koyucu yer sağlayıcının, kural olarak yer sağladığı içerik bakımından denetim sorumluluğunun olmadığını kabul etmiştir. Bu bağlamda yer sağlayıcı, yer sağladığı içeriği kontrol etmek veya hukuka aykırı bir faaliyetin söz konusu olup olmadığını araştırmakla yükümlü değildir     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> Aşağıdakilerden hangisi, yer sağlayıcının yükümlülüklerinden biridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> İnternet ortamına koyduğu içeriğin denetim sorumluluğunu taşımak </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sağladığı içeriği kontrol etmek </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İçerikte hukuka aykırı bir faaliyetin söz konusu olup olmadığını araştırmak </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Sağladığı içeriğin hukuka aykırı olduğu bildirilince, bu içeriği yayından çıkarmak </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Haberdar edilmesi halinde, hukuka aykırı içeriğe erişimi engellemek </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> Aşağıda katalog suçlarından hangi ikisi erişimin engellenmesi tedbirini belirli koşullarda Başkan tarafından re’sen karar verilmesine imkan sağlamıştır? </p>
+	<span class="option" data-correct="false"><b>A)</b> İntihar-Sağlık için tehlikeli madde temini </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Çoçukların cinsel istismarı-Fuhuş </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Müstehcenlik-İntihar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Uyuşturucu veya uyarıcı madde kullanımını kolaylaştırma-Fuhuş </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Fuhuş-İntihar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      Başkanın kararıyla uygulanmasına da imkân tanınmıştır. Buna göre, içeriği katalog suçları oluşturan yayınların içerik veya yer sağlayıcısının yurt dışında bulunması halinde veya içerik veya yer sağlayıcısı yurt içinde bulunsa bile, içeriği<br><br>
+
+çocuğun cinsel istismarı (TCK m.103/1), <br>
+müstehcenlik (TCK m.226) ve <br>
+fuhuş (TCK m.227) <br><br>
+
+suçları oluşturan yayınlara ilişkin olarak erişimin engellenmesi kararı re’sen Başkan tarafından verilir.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> Kanun koyucu özel hayatın gizliliğine ilişkin hakkın ihlalini diğer kişilik haklarından ayırarak, ihlaline özel bir tedbir getirmeyi tercih etmiştir. Özel hayatın ihlal edildiğini iddia eden kişi erişimin engellenmesi için direk kuruma başvurduğunda aşağıdaki belgelerden hangisini ibraz etmek zorunda değildir? </p>
+	<span class="option" data-correct="false"><b>A)</b> URL bilgileri </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Hangi açılardan hakkın ihlal edildiğine ilişkin açıklama </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kimlik bilgileri </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Trafik bilgisi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Tam internet adresi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      Yapılan bu istekte; hakkın ihlaline neden olan yayının tam adresi (URL), hangi açılardan hakkın ihlal edildiğine ilişkin açıklama ve kimlik bilgilerini ispatlayacak bilgilere yer verilir. Bu bilgilerde eksiklik olması hâlinde talep işleme konulmaz. Tam internet adresi, URL bilgilerinin aynısıdır.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> Hizmet ve içerikleri barındıran sistemleri sağlayan veya işleten gerçek veya tüzel kişilere ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Erişim sağlayıcı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İçerik sağlayıcı </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Yer sağlayıcı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Toplu kullanım sağlayıcı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bakanlık </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> Erişim Sağlayıcılar Birliği ile ilgili olarak aşağıdakilerden hangisi söylenebilir?  </p>
+	<span class="option" data-correct="false"><b>A)</b> Tüzel kişiliği yoktur. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Merkezi İstanbul'dadır. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Birlik, 5/11/2008 tarihli ve 5809 sa- yılı Elektronik Haberleşme Kanunu kapsamında yetkilendirilen tüm internet servis sağlayıcıları ile internet erişim hizmeti veren diğer işletmecilerin katılmasıyla oluşan ve koordinasyonu sağlayan bir kuruluştur.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 5651 s. K.’nın 8. maddesi kapsamı dışındaki erişimin engellen- mesi kararları erişim sağlayıcılar tarafından yerine getirilemez.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Söz konusu erişimin engellenmesi kararları, gereği için Birliğe gönderilir. Bu kapsamda Birliğe yapılan tebligat erişim sağlayıcılara yapılmış sayılır. Birlik, kendisine gönderilen mevzuata uygun olmadığı- nı düşündüğü kararlara itiraz edemez. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      Söz konusu birlik, özel hukuk tüzel kişiliğini haizdir ve birliğin merkezi Ankara’dır (5651 s.K. m.6/A/2). <br><br>
+
+5651 s. K.’nın 8. maddesi kapsamı dışındaki erişimin engellen- mesi kararları erişim sağlayıcılar tarafından yerine getirilir. <br><br>
+
+Söz konusu erişimin engellenmesi kararları, gereği için Birliğe gönderilir. Bu kapsamda Birliğe yapılan tebligat erişim sağlayıcılara yapılmış sayılır. Birlik, kendisine gönderilen mevzuata uygun olmadığı- nı düşündüğü kararlara itiraz edebilir (5651 s.K. m.6/A/7, 8).     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> <em> İnternet ortamındaki yayınlarda düzenin sağlanması bakımından kanun koyucu içerik, yer ve erişim sağlayıcılarına bilgilendirme yükümlülüğü getirmiştir.</em><br><br>
+
+Bununla birlikte belirtilen yükümlülüğü yerine getirmeyen sağlayıcılar bakımından ne kadarlık bir miktarda idari para cezası verilmesi öngörülmüştür? </p>
+	<span class="option" data-correct="false"><b>A)</b> 1000-10000 ₺ arası </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 2000-20000 ₺ arası </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 1000-50000 ₺ arası </span><br>
+	<span class="option" data-correct="true"><b>D)</b> 2000-50000 ₺ arası </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 5000-100000 ₺ arası </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> Kullanıcılarına internet ortamına erişim olanağı sağlayan her türlü gerçek veya tüzel kişilere ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> İçerik Sağlayıcı </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Erişim Sağlayıcı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yer Sağlayıcı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Toplu Kullanım Sağlayıcı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Servis Sağlayıcı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+	  
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA II
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama2-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama2-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama2-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama2-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama2-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama2-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama2-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama2-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama2-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama2-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB ARAYÜZ PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİ YAPILARI
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veriyap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veriyap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veriyap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veriyap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veriyap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veriyap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veriyap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veriyap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veriyap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veriyap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          MOBİL UYGULAMA GELİŞTİRME
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="mobilug-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="mobilug-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="mobilug-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="mobilug-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="mobilug-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="mobilug-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="mobilug-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="mobilug-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="mobilug-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="mobilug-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          UNIX SİSTEM YÖNETİMİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="unixsy-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="unixsy-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="unixsy-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="unixsy-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="unixsy-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="unixsy-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="unixsy-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="unixsy-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="unixsy-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="unixsy-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Unix Sistem Yönetimi - Ünite 3 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	<button class="block-group" data-start="40" data-end="59">Part 3</button>
+  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Aşağıdaki komutlardan hangisi ile vim editörünün Debian tabanlı sistemlerde kurulması sağlanır? </p>
+	<span class="option" data-correct="false"><b>A)</b> sudo dnf install vim </span><br>
+	<span class="option" data-correct="false"><b>B)</b> sudo dpkg install vim </span><br>
+	<span class="option" data-correct="true"><b>C)</b> sudo apt install vim </span><br>
+	<span class="option" data-correct="false"><b>D)</b> sudp rpm install vim </span><br>
+	<span class="option" data-correct="false"><b>E)</b> sudo yum install vim </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      <u><strong>yum ve rpm:</strong></u> Red Hat Enterprise Linux, CentOS, Fedora, ve diğer RedHat tabanlı dağıtımlardaki yazılım paketlerini yönetmek için kullanılırlar. (Not: CentOS 8 ve sonraki sürümler için, CentOS paket yönetimi için önerilen araç DNF'dir. DNF (Dandified Yum), CentOS ve diğer RHEL tabanlı Linux dağıtımları için geliştirilen bir paket yönetim aracıdır. DNF, yum'un geliştirilmiş ve daha işlevsel bir sürümüdür ve CentOS 8 ve sonraki sürümlerde varsayılan olarak gelir. )<br><br>
+
+<u><strong>apt-get ve dpkg:</strong></u> Bu iki komut ise Debian, Ubuntu, Mint, ve diğer Debian tabanlı dağıtımlardaki yazılım paketlerini yönetmek için kullanılır.<br><br>
+			
+<u><strong>zypper ve rpm:</strong></u> Bu iki komut SUSE ve SUSE tabanlı dağıtımlardaki yazılım paketlerini yönetmek için kullanılır.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Aşağıdaki protokollerden hangisi işletim sisteminin otomatik ip adresi almasında kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> DHCP </span><br>
+	<span class="option" data-correct="false"><b>B)</b> NAT </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ENP0S8 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ETH </span><br>
+	<span class="option" data-correct="false"><b>E)</b> IPv4 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> IPv4 adreslerinin izin verdiği bit sayısı en fazla kaçtır? </p>
+	<span class="option" data-correct="false"><b>A)</b> 8 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 16 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 32 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 48 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 64 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> B sınıfı ip adresinin oktet sayısı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 1-32 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 1-125 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 1-126 </span><br>
+	<span class="option" data-correct="true"><b>D)</b> 128-191 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 192-223 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      
+A Sınıfı: 16 milyon üzeri IP adresi<br>
+A Sınıfı IP Adres (Oktet) Aralığı: 1-126<br><br>
+
+B Sınıfı: 65,535 IP adresi<br>
+B Sınıfı IP Adres (Oktet) Aralığı: 128-191<br><br>
+			
+C Sınıfı: 256 IP adresi<br>
+C Sınıfı IP Adres (Oktet) Aralığı: 192-223<br><br>			
+     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Aşağıdaki ip blok başlangıç rakamlarından
+hangisi localhost olarak da bilinen kullanılan makineye rezerve edilmiştir? </p>
+	<span class="option" data-correct="true"><b>A)</b> 127 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 128 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 192 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 223 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 256 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> C sınıfı varsayılan alt ağ maskesi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 255.255.255.255 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 255.255.0.0 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 255.0.0.0 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 255.0.255.0 </span><br>
+	<span class="option" data-correct="true"><b>E)</b> 255.255.255.0 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      A sınıfı varsayılan alt ağ maskesi: 255.0.0.0<br>
+B sınıfı varsayılan alt ağ maskesi: 255.255.0.0<br>
+C sınıfı varsayılan alt ağ maskesi: 255.255.255.0     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> Sistemin açılışında kullanılan Linux çekirdeğinin konumu aşağıdaki disk bölümlerinin hangisindedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> / </span><br>
+	<span class="option" data-correct="false"><b>B)</b> swap </span><br>
+	<span class="option" data-correct="false"><b>C)</b> /home </span><br>
+	<span class="option" data-correct="true"><b>D)</b> /boot </span><br>
+	<span class="option" data-correct="false"><b>E)</b> /root </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      
+<strong>/</strong> : Linux sanal dosya sisteminin kökü<br>
+<strong>/boot</strong> : Sistemin açılışında kullanılan Linux çekirdeğinin konumu<br>
+<strong>/home</strong> : Kişisel dosyalar ve ayarların tutulduğu kullanıcı dizini<br>
+<strong>swap</strong> : Uygulamalar tarafından bellek tamamen kullanıldığında yeni bellek isteğinde bulunan uygulamalar için geçici bellek görevi gören alan     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> Aşağıdaki hangi komut ile Linux İşletim Sisteminde disk bölümleri ve boyutları gösterilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> df -h </span><br>
+	<span class="option" data-correct="false"><b>B)</b> tmpfs </span><br>
+	<span class="option" data-correct="false"><b>C)</b> dev -h </span><br>
+	<span class="option" data-correct="false"><b>D)</b> sda2 -s </span><br>
+	<span class="option" data-correct="false"><b>E)</b> vg -lv </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      df -h komutu, Linux ve diğer Unix benzeri işletim sistemlerinde kullanılan bir disk kullanımı raporu komutudur. Bu komut, sisteminizdeki dosya sistemlerinin disk kullanımını ve kapasitesini gösterir. İşte df -h komutunun detaylı açıklamaları:<br><br>
+
+df: "df" komutu, "disk free" (disk boş alan) anlamına gelir ve dosya sistemi kullanım bilgilerini görüntüler.<br><br>
+
+-h: "-h" seçeneği, insan tarafından okunabilir bir formatta çıktı almak için kullanılır. Bu seçenek, dosya boyutlarını ve disk kullanımını daha anlaşılır bir şekilde gösterir.      </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> Aşağıdaki komutlardan hangisi ile Linux İşletim Sisteminde disk blokları gösterilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> df -h </span><br>
+	<span class="option" data-correct="true"><b>B)</b> lsblk </span><br>
+	<span class="option" data-correct="false"><b>C)</b> sda1 -s </span><br>
+	<span class="option" data-correct="false"><b>D)</b> dev -h </span><br>
+	<span class="option" data-correct="false"><b>E)</b> free -h </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Aşağıdaki komutlardan hangisi ile fiziksel hacim yeniden boyutlandırılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> lvresize </span><br>
+	<span class="option" data-correct="false"><b>B)</b> vgresize </span><br>
+	<span class="option" data-correct="true"><b>C)</b> pvresize </span><br>
+	<span class="option" data-correct="false"><b>D)</b> resize2fs </span><br>
+	<span class="option" data-correct="false"><b>E)</b> dfresize </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> Aşağıdakilerden hangisi, 'nano' ve 'vi' isimli editörlerin bile yüklenmiş olarak bulunmadığı Ubuntu Linux işletim sistemi çeşididir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Normal versiyon </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Minimize versiyon </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Desktop versiyon </span><br>
+	<span class="option" data-correct="false"><b>D)</b> uzun dönem destek (long-term supprot, LTS) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> stabil versiyon </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> Vekil sunucular (proxy servers) aşağıdakilerden hangisi işlevi görürler </p>
+	<span class="option" data-correct="false"><b>A)</b> bilgi bankası </span><br>
+	<span class="option" data-correct="false"><b>B)</b> klavye ayar merkezi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> güncelleme merkezi </span><br>
+	<span class="option" data-correct="true"><b>D)</b> veri güvenliği sağlama </span><br>
+	<span class="option" data-correct="false"><b>E)</b> IPv4 adres merkezi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Aşağıdakilerden hangisi, kullanıcıların gerçek adresini web sunucularından gizlemektedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> HDD </span><br>
+	<span class="option" data-correct="false"><b>B)</b> IDE </span><br>
+	<span class="option" data-correct="false"><b>C)</b> antivirus yazılımı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> statik IP </span><br>
+	<span class="option" data-correct="true"><b>E)</b> vekil sunucu (proxy server) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> Aşağıdakilerden hangisi, Linux işletim sisteminde kök dosya sistemini gösterir? </p>
+	<span class="option" data-correct="false"><b>A)</b> /dev </span><br>
+	<span class="option" data-correct="true"><b>B)</b> / </span><br>
+	<span class="option" data-correct="false"><b>C)</b> /home </span><br>
+	<span class="option" data-correct="false"><b>D)</b> /bin </span><br>
+	<span class="option" data-correct="false"><b>E)</b> /var </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      Kök dosya sistemi, sağa doğru (/) ile temsil edilir. Dizin ağacının en üstündedir ve Linux’u ve Linux ile kurulan her şeyi içerir. Benzetilecek olursa, DOS veya Windows altındaki “C:” sürücüsüne eşdeğerdir. Kök dizin için bir bölüm oluşturmak zorunludur. Bu bölüm sistem yöneticisi olan “root” kullanıcı hesabıyla karıştırılmamalıdır. root kullanıcısının kendi ev dizini (/root) vardır.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> Aşağıdakilerden hangisi kişisel dosyaların tutulduğu kullanıcı dizinlerinin bulunduğu alanı gösterir? </p>
+	<span class="option" data-correct="false"><b>A)</b> /root </span><br>
+	<span class="option" data-correct="false"><b>B)</b> /dev </span><br>
+	<span class="option" data-correct="true"><b>C)</b> /home </span><br>
+	<span class="option" data-correct="false"><b>D)</b> /boot </span><br>
+	<span class="option" data-correct="false"><b>E)</b> / </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Aşağıdakilerden hangisi Linux ile ilgili herşeyi ve Linux dosyalarının hepsini içerir? </p>
+	<span class="option" data-correct="false"><b>A)</b> /boot </span><br>
+	<span class="option" data-correct="false"><b>B)</b> /dev </span><br>
+	<span class="option" data-correct="false"><b>C)</b> /home </span><br>
+	<span class="option" data-correct="true"><b>D)</b> / </span><br>
+	<span class="option" data-correct="false"><b>E)</b> /var </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> Kullanılan işletim sistemi içinde Linux işletim sisteminin çalıştırılabilmesi, aşağıdaki yazılımlardan hangisi ile yapılabilmektedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Sanallaştırma yazılımları </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Editörler </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ram boyutu </span><br>
+	<span class="option" data-correct="false"><b>D)</b> CPU kapasitesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> A sınıfı IP aralığı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Bilgisayarın her açılışında belirli (kalıcı) bir IP adresi ile internete bağlanabilmesi için aşağıdakilerden hangisinin olması gereklidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> DHCP </span><br>
+	<span class="option" data-correct="false"><b>B)</b> dinamik IP </span><br>
+	<span class="option" data-correct="true"><b>C)</b> statik IP </span><br>
+	<span class="option" data-correct="false"><b>D)</b> sanal işletimi sistemi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> birden fazla ağ bağlantı kartı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> Uygulamalar belleği tamamen kullanıldığı zaman, aşağıdakilerden hangisi uygulamalar için geçici bellek görevi görür? </p>
+	<span class="option" data-correct="true"><b>A)</b> swap </span><br>
+	<span class="option" data-correct="false"><b>B)</b> /boot </span><br>
+	<span class="option" data-correct="false"><b>C)</b> /home </span><br>
+	<span class="option" data-correct="false"><b>D)</b> /dev </span><br>
+	<span class="option" data-correct="false"><b>E)</b> /etc </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> Belleğin tümüyle uygulamalar ile dolması durumunda, aşağıdakilerden hangisi uygulamalar tarafından bellek yerine diskte kullanılan yerdir? </p>
+	<span class="option" data-correct="false"><b>A)</b> /root </span><br>
+	<span class="option" data-correct="false"><b>B)</b> RAM </span><br>
+	<span class="option" data-correct="false"><b>C)</b> /dev </span><br>
+	<span class="option" data-correct="false"><b>D)</b> A sınıfı IP adresi </span><br>
+	<span class="option" data-correct="true"><b>E)</b> takas alanı (swap) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Linux İşletim Sistemlerinin kurulum aşamasında bazı dağıtım grupları dışında kurulum süreçleri ne kullanılarak gerçekleştirilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Grafik arayüzdeki “İlerle” butonlarıyla değil komut satırı arayüzüne benzer konsol ekranında klavye kullanılarak gerçekleştirilmektedir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Ubuntu 22.04 sunucu işletim sisteminin kurulumuna başlamadan önce ne oluşturulmalıdır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Sanallaştırma yazılımı VirtualBox içinde bir sanal makine oluşturulmalıdır </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> Ubuntu 22.04 Sunucu LTS disk kalıbı uzantısı nedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> *.iso </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Sanal makine oluşturulduktan sonra kurulumu yapılacak Ubuntu 22.04 Sunucu LTS disk kalıbı dosyasının indirilmesi gerekmektedir.  Özel indirilebilir kurulum dosyalası örnekleri nelerdir? </p>
+	<span class="option" data-correct="true"><b>A)</b> ARM, IBM POWER, IBM Z and LinuxONE ve Metal as a Service (MAAS) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> Kurulum dili seçildikten sonra kurulum yapacak yükleyicinin (installer) güncel bir versiyonu olduğu ile ilgili bir uyarı penceresi karşımıza çıkmaktadır. Bu aşamada ne yapılarak kuruluma devam edilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Ok tuşları ile en altta bulunan Update to the new Installer seçilerek kuruluma devam edilecektir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> Kurulumda klavye türü belirlemek için hangi işlemler yapılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Identify keyboard seçilip açılan pencerede OK butonu üzerine ok tuşları ile gelinip Enter tuşuna basılacaktır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Kurulumda türkçe klavye kullanımı için yapılması gereken adımlar nelerdir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Klavyede w ve y tuşlarına basılması istendikten sonra ö tuşunun bulunup bulunmadığı sorulduktan sonra bulunuyorsa ö tuşuna basılması istenecek ve Türkçe klavye düzeni için otomatik klavye algılama işlemi tamamlanacaktır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      Kurulumda önemli kullanılacak olan klavye türünün belirlenmesidir. Bu işlemin işletim sistemi tarafından yapılması için sırasıyla Identify keyboard seçilip açılan pencerede OK butonu üzerine ok tuşları ile gelinip Enter tuşuna basılacaktır. İlerleyen aşamalarda klavyede w ve y tuşlarına basılması istendikten sonra ö tuşunun bulunup bulunmadığı sorulduktan sonra bulunuyorsa ö tuşuna basılması istenecek ve Türkçe klavye düzeni için otomatik klavye algılama işlemi tamamlanacaktır.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> Kurulumda ağ yapılandırması gerçekleştirilir ve burada temelde 2 tür ağ yapılandırma seçeneği söz konusudur. Bu seçenekler nelerdir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Birinci seçenekte Dinamik İstemci Yapılandırma Protokolü (Dynamic Host Control Protocol - DHCP) ile sanal makinenin otomatik IP numarası alması sağlanabilmektedir. İkinci seçenekte ise Ip adresinin kalıcı olarak (statik) belirlenmektedir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> Sınıflı ağ tasarımı kaç tür sınıftan oluşmaktır ve bunlar nelerdir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Sınıflı ağ tasarımı temelde 3 tür sınıftan oluşmaktadı ve bunlar;<br><br>
+
+A Sınıfı: 16 milyon üzeri IP adresi<br>
+A sınıfı: IP Adres (Oktet) Aralığı: 1 – 126<br>
+B Sınıfı: 65,535 IP adresi<br>
+B sınıfı: IP Adres (Oktet) Aralığı: 128 – 191<br> 
+C Sınıfı: 256 IP adresi<br> 
+C sınıfı: IP Adres (Oktet) Aralığı: 192 – 223 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> Sınıfsız Alanlararası Yönlendirme adresleri iki sayı grubundan oluşur bunlar nelerdir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Sınıfsız Alanlararası Yönlendirme adresleri iki sayı grubundan oluşur: normal bir IP adresindekine benzer şekilde ağ adresinin ikili gösterimi olan bir önek ve içindeki toplam bit sayısını bildiren bir sonek. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> A ve B sınıfı IP aralıklarında 126 rakamından sonra  128 rakamına geçiş yapılmasının nedeni nedir </p>
+	<span class="option" data-correct="true"><b>A)</b> 127 ile başlayan IP bloğu yerel makine (localhost) olarak da bilinen kullanılan makineye rezerve edilmiş olması </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> Sınıfsız Alanlararası Yönlendirme neleri  temel alır ve  mümkün kılar? </p>
+	<span class="option" data-correct="true"><b>A)</b> Ağ mühendislerinin bir IP adres aralığını farklı boyutlardaki alt ağlardan oluşan bir hiyerarşiye bölmelerini sağlayan değişken uzunluklu alt ağ maskelemeyi (Variable-Length Subnet Masking -VLSM) temel alır ve çok sayıda adresi boşa harcamadan farklı ana bilgisayar sayılarına sahip alt ağlar oluşturmayı mümkün kılar. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> Ana makineler tarafından kullanılabilecek IP sayısı ağın tamamında bulunan kullanılabilir IP sayısının kaç eksiğidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Her ağ ortamında ilk IP adresi Ağ ID (Network ID) ve son IP adresi de Yayın (Broadcast) IP’si olarak kullanıldığından ana makineler tarafından kullanılabilecek IP sayısı ağın tamamında bulunan kullanılabilir IP sayısının 2 eksiğidir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> Ana makine bitlerinden 4 bit ödünç alındığında bu yapıda oluşturulabilecek ağ sayısı kaçtır? </p>
+	<span class="option" data-correct="true"><b>A)</b> 16 (2<sup>4</sup>) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> Birden fazla alan adı sunucusu tanımı yapılacaksa ne yapılmalıdır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Aralarına virgül (,) konulup ip değerleri girilebilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> Kullanıcıları internetteki kötü niyetli faaliyetlerden koruyan ek veri güvenliği sağlama işlevi gören nedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Vekil sunucular (Proxy Servers)  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> Ubuntu işletim sistemi yazılımları nereden yüklenebilir </p>
+	<span class="option" data-correct="true"><b>A)</b> Ubuntu işletim sistemi yazılımlarının yüklenebileceği ana site http://archive.ubuntu.com/ubuntu olmakla birlikte dünyanın farklı yerlerinde ana sitenin yazılımlarını dağıtan güvenilir kopya (mirror) siteler bulunmaktadır. Bu sayede işletim sisteminin kurulumu sırasında çevrim içi istek gönderilen paketler farklı konumlardaki güvenilir sitelerden yüklenebilmektedir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> Her Linux dağıtımının kurulum kılavuzunda, sabit diskin bölümlenmesi ile ilgili yönergeler bulunmakla birlikte sağlıklı bir Linux kurulumu için hangi bölümlerin kurulması önerilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Takas (swap), kök (root), açılış (boot) ve ev (home) bölümlerinin oluşturulması önerilmektedir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> Kök dosya sistemi nasıl temsil edilir ve ne özellikleri vardır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Kök dosya sistemi, sağa doğru (/) ile temsil edilir. Dizin ağacının en üstündedir ve Linux’u ve Linux ile kurulan her şeyi içerir. Benzetilecek olursa, DOS veya Windows altındaki “C:” sürücüsüne eşdeğerdir. Kök dizin için bir bölüm oluşturmak zorunludur. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> Kurulum aşamasında yaygın kullanılan disk bölümlendirme seçeneklerinden '/' simgesiyle gösterilen konumun açıklaması nedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Kurulum aşamasında yaygın kullanılan disk bölümlendirme seçeneklerinden '/' simgesiyle gösterilen konumun açıklaması 'Linux sanal dosya sisteminin kökü' dür.  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question41">
+	<p class="question">Soru 41:<br> Kurulum aşamasında yaygın kullanılan disk bölümlendirme seçeneklerinden 'swap' olarak gösterilen konumun açıklaması nedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Uygulamalar tarafından bellek tamamen kullanıldığında yeni bellek isteğinde bulunan uygulamalar için geçici bellek görevi gören alandır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description41">Açıklama</button>
+		<div id="description41" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question42">
+	<p class="question">Soru 42:<br> Mantıksal hacim yöneticisi (Logical Volume Management -LVM) nedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Mantıksal hacim yöneticisi birden çok fiziksel sürücü arasında depolama alanı oluşturulmasına olanak tanıyan bir sabit sürücü yönetim sistemidir. Başka bir deyişle, işletim sisteminde tek bir disk sürücü gibi algılanacak birkaç disk sürücüsü birbirine bağlanabilir. İşletim sistemi kurulduktan sonra bu  canlı ortamda çalışan sunucunun mevcut diskini büyütme ihtiyacı olduğunda mantıksal hacim yöneticisi disk yönetimini çok kolay bir hâle getirmektedir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description42">Açıklama</button>
+		<div id="description42" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

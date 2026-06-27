@@ -1,0 +1,1626 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          ALGORİTMALAR
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="alg-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="alg-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="alg-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="alg-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="alg-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="alg-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="alg-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="alg-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="alg-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="alg-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB SUNUCU PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wsp-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wsp-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wsp-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wsp-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wsp-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wsp-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wsp-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wsp-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wsp-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wsp-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİ MADENCİLİĞİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="vmaden-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="vmaden-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="vmaden-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="vmaden-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="vmaden-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="vmaden-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="vmaden-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="vmaden-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="vmaden-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="vmaden-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİTABANI SİSTEMLERİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="vtsistem-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="vtsistem-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="vtsistem-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="vtsistem-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="vtsistem-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="vtsistem-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="vtsistem-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="vtsistem-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="vtsistem-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="vtsistem-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMADA YENİ EĞİLİMLER
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="prgyenieğilim-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="prgyenieğilim-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Veritabanı Sistemleri - Ünite 8 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	<button class="block-group" data-start="40" data-end="59">Part 3</button>
+	  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Bir veritabanı tablosunun daha küçük tablolara ayrıştırılma işlemine ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Aykırılık </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Veri silme </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Normalleştirme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Veri dağıtma </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Veritabanı yönetimi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Aşağıdaki kurallardan hangisi fonksiyonel bağımlılık çeşitlerinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Tam </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kısmi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Geçişli </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Bitişmeli </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Döngüsel </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      - Kısmi Bağımlılık (Partial Dependence) 
+- Geçişli Bağımlılık (Transitive Dependence) 
+- Tam Fonksiyonel Bağımlılık (Full Functional Dependence) 
+- Çok Değerli Bağımlılık (Multiple Valued Dependence) 
+- Döngüsel Bağımlılık (Cyclic Dependency)      </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> X → Y ve Y → Z fonksiyonel bağımlılıkları verildiğinde, Z özniteliğinin Y özniteliği vasıtasıyla X özniteliğine bağımlı olduğunun gösterilmesine ne ad verilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Geçişli bağımlılık </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kısmi bağımlılık </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Döngüsel bağımlılık </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Tam bağımlılık </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Çok Değerli bağımlılık </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> 1NF’deki tablodan bir satır silindiğinde faydalı veriler de siliniyorsa, bu aykırılığa ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Ekleme </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Silme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Güncelleme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Döngüsel </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Dönüştürme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      1NF (1. Normal Form) bir ilişkisel veritabanı tasarımı kuralıdır ve her bir alanın atomik değerler içermesi gerektiğini belirtir. Verilerin kaybedilmesi durumunda faydalı verilerin de silinmesi aykırılığının adı, Silme olarak bilinir. Bu durum, 1NF'in ihlal edildiğini ve veri bütünlüğü sorunlarının oluşabileceğini gösterir.     </div>
+	</div>
+</div>
+	  
+		<span style="color: darkred; margin-left: 30px;"><img src="vsis3.JPG" alt="veritabanı sistemleri ünite: 8 soru:5-7"></span>
+		  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Şekilde verilen tablo 1NF kuralı ile tek tabloya yapılandırıldığında
+kaç satırlık tablo oluşur? </p>
+	<span class="option" data-correct="false"><b>A)</b> 2 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 3 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 4 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 5 </span><br>
+	<span class="option" data-correct="true"><b>E)</b> 6 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      Verilen tablo, 1NF kuralı ile tek bir tabloya yapılandırıldığında, her bir ders kaydı için ayrı bir satır oluşturulur. Aynı öğrenciye ait birden fazla ders kaydı olduğunda, her bir kayıt için ayrı bir satır oluşturulur. Bu durumda, verilen tablo şu şekilde düzenlenir:<br> <br> 
+
+<u><strong>Öğrenci No - Bölüm Kodu - Bölüm Adı - Ders Kodu - Kayıt Yıl</strong></u><br> 
+1001 - 15211 - İşletme - Mat101 - 2015<br> 
+1001 - 15211 - İşletme - İst103 - 2015<br> 
+3008 - 15131 - Endüstri - Mat101 - 2015<br> 
+3008 - 15131 - Endüstri - Chem104 - 2015<br> 
+3010 - 15211 - İşletme - Edb205 - 2016<br> 
+3010 - 15211 - İşletme - His203 - 2016<br> <br>
+
+Tablodaki her bir satır, bir ders kaydını temsil etmektedir. Toplamda 6 satırdan oluşan bir tablo elde edilir. Bu nedenle, doğru cevap e seçeneğidir.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Şekilde verilen tablonun 1NF kuralına uyum sağlaması için aşağıdaki alanlardan hangisi dönüştürülür? </p>
+	<span class="option" data-correct="true"><b>A)</b> Sadece Ders Kodu </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ders Kodu ve Kayıt Yıl </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Öğrenci No ve Kayıt Yıl </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sadece Öğrenci No </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bölüm Kodu ve Kayıt Yılı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      1NF kuralına göre, bir tabloda her bir hücrede yalnızca tek bir değer bulunmalıdır. Ancak "Ders Kodu" alanı, virgülle ayrılmış olarak birden fazla ders kodunu içermektedir (örneğin: Mat101, İst103). Bu durum 1NF kuralına uymamaktadır.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> Şekilde verilen tablonun 1NF kuralına uyum sağlaması için dönüştürülecek alandaki sorun aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Ders Kodu alanında çok değerli veri var. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kayıt Yıl alanında sadece 2 adet değer var. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bölüm Adı alanında sadece 2 adet değer var. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bölüm Kodu alanında sadece 2 adet değer var. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bölüm Adı Öğrenci No’ya geçişli bağımlıdır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> Normalize edilmemiş (0NF) bir tablo verildiğinde normalleştirme kuralları hangi sıra ile uygulanmalıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> BCNF, 3NF, 2NF, 1NF </span><br>
+	<span class="option" data-correct="true"><b>B)</b> 1NF, 2NF, 3NF, BCNF </span><br>
+	<span class="option" data-correct="false"><b>C)</b> BCNF, 1NF, 2NF, 3NF </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 3NF, 2NF, 1NF, BCNF </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Normal Formların uygulanma sırası önemli değildir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+	<span style="color: darkred; margin-left: 30px;"><img src="vsis4.JPG" alt="veritabanı sistemleri ünite: 8 soru:9-10"> </span>
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> Yukarıda verilen tabloda alanlar arasındaki geçişli bağımlılığı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Sicil No → Bölüm, Bölüm → Kampüs </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ad → Bölüm, Bölüm → Kampüs </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sicil No → Ad, Bölüm → Kampüs </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sicil No → Ad, Sicil No → Bölüm, Sicil No → Kampüs </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sicil No → Ad, Ad → Kampüs </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      Öğrencinin hangi kampüste okuduğunu bilmek için hangi bölümde okuduunu, hangi bölümde okuduüunu bilmek için ise öğrencinin sicil numarasını bilmek gerekir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Tabloya 3NF kuralı uygulandığında oluşan tabloların alanları aşağıdakilerden hangisinde birlikte ve doğru olarak
+verilmiştir? (Dikkat: öğretim elemanın sadece bir bölümde çalışmakta olduğunu varsayınız) </p>
+	<span class="option" data-correct="false"><b>A)</b> Tablo1: Sicil No, Ad Tablo2: Bölüm, Kampüs </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Tablo1: Sicil No, Ad, Bölüm Tablo2: Bölüm, Kampüs </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tablo1: Sicil No, Ad Tablo2: Sicil No,
+Bölüm, Kampüs </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Tablo1: Sicil No, Ad, Bölüm Tablo2: Sicil No,
+Kampüs </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Tablo1: Sicil No, Ad, Bölüm Tablo2: Sicil No,
+Bölüm, Kampüs </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      (3th Normal Form - 3NF)
+Geçişli fonksiyonel bağımlılıklar kaldırılır. Yani birincil anahtar tarafından dolaylı
+olarak belirlenen alanlar yok edilir. Geçişli fonksiyonel bağımlılığı kaldırmak için
+asıl tablodaki birincil anahtara dolaylı bağımlı alanlar yeni bir tabloya taşınır. <br>
+<br>
+     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> Aşağıdaki kurallardan hangisi fonksiyonel bağımlılıklardan birisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Döngüsel bağımlılık </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Çok Değerli Bağımlılık </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tam fonksiyonel bağımlılık </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Geçişli bağımlılık </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Hepsi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      - Kısmi Bağımlılık (Partial Dependence) 
+- Geçişli Bağımlılık (Transitive Dependence) 
+- Tam Fonksiyonel Bağımlılık (Full Functional Dependence) 
+- Çok Değerli Bağımlılık (Multiple Valued Dependence) 
+- Döngüsel Bağımlılık (Cyclic Dependency)       </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> I. Normalleştirme ile tablolar ve tablolar arasındaki ilişkiler tekrar düzenlenerek tutarsız bağımlılıklar kaldırılır.<br>
+II. Mevcut bir veri tabanındaki ilişkilerin iyileştirilmesi için normalleştirme kullanılamaz.<br>
+III. Normalleştirme kuralları iki öznitelik arasındaki kısıtlara dayanan fonksiyonel bağımlılık kavramı ile test edilemez.<br><br>
+Normalleşme ile ilgili yukarıdaki ifadelerden hangileri doğrudur? </p>
+	<span class="option" data-correct="true"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I, II ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      Normalleştirme ile tablolar ve tablolar arasındaki ilişkiler tekrar düzenlenerek tutarsız bağımlılıklar kaldırılır ve artıklıklar (redundancy) en aza indirilir.<br><br> Mevcut bir veri tabanındaki ilişkilerin iyileştirilmesi içinde normalleştirme kullanılır<br><br> Normalleştirme kuralları iki öznitelik arasındaki kısıtlara dayanan fonksiyonel bağımlılık kavramı ile test edilir.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Tablolarda anahtar olmayan öznitelik, birleşik anahtarın sadece bir kısmı ile belirleniyorsa burada ne tür bir bağımlılık mevcuttur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Tam Fonksiyonel Bağımlılık
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Geçişli Bağımlılık </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Kısmi Bağımlılık </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Döngüsel Bağımlılık </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Çok Değerli Bağımlılık </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> Aşağıdakilerden hangisi 3NF ile ilgili yanlış bir bilgidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Tablolar 2NF olmalıdır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Geçişli bağımlılıklar kaldırılmalıdır. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 3NF olan bir tablo aynı zamanda BCNF’dur.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Çoka çok ilişki durumunda yeni tablo oluşturulur ve tabloların birincil anahtarları bu tabloya yabancı anahtar olur. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Geçişli bağımlılıklar yeni bir tablo oluşturularak çözülebilir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      Bir tablo 3NF’de ise ve her belirleyici anahtar olarak tanımlandıysa ilgili tablo BCNF formunda denir. Bu tanıma göre eğer bir tablo BCNF ise bu tablo aynı zamanda 3NF’dir. Ama tersi doğru değildir.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> Bir veritabanında yer alan tablonun A, B, C ve D şeklinde toplam dört özniteliği olsun. Bu tabloda A birincil anahtar olsun. A→B ve B→C fonksiyonel bağımlılıklarının olduğunu varsayalım. Verilen bu iki fonksiyonel bağımlılık incelendiğinde, C özniteliğinin B özniteliği aracılığıyla A özniteliğine bağımlı olduğu görülür. Bu durum aşağıdakilerden hangisi bağımlılık çeşidine örnektir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Geçişli bağımlılık </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Tam fonksiyonel bağımlılık </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kısmi bağımlılık </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Çok değerli bağımlılık </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Döngüsel bağımlılık </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Tabloda bir alandaki değerler virgülle ayrılarak oluşturulan liste veya dizi değerlerinden oluşuyorsa aşağıdakilerden hangi tür bağımlılık vardır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kısmi bağımlılık </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Döngüsel bağımlılık </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Çok değerli bağımlılık </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Tam fonksiyonel bağımlılık </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Geçişli bağımlılık </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> -Geçişli fonksiyonel bağımlılıklar kaldırılır. Yani birincil anahtar tarafından dolaylı olarak belirlenen alanlar yok edilir.<br><br>
+-Geçişli fonksiyonel bağımlılığı kaldırmak için asıl tablodaki birincil anahtara dolaylı bağımlı alanlar yeni bir tabloya taşınır.<br><br>
+
+Bilgileri verilen normalleştirme aşaması aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Normal Form (1st Normal Form - 1NF) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Normal Form (2nd Normal Form - 2NF) </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Normal Form (3th Normal Form - 3NF) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Normal Form (4th Normal Form - 4NF) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Normal Form (5th Normal Form - 5NF) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> I - Normalleştirme, veritabanı tasarımı kapsamında fiziksel tasarımdan sonra uygulanabilir.<br>
+II - Normalleştirme varolan veritabanlarında ilişkilerin iyileştirilmesinde kullanılmaz.<br>
+III - Tutarsız bağımlılıklar ve artıklar en aza indirilir.<br>
+IV - Normalleştirme aşamasında varlık ilişki diyagramları oluşturulur.<br><br>
+
+Normalleştirme ile ilgili olarak yukarıda verilen açıklamalardan doğru olanlar hangi seçenekte verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> II, III ve IV </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I, II ve IV </span><br>
+	<span class="option" data-correct="true"><b>D)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      Normalleştirme yeni veritabanı tasarımlarında uygulanabileceği gibi, varolan veritabanlarının iyileştirilmesinde de kullanılır. Ancak varlık ilişki diyagramları, veritabanı tasarımında kavramsal tasarım aşamasında yararlanılan yapılardır. Normalleştirme ile tutarsız bağımlılıklar ve artıklar en aza indirilmeye çalışılır.
+
+
+     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> "Cascade Delete" SQL komutu ne amaçla kullanılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Veritabanındaki ilişkileri düzenleme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Tablodaki birincil anahtarı silmek </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tablo silmek </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Tüm veritabanını silmek </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Asıl ve detay tablolardaki ilişkili verileri silmek </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> Bir tabloda yer alan bazı özniteliklerin başka bir öznitelik aracılığıyla üçüncü bir özniteliğe bağımlı olması hangi tür bağımlılığa girer? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kısmi </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Geçişli </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tam fonksiyonel </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Çok değerli </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Döngüsel </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Veri tabanında verinin değiştirilmesi sırasında mantıksal olarak bozulmaya yol açan duruma ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kopyalama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yapıştırma </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ortalama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Normalleştirme </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Aykırılık </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      Veri tabanında verinin değiştirilmesi sırasında mantıksal olarak bozulmaya yol açan durumlara aykırılık (anomaly) denir.
+
+
+     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Normalleştirme aşamalarının hangisinde geçişli fonksiyonel bağımlılıklar ortadan kalkmaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> 1NF </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 2NF </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 3NF </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 4NF </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 5NF </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> Aşağıdakilerden hangisi veritabanlarında aykırılıkların oluşmasına sebep olan bir işlem <strong><u>değildir?</u></strong> </p>
+	<span class="option" data-correct="false"><b>A)</b> Asıl ve detay tablolarda, detay tabloya veri eklenirken asıl tabloya ilgili veri eklenmemesi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Asıl ve detay ilişkili tablolarda, kayıtların detay bilgilerini silmeden asıl tablodaki satırlarının silinmesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Asıl ve detay ilişkili tablolarda güncelleme yaparken asıl tablodaki veri yok edilerek detay tablosundaki veriler ilişkisiz bırakılması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Öğretmen ve öğretmenin verdiği dersler olmak üzere iki tablo düşündüğümüzde öğretmen tablosundan bir öğretmeni kaldırmak. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Birincil anahtar değerinde güncelleme yaparken detay tablolarda da ilişkili yabancı anahtarlar sırasıyla (cascade) güncellenmesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Veritabanında birincil ve yabancı anahtar ile ilişkilendirilmiş iki tablo olsun. Birinci tabloda kayıtların özet bilgilerinin, diğerinde ise ilgili kayıtların detay bilgilerinin tutulduğunu varsayalım. Bu iki tablo asıl ve detay tablolar olarak isimlendirilir. Asıl ve detay tablolarda, detay tabloya veri eklenirken asıl tabloya ilgili veri eklenmez ise aşağıdakilerden hangisi oluşur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Güncelleme aykırılığı </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Ekleme aykırılığı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Silme aykırılığı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Fonksiyonel aykırılık </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Döngüsel aykırılık </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> <span style="color: darkred; margin-left: 30px;"><img src="vts13.png" alt="Veritabanı Sistemleri Ünite 8 Alıştırma Soruları " style="width: 90%;"></span><br><br>
+Yukarıda verilen tablo ile ilgili hangi fonksiyonel bağımlılık yazılabilir?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> Müşteri ID ⇒ Toplam fiyat
+
+  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Satış ID, Müşteri ID ⇒ Toplam Fiyat
+
+  </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Satış ID, Ürün ID ⇒ Toplam Fiyat
+
+  </span><br>
+	<span class="option" data-correct="false"><b>D)</b>  Satış ID ⇒ Ürün Id </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Satış ID, Birim Fiyat ⇒ Toplam Fiyat
+
+  </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      Tabloda Satış ID ve Ürün ID alanları birlikte benzersiz bir değer oluşturmaktadır. Bu nedenle, Satış ID ve Ürün ID birlikte tüm diğer değerler için fonksiyonel bağımlılık yazılabilir.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> Bir tabloda anahtar olmayan öznitelik, birleşik anahtarın sadece bir kısmı ile belirleniyorsa bu hangi tür bağımlılığa girer? </p>
+	<span class="option" data-correct="true"><b>A)</b> Kısmi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Geçişli </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tam fonksiyonel </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Çok değerli </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Döngüsel </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      Bir tabloda birincil anahtar bir veya daha fazla öznitelikten oluşabilir. Eğer birincil anahtar iki veya daha fazla öznitelikten oluşuyorsa bu tür birincil anahtarlara birleşik anahtar (composite key) adı verilir. Bu tür tablolarda anahtar olmayan öznitelik, birleşik anahtarın sadece bir kısmı ile belirleniyorsa buna kısmi bağımlılık denir. Bir veritabanında yer alan tabloda A, B, C ve D gibi toplam dört özniteliğin olduğunu varsayalım. Bu tablonun birincil anahtarı da (A, B) olsun. Bu durumda AB→CD fonksiyonel bağımlılığı yazılabilir. Bu tabloda A→C fonksiyonel bağımlılığını da varsayalım. Bu durumda C özniteliği birleşik anahtarın sadece bir kısmı olan A özniteliğine bağımlıdır. Yani C özniteliği A’ya kısmi bağımlıdır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Veritabanında bir öznitelik A, diğer öznitelik B’ye bağımlı iken aynı zamanda B özniteliği de A’ya bağımlı ise bu hangi tür bağımlılığa girer? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kısmi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Geçişli </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tam fonksiyonel </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Çok değerli </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Döngüsel </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> Bir tabloda yer alan bazı özniteliklerin başka bir öznitelik aracılığıyla üçüncü bir özniteliğe bağımlı olması hangi tür bağımlılığa girer? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kısmi </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Geçişli </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tam fonksiyonel </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Çok değerli </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Döngüsel </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      Bir tabloda yer alan bazı özniteliklerin başka bir öznitelik aracılığıyla üçüncü bir özniteliğe bağımlı olması geçişli bağımlılık olarak adlandırılır. Bir veritabanında yer alan tablonun A, B, C ve D şeklinde toplam dört özniteliği olsun. Bu tabloda A birincil anahtar olsun. A→B ve B→C fonksiyonel bağımlılıklarının olduğunu varsayalım. Verilen bu iki fonksiyonel bağımlılık incelendiğinde, C özniteliğinin B özniteliği aracılığıyla A özniteliğine bağımlı olduğu görülür. Bu durum geçişli bağımlılık olup A→C fonksiyonel bağımlılığı yazılabilir. Başka bir deyişle geçişli bağımlılıkta; C özniteliği, A özniteliği ile bir diğer öznitelik B üzerinden dolaylı olarak belirlenir.     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29"> <div class="question">
+	<p class="question">Soru 29:<br> <table style="border: solid #000000"><th style="background-color: cadetblue; color: black">Öğrenciler</th>
+		<tr><td style="border: solid #000000"> Öğrenci Numarası </td></tr>
+		<tr><td style="border: solid #000000"> Soyadı </td></tr>
+		<tr><td style="border: solid #000000"> Adı </td></tr>
+		<tr><td style="border: solid #000000"> Doğum Tarihi </td></tr>
+		<tr><td style="border: solid #000000"> Adres </td></tr>
+		<tr><td style="border: solid #000000"> Fakülte </td></tr>
+		<tr><td style="border: solid #000000"> Bölüm </td></tr>
+		</table><br>
+Yukarıdaki tablo 3NF’ye göre düzenlendiğinde geçişli bağımlılıklar kaldırılacaktır. Buna göre, 7 satır içeren bu öğrenciler tablosu geçişli bağımlılıklar kaldırıldıktan sonra kaç satırlık bir tablo haline gelecektir? </p></div>
+	<span class="option" data-correct="false"><b>A)</b> 4 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 5 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 6 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 7 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 8 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      Yukarıdaki tabloda görüldüğü üzere her öğrencinin bir bölümü vardır ve bu bölümler fakültelere bağlıdır. Dolayısıyla geçişli bağımlılık kaldırıldığında bölüm satırı silinecektir.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> Bir özniteliğin değeri bağlı olduğu anahtar ile benzersiz olarak belirleniyorsa bu ilişkide nasıl bir bağlılık söz konusudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Döngüsel Bağımlılık
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Çok Değerli Bağımlılık
+
+ </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Tam Fonksiyonel Bağımlılık </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Geçişli Bağımlılık </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kısmi Bağımlılık </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      Bir özniteliğin değeri bağlı olduğu anahtar ile benzersiz olarak belirleniyorsa bu ilişki tam bağımlılık (Full Functional Dependence)olarak adlandırılır.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> Aşağıdakilerden hangisi normalleştirmenin asıl amaçlarından biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Veri artıklığını (redundancy) minimum yapmak </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Veri bütünlüğünü sağlayan kısıtların uygulamasını basitleştirmek </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veri işlemeyi (ekleme, güncelleme ve silme) daha basit hâle getirmek </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Sorgu süresini azaltmak </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Gerçek varlık ve ilişkileri daha iyi temsil edecek veritabanı modeli tasarımını gerçekleştirmek ve ilerideki geliştirmeler için sağlam bir taban oluşturmak </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> Veritabanı modelinden sorunlu fonksiyonel bağımlılıklarının aşama aşama kaldırılması işlemi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Aykırılaştırma </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ayrıştırma </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Normalleştirme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bağımsızlaştırma </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Dönüştürme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> - Tablolar ilişkilendirilebilir şekilde tasarlanır ve çok değerli öznitelikler kaldırılır.<br><br>
+- Tablonun her bir satır ve sütun kesişiminde atomik değer olacak şekilde tablo tekrar yapılandırılır.<br><br> 
+
+- Birden fazla bilgi tek bir sütunda tutulamaz. Tekrarlanan veriler kaldırılır.<br><br>
+
+Yukarıda bilgileri verilen normalleştirme aşaması aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Normal Form (1st Normal Form - 1NF) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Normal Form (2nd Normal Form - 2NF) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Normal Form (3th Normal Form - 3NF) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Normal Form (4th Normal Form - 4NF) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Normal Form (5th Normal Form - 5NF) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> Aşağıdaki aşamalardan hangisi bir dönüşüm olmak yerine en üst seviyede normalize edilmiş veritabanı kavramsal modeli seviyesinin ölçüsüdür? </p>
+	<span class="option" data-correct="false"><b>A)</b> Normal Form (3th Normal Form - 3NF) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Boyce-Codd Normal Form (BCNF) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Normal Form (4th Normal Form - 4NF) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Normal Form (5th Normal Form - 5NF) </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Etki Alanı Anahtarı Normal Formu (Domain Key Normal Form-DKNF) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> Aşağıdakilerden hangisi 1NF’da uygulanan aşamalardan biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Tekrar eden gruplar kaldırılır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Birincil anahtar benzersiz olup tekrarlı değerlere izin vermez. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Her bir alan atomik değer içermelidir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bir alandaki değerler aynı veri tipinde olmalıdır. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Tüm anahtar olmayan alanlar birincil anahtara tam fonksiyonel bağımlı olmalıdır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      Tüm anahtar olmayan alanlar birincil anahtara tam fonksiyonel bağımlı olması 2NF’da ele alınan bir aşamadır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> I. Normalleştirme fonksiyonel bağımlılıkların analizine dayalı olarak yapılır.<br>
+I. Fonksiyonel bağımlık iki set öznitelik arasındaki kısıtlardır.<br>
+I. Fonksiyonel bağımlılık matematiksel bağımlılık değildir.<br><br>
+Verilen maddelerden hangisi/hangileri fonksiyonel bağımlılık ile ilgili doğrudur? </p>
+	<span class="option" data-correct="true"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      Normalleştirme fonksiyonel bağımlılıkların analizine dayalı olarak yapılır. Fonksiyonel bağımlık iki set öznitelik arasındaki kısıtlardır.<br><br> Bir veritabanındaki herhangi bir tablo T ve bu tablodaki iki öznitelik A ve B olsun. Eğer A özniteliğinin değeri B özniteliğinin değerini belirliyorsa B özniteliğinin A özniteliğine bağımlı olduğu söylenir.<br><br> B’nin A’ya fonksiyonel bağımlılığı ok işareti ile A→B şeklinde gösterilir.<br><br> Burada tanımlanan fonksiyonel bağımlılık matematiksel bağımlılık değildir. Yani B’nin değeri A’nın değerinden hesaplanmaz. Bunun yerine A’da var olan her bir değer için B’de bir değer olduğunu gösterir.<br><br> Bu ilişki A özniteliği B özniteliğini belirler şeklinde ifade edilir.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> Veri tabanında normalleşme sürecinde her aşamada uygulanan kurallar mevcuttur. Eğer ikinci kural uygulanıyor ise nasıl ifade edilmektedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> 2NF </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kural 2 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> NF2 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 2KR </span><br>
+	<span class="option" data-correct="false"><b>E)</b> K2 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> Bir tabloda birincil anahtar bir veya daha fazla öznitelikten oluşabilir. Eğer birincil anahtar iki veya daha fazla öznitelikten oluşuyorsa bu tür birincil anahtarlara ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Tüm Anahtar
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bütünleşik Anahtar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bütün Anahtar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Tam Anahtar </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Birleşik Anahtar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> I. Normalleştirme kuralları iki öznitelik arasındaki kısıtlara dayanan kısmi bağımlılık kavramı ile test edilir.<br> 
+II. Her aşamada uygulanan kurala Normal Form (NF) adı verilir.<br> 
+
+III. İlk kural uygulanıyorsa veritabanı tasarımının birinci normal formda (1NF) olduğu, ikinci kural uygulanıyorsa ikinci normal formda (2NF) olduğu şeklinde ifade edilir.<br> <br> 
+
+Normalleştirme ile ilgili verilen bilgilerden hangisi/hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="true"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      Normalleştirme kuralları iki öznitelik arasındaki kısıtlara dayanan <u><strong>fonksiyonel</strong></u> bağımlılık kavramı ile test edilir.      </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> Veri tabanlarında görülebilecek ayrılık türleri aşağıdakilerin hangisinde doğru olarak verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Ekleme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Silme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ekleme ve silme </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Güncelleme, silme ve ekleme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Güncelleme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question41">
+	<p class="question">Soru 41:<br> Kısmi bağımlılıklar hangi normalleştirme aşamasında kaldırılmaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> 1NF </span><br>
+	<span class="option" data-correct="true"><b>B)</b> 2NF </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 3NF </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 4NF </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 5NF </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description41">Açıklama</button>
+		<div id="description41" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question42">
+	<p class="question">Soru 42:<br> Normalleştirme işlemi kaç aşamadan oluşmaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> 1 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 3 aşama </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 5 aşama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 7 aşama </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 10 çözümlenmesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description42">Açıklama</button>
+		<div id="description42" class="collapse">      <u><strong>1. Normal Form (1st Normal Form - 1NF)</strong></u><br>
+Tablolar ilişkilendirilebilir şekilde tasarlanır ve çok değerli öznitelikler kaldırılır. Tablonun her bir satır ve sütun kesişiminde atomik değer olacak şekilde tablo tekrar yapılandırılır. Birden fazla bilgi tek bir sütunda tutulamaz. Tekrarlanan veriler kaldırılır. 1NF’de bir tablodaki tüm alanlar birincil anahtar (birleşik anahtar olabilir) ile doğrudan ya da dolaylı benzersiz olarak belirlenebilir.<br><br>
+
+<u><strong>2. Normal Form (2nd Normal Form - 2NF)</strong></u><br>
+Bu aşamada kısmi fonksiyonel bağımlılıklar kaldırılır. Tüm alanlar birincil anahtar
+ile belirlenebilir olmalıdır. Bu aşamada asıl tablodaki birincil anahtara bağlı olan
+ancak tekrar eden alanlar yeni bir tabloya taşınır. Asıl tablo ile yeni tablo arasında çoka bir ilişkisi kurulur. Yeni tablo tekrar eden alanları tek kayıt altında birincil anahtar ile belirler. Yeni tablodaki birincil anahtar asıl tabloya yabancı anahtar olarak yerleştirilir. Asıl tabloya yerleştirilen yabancı anahtar aynı tablodaki birincil anahtarın bir parçası değildir.<br><br>
+
+<u><strong>3. Normal Form (3th Normal Form - 3NF)</strong></u><br>
+Geçişli fonksiyonel bağımlılıklar kaldırılır. Yani birincil anahtar tarafından dolaylı olarak belirlenen alanlar yok edilir. Geçişli fonksiyonel bağımlılığı kaldırmak için asıl tablodaki birincil anahtara dolaylı bağımlı alanlar yeni bir tabloya taşınır.<br>
+<u><strong>- Boyce-Codd Normal Form (BCNF)</strong></u><br>
+Fonksiyonel bağımlılıktan geri kalan tüm aykırılıklar kaldırılır. Bir tablo 3NF’de ise ve her belirleyici anahtar olarak tanımlandıysa ilgili tablo BCNF formunda denir. Bu tanıma göre eğer bir tablo BCNF ise bu tablo aynı zamanda 3NF’dir. Ama tersi doğru değildir.<br><br>
+
+<u><strong>4. Normal Form (4th Normal Form - 4NF)</strong></u><br>
+Çok değerli hiç bir bağımlılık kalmaz. Birincil anahtar olan alanlar ile diğer alanlar arasındaki her bir bağımsız bire-çoklu ilişki için ayrı tablo oluşturmak gerekir.
+Tekrarları önlemek için her tablo mümkün olduğunca küçük parçalara bölünür.<br><br>
+
+<u><strong>5. Normal Form (5th Normal Form - 5NF)</strong></u><br>
+Bu aşamada döngüsel fonksiyonel bağımlılıklar ve kalan tüm aykırılıklar kaldırılır.
+Projeksiyon Normal Form (PJNF) olarakta adlandırılır. 4NF’de kaldırılmamış olan
+tekrarlamalar daha küçük tablolara bölünerek kaldırılır.<br>
+<u><strong>- Etki Alanı Anahtarı Normal Formu (Domain Key Normal Form-DKNF)</strong></u><br>
+Bu aşama bir dönüşüm olmak yerine en üst seviyede normalize edilmiş veritabanı
+kavramsal modeli seviyesinin ölçüsüdür. Normal formlar her aşamada daha fazla kısıt uygulamaktadır. Öncelikle 1nci Normal Form ile tablolar ilişkisel yapıya dönüştürülür ve izleyen aşamalarda sırasıyla
+kısmi ve geçişli fonksiyonel bağımlılıklar ve aykırılıklar mantıksal veritabanı tasarım modelinden kaldırılır. Veritabanı normalleştirmesinde önce 1NF daha sonra
+2NF olmak üzere her aşama sırayla uygulanır. Herhangi bir aşama atlanmaz ve
+sıralama değiştirilmez. Şekil 8.6’da Normal formların uygulanış aşamaları ve her
+aşamada giderilen bağımlılık ve aykırılıklar verilmiştir.</div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question43">
+	<p class="question">Soru 43:<br> Kısmi bağımlılıkların kaldırılarak statik verilerin ayrı tablolara alınması hangi normal form kapsamında uygulanır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Birinci normal form </span><br>
+	<span class="option" data-correct="true"><b>B)</b> İkinci normal form </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Üçüncü normal form </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Dördüncü normal form </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Beşinci normal form </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description43">Açıklama</button>
+		<div id="description43" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question44">
+	<p class="question">Soru 44:<br> Döngüsel fonksiyonel bağımlılıkların ele alındığı normal form aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 3NF </span><br>
+	<span class="option" data-correct="false"><b>B)</b> BCNF </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 4NF </span><br>
+	<span class="option" data-correct="true"><b>D)</b> 5NF </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 2NF </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description44">Açıklama</button>
+		<div id="description44" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question45">
+	<p class="question">Soru 45:<br> Bir tabloda birincil anahtar bir veya daha fazla öznitelikten oluşabilir. Eğer birincil anahtar iki veya daha fazla öznitelikten oluşuyorsa bu tür birincil anahtarlara birleşik anahtar (composite key) adı verilir. Bu tür tablolarda anahtar olmayan öznitelik, birleşik anahtarın sadece bir kısmı ile belirleniyorsa buna ne ad verilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Kısmi bağımlılık </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Geçişli bağımlılık </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tam fonksiyonel bağımlılık </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Çok değerli bağımlılık </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Döngüsel bağımlılık </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description45">Açıklama</button>
+		<div id="description45" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question46">
+	<p class="question">Soru 46:<br> I. Tablolar 2NF olmalıdır.<br>
+II. Geçişli bağımlılıklar kaldırılmalıdır.<br>
+III. Ayrılan alanlar için yeni bir tablo oluşturulur.<br><br>
+Verilen maddelerden hangisi/hangileri 3NF kurallarındandır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description46">Açıklama</button>
+		<div id="description46" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question47">
+	<p class="question">Soru 47:<br> 1- Tekrar eden alanların yeni tablolara taşınması<br> 
+2- Birleşik anahtarların kaldırılması<br>
+3- Her tablo için birincil anahtar tanımlanması<br><br>
+
+Yukarıda verilen kurallar hangi normal form kapsamında veritabanına uygulanır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Birinci normal form </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İkinci normal form </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Üçüncü normal form
+
+  </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Dördüncü normal form </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Beşinci normal form </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description47">Açıklama</button>
+		<div id="description47" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question48">
+	<p class="question">Soru 48:<br> Çok değerli hiç bir bağımlılığın kalmadığı ve birincil anahtar olan alanlar ile diğer alanlar arasındaki her bir bağımsız bire-çoklu ilişki için ayrı tablo oluşturulduğu normal form aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 1NF </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 2NF </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 3NF </span><br>
+	<span class="option" data-correct="false"><b>D)</b> BCNF </span><br>
+	<span class="option" data-correct="true"><b>E)</b> 4NF </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description48">Açıklama</button>
+		<div id="description48" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question49">
+	<p class="question">Soru 49:<br> Bir veritabanını iyileştirmek için uygulanan 5 adımlı süreçte, 4. ve 5. normalleştirme adımlarını uygulamanın olumlu yönü aşağıdaki seçeneklerin hangisinde verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Veritabanında çok tablo oluşturulması </span><br>
+	<span class="option" data-correct="false"><b>B)</b> SQL komutlarında çok fazla tablo kullanma </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sorguların karmaşık hale gelmesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Veritabanındaki ilişki sayısının artması </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Daha küçük tablolar kullanabilme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description49">Açıklama</button>
+		<div id="description49" class="collapse">      <u><strong>4. Normal Form (4th Normal Form - 4NF)</strong></u><br>
+Çok değerli hiç bir bağımlılık kalmaz. Birincil anahtar olan alanlar ile diğer alanlar arasındaki her bir bağımsız bire-çoklu ilişki için ayrı tablo oluşturmak gerekir. Tekrarları önlemek için her tablo mümkün olduğunca <u><strong>küçük parçalara bölünür</strong></u>.<br><br>
+
+<u><strong>5. Normal Form (5th Normal Form - 5NF)</strong></u><br>
+Bu aşamada döngüsel fonksiyonel bağımlılıklar ve kalan tüm aykırılıklar kaldırılır.
+Projeksiyon Normal Form (PJNF) olarakta adlandırılır. 4NF’de kaldırılmamış olan
+tekrarlamalar daha <u><strong>küçük tablolara bölünerek</strong></u> kaldırılır.<br>     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question50">
+	<p class="question">Soru 50:<br> I. Günümüzde modern ilişkisel veri tabanı modellerinde genelde 4. normal formdan sonrası genelde uygulanmaz.
+II. 4NF üzeri normalleştirmeler veri tabanında çok fazla tablo ve ilişki oluşturur.
+III. 3NF veri tabanı modeli ile daha az karmaşık bitişme kullanan SQL komutları kullanır.
+Normal Formlar ile ilgili yukarıdaki ifadelerden hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description50">Açıklama</button>
+		<div id="description50" class="collapse">      Günümüzde modern ilişkisel veri tabanı modellerinde genelde 3. normal formdan sonrası genelde uygulanmaz. <br><br>
+3NF üzeri normalleştirmeler veri tabanında çok fazla tablo ve ilişki oluşturur. Bunun sonucunda da uygulamada oluşturulacak SQL bitişmeleri çok karmaşık olur.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question51">
+	<p class="question">Soru 51:<br> Ekleme aykırılığı oluşmaması için öncelikle asıl tabloya kayıt eklenmeli daha sonra detay tabloya ilgili kaydın detayları eklenmelidir.<br>
+Silme aykırılığını önlemek için öncelikle asıl tablodan sonra da detay tablodan kayıtlar silinmelidir.<br>
+Güncelleme aykırılığını önlemek için birincil anahtar değerinde güncelleme yaparken detay tablolarda da ilişkili yabancı anahtarlar sırasıyla güncellenmelidir.<br><br>
+Verilen maddelerden hangisi/hangileri aykırılıklar ile ilgili doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yalnız III </span><br>
+	<span class="option" data-correct="true"><b>D)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description51">Açıklama</button>
+		<div id="description51" class="collapse">      Silme aykırılığı, asıl ve detay ilişkili tablolarda, kayıtların detay bilgilerini silmeden asıl tablodaki satırlarının silinmesi ile oluşur. Bu aykırılığı önlemek için öncelikle detay tablodan sonra da asıl tablodan kayıtlar silinmelidir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question52">
+	<p class="question">Soru 52:<br> I. Her bir alan atomik değer içermelidir
+II. Bir alandaki değerler aynı veri tipinde olmalıdır
+III. Tekrar eden gruplar kaldırılmaz.
+Yukarıdakilerden hangisi normalleştirmesinin ilk aşamasında uygulanan kurallardan biridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description52">Açıklama</button>
+		<div id="description52" class="collapse">      Veritabanı normalleştirmesinin ilk aşamasında (1NF) uygulanan kurallar:<br><br> • Tekrar eden gruplar kaldırılır. <br>• Birincil anahtar tanımlanır. Birincil anahtar benzersiz olup tekrarlı değerlere izin vermez. <br>• Bütün diğer alanlar birincil anahtar ile doğrudan ya da dolaylı benzersiz olarak belirlenebilir. <br>• Her bir alan atomik değer içermelidir. <br>• Bir alandaki değerler aynı veri tipinde olmalıdır.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question53">
+	<p class="question">Soru 53:<br> Veri tabanı tablosundaki alanların belirlenmesi için hangi ifadeler kullanılmaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Alan </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Alan ve sütun </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Öznitelik </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Öznitelik ve sütun </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Öznitelik, alan ve sütun </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description53">Açıklama</button>
+		<div id="description53" class="collapse">      Alan, sütun ve öznitelik ifadelerinin hepsi veri tabanı tablosundaki alanları belirmek için kullanılan terimlerdir.     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question54">
+	<p class="question">Soru 54:<br> Aşağıdakilerden hangisi normalleştirme yapmanın amaçlarından birisi <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Veri artıklıgını (redundancy) minimum yapmak. Böylece aykırılıklar önlenmiş ve fiziksel veri saklama alanından tasarruf edilmiş olur. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Veri bütünlüğünü sağlayan kısıtların uygulamasını basitleştirmek </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veri islemeyi (ekleme, güncelleme ve silme) daha basit hâle getirmek </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Gerçek varlık ve ilişkileri daha iyi temsil edecek veritabanı modeli tasarımını gerçekleştirmek ve ilerideki geliştirmeler için sağlam bir taban oluşturmak. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Fiziksel veri saklama alanının daha çok kullanımı sağlamak </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description54">Açıklama</button>
+		<div id="description54" class="collapse">      1. Veri artıklığı (redundancy) minimum yapmak. Böylece aykırılıklar önlenmiş ve fiziksel veri saklama alanından <u><strong>tasarruf edilmiş</strong></u> olur.<br><br>
+2. Veri bütünlüğünü sağlayan kısıtların uygulamasını basitleştirmek. Eğer bir alan tanımı birden fazla tabloda var ise farklı tablolardaki bu alanlar bir süre sonra birbirinden faklı değerler içermeye başlayacaktır. Bu tip aynı alanın farklı tablolarda tekrar tanımının önlenmesi gerekir. Ayrıca bir tabloda aynı bilgiler yinelenen satırlarda saklanırsa ekleme, silme ve güncelleme aykırılıklarına sebep olur ve veri bütünlüğünü korunamaz. Aykırılığa sebep olan ilişkiler tekrar yapılandırılmalıdır.<br><br>
+3. Veri islemeyi (ekleme, güncelleme ve silme) daha basit hâle getirmek. Daha basit SQL komutları daha yüksek performansta veriye erişimi sağlayabilecektir.<br><br>
+4. Gerçek varlık ve ilişkileri daha iyi temsil edecek veri tabanı modeli tasarımını gerçekleştirmek ve ilerideki geliştirmeler için sağlam bir taban oluşturmak.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question55">
+	<p class="question">Soru 55:<br> Aşağıdakilerden hangisi 2NF için yanlış bir bilgidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Tüm anahtar olmayan alanlar birincil anahtara tam fonksiyonel bağımlı olmalıdır. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> 2NF sonucunda elde edilen tablolarda kısmi bağımlılıklar kaldırıldığı için güncelleme aykırılığı çözülür. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kısmi bağımlılıklar kaldırılmalıdır.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 2NF sonucunda satır ekleme aykırılığı görülebilir.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 2NF sonucunda satır silme aykırılığı görülebilir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description55">Açıklama</button>
+		<div id="description55" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question56">
+	<p class="question">Soru 56:<br> Modern ilişkisel veritabanlarında hangi seviyeye kadar (o seviye dahil) uygulanan normalleştirme işlemleri daha kolay SQL komutları ile işlem yapmaya ve performansı üst noktaya çıkarma amacıyla tercih edilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Birinci normal form </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İkinci normal form </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Üçüncü normal form </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Dördüncü normal form </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Beşinci normal form </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description56">Açıklama</button>
+		<div id="description56" class="collapse">      4 ve 5. normal formun uygulanması, tablolarda daha az verinin tutulmasını sağlar ancak çok fazla tablo olması çok fazla ilişki olmasına, daha karmaşık SQL sorgularına ve daha uzun sorgu sürelerine sebep olur. Bu nedenle 3. normal form uygulandıktan sonra genellikle düzenleme tamamlanmış olur.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question57">
+	<p class="question">Soru 57:<br> I. Veri artıklığını minimum yapmak<br>
+I. Veri bütünlüğünü sağlayan kısıtların uygulamasını basitleştirmek<br>
+I. Veri işlemeyi daha basit hâle getirmek<br><br>
+Verilen maddelerden hangisi/hangileri normalleştirmenin amaçlarındandır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description57">Açıklama</button>
+		<div id="description57" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

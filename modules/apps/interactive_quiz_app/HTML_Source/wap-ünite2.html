@@ -1,0 +1,1459 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+	  
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA II
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama2-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama2-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama2-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama2-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama2-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama2-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama2-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama2-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama2-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama2-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB ARAYÜZ PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİ YAPILARI
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veriyap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veriyap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veriyap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veriyap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veriyap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veriyap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veriyap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veriyap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veriyap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veriyap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          MOBİL UYGULAMA GELİŞTİRME
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="mobilug-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="mobilug-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="mobilug-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="mobilug-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="mobilug-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="mobilug-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="mobilug-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="mobilug-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="mobilug-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="mobilug-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          UNIX SİSTEM YÖNETİMİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="unixsy-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="unixsy-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="unixsy-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="unixsy-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="unixsy-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="unixsy-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="unixsy-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="unixsy-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="unixsy-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="unixsy-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Web Arayüz Programlama - Ünite 2 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	<button class="block-group" data-start="40" data-end="59">Part 3</button>
+	  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Aşağıdakilerden hangisi doğru bir CSS kuralı
+yazımıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> h1[color:gray;] </span><br>
+	<span class="option" data-correct="false"><b>B)</b> p=color:gray; </span><br>
+	<span class="option" data-correct="true"><b>C)</b> h1{color:gray;} </span><br>
+	<span class="option" data-correct="false"><b>D)</b> h1=”color:gray;” </span><br>
+	<span class="option" data-correct="false"><b>E)</b> h1 color:gray; </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Aşağıdaki seçeneklerden hangisinde external
+css dosyasını HTML dosyasına dahil etmek için gereken kod tam ve eksiksiz şekilde verilmiştir? </p>
+	<span class="option" data-correct="true"><b>A)</b> &lt;link rel="stylesheet" href="style.css"&gt; </span><br>
+	<span class="option" data-correct="false"><b>B)</b> &lt;link rel="css" href="style.css"&gt; </span><br>
+	<span class="option" data-correct="false"><b>C)</b> &lt;css rel="stylesheet" href="style.css"&gt; </span><br>
+	<span class="option" data-correct="false"><b>D)</b> &lt;link rel="style.css"&gt; </span><br>
+	<span class="option" data-correct="false"><b>E)</b> &lt;link rel="stylesheet"&gt; </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Aşağıdaki ifadelerden hangisi doğrudur? </p>
+	<span class="option" data-correct="true"><b>A)</b> Margin kutu ile diğer kutular arasındaki boşluktur. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Padding ile oluşturulan kenar çizgisi renklendirilebilir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Padding kutuyu çevreleyen sınır çizgisidir </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Border kutu içinde verilen boşluktur </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Border kutunun boyutunun belirtildiği özelliktir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      Margin: Kutu modelinin en dış katmanıdır. HTML elemanlarının dışında boşluk oluşturmak için kullanılır.<br><br>
+Padding: Padding özelliği, bir öğenin içeriği ile kenarlığı arasında ne kadar boşluk görünmesi gerektiğini belirtmemizi
+sağlar.<br><br>
+Border: Kutu modelinde sınırları ifade eden bu özellik gerektiğinde kutunun etrafında çizgi çizmek içinde kullanılır. Bu çizginin kalınlığı değiştirilebilir ve renklendirilebilir.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Aşağıdakilerden hangisi temel seçicilerden
+<u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Etiket Seçicisi </span><br>
+	<span class="option" data-correct="true"><b>B)</b> x Seçicisi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Attribute Seçicisi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Class Seçicisi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Id Seçicisi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      Aşağıdaki listede 5 temel seçici verilmiştir.<br><br>
+1. * Seçicisi<br>
+2. Etiket Seçici<br>
+3. Class Seçici<br>
+4. Id Seçici<br>
+5. Attribute (Özellik) Seçici     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Aşağıdakilerden hangisi seçici birleştirmelerinde kullanılan simgelerden <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> boşluk </span><br>
+	<span class="option" data-correct="false"><b>B)</b> &gt; </span><br>
+	<span class="option" data-correct="false"><b>C)</b> + </span><br>
+	<span class="option" data-correct="true"><b>D)</b> * </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ~ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      <u><strong>Descendant Seçicisi (Boşluk)</strong></u> : Kelime anlamı alt seçici olan descendant seçicisi, belirtilen bir ögenin tüm alt elemanlarına ulaşmaya yarar. <br><br>
+	<u><strong>Child Seçici (&gt;)</strong></u> : Child seçici, belirtilen bir elemanın bir altında bulunan elemanları seçmek için kullanılır. Descendant ilk seçicinin altındaki tüm seviyeden ikinci seçicileri alırken Child seçici bir alt seviyedeki seçicileri alır.	<br><br>
+<u><strong>Adjacent Sibling Seçici (+)</strong></u> : Kelime anlamı bitişik kardeş denilen Adjacent Sibling Seçicisi belirli bir ögeden sonra gelen ögeyi seçmek için kullanılır. Her iki ögenin de aynı seviyede olması gerekir. Seçiciler arasına "+" işareti konulur.<br><br>
+<u><strong>Genel Sibling Seçici (~)</strong></u> : Genel Sibling Seçicisi belirli bir ögeden sonra gelen tüm ögeleri seçmek için kullanılır.	
+
+		</div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> CSS kuralları uygulanırken öncelik sıralamasında aşağıdakilerden hangisi diğerlerinden daha
+önceliklidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Attribute seçicisi ile yazılan kural </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Etiket seçicisi ile yazılan kural </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Class seçicisi ile yazılan kura </span><br>
+	<span class="option" data-correct="false"><b>D)</b> * seçicisi ile yazılan kura </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Id seçicisi ile yazılan kural </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      öncelik vermek istediğiniz özelliğe !important anahtar kelimesini kullanarak öncelik
+verebilirsiniz.<br><br>
+Tarayıcılar aynı özelliğe etki eden stil kuralları uygularken kuralın seçici öncelikleri ile sıralama yaparlar.<br><br>
+Seçici öncelikleri aşağıdaki gibidir:<br>
+1. Inline yazılan kural<br>
+2. Id Seçicisi<br>
+3. Attribute Seçicisi<br>
+4. Class Seçicisi<br>
+5. Etiket Seçicisi<br>
+6. * Seçicisi     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> Aşağıdakilerden hangisi ögenin arka planında bulunan ve ögenin tekrar edilmesini engellemek için kullanılacak kuraldır? </p>
+	<span class="option" data-correct="false"><b>A)</b> background-color: yellow; </span><br>
+	<span class="option" data-correct="false"><b>B)</b> background-color: none; </span><br>
+	<span class="option" data-correct="false"><b>C)</b> background-repeat: none; </span><br>
+	<span class="option" data-correct="true"><b>D)</b> background-repeat: no-repeat; </span><br>
+	<span class="option" data-correct="false"><b>E)</b> background-attachment: no-repeat; </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> Aşağıdakilerden hangisi position özelliğinin
+aldığı değerlerden <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> static </span><br>
+	<span class="option" data-correct="true"><b>B)</b> inline </span><br>
+	<span class="option" data-correct="false"><b>C)</b> absolute </span><br>
+	<span class="option" data-correct="false"><b>D)</b> sticky </span><br>
+	<span class="option" data-correct="false"><b>E)</b> fixed </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      özelliğinin aldığı değerler aşağıdaki gibidir:<br>
+• static<br>
+• absolute<br>
+• relative<br>
+• fixed<br>
+• sticky     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> Aşağıdakilerden hangisinde overflow özelliğinin kullanımı <u><strong>yanlış</strong></u> verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> overflow: hidden; </span><br>
+	<span class="option" data-correct="false"><b>B)</b> overflow: auto;
+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> overflow: visible;
+ </span><br>
+	<span class="option" data-correct="true"><b>D)</b> overflow: none; </span><br>
+	<span class="option" data-correct="false"><b>E)</b> overflow: scroll; </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      Overflow özelliği, içeriğin belirli bir alana veya ekrana sığmadığı durumlarda fazla içerik için ne yapılması gerektiğini bildirmek için kullanılır. Aşağıdaki değerler ile kullanılır:<br> <br> 
+• visible<br> <br> 
+• hidden
+• scroll<br> 
+• auto   </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Ögeyi ekrandan kaldırmak için kullanılabilecek kod aşağıdakilerden hangisinde doğru olarak
+verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> display: inline-block;
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> display: block; </span><br>
+	<span class="option" data-correct="true"><b>C)</b> display: none; </span><br>
+	<span class="option" data-correct="false"><b>D)</b> display: inline; </span><br>
+	<span class="option" data-correct="false"><b>E)</b> display: disable; </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> index.js dosyasının iskeletini ! işareti yazdıktan sonra hangi tuşa basarak oluşturabiliriz ? </p>
+	<span class="option" data-correct="true"><b>A)</b> Tab </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Shift </span><br>
+	<span class="option" data-correct="false"><b>C)</b> CTRL </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ALT </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Enter </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> Internal (Dâhilî) yöntem ile oluşturulan CSS dosyalarının harici olarak oluşturulan CSS dosyalarına göre avantajı hangi seçenekte doğru olarak verilmiştir ? </p>
+	<span class="option" data-correct="false"><b>A)</b> Farklı bir dosyada oluşturulan CSS kodları web sayfasına dahil edilerek kullanılabilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Aynı özellikleri taşıyan web sayfalarındaki elemanların her birinde değişiklik yaparken, yaptığınız değişiklik tüm sayfalarda etkili olur. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bu yöntemde farklı bir dosyada oluşturulan CSS kodları web sayfasına dahil edilerek kullanılabilir. </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Ayrı bir css dosyası ile ilgilenmeniz gerekmez. Küçük ve tek sayfalık projelerde kullanılabilir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Büyük projelerde tanımladığınız CSS dosyalarını çağırabilirsiniz. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Aşağıdakilerden hangisi CSS yazım yöntemlerinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Inline </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Internal </span><br>
+	<span class="option" data-correct="false"><b>C)</b> External </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Satır İçi </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Satır dışı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> Aşağıdakilerden hangisi CSS’de yerleşim yaparken kullanılan modelin adıdır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Kutu </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Seçiciler </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Basamak Yapısı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Margin </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Border </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> Aşağıdakilerden hangisi Overflow özelliği ile birlikte kullanılan değerlerden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Visible </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Hidden </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Scroll </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Auto </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Manuel </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> CSS, ögeleri sayfa üzerinde konumlandırırken hangi özelliği kullanmaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Display </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Position </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Z-İndex </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Overflow </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Margin </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> CSS Yazım Yöntemleri ile ilgili aşağıda verilenlerden hangisi doğru <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> External CSS'de farklı bir dosyada oluşturulan CSS kodları web sayfasına dahil edilerek kullanılabilir.  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Internal CSS'de ayrı bir css dosyası ile ilgilenmeniz gerekmez. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Inline CSS'de HTML etiketinin style özelliği içerisine doğrudan CSS kodu yazılabilir.  </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Büyük projelerde External CSS kullanmanın avantajları oldukça fazladır. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Küçük ve tek sayfalık projelerde External CSS kullanmak daha avantajlıdır.  </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      Küçük ve tek sayfalık projelerde <u><strong>Internal CSS</strong></u> kullanmak daha avantajlıdır.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Öncelik vermek istenilen özelliğe ilişkin olarak kullanacak basamakta hangi kelimeyi kullanmak kendisinden önceki özelliklerin ezilerek yeni özelliğin kullanılmasını sağlar?  </p>
+	<span class="option" data-correct="true"><b>A)</b> !important </span><br>
+	<span class="option" data-correct="false"><b>B)</b> !alert </span><br>
+	<span class="option" data-correct="false"><b>C)</b> !stop </span><br>
+	<span class="option" data-correct="false"><b>D)</b> !significant </span><br>
+	<span class="option" data-correct="false"><b>E)</b> !urgent </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> Bir görüntünün arka planda kaydırılmasını kontrol etmek için background ile ilgili kullanılması gereken CSS komutu aşağıdakilerin hangisinde doğru verilmiştir?  </p>
+	<span class="option" data-correct="true"><b>A)</b> background-attachment </span><br>
+	<span class="option" data-correct="false"><b>B)</b> background-color </span><br>
+	<span class="option" data-correct="false"><b>C)</b> background-image </span><br>
+	<span class="option" data-correct="false"><b>D)</b> background-repeat </span><br>
+	<span class="option" data-correct="false"><b>E)</b> background-position </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> Aşağıda verilen kodlardan hangisi ögenin referans noktasına belirtilmedi ise body elemanını referans noktası olarak seçer?  </p>
+	<span class="option" data-correct="false"><b>A)</b> static  </span><br>
+	<span class="option" data-correct="true"><b>B)</b> absolute  </span><br>
+	<span class="option" data-correct="false"><b>C)</b> relative  </span><br>
+	<span class="option" data-correct="false"><b>D)</b> fixed </span><br>
+	<span class="option" data-correct="false"><b>E)</b> sticky  </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      Absolute kodu ögenin konumunu referans noktasına göre konumlandırır. Parent ögelerden birisi position:relative özelliği alıyorsa referans noktası olarak onu seçer. Referans belirtilmediyse body elemanını referans olarak seçer.      </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Aşağıdakilerden hangisi 5 temel seçiciden biri değildir ? </p>
+	<span class="option" data-correct="false"><b>A)</b> Etiket Seçici </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Class Seçici </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Id Seçici </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Attribute (Özellik) Seçici </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Grup Seçici </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      Aşağıdaki listede 5 temel seçici verilmiştir.<br>
+1. * Seçicisi<br>
+2. Etiket Seçici<br>
+3. Class Seçici<br>
+4. Id Seçici<br>
+5. Attribute (Özellik) Seçici     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Sayfamızda bulunan linkleri ziyaret edildikten sonra farklı renk yapmak istersek hangi pseudo sınıfının kullanılması gerekir?  </p>
+	<span class="option" data-correct="true"><b>A)</b> :visited </span><br>
+	<span class="option" data-correct="false"><b>B)</b> :hover </span><br>
+	<span class="option" data-correct="false"><b>C)</b> :active </span><br>
+	<span class="option" data-correct="false"><b>D)</b> :focus </span><br>
+	<span class="option" data-correct="false"><b>E)</b> :link  </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> Aşağıdakilerden hangisi HTML'nin özelliklerindendir? </p>
+	<span class="option" data-correct="false"><b>A)</b> İşletim sistemi yazım dilidir. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Web sayfaları HTML yapısı kullanılarak tasarlanır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Stil şablonları olmadığı sürece web sayfası oluşturmakta yeterli değildir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Standartları CSS topluluğu tarafından belirlenmiştir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Web sayfalarına renk, düzen ve tasarım eklenmesine ve stilleri ögeden öğeye paylaşmaya olanak tanır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br>  I. "*" operatöründen sonra süslü parantezler içerisine kurallar yazılır.<br>
+II. Sınıf seçici en çok kullanılan seçici türüdür.<br>
+III. Belirli bir özelliği olan HTML elemanlarını stillendirmek için attribute seçici kullanılır.<br>
+IV. CSS dosyalarında sınıflara kurallar yazılırken noktalı virgül işareti ile başlamalıdır. <br><br>
+Yukarıda temel seçiciler ile ilgili olarak verilen özelliklerden hangileri doğrudur?  </p>
+	<span class="option" data-correct="false"><b>A)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> III ve IV </span><br>
+	<span class="option" data-correct="true"><b>D)</b> I, II ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II, III ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      CSS dosyalarında sınıflara kurallar yazılırken <u><strong>nokta  işareti</strong></u> ile başlamalıdır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> Child seçici kullanılacak ise birleştirilecek seçiciler arasına hangi işaret konulmalıdır?  </p>
+	<span class="option" data-correct="false"><b>A)</b> + </span><br>
+	<span class="option" data-correct="false"><b>B)</b> / </span><br>
+	<span class="option" data-correct="true"><b>C)</b> &gt; </span><br>
+	<span class="option" data-correct="false"><b>D)</b> * </span><br>
+	<span class="option" data-correct="false"><b>E)</b> # </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      Child seçici, belirtilen bir elemanın bir altında bulunan elemanları seçmek için kullanılır. Descendant (boşluk) ilk seçicinin altındaki tüm seviyeden ikinci seçicileri alırken Child seçici bir alt seviyedeki seçicileri alır. Birleştirilecek seçiciler arasına "&gt;" işareti konulur.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> CSS'te bir rengi belirtmek için aşağıda verilen formatlardan hangisi kullanılmaz?  </p>
+	<span class="option" data-correct="false"><b>A)</b> Hex Kod </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kısa Hex Kod </span><br>
+	<span class="option" data-correct="false"><b>C)</b> RGB </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Anahtar Kelime </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Rem </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> I.Türkçesi Basamaklı Stil Şablonudur.<br>
+II. Günümüzde CSS15 olarak adlandırılan versiyonu kullanılmaktadır.<br>
+III. Kural tabanlı bir dildir. <br>
+IV. HTML dokümanı içerisinde yazılabildiği gibi HTML’den ayrı dosyada da yazılabilir. <br><br>
+CSS ile ilgili yukarıda verilen bilgilerden hangileri doğrudur?  </p>
+	<span class="option" data-correct="false"><b>A)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>D)</b> I, III ve IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      HTML standartlarını belirleyen W3C topluluğu 1996 yılında Türkçesi Basamaklı Stil Şablonu olan ve CSS (Cascade Style Sheets) olarak bilinen yapıyı duyurdu.CSS kural tabanlı bir dildir.Zamanla gelişen CSS’nin, günümüzde <u><strong>CSS3</strong></u> olarak adlandırılan versiyonu kullanılmaktadır. CSS, HTML dokümanı içerisinde yazılabildiği gibi HTML’den ayrı dosyada da yazılabilir. Bu nedenle D seçeneği doğrudur.      </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> h1  {<br>
+&emsp;color red;<br>
+&emsp;font-size: 25px;<br>
+}<br><br>
+Yukarıdaki kod ile aynı işleve sahip olan seçenek hangisidir ? </p>
+	<span class="option" data-correct="true"><b>A)</b> h1 {color: red; font-size: 25px;} </span><br>
+	<span class="option" data-correct="false"><b>B)</b>  h1 { color: red: font-size: 25px. } </span><br>
+	<span class="option" data-correct="false"><b>C)</b> h1 {color, red, font-size, 25px.} </span><br>
+	<span class="option" data-correct="false"><b>D)</b> h1 {color; red; font-size; 25px.} </span><br>
+	<span class="option" data-correct="false"><b>E)</b> h1 {color red : font-size 25px.} </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      Tanımlanan içeriklerin hepsi ; ile sonlandırılmalıdır.     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> Aşağıdakilerden hangisi kutu modelinde içeriği saran katmanlardan biridir ? </p>
+	<span class="option" data-correct="true"><b>A)</b> Border </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Content </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Attribute </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Background </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Display </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> Kutu modelinin en dış katmanıdır. HTML elemanlarının dışında boşluk oluşturmak için kullanılır.
+Verilen pozitif değerler boşluğu büyütürken aynı zamanda negatif değerler vererek kutuların birbiri üstüne gelmesi de sağlanabilir.<br><br>
+Yukarıda özellikleri verilen terim aşağıdakilerin hangisinde doğru verilmiştir?  </p>
+	<span class="option" data-correct="true"><b>A)</b> Margin  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Border </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Content </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Padding </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Seçiciler </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> Günümüzde tüm tarayıcı ve cihazlarda kullanılabilen CSS hangi amaçla geliştirilmiştir? </p>
+	<span class="option" data-correct="true"><b>A)</b> CSS, HTML sayfalarının görsel açıdan yetersiz olması nedeniyle geliştirilmiştir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> CSS'nin sunduğu imkanlar nelerdir?
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> - Web sayfalarına renk, düzen ve tasarım eklenmesine ve stilleri ögeden öğeye ve sayfadan sayfaya paylaşmaya olanak tanır.<br>
+- Web sayfalarının sunumunu tamamlayan dildir.<br>
+- Sunumun büyük ekran, küçük ekran, yazıcı gibi farklı türdeki cihazlara uygulanabilmesine olanak tanır.<br>
+- CSS, HTML dokümanı içerisinde yazılabildiği gibi HTML’den ayrı dosyada da yazılabilir. Bu sayede farklı sayfalarda da kullanılabilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> External (Harici) CSS'nin işlevi nedir?
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Bu yöntemde farklı bir dosyada oluşturulan CSS kodları web sayfasına dahil edilerek kullanılabilir. Büyük projelerde tanımladığınız CSS dosyalarını bu yöntemle çağırarak her web sayfası için aynı kodları kullanabilirsiniz. Böylelikle yeniden yazmaktan kurtulacağınız gibi aynı özellikleri taşıyan web sayfalarındaki elemanların her birinde değişiklik yaparken tek bir yerden yaptığınız değişiklik tüm sayfalarda etkili olacaktır ve uygulamanızın bakımı kolaylaşacaktır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> Internal (Dâhilî) CSS olarak adlandırılan yöntemin external CSS yönteminden avantajlarıı nelerdir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Bu yöntemin External CSS yönteminden avantajı ayrı bir css dosyası ile ilgilenmeniz gerekmez. Küçük ve tek sayfalık projelerde kullanılabilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> Internal (Dâhilî) CSS olarak adlandırılan yöntemin external CSS yönteminden dezavantajlarıı nelerdir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Birden fazla web sayfasında aynı elemanı kullandığınızda (örneğin <header> gibi.) her sayfada tekrar stillendirme yapmanız gerekmektedir. Diğer bir dezavantajı ise HTML dokümanı çok uzadığında CSS kodları da uzayacağı için çalışılması zor bir projeye dönüşecektir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> Border özelliği hangi amaçla kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Kutu modelinde sınırları ifade eden bu özellik gerektiğinde kutunun etrafında çizgi çizmek içinde kullanılır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> Padding özelliği ne amaçla kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Padding özelliği, bir öğenin içeriği ile kenarlığı arasında ne kadar boşluk görünmesi gerektiğini belirtmemizi sağlar. Değer olarak uzunluk, yüzde veya inheritance olmalıdır. Değer inheritance olursa, üst ögesiyle aynı padding değerini alır. Yüzde kullanılırsa, yüzde, içeren kutunun değeridir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> "*" Seçicisinin işlevi nedir? 
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Sayfadaki bütün elemanlara etki eder. "*" operatöründen sonra süslü parantezler içerisine kurallar yazılır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> Sınıf seçicisinin özellikleri nelerdir? 
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> ögelerin alt özelliklerinden olan class="" özelliği ile belirtilen sınıf isimlerini kullanarak seçim yapar. En sık kullanılan seçici türüdür. Uygulanmak istenen bir veya daha fazla HTML elemanına class="" özelliği ile sınıf ataması yapılmalıdır. CSS dosyasında bu sınıfa yazılan kurallar HTML sayfasında bu sınıfın atamasının yapıldığı tüm elemanları etkiler. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> Pseudo elementlerin işlevi nelerdir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Pseudo elementler, bazı seçicilere özel efektler yüklemek için kullanılır. Pseudo sınıflar ögelerin durumuna göre stillendirmeler yaparken pseudo elementler ögenin bir parçasına, öncesine veya sonrasına stillendirme yapar diyebiliriz. JavaScript dosyalarına gerek duymadan bu efektleri uygulayabilmemizi sağlar. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question41">
+	<p class="question">Soru 41:<br> Child seçicinin descendant seçiciden farkı nedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Descendant ilk seçicinin altındaki tüm seviyeden ikinci seçicileri alırken Child seçici bir alt seviyedeki seçicileri alır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description41">Açıklama</button>
+		<div id="description41" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question42">
+	<p class="question">Soru 42:<br> Seçici öncelikleri nasıl sıralanır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Tarayıcılar aynı özelliğe etki eden stil kuralları uygularken kuralın seçici öncelikleri ile sıralama yaparlar.<br><br>
+Seçici öncelikleri aşağıdaki gibidir:<br>
+1. Inline yazılan kural<br>
+2. Id Seçicisi<br>
+3. Attribute Seçicisi<br>
+4. Class Seçicisi<br>
+5. Etiket Seçicisi<br>
+6. * Seçicisi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description42">Açıklama</button>
+		<div id="description42" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question43">
+	<p class="question">Soru 43:<br> Hex kod renk gösteriminin özellikleri nelerdir?  </p>
+	<span class="option" data-correct="true"><b>A)</b> On altılık, bir rengin 6 basamaklı gösterimidir. İlk iki basamak (RR) kırmızı değerleri, sonraki ikisi (GG) yeşil değerleri ve son iki basamak(BB) mavi değerleri ifade eder. Adobe Photoshop, Jasc Paintshop Pro gibi herhangi bir grafik yazılımından renklerin Hex Kod karşılığı alınabilir. Başına ‘#’ işareti konularak kullanılır. Siyah renk #000000 ifade edilirken kırmızı #FF0000 , beyaz ise #FFFFFF ile ifade edilebilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description43">Açıklama</button>
+		<div id="description43" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question44">
+	<p class="question">Soru 44:<br> Background ile ilgili CSS komutları ve özellikleri nelerdir? </p>
+	<span class="option" data-correct="true"><b>A)</b> • background-color: Bir ögenin arka plan rengini ayarlamak için kullanılır.<br>
+• background-image: Bir ögenin arka plan görüntüsünü ayarlamak için kullanılır.<br>
+• background-repeat: Arka planda bir görüntünün tekrarını kontrol etmek için kullanılır.<br>
+• background-position: Bir görüntünün arka planda konumunu kontrol etmek için kullanılır.<br>
+• background-attachment: Bir görüntünün arka planda kaydırılmasını kontrol etmek için kullanılır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description44">Açıklama</button>
+		<div id="description44" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question45">
+	<p class="question">Soru 45:<br> Position özelliğinin aldığı değerler hangileridir?  </p>
+	<span class="option" data-correct="true"><b>A)</b> Position özelliğinin aldığı değerler aşağıdaki gibidir:<br><br>
+• static<br>
+• absolute<br>
+• relative<br>
+• fixed<br>
+• sticky </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description45">Açıklama</button>
+		<div id="description45" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question46">
+	<p class="question">Soru 46:<br> Overflow özelliği hangi amaçla kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Overflow özelliği, içeriğin belirli bir alana veya ekrana sığmadığı durumlarda fazla içerik için ne yapılması gerektiğini bildirmek için kullanılır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description46">Açıklama</button>
+		<div id="description46" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question47">
+	<p class="question">Soru 47:<br> Overflow özelliği hangi değerler ile kullanılır?  </p>
+	<span class="option" data-correct="true"><b>A)</b> Overflow özelliği aşağıdaki değerlerle kullanılır:<br><br>
+• visible<br>
+• hidden<br>
+• scroll<br>
+• auto </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description47">Açıklama</button>
+		<div id="description47" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question48">
+	<p class="question">Soru 48:<br> Overflow:Visible değerinin özelliği nelerdir?  </p>
+	<span class="option" data-correct="true"><b>A)</b> Tarayıcılar tarafından kullanılan varsayılan değerdir. Taşma kontrol edilmez. İçerik kutunun dışına taşar. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description48">Açıklama</button>
+		<div id="description48" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question49">
+	<p class="question">Soru 49:<br> Overflow:Hidden değeri hangi durumda kullnılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Taşmayı kırpmak istediğimizde kullanmamız gereken değerdir. Kutunun dışında kalan içerik gizlenir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description49">Açıklama</button>
+		<div id="description49" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question50">
+	<p class="question">Soru 50:<br> Overflow:Scroll ve Overflow:Auto değerlerinin işlevi nedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Bu iki özellik taşan elemanları kutunun içinde kaydırarak göstermek için scrollbar oluşturur. İçerik taştığı zaman ikisi de aynı davransa da overflow:scroll içerik taşmadığı zamanlarda da scrollbarı gösterebilmektedir. Bunun yerine overflow:auto kullanılması tercih edilebilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description50">Açıklama</button>
+		<div id="description50" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

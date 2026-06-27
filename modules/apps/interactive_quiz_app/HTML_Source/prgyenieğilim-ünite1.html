@@ -1,0 +1,1681 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          ALGORİTMALAR
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="alg-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="alg-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="alg-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="alg-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="alg-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="alg-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="alg-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="alg-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="alg-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="alg-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB SUNUCU PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wsp-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wsp-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wsp-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wsp-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wsp-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wsp-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wsp-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wsp-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wsp-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wsp-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİ MADENCİLİĞİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="vmaden-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="vmaden-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="vmaden-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="vmaden-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="vmaden-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="vmaden-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="vmaden-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="vmaden-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="vmaden-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="vmaden-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİTABANI SİSTEMLERİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="vtsistem-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="vtsistem-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="vtsistem-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="vtsistem-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="vtsistem-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="vtsistem-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="vtsistem-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="vtsistem-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="vtsistem-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="vtsistem-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMADA YENİ EĞİLİMLER
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="prgyenieğilim-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="prgyenieğilim-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Programlamada Yeni Eğilimler - Ünite 1 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	<button class="block-group" data-start="40" data-end="59">Part 3</button>
+	  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Bir	Scrum	Sprinti	içinde	Ürün İş	Listesinde	önceliklendirilmiş hangi işlerin Sprint için seçileceğine kim karar verir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Scrum Master </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ürün Sahibi </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Geliştirme Ekibi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Paydaşlar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Proje Yöneticisi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Aşağıdaki etkinliklerden hangisi Scrum’da yoktur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Günlük Scrum
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sprint Değerlendirme </span><br>
+	<span class="option" data-correct="false"><b>C)</b>  Sprint	Retrospektifi </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Sprint Ön Çalışma </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sprint Planlama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Aşağıdakilerden hangisi Günlük Scrum toplantısında bahsedilmemesi bir gereken konudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Bir önceki gün yapılan işler </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Bir işin nasıl yapılacağı ile ilgili kabul kriteri </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bugün yapılacak olan işler </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İşleri yapmak için mevcut engeller </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kalan iş eforu ile toplam efor karşılaştırması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Aşağıdakilerden hangisi Çevik Yazılım Prensiplerinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Çalışan yazılım ilerlemenin birincil ölçüsüdür </span><br>
+	<span class="option" data-correct="false"><b>B)</b> En iyi mimariler, gereksinimler ve tasarımlar kendi kendini örgütleyen takımlardan ortaya çıkar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Takım, düzenli aralıklarla nasıl daha etkili ve verimli olabileceğinin üzerinde düşünür ve davranışlarını buna göre ayarlar ve düzenler </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bir yazılım takımında bilgi alışverişinin en verimli ve etkin yöntemi yüz yüze iletişimdir </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Değişen gereksinimler yazılım sürecinin en son aşamasında kabul edilmez. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      Çevik Yazılım Geliştrme Manifestosu’ndaki bu maddelere ek olarak 12 adet Çevik Yazılım Prensibi de toplantı sonucu olarak yayınlanmıştır. Bu 12 prensip aşağıdaki gibidir:<br><br>
+1. En önemli önceliğimiz, değerli yazılımın erken ve devamlı teslimini sağlayarak müşterileri memnun etmektir.<br><br>
+<u><strong>2. Değişen gereksinimler yazılım sürecinin son aşamalarında bile kabul edilmelidir.</strong></u> Çevik süreçler değişimi, müşterinin rekabet avantajı için kullanır.<br><br>
+3. Çalışan yazılım, tercihen kısa zaman aralıkları belirlenerek birkaç haftada ya da birkaç ayda bir düzenli olarak müşteriye sunulmalıdır.<br><br>
+4. İş süreçlerinin sahipleri ve yazılımcılar proje boyunca her gün birlikte çalışmalıdırlar.<br><br>
+5. Projelerin temelinde motive olmuş bireyler yer almalıdır. Onlara ihtiyaçları olan ortam ve destek sağlanmalı, işi başaracakları konusunda güven duyulmalıdır.<br><br>
+6. Bir yazılım takımında bilgi alışverişinin en verimli ve etkin yöntemi yüzyüze iletişimdir.<br><br>
+7. Çalışan yazılım, ilerlemenin birincil ölçüsüdür.<br><br>
+8. Çevik süreçler sürdürülebilir geliştirmeyi teşvik etmektedir. Sponsorlar, yazılımcılar ve kullanıcılar sürekli olarak belirli bir tempoyu devam ettirebilmelidirler.<br><br>
+9. Teknik mükemmeliyet ve iyi tasarım konusundaki sürekli özen çevikliği artırır.<br><br>
+10. Sadelik, yapılmasına gerek olmayan işlerin mümkün olduğunca arttırılması sanatı, olmazsa olmazlardandır.<br><br>
+11. En iyi mimariler, gereksinimler ve tasarımlar kendi kendini örgütleyen takımlardan ortaya çıkar.<br><br>
+12. Takım, düzenli aralıklarla nasıl daha etkili ve verimli olabileceğinin üzerinde düşünür ve davranışlarını buna göre ayarlar ve düzenler.    </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Aşağıdakilerden hangisi çevik manifestoya uygun bir yaklaşımdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Projede kullanılması muhtemel olan tüm özelliklerin kullanım kılavuzunu, geliştirmeye başlamadan önce hazırlamak </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İstenilen özelliğin tam olarak çalışmadığı bir yazılım sürümü çıkartmak </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Müşterinin istediği tüm gereksinimleri en baştan söylemesini istemek </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Proje için sadece yeterli netlikte plan yapmak, tüm proje kapsamını en baştan netleştirmemek </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kullanımı ve ayarlaması zor olan ve vakit alan yardımcı araç kullanmak </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Scrum süreçlerinde gereksinimlerin kabul kriterleri en son kim tarafından onaylanır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Müşteri ve paydaşlar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Scrum Master </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Geliştirme Ekibi </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Ürün Sahibi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Son Kullanıcı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> Kod Yeniden Yapılandırması aşağıdaki hangi amaç için yapılabilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Kodun okunabilirliğini arttırmak </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kod davranışını güncellemek </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kodun çalışır olup olmadığını anlamak </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yeni bir gereksinimi mevcut yazılım içinde geliştirmek </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kod içinde kullanılan kütüphaneleri güncellemek
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> Aşağıdakilerden hangisi Scrum Master sorumluluklarından biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Scrum etkinliklerini organize etmek </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Scrum etkinliklerinde zaman kontrolü yapmak </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Scrum’ın ekip içinde anlaşılırlığını sağlamak </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Paydaşlar ile birlikte ürün vizyonu geliştirmek </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Geliştirme Ekibinin karşılaştığı problemleri çözmeye
+çalışmak </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br>  Sprint İş	Listesi	ne zaman	hazırlanır? </p>
+	<span class="option" data-correct="false"><b>A)</b> İstenilen herhangi bir zamanda </span><br>
+	<span class="option" data-correct="false"><b>B)</b>  İş	Listesi	gözden	geçirme	toplantısında </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Projenin en başında </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Sprint Planlama toplantısında </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sprint Değerlendirme toplantısında </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Bir Sprint ne zaman sona erer? </p>
+	<span class="option" data-correct="false"><b>A)</b> Sprint içindeki tüm işler bitince </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sprint	 için	 seçilmiş	 tüm Ürün İş	 Listesi	 kalemleri “Bitti” tanımına göre bitirildiğinde </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ekibin ortaklaşa belirlediği bir zamanda </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Daha önceden belirlenmiş Sprint uzunluğuna göre
+süre dolduğunda </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Ürün Sahibinin belirlediği bir zamanda </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> Aşağıdakilerden hangisi Çevik Yazılım Prensipleri arasında <u><strong>yer almaz?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Projelerin temelinde motive olmuş bireyler yer almalıdır.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Teknik mükemmeliyet ve iyi tasarım konusundaki sürekli özen çevikliği artırır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Değişen gereksinimler yazılım sürecinin son aşamalarında bile kabul edilmelidir. </span><br>
+	<span class="option" data-correct="true"><b>D)</b> İş süreçlerinin sahipleri ve yazılımcıların her gün birlikte çalışmalarına gerek yoktur. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Takım, düzenli aralıklarla nasıl daha etkili ve verimli olabileceğinin üzerinde düşünür ve davranışlarını buna göre düzenler. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">       Çevik Yazılım Geliştrme Manifestosu’ndaki bu maddelere ek olarak 12 adet Çevik Yazılım Prensibi de toplantı sonucu olarak yayınlanmıştır. Bu 12 prensip aşağıdaki gibidir:<br><br>
+1. En önemli önceliğimiz, değerli yazılımın erken ve devamlı teslimini sağlayarak müşterileri memnun etmektir.<br><br>
+2. Değişen gereksinimler yazılım sürecinin son aşamalarında bile kabul edilmelidir. Çevik süreçler değişimi, müşterinin rekabet avantajı için kullanır.<br><br>
+3. Çalışan yazılım, tercihen kısa zaman aralıkları belirlenerek birkaç haftada ya da birkaç ayda bir düzenli olarak müşteriye sunulmalıdır.<br><br>
+4. İş süreçlerinin sahipleri ve yazılımcılar proje boyunca her gün birlikte çalışmalıdırlar.<br><br>
+5. Projelerin temelinde motive olmuş bireyler yer almalıdır. Onlara ihtiyaçları olan ortam ve destek sağlanmalı, işi başaracakları konusunda güven duyulmalıdır.<br><br>
+6. Bir yazılım takımında bilgi alışverişinin en verimli ve etkin yöntemi yüzyüze iletişimdir.<br><br>
+7. Çalışan yazılım, ilerlemenin birincil ölçüsüdür.<br><br>
+8. Çevik süreçler sürdürülebilir geliştirmeyi teşvik etmektedir. Sponsorlar, yazılımcılar ve kullanıcılar sürekli olarak belirli bir tempoyu devam ettirebilmelidirler.<br><br>
+9. Teknik mükemmeliyet ve iyi tasarım konusundaki sürekli özen çevikliği artırır.<br><br>
+10. Sadelik, yapılmasına gerek olmayan işlerin mümkün olduğunca arttırılması sanatı, olmazsa olmazlardandır.<br><br>
+11. En iyi mimariler, gereksinimler ve tasarımlar kendi kendini örgütleyen takımlardan ortaya çıkar.<br><br>
+12. Takım, düzenli aralıklarla nasıl daha etkili ve verimli olabileceğinin üzerinde düşünür ve davranışlarını buna göre ayarlar ve düzenler.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> 1980’lerden 2000’li yıllara kadar uygulanan yazılım geliştirme süreçlerinin birçoğunda kullanılan ve tüm temel yazılım geliştirme faaliyetlerinin önceden belirlenen sabit bir zaman aralığında ve belirlenmiş bir sıra ile yapılmasını amaçlayan yaklaşımın adı nedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Şelale yaklaşımı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sistem yaklaşımı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yapısal programlama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sıralı geliştirme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Paralel geliştirme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Aşağıdakilerden hangisi bir Scrum çıktısı <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> İş Akışı Planı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ürün İş Listesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sprint İş Listesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Ürün Parçası </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bitti Tanımı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      Ürün İş Listesi, <br>
+Sprint İş Listesi, <br>
+Ürün Parçası, <br>
+Takım Hızı, <br>
+Bitti Tanımıdır.     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> Scrum’da Sprint değerlendirme toplantısının süresi en fazla ne kadar olmalıdır? </p>
+	<span class="option" data-correct="true"><b>A)</b> 4 saat </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 2 saat </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 8 saat </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 1 saat </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 15 dakika </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> Scrum Takımının tüm bir Sprint’in değerlendirmesini yaptığı, üç saat ile sınırlandırılmış, sürekli iyileştirmeye odaklanılan ve temel olarak bir sonraki Sprint sürecinde nelerin daha iyi yapılabileceği tartışıldığı, bitmekte olan Sprint’in süreç, insan ilişkileri, araçlar vb. konularda nasıl geçtiğinin gözlemlendiği, iyi giden ve verimsiz ilerleyen noktaların belirlendiği ve bir sonraki Sprint sürecinde yapılacak iyileştirmeler ile ilgili bir plan çıktısının oluşturulduğu toplantı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Sprint Retrospektifi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sprint Değerlendirme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Günlük Scrum </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sprint Planlama </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bitti tanımı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Aşağıdakilerden hangisi Çevik yazılım geliştirme yöntemlerinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Test Driven Development </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Extreme programming </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Feature-driven development </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Lean software development </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kanban  </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      • Adaptive software development (ASD) <br>
+• Agile modeling <br>
+• Agile Unified Process (AUP) <br>
+• Crystal Clear methods <br>
+• Disciplined agile delivery <br>
+• Dynamic systems development method (DSDM) <br>
+• Extreme programming (XP) <br>
+• Feature-driven development (FDD) <br>
+• Lean software development <br>
+• Kanban <br>
+• Rapid application development (RAD) <br>
+• Scrum <br>
+• Scrumban     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> Aşağıdakilerden hangisi Scrum'ın özelliklerinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Scrum uygulamasında tam olarak ustalaşmak zordur. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Scrum temelde genel bir çerçeve çizer ve anlaşılırlığı düşüktür.  </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Scrum herhangi değer üreten bir ürün geliştirmesi için de kullanılabilir.  </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Scrum, en çok yazılım projelerinde uygulanmaktadır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Scrum temel bileşenleri Scrum Ekibi, ekibin rolleri, etkinlikler, çıktılar ve kurallardır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      Scrum temelde genel bir çerçeve çizer ve içerisinde kullanılan süreç ve pratiklere karışmaz. <u><strong>Bu sebeple anlaşılırlığı yüksektir</strong></u>. Ancak bu basitliğin yanında, Scrum uygulamasında tam olarak ustalaşmak zordur.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> I. Belirli bir zaman aralığını temsil eder.<br>
+II. Genellikle Sprintlerin uzunluğu bir veya iki hafta olarak tercih edilir.<br>
+III. Her Sprint sonunda ürün yayınlanmak zorundadır.<br>
+IV. Sprint süresi çok uzun olursa risk ve belirsizlik artar.<br>
+Yukarıdakilerden hangileri Sprint'in özelliklerindendir? </p>
+	<span class="option" data-correct="false"><b>A)</b> I-II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> III-IV </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I-II-III </span><br>
+	<span class="option" data-correct="true"><b>D)</b> I-II-IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II-III-IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      Her Sprint sonunda ürün yayınlanmak zorunda değildir, ancak yayınlanabilir bir değer üretilir.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> I. Sprint Planlama bir Sprintin en başında yapılan etkinliktir. <br>
+II. Sprint Planlamada zaman kısıtı yoktur.<br>
+
+III. Sprint İş Listesi hazırlanır.<br>
+
+IV. Toplantıya Scrum Ekibi dışında kimse katılamaz.<br>
+
+Yukarıdakilerden hangisi Sprint Planlama ile ilgili söylenebilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> I-II </span><br>
+	<span class="option" data-correct="true"><b>B)</b> I-III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> III-IV </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I-III-IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II-III-IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      Toplantıya Scrum Ekibi dışında ürünün paydaşları da fayda sağlamak amacı ile katılabilir. Tüm Scrum etkinlikleri gibi, Sprint Planlama da zaman kısıtı olan bir etkinliktir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> Aşağıdaki yazılım geliştirme pratiklerinden hangisinde yapılan her değişiklik sonrası yazılım merkezi bir noktada derlenir ve tüm testler çalıştırılıp, eğer derlemede veya testlerde bir problem ortaya çıkarsa yazılım ekibi bilgilendirilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Test Güdümlü Programlama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kod Yeniden Yapılandırma </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Sürekli Entegrasyon </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Meta Programlama </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Eşli Programlama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Aşağıdakilerden hangisi Scrum eserleri ve çıktılarından Ürün İş Listesi görev ve kazanımlarındandır? </p>
+	<span class="option" data-correct="false"><b>A)</b> İşlerin kalan efor miktarı ekip tarafından güncellenir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ürün Parçalarının değerlerinin toplamıdır. Her Sprint sonunda bir Ürün Parçası kullanılabilir olarak hazır ve “Bitti” olarak tanımlanmış bir şekilde ortaya çıkmalıdır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kaydedilen bu değerin ortalaması, ekibin kapasitesi olarak değerlendirilir. </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Değer üreten ürünün, önceliğe göre sıralanmış özellik listesidir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Hedefine ulaşmak için gerekli tüm işler mevcuttur. Böylelikle şeffaflık sağlanır. Bu işlerin hepsinin mevcut tahmini, kalan efor bilgileri açık bir şekilde görülebilir durumdadır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      Ürün İş Listesi değer üreten ürünün, önceliğe göre sıralanmış özellik listesidir. Üründen
+beklenen tüm gereksinimler için tek bilgi kaynağı burasıdır. Ürün Sahibi, Ürün İş Listesinden sorumlu tek kişidir. Listenin sıralaması, içeriği ve erişilebilirliğinden sorumludur     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> "Yazılım üzerinde yapılan değişikliklerin herhangi bir bozulmaya sebep olup olmadığının önceden belirlenmesini hedefleyen bir pratiktir. Bu yöntemde yazılım beraberinde geliştirilen testler büyük önem taşımaktadır. Yapılan her değişiklik sonrası yazılım merkezi bir noktada derlenir ve tüm testler çalıştırılır."<br><br>
+
+Bilgileri verilen Çevik yazılım geliştirme pratiği aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Test Güdümlü Programlama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kod Yeniden Yapılandırma </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Sürekli Entegrasyon </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Eşli Programlama </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Scrum </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> I. Scrum’ın en temel yapıtaşıdır.<br>
+II. Genellikle Sprintlerin uzunluğu bir veya iki hafta olarak tercih edilir.<br>
+III. Bir Sprint biter bitmez hemen diğer Sprint başlanmaz.<br>
+IV. Hedefi gerçekleştirirken ürün kalitesinden feragat edilmez.<br><br>
+
+Sprint ile ilgili verilen bilgilerden hangisi/hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> I-II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> III-IV </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I-II-III </span><br>
+	<span class="option" data-correct="true"><b>D)</b> I-II-IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II-III-IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      Bir Sprint biter bitmez hemen diğer Sprint başlar, arada boşluk yoktur.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> I. İş süreçlerinin sahipleri ve yazılımcılar proje boyunca her gün birlikte çalışmalıdırlar.<br>
+II. Çalışan yazılım, ilerlemenin birincil ölçüsüdür.<br>
+III. Teknik mükemmeliyet ve iyi tasarım konusundaki sürekli özen çevikliği artırır.<br>
+IV. En önemli önceliğimiz, değerli yazılımın erken ve devamlı teslimini sağlayarak müşterileri memnun etmektir.<br><br>
+Yukarıda verilenlerden hangileri Çevik Yazılım Prensibinin maddelerindendir? </p>
+	<span class="option" data-correct="false"><b>A)</b> I, II ve III </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I, III ve IV </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I, II ve IV </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II, III ve IV </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II, III ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">       Çevik Yazılım Geliştrme Manifestosu’ndaki bu maddelere ek olarak 12 adet Çevik Yazılım Prensibi de toplantı sonucu olarak yayınlanmıştır. Bu 12 prensip aşağıdaki gibidir:<br><br>
+1. En önemli önceliğimiz, değerli yazılımın erken ve devamlı teslimini sağlayarak müşterileri memnun etmektir.<br><br>
+2. Değişen gereksinimler yazılım sürecinin son aşamalarında bile kabul edilmelidir. Çevik süreçler değişimi, müşterinin rekabet avantajı için kullanır.<br><br>
+3. Çalışan yazılım, tercihen kısa zaman aralıkları belirlenerek birkaç haftada ya da birkaç ayda bir düzenli olarak müşteriye sunulmalıdır.<br><br>
+4. İş süreçlerinin sahipleri ve yazılımcılar proje boyunca her gün birlikte çalışmalıdırlar.<br><br>
+5. Projelerin temelinde motive olmuş bireyler yer almalıdır. Onlara ihtiyaçları olan ortam ve destek sağlanmalı, işi başaracakları konusunda güven duyulmalıdır.<br><br>
+6. Bir yazılım takımında bilgi alışverişinin en verimli ve etkin yöntemi yüzyüze iletişimdir.<br><br>
+7. Çalışan yazılım, ilerlemenin birincil ölçüsüdür.<br><br>
+8. Çevik süreçler sürdürülebilir geliştirmeyi teşvik etmektedir. Sponsorlar, yazılımcılar ve kullanıcılar sürekli olarak belirli bir tempoyu devam ettirebilmelidirler.<br><br>
+9. Teknik mükemmeliyet ve iyi tasarım konusundaki sürekli özen çevikliği artırır.<br><br>
+10. Sadelik, yapılmasına gerek olmayan işlerin mümkün olduğunca arttırılması sanatı, olmazsa olmazlardandır.<br><br>
+11. En iyi mimariler, gereksinimler ve tasarımlar kendi kendini örgütleyen takımlardan ortaya çıkar.<br><br>
+12. Takım, düzenli aralıklarla nasıl daha etkili ve verimli olabileceğinin üzerinde düşünür ve davranışlarını buna göre ayarlar ve düzenler.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> Çevik Yazılım Geliştirme Manifestosu’na göre aşağıdaki çıkarımlardan hangisi <u><strong>yapılamaz?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Süreçler ve araçlar, yazılımın temel amacı olan değeri üretmek için kullanılmalıdır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bireyler arası etkileşim, bir takım olma hissiyatı, araçlar ve süreçler tarafından engellenmemeli, aksine desteklenmelidir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Çalışan bir yazılım ortada yoksa dokümantasyon bir işe yaramayacaktır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Gereksinimlerde meydana gelebilecek değişiklikler baştan kabul edilmeli ve planlamalar adapte olabilecek şekilde yapılmalıdır. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Yazılımı talep eden müşteri ile önceden yapılan pazarlıklar, yazılım geliştirme sürecini daha çevik yapacaktır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      Yazılımı talep eden müşteri ile sürekli etkileşim halinde olmak, yazılım geliştirme sürecini daha çevik yapacaktır. Önceden yapılan pazarlıklar bazı durumlarda ilerlemeyi yavaşlatır ve müşteri ile iletişim kopukluğu projenin başarısız olmasına yol açabilir     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> ..........  önceden belirlenip, herkesin erişebileceği bir yerde sunulmalıdır. Ekipler genellikle Scrum panosunda uygun bir yere ........nın/nin özelliklerini yerleştirirler.<br><br>
+
+Yukarıdaki cümlede boş bırakılan yerleri aşağıdakilerden hangisi doğru olarak tamamlar? </p>
+	<span class="option" data-correct="true"><b>A)</b> Bitti Tanımı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Takım Hızı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ürün Parçası </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Ürün İş Listesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sprint İş Listesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Aşağıdakilerden hangisi Kod yeniden yapılandırmanın yararlarından biridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yazılım üzerinde yapılan değişikliklerin herhangi bir bozulmaya sebep olup olmadığının önceden belirlenmesini hedefleyen bir pratiktir. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Mevcut kodun davranışını değiştirmeden yapısal değişiklik
+yapma faaliyetidir </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İş istasyonu genellikle aynı bilgisayar ve ekran olarak düşünülebilir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yazılım üzerinde yapılan değişikliklerin herhangi bir bozulmaya sebep olup olmadığının önceden belirlenmesini hedefleyen bir pratiktir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yazılım geliştirme faaliyetini hedefleyen bir yöntemdir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      Kod yeniden yapılandırma, mevcut kodun davranışını değiştirmeden yapısal değişiklik
+yapma faaliyetidir. Çevik yazılım geliştirme yöntemlerinin faydalı olması için kodda yapılacak yeniden yapılandırma işlemlerinin, kodun okunabilirliğini arttırmak, sürdürülebilirliğini sağlamak, karmaşıklığını azaltmak gibi hedefleri olmalıdır.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> Aşağıdakilerden hangisi Scrum Uzmanının görevlerinden biridir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Ürün iş listesinin anlaşılır ve kısa parçalardan oluşması konusunda Ürün Sahibine yardımcı olur. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ürünün değeri ve geliştirmesinden sorumludur </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yapılacak iş listesini oluşturur ve önceliklendirir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Her tekrarlama sonrası tamamlanmış işler belirli bir “Tamamlandı” tanımına uyar. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Tek bir kişi olmasına rağmen belirli bir müşteri komitesinin isteklerini ürüne
+yansıtabilir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      Scrum Uzmanı, Scrum’ın doğru anlaşılması ve doğru uygulanmasını sağlayan kişidir.
+Bunun için Scrum kurallarından, rehberlerden ve pratiklerden faydalanır. Ürün iş listesinin anlaşılır ve kısa parçalardan oluşması konusunda Ürün Sahibine yardımcı olur.     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> İnsanların karışık ve adaptasyona açık problemleri ele alabilmek için en yüksek değere sahip ürünü, üretken ve yaratıcı bir şekilde geliştirmesini sağlayan ve temel bileşenleri ekip, ekibin rolleri, etkinlikler, çıktılar ve kurallar olan bir iskelet olarak tanımlanan yaklaşımın adı nedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> SCRUM </span><br>
+	<span class="option" data-correct="false"><b>B)</b> AGILE </span><br>
+	<span class="option" data-correct="false"><b>C)</b> EXTREME </span><br>
+	<span class="option" data-correct="false"><b>D)</b> RAD </span><br>
+	<span class="option" data-correct="false"><b>E)</b> KANBAN </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> Scrum’da bir Sprint sonunda tamamlanan Ürün İş Listesi kalemleri ile daha önce bitirilmiş Sprintlerdeki Ürün Parçalarının değerlerinin toplamıdır aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Ürün Parçası </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sprint İş Listesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Takım Hızı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bitti Tanımı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Ürün İş Listesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> I. Sprint hedefi doğrultusunda dün yapılan işler<br>
+II. Sprint hedefine ulaşmak için bugün yapacağı işler<br>
+III. Sprint hedefine ulaşmak için yapılacaklar<br><br>
+Yukarıda verilenlerden hangisi/hangileri Günlük Scrum toplantılarında Geliştirme Ekibi üyelerinin konuştuğu konulardandır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I-II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I-III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II-III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      Günlük Scrum toplantılarında Geliştirme Ekibi üyeleri sırayla söz alır ve aşağıdaki üç temel konu dışında başka birşey konuşmaz:<br><br>
+• Sprint hedefi doğrultusunda dün yapılan işler<br>
+• Sprint hedefine ulaşmak için bugün yapacağı işler<br>
+• Sprint hedefine ulaşmayı engelleyen durumlar     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> I. Çalışan yazılım, ilerlemenin birincil ölçüsüdür.<br>
+II. İş süreçlerinin sahipleri ve yazılımcılar proje boyunca her gün birlikte çalışmalıdırlar.<br>
+III. Çalışan yazılım son aşamaya kadar müşteriye sunulmamalıdır.<br>
+IV. Değişen gereksinimler yazılım sürecinin hiçbir aşamasında kabul görmez.<br><br>
+
+Yukarıdakilerden hangileri Çevik Yazılım Prensiplerindendir? </p>
+	<span class="option" data-correct="true"><b>A)</b> I-II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> III-IV </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I-II-III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I-III-IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II-III-IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">       Çevik Yazılım Geliştrme Manifestosu’ndaki bu maddelere ek olarak 12 adet Çevik Yazılım Prensibi de toplantı sonucu olarak yayınlanmıştır. Bu 12 prensip aşağıdaki gibidir:<br><br>
+1. En önemli önceliğimiz, değerli yazılımın erken ve devamlı teslimini sağlayarak müşterileri memnun etmektir.<br><br>
+2. Değişen gereksinimler yazılım sürecinin son aşamalarında bile kabul edilmelidir. Çevik süreçler değişimi, müşterinin rekabet avantajı için kullanır.<br><br>
+3. Çalışan yazılım, tercihen kısa zaman aralıkları belirlenerek birkaç haftada ya da birkaç ayda bir düzenli olarak müşteriye sunulmalıdır.<br><br>
+4. İş süreçlerinin sahipleri ve yazılımcılar proje boyunca her gün birlikte çalışmalıdırlar.<br><br>
+5. Projelerin temelinde motive olmuş bireyler yer almalıdır. Onlara ihtiyaçları olan ortam ve destek sağlanmalı, işi başaracakları konusunda güven duyulmalıdır.<br><br>
+6. Bir yazılım takımında bilgi alışverişinin en verimli ve etkin yöntemi yüzyüze iletişimdir.<br><br>
+7. Çalışan yazılım, ilerlemenin birincil ölçüsüdür.<br><br>
+8. Çevik süreçler sürdürülebilir geliştirmeyi teşvik etmektedir. Sponsorlar, yazılımcılar ve kullanıcılar sürekli olarak belirli bir tempoyu devam ettirebilmelidirler.<br><br>
+9. Teknik mükemmeliyet ve iyi tasarım konusundaki sürekli özen çevikliği artırır.<br><br>
+10. Sadelik, yapılmasına gerek olmayan işlerin mümkün olduğunca arttırılması sanatı, olmazsa olmazlardandır.<br><br>
+11. En iyi mimariler, gereksinimler ve tasarımlar kendi kendini örgütleyen takımlardan ortaya çıkar.<br><br>
+12. Takım, düzenli aralıklarla nasıl daha etkili ve verimli olabileceğinin üzerinde düşünür ve davranışlarını buna göre ayarlar ve düzenler.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> I. Scrum<br>
+II. Agile modeling<br>
+III. Disciplined agile delivery<br>
+IV. Rapid application development<br><br>
+Yukarıdakilerden hangileri Çevik Yazılım Geliştirme Yöntemlerindendir? </p>
+	<span class="option" data-correct="false"><b>A)</b> I-II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> III-IV </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I-II-III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II-III-IV </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I-II-III-IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      • Adaptive software development (ASD) <br>
+• Agile modeling <br>
+• Agile Unified Process (AUP) <br>
+• Crystal Clear methods <br>
+• Disciplined agile delivery <br>
+• Dynamic systems development method (DSDM) <br>
+• Extreme programming (XP) <br>
+• Feature-driven development (FDD) <br>
+• Lean software development <br>
+• Kanban <br>
+• Rapid application development (RAD) <br>
+• Scrum <br>
+• Scrumban      </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> İki yazılımcının aynı iş üzerinde aynı iş istasyonunu kullanarak beraber çalışması şeklinde tanımlanan çevik yazılım geliştirme pratiği aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Test Güdümlü Programlama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kod Yeniden Yapılandırma </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sürekli Entegrasyon </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Eşli Programlama </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Süreksiz Entegrasyon </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> Aşağıdakilerden hangisi en sık kullanılan yazılım geliştirme yöntemidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Agile modeling </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Scrumban </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kanban </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Scrum </span><br>
+	<span class="option" data-correct="false"><b>E)</b> RAD </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> Aşağıdakilerden hangisi tek sorumlusu ürün sahibi olan ve üründen beklenen tüm gereksinimler için tek bilgi kaynağı olan scrum çıktısıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Sprint İş Listesi </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Ürün İş Listesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ürün Parçası </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bitti Tanımı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Takım Hızı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> I. Şeffaflık gereği süreç boyunca oluşan çıktılar sorumlu herkes tarafından izlenebilmelidir.<br>
+II. Adaptasyon ile gözlem sonucu zamanda değiştirilir. Farkedilen kabul edilemez bir durumun düzeltilmesi sağlanır.<br>
+III. Gözlem sonucunda Scrum'da mevcut tekrarlama (iterasyon) için tanımlanan hedefe göre hareket edilip edilmediği belirlenir. <br><br>
+Yukarıdakilerden hangileri her bir tekrarlamada (iterasyon) kazanılan deneyimin sağlıklı olarak değerlendirilmesi için önem verilen kavramlar arasında yer alır?
+
+		</p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> I. Yazılım geliştirme süreci temel olarak tasarım, geliştirme, uygulama aşamalarını içerir.<br>
+II. 1970’li yıllardan itibaren ilk yazılım geliştirme süreç modelleri oluşturulmaya başlanmıştır.<br>
+III. 1980’lerden 2000’li yıllara kadar uygulanan yazılım geliştirme süreçlerinin birçoğu şelale (waterfall) yaklaşımını kullanmıştır.<br><br>
+
+Yazılım geliştime ile ilgili verilen bilgilerden hangisi/hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I-II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I-III </span><br>
+	<span class="option" data-correct="true"><b>D)</b> II-III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I-II-III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      Yazılım geliştirme süreci temel olarak tasarım, geliştirme, test ve dağıtma aşamalarını içerir.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> Çevik yazılım geliştirme pratiklerinden mevcut kodun davranışını değiştirmeden yapısal değişiklik yapma faaliyeti aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Test Güdümlü Programlama </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Kod Yeniden Yapılandırma </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sürekli Entegrasyon </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Eşli Programlama </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sürekli Eşli Programlama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> Scrum yöntemi ile ilgili aşağıdaki ifadelerden hangisi ya da hangileri doğrudur?<br> <br> 
+I -  Scrum, ögrenmesi kolay ve esnek br çevik yazılım geliştirme yöntemidr.<br> 
+II -  Scrum yöntemnde yazılımı geliştiren ekip, sabit süreli tekrarlamalar (iterasyon) süresince, önceden paydaşlar ile birlkte belirlenen ve en çok fayda sağlayan yazılım parçalarını üretirler.<br> 
+III -  Scrum yönteminde düzenli olarak yapılan etkinlikler vardır. </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I-II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II-III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I-II-III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question41">
+	<p class="question">Soru 41:<br> Aşağıdakilerden hangisi Sprint içinde yapılan Scrum etkinlikleri arasında yer almaz? </p>
+	<span class="option" data-correct="false"><b>A)</b> Günlük Scrum </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Sprint İş Listesi
+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sprint Planlama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sprint Retrospektifi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sprint Değerlendirme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description41">Açıklama</button>
+		<div id="description41" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question42">
+	<p class="question">Soru 42:<br> Scrum temel bileşenleri Scrum Ekibi, ekibin rolleri, etkinlikler, çıktılar ve kurallardır. Her bir tekrarlamada (iterasyon) kazanılan deneyime göre kararlar alınır.  Aşağıdakilerden hangisi bu deneyimin sağlıklı olarak değerlendirilmesi için gerekli temel  kavramlardan biri değildir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Şeffaflık gereği süreç boyunca oluşan çıktılar sorumlu herkes tarafından izlenebilmelidir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Gözlem sonucunda Scrum’da mevcut tekrarlama (iterasyon) için tanımlanan hedefe göre hareket edilip edilmediği belirlenir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sürecin akışına engel olmayacak şekilde, yeterli seviyede yapılan gözlem çok faydalı olmaktadır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Adaptasyon ile gözlem sonucu farkedilen kabul edilemez bir durumun düzeltilmesi sağlanır. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> İzlemeden çıkan anlamın aynı olması için ise belirli standartların tanımlanmış olması gerekmemektedir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description42">Açıklama</button>
+		<div id="description42" class="collapse">      Şeffaflık gereği süreç boyunca oluşan çıktılar sorumlu herkes tarafından izlenebilmelidir. Bu izlemeden çıkan anlamın aynı olması için ise belirli standartlar <u><strong>tanımlanmalıdır</strong></u>. Örneğin, bir işin bitmiş olarak tanımlanması kavramından herkes aynı
+şeyi anlamalıdır.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question43">
+	<p class="question">Soru 43:<br> Aşağıdakilerden hangisi Sprint içinde yapılan Scrum etkinliklerinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Sprint İzleme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sprint Planlama </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Günlük Scrum </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sprint Değerlendirme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sprint Retrospektifi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description43">Açıklama</button>
+		<div id="description43" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question44">
+	<p class="question">Soru 44:<br> Aşağıdakilerden hangisi Scrum ekibinden Ürün Sahibi ile ilgili doğru <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Yapılan işlerin bittiğini kabul eden kişi Ürün Sahibidir. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Ürün sahibi birden fazla kişi olmalıdır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ürün iş listesinin herkes tarafından anlaşılır olmasını sağlar. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yapılacak iş listesini oluşturur ve önceliklendirir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Ürün Sahibi, ürünün değeri ve geliştirmesinden sorumludur. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description44">Açıklama</button>
+		<div id="description44" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question45">
+	<p class="question">Soru 45:<br> Aşağıdakilerden hangisi Test Güdümlü Programlama için <u><strong>söylenemez?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Testler başarılı olduğunda ya yeni testler yazarak yazılımı geliştirilir ya da kod tekrar yapılandırılır. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Bu yöntemde yazılımcı, kodu doğrudan yazarak işe başlar. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> estler başarılı olana kadar kod güncellemleri devam eder. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Testler başarısız olduğunda, testleri başarılı hale getirecek biçimde kod güncellemeleri yapılır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Gerçekte geliştirilmesi gereken yazılım parçası her defasında ilgili testlere tabi tutulur. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description45">Açıklama</button>
+		<div id="description45" class="collapse">       Bu yöntemde ilgili kodu yazan yazılımcı, kodu doğrudan yazmaya başlamak yerine, öncelikle koddan bekleneni test edecek olan test kod parçacıklarını yazarak işe başlar     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question46">
+	<p class="question">Soru 46:<br> Scrum yönteminin ilk ortaya çıkış tarihi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 1993 </span><br>
+	<span class="option" data-correct="true"><b>B)</b> 1995 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 1997 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 1999 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 2001 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description46">Açıklama</button>
+		<div id="description46" class="collapse">      Ken Schwaber, 1995 yılında Jeff Sutherland ile birlikte çalışarak “Scrum Software Development
+Process” (Scrum Yazılım Geliştirme Süreci) isimli bir makale yazarak Oopsla konferansında sunmuştur. Bu tarih, Scrum yönteminin ilk ortaya çıkış tarihi olarak nitelendirilebili     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question47">
+	<p class="question">Soru 47:<br> Scrum Alliance organizasyonu kaç yılında kurulmuştur? </p>
+	<span class="option" data-correct="false"><b>A)</b> 1995 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 2000 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 2002 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 2009 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 2010 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description47">Açıklama</button>
+		<div id="description47" class="collapse">      2002 yılında Scrum Alliance organizasyonu kurulmuş, 2009 yılında da Scrum.org organizasyonu kurulmuştur.
+
+
+     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question48">
+	<p class="question">Soru 48:<br> Aşağıdakilerden hangisi Sprint içinde yapılan Scrum etkinliklerinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Sprint planlama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Günlük Scrum </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Sprint uygulama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sprint değerlendirme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sprint retrospektifi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description48">Açıklama</button>
+		<div id="description48" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question49">
+	<p class="question">Soru 49:<br> Sprint içinde en son yapılan etkinlik aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Sprint Retrospektifi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sprint Değerlendirme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Günlük Scrum </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sprint Planlama </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sprint Hedefleme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description49">Açıklama</button>
+		<div id="description49" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question50">
+	<p class="question">Soru 50:<br> Çevik manifestoyu takip eden yıllarda çevik yazılım geliştirme ile ilgili birçok kitap yazılmış ve organizasyon kurulmuştur. Aşağıdakilerden hangisi bukitaplardan biridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Crystal Clear methods </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Scrumban </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Lean software development </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Dynamic systems development method </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Agile Software Development with Scrum </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description50">Açıklama</button>
+		<div id="description50" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question51">
+	<p class="question">Soru 51:<br> I. Süreçler ve araçlardan ziyade bireyler ve etkileşimlere<br>
+II. Kapsamlı dokümantasyondan ziyade çalışan yazılıma <br>
+III. Değişimden ziyade bir plana bağlı kalmaya kanaat getirdik.<br>
+IV. Sözleşme pazarlıklarından ziyade müşteri ile işbirliğine<br><br>
+
+Yukarıda verilen Çevik bildiri maddelerinden hangisi/hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> I-II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> III-IV </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I-II-III </span><br>
+	<span class="option" data-correct="true"><b>D)</b> I-II-IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II-III-IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description51">Açıklama</button>
+		<div id="description51" class="collapse">      "Bir plana bağlı kalmaktan ziyade değişime karşılık vermeye değer vermeye kanaat getirdik"     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question52">
+	<p class="question">Soru 52:<br> I. Test Ekibi (Test Team)<br>
+II. Ürün Sahibi (Product Owner)<br>
+III. Scrum Uzmanı (Scrum Master)<br>
+IV. Geliştirme Ekibi (Development Team)<br><br>
+Yukarıdakilerden hangileri Scrum ekibini oluşturur? </p>
+	<span class="option" data-correct="false"><b>A)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> II ve IV </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I, II ve III </span><br>
+	<span class="option" data-correct="true"><b>D)</b> II, III ve IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II, III ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description52">Açıklama</button>
+		<div id="description52" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question53">
+	<p class="question">Soru 53:<br> Aşağıdakilerden hangisi Çevik Bildiri’nin maddelerinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Ayrık çözümlemelerden ziyade sistem çözümlemesine değer vermek </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Süreçler ve araçlardan ziyade bireyler ve etkileşimlere değer vermek </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kapsamlı dokümantasyondan ziyade çalışan yazılıma değer vermek </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sözleşme pazarlıklarından ziyade müşteri ile işbirliğine değer vermek </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bir plana bağlı kalmaktan ziyade değişime karşılık vermeye değer vermek </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description53">Açıklama</button>
+		<div id="description53" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question54">
+	<p class="question">Soru 54:<br> Aşağıdakilerden hangisi Çevik Yazılım Geliştirme Pratiklerinden biridir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Test Güdümlü Programlama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Nesne Tabanlı Programlama </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yapısal Programlama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Dinamik Programlama </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Spagetti Programlama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description54">Açıklama</button>
+		<div id="description54" class="collapse">      - Test Güdümlü Programlama (Test Driven Development) <br>
+- Kod Yeniden Yapılandırma (Code Refactoring) <br>
+- Sürekli Entegrasyon (Continuous integration) <br>
+- Eşli Programlama (Pair Programming)     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question55">
+	<p class="question">Soru 55:<br> I. Scrum özellikle yazılım ürünü geliştirmek için ortaya konmuş bir yöntemdir.<br>
+II. Scrum, en çok yazılım projelerinde uygulanmaktadır.<br> 
+III. Scrum genel bir çerçeve çizdiğinden anlaşılırlığı yüksektir.<br>
+IV. Scrum temelinde deneyerek kontrol etme süreci vardır.<br><br>
+Yukarıdakilerden hangileri Scrum ile ilgili doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> I-II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> III-IV </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I-II-III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I-III-IV </span><br>
+	<span class="option" data-correct="true"><b>E)</b> II-III-IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description55">Açıklama</button>
+		<div id="description55" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question56">
+	<p class="question">Soru 56:<br> I. Mevcut kodun davranışını değiştirmeden yapısal değişiklik yapma faaliyetidir.<br>
+II. Yazılım üzerinde yapılan değişikliklerin herhangi bir bozulmaya sebep olup olmadığının önceden belirler.<br>
+III. Bu yöntemde yazılım gerçek ortama çıkmadan önce bir sorun varsa erken geri dönüş sağlanmış olur.<br>
+IV. Bu yöntemle birlikte yazılımdaki değişikliklerin maliyeti çok daha az olur.<br><br>
+Yukarıdakilerden hangileri sürekli entegrasyonun özelliklerindendir? </p>
+	<span class="option" data-correct="false"><b>A)</b> I-II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> III-IV </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I-II-III </span><br>
+	<span class="option" data-correct="true"><b>D)</b> II-III-IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I-II-III-IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description56">Açıklama</button>
+		<div id="description56" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question57">
+	<p class="question">Soru 57:<br> I. Çıktılar<br>
+II. Etkinlikler<br>
+III. Scrum Ekibi<br>
+IV. Zaman Planı<br><br>
+Yukarıdakilerden hangileri temel Scrum bileşenleri arasında yer alır? </p>
+	<span class="option" data-correct="false"><b>A)</b> I ve II
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> II ve IV </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I, II ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II, III ve IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II, III ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description57">Açıklama</button>
+		<div id="description57" class="collapse">      - Scrum ekibi <br>
+- Ekibin rolleri <br>
+- Etkinlikler <br>
+- Çıktılar<br>
+- Kurallar    </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question58">
+	<p class="question">Soru 58:<br> Aşağıdakilerden hangisi, Sprint Planlamanın özelliklerinden biridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Sprint’in en sonunda, ekibin geliştirdiği ürünü kontrol ettiği bir toplantıdır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ekip içindeki iletişimi geliştirir ve daha uzun toplantılara olan ihtiyacı ortadan kaldırır. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Ürün Sahibinin belirttiği Sprint amacı doğrultusunda hangi kalem işlerin yapılacağının
+seçilmesi aşamasına gelinir </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Her bir Geliştirme Ekibi üyesi söz alıp yukarıdaki konulardan bahsettikten sonra
+Scrum Ekip Panosunda bulunan ve üzerinde çalıştığı işin durumunu günceller. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Ekip bir Sprint boyunca bitirdiği kullanılabilir ürün parçalarını sunar ve bunlar üzerinde görüşme yapılır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description58">Açıklama</button>
+		<div id="description58" class="collapse">      Ürün İş Listesi üzerinde, Ürün Sahibinin belirttiği Sprint amacı doğrultusunda hangi kalem işlerin yapılacağının seçilmesi aşamasına gelinir. Burada Geliştirme Takımının kapasitesi de dikkate alınır     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question59">
+	<p class="question">Soru 59:<br> Aşağıdakileren hangisi Scrum Geliştirme Ekibinin özelliklerinden <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Ürünün sürüme çıkabilir bir kısmını teslim etmekten sorumlu kişilerden oluşmaktadır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Geliştirme Ekibi kendi kendine organize olur. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Hizmetkâr-liderler olarak da isimlendirilirler. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Scrum uygulamak için ideal bir Geliştirme Ekibi kişi sayısı mevcuttur. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bir Scrum ekibi içinde alt Scrum ekipleri oluşturulamaz. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description59">Açıklama</button>
+		<div id="description59" class="collapse">      Scrum Uzmanı hizmetkâr-lider olarak da isimlendirilir Geliştirme Ekibi değil.     </div>
+	</div>
+</div>
+		
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

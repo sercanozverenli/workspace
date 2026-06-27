@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+	  
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA II
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama2-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama2-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama2-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama2-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama2-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama2-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama2-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama2-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama2-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama2-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB ARAYÜZ PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİ YAPILARI
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veriyap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veriyap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veriyap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veriyap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veriyap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veriyap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veriyap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veriyap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veriyap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veriyap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          MOBİL UYGULAMA GELİŞTİRME
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="mobilug-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="mobilug-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="mobilug-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="mobilug-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="mobilug-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="mobilug-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="mobilug-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="mobilug-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="mobilug-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="mobilug-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          UNIX SİSTEM YÖNETİMİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="unixsy-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="unixsy-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="unixsy-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="unixsy-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="unixsy-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="unixsy-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="unixsy-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="unixsy-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="unixsy-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="unixsy-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Programlama II - Ünite 8 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	<button class="block-group" data-start="40" data-end="59">Part 3</button>
+	  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Django projesinde tanımlanmış urls.py dosyasının işlevi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Proje ayarlarının gerçekleştirilmesi </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Bağlantı ve metotların yönlendirilmesi  </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Web sunucular için bir giriş noktası  </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Veritabanı işlemleri </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Şablonların bulunduğu dosya </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> I. Web isteği (web request) alırlar<br>
+II. Web yanıtı (web response) döndürler<br>
+III. Yalnızca HTML veri döndürebilirler<br>
+Django’da arayüzler (view) için yukarıda verilen maddelerden hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II  </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      Bir görüntüleme fonksiyonu olan arayüz, sadece web isteği (web request) alan ve web yanıtı (web response) döndüren bir Python metodudur. Döndürülen bu yanıt, bir XML belgesi, CSV dosyası, 404 hatası, ses dosyası, web sayfasının HTML içeriği gibi farklı içerikler olabilir.     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> from django.urls import path<br>
+from . import views<br>
+urlpatterns = [<br>
+&emsp; &emsp; path('', views.hello, name='hello'),<br>
+]<br><br>
+Yukarıda verilen “projem/urls.py” örnek kodundaki satırda yapılan işlem, aşağıdaki seçeneklerden hangisinde doğru olarak verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> hello bağlantısından gelen bağlantıları hello arayüzüne yönlendirir </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Bir üst ”projem” projesinden gelen bağlantıları views altında tanımlı hello metoduna yönlendirir </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tüm bağlantılara ‘hello’ metnini döndürür </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Adres çubuğu boş ise ‘hello’ yazdırır </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Views dosyası altındaki hello metodunu ‘hello’ parametresi ile çağırır </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> I. python manage.py startapp webapp<br>
+ II. python manage.py migrate<br>
+ III. python manage.py runserver 8081<br><br>
+Yukarıdaki seçeneklerden hangisi Django sunucusunu başlatmak için <u><strong>kullanılamaz?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yalnız III </span><br>
+	<span class="option" data-correct="true"><b>D)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> ...<br>
+path('arsiv/&lt;str:tarih&gt;', views.arsiv_getir, name='arsiv_getir')<br>
+...<br><br>
+Yukarıda verilen örnek kodda aşağıdaki işlemlerden hangisi yapılmaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> arsiv adresini arsiv_getir adresine yönlendirir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> tarih verisini ekrana yazdırır </span><br>
+	<span class="option" data-correct="true"><b>C)</b> arsiv/24.04.1994 adresinden gelen verileri, “24.04.1994” tarih verisi parametre olacak şekilde arsiv_getir metoduna yönlendirir </span><br>
+	<span class="option" data-correct="false"><b>D)</b> arsiv metoduna ‘arsiv_getir’ parametresi ile yönlendirir </span><br>
+	<span class="option" data-correct="false"><b>E)</b> arsiv adresini arsiv_getir ile değiştirir </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> I. Tablo ve alanlarının tanımları yapılmaktadır<br>
+II. Modeller, django.db.models.Model’den kalıtım yoluyla türetilmektedir<br>
+III. Tablolara id alanı otomatik olarak eklenmektedir<br><br>
+Yukarıdaki maddelerden hangileri Django’daki modeller için doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> I . Veritabanı bağlantı bilgileri settings.py dosyasında tutulmaktadır<br>
+II. python manage.py migrate komutu ile veritabanı güncelleştirmeleri yapılır<br>
+III. python manage.py check komutu ile web sitesi çalıştırılır<br><br>
+Yukarıdaki maddelerden hangileri Django’da veritabanı için doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız III </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> I. Verileri işlemeye hazır hale getirmek için hazırlamak ve yeniden yapılandırmak<br>
+II. Veriler için HTML formları oluşturma<br>
+III. İstemciden gönderilen form ile verileri almak ve işlemek<br><br>
+Yukarıdaki maddelerden hangileri Django’da formlar için doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      Django, Django formlarında tanımlanan alanları HTML veri giriş alanları ile eşleştirir. Django, formlarla ilgili üç farklı çalışma yapmaktadır:<br> <br> 
+• Verileri işlemeye hazır hale getirmek için hazırlamak ve yeniden yapılandırmak<br> 
+• Veriler için HTML formları oluşturma<br> 
+• İstemciden gönderilen form ile verileri almak ve işlemek     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> I. Basit CRUD işlemleri yapılabilir<br>
+II. Kullanıcı eklenebilir<br>
+III. Yetkilendirmeler yönetilebilir<br><br>
+Django admin paneli için yukarıdakilerden hangisi doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Django, yönetimsel işlemler için kullanıma hazır bir kullanıcı arabirimi sağlamaktadır. Django, proje modellerine göre otomatik olarak bu arayüzü oluşturur.<br><br>
+Yukarıda bahsedilen arayüz aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> View </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Model </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Template </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Admin arayüzü </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Url </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> egitim_projesi/<br>
+manage.py<br>
+
+egitim_projesi/<br>
+
+         &emsp; __init__.py<br>
+
+         &emsp; settings.py<br>
+
+         &emsp; urls.py<br>
+
+         &emsp; wsgi.py<br><br>
+
+Yukarıda bir web uygulaması geliştirmek için öncelikle egitim projesi adlı bir proje oluşturulmuştur. Yukarıdaki komutlardan hangisi bu sitedeki linkleri kontrol eden, tüm bağlantıları ve metotları yönlendiren ana işlevdir? </p>
+	<span class="option" data-correct="false"><b>A)</b> egitim_projesi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> __init__.py </span><br>
+	<span class="option" data-correct="false"><b>C)</b> settings.py </span><br>
+	<span class="option" data-correct="true"><b>D)</b> urls.py </span><br>
+	<span class="option" data-correct="false"><b>E)</b> wsgi.py </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      <u><strong>proje_adı</strong></u> klasörü sadece iki tane nesne içeren proje kapsayıcısıdır.
+
+<u><strong>manage.py:</strong></u> Bu dosya, proje ile komut satırı aracılığıyla iletişim kurmak için hazırlanmış yerel bir Django-admin’dir. Veritabanı senkronizasyonu, geliştirme sunucusu başlatma gibi görevleri gerçekleştirmeye yarayan komut satırı yardımcı programıdır.
+
+<u><strong>proje_adı (egitim_projesi):</strong></u> Alt klasördür ve projedeki gerçek Python paketidir. Dört adet dosya içermektedir.
+
+<u><strong>__init__.py:</strong></u> Bu dosya olduğu için, bu klasör bir paket olarak kabul edilir. settings.py: Adından da anlaşılacağı gibi, bu dosya projedeki tüm ayarları yönetmektedir.
+
+<u><strong>urls.py:</strong></u> Sitedeki linkleri kontrol eden, tüm bağlantıları ve metotları yönlendiren ana işlevdir.
+
+<u><strong>wsgi.py:</strong></u> Proje WSGI (Web Server Gateway Interface) üzerinden sunulması gerekiyorsa, uyumlu web sunucular için bir giriş noktası görevi görmektedir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> Bir projenin ayarlarının tutulduğu settings.py dosyası içinde tanımlı TEMPLATES ayarlarına yeni oluşturulan templates klasörü tanımlanması aşamasında aşağıdaki kodlardan hangisine gereksinim vardır? </p>
+	<span class="option" data-correct="false"><b>A)</b> 'BACKEND': 'django.template.backends.django.DjangoTemplates', </span><br>
+	<span class="option" data-correct="true"><b>B)</b> 'DIRS': [os.path.join(BASE_DIR,'templates')], </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 'APP_DIRS': True, </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 'OPTIONS': { </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 'context_processors': [ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      Projenin ayarlarının tutulduğu settings.py dosyası içinde tanımlı TEMPLATES ayarlarına da yeni oluşturulan templates klasörü tanımlanmalıdır. Bu dosya içerisine eklenmesi gereken satır ‘DIRS’: [os. path.join(BASE_DIR,’templates’)], şeklindedir.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br>  url parametrelerinde kullanılabilecek veri türü metin ise hangi Url dönüştürücü tipi kullanılmalıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> veri:veri </span><br>
+	<span class="option" data-correct="false"><b>B)</b> algg:veri </span><br>
+	<span class="option" data-correct="false"><b>C)</b> slug:veri </span><br>
+	<span class="option" data-correct="false"><b>D)</b> int:veri </span><br>
+	<span class="option" data-correct="true"><b>E)</b> str:veri </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> Projede herhangi bir problem olup olmadığı hangi kod ile bulunabilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> python manage.py makemigrations </span><br>
+	<span class="option" data-correct="false"><b>B)</b> python manage.py migrate </span><br>
+	<span class="option" data-correct="true"><b>C)</b> python manage.py check </span><br>
+	<span class="option" data-correct="false"><b>D)</b> python manage.py sort </span><br>
+	<span class="option" data-correct="false"><b>E)</b> python manage.py delete </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      Proje içerisindeki tüm modelleri tarayarak migration dosyalarını oluşturan komut şu şekildedir: <u><strong>python manage.py makemigrations</strong></u> <br><br>
+Oluşturulan migration dosyalarının çalıştırılarak veritabanı ile eşleştirilerek güncellenmesi için çalıştırılan komut şu şekildedir: <u><strong>python manage.py migrate</strong></u><br><br>
+ Projede herhangi bir problem olup olmadığı aşağıdaki kod yardımıyla kolayca bulunabilir.<u><strong> python manage.py check</strong></u>     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> I. Verileri işlemeye hazır hale getirmek için hazırlamak ve yeniden yapılandırmak <br>
+II. Veriler için HTML formları oluşturmak<br>
+III. İstemciden gönderilen form ile verileri almak ve işlemek<br>
+IV. Verileri Silmek<br><br>
+Yukarıdakilerden hangisi Django'nun form işlemleri arasında yer almaz? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Yalınız IV </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I-II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II-III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I-II-III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      Django, Django formlarında tanımlanan alanları HTML veri giriş alanları ile eşleştirir. Django, formlarla ilgili üç farklı çalışma yapmaktadır: <br>
+• Verileri işlemeye hazır hale getirmek için hazırlamak ve yeniden yapılandırmak<br> • Veriler için HTML formları oluşturmak <br>
+• İstemciden gönderilen form ile verileri almak ve işlemek.
+
+
+     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Aşağıdakilerden hangisi CRUD'un "Alma" işlemini açıklamaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Veritabanındaki bir tabloda yeni kayıtlar oluşturma veya ekleme </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Mevcut girdileri bir liste olarak okuma, elde etme, arama, görüntüleme veya belirli bir kaydı ayrıntılı olarak çağırma </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veritabanındaki bir tablodaki mevcut girişleri güncelleme veya düzenleme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Veritabanındaki bir tablodaki mevcut girişleri silme, devre dışı bırakma veya kaldırma </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Otomatik olarak her tablo için id alanı ekleme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      CRUD, veritabanındaki bir tablo üzerinde Oluşturma, Alma, Güncelleme ve Silme işlemlerini gerçekleştirmek anlamına gelmektedir.<br><br>
+ 
+
+Alma işlemi: Mevcut girdileri bir liste olarak okuma, alma, arama veya görüntüleme (Liste Görünümü) veya belirli bir kaydı ayrıntılı olarak alma (Ayrıntılı Görünüm)     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br>  Python dili için dizayn edilmiş olan Django içi hangisi <u><strong>söylenemez?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Özgür yazılım (BSD) lisansı ile lisanslanmıştır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Açık kaynak kodludur.
+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yüksek seviyeli bir web uygulaması geliştirme platformudur. </span><br>
+	<span class="option" data-correct="true"><b>D)</b> SQL Injection gibi güvenlik açıkları içerir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Adını bir caz gitaristinden alır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      Geliştiricilerin siteler arası komut dosyası çalıştırma, csrf ve tıklama hırsızlığının yanında SQL Injection gibi güvenlik hatalarından korunmasına yardımcı olmaktadır.” denilmektedir. Bu sebeple “SQL Injection gibi güvenlik açıkları içerir.” denemez.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Python dili için dizayn edilmiş olan Django platformunda yapılmış bir projede, Web tarayıcısına <br><br>
+“http://127.0.0.1:8000/webapp/posta_kodu/07050”<br><br>
+adresi verildiğinde, “templates” klasöründe yer alan “posta_kodu.html” dosyasının içinde {{pk}} etiketi ile tanımlanmış ilgili alanda “07050” değerinin gösterilmesi amaçlanmaktadır. <br><br>
+
+
+Bunun için projeye eklenmesi gereken kodlardan biri şu şekildedir:<br>
+path('posta_kodu/', views.posta_kodu, name='posta_kodu')<br><br>
+
+
+Bu kod hangi dosyaya eklenmelidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> views.py </span><br>
+	<span class="option" data-correct="false"><b>B)</b> setings.py </span><br>
+	<span class="option" data-correct="true"><b>C)</b> urls.py </span><br>
+	<span class="option" data-correct="false"><b>D)</b> manage.py </span><br>
+	<span class="option" data-correct="false"><b>E)</b> posta_kodu.html </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      views.py içerisinde şablon (view) olarak tanımlanan dosyaların çalıştırılabilmesi urls.py dosyasında yer alan “urlpatterns” değikenine path() fonksiyonu ile eklenmelidir     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> Python dili için dizayn edilmiş olan Django platformunda yapılmış bir projede, Web tarayıcısına <br><br>
+“http://127.0.0.1:8000/webapp/posta_kodu/07050”<br><br>
+adresi verildiğinde, “templates” klasöründe yer alan “posta_kodu.html” dosyasının içinde {{pk}} etiketi ile tanımlanmış ilgili alanda “07050” değerinin gösterilmesi amaçlanmaktadır. <br><br>
+
+
+Bunun için projeye eklenmesi gereken kodlardan biri şu şekildedir:<br>
+def sayi_goster(request, pk):<br>
+return render(request, "posta_kodu.html", {'pk' : pk})<br><br>
+
+
+Bu kod hangi dosyaya eklenmelidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> views.py </span><br>
+	<span class="option" data-correct="false"><b>B)</b> setings.py </span><br>
+	<span class="option" data-correct="false"><b>C)</b> urls.py </span><br>
+	<span class="option" data-correct="false"><b>D)</b> manage.py </span><br>
+	<span class="option" data-correct="false"><b>E)</b> posta_kodu.html </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      Şablon dosyalara parametre de gönderilebilmektedir. Bu parametreler öncelikle url yönlendirmesi yapılan
+“urls.py” dosyasına eklenmeli ve sonrasında, “views.py” dosyasına da ilgili parametreyi alan bir metot
+tanımlanmalıdır. Parametrelerin gösterileceği şablon dosyalar da, templates klasörü altında oluşturulmalıdır     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> Python dili için dizayn edilmiş olan Django platformunda modellerin sağladığı kolaylık nedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Veritabanı işlemleri için SQL sorgusu yapma gereğini ortadan kaldırır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bir XML belgesi, CSV dosyası, web sayfasının HTML içeriği gibi farklı içerikler döndürebilir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> URL üzerinden parametre gönderilebilmektedir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Veritabanında tablo veya koleksiyonu temsil edebilmektedirler. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Modelde yapılan değişiklikler veritabanına anında yansıtılmaz. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> BSD özgür yazılım lisansı ile lisanslanmış, açık kaynak kodlu, Python dili için dizayn edilmiş yüksek seviyeli bir web uygulaması geliştirme platformu   .............dır.<br><br>
+Yukarıdaki boşluğu aşağıdakilerden hangisi doğru bir şekilde tamamlar? </p>
+	<span class="option" data-correct="false"><b>A)</b> MVT </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Django </span><br>
+	<span class="option" data-correct="false"><b>C)</b> SQL Injection </span><br>
+	<span class="option" data-correct="false"><b>D)</b> WSGI </span><br>
+	<span class="option" data-correct="false"><b>E)</b> HTML </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Python dili için dizayn edilmiş olan Django platformunda oluşturulan bir projede, proje dizininde yer alan “wsgi.py” dosyasının işlevi nedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Bu dosya olduğu için, bu klasör bir paket olarak kabul edilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bu dosya projedeki tüm ayarları yönetmektedir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sitedeki linkleri kontrol eden, tüm bağlantıları ve metotları yönlendiren ana işlevdir. </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Gerektiğinde uyumlu web sunucular için bir giriş noktası görevi görmektedir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bu dosya bir görünüm şablonudur. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      <strong>proje_adı</strong> klasörü sadece iki tane nesne içeren proje kapsayıcısıdır.<br>
+<strong>manage.py:</strong> Bu dosya, proje ile komut satırı aracılığıyla iletişim kurmak için hazırlanmış yerel bir Django-admin’dir. Veritabanı senkronizasyonu, geliştirme sunucusu başlatma gibi görevleri gerçekleştirmeye yarayan komut satırı yardımcı programıdır.<br>
+<strong>proje_adı:</strong> Alt klasördür ve projedeki gerçek Python paketidir. Dört adet dosya içermektedir.<br>
+<strong>__init__.py:</strong> Bu dosya olduğu için, bu klasör bir paket olarak kabul edilir.<br>
+<strong>settings.py:</strong> Adından da anlaşılacağı gibi, bu dosya projedeki tüm ayarları yönetmektedir.<br>
+<strong>urls.py:</strong> Sitedeki linkleri kontrol eden, tüm bağlantıları ve metotları yönlendiren ana işlevdir.<br>
+<strong>wsgi.py:</strong> Proje WSGI (Web Server Gateway Interface) üzerinden sunulması gerekiyorsa, uyumlu web sunucular için bir giriş noktası görevi görmektedir.    </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> Python dili için dizayn edilmiş olan Django platformunda arayüz (view) olarak adlandırılan yapılar ile ilgili olarak hangisi <u><strong>söylenemez?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Web isteği (web request) alır ve web yanıtı (web response) döndürür. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Web sayfalarının oluşturulması için kullanılır. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Döndürülen yanıt sadece HTML biçiminde olabilir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sayfa olarak görüntülenmesi için bir URL ile eşleştirilmesi gerekir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Projenin views.py dosyasında içerisine tanımlanarak oluşturulmalıdır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      “ ... yanıt, bir XML belgesi, CSV dosyası, 404 hatası, ses dosyası, web sayfasının HTML içeriği gibi farklı içerikler olabilir.” Buna göre “Döndürülen yanıt sadece HTML biçiminde olabilir.” seçeneği hatalıdır.      </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Python dili için dizayn edilmiş olan Django platformunda oluşturulan şablon dosyalara parametre göndermek de mümkündür. Aşağıdakilerden hangisi parametre olarak kullanılabilecek veri tiplerinden birisi <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> slug </span><br>
+	<span class="option" data-correct="false"><b>B)</b> int </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Str </span><br>
+	<span class="option" data-correct="true"><b>D)</b> date </span><br>
+	<span class="option" data-correct="false"><b>E)</b> uuid </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br>  Python dili için dizayn edilmiş olan Django platformunda kullanılan model nesnesi ile ilgili olarak aşağıdakilerden hangisi <u><strong>söylenemez?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Veritabanında tablo veya koleksiyonu temsil eden bir sınıftır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> django.db.models.Model’den kalıtım yoluyla türetilir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veritabanında her tablo için id alanı otomatik olarak eklenmektedir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> models.py dosyası içinde tanımlanırlar. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Model ile yaratılan tablo model ile aynı adı taşımak zorundadır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> Django’da arayüzler aşağıdaki dosyalardan hangisinde oluşturulmalıdır? </p>
+	<span class="option" data-correct="true"><b>A)</b> webapp/views.py </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 'django.contrib.admin' </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 'django.contrib.auth' </span><br>
+	<span class="option" data-correct="false"><b>D)</b> webapp/settings.py </span><br>
+	<span class="option" data-correct="false"><b>E)</b> webapp/ur.py </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br>  web sitesinde oluşturulan html dosyalara parametreler, url üzerinden gönderilmektedir. Buna göre aşağıdakilerden  hangisi mesaj_goster şablonu için "mesajınız: eğitim ücretleri alındı"  görüntüsünü elde edeceğimiz url'dir? </p>
+	<span class="option" data-correct="false"><b>A)</b> http://127.0.0.1:8000/webapp/mesaj_goster/Kargo%20zaman%C4%B1nda%20gelmedi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> http://127.0.0.1:8000/webapp/sayi_goster/26020 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> http://127.0.0.1:8000/webapp/mesaj_goster/Egitim%20ucretleri%C4%B1%20alindi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> http://127.0.0.1:8000/webapp/mesaj_goster/26020 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> http://127.0.0.1:8000/webapp/mesaj zamani_goster/26020 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> def html_footer(request):<br>
+return render(request, "footer.html", {})<br><br>
+
+
+Python dili için dizayn edilmiş olan Django platformunda yapılmış bir projede, view.py dosyası içerisinde, sitede yapılacak bakım çalışmalarında kullanmak üzere bir şablon (template) olarak oluşturulan “bakim.html” dosyası için oluşturulan html_bakim metodu tanımlanmıştır. bakim.html dosyası, projede yer alan “templates” isimli bir klasörde yer almaktadır.<br><br>
+
+Buna göre, “bakim.html” içeriğinin web üzerinden erişilerek görüntülenebilmesi aşağıdakilerden hangisi yapılmalıdır? </p>
+	<span class="option" data-correct="true"><b>A)</b> “settings.py” dosyası içinde tanımlı TEMPLATES ayarlarında düzenleme yapılmalıdır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> “settings.py” dosyası şablonların oluşturulduğu “templates” klasörü altına konulmalıdır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> “settings.py” dosyası üzerinde herhangi bir düzenleme yapmaya gerek yoktur. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sadece “settings.py” içerisinde “bakim.html” şablonu tanımlanmalıdır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> “settings.py” ve “urls.py” dosyalarında “bakim.html” şablonu tanımlanmalıdır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> Python dili için dizayn edilmiş olan Django platformunda, models.py dosyası üzerinde bir model tanımlanması yapıldıktan sonra makemigrations ve migrate komutları çalıştırılır.<br><br>
+Bu komutlar ile ilgili olarak hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> “makemigrations” komutu çalıştırılmazsa modelde yapılan değişiklikler veritabanına yansımaz. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> “makemigrations” komutu proje içerisindeki tüm modelleri tarayarak migration dosyalarını oluşturur. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> “migrate” komutu çalıştırılmazsa modelde yapılan değişiklikler veritabanına yansımaz. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> “migrate” komutu veritabanını günceller. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Komutların hangi sıra ile çalıştırıldığının bir önemi yoktur. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      Models dosyasında yapılan tüm değişiklikler için öncelikle makemigration sonra da migrate komutu çalıştırılarak veritabanı güncellenmelidir     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> CRUD, veritabanındaki bir tablo üzerinde aşağıdaki işlemlerden hangisini <u><strong>gerçekleştiremez?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Oluşturma </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Alma </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Güncelleme </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Betimleme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Silme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      Django, kurulum ve bağımlılık sorunu olmadan hızlı bir şekilde web uygulaması oluşturmaya izin veren bir web geliştirme platformu sunmaktadır. MVT (Model Görünüm Şablon) mimarisini temel alarak CRUD (Oluştur Al Güncelle Sil) işlemlerini gerçekleştirir. CRUD, veritabanındaki bir tablo üzerinde Oluşturma, Alma, Güncelleme ve Silme işlemlerini gerçekleştirmek anlamına gelmektedir.
+
+
+     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> Benim_Projem adlı bir Django projesi oluşturmak için komut satırına ne yazmak gerekir? </p>
+	<span class="option" data-correct="true"><b>A)</b> django-admin startproject Benim_Projem </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> Python ile Django arasındaki fark nedir?
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Python bir programlama dlidir. Django Python ile yazılmıştır. Django ise Frontend Backend uygulama ve servis geliştirme ortamıdır.  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> Bir Django proje dizini oluşturulduğunda bu dizin içerisinde proje ile ilişkiyi sağlatan proje dosyasının adı nedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> manage.py </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> Bir Django projesi yaratıldığında projeyle oluşacak dosyalar nelerdir? Bu dosyalardan 3 adedini yazmanız yeterli olacaktır. </p>
+	<span class="option" data-correct="true"><b>A)</b> 
+<u><strong>manage.py:</strong></u> Bu dosya, proje ile komut satırı aracılığıyla iletişim kurmak için hazırlanmış yerel bir Django-admin’dir. Veritabanı senkronizasyonu, geliştirme sunucusu başlatma gibi görevleri gerçekleştirmeye yarayan komut satırı yardımcı programıdır.
+
+<u><strong>proje_adı (egitim_projesi):</strong></u> Alt klasördür ve projedeki gerçek Python paketidir. Dört adet dosya içermektedir.
+
+<u><strong>__init__.py:</strong></u> Bu dosya olduğu için, bu klasör bir paket olarak kabul edilir. settings.py: Adından da anlaşılacağı gibi, bu dosya projedeki tüm ayarları yönetmektedir.
+
+<u><strong>urls.py:</strong></u> Sitedeki linkleri kontrol eden, tüm bağlantıları ve metotları yönlendiren ana işlevdir.
+
+<u><strong>wsgi.py:</strong></u> Proje WSGI (Web Server Gateway Interface) üzerinden sunulması gerekiyorsa, uyumlu web sunucular için bir giriş noktası görevi görmektedir.   </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> Django için settings.py dosyası ne işe yarar?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Django sunucusu başladığında, ilk bakılan dosya settings.py dosyasıdır. Bu dosyada web uygulamasının ana ayarları bulunur.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> python manage.py startapp benim_uygulamam <br><br>
+
+Komutuyla yarattığınız "benim_uygulamam" Django uygulamasının kullanılabilmesi için ilk yapılması gereken nedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Settings.py dosyası açılarak elle INSTALLED_APPS içerisine 'benim_uygulamam' konulmalıdır.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> Bir WebApp adlı Django projesi oluşturduğunuzda bu projenin açılan bir WEB sayfasından ulaşılabilmesini sağlayacak kod nedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> python manage.py runserver
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> Django içinde Template (Şablon) nedir? Ne işe yarar?  </p>
+	<span class="option" data-correct="true"><b>A)</b> Django Template (şablon), Django template dili kullanılarak işaretlenmiş bir metin belgesi veya Python dizesidir. Bazı yapılar template motoru tarafından tanınır ve yorumlanır. Ana olanlar değişkenler ve etiketlerdir.<br><br>
+
+Bir template, bir bağlamla işlenir. Oluşturma, değişkenleri bağlamda aranan değerleriyle değiştirir ve etiketleri yürütür. Geri kalan her şey olduğu gibi çıktılanır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> Django için Model nedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Django’da model, veritabanında tablo veya koleksiyonu temsil eden bir sınıftır.
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> Django içinde model yaratabilmek için hangi kütüphane kullanılmalıdır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> django.db kütüphanesi kullanılmalıdır. 
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question41">
+	<p class="question">Soru 41:<br> Proje içerisindeki tüm modelleri tarayarak migration dosyalarını oluşturan komut nedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> python manage.py makemigrations
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description41">Açıklama</button>
+		<div id="description41" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question42">
+	<p class="question">Soru 42:<br> Kaç türlü HTTP isteği vardır? Bunlar nelerdir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> GET ve POST olmak üzere iki tür HTTP isteği mevcuttur
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description42">Açıklama</button>
+		<div id="description42" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question43">
+	<p class="question">Soru 43:<br> Bir yönetici arayüzü hangi Django modülüne bağlıdır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Yönetici arayüzü, Django.countrib modülüne bağlıdır
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description43">Açıklama</button>
+		<div id="description43" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question44">
+	<p class="question">Soru 44:<br> Bir Django projesinde veri tabanında yönetici işlemleri yapabilmek için superuser yaratmak gerekir. Bunun için yazmanız gereken komut nedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> python manage.py createsuperuser
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description44">Açıklama</button>
+		<div id="description44" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question45">
+	<p class="question">Soru 45:<br> Django projesinde yönetici arayüzüne ulaşmak için veritabanı nasıl başlatılır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> python manage.py makemigrations<br>
+python manage.py migrate<br><br>
+
+komutlarını yazmak gerekir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description45">Açıklama</button>
+		<div id="description45" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question46">
+	<p class="question">Soru 46:<br> Django Yönetici Arayüzünü başlatmadan önce en temel yapılması gereken nedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Bir veri tabanı oluşturulması gerekir. 
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description46">Açıklama</button>
+		<div id="description46" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question47">
+	<p class="question">Soru 47:<br> CRUD Nedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> CRUD;<br>
+ <br>
+Create (Oluştur) , <br>
+Read  (Oku), <br>
+Update (Güncelle) ve <br>
+Delete (Sil= kelimelerinin kısaltmasıdır. <br><br>
+Uygulama programlama arabirimleri (API'ler) oluştururken modeller oluşturmak için kullanılan anımsatıcı bir çerçevedir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description47">Açıklama</button>
+		<div id="description47" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+
+		
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

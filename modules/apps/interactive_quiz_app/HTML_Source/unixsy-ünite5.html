@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+	  
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA II
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama2-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama2-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama2-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama2-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama2-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama2-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama2-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama2-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama2-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama2-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB ARAYÜZ PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİ YAPILARI
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veriyap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veriyap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veriyap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veriyap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veriyap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veriyap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veriyap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veriyap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veriyap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veriyap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          MOBİL UYGULAMA GELİŞTİRME
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="mobilug-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="mobilug-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="mobilug-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="mobilug-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="mobilug-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="mobilug-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="mobilug-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="mobilug-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="mobilug-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="mobilug-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          UNIX SİSTEM YÖNETİMİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="unixsy-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="unixsy-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="unixsy-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="unixsy-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="unixsy-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="unixsy-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="unixsy-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="unixsy-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="unixsy-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="unixsy-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Unix Sistem Yönetimi - Ünite 5 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Aşağıdakilerden hangisi Debian tabanlı sistemlerde kullanılan paket yönetim aracıdır?  </p>
+	<span class="option" data-correct="false"><b>A)</b> pisi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> update </span><br>
+	<span class="option" data-correct="true"><b>C)</b> apt </span><br>
+	<span class="option" data-correct="false"><b>D)</b> rpm </span><br>
+	<span class="option" data-correct="false"><b>E)</b> yum </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Aşağıdaki paket yönetim araçlarından hangisinde yazılım yüklenirken paket bağımlılık denetimi yapılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> rpm </span><br>
+	<span class="option" data-correct="false"><b>B)</b> dpkg </span><br>
+	<span class="option" data-correct="false"><b>C)</b> cat </span><br>
+	<span class="option" data-correct="false"><b>D)</b> lsb_release </span><br>
+	<span class="option" data-correct="true"><b>E)</b> dnf </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Aşağıdaki komutlardan hangisi ile Debian tabanlı Linux işletim sistemlerinin versiyonu öğrenilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> lsb_release </span><br>
+	<span class="option" data-correct="false"><b>B)</b> apt update </span><br>
+	<span class="option" data-correct="false"><b>C)</b> dpkg </span><br>
+	<span class="option" data-correct="false"><b>D)</b> add user </span><br>
+	<span class="option" data-correct="false"><b>E)</b> apt upgrade </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Aşağıdaki komutlardan hangisi ile Debian
+tabanlı sistemlerde yazılım paketi deposu (repository) güncellenir? </p>
+	<span class="option" data-correct="false"><b>A)</b> sudo apt upgrade </span><br>
+	<span class="option" data-correct="false"><b>B)</b> sudo apt install </span><br>
+	<span class="option" data-correct="false"><b>C)</b> sudo dpkg install </span><br>
+	<span class="option" data-correct="true"><b>D)</b> sudo apt update </span><br>
+	<span class="option" data-correct="false"><b>E)</b> sudo dnf check-update </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Aşağıdaki komutlardan hangisi ile RedHat
+tabanlı sistemlerde lsb_release komutu yüklenir? </p>
+	<span class="option" data-correct="false"><b>A)</b> sudo cat /etc/redhat-release </span><br>
+	<span class="option" data-correct="true"><b>B)</b> sudo dnf install redhat-lsb-core </span><br>
+	<span class="option" data-correct="false"><b>C)</b> sudo cat /etc/os-release </span><br>
+	<span class="option" data-correct="false"><b>D)</b> sudo rpm install redhat-lsb-core </span><br>
+	<span class="option" data-correct="false"><b>E)</b> sudo apt install redhat-lsb-core </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Aşağıdaki komutlardan hangisi ile Debian
+tabanlı sistemlere Nginx web sunucusu yazılımı yüklenir? [Debian Tabanlı Linux Dağıtımlarında Paket Yönetimi] </p>
+	<span class="option" data-correct="false"><b>A)</b> sudo apt update nginx </span><br>
+	<span class="option" data-correct="false"><b>B)</b> sudo dnf nginx </span><br>
+	<span class="option" data-correct="false"><b>C)</b> sudo apt upgrade nginx </span><br>
+	<span class="option" data-correct="true"><b>D)</b> sudo apt install nginx </span><br>
+	<span class="option" data-correct="false"><b>E)</b> sudo rpm nginx </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> Aşağıdaki Linux komutlarından hangisi ile
+“linuxuser” kullanıcısı süper kullanıcı grubuna tanımlanır? </p>
+	<span class="option" data-correct="true"><b>A)</b> sudo usermod -aG sudo linuxuser </span><br>
+	<span class="option" data-correct="false"><b>B)</b> sudo adduser -G sudo linuxuser </span><br>
+	<span class="option" data-correct="false"><b>C)</b> sudo adduser -a linuxuser </span><br>
+	<span class="option" data-correct="false"><b>D)</b> sudo new user -Ga linuxuser </span><br>
+	<span class="option" data-correct="false"><b>E)</b> sudo new group -aG linuxuser </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> Aşağıdaki komutlardan hangisi ile RedHat
+tabanlı sistemlerde yazılım deposu güncellenir? </p>
+	<span class="option" data-correct="false"><b>A)</b> dnf update </span><br>
+	<span class="option" data-correct="false"><b>B)</b> apt update </span><br>
+	<span class="option" data-correct="true"><b>C)</b> dnf check-update </span><br>
+	<span class="option" data-correct="false"><b>D)</b> apt upgrade </span><br>
+	<span class="option" data-correct="false"><b>E)</b> rpm update </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> OpenSuse işletim sisteminde yerel paket veritabanını paket sunucusuyla güncel tutmak için hangi komut kullanılır? [Diğer Linux Dağıtımlarında Paket Yönetimi ] </p>
+	<span class="option" data-correct="false"><b>A)</b> sudo zypper update </span><br>
+	<span class="option" data-correct="false"><b>B)</b> sudo apt update </span><br>
+	<span class="option" data-correct="false"><b>C)</b> sudo dnf check-update </span><br>
+	<span class="option" data-correct="true"><b>D)</b> sudo zypper refresh </span><br>
+	<span class="option" data-correct="false"><b>E)</b> sudo apt upgrade </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      OpenSuse işletim sisteminde yerel paket veritabanını paket sunucusuyla güncel tutmak için <strong>sudo
+zypper refresh</strong> komutu kullanılır.<br>
+<br>
+En son paket güncellemelerini yüklemek için <strong>sudo zypper update</strong> komutu kullanılır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Aşağıdakilerden hangisi Gentoo Linux işletim sisteminde komut satırı arayüzünde kullanılan paket yönetim aracıdır? [Diğer Linux Dağıtımlarında Paket Yönetimi ] </p>
+	<span class="option" data-correct="true"><b>A)</b> emerge </span><br>
+	<span class="option" data-correct="false"><b>B)</b> apt </span><br>
+	<span class="option" data-correct="false"><b>C)</b> dnf </span><br>
+	<span class="option" data-correct="false"><b>D)</b> rpm </span><br>
+	<span class="option" data-correct="false"><b>E)</b> arch </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> İşletim sistemi kurulurken varsayılan olarak kurulu gelen unzip paketini kaldırmak için hangi komut kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> apt remove </span><br>
+	<span class="option" data-correct="false"><b>B)</b> apt upgrade </span><br>
+	<span class="option" data-correct="false"><b>C)</b> apt update </span><br>
+	<span class="option" data-correct="false"><b>D)</b> apt purge </span><br>
+	<span class="option" data-correct="false"><b>E)</b> apt show </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> Kali Linux işletim sistemine ssh protokolü ile giriş yapabilmek için kurulum yapıldıktan sonra işletim sistemi içinde hangi komut çalıştırılmalıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> systemctl status </span><br>
+	<span class="option" data-correct="true"><b>B)</b> systemctl start ssh </span><br>
+	<span class="option" data-correct="false"><b>C)</b> systemctl stop </span><br>
+	<span class="option" data-correct="false"><b>D)</b> systemctl restart </span><br>
+	<span class="option" data-correct="false"><b>E)</b> systemctl disable </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Redhat linux dağıtımında paket yönetimi ile ilgili aşağıdakilerden hangisi hatalıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Red Hat tabanlı tüm Linux çeşitleri için paket yönetim sisteminde RPM kullanılmaktadır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Paketleri kurmak, güncellemek, silmek, sorgulamak ve doğrulamak RPM ile yapılır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Paket bağımlılığının tespit edilemediği durumlarda rpm’nin paketi yüklemesi başarısız olur. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> kullanıcı rpm komutlarını kullanırken RPM dosyasının konumunu belirtmelidir. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Yazılım paketinin yüklenebilmesi için kullanıcının bu paket bağımlılığına karşılık gelen bileşenlerin yüklemesine gerek yoktur. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> Aşağıdakilerden hangisi DNF ve yum arasındaki farklardan biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Modern bağımlılık çözme teknolojisi tabanlı bağımlılık hesaplama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Optimize edilmiş hafızaya duyarlı işlemler </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Python 2 ve Python 3’te çalışabilmesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Python API’leri için tam bir dökümantasyonu bulunma </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Yum'da DNF'ye göre daha gelişmiş özellikler bulunur </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      DNF (Dandified yum), paketleri yükleyen, güncelleyen ve kaldıran RPM tabanlı Linux dağıtımları için bir yazılım paketi yöneticisidir. Geleneksel yum paket yöneticisinin yeni nesil versiyonu olduğu için yum’da bulunandan daha gelişmiş özelliklere sahiptir.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> [root@localhost ~]# cat /etc/redhat-release  komutunun çıktısı aşağıdakilerden hangisi olabilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Red Hat Enterprise Linux release 9.0 (Plow) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> root@192.168.1.44's password: </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Package php.x86_64 0:5.4.16-48.el7 will be installed </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Dependencies Resolved </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Loading mirror speeds from cached hostfile </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      İşletim sisteminin versiyonunu öğrenmek için cat /etc/redhat-release komutu çalıştırılabilir     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Kurulumu bağımlı paket olarak php yazılımı kurulurken yüklenen Apache2 Web Sunucusu (httpd) yazılım paketini kaldırmak için hangi komut kullanılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> sudo yum uninstall </span><br>
+	<span class="option" data-correct="false"><b>B)</b> sudo yum check-update </span><br>
+	<span class="option" data-correct="false"><b>C)</b> sudo yum update </span><br>
+	<span class="option" data-correct="true"><b>D)</b> sudo yum remove </span><br>
+	<span class="option" data-correct="false"><b>E)</b> sudo yum install </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> Sunucuya Nginx web sunucusu ile htop yazılım paketlerinin birlikte kurulması için hangi komut kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> dnf install nginx htop  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> dnf remove nginx htop </span><br>
+	<span class="option" data-correct="false"><b>C)</b> dnf check-update nginx htop </span><br>
+	<span class="option" data-correct="false"><b>D)</b> dnf check-update nginx htop </span><br>
+	<span class="option" data-correct="false"><b>E)</b> dnf uninstall nginx htop </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      Sunucuya Nginx web sunucusu ile htop yazılım paketlerinin birlikte kurulması için kullanılan dnf install komutuna örnek aşağıda gösterilmektedir:<br><br>
+
+[root@fedora ~]# dnf install nginx htop     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Temelde günümüzde en yaygın iki temel Linux dağıtımı nelerdir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Debian ve RedHat temel iki Linux dağıtımıdır.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> Bir Debian tabanlı sistemde sistemin versiyonunu öğrenmek için lsb_release yazdınız ve program paketinin yüklü olmadığını gördüğünüz zaman versiyonu öğrenmek için ne yaparsınız?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Birincisi lsb_release paketinin yüklenmesi gerekir. Bu paket yüklendikten sonra lsb_releae -a ile versiyon öğrenebilir. <br><br>
+
+Diğer bir Yöntem ise : <br><br>
+
+cat /etc/os-release komutu ile sürüm öğrenilebilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> Debian işletim sistemine sahip bir Linux dağıtım ile çalışırken bir yazılım yüklenmeden önce deponun güncellenmesi için hangi komut kullanılmalıdır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> sudo apt update komutunun çalıştırılması gerekir.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Ubuntu için bir program yüklemek isterseniz hangi tabanlı yönetici sürümünü seçmeniz gerekir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Debian tabanlı apt yönetim sürümünü seçmeniz gerekir.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Aşağıdaki, Linux dağıtımları hangi temel dağıtıma aittirler?<br><br>
+
+Pardus<br>
+
+Fedora<br>
+
+CentOS<br>
+
+AlmaLinux<br>
+
+Ubuntu<br>
+
+Kali Linux </p>
+	<span class="option" data-correct="true"><b>A)</b> Pardus - Debian<br>
+
+Fedora - RedHat<br>
+
+CentOS - RedHat<br>
+
+AlmaLinux - RedHat<br>
+
+Ubuntu - Debian<br>
+
+Kali Linux - Debian </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> Aşağıdaki komutun işlevi nedir?<br>
+sudo apt remove nano
+
+
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Bu komut nano programının sistemden kaldırılması için kullanılır.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Bir arkadaşınız bir Linux dağıtımında depo güncellemesi yaparken aşağıdaki gibi satırları gördüğünüzde arkadaşınızın hangi Linux dağıtımıyla çalışmaktadır?<br><br>
+
+....<br>
+
+Paket listeleri okunuyor... Bitti<br>
+Bağımlılık ağacı oluşturuluyor... Bitti<br>
+Durum bilgisi okunuyor... Bitti<br>
+
+.... </p>
+	<span class="option" data-correct="true"><b>A)</b> Bu bir Pardus dağıtımı ile çalışıldığını göstermektedir.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> RedHat dağıtımında hangi paket yöneticileri kullanılır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> RPM veya YUM paket yöneticileri kullanılır.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> RPM ve YUM arasındaki farklılık nedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> RPM paket bağımlılıklarının kontrol edilmediği ancak YUM paket bağımlılıklarını da kontrol eden yazılım yönetim araçlarıdır. 
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> yum update hangi Linux dağıtımında kullanılmaktadır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Red Hat dağıtımında kullanılmaktadır. 
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> RedHat tabanlı 4 adet Linux dağıtımı yazınız.
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> CentOS<br> 
+
+Fedora<br> 
+
+AlmaLinux<br> 
+
+Rocky Linux </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> Bir RadHat tabanlı Linux dağıtımda nginex (Web Sunucu) yüklemek için hangi komutu çalıştırmanız gerekir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> dnf install nginex komutunu çalıştırmanız gerekir. 
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> RedHad tabanlı bir Linux dağıtım ile çalıştığınızda yazılım deposunu güncellemek için hangi komutu kullanmanız gerekir? 
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> dnf check-update komutunu kullanmanız gerekir
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> Eğer bir arkadaşınızın Linux terminalinde:<br><br>
+
+sudo zypper update<br><br>
+
+komutunu gördüğünüzde ve bu komut doğru çalıştığında  bu arkadaşınız hangi Linux dağıtımını kullanmaktadır? </p>
+	<span class="option" data-correct="true"><b>A)</b> OpenSUSE dağıtımını kullanmaktadır. 
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> Debian ve Redhat tabanlı olmayan Linux sürümleri nelerdir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> OpenSUSE<br>
+
+SUSE<br>
+
+Gentoo<br>
+
+Arch Linux </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> Eğer bir Ubuntu Linux dağıtımı kullanırken aşağıdaki komutu yazarsanız ne gibi bir sonuçla karşılaşırsınız?<br>
+
+cat /etc/gentoo-release </p>
+	<span class="option" data-correct="true"><b>A)</b> No such file or directory 
+
+diye bir sonuçla karşılaşırsınız. <br>
+<br>
+Normalde bu komut ile işletim sisteminin versiyonu öğrenilebilir ancak sorudaki gibi Gentoo işletim sistemi yerine Ubuntu'da bu komutu yazarsanız hata verecektir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> Arch Linux sürümünde paket yöneticisi nedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> pacman </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> Eğer bir Linux sürümünde  sudo pacman -R nginx-mainline komutu doğru çalışırsa bu hangi dağıtıma ait bir bilgisayardır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Arch Linux dağıtımına ait bir bilgisayarda çalışmaktadır. 
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+		
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

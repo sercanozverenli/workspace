@@ -1,0 +1,1591 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+	  
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA II
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama2-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama2-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama2-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama2-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama2-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama2-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama2-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama2-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama2-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama2-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB ARAYÜZ PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİ YAPILARI
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veriyap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veriyap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veriyap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veriyap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veriyap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veriyap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veriyap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veriyap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veriyap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veriyap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          MOBİL UYGULAMA GELİŞTİRME
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="mobilug-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="mobilug-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="mobilug-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="mobilug-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="mobilug-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="mobilug-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="mobilug-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="mobilug-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="mobilug-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="mobilug-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          UNIX SİSTEM YÖNETİMİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="unixsy-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="unixsy-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="unixsy-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="unixsy-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="unixsy-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="unixsy-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="unixsy-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="unixsy-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="unixsy-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="unixsy-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Mobil Uygulama Geliştirme - Ünite 5 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	<button class="block-group" data-start="40" data-end="59">Part 3</button>
+  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Dart dilinde tanımlı değişkenlerin içeriklerinin boş olmasını engelleyen mekanizma aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Null-safety </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Hot reload </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kalıtım </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Parametre </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Void </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Dart uygulamalarının başlangıç noktası aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Void fonksiyonu </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Main fonksiyonu </span><br>
+	<span class="option" data-correct="false"><b>C)</b> RunApp metodu </span><br>
+	<span class="option" data-correct="false"><b>D)</b> MaterialApp nesnesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Extends anahtar kelimesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Dart uygulamalarına dışarıdan kod eklemek
+için aşağıdaki hangi anahtar sözcük kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> İmport </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Extend </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Void </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Material.dart </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Get </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Flutter uygulamalarında kullanılacak temel
+veri yapılarını sağlayan kütüphane aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Cupertino.dart </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Core.dart </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Math.dart </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Material.dart </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Pubspec.dart </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Aşağıdaki değişken tanımlarından hangisi
+hatalıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Var sayi = 3; </span><br>
+	<span class="option" data-correct="false"><b>B)</b>  İnt sayi = 3; </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Var sayi = 3.6; </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Var sayi = “üç”; </span><br>
+	<span class="option" data-correct="true"><b>E)</b> İnt sayi = 3.6; </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Sayısal bir değişkenin işaretini değiştirmek
+için aşağıdaki işleçlerden hangisi kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> – </span><br>
+	<span class="option" data-correct="false"><b>B)</b> + </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ^ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ~ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ! </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> Aşağıdakilerden hangisi sonsuz döngü üretmez? </p>
+	<span class="option" data-correct="false"><b>A)</b> While(true) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> While(2=2) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> For(var i=0; i&lt;2; i-- </span><br>
+	<span class="option" data-correct="true"><b>D)</b> While(false </span><br>
+	<span class="option" data-correct="false"><b>E)</b> While(2&gt;=2) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> <em>Hesapla(int say1, say2) =&gt; say1 % say2;</em><br><br>
+
+Yukarıda tanımlanan hesapla fonksiyonu hesapla(6, 4) şeklinde çağrılırsa nasıl davranır? </p>
+	<span class="option" data-correct="false"><b>A)</b>  Ekrana 2 yazar </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Geriye 2 çevirir </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ekrana 1,5 yazar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Ekrana 24 yazar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Geriye 24 çevirir </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> Dart programlama dilinde kalıtım mekanizmasını çalıştırmak için aşağıdaki anahtar sözcüklerden hangisi kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Extends </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Coid </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Null </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Private </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Public </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Flutter uygulamalarında ekranda içerik göstermek için kullanılan yapılara ne ad verilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Bileşen (Widget) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yapıcı (Constructor </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Döngü </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Değişken </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Rota </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> Aşağıdakilerden hangisi verilen bir şart yapısının sağlanması halinde çalışacak ve aksi halde çalışacak bir blok tanımlamaya olanak verir? </p>
+	<span class="option" data-correct="false"><b>A)</b> switch/switch case
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> break/break down </span><br>
+	<span class="option" data-correct="true"><b>C)</b> if/if else
+
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> empty/not empty
+
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> while/while if </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> “Flutter uygulamaları genellikle lib klasörü içindeki …….. dosyası içinden başlatılır.” İfadesinde boş bırakılan yere aşağıdakilerden hangisi gelmelidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> debugShow </span><br>
+	<span class="option" data-correct="true"><b>B)</b> main.dart </span><br>
+	<span class="option" data-correct="false"><b>C)</b> MaterialApp </span><br>
+	<span class="option" data-correct="false"><b>D)</b> initialRoute </span><br>
+	<span class="option" data-correct="false"><b>E)</b> runApp </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Aşağıdakilerden hangisi sayfa gövdesi görevini görmekte ve sayfada ekranda gösterilmek istenen tüm içerikler söz konusu parametreye atanan bileşen ağacına eklenir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Body </span><br>
+	<span class="option" data-correct="false"><b>B)</b> AppBarr </span><br>
+	<span class="option" data-correct="false"><b>C)</b> AssetImage </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ListView </span><br>
+	<span class="option" data-correct="false"><b>E)</b> CircleAvatar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> Mantıksal doğru ve yanlış değerlerinin saklanması için aşağıdakilerden hangi veri tipi desteklenir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Avagadro </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sayılar </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Boolean </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Listeler </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Metinler </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> Bir değer çevirmeyen main fonksiyonu için hangi anahtar sözcük tanımlanmıştır? </p>
+	<span class="option" data-correct="false"><b>A)</b> print </span><br>
+	<span class="option" data-correct="false"><b>B)</b> int </span><br>
+	<span class="option" data-correct="true"><b>C)</b> void </span><br>
+	<span class="option" data-correct="false"><b>D)</b> num </span><br>
+	<span class="option" data-correct="false"><b>E)</b> math </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Aşağıda dart dilinde kullanılabilecek işleçlere ilişkin verilen bilgilerden hangisi doğrudur? </p>
+	<span class="option" data-correct="true"><b>A)</b> Değişkenlerin değerini bir arttırmak için “++” işleci kullanılabilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Boolean türündeki bir değerin tersini almak için “/” işleci kullanılır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Değerlerin birbirlerine göre durumlarını kontrol etmek için “&&”  işleçleri kullanılır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İlişki kontrollerini ayırmak için VE ve VEYA işleçleri kullanılabilir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İki ilişki kontrolü “++” işleci ile birleştirilir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      Değişkenlerin değerini
+bir arttırmak için ++ işlec,, bir azaltmak için -- işleci kullanılabilir.     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> Aşağıdakilerden hangisi bir akış yöneticidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Haritalar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sayılar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Listeler </span><br>
+	<span class="option" data-correct="true"><b>D)</b> İf-else </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Boolean </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      AKIŞ YÖNETİCİLER<br><br>
+
+if-else<br>
+switch-case Yapıları<br>
+for Döngüleri<br>
+while Döngüleri<br>
+Fonksiyonlar<br>
+Değişkenlerin Etki Alanları     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Aşağıdakilerden hangisi bir uygulamanın başlangıç noktasıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Giriş sayfası </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Çekmece sayfa </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yan sayfa </span><br>
+	<span class="option" data-correct="false"><b>D)</b> If-else </span><br>
+	<span class="option" data-correct="true"><b>E)</b> main.dart dosyası  </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br>  Aşağıdaki boşluğu doldurunuz.<br> <br> 
+Mantıksal doğru ve yanlış değerlerinin saklanması için ............... veri tipi desteklenir. </p>
+	<span class="option" data-correct="false"><b>A)</b> string </span><br>
+	<span class="option" data-correct="true"><b>B)</b> bool  </span><br>
+	<span class="option" data-correct="false"><b>C)</b> avagadro </span><br>
+	<span class="option" data-correct="false"><b>D)</b> null </span><br>
+	<span class="option" data-correct="false"><b>E)</b> int </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> Aşağıdakilerden hangisi belirlenen şartın sağlanması süresince dönen yapılara verilen isimdir?  </p>
+	<span class="option" data-correct="false"><b>A)</b> default </span><br>
+	<span class="option" data-correct="false"><b>B)</b> break </span><br>
+	<span class="option" data-correct="false"><b>C)</b> bool </span><br>
+	<span class="option" data-correct="true"><b>D)</b> while  </span><br>
+	<span class="option" data-correct="false"><b>E)</b> asalmi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Aşağıdakilerden hangisi Dart dilinin kritik özellikleri arasında yer alır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Dart nesne yönelimli bir dil olduğu için kullanılan her yapının özünde bir sınıf yer alır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Dart değişkenlerinin veri tiplerinin kontrol altında olmaması nedeniyle kod içinde değişkene aktarılan veri türü değiştirilebilir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Değişkenlere ilk değer ataması yapıldığında tip çıkarımı olmaması nedeniyle değişkenin hangi tipte olması gerektiği belirtilir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Dart null güvenliği mekanizmasını desteklemediği için yolla henüz değer atanmamış değişkenlere başvurulması kaynaklı null exception hataları engellenemez. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yazılan kodlar sıcak yükleme mekanizması ile yürütülen uygulamalara enjekte edilmez. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      Dart dilinin bazı kritik özellikleri şu şekilde sıralanabilir:<br><br>
+
+• Dart nesne yönelimli bir dildir. Dart dilinde kullanılan her yapının (değişkenler, fonksiyonlar) özünde bir sınıf yer alır.<br><br>
+			
+• Dart tanımlama temelli (declarative) bir dildir. Dart programcıları arayüzlerin farklılaşan veri yapılarına göre nasıl davranacağını belirler. Veri yapısının değişmesi halinde gerekli değişiklikler arayüze Dart tarafından yansıtılır. Yinelemeli (imperative) dillerde ise programcıların veri yapısındaki değişiklikleri dinleyerek gerekli durumlarda arayüze müdahale etmesi gerekir. Örneğin, C# gibi dillerde TextBox gibi nesnelerde gösterilecek metinler, olay temelli bir sistem içinde (ör: Bir düğmeye basılması halinde gerçekleştirilen hesaplama) programcı tarafından değiştirilir. Dart programcılarının bu tür düzenlemeleri yapmasına gerek yoktur.<br><br>
+			
+• Dart değişkenlerinin veri tipleri sıkı kontrol (strongly typed) altındadır. Bu nedenle kod içinde değişkenlere aktarılabilecek veri türleri (ör: int, String) değiştirilemez. Javascript ve PHP gibi dillerde sıkı veri tipi kontrolü olmadığından bir değişkene kod içinde int ya da String tipinde veriler aktarılması sorun yaratmaz. Fakat Dart kodlarında bir değişkene tanımlanan veri tipi dışında değer atanması halinde derleme sırasında bu durum yakalanır ve hata ayıklanması istenir.<br><br>
+			
+• Dart, değişkenlere ilk değer ataması yapıldığı anda tip çıkarımı yapabilir. Bu mekanizma sayesinde programcının değişkenin hangi tipte olması gerektiğine ilişkin bilgi vermesine gerek kalmaz. Değişkenler var anahtar sözcüğü ile tanımlanır. Dart gerçekleştirilen atamaya göre değişkenin veri tipine karar verebilir. Dilin geliştiricileri tip çıkarımı mekanizmasının kullanılmasını önermektedir.<br><br>
+			
+• Dart null güvenliği (null-safety) mekanizmasını destekler. Bu yolla henüz değer atanmamış değişkenlere başvurulmasından kaynaklanan null exception hataları engellenir. Özellikle belirtilmediği sürece değişkenler null değerini alamaz.<br><br>
+			
+• Kodlama esnasında yazılan kodlar sıcak yükleme (hot reload) mekanizması ile yürütülen uygulamalara enjekte edilebilir. Bu sayede çalıştırılan uygulamaların baştan derlenmesi ile zaman kaybı yaşanmaz.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Aşağıdakilerden hangisi bir Drawer nesnesidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Başlangıç sayfası </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Giriş sayfası </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Çekmece sayfası </span><br>
+	<span class="option" data-correct="false"><b>D)</b> pubspec.yaml Dosyası </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Fonksiyonlar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> Aşağıdakilerden hangisi bir Scaffold bileşenidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Çekmece sayfası </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yan sayfa </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Fonksiyonlar </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Giriş sayfası </span><br>
+	<span class="option" data-correct="false"><b>E)</b> If-else </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      Uygulama başladığı anda gösterilecek ilk rota olan GirisSayfasi özünde bir Scaffold bileşenidir. Scaffold bileşenleri üst bar (appBar), alt bar (bottomNavigationBar), çekmece (drawer), eylem düğmesi (floatingActionButton) ve sayfa gövdesi (body) gibi temel arayüz bileşenlerinin yerleştirilmesi için slotlar sağlar.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Değişkenlerin String ifadeler içine enjekte edilmesi için önlerine aşağıdaki karakterlerden hangisi konulabilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Ω </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Æ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> & </span><br>
+	<span class="option" data-correct="false"><b>D)</b> § </span><br>
+	<span class="option" data-correct="true"><b>E)</b> $ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> Aşağıdakilerden hangisi flutter projelerine görseller, fontlar ya da ek kütüphaneler gibi dışarıdan eklenecek içeriklerin tanıtılması için kullanılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Column </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Pubspec.yaml  </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ListTile </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Cekmece </span><br>
+	<span class="option" data-correct="false"><b>E)</b> AppBar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> I. Flutter uygulamaları farklı görev ve işlevleri olan bileşenlerin bir bileşen ağacında (Widget tree) bir araya getirilmesi ile oluşturulur.<br>
+II. Flutter StatelessWidget ve StatefulWidget olmak üzere iki tür bileşen sağlar.<br>
+III. StatelessWidget türündeki bileşenlerin içeriklerinin kurgulandıktan sonra değişme özelliği vardır.<br>
+IV. StatefulWidget türündeki bileşenler arkada çalışan veri yapısının güncellenmesi halinde kendini güncelleyebilir.<br><br>
+Yukarıdaki verilen ifadelerden hangileri doğrudur? </p>
+	<span class="option" data-correct="true"><b>A)</b> I, II, IV </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız I ve IV </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yalnız III, IV </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I, II, III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II, III, IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      Flutter StatelessWidget ve StatefulWidget olmak üzere iki tür bileşen sağlar. Bunların arasındaki temel fark StatelessWidget türündeki bileşenlerin içeriklerinin kurgulandıktan sonra değişmemesidir. StatefulWidget türündeki bileşenler ise arkada çalışan veri yapısının güncellenmesi halinde kendini güncelleyebilir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Sayısal değer çevirmesi beklenen, cevresiniBul fonksiyonu hangi anahtar sözcük ile tanımlanmıştır? </p>
+	<span class="option" data-correct="false"><b>A)</b> String </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yarıçap </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Num </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Null </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Void </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      cevresiniBul fonksiyonu  sayısal değer çevirmesi beklendiğinden num anahtar sözcüğü ile tanımlanmıştır.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> var üçgenim = Ucgen ( )  ;<br>
+print (üçgenim . taban) ;  / /  10<br>
+üçgenim . yukseklik = 15;<br>
+print ( üçgenim . alan ( ) ) ; / / 75<br><br>
+Yukarıdaki kod dizisine ilişkin seçeneklerde verilen bilgilerden hangisi doğrudur? </p>
+	<span class="option" data-correct="true"><b>A)</b> ucgenim değişkeni Ucgen sınıfından üretilen bir nesnedir
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> uçgenim değişkeni Ucgen sınıfında tanımlı tüm özellik ve metotları içermez
+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kodda ikinci satırda yükseklik özelliğinin taban değerine oranı konsola yazdırılmaktadır </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Üçüncü satırda taban özelliğinin değeri değiştirilmekte ve konsola yazdırılmaktadır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Son satırda çıktı metodu çağrılarak güncel değerlere göre ucgenim nesnesinin çıktısı konsola yazdırılır </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> Aşağıdakilerden hangisi belirlenen şartın sağlanması (ör: klavyeden bir tuşa basılana kadar) süresince dönen yapılardır?  </p>
+	<span class="option" data-correct="true"><b>A)</b> While döngüleri </span><br>
+	<span class="option" data-correct="false"><b>B)</b> for döngüleri </span><br>
+	<span class="option" data-correct="false"><b>C)</b> If-else </span><br>
+	<span class="option" data-correct="false"><b>D)</b> switch-case Yapıları  </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Fonksiyonlar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> Flutter uygulamaları hangi programlama dili kullanılarak hazırlanır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Null </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kod </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Boolean </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Dart  </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Javascript </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> Aşağıdakilerden hangisi ondalık sayılar için kullanılan veri tipidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> String nesneleri </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Double veri tipi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İnt veri tipi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Avagadro </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Pi değişkeni </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      Dart kesirli ve tam sayılar için iki tür sayısal veri tipi sağlar. Tam sayılar için int, ondalıklı sayılar içinse double veri tipi kullanılır.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> Aşağıdakilerden hangisi bir değişkenin alabileceği farklı değerlere göre işlem yapabilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Pi değişkeni </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Haritalar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Avagadro </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Google Play </span><br>
+	<span class="option" data-correct="true"><b>E)</b> switch-case Yapıları  </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> Aşağıdakilerden hangisi normalde gizli duran ve üst bardaki bir kontrol ile gösterilen dikey menülerdir? </p>
+	<span class="option" data-correct="false"><b>A)</b> appBar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Text </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Column </span><br>
+	<span class="option" data-correct="false"><b>D)</b> body </span><br>
+	<span class="option" data-correct="true"><b>E)</b> drawer </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> Dartta asenkron veri çekme, http istekleri, veri tabanı erişimi ya da üçüncü parti görselleştirme araçları gibi işlevler için farklı kütüphanelerin projelere eklenmesinde aşağıdaki komutlardan hangisi kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> import </span><br>
+	<span class="option" data-correct="false"><b>B)</b> void </span><br>
+	<span class="option" data-correct="false"><b>C)</b> num </span><br>
+	<span class="option" data-correct="false"><b>D)</b> print </span><br>
+	<span class="option" data-correct="false"><b>E)</b> int </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> Aşağıdakilerden hangisi UTF-16 standardındaki karakter katarlarıdır? </p>
+	<span class="option" data-correct="true"><b>A)</b> String nesneleri </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İnt veri tipi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Double veri tipi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Pi değişkeni </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Avagadro </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      String nesneleri UTF-16 standardındaki karakter katarlarıdır. String nesnelerini üretmek için karakterler tek veya çift tırnaklar arasına alınır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> Fonksiyonlar tanımlanırken geriye çevrilecek bir veri tipi belirlenmesi halinde fonksiyon gövdesinde hangi anahtar kelimesinin kullanılması zorunludur? </p>
+	<span class="option" data-correct="true"><b>A)</b> Return </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Math </span><br>
+	<span class="option" data-correct="false"><b>C)</b> String </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Num </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Main </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> Aşağıdakilerden hangisi çeşitli platformda yürütülebilecek istemci uygulamalar üretebilen bir programlama dilidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> String </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Boolean </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kod </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Flutter </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Dart </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> Aşağıdakilerden hangisi kod içinde özel etki alanları tanımlar? </p>
+	<span class="option" data-correct="true"><b>A)</b> Küme parantezi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Parantez </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kesme işareti </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Ayırma işareti </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Ünlem </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> Dart hangi özellikleriyle programcıların işlerini kolaylaştıran bir programlama dilidir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Dart, null güvenliği, nesneye yönelik programlama ve anında derleme gibi özellikleriyle programcıların işlerini kolaylaştıran bir programlama dilidir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> Dart uygulamalarının rakip platformlara göre daha hızlı çalışmasının nedeni olarak ne gösterilebilir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Anında derleme (Just In Time) ve yürütme öncesi derleme (Ahead of Time) gibi mekanizmaları kullanabildiğinden Dart uygulamaları rakip platformlara göre oldukça hızlı çalışabilmektedir.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question41">
+	<p class="question">Soru 41:<br> Dart dilinin nesne yönelimli olduğunun göstergesi nedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Dart dilinde kullanılan her yapının (değişkenler, fonksiyonlar) özünde bir sınıfın yer alması.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description41">Açıklama</button>
+		<div id="description41" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question42">
+	<p class="question">Soru 42:<br> Veri yapısının değişmesi halinde gerekli değişiklikler arayüze Dart tarafından yansıtılır. Yinelemeli dillerde bu durum nasıl farklılaşır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Yinelemeli (imperative) dillerde programcıların veri yapısındaki değişiklikleri dinleyerek gerekli durumlarda arayüze müdahale etmesi gerekir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description42">Açıklama</button>
+		<div id="description42" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question43">
+	<p class="question">Soru 43:<br> Dart ne zaman tip çıkarımı yapabilmektedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Dart, değişkenlere ilk değer ataması yapıldığı anda tip çıkarımı yapabilir. Bu mekanizma sayesinde programcının değişkenin hangi tipte olması gerektiğine ilişkin bilgi vermesine gerek kalmaz.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description43">Açıklama</button>
+		<div id="description43" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question44">
+	<p class="question">Soru 44:<br> Dart hangi yolla henüz değer atanmamış değişkenlere başvurulmasından kaynaklanan null exception hataları engeller?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Null güvenliği (null-safety) mekanizmasını destekleyerek.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description44">Açıklama</button>
+		<div id="description44" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question45">
+	<p class="question">Soru 45:<br> Kodlama esnasında yazılan kodlar sıcak yükleme (hot reload) mekanizması ile yürütülen uygulamalara enjekte edilebilir. Bu durum nasıl bir kolaylık getirecektir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Bu sayede çalıştırılan uygulamaların baştan derlenmesi ile zaman kaybı yaşanmaz.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description45">Açıklama</button>
+		<div id="description45" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question46">
+	<p class="question">Soru 46:<br> Dart uygulamalarının başlangıcı nedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Dart uygulamalarının başlangıç noktası main fonksiyonudur.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description46">Açıklama</button>
+		<div id="description46" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question47">
+	<p class="question">Soru 47:<br> Main fonksiyonu neden void anahtar sözcüğü ile tanımlanmıştır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> main fonksiyonu bir değer çevirmeyeceği için void anahtar sözcüğü ile tanımlanmıştır.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description47">Açıklama</button>
+		<div id="description47" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question48">
+	<p class="question">Soru 48:<br> cevresiniBul fonksiyonu neden num anahtar sözcüğü ile tanımlanmıştır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> cevresiniBul fonksiyonu sayısal değer çevirmesi beklendiğinden num anahtar sözcüğü ile tanımlanmıştır?
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description48">Açıklama</button>
+		<div id="description48" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question49">
+	<p class="question">Soru 49:<br> Değişkenler tanımlanırken değer atanacaksa String, num gibi tip belirteçlerinin kullanılması yerine hangi anahtar sözcüğün kullanılması önerilmektedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> "var" anahtar sözcüğü
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description49">Açıklama</button>
+		<div id="description49" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question50">
+	<p class="question">Soru 50:<br> Son kullanıcıya yönelik uygulamalar üretilirken hangi fonksiyonu içeren kodların ayıklanması önerilmektedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Print fonksiyonu
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description50">Açıklama</button>
+		<div id="description50" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question51">
+	<p class="question">Soru 51:<br> Fonksiyonlar tanımlanırken geriye çevrilecek bir veri tipi belirlenmesi halinde fonksiyon gövdesinde hangi anahtar kelimenin kullanılması zorunludur?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Return anahtar kelimesinin kullanılması zorunludur.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description51">Açıklama</button>
+		<div id="description51" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question52">
+	<p class="question">Soru 52:<br> Fonksiyonlar tanımlanırken geriye çevrilecek bir veri tipi belirlenmesi halinde fonksiyon gövdesinde return anahtar kelimesinin kullanılmaması neye sebep olur?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Sistemde hata ortaya çıkacaktır.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description52">Açıklama</button>
+		<div id="description52" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question53">
+	<p class="question">Soru 53:<br> Dartpad sitesi nasıl bir içeriğe sahiptir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Dartpad sitesi dart dilini kullanabileceğiniz en erişilebilir platformlardan biridir.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description53">Açıklama</button>
+		<div id="description53" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question54">
+	<p class="question">Soru 54:<br> İşleçlerin görevleri nedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> İşleçler programlama dili derleyicilerine verilerle ilgili atama, kontrol ve düzenleme işlemlerini yapma emri veren programlama yapılarıdır.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description54">Açıklama</button>
+		<div id="description54" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question55">
+	<p class="question">Soru 55:<br> İşleçlerle birleştirilen değerlere ne ad verilir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> İfade </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description55">Açıklama</button>
+		<div id="description55" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question56">
+	<p class="question">Soru 56:<br> İlişkisel işleçler hangi amaç için kullanılır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> İlişkisel işleçler verilen büyüklük, küçüklük ya da eşitlik durumlarının kontrol edilmesi için kullanılır.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description56">Açıklama</button>
+		<div id="description56" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question57">
+	<p class="question">Soru 57:<br> Null güvenliği mekanizmasının amacı nedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Null güvenliği mekanizmasının amacı tanımlanmış fakat henüz değer ataması yapılmamış değişkenlerin kullanılmasından kaynaklanan hataların önlenmesidir.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description57">Açıklama</button>
+		<div id="description57" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+	
+		
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

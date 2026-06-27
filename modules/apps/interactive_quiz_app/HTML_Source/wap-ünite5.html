@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+	  
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA II
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama2-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama2-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama2-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama2-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama2-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama2-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama2-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama2-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama2-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama2-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB ARAYÜZ PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİ YAPILARI
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veriyap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veriyap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veriyap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veriyap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veriyap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veriyap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veriyap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veriyap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veriyap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veriyap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          MOBİL UYGULAMA GELİŞTİRME
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="mobilug-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="mobilug-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="mobilug-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="mobilug-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="mobilug-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="mobilug-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="mobilug-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="mobilug-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="mobilug-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="mobilug-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          UNIX SİSTEM YÖNETİMİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="unixsy-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="unixsy-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="unixsy-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="unixsy-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="unixsy-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="unixsy-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="unixsy-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="unixsy-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="unixsy-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="unixsy-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Web Arayüz Programlama - Ünite 5 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Aşağıdakilerden hangisi JavaScript dilinin avantajlarından <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> İstemci tarafı doğrulama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> HTML sayfa ile etkileşim </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tarayıcı yanında, sunucu ve mobil cihazlarda çalışabilmesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Popülerliği nedeniyle güçlü topluluklara sahip olması </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Derlenen bir dil olması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      Java derlenen(compile) bir dil olmasına rağmen <u>JavaScript betik(script) bir dildir.</u> <br><br>
+Javascript kullanmanın avantajlarından bazıları şunlardır;<br><br>
+<strong>• İstemci tarafı doğrulama:</strong> Kullanıcı girişi sunucuya gönderilmeden doğrulanabilir. Örneğin, eksik girilen parola karakteri gibi işlemler istemci tarafında kontrol edilebilir. Bu sayede sunucu yoğunluğu azaltılır.<br>
+<strong>• HTML sayfa ile etkileşim:</strong> JavaScript HTML sayfalara doğrudan müdahale edebilir. Dosyaya öge ekleme, silme veya değiştirme gibi işlemler kolaylıkla yapılabilir.<br>
+<strong>• Kullanıcı bildirimleri:</strong> Web sayfalarının kullanıcılarına farklı türde bildirimler vermek için kullanılabilir. Hazırlanan pop-up ile kullanıcılar bilgilendirilebilir.<br>
+<strong>• Sunucudan veri yükleme:</strong> Web sayfasında yapılan işten bağımsız sunucudan veri yükleyebilir.<br>
+<strong>• Sunucu uygulamaları:</strong> Javascript RunTime üzerine kurulu NodeJs ile hızlı ve ölçeklenebilir sunucu uygulamaları yazılabilir.<br>
+<strong>• Mobil uygulamaları:</strong> Geliştiricilerin mobil uygulama geliştirebilecekleri React Native gibi çerçeveler bulunmaktadır.    </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Değişken ataması yaparken kullanılan anahtar kelimelerden hangisi yeniden atamayı engeller? </p>
+	<span class="option" data-correct="false"><b>A)</b> var </span><br>
+	<span class="option" data-correct="false"><b>B)</b> let </span><br>
+	<span class="option" data-correct="true"><b>C)</b> const </span><br>
+	<span class="option" data-correct="false"><b>D)</b> variable </span><br>
+	<span class="option" data-correct="false"><b>E)</b> constant </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      JavaScript 2015 yılından önce değişken atamalarında yalnızca var anahtar kelimesini kullanıyordu.
+2015 yılından sonra eklenen block kapsam kavramı ile birlikte let ve const anahtar kelimeleri duyuruldu.<br>
+Değişken ve kapsam ihtiyacına göre üç anahtar kelimede kullanılabilir. <br><br>
+Değişken, global veya fonksiyon kapsamlı kullanılacaksa var ile tanımlanmalıdır. Değişkene atanan değer programın akışında bir daha değiştirilmeyecekse const anahtar kelimesi kullanılmalıdır. Ancak programın akışında değişkenin değeri değişecekse let anahtar kelimesi kullanılmalıdır.     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Aşağıdakilerin hangisinde değişken tanımı doğru yapılmıştır? </p>
+	<span class="option" data-correct="false"><b>A)</b> var değişken=20
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> const degısken=20 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> var 1degisken=20 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> let değişken2=20 </span><br>
+	<span class="option" data-correct="true"><b>E)</b> var degisken=20 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Aşağıdaki operatör kullanımlarından hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> sayi=10 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> sayi-=10 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> sayi=+10 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> sayi&gt;=10 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> sayi!=10 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      C. sayi=+10<br> <br> 
+
+Bu ifade, bir atama işlemi yapmaya çalıştığını ancak + operatörünün atama işlemi için kullanılmaması gerektiğini gösterir. Doğru ifade, sayi = 10 veya sayi += 10 gibi olmalıdır.<br> <br> sayi += 10 ifadesi, bir değişkenin (örneğin, sayi), kendisine 10 değerini eklemek anlamına gelir. Bu ifade, atama operatörü olan += ile kullanılır ve sıkça kullanılan bir kısaltmadır. <br><br>
+Ancak C seeneğinde yanlış kullanılmıştır
+
+     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Aşağıdaki koşullu ifade kullanımlarından hangisi doğrudur? </p>
+		
+	<span class="option" data-correct="true"><b>A)</b><br> if (not&gt;=45){<br>
+&emsp; console.log("Geçti");<br>
+}else if (not&lt;45 && not&gt;=35){<br>
+&emsp; console.log("Koşullu geçer");<br>
+}else{<br>
+&emsp; console.log("kaldı");<br>
+} </span><br><br>
+		
+	<span class="option" data-correct="false"><b>B)</b><br> switch (not) {<br>
+ &emsp; case not&gt;=45:<br>
+ &emsp; &emsp; console.log("Geçti");<br>
+ &emsp; case not&lt;45 && not&gt;=35:<br><br>
+ &emsp; &emsp; console.log("Koşullu Geçti");<br>
+ &emsp; default:<br>
+ &emsp; &emsp; console.log("Kaldı");<br>
+} </span><br><br>
+		
+	<span class="option" data-correct="false"><b>C)</b><br> if (not&gt;=45):<br>
+&emsp; console.log("Geçti")<br>
+else if (not&lt;45 && not&gt;=35):<br>
+&emsp; console.log("Koşullu geçer")<br>
+else:<br>
+&emsp; console.log("kaldı"); </span><br><br>
+		
+	<span class="option" data-correct="false"><b>D)</b><br> if (user)=&gt;<br>
+&emsp; console.log("Kullanıcı girişi başarılı") </span><br><br>
+		
+	<span class="option" data-correct="false"><b>E)</b><br> switch (not) {<br>
+ &emsp; case not&gt;=45{<br>
+ &emsp; &emsp; console.log("Geçti");<br>
+ &emsp; }<br>
+ &emsp; case not&lt;45 && not&gt;=35{<br>
+ &emsp; &emsp; console.log("Koşullu Geçti");<br>
+ &emsp; }<br>
+ &emsp; default{<br>
+ &emsp; &emsp; console.log("Kaldı");<br>
+ &emsp; }<br>
+} </span><br>
+		
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Döngü yapısının kullanıldığı aşağıdaki ifadelerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+		
+	<span class="option" data-correct="false"><b>A)</b><br> 
+let gunler = [“Pazartesi”,<br> 
+“Salı”,<br> 
+“Çarşamba”,<br> 
+“Perşembe”,<br> 
+“Cuma”,<br> 
+“Cumartesi”,<br> 
+“Pazar”]<br> 
+for (let i = 0; i &lt; gunler.length; i++) {<br> 
+&emsp; console.log(gunler[i])<br> 
+} </span><br><br>
+		
+		
+	<span class="option" data-correct="false"><b>B)</b><br> 
+let ogrenci={ad:"Ahmet", sinif:"2"}<br>
+for(i in ogrenci){<br>
+&emsp; console.log("Özellik:",i," Değeri",ogrenci[i])<br>
+}
+		</span><br><br>
+		
+		
+	<span class="option" data-correct="true"><b>C)</b><br> let ogrenci={ad:"Ahmet", sinif:"2"}<br>
+for(let i=0; i++){<br>
+&emsp; console.log("Özellik:",i," Değeri",ogrenci[i])<br>
+} </span><br><br>
+		
+		
+	<span class="option" data-correct="false"><b>D)</b><br> 
+let gunler = ["Pazartesi",<br>
+ &emsp; "Salı",<br>
+ &emsp; "Çarşamba",<br>
+ &emsp; "Perşembe",<br>
+ &emsp; "Cuma",<br>
+ &emsp; "Cumartesi",<br>
+ &emsp; "Pazar"]<br>
+for (let i = 0; i &lt; gunler.length; i++) {<br>
+ &emsp; console.log(gunler[i])<br>
+}</span><br><br>
+		
+		
+	<span class="option" data-correct="false"><b>E)</b><br> while (yas=== 20){<br>
+  &emsp; console.log("Döngü yas değişkeni 20 olduğu sürece çalışır.")<br>
+} </span><br><br>
+		
+		
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> Aşağıdakilerin hangisinde fonksiyon tanımlaması ve çağrılması ile ilgili komutlar doğru verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b><br> function carp(sayi1, sayi2):<br>
+&emsp; return sayi1 + sayi2<br><br>
+let sonuc= carp(3, 5) </span><br><br>
+	<span class="option" data-correct="false"><b>B)</b><br> function carp(sayi1, sayi2)=&gt; <br>
+&emsp; return sayi1 + sayi2<br><br>
+let carp(3, 5) </span><br><br>
+	<span class="option" data-correct="false"><b>C)</b><br> carp(sayi1, sayi2){<br>
+&emsp; return sayi1 + sayi2<br>
+}<br><br>
+let sonuc= carp(3, 5) </span><br><br>
+	<span class="option" data-correct="true"><b>D)</b><br> function carp(sayi1, sayi2){<br>
+ &emsp; return sayi1 + sayi2<br>
+}<br><br>
+let sonuc= carp(3, 5) </span><br><br>
+	<span class="option" data-correct="false"><b>E)</b><br> carp(sayi1, sayi2){<br>
+ &emsp; sonuc = sayi1 + sayi2<br>
+}<br><br>
+let sonuc= carp(3, 5) </span><br><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> Web sayfasında kullanıcıdan bilgi almak için kullanılan açılır kutu aşağıdakilerin hangisinde doğru şekilde verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b><br> let yas= confirm("Lütfen yaşınızı giriniz.") </span><br><br>
+	<span class="option" data-correct="false"><b>B)</b><br> let yas= alert("Lütfen yaşınızı giriniz.") </span><br><br>
+	<span class="option" data-correct="true"><b>C)</b><br> let yas= prompt("Lütfen yaşınızı giriniz.", "25") </span><br><br>
+	<span class="option" data-correct="false"><b>D)</b><br> alert("Yaşınız " + yas ) </span><br><br>
+	<span class="option" data-correct="false"><b>E)</b><br> if (confirm("Lütfen yaşınızı giriniz.")===25){<br>
+ &emsp; alert("Yaşınız kaydedildi")<br>
+} </span><br><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      ile beraber 3 farklı açılır kutu gelir. Bunlar; uyarılar için kullanılan alert, kullanıcıdan onay
+almak için confirm ve kullanıcıdan bilgi almak için prompt kutularıdır.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> Konsol ekranında 20 saniye boyunca 2sn aralıklarla ekranda “Merhaba Dünya” yazmak için gereken kod aşağıdakilerin hangisinde doğru olarak verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b><br> setInterval(function (){<br>
+ &emsp; console.log("Merhaba Dünya")<br>
+},2000) </span><br><br>
+	<span class="option" data-correct="false"><b>B)</b><br> let timerIdentifier=setTimeout(function(){<br>
+ &emsp; console.log("Merhaba Dünya")<br>
+}, 2000)<br><br>
+clearTimeout(timerIdentifier) </span><br><br>
+	<span class="option" data-correct="false"><b>C)</b><br> let timeIdentifier=setInterval(function (){<br>
+ &emsp; console.log("Merhaba Dünya")},2000)<br><br>
+setInterval(function (){<br>
+ &emsp; clearInterval(timeIdentifier)<br>
+},20000) </span><br><br>
+	<span class="option" data-correct="true"><b>D)</b><br> let timeIdentifier=setInterval(function (){<br>
+ &emsp; console.log("Merhaba Dünya")},2000)<br><br>
+setTimeout(function (){<br>
+ &emsp; clearInterval(timeIdentifier)<br>
+},20000) </span><br><br>
+	<span class="option" data-correct="false"><b>E)</b><br> setTimeout(f, 2000);<br><br>
+function f(){<br>
+ &emsp; console.log("Merhaba Dünya")<br>
+} </span><br><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      <strong>setInterval</strong>, belirli bir işlemi belirli aralıklarla tekrarlamak için kullanılır. Bu durumda, her 2000 milisaniyede bir (2 saniye) "Merhaba Dünya" metni console.log ile ekrana yazdırılır.<br><br>
+
+<strong>setInterval</strong> fonksiyonu, bir zamanlayıcı kimliği (ID) döndürür. Bu kimlik, daha sonra clearInterval fonksiyonu ile kullanılarak bu zamanlayıcıyı durdurmak için kullanılacaktır. <br><br>
+
+<strong>setTimeout</strong>, belirli bir süre sonra bir işlemi gerçekleştirmek için kullanılır. Bu durumda, 20000 milisaniye (20 saniye) sonra, clearInterval fonksiyonu çağrılarak önceki setInterval zamanlayıcısı durdurulur.<br><br>
+			
+<strong>clearInterval</strong>(timeIdentifier) ifadesi, setInterval tarafından döndürülen zamanlayıcı kimliğini (ID) alır ve bu zamanlayıcıyı durdurur. Bu sayede "Merhaba Dünya" yazdırma işlemi durdurulur.<br><br>
+			
+Sonuç olarak, bu kod parçası "Merhaba Dünya" yazısını her 2 saniyede bir ekrana yazdıracak, ancak 20 saniye sonra bu işlemi durduracaktır. Bu, belirli bir aralıkla tekrarlanan bir işlemin belirli bir süre sonra durdurulması için yaygın bir kullanımdır.		
+		</div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Girilen iki sayıdan büyük olanını geri döndüren fonksiyon aşağıdakilerin hangisinde doğru olarak verilmiştir? </p>
+		
+	<span class="option" data-correct="false"><b>A)</b><br> function buyuk(a, b){<br>
+ &emsp; if (a&gt;b){<br>
+  &emsp;  &emsp; return a<br>
+  &emsp; }<br>
+  &emsp; return b<br>
+}<br><br>
+buyuk(3,5) </span><br><br>
+		
+	<span class="option" data-correct="false"><b>B)</b><br> function buyuk(a, b){<br>
+  &emsp; if (a&gt;=b){<br>
+  &emsp;  &emsp; return a<br>
+  &emsp; }<br>
+  &emsp; return b<br>
+}<br><br>
+buyuk(3,5) </span><br><br>
+		
+	<span class="option" data-correct="false"><b>C)</b><br> function buyuk(a, b){<br>
+  &emsp; if (a&lt;b){<br>
+  &emsp;  &emsp; return a<br>
+  &emsp; }<br>
+  &emsp; if (b&lt;a){<br>
+  &emsp;  &emsp; return b<br>
+  &emsp; }<br>
+}<br><br>
+buyuk(3,5) </span><br><br>
+		
+	<span class="option" data-correct="true"><b>D)</b><br> function buyuk(a, b){<br>
+  &emsp; if (a&gt;b){<br>
+  &emsp;  &emsp; return a<br>
+  &emsp; }else if(b&gt;a){<br>
+  &emsp;  &emsp; return b<br>
+  &emsp; }else{<br>
+  &emsp; console.log("Sayılar Eşit")<br>
+  &emsp; }<br>
+}<br><br>
+buyuk(3,5) </span><br><br>
+		
+	<span class="option" data-correct="false"><b>E)</b><br> function buyuk(a, b){<br>
+  &emsp; if (a=&lt;b){<br>
+  &emsp;  &emsp; return a<br>
+  &emsp; }<br>
+  &emsp; if (b=&lt;a){<br>
+  &emsp;  &emsp; return b<br>
+  &emsp; }<br>
+}<br><br>
+buyuk(3,5) </span><br><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> Aşağıdakilerden hangisi JavaScript dilinde değişken kapsamı olarak global kapsamın özelliklerinden biridir?  </p>
+	<span class="option" data-correct="true"><b>A)</b> Program içerisinde her yerden erişim sağlanır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Programın içerisindeki fonksiyonların her biri için olur. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Fonksiyon kapsamının alt kümesidir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Program akışı fonksiyondan ayrılırken bellekten kaldırılır.  </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Çok fazla kullanıldığında bellek sorunu oluşturmaz. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      Global Kapsam
+Program içerisinde her yerden erişim sağlanabilen kapsam türüdür. Bu kapsamda tanımlanan değişkenler
+tüm sayfada kullanılabilir ve global değişken olarak adlandırılır.
+Global değişkenlere atanan değerler, program sonlandırılıncaya kadar saklanır. Programda çok fazla
+global değişken kullanılması bellek sorunlarına yol açacaktır. Bu yüzden gerekmediği durumlarda global
+değişken kullanılmaması önerilir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> Aşağıdakilerden hangisi JavaScript ile web sitelerinde 2-3 saniyede bir değişen reklam görselleri konulmasını sağlayan araçtır?  </p>
+	<span class="option" data-correct="false"><b>A)</b> Açılık kutular </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Zamanlayıcılar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Fonksiyonlar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Döngüler </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Operatörler </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Aşağıdakilerden hangisi JavaScript’te bir fonksiyonu tanımlamak için fonksiyon adından önce kullanılan anahtar sözcüktür?  </p>
+	<span class="option" data-correct="false"><b>A)</b> setTimeOut </span><br>
+	<span class="option" data-correct="false"><b>B)</b> let </span><br>
+	<span class="option" data-correct="false"><b>C)</b> console </span><br>
+	<span class="option" data-correct="false"><b>D)</b> return </span><br>
+	<span class="option" data-correct="true"><b>E)</b> function </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> Aşağıda Javascript’e ilişkin olarak verilen ifadelerden hangisi doğrudur? </p>
+	<span class="option" data-correct="true"><b>A)</b> JavaScript yorumlamalı diller arasında yer alır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Javascript ve LiveScript farklı dillerdir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Java ve JavaScript yapı olarak birbiri ile aynı dillerdir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> JavaScript derlenen(compile) bir dildir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> JavaScript bir programlama dili değildir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> “JavaScript dilinde temel olarak Global Kapsam ve Lokal Kapsam olmak üzere iki farklı kapsam türü vardır” açıklamasına dayalı olarak global ve local kapsam ile ilgili aşağıdaki ifadelerden hangisi doğrudur? </p>
+	<span class="option" data-correct="true"><b>A)</b> Global değişkenlere atanan değerler, program sonlandırılıncaya kadar saklanır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Lokal kapsam, program içerisinde her yerden erişim sağlanabilen kapsam türüdür. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Lokal kapsamda tanımlanan değişkenler tüm sayfada kullanılabilir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Global kapsam programın içerisindeki fonksiyonların her biri için oluşan kapsamlardır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Global kapsam fonksiyonla sınırlıdır ve tanımlandığı kapsam dışında kullanılamaz. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> //Geleceği kodluyorum<br>
+/*Geleceği kodluyorum*/<br><br>
+Yukarıda yer alan a ve b seçeneklerinde Javascriptte yorum eklerken kullanılan işaretlerin kullanım amaçları ve seçenekler arası eşleştirme aşağıdakilerden hangisinde doğru sıralama ile verilmiştir. </p>
+	<span class="option" data-correct="true"><b>A)</b> a-Tek Satır Yorum<br>
+b-Çok satırlı yorum
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> a-Çok Satır Yorum<br>
+b-Çok satırlı yorum
+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> a-Tek Satır Yorum<br>
+b-Tek satır yorum </span><br>
+	<span class="option" data-correct="false"><b>D)</b> a-Çok Satırlı Yorum<br>
+b-Tek satır yorum </span><br>
+	<span class="option" data-correct="false"><b>E)</b> a-Hem Çok hem Tek Satır Yorum<br>
+b-Hem Çok hem Tek satır yorum </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> JavaScript dilinde değişkenlerin isimlendirilmesine ilişkin kurallar aşağıdaki seçeneklerden hangisinde doğru olarak verilmiştir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Çok kelimeden oluşan değişkenlerde kelimeler arası alt çizgi kullanılabilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Değişkendeki tüm karakterler ayrı yazılmalıdır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Değişken isimlerinin içerisinde harf, sayı, alt çizgi ve dolar işareti bulunamaz. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Değişkenler harf, alt çizgi (_) ve dolar işareti ($) işareti ile başlamaz. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Değişkenler boşluk içermelidir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Aşağıdaki kod bloğunda aritmetik işlemlerle ilgili sonuçlardan hangisi doğru olarak verilmiştir?<br><br>
+KOD:<br>
+
+let a=10<br>
+
+let b=47<br>
+
+let c=25<br>
+
+/ </p>
+	<span class="option" data-correct="true"><b>A)</b> / mod<br>
+console.log(c%a);<br>
+// çıktı:5 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> // mod<br>
+console.log(c%a);<br>
+// çıktı:3 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> // mod<br>
+console.log(b%a);<br>
+// çıktı:8 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> // mod<br>
+console.log(b%c);<br>
+// çıktı:13 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> // mod<br>
+console.log(b%c);<br>
+// çıktı:23 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      % işareti mod işaretidir. Yani bölümünden kalanı verir.<br><br>
+25'in 10 ile bölümünden kalan 5'tir.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> “Çalışma esnasında if bloğunda koşulu sağlanmadığında farklı bir kod bloğunu çalıştırmak gerekebilir. Örneğin, kullanıcı girişi yapılmadığında ekranda bu kez farklı bir uyarı vermek isteyebiliriz. Bunun için ikinci bir if bloğu yazmak gibi bir seçeneğimiz olsa da kullanabileceğimiz başka bir anahtar kelime vardır” ifadesinde yer alan söz konusu anahtar kelime aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> True </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Else if </span><br>
+	<span class="option" data-correct="false"><b>C)</b> False </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Case if </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Break up </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> Programlama kavramlarının en temel ve güçlü yapılarından olan döngülere ilişkin aşağıda verilen ifadelerden hangisi doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> While döngüsü, kod bloğunu belirli sayıda çalıştırmak için kullanılanılır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> JavaScript ile nesnenin özelliklerine ulaşmak için for yapısı kullanılabilir </span><br>
+	<span class="option" data-correct="true"><b>C)</b> JavaScript ile bir dizinin değerlerine ulaşmak için for/of yapısı kullanılabilir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Belirli bir koşul sağlandığı sürece tekrar edilmek istenen kod blokları için for/in döngüsü kullanılabilir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Dizinin eleman sayısını öğrenmek için of/in özelliği kullanılabilir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      Nesnenin özelliklerine ulaşmak için for/in yapısı kullanılabilir. Nesne bir dizi ise dizinin indeks değerlerini özellik olarak kabul edilecektir. Benzer diğer döngüsü ise dizinin değerlerine ulaşmak için kullanılan for/of yapısıdır. Dizinin elemanlarına indeks değerlerine göre ulaşacaktır. while döngüsü ise belirli koşul sağlandığı sürece, istenilen kod bloğunu çalıştırmak için kullanılır.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Aşağıdakilerden hangisi Javascript'in kullanmanın avantajlarından eksik girilen parola karakteri gibi işlemlerin istemci tarafında kontrol edilmesini ifade etmektedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> HTML sayfa ile etkileşim </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kullanıcı bildirimleri </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sunucudan veri yükleme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sunucu uygulamaları </span><br>
+	<span class="option" data-correct="true"><b>E)</b> İstemci tarafı doğrulama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Aşağıdakilerden hangisi JavaScript kod bloğundaki console.log() komutunun işlevini ifade etmektedir?  </p>
+	<span class="option" data-correct="false"><b>A)</b> Değişken çağırmak </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Konsola göstermek istediğimiz mesajı yazdırmak </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yazdığımız yorumları görünür yapmak </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Hatırlatma amaçlı yorum satırları eklemek </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Boşluk girdi ve satırları eklemek </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> Aşağıdakilerden hangisi JavaScript ile sayısal değerleri ifade edebildiğimiz veri türüdür? </p>
+	<span class="option" data-correct="false"><b>A)</b> Length </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Dizi  </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Number </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Boolean </span><br>
+	<span class="option" data-correct="false"><b>E)</b> String </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> I. alert<br>
+II. confirm<br>
+III. prompt<br>
+IV. setInterval<br><br>
+Aşağıdakilerden hangileri JavaScript ile beraber gelen açılır kutulardır? </p>
+	<span class="option" data-correct="true"><b>A)</b> I, II, III </span><br>
+	<span class="option" data-correct="false"><b>B)</b> II, III, IV </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I, II, IV </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II, III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      JavaScript ile beraber 3 farklı açılır kutu gelir. Bunlar; <br>
+- uyarılar için kullanılan <u><strong>alert</strong></u>, <br>
+- kullanıcıdan onay almak için <u><strong>confirm</strong></u> <br>
+- kullanıcıdan bilgi almak için <u><strong>prompt</strong></u> kutularıdır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> function toplaVeYaz(sayi1, sayi2) {<br>
+ let sonuc=sayi1 + sayi2<br>
+ console.log(sonuc)<br>
+}<br><br>
+Yukarıda verilen koda dayalı olarak aşağıdaki ifadelerden hangisi doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> <u><strong>toplaVeYaz</strong></u> fonksiyon parametresidir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Parantez içindeki <u><strong>sayi1</strong></u> ve <u><strong>sayi2</strong></u> değerleri fonksiyon adıdır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Fonksiyon içinde tanımlanan <u><strong>sonuc</strong></u> değişkeni, global kapsamlı değişkendir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> <u><strong>toplaVeYaz</strong></u> değişkeni global kapsamlı değişkendir. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> <u><strong>Sonuc</strong></u> değişkeni fonksiyon dışına çıkıldığı zaman bellekten kaldırılacaktır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> I. Boşluk içermelidir. <br>
+II. Tüm karakterler bitişik yazılmalıdır. <br>
+III. Sayı ile başlamasına izin verilmez.<br> 
+IV. Değişken isimlerinin içerisinde yüzde işareti kullanılır. <br><br>
+Yukarıdakilerden hangileri JavaScript'de değişken isimlendirme kullarındandır? </p>
+	<span class="option" data-correct="false"><b>A)</b> I-II </span><br>
+	<span class="option" data-correct="true"><b>B)</b> II-III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> III-IV </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I-IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II-IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Aşağıdaki diziler ile kullanılabilen metotlardan hangisi dizinin sonuna bir eleman ekler ve dizinin uzunluğunu döndürür? </p>
+	<span class="option" data-correct="false"><b>A)</b> pop() </span><br>
+	<span class="option" data-correct="false"><b>B)</b> find() </span><br>
+	<span class="option" data-correct="false"><b>C)</b> concat() </span><br>
+	<span class="option" data-correct="true"><b>D)</b> push() </span><br>
+	<span class="option" data-correct="false"><b>E)</b> shift() </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> Aşağıdakilerden hangisi JavaScript’te değişkenlere değer atamak için kullanılan operatörlerden biridir?  </p>
+	<span class="option" data-correct="true"><b>A)</b> = </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ++ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> -- </span><br>
+	<span class="option" data-correct="false"><b>D)</b> % </span><br>
+	<span class="option" data-correct="false"><b>E)</b> / </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      Atama Operatörleri<br><br>
+
+<strong>=</strong> Sağdaki değeri soldaki değişkene atar.<br>
+Ör: a=b<br><br>
+
+<strong>+=</strong> Soldaki ve sağdaki değeri toplayarak soldaki değişkenin üzerine atar.<br>
+Ör: a+=b<br>
+Matematiksel karşılığı: a=a+b<br><br>
+
+<strong>-=</strong> Soldakinden sağdaki değeri çıkararak soldaki değişkene atar.<br>
+Ör: a-=b<br>
+Matematiksel karşılığı: a=a-b<br><br>
+
+<strong>*=</strong> Soldaki ile sağdakini çarparak soldaki değişkene atar.<br>
+Ör: a*=b<br>
+Matematiksel Karşılığı: a=a*b<br><br>
+
+<strong>/=</strong> Soldaki değeri sağdakine bölerek soldaki değişkene atar.<br>
+Ör: a/=b<br>
+Matematiksel Karşılığı: a=a/b     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> Aşağıdakilerden hangisi konsol ekranında 10 saniye boyunca 1sn aralıklı olarak ekranda “Günaydın Kullanıcı” yazabilmek için gerekli kod dizilimidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> let timeIdentifier=setInterval(function (){<br>
+ console.log("Günaydın Kullanıcı")},1000)<br>
+setTimeout(function (){<br>
+ clearInterval(timeIdentifier)<br>
+},10000) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> setInterval(function (){<br>
+ console.log("Günaydın Kullanıcı")<br>
+},1000) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> let timerIdentifier=setTimeout(function(){<br>
+ console.log("Günaydın Kullanıcı")<br>
+}, 1000)<br>
+clearTimeout(timerIdentifier) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> let timeIdentifier=setInterval(function (){<br>
+ console.log("Günaydın Kullanıcı")},10000)<br>
+setInterval(function (){<br>
+ clearInterval(timeIdentifier)<br>
+},1000) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> setTimeout(f, 1000);<br>
+function f(){<br>
+ console.log("Günaydın Kullanıcı")<br>
+} </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      let timeIdentifier = setInterval(function() { console.log("Günaydın Kullanıcı")}, 1000)
+Bu satırda, setInterval fonksiyonu kullanılarak bir zamanlayıcı oluşturulur. Bu zamanlayıcı, her 1000 milisaniye (1 saniye) geçtiğinde belirtilen işlevi yürüten bir iş parçasını tetikler. Oluşturulan zamanlayıcı timeIdentifier değişkenine atanır. Bu zamanlayıcı, "Günaydın Kullanıcı" metnini her saniye bir kere ekrana yazdırmak için kullanılacak.<br><br>
+
+setTimeout(function() { clearInterval(timeIdentifier) }, 10000)
+Bu satırda ise setTimeout fonksiyonu kullanılarak başka bir zamanlayıcı oluşturulur. Bu zamanlayıcı, 10,000 milisaniye (10 saniye) sonra belirtilen işlevi yürüten bir iş parçasını tetikler. Bu işlevde, önceki setInterval zamanlayıcısını durduran clearInterval fonksiyonu çağrılır. Yani, "Günaydın Kullanıcı" yazdırma işlemi 10 saniye sonra durdurulur.<br><br>
+
+Sonuç olarak, bu kod, her saniye "Günaydın Kullanıcı" metnini ekrana yazdıran bir zamanlayıcı başlatır ve 10 saniye sonra bu zamanlayıcıyı durdurur.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> Aşağıdakilerden hangisi kullanıcı bilgisi alarak sisteme girme amaçlı açılır kutu kullanımına ilişkin doğru kodlama dizilimi içermektedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> let deneyim= prompt("Mesleki deneyiminizi giriniz.", "5") </span><br>
+	<span class="option" data-correct="false"><b>B)</b> alert("Mesleki deneyim " + yas ) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> let deneyim= confirm("Mesleki deneyiminizi giriniz.") </span><br>
+	<span class="option" data-correct="false"><b>D)</b> let deneyim= alert("Mesleki deneyiminizi giriniz.") </span><br>
+	<span class="option" data-correct="false"><b>E)</b> if (confirm("Mesleki deneyiminizi giriniz.")===5) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      Prompt (Bilgi Alma)
+Web sayfasının çalışmasına devam edebilmek için kullanıcıdan bilgi alması gerekebilir. Örneğin, kullanıcının yaşını öğrenmek gibi. Bu tür durumlarda Prompt açılır kutusu kullanılabilir. Prompt parametre ile çağırılır. Kullanıcıdan istenen bilginin açıklaması ilk parametre, varsayılan değer ise ikinci parametre olarak verilir. Fonksiyon kullanıcının girdiği değeri geri döndürür.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> Javascript kullanmanın başlıca avantajları nasıl sıralanabilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> <strong>• İstemci tarafı doğrulama:</strong> Kullanıcı girişi sunucuya gönderilmeden doğrulanabilir. Örneğin, eksik girilen parola karakteri gibi işlemler istemci tarafında kontrol edilebilir. Bu sayede sunucu yoğunluğu azaltılır.<br><br>
+<strong>• HTML sayfa ile etkileşim:</strong> JavaScript HTML sayfalara doğrudan müdahale edebilir. Dosyaya ögeekleme, silme veya değiştirme gibi işlemler kolaylıkla yapılabilir.<br><br>
+<strong>• Kullanıcı bildirimleri:</strong> Web sayfalarının kullanıcılarına farklı türde bildirimler vermek için kulla-nılabilir. Hazırlanan pop-up ile kullanıcılar bilgilendirilebilir.<br><br>
+<strong>• Sunucudan veri yükleme:</strong> Web sayfasında yapılan işten bağımsız sunucudan veri yükleyebilir.<br><br>
+<strong>• Sunucu uygulamaları:</strong> Javascript RunTime üzerine kurulu NodeJs ile hızlı ve ölçeklenebilir sunucu uygulamaları yazılabilir.<br><br>
+<strong>• Mobil uygulamaları:</strong> Geliştiricilerin mobil uygulama geliştirebilecekleri React Native gibi çerçeveler bulunmaktadır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> Javascript'te boşluk ve satır kullanımı nasıldır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> JavaScript, kod içerisindeki boşluk, girinti ve yeni satırları yok sayar.
+JavaScript ile kod satırlarının sonuna noktalı virgül (;) işareti yazılabilir. Satırda tek komut varsa buna gerek yoktur.</span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> Javascript ile değişken isimlendirmesinde sayı kullanımı nasıl olmaktadır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> JavaScript değişkenlerin harf, alt çizgi( _ ) ve dolar işareti($) işareti ile başlamasına izin verir. Sayı ile başlamasına izin vermez. İlk harften sonra sayı kullanılmasında bir sorun oluşturmaz. Örneğin 1sayi isimli değişkene izin verilmezken sayi1 ismi kabul edilir. Değişken isimlerinin içerisinde ise harf, sayı, alt çizgi ve dolar işareti bulunabilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> Block kapsam neyi ifade eder?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> JavaScript için 2015 yılında duyurulan ES6 versiyonu ile Block Kapsam kavramı duyuruldu. Block kapsam, fonksiyon kapsamının alt kümesi olarak düşünülebilir. Program içerisindeki süslü parantezler ({ }) arasında kalan bölgeleri
+ifade eder. Bu kapsam içinde let ve const ile tanımlanan değişkenler kapsam dışına çıktıktan sonra bellekten kaldırılır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> var, let ve const anahtar kelimeleri hangi durumlarda kullanılır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> JavaScript 2015 yılından önce değişken atamalarında yalnızca var anahtar kelimesini kullanıyordu. 2015 yılından sonra eklenen block kapsam kavramı ile birlikte let ve const anahtar kelimeleri duyuruldu. Değişken ve kapsam ihtiyacına göre üç anahtar kelimede kullanılabilir. Değişken, global veya fonksiyon kapsamlı kullanılacaksa var ile tanımlanmalıdır. Değişkene atanan değer programın akışında bir daha değiştirilmeyecekse const anahtar kelimesi kullanılmalıdır. Ancak programın akışında değişkenin değeri değişecekse let anahtar kelimesi kullanılmalıdır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> Nesne veri türünün kullanım amacı nedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> JavaScript ile birlikte gelen nesne veri türü değişkenlerin altında özellik saklamaya izin verir. Nesneler süslü parantezler ({...}) ile tanımlanır. Nesnelerin altında veriler anahtar:değer yapısı ile saklanır. Her bir veri özellik olarak adlandırılır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> swich yapısı hangi durumlarda kullanılır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Arka arkaya gelecek if yapıları, kodun okunabilirliğini kötüleştirecektir. Bu gibi birçok koşul olduğu durumlarda switch yapısı kullanılabilir. Switch yapısı ile koşulu sağlayan değerlerden biri seçilebilir veya varsayılan bir kod bloğu çalıştırılabilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+		
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

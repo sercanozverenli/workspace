@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+	  
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA II
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama2-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama2-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama2-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama2-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama2-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama2-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama2-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama2-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama2-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama2-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB ARAYÜZ PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİ YAPILARI
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veriyap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veriyap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veriyap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veriyap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veriyap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veriyap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veriyap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veriyap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veriyap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veriyap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          MOBİL UYGULAMA GELİŞTİRME
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="mobilug-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="mobilug-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="mobilug-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="mobilug-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="mobilug-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="mobilug-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="mobilug-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="mobilug-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="mobilug-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="mobilug-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          UNIX SİSTEM YÖNETİMİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="unixsy-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="unixsy-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="unixsy-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="unixsy-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="unixsy-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="unixsy-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="unixsy-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="unixsy-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="unixsy-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="unixsy-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Veri Yapıları - Ünite 1 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Tek başlarına anlam ifade etmezler. Bu
+hâlleriyle bilginin ham maddesi olarak görülmektedir. Sınıflandırılır, çeşitli süreçlere tabi tutularak işlenir ve bilgi seviyesine ulaşır.<br><br>
+Yukarıda tanımı verilen kavram aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Veri </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bilgi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Değişken </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Veri yapısı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Koleksiyon </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Aşağıdaki seçeneklerde verilen tanımlardan
+hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Zaman karmaşıklığı, algoritma tarafından her bir talimat setini yürütmek için geçen zamandır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Uzay/Alan karmaşıklığı genellikle algoritma tarafından tüketilen bellek miktarı olarak adlandırılır </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veri yapıları, verilerin bilgisayar ortamında yönetilmesi ve depolanmasını sağlayan veri nesneleri koleksiyonudur </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Ham veriler, verilerin en temel dijital biçiminde tanımlanmasıdır </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Veri yapısı kullanmadaki amaç, en az bellek tüketen programı hazırlamaktır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      Veri yapısı kullanmadaki amaç, farklı görevlerin uzay ve zaman karmaşıklığını azaltmaktır     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> I. Veri tipleri değer tutabilir ama veri tutamaz.<br>
+II. Veri yapısı, farklı veri türlerinin bir koleksiyonudur.<br>
+III. Veri tiplerine yığın, kuyruk, ağaç vb. örnek verilebilir.<br><br>
+
+Yukarıdaki maddelerde veri tipleri ve veri yapıları ile ilgili verilen bilgilerden hangisi <u><strong>hatalıdır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      Çeşitli<u><strong> veri yapıları türleri</strong></u> olarak: ağaç (tree)
+yapıları, yığınlar (stack), diziler (array), kuyruklar (queues),
+listeler vb. örnek gösterilebilir.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Veri yapılarının neden gerekli olduğu konusunda aşağıdaki maddelerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Çok sayıda isteğe cevap verebilme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yüksek işlem hızı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veri arama hızı </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Enerji tasarrufu </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Hafızanın verimli kullanılması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      veri yapılarına neden <u><strong>ihtiyaç duyulduğunun sebebi</strong></u> olduğu söylenebilir.<br>
+<u><strong>• Çok sayıda istek:</strong></u> Aynı anda, birden çok kullanıcıdan gelen isteklerin işlenebilmesi amacıyla veri yapılarına ihtiyaç duyulmaktadır.<br>
+<u><strong>• İşlem hızı:</strong></u> Çok büyük verilerin işlenebilmesi için yüksek hızlı işlem kapasitesine ihtiyaç duyulmaktadır fakat her zaman yüksek hızda işlemek, bu soruna çözüm olamayabilir.<br>
+<u><strong>• Veri arama:</strong></u> Veritabanı gibi bir kaynaktan istenen verinin elde edilmesi, optimum süre ve işlem hızı ile gerçekleştirilmelidir.<br><br>
+
+Veri yapılarını kullanmanın <u><strong>avantajları</strong></u>nı ise şu şekilde sıralayabiliriz:<br>
+<u><strong>• Soyutlama (abstraction):</strong></u> Soyut veri türleri, veri yapılarının üzerine inşa edilmiştir. Fiziksel formları veri yapıları tarafından sağlanmaktadır.<br>
+<u><strong>• Hafızanın verimli kullanımı:</strong></u> Bellek kullanımı, veri yapısının verimli kullanımı ile optimize edilebilir. Örnek olarak, veri boyutunun bilinmediği durumlarda dizi kullanmak yerine bağlı listelerin kullanımı tercih edilebilir.<br>
+<u><strong>• Yeniden kullanılabilirlik: </strong></u>Veri yapıları yeniden kullanılabilir bir yapıdadır. Belirli bir veri yapısı bir kez uygulandığında aynı yapı başka bir yerde de kullanılabilir. Veri yapısı uygulamaları, farklı kullanımları destekleyen kütüphanelerde birleştirilebilir.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Aşağıdakilerden hangisi algoritma hazırlarken dikkat edilmesi gereken hususlardan biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Sonlu sayıda işlem adımı olması </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Tüm olası durumları içermesi </span><br>
+	<span class="option" data-correct="true"><b>C)</b> İçerisinde mutlaka bir kontrol mekanizması
+eklenmesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İşlem sırasının gözetilmesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Adımların net bir şekilde ifade edilmesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> I. Kodlama öncesi mantık hataları tespit
+edilebilir.<br>
+II. Herkes tarafından kolayca koda çevrilmesini sağlar.<br>
+III.Takım çalışmasını kolaylaştırır.<br><br>
+Yukarıdakilerden hangileri algoritmanın önemini belirtmektedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> ............ belirli bir problemi çözmek veya bir hedefe ulaşmak amacıyla izlenmesi gereken yola verilen isimdir.
+Yukarıdaki cümlede boş bırakılan yeri aşağıdaki seçeneklerden hangisi doğru şekilde tamamlar? </p>
+	<span class="option" data-correct="true"><b>A)</b> Algoritma </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kodlama </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İşlem </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Çözüm </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Program </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> Algoritmanın görsel ve şekilsel olarak ifade
+edilmesine verilen isim aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kodlama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İşlem </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Akış diyagramı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İş akışı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Analiz </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> Bir algoritmanın çalışması için gerekli olan
+süreye denilmektedir. Buradaki süre, saniye olarak geçen zaman değil, gerçekleştirilen işlem sayısına göre hesaplanmaktadır.
+Yukarıda tanımı verilen kavram aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Zaman karmaşıklığı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Uzay karmaşıklığı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> O(n²) karmaşıklığı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Space complexity </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Big O Notasyonu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Aşağıdakilerden hangisi yaygın olarak kullanılan Big O notasyonu değildir? </p>
+	<span class="option" data-correct="false"><b>A)</b> O(1) - Sabit Zaman Karmaşıklığı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> O(LogN) - Logaritmik Zaman Karmaşıklığı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> O(NLogN) - Doğrusal Aritmik (Linearitmik) Zaman Karmaşıklığı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> O(N^c) - Polinom Zaman Karmaşıklığı </span><br>
+	<span class="option" data-correct="true"><b>E)</b> O(N^4) - 4 üncü dereceden Zaman Karmaşıklığı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      Big-O Notation’ın en çok kullanılanlarını şu şekilde sıralayabiliriz:<br><br>
+• O(1) - Sabit Zaman Karmaşıklığı<br>
+• O(N) - Doğrusal Zaman Karmaşıklığı<br>
+• O(LogN) - Logaritmik Zaman Karmaşıklığı<br>
+• O(NLogN) - Doğrusal Aritmik (Linearitmik) Zaman Karmaşıklığı<br>
+• O(sqrt(N)) - Kare Kök Zaman Karmaşıklığı<br>
+• O(N²) - Kuadratik Zaman Karmaşıklığı<br>
+• O(N³) - Kübik Zaman Karmaşıklığı<br>
+• O(N^c) - Polinom Zaman Karmaşıklığı<br>
+• O(c^N) - Üstel Zaman Karmaşıklığı<br>
+• O(N!) - Faktöriyel Zaman Karmaşıklığı     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> ".......ise bilgisayar tarafından işlenen ve saklanan ses,video, metin, resim gibi çeşitli türlerdeki verilerdir." Cümlesindeki boşluğa aşağıdaki seçeneklerden hangisi gelmelidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Veri yapısı </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Bilgisayar verileri </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veri tabanı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Algoritma </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Uzay/Alan karmaşıklığı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> Veri yapısı kullanmadaki amaç nedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Aynı görevlerin karmaşıklığını azaltmaktır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Farklı görevlerin zaman karmaşıklığını arttırmaktır. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Farklı görevlerin uzay ve zaman karmaşıklığını azaltmaktır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Aynı görevlerin uzay ve zaman karmaşıklığını oranlamaktır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Farklı görevlerin uzay ve zaman görünürlüğünü arttırmaktır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> "Bir programla girdiler ve çıktılar şeklinde olan etkileşimler, birçok dilde ..... akışı olarak ele alınmaktadır." Cümlesindeki boşluğa aşağıdaki seçeneklerden hangisi gelmelidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> üç bayt </span><br>
+	<span class="option" data-correct="false"><b>B)</b> iki bayt </span><br>
+	<span class="option" data-correct="false"><b>C)</b> yedi bayt </span><br>
+	<span class="option" data-correct="true"><b>D)</b> bir bayt </span><br>
+	<span class="option" data-correct="false"><b>E)</b> sekiz bayt </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      Bir programla girdiler ve çıktılar şeklinde olan etkileşimler, birçok dilde bir bayt akışı olarak ele alınmaktadır. Bu baytlar, kullanıcının girdiği değerleri temsil etmektedir. Ayrıca bir program içerisinde bu veriler, toplama veya sıralama gibi çeşitli şekillerde işlenmektedir ve bu veriler farklı şekillerde gelmektedir.<br>
+Daha rahat anlaşılması için bir örnek üzerinde inceleyelim:<br>
+• isim: karakterlerden oluşan bir dize (string)<br>
+• yaş: genellikle bir tamsayı (int)<br>
+• ücret: TL ve kuruş gibi kesirli sayılarla belirtilebilen bir gerçek sayı (float, double)<br><br>
+Programların nasıl tasarlanacağını ve kodlanacağını anlamanın büyük bir kısmı, işlenmek istenen veri türlerini kavramak ve bu verilerin nasıl değiştirileceğini anlamaya odaklanmaktır.     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> Aşağıdaki seçeneklerden hangisi algoritma yazmak için ihtiyaç olan ön koşullardan biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Bu algoritma ile çözülecek problemin net tanımı yapılmalıdır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Problem çözülürken problemin kısıtları göz önünde bulundurulmalıdır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sorunu çözmek için alınacak girdi belirlenmelidir. </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Sorun çözülmeden çıktılar ortaya konmalıdır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Problemin çözümü, verilen kısıtlamalar dahilinde olmalıdır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      Algoritma yazmak için ön koşul olarak aşağıdakilere ihtiyaç vardır:<br><br>
+• Bu algoritma ile çözülecek problemin net tanımı yapılmalıdır.<br>
+• Problem çözülürken problemin kısıtları göz önünde bulundurulmalıdır.<br>
+• Sorunu çözmek için alınacak girdi belirlenmelidir.<br>
+• Sorun çözüldüğünde beklenen çıktı belirlenmelidir.<br>
+• Problemin çözümü, verilen kısıtlamalar dahilinde olmalıdır.    </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> Big-O notasyonu, ne için kullanılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Bir algoritmanın yönünü veya zaman akışını (time line) hesaplamak </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Bir algoritmanın performansını veya zaman karmaşıklığını (time complexity) hesaplamak için. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Karmaşıklığın zaman kavramını (time concept) hesaplamak için. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Algoritmanın performans yönünü (performance aspect) hesaplamak için. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Notasyonun performans kapasitesini (performance capacity) hesaplamak için. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Bir algoritmanın büyük girdiler karşısındaki davranışını inceleyen matematiksel yönteme  ne ad verilmektedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Sabit analiz  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Algoritma </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Asimptotik analiz  </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Doğrusal analiz  </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Ayırıcı analiz  </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> "........., en kötü durum için bir Asimptotik Gösterim veya belirli bir işlev için büyüme tavanı olarak tanımlanabilir." Cümlesindeki boşluğa aşağıdaki seçeneklerden hangisi gelmelidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Genellikle S olarak yazılan Big-S </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Genellikle O olarak yazılan Big-O </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Genellikle C olarak yazılan Big-C </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Genellikle K olarak yazılan Big-K </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Genellikle L olarak yazılan Big-L </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      Genellikle O olarak yazılan Big-O, en kötü durum için bir Asimptotik Gösterim veya belirli bir işlev için büyüme tavanı olarak tanımlanabilir. Bir algoritmanın çalışma zamanının büyüme hızı için bize asimptotik bir üst sınır sağlamaktadır.<br><br>
+Yazılım geliştiriciler genellikle en kötü senaryo olan Big O için çözüm üretmektedir çünkü algoritmanın her zaman en iyi veya ortalama durumlarda çalışması beklenemez. “En kötü senaryoda algoritmam bu kadar hızlı çalışacaktır.” gibi analitik ifadeler yapılmasını sağlar.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Kabarcıkla sıralama (bubble sort), seçimle sıralama (selection sort) ve araya girerek sıralama (insertion sort) gibi genel olarak kullanılan bir sıralama algoritması için çalışma zamanı nasıl hesaplanır? </p>
+	<span class="option" data-correct="true"><b>A)</b> O(N²) - Kuadratik Zaman Karmaşıklığı  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> O(sqrt(N)) - Karekök Zaman Karmaşıklığı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> O(N³) - Kübik Zaman Karmaşıklığı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> O(N^c) - Polinom Zaman Karmaşıklığı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> O(c^N) - Üstel Zaman Karmaşıklığı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      Algoritmanın çalışma süresi, N kez doğrusal bir işlem gerçekleştirmenin bir sonucudur yani N ile N çarpımı olarak hesaplanır. Kabarcıkla sıralama (bubble sort), seçimle sıralama (selection sort) ve araya girerek sıralama (insertion sort) gibi genel olarak kullanılan bir sıralama algoritması O(N²) alır.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> Bir sayının asal sayı olup olmadığını gösteren algoritmanın zaman karmaşıklığını aşağıdakilerden hangisi gösterir? </p>
+	<span class="option" data-correct="true"><b>A)</b> O(sqrt(N)) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> O(NLogN) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> O(N²) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> O(N³) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> O(N!) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> <span style="color: darkred; margin-left: 30px;"><img src="veriyap15.JPG" alt="Veri Yapıları - Ünite 1 Alıştırma Soruları " style="width: 30%;"></span><br><br>Yukarıdaki şeklin akış şemasındaki anlamı aşağıdakilerden hangisidir?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> Başla / Bitir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bağlantı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Karşılaştırma ve Karar </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Döngü </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Ekran Çıktısı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      
+		
+<table style="border: 1px solid darkred; border-collapse: collapse;">
+ <caption style="caption-side: top;">Akış Şeması Şekilleri</caption>
+  <tr>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;">Şekil</th>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;">Adı</th>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;">Açıklama</th>
+  </tr>
+	
+<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> <span style="color: darkred; display: block; margin: 0 auto; "><img src="veriyap16.JPG" alt="Veri Yapıları - Ünite 1 Alıştırma Soruları " style="width: 90%;"></span> </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Akış Yönü </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> İşlemin çalışma sırasını göstermektedir. Bir sembolden gelen ve diğerine işaret eden bir çizgidir. Akış standart olarak yukarıdan aşağıya, soldan sağa değilse ok uçları eklenir. </td>
+</tr>
+	
+	
+<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> <span style="color: darkred; display: block; margin: 0 auto; "><img src="veriyap17.JPG" alt="Veri Yapıları - Ünite 1 Alıştırma Soruları " style="width: 90%;"></span> </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Başla / Bitir </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Bir programın veya alt sürecin başlangıcını ve sonunu belirtir. Oval veya yuvarlak (dolgu) dikdörtgen olarak gösterilir. Genellikle “Başlat” veya “Bitti” kelimelerini veya “ödeme” gibi bir sürecin başlangıcını veya bitişini belirten başka bir ifadeyi içerirler. </td>
+</tr>
+	
+	<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> <span style="color: darkred; display: block; margin: 0 auto; "><img src="veriyap18.JPG" alt="Veri Yapıları - Ünite 1 Alıştırma Soruları " style="width: 90%;"></span> </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Bağlantı </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Etiketli bağlayıcı çiftleri, bir akış şeması sayfasındaki uzun
+veya sayfaya sığmayan satırların yerini alarak, başlangıç bitiş noktalarının yerlerini belirtmek için kullanılır. İçinde bir harf bulunan küçük bir daire ile gösterilir. </td>
+</tr>
+	
+	<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> <span style="color: darkred; display: block; margin: 0 auto; "><img src="veriyap19.JPG" alt="Veri Yapıları - Ünite 1 Alıştırma Soruları " style="width: 90%;"></span> </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> İşlem / Atama </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Verinin değerini, biçimini veya konumunu değiştiren bir dizi işlemi temsil eder. Dikdörtgen olarak gösterilir ve aşamalar kısa ifadeler ile bu şekil içerisine yazılır. </td>
+</tr>
+	
+	<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> <span style="color: darkred; display: block; margin: 0 auto; "><img src="veriyap20.JPG" alt="Veri Yapıları - Ünite 1 Alıştırma Soruları " style="width: 90%;"></span> </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Girdi / Çıktı </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Veri girerken veya sonuçları görüntülerken olduğu gibi klavye gibi veri girişi ve yazıcı, ekran gibi çıktı sürecini gösterir. Eşkenar dörtgen ile gösterilir. </td>
+</tr>
+	
+	<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> <span style="color: darkred; display: block; margin: 0 auto; "><img src="veriyap21.JPG" alt="Veri Yapıları - Ünite 1 Alıştırma Soruları " style="width: 90%;"></span> </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Karşılaştırma ve Karar </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Programın iki yoldan hangisinde ilerleyeceğini belirleyen koşullu bir işlemi gösterir. İşlem genellikle bir evet/hayır sorusu veya doğru/yanlış testidir. Elmas (eşkenar dörtgen) ile gösterilir. </td>
+</tr>
+	
+	<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> <span style="color: darkred; display: block; margin: 0 auto; "><img src="veriyap15.JPG" alt="Veri Yapıları - Ünite 1 Alıştırma Soruları " style="width: 90%;"></span> </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Döngü </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Birden fazla kez yapılacak işlemler için kullanılır. Kutucuğun
+bir kolu döngüsel olarak yapılacak işlemlere, diğer kolu da döngü sonundaki akışa bağlanır. </td>
+</tr>
+	
+	<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> <span style="color: darkred; display: block; margin: 0 auto; "><img src="veriyap22.JPG" alt="Veri Yapıları - Ünite 1 Alıştırma Soruları " style="width: 90%;"></span> </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Alt süreç </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Başka bir yerde tanımlanan isimlendirilmiş işlemi gösterir. Çift çizgili dikey kenarları olan bir dikdörtgen ile gösterilir. Kısa ifadeler ile kutucuğun içerisine sürecin açıklaması girilir. </td>
+</tr>
+	
+	<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> <span style="color: darkred; display: block; margin: 0 auto; "><img src="veriyap23.JPG" alt="Veri Yapıları - Ünite 1 Alıştırma Soruları " style="width: 90%;"></span> </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Ekran Çıktısı </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Ekrana metin bilgisi yazdırmak için kullanılır. </td>
+</tr>
+	
+	
+	
+
+	
+  
+	
+</table>		
+		
+		</div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Algoritma; adını kimden almıştır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Ehlien İbn Ahmed el-Hâzmî’den almıştır.  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ebu Abdullah Hasan İbn Huseyini el-ahseni’den almıştır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Muhammed el- Musa ibn-Erzen’den almıştır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Ebu Hasan Muhammed İbn Hasan el-Ahmed’ten almıştır. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Ebu Abdullah Muhammed İbn Musa el-Hârizmî’den almıştır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      Algoritma; adını 9.yy.’da yaşamış, Özbekistan’ın Harezm şehrinde doğmuş olan Ebu Abdullah Muhammed İbn Musa el-Hârizmî’den almıştır.      </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Veri türü nedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Derleyiciye veya yorumlayıcıya sayıları nasıl kullanmayı planladığını söyleyen bir sentezdir.  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Programcının verileri nasıl kullanmayı planladığını analiz eden bir veri sınıflandırmasıdır.  </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Derleyiciye veya yorumlayıcıya asal verileri nasıl hesaplamayı söyleyen bir veri sınıflandırmasıdır.  </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Derleyiciye veya yorumlayıcıya programcının verileri nasıl kullanmayı planladığını söyleyen bir veri sınıflandırmasıdır.  </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yorumlayıcıya programcının verileri nasıl hesaplaması gerektiğini söyleyen bir veri sınıflandırmasıdır.  </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok       </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> Veri yapısı ile ilgili aşağıdaki bilgilerden hangisi hatalıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Veri yapısı, bir bilgisayardaki verileri etkin bir şekilde kullanılabilecek şekilde düzenlemenin özel bir yoludur. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Veri yapıları, verilerin bilgisayar ortamında yönetilmesi ve depolanmasını sağlayan veri nesneleri koleksiyonu olarak tanımlanabilir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veri yapısı kullanmadaki amaç, farklı görevlerin uzay ve zaman karmaşıklığını azaltmaktır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İyi bir veri yapısı seçimi, çeşitli kritik işlemleri verimli bir şekilde gerçekleştirmeyi mümkün kılar. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Verimli bir veri yapısı, yapıyı işlemek için maksimum bellek alanı ve yürütme süresi kullanır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      İyi bir veri yapısı seçimi, çeşitli kritik işlemleri verimli bir şekilde gerçekleştirmeyi mümkün kılar. Verimli bir veri yapısı, yapıyı işlemek için minimum bellek alanı ve yürütme süresi kullanır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Ücret verisi için hangi veri tipi kullanılmalıdır? </p>
+	<span class="option" data-correct="true"><b>A)</b> float </span><br>
+	<span class="option" data-correct="false"><b>B)</b> int </span><br>
+	<span class="option" data-correct="false"><b>C)</b> byte </span><br>
+	<span class="option" data-correct="false"><b>D)</b> string </span><br>
+	<span class="option" data-correct="false"><b>E)</b> char </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      Ücret verisinde TL ve kuruş gibi kesirli sayılarla belirtilebilen bir gerçek sayı (float, double) kullanılır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> Aşağıdakilerden hangisi doğrusal olmayan veri yapılarına örnektir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kuyruk </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Ağaç </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yığın </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Linkli Liste </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Dizi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      <u><strong>Doğrusal (Linear) veri yapısı:</strong></u> Veri ögelerinin sıralı veya doğrusal olarak düzenlendiği, her ögenin önceki ve sonraki bitişik ögelere eklendiği veri yapısına doğrusal veri yapısı denir. Doğrusal veri yapılarına örnek olarak <u>dizi, yığın, sıra, bağlantılı liste</u> vb. verilebilir.<br><br>
+
+<u><strong>Statik veri yapısı:</strong></u> Statik veri yapısı sabit bir hafıza boyutuna sahiptir. Statik bir veri yapısındaki ögelere erişmek daha kolaydır. <u>Diziler</u>, bu veri yapısına örnek olarak verilebilir.<br><br>
+
+<u><strong>Dinamik veri yapısı:</strong></u> Dinamik veri yapısında boyut sabit değildir. Kodun çalışma zamanı sırasında, bellek (alan) karmaşıklığı ile ilgili olarak verimli kabul edilebileceği anda rastgele güncellenebilir. <u>Kuyruk, yığın</u> vb. bu veri yapısının örnekleri olarak verilebilir.<br><br>
+
+<u><strong>Doğrusal olmayan veri yapısı:</strong></u> Veri ögelerinin sıralı veya doğrusal olarak yerleştirilmediği veri yapılarına doğrusal olmayan veri yapıları denir. Doğrusal olmayan bir veri yapısında, tüm ögeleri yalnızca tek bir döngüde göremeyiz. Bu veri yapısına örnek olarak <u>ağaçlar ve grafikler</u> verilebilir     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> Aşağıdakilerden hangisi bir algoritmanın "sonluluk" özelliğini betimler? </p>
+	<span class="option" data-correct="false"><b>A)</b> Algoritma bir dizi girdiye uygulanır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Algoritma çıktı üretir. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Sınırlı sayıda komut yürütüldükten sonra algoritma durmalıdır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Adımlar kesin olarak belirtilmelidir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Her adımın sonucu benzersiz bir şekilde tanımlanır </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      Bir algoritmanın özellikleri:<br>
+<u><strong>• Kesinlik</strong></u> – adımlar kesin olarak belirtilmelidir.<br>
+<u><strong>• Benzersizlik </strong></u>– her adımın sonucu benzersiz bir şekilde tanımlanır ve yalnızca önceki adımların girdisine ve sonucuna bağlıdır.<br>
+<u><strong>• Sonluluk </strong></u>– sınırlı sayıda komut yürütüldükten sonra algoritma durmalıdır.<br>
+<u><strong>• Girdi</strong></u> – algoritma girdi alır.<br>
+<u><strong>• Çıktı</strong></u> – algoritma çıktı üretir.<br>
+<u><strong>• Genellik, Uygulanabilirlik</strong></u> – algoritma bir dizi girdiye uygulanır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Algoritma tarafından tüketilen bellek miktarına ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Bellek karmaşıklığı </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Uzay/Alan karmaşıklığı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Doğrusal zaman karmaşıklığı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Karekök zaman karmaşıklığı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kübik zaman karmaşıklığı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> Veri türü ve veri yapısı karşılaştırmalarından hangisi doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Veri yapısı, bir değerin atanabileceği bir değişkenin biçimidir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Veri yapısı değer tutabilir ancak veri tutamaz. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veri türlerinde zaman karmaşıklığı önemli bir rol oynar. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Veri yapılarında yalnızca depolanabilecek veri türü temsil edildiği için verilerin değeri saklanmaz. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Veri yapısı yığın, kuyruk, ağaç vb. örnek verilebilir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      
+		
+		
+<table style="border: 1px solid darkred; border-collapse: collapse;">
+ <caption style="caption-side: top;">Veri tipleri ile veri yapılarının karşılaştırması</caption>
+  <tr>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;">Veri Tipleri</th>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;">Veri Yapıları</th>
+
+  </tr>
+	
+<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Veri türü, bir değerin atanabileceği bir değişkenin biçimidir. Belirli bir değişkene yalnızca verilen veri türünün değerlerinin atanabileceğini belirtir. </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Veri yapısı, farklı veri türlerinin bir koleksiyonudur. Bu verilerin tamamı bir nesne kullanılarak gösterilebilir ve program boyunca erişilebilir. </td>
+</tr>
+
+<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Değer tutabilir ama veri tutamaz. </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Tek bir nesne içinde birden çok veri türünü tutabilir. </td>
+</tr>
+
+<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Bir veri türünün uygulanması soyut (abstract) uygulama olarak bilinir. </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Veri yapısı uygulaması, somut (concrete) uygulama olarak bilinir. </td>
+</tr>
+
+<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Veri türlerinde zaman karmaşıklığı yoktur. </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Veri yapısı nesnelerinde zaman karmaşıklığı önemli bir rol oynar. </td>
+</tr>
+
+<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Veri türleri söz konusu olduğunda yalnızca depolanabilecek veri türünü temsil ettiği için verilerin değeri saklanmaz. </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Veri yapıları söz konusu olduğunda, veriler ve değeri bilgisayarın ana belleğinde saklanmaktadır. Ayrıca, bir veri yapısı tek bir nesne içinde farklı türde verileri tutabilir. </td>
+</tr>
+
+<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Veri türlerine int, float, double vb. örnek verilebilir. </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Veri yapısı yığın, kuyruk, ağaç vb. örnek verilebilir. </td>
+</tr>
+
+</table>		
+		
+		</div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> Aşağıdaki seçeneklerden hangisi veri yapılarının, kullanıldığı alanlardan biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> İşletim sistemi </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Sayısal hesaplamalar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Grafikler ve bilgisayar tasarımı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Blok zinciri </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Genetik algoritmalar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      Veri yapıları, aşağıdaki gibi çeşitli alanlarda kullanılmaktadır:<br>
+• İşletim sistemi<br>
+• Grafikler<br>
+• Bilgisayar tasarımı<br>
+• Blok zinciri<br>
+• Genetik algoritmalar<br>
+• Görüntü işleme<br>
+• Simülasyon vb.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> .NET framework’teki iki önemli bileşen nedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> .NET kütüphanesi ve CLR </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> Bir algoritmanın özellikleri nelerdir? </p>
+	<span class="option" data-correct="true"><b>A)</b> 
+<u><strong>• Kesinlik</strong></u> – adımlar kesin olarak belirtilmelidir.<br>
+<u><strong>• Benzersizlik</strong></u> – her adımın sonucu benzersiz bir şekilde tanımlanır ve yalnızca önceki adımların girdisine ve sonucuna bağlıdır.<br>
+<u><strong>• Sonluluk </strong></u>– sınırlı sayıda komut yürütüldükten sonra algoritma durmalıdır.
+<u><strong>• Girdi</strong></u> – algoritma girdi alır.<br>
+<u><strong>• Çıktı</strong></u> – algoritma çıktı üretir.<br>
+<u><strong>• Genellik, Uygulanabilirlik</strong></u> – algoritma bir dizi girdiye uygulanır.</span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> Karmaşık bir sistemi yapılandırmak ve sıralamak ya da ögelerin altında yatan yapıyı ve bunların etkileşimini ortaya çıkarmak için kullanılan terime ne denir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Akış şemaları </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> Hangi akış şeması şekli bir programın veya alt sürecin başlangıcını ve sonunu belirtir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Bir programın veya alt sürecin başlangıcını ve sonunu belirtir. Oval veya yuvarlak (dolgu) dikdörtgen olarak gösterilir. Genellikle “Başlat” veya “Bitti” kelimelerini veya “ödeme” gibi bir sürecin başlangıcını veya bitişini belirten başka bir ifadeyi içerirler. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+ 
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> Hangi akış şeması şekli verinin değerini, biçimini veya konumunu değiştiren bir dizi işlemi temsil eder? </p>
+	<span class="option" data-correct="true"><b>A)</b> İşlem / Atama akış şeması; verinin değerini, biçimini veya konumunu değiştiren bir dizi işlemi temsil eder. Dikdörtgen olarak gösterilir ve aşamalar kısa ifadeler ile bu şekil içerisine yazılır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> “i” dizinindeki her ögenin listenin en küçük/en büyük ögesi olmasını sağlamak için liste
+boyunca yinelenen bir sıralama algoritmasına ne denir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Seçmeli sıralama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> O(1) - Sabit Zaman Karmaşıklığı nedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Bu, sabit bir çalışma zamanı anlamına gelmektedir, yani girdinin boyutundan bağımsız olarak, algoritma aynı çalışma zamanına sahip olacaktır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> Algoritmanın çalışma süresi c &gt; 1 olduğunda N gücüne göre bir sabit olarak hesaplanan Big O Notasyonu çeşidi hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> O(c^N) - Üstel Zaman Karmaşıklığı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> Zaman karmaşıklığı, algoritmalar için hangi durumları sunmaktadır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Zaman karmaşıklığı, algoritmalar için 3 durum sunmaktadır.<br><br>
+• En iyi durum (Best case)<br>
+• Ortalama durum (Average case)<br>
+• En kötü durum (Worst case </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+
+		
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

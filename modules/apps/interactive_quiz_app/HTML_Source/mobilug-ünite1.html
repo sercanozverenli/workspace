@@ -1,0 +1,1760 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+	  
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA II
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama2-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama2-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama2-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama2-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama2-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama2-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama2-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama2-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama2-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama2-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB ARAYÜZ PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİ YAPILARI
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veriyap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veriyap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veriyap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veriyap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veriyap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veriyap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veriyap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veriyap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veriyap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veriyap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          MOBİL UYGULAMA GELİŞTİRME
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="mobilug-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="mobilug-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="mobilug-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="mobilug-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="mobilug-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="mobilug-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="mobilug-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="mobilug-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="mobilug-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="mobilug-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          UNIX SİSTEM YÖNETİMİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="unixsy-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="unixsy-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="unixsy-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="unixsy-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="unixsy-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="unixsy-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="unixsy-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="unixsy-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="unixsy-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="unixsy-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Mobil Uygulama Geliştirme - Ünite 1 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	<button class="block-group" data-start="40" data-end="59">Part 3</button>
+	<button class="block-group" data-start="60" data-end="79">Part 4</button>
+	  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> I. Bu uygulamaları geliştirmek yüksek geliştirme maliyetlerine ve daha uzun bir pazara inme süresine yol açmaktadır.<br>
+II. Cihazın donanımına erişememekte ve HTML5, CSS, Javascript gibi popüler programlama dilleriyle daha kolay geliştirilmektedir.<br>
+III.Belirli bir işletim sistemi üzerinde çalışacak şekilde özel olarak  eliştirilen uygulama türüdür.<br><br>
+Yerel uygulamalarla ilgili yukarıda verilen bilgilerden hangisi ya da hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yalnız III  </span><br>
+	<span class="option" data-correct="true"><b>D)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Diğer uygulamaların, hizmetlerin, yazılımların veya işletim sistemlerinin verilerine ve özelliklerine erişen uygulamaların oluşturulmasına izin veren bir dizi işlev ve prosedüre ne ad verilmektedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Entegre Geliştirme Ortamı (IDE) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İleri Web Uygulamaları (PWA) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Hibrit (Melez) Uygulamalar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yazılım Geliştirme Kiti (SDK) </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Uygulama Programlama Arayüzü (API) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Alışveriş, moda, egzersiz ve diyet gibi uygulamaları kapsayan mobil uygulama kullanım alanı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> M-ticaret uygulamaları </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Yaşam tarzı uygulamaları </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Seyahat ve harita uygulamaları </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yardımcı uygulamalar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Artırılmış gerçeklik uygulamaları </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Aşağıdakilerden hangisi, Java programlama
+dili ile ilgili <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> İlk olarak 1995 yılında geliştirilmiştir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Android SDK ile mobil uygulama geliştirmek isteyen geliştiriciler tercih edebilir. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> JavaScript ile eş anlamlıdır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Java uygulamalarının dosya uzantısı .java, .class, .jar, .jmod olabilmektedir </span><br>
+	<span class="option" data-correct="false"><b>E)</b> James Gosling tarafından geliştirilmiştir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Aşağıdakilerden hangisi iOS uygulama geliştirmeyle ilgilenen geliştiriciler için kullanılabilecek
+Apple ekosisteminde bulunan açık kaynak kodlu, ücretsiz, nesne tabanlı bir programlama dilidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> PHP </span><br>
+	<span class="option" data-correct="false"><b>B)</b> HTML5 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> JavaScript </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Swift </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kotlin </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Portekizce’de “Ay” anlamına gelen Brezilya’daki Rio de Janeiro şehrinde Papalık Katolik Üniversitesi PUC-Rio’daki bir ekip tarafından tasarlanan açık kaynak kodlu çok paradigmalı dil aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Rust </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Lua </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ruby </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Dart </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Objective C </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> I. Eski adı PhoneGap olarak bilinmektedir.<br>
+II. Exadel tarafından ilk olarak 2012 yılında piyasaya sürülmüştür.<br>
+III.Düşük kodlu ve çok amaçlı bir platform sunan bulut tabanlı bir uygulama geliştiricisidir.<br><br>
+Appery.io ile ilgili yukarıda verilenlerden hangisi ya da hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="true"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> Google tarafından desteklenen ve Dart dili
+temel alınarak uygulama geliştirilebilen platform aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Apache Cordova </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Codename One </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Solar 2D </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Xamarin </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Flutter </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> Google Play Store ile ilgili aşağıda verilenlerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Chrome OS uygulamaları da sunulmaktadır </span><br>
+	<span class="option" data-correct="true"><b>B)</b> HarmonyOS adlı mobil işletim sistemi için özel geliştirilmiştir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 2012 yılında faaliyetlerine başlamıştır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> En yüksek uygulama sayısına sahiptir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Eski adıyla Android Market olarak da adlandırılmaktadır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> I. Yalnızca Android mobil cihazları desteklediği için masaüstü bilgisayarlarda açıldığında çalışmamaktadır.<br>
+	 II.	 Çin-ABD ticaret savaşı nedeniyle popülerliği artmış ve Çin’den dünyaya yayılmıştır.<br>
+III.İOS ve iPadOS işletim sistemlerindeki mobil uygulamalar için bir uygulama mağazasıdır.<br><br>
+Apple AppStore ile ilgili yukarıda verilen bilgilerden hangisi ya da hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> Kullanılan kodların yeniden kullanılabilindiği, “Bir kez yaz, her yerde çalıştır (write-once-run-everywhere)” ilkesiyle çalışan, sorunsuz işlevsellik, kolay uygulama ve uygun maliyet özellikleri de taşıyan mobil uygulama türü aşağıdaki seçeneklerden hangisinde verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yerel (Native) Uygulamalar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Web Tabanlı (Web-Based) Uygulamalar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Hibrit (Hybrid) Uygulamalar </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Çapraz Platform (Cross-Platform) Uygulamalar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İleri (Progressive) Web Uygulamaları (PWAs) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> API'ın açılımı nedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Applicaiton Planning Interface </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Appropriate Programming Interface </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Application Programming Interface </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Applicaiton Programming Internet </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Appropriate Planning Internet </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      API: Application Programming Interface kısaltması ya da Türkçe karşılığı Uygulama Programlama Arayüzü olarak, API, diğer uygulamaların, hizmetlerin, yazılımların veya işletim sistemlerinin verilerine ve özelliklerine erişen uygulamaların oluşturulmasına izin veren bir dizi işlev ve prosedürdür. Örneğin, çevrimiçi sinema bileti satın alırken, web sitesine erişerek; film, ad soyad ve kredi kartı gibi bilgileri girerek biletlerin çıktısını almak API kullanımına örnektir.
+
+
+     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Aşağıdaki hangi programlama dilinin adı Portekizce'de "ay" anlamına gelmektedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> SCALA </span><br>
+	<span class="option" data-correct="true"><b>B)</b> LUA </span><br>
+	<span class="option" data-correct="false"><b>C)</b> RUST </span><br>
+	<span class="option" data-correct="false"><b>D)</b> RUBY </span><br>
+	<span class="option" data-correct="false"><b>E)</b> DART </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> Aşağıdaki uygulama mağazalarının hangisi sadece mobil cihazlarda açılabilmektedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Amazon Appstore </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Microsoft Store </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Microsoft Azure </span><br>
+	<span class="option" data-correct="false"><b>D)</b> App Store </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Google Play Store </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      Amazon AppStore, şu anda yalnızca Android mobil cihazları desteklediği için masaüstü bilgisayarlarda açıldığında çalışmayacaktır.
+
+
+     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> I. WhatsApp<br>
+II. Spotify<br>
+III. SoundCloud<br>
+IV. Firefox<br><br>
+Yukarıdakilerin hangisi ya da hangileri yerel uygulamalara örnek olarak verilebilir?*** </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnızca I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> II ve IV </span><br>
+	<span class="option" data-correct="true"><b>D)</b> I, II ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II, III ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      WhatsApp, Spotify ve SoundCloud gibi uygulamalar, belirli platformlarda (örneğin Android veya iOS) özel olarak geliştirilmiş ve optimize edilmiş yerel uygulamalardır. Bu uygulamalar, işletim sistemi ve platform özgüdür, bu nedenle Android için geliştirilen WhatsApp, iOS işletim sistemi üzerinde çalışmaz ve tam tersi durum da geçerlidir.<br><br>
+
+Bu tür uygulamalar, her platform için özelleştirilmiş bir geliştirme süreci gerektirir ve doğrudan işletim sistemi araçlarını kullanır. Dolayısıyla, "yerel uygulama" terimi bu tür uygulamalar için uygundur. Çapraz platform veya platform bağımsız uygulamalar ise farklı platformlarda aynı kod tabanını kullanarak çalışan uygulamaları ifade eder.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Aşağıdakilerden hangisi Mart 2022 istatistiklerine göre, Google Play Store’da 10 milyardan fazla kez indirilerek en çok indirilen 5 uygulama arasında <u><strong>yer almaz?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> YouTube </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Google Haritalar </span><br>
+	<span class="option" data-correct="true"><b>C)</b> TikTok </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Google Chrome </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Gmail </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      Mart 2022 istatistiklerine göre, Google Play Store’da 10 milyardan fazla kez indirilerek en çok indirilen 5 uygulama şu şekildedir:<br><br>
+			
+• Google Play Hizmetleri<br>
+• YouTube<br>
+• Google Haritalar<br>
+• Google Chrome<br>
+• Gmail     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> Huawei AppGallery ile ilgili aşağıda verilenlerden hangisi yanlıştır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Huawei Technologies şirketi tarafından geliştirilen bir uygulama mağazasıdır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 2011 yılında Çin’de,  2018 yılında tüm dünya genelinde kullanılmaya başlanmıştır. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Yalnızca Huawei cihazlarında kullanıma izin verilmektedir.  </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Türkçe dahil 80 dil için dil desteği sunmaktadır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 420 milyon aktif kullanıcı tarafından kullanılmaktadır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      Yalnızca Huawei değil Honor cihazlarında da kullanılmaktadır.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Aşağıdakilerden hangisi bir Web-Tabanlı uygulama yazım dilidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kotlin </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Html5 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Swift </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Java </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Python </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      Web tabanlı uygulamalar yerel uygulamalara benzer özellikler taşımasına rağmen, mobil cihazdaki web tarayıcıları aracılığıyla ulaşılan uygulamalardır. Yerel uygulamalardan farklı olarak cihazın donanımına erişememekte ve HTML5, CSS, Javascript gibi popüler programlama dilleriyle geliştirilmektedir     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> Aşağıdaki uygulama mağazalarından hangisi yayın hayatı sona ermiş mağazalardandır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Huawei AppGallery, </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Opera Mobil Store, </span><br>
+	<span class="option" data-correct="false"><b>C)</b> OpenStore for Ubuntu Touch </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Firefox Marketplace, </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Amazon Appstore, </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      ayın hayatı sona eren ve kullanılmayan uygulama mağazaları<br><br>
+• Firefox Marketplace,<br>
+• Windows Phone Store,<br>
+• Nokia Store,<br>
+• HP App Catalog<br>
+     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> Dünyada ve Türkiye’de mobil uygulamalarının en popüler kategorisi aşağıdaki ifadelerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Eğitim uygulamaları </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Sosyal ağ uygulamaları </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Oyun uygulamaları </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Eğlence uygulamaları  </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Seyahat ve harita uygulamaları  </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Aşağıdakilerden hangisi yayın hayatı sona eren ve kullanılmayan uygulama mağazalarından <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Firefox Marketplace </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Windows Phone Store </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Nokia Store </span><br>
+	<span class="option" data-correct="false"><b>D)</b> HP App Catalog </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Microsoft Store </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> I. Amazon.com tarafından işletilen Android işletim sistemi için tasarlanmış, 2011 yılında piyasaya sürülmüş bir uygulama mağazasıdır.<br>
+II. Amazon AppStore, şu anda yalnızca Android mobil cihazları desteklediği için masaüstü bilgisayarlarda açıldığında çalışmayacaktır.<br>
+III. Amazon’un Fire OS adlı işletim sistemi için paket uygulama mağazasıdır.<br><br>
+Amazon AppStore ile ilgili yukarıda verilen bilgilerden hangisi ya da hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> Aşağıdakilerden hangisi gün içerisinde su içmemiz gereken zamanları hatırlatan uygulama türüdür? </p>
+	<span class="option" data-correct="true"><b>A)</b> Yaşam Tarzı (Lifestyle) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yardımcı (Utility)  </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Oyun  </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Seyahat </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sosyal Ağ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      
+		
+Mobil Uygulama Kullanım Alanları<br><br>
+
+
+<u><strong>Eğitim uygulamaları:</strong></u> Eğitsel uygulamalar kullanıcıların
+ya da öğrenenlerin yeni bilgi ve beceriler kazanmalarına destek olan uygulamaları içermektedir. Öğrenmede esnekliği sağlaması ve öğrenme sürecini oyunlaştırması özellikleriyle öğrenenler arasında popüler olması kadar, öğretim sürecinde organizasyonu kolaylaştırması ile öğretenler arasında da etkin kullanım alanı bulmaktadır.<br><br>
+
+<u><strong>M-ticaret uygulamaları:</strong></u> Mobil ticaret uygulamaları, ürünlere kolay erişim ve sorunsuz ödeme gibi özellikleriyle müşterilere/kullanıcılara en iyi alışveriş deneyimini sunmaktadır.<br><br>
+
+<u><strong>Sosyal ağ uygulamaları:</strong></u> Dünyada ve Türkiye’de mobil uygulamaların en popüler kategorilerindendir. Facebook, Instagram, Twitter gibi bilinen örnekleri vardır.<br><br>
+
+<u><strong>Oyun uygulamaları:</strong></u> Mobil uygulamaların en popüler kategorisi olarak, mobil uygulama geliştirici işletmeler için en fazla kar getiren uygulama türlerini kapsamaktadır. Hatta son yıllarda masaüstü video oyunların yerine daha çok mobil oyunların geliştirildiği gözlenmektedir. Son araştırmalara göre, mobil oyunlar tüm uygulama indirmelerinin %33’ünü, uygulama harcamalarının %74’ünü ve uygulamaları kullanarak harcanan tüm zamanın %10’unu oluşturmaktadır.<br><br>
+
+<u><strong>Eğlence uygulamaları:</strong></u> Bu uygulamalar, kullanıcıların
+yeni içerik üretmesine, sosyal aktivite aramasına, sohbet etmesine veya çevrimiçi müzik/ video içeriği dinlemesine/izlemesine olanak tanımaktadır. Facebook veya Instagram gibi sosyal medya uygulamaları, Youtube, Netflix veya Amazon Prime Video gibi video akışı uygulamaları, tüm dünyadaki kullanıcılar arasında popüler olan en bilinen uygulamalardandır.<br><br>
+
+<u><strong>Yaşam tarzı (lifestyle) uygulamaları:</strong></u> Bu geniş uygulama kategorisi alışveriş, moda, egzersiz ve diyet gibi uygulamaları kapsamaktadır. Bu uygulamalar temel olarak kişisel yaşam tarzının çeşitli yönlerine odaklanmaktadır.<br><br>
+
+<u><strong>Seyahat ve harita uygulamaları:</strong></u> Bu uygulamaların gerisindeki temel düşünce, bireylerin rahatlıkla seyahat etmelerine yardımcı olmaktır. Google Haritalar, Airbnb, TripAdvisor, Bolt veya Uber gibi örnekler verilebilir.<br><br>
+
+<u><strong>Yardımcı (utility) uygulamalar:</strong></u> Yardımcı uygulamalar hemen hemen her gün ve çoğu kişi tarafından kullanılan, belirli ihtiyaçları hızlı bir şekilde karşılamak için yararlanılan uygulamalardır. Bu tür uygulamalara örnek olarak hesap makinesi, çalar saat, QR kod/barkod tarayıcı veya el feneri verilebilir.<br><br>
+
+Bu uygulamaların dışında aşağıdaki kategorilerde uygulama örnekleri de bulunmaktadır:<br>
+• İş veya üretkenlik (productivity) uygulamaları<br>
+• Mobil sağlık (m-health) uygulamaları<br>
+• Spor uygulamaları<br>
+• Hava durumu uygulamaları<br>
+• Alışveriş uygulamaları<br>
+• Kitap uygulamaları
+		</div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Aşağıdakilerden hangisi Çapraz Platform Uygulamalarının Dezavantajlarındandır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Daha sınırlı yeteneklerinin olması, daha düşük düzeyde kullanıcı deneyimi sunması gibi dezavantajlara da sahip olabilmektedir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bazı üreticilerin varsayılan tarayıcılarında tam destek mevcut değildir. Ayrıca, en son donanım gelişmeleri (parmak izi tarayıcı gibi) bu uygulamalarda kullanılamayabilir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Çevrimdışı olarak çalışmaması, yerel uygulamalara kıyasla sınırlı sayıda işlevsellik içermesi, geliştirilmesinin uzun zaman alması ve güvenlik riskleri nedeniyle web uygulamaları bazı dezavantajlara sahiptir. </span><br>
+	<span class="option" data-correct="true"><b>D)</b> İşletim sistemlerine erişimi düşüktür. Uygulama performansı yavaş kalabilmektedir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İşletim sistemine özel uygulamalar oluşturmak zaman alabilmektedir. Ayrıca, Swift ve Java gibi işletim sistemine özel programlama dillerini öğrenmek oldukça zordur. Belirli bir işletim sistemi ile sınırlı olduğundan dolayı, hedef kitleyi de sınırlamaktadır </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      Çapraz platform uygulamalarının dezavantajlarına bakıldığında, işletim sistemlerine erişimi düşüktür. Uygulama performansı yavaş kalabilmektedir. Ayrıca, yerel uygulamalarla etkileşimi sınırlı
+kalmaktadır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> Tüm yaş grupları için uygun oyunları listeyen etiket aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> PEGI 7 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> PEGI 16 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> PEGI 18 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> PEGI 12 </span><br>
+	<span class="option" data-correct="true"><b>E)</b> PEGI 3 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      PEGI etiketleri oyunlar için kategorilendirme yapmaktadır. Örneğin PEGI 3 tüm yaş grupları için uygun oyunların etiketlendiği kategoridir. Bunun dışında PEGI 7, 12, 16, 18 ve OK etiketleri de bulunmaktadır.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> 2010 yılında geliştirilen Mozilla vakfı tarafından desteklenen, güvenliği ön plana alan işlevsel, genel amaçlı ve çok paradigmalı bir sistem programlama diline ''..............'' denir.<br><br>
+ Yandaki boşluğa gelmesi gereken uygun ifade hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Java  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> PHP </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Javascript </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Rust </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Python </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Aşağıdakilerden hangisi düşük kodlu ve çok amaçlı bir platform sunan bulut tabanlı bir uygulama geliştiricisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Solar2D </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Appery.io </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Qt </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sencha Ext JS </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Xamarin </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> Mobil uygulama geliştirici işletmeler için en fazla kar getiren uygulama türü aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Eğlence uygulamaları </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Oyun uygulamaları </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sosyal ağ uygulamaları </span><br>
+	<span class="option" data-correct="false"><b>D)</b> M-ticaret uygulamaları </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Eğitim uygulamaları </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> I. Youtube<br> 
+II. Netflix<br>
+III. Amazon Prime Video <br><br>
+Yukarıdakilerden hangisi veya hangileri eğlence uygulamaları arasında yer alır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnızca I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnızca II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> Aşağıdakilerden hangisi Eylül 2021 itibariyle programlama dilleri arasında en popüler programlama dilidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Java </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Javascript </span><br>
+	<span class="option" data-correct="false"><b>C)</b> C++ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kotlin </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Python </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      Python genel amaçlı üst düzey bir programlama dili olarak son yılların en gözde dili olarak dikkat çekmektedir. 1991 yılında geliştirilen bu dil, PYPL endeksine göre, Eylül 2021 itibariyle en popüler programlama dilleri arasında ilk sıradadır. Öğrenmesi kolay, etkileşimli bir dil olarak, Youtube, Instagram, Spotify, Dropbox, Calibre, Reddit, BitTorrent, Quora gibi popüler uygulamalar dahil pek çok uygulama Python dilinde yazılmıştır. Python, yapay zekâ, finansal hizmetler ve veri bilimi gibi gözde teknolojik alanlar dahil olmak üzere çeşitli şekillerde kullanım alanına sahiptir.
+
+
+     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> Opera, Safari ve Chrome gibi tarayıcılar mobil uygulama türlerinin hangisinin kapsamına girmektedir?  </p>
+	<span class="option" data-correct="false"><b>A)</b> Yerel uygulamalar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Hibrit uygulamalar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Çapraz platform uygulamaları  </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Web tabanlı uygulamalar  </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İleri Web uygulamaları </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> 2019 yılından itibaren Google’ın Android uygulama geliştirmek için tercih ettiği dil aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Python  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Objective C </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Kotlin </span><br>
+	<span class="option" data-correct="false"><b>D)</b> HTML5 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Swift  </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> Android mobil işletim sistemi hangi dille geliştirilmiştir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Java </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Javascript </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kotlin </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Phyton </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Scala </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      İlk olarak 1995 yılında geliştirilen Java, James Gosling tarafından Sun Microsystems adına tasarlanmıştır. Günümüzde Oracle firması tarafından geliştirme ve güncellemeleri devam etmektedir. Mobil uygulama geliştirme bağlamında en çok kullanılan dillerden biri Java’dır. PYPL endeksine göre, Eylül 2021 itibariyle en popüler programlama dilleri arasında Phyton’dan sonra ikinci sıradadır. Özellikle Android adlı mobil işletim sisteminin Java ile geliştirilmesi nedeniyle Google Play Store adlı mobil uygulama mağazasındaki uygulamaların büyük bölümü Java programlama diliyle yazılmıştır. Android Yazılım Geliştirme Kiti (Software Development Kit) ile mobil uygulama geliştirmek isteyen geliştiriciler tercih edebilir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> ''Hesap makinesi'' aşağıda verilen uygulama türlerinden hangisi için örnek verilebilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> M-ticaret uygulamaları  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Alışveriş uygulamaları </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Yardımcı uygulamaları </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Finans ve Bankacılık uygulamaları  </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İş veya üretkenlik uygulamaları  </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      <u><strong>Yardımcı (utility) uygulamalar:</strong></u> Yardımcı uygulamalar hemen hemen her gün ve çoğu kişi tarafından kullanılan, belirli ihtiyaçları hızlı bir şekilde karşılamak için yararlanılan uygulamalardır. Bu tür uygulamalara örnek olarak hesap makinesi, çalar saat, QR kod/barkod tarayıcı veya el feneri verilebilir.<br><br>     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> Flutter platformu ile ilgili aşağıdaki ifadelerden hangisi doğru değildir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Mobil, web, masaüstü ve gömülü uygulamalar geliştirilebilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Özellikle hibrit uygulamalar geliştirmek için oldukça uygundur. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Yerel ve çok platformlu uygulamalar geliştirmek zordur. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Herhangi bir hata durumunda hatanın tespiti ve çözümü oldukça nettir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> JavaScript’in yanı sıra ARM veya Intel makine kodunu derlemektedir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> I. 1995 yılında ilk olarak kullanılmaya başlanmıştır.<br>
+II. Web sitelerinin %97’sinden fazlası Javascript kullanılarak tasarlanmıştır.<br>
+III. Nesne yönelimli ve işlevsel programlamayı destekleyen çok paradigmalı bir dildir.<br>
+IV. Öncelik olarak mobil uygulama geliştirmek için kullanılır.<br><br>
+Javascript programlama dili ile ilgili yukarıda verilen bilgilerden hangileri doğrudur? </p>
+	<span class="option" data-correct="true"><b>A)</b> I, II ve III </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I, II ,III ve IV </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> III ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      Üst düzey yorumlanmış bir programlama dili olan JavaScript, nesne yönelimli ve işlevsel programlamayı destekleyen çok paradigmalı bir dildir. 1995 yılında ilk olarak kullanılmaya başlanmıştır. Web sitelerinin %97’sinden fazlası Javascript kullanılarak tasarlanmıştır.<br><br>
+
+Öncelik olarak mobil uygulama geliştirmekten ziyade, tarayıcılar tarafından çalıştırılan ve web tabanlı sayfaları geliştirmek için kullanılan bir dildir.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> Genel amaçlı üst düzey bir programlama dili olarak son yılların en gözde dili olan, öğrenmesi kolay, etkileşimli bir dil olarak, Youtube, Instagram, Spotify, Dropbox, Calibre, Reddit, BitTorrent, Quora gibi popüler uygulamalar dahil pek çok uygulamanın yazılmasında kullanılan  programlama dili aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Java </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Javascript </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Swift </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Objective C </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Python </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> Herhangi bir platformda hızlı uygulamalar geliştirmek için istemci tarafından optimize edilmiş bir dildir. Ayrıca, ücretsiz ve açık kaynak kodlu bir dil olarak Google tarafından desteklenmektedir.<br><br>
+
+Yukarıdaki paragrafta mobil uygulama geliştirmek için kullanılan dillerin hangisinden bahsedildiği söylenebilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Scala </span><br>
+	<span class="option" data-correct="false"><b>B)</b> C++ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Lua </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Ruby </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Dart </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> ''Herhangi bir modern cihaz için veri yoğun, platformlar arası web ve mobil uygulamalar oluşturmaya yönelik en kapsamlı JavaScript çerçevelerinden biridir.''<br><br>
+Yukarıda tanımı yapılan platform aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Codename One </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Qt </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Sencha Ext JS (Sencha Touch) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Appery.io </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Xamarin </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> Aşağıdakllerden hangisi Rust programlama dili ile ilgili doğru bir ifade <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> İşlevsel, genel amaçlı ve çok paradigmalı bir sistem programlama dilidir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Belleği verimli kullanan hızlı derlenen bir dildir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kodlama yapısı C dili ailesine benzemektedir. </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Diğer programlama dillerine entegre olması zordur. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kodların derlenmesi sırasında hatalar tespit edilir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      Rust 2010 yılında geliştirilen Mozilla vakfı tarafından desteklenen, güvenliği ön plana alan işlevsel, genel amaçlı ve çok paradigmalı bir sistem programlama dilidir. Belleği verimli kullanan hızlı derlenen bir dildir. <u>Kodlama yapısı C dili ailesine benzemektedir. Ancak diğer programlama dillerine de kolayca entegre olabilir</u>. Rust, kodların derlenmesi sırasında hataların tespit edilmesi ve geliştiricilerin uygun kodu yazmasına olanak tanıması noktasında avantaj sağlamaktadır.
+
+
+     </div>
+	</div>
+</div>
+	  
+	 	  
+<div class="question-block">
+	<div id="question56">
+	<p class="question">Soru 41:<br> I. Xamarin platformunda yerel mobil uygulama geliştirmek için kullanılabilir<br>
+II. Microsoft firması için uygulama ürünleri oluşturmak için kullanılan C programlama ailesinin bir ürünüdür.<br>
+III. İlk olarak 1995 yılında geliştirilen bu dil, James Gosling tarafından Sun Microsystems adına tasarlanmıştır.<br><br>
+C# ile ilgili verilen bilgilerden hangisi doğrudur. </p>
+	<span class="option" data-correct="true"><b>A)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description41">Açıklama</button>
+		<div id="description41" class="collapse">      III. seçenek Java ile ilgilidir.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question57">
+	<p class="question">Soru 42:<br> Aşağıdakilerden hangisi mobil uygulama geliştirirken kullanılabilecek programlama dillerinden biri değildir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Java </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Swift </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kotlin </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Apache Cordova </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Scala </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description42">Açıklama</button>
+		<div id="description42" class="collapse">      Mobil Uygulama Geliştirmek İçin Kullanılan Programlama Dilleri <br><br>
+
+- Java <br>
+- Javascript <br>
+- HTML5 (İşaretleme dili) <br>
+- Swift <br>
+- C# <br>
+- C++ <br>
+- Objective C <br>
+- Python <br>
+- Kotlin <br>
+- Scala <br>
+- Dart <br>
+- Ruby <br>
+- Rust <br>
+- Lua <br>
+- PHP <br>    </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question58">
+	<p class="question">Soru 43:<br> I. Özellikle gömülü uygulamalar için geliştirilmiş hafif bir çoklu paradigma dilidir.<br>
+II. Kodlama yapısı C dili ailesine benzemektedir.<br>
+III. Dilin göze çarpan özellikleri arasında hızlı olması da yer almaktadır.<br>
+IV. Nesne yönelimli, işlevsel programlamayı ve veriye dayalı programlamayı desteklemektedir.<br><br>
+Yukarıdakilerden hangileri Lua programlama dili için doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve III </span><br>
+	<span class="option" data-correct="true"><b>D)</b> I, III ve IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II, III veIV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description43">Açıklama</button>
+		<div id="description43" class="collapse">      Kodlama yapısı C dili ailesine benzeyen <u><strong>Rust</strong></u> programalam dilidir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question59">
+	<p class="question">Soru 44:<br> I. Çapraz okatformlu bir dildir.<br>
+II. Özellikle Java'da yaşanan problemlerin ve eleştirilerin giderilmesi için tasarlanmıştır.<br>
+III. JavaScript kaynak koduyla gerlenebilir.<br>
+IV. Düşük seviyeli bellek işleme özelliğine sahiptir.<br><br>
+
+Yukarıdakilerden hangileri Kotlin programlama dili için doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> I ve II </span><br>
+	<span class="option" data-correct="true"><b>B)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> II ve IV </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II, III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description44">Açıklama</button>
+		<div id="description44" class="collapse">      II. Seçenek <u><strong>Scala</strong></u> ile ilgilidir.<br>
+IV. seçenek <u><strong>C++</strong></u> ile ilgilidir.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question60">
+	<p class="question">Soru 45:<br> Aşağıdakilerden hangisi mobil uygulama geliştirirken kullanılabilecek platformalardan biri değildir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Flutter </span><br>
+	<span class="option" data-correct="false"><b>B)</b> React Native </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Qt </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Codename One </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Rust </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description45">Açıklama</button>
+		<div id="description45" class="collapse">      Mobil Uygulama Geliştirmek İçin
+Kullanılan Platformlar <br><br>
+
+Solar 2D (Corona SDK) <br>
+Flutter <br>
+Apache Cordova (Phone Gap) <br>
+Codename One <br>
+React Native <br>
+Qt <br>
+Appery.io <br>
+Sencha Ext JS (Sencha Touch) <br>
+Xamarin <br>    </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question61">
+	<p class="question">Soru 46:<br> I. Mobil uygulamaların Java veya Kotlin kullanılarak yazılmasına olanak tanımaktadır.<br>
+II. Google tarafından piyasaya sürülmüştür.<br>
+III. Çapraz platform çerçevesidir.<br>
+IV. 2D oyunlar için kullanılabilen en kolay geliştirme aracıdır.<br><br>
+Yukarıdakilerden hangileri Codename One platformu için doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> I ve II </span><br>
+	<span class="option" data-correct="true"><b>B)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> II ve IV </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II, III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description46">Açıklama</button>
+		<div id="description46" class="collapse">      II. seçenek <u><strong>Flutter</strong></u> ile ilgilidir.<br>
+IV. seçenek <u><strong>Solar 2D</strong></u> ile ilgilidir.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question62">
+	<p class="question">Soru 47:<br> JetBrains tarafından ilk olarak 2011 yılında ortaya çıkarılan Java kodlarının da dönüştürülebildiği programlama dili aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Kotlin </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Swift </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Scala </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Rust </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Lua </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description47">Açıklama</button>
+		<div id="description47" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question63">
+	<p class="question">Soru 48:<br> I. HarmonyOS ve Android mobil işletim sistemleri için geliştirilmiş bir uygulama mağazasıdır.<br>
+II. Türkçe dahil 80 dilde desteklenmektedir.<br>
+III. İlk olarak 2008 yılında kullanılmaya başlanmıştır.<br>
+IV. Yalnızca Huawei cihazlarında kullanılmaktadır.<br><br>
+Yukarıdakilerden hangileri Huawei AppGallery platformu için <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> II ve IV </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve IV </span><br>
+	<span class="option" data-correct="true"><b>E)</b> III ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description48">Açıklama</button>
+		<div id="description48" class="collapse">      III. seçenek yanlıştır. Huawai AppGallery ilk olarak <u><strong>2011</strong></u> yılında kullanılmaya başlanmıştır.<br>
+		IV. seçenek yanlıştır. <u>Yalnızca Huawei değil Honor</u> cihazlarında da kullanılmaktadır.
+     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question64">
+	<p class="question">Soru 49:<br> Facebook (Meta) tarafından desteklenen, Oculus'ta bulunan sanal gerçeklik uygulamalarının bir kısmının da tasarlandığı ve Android ve iOS için yerel uygulamalar geliştirilebilen açık kaynaklı uygulama çerçevesi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> React Native </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Codename One </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sencha Ext JS </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Apache Cordova </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Qt </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description49">Açıklama</button>
+		<div id="description49" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+       
+	  
+<div class="question-block">
+	<div id="question41">
+	<p class="question">Soru 50:<br> Mobil Uygulama Kullanım Alanları <u>Eğitim uygulamaları</u> ne tür uygulamalar içermektedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Eğitim uygulamaları: Eğitsel uygulamalar kullanıcıların ya da öğrenenlerin yeni bilgi ve beceriler kazanmalarına destek olan uygulamaları içermektedir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description50">Açıklama</button>
+		<div id="description50" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question42">
+	<p class="question">Soru 51:<br> Mobil Uygulama Kullanım Alanları <u>Seyahat ve Harita uygulamaları</u> örnekleri nelerdir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Seyahat ve harita uygulamaları: Bu uygulamaların gerisindeki temel düşünce, bireylerin rahatlıkla seyahat etmelerine yardımcı olmaktır. Google Haritalar, Airbnb, TripAdvisor, Bolt veya Uber gibi örnekler verilebilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description51">Açıklama</button>
+		<div id="description51" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question43">
+	<p class="question">Soru 52:<br> Mobil Uygulamalar türlerine göre nasıl kategorize edilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Mobil uygulamalar türlerine göre temel olarak şu şekilde kategorize edilebilir:<br><br>
+
+• Yerel uygulamalar<br>
+• Web tabanlı uygulamalar<br>
+• İleri Web uygulamaları<br>
+• Hibrit uygulamalar<br>
+• Diğer mobil uygulama türleri<br>
+• Çapraz platform uygulamalar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description52">Açıklama</button>
+		<div id="description52" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question44">
+	<p class="question">Soru 53:<br> Hibrit uygulamaların dezavantajları nelerdir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Hibrit uygulamalar daha sınırlı yeteneklerinin olması, daha düşük düzeyde kullanıcı deneyimi
+sunması gibi dezavantajlara da sahip olabilmektedir. Performans olarak yerel uygulamalardan daha yavaş oldukları için, performans odaklı uygulamalar için uygun değillerdir. Daha fazla kaynak tüketirler ve bazı özellikler bazı cihazlarda kullanılamayabilir. Hataların düzeltilmesi zaman alabilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description53">Açıklama</button>
+		<div id="description53" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question45">
+	<p class="question">Soru 54:<br> Java dili ilk olarak kim için tasarlanmıştır? </p>
+	<span class="option" data-correct="true"><b>A)</b> İlk olarak 1995 yılında geliştirilen Java, James Gosling tarafından Sun Microsystems adına tasarlanmıştır. Günümüzde Oracle firması tarafından geliştirme ve güncellemeleri devam etmektedir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description54">Açıklama</button>
+		<div id="description54" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question46">
+	<p class="question">Soru 55:<br> Swift programlama dili ne için kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Swift, özellikle iOS uygulama geliştirmeyle ilgilenen geliştiriciler için kullanılabilecek Apple ekosistemine yeni giren açık kaynak kodlu, ücretsiz, nesne tabanlı bir programlama dildir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description55">Açıklama</button>
+		<div id="description55" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question47">
+	<p class="question">Soru 56:<br> Scala programlama dili Java'ya hangi özellikleriyle üstünlük sağlamaktadır?  </p>
+	<span class="option" data-correct="true"><b>A)</b> Bu dil Java’ya oranla basitlik, kodun daha küçük boyutta olması, performans, statik türde
+olması, daha fazla sözdizimi (syntax) kullanması, topluluk ekosisteminin sürekli genişlemesi gibi özellikleriyle üstünlük sağlamaktadır </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description56">Açıklama</button>
+		<div id="description56" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question48">
+	<p class="question">Soru 57:<br> Mobil uygulama geliştirmek için kullanılan platformlar nelerdir?  </p>
+	<span class="option" data-correct="true"><b>A)</b> <br>
+• Solar 2D<br>
+• Flutter<br>
+• Apache Cordova<br>
+• Codename One<br>
+• React Native<br>
+• Qt<br>
+• Appery.io<br>
+• Sencha Ext JS<br>
+• Xamarin </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description57">Açıklama</button>
+		<div id="description57" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question49">
+	<p class="question">Soru 58:<br> IDE nedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> IDE: Integrated Development Environment (IDE) veya Entegre Geliştirme Ortamı, bir yazılım geliştirme projesi için gereken tüm araçları tek bir platformda birleştiren bir yazılım uygulamasıdır. Daha temel düzeyde, IDE’ler, kullanıcıların kod yazması, metin gruplarını düzenlemesi ve programlama artıklarını otomatikleştirmesi için arabirimler sağlamaktadır. Basit bir kod düzenleyici yerine IDE’ler, birden çok programlama komutunun işlevselliğini tek bir işlemde birleştirmektedir. Visual Studio, Eclipse, Android Studio örnek olarak verilebilir.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description58">Açıklama</button>
+		<div id="description58" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question50">
+	<p class="question">Soru 59:<br> Popüler uygulamalardan hangileri React Native ile geliştirilmiştir?  </p>
+	<span class="option" data-correct="true"><b>A)</b> Facebook’un bir kısmı ve Instagram, Tesla ve Pinterest ve Skype uygulamaları React Native ile geliştirilmiştir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description59">Açıklama</button>
+		<div id="description59" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question51">
+	<p class="question">Soru 60:<br> Düşük Kod nedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Düşük Kod (Low-Code), süreci hızlandırmak için tüm geliştirme sürecini optimize eden yazılım geliştirmeye yönelik görsel bir yaklaşımdır. Bu yaklaşımda grafik tabanlı bir kullanıcı arayüzü kullanılarak kod yazımı en aza (hatta çoğu zaman sıfıra) indirgenir ve kullanımı kolay bir ortamda anlaşılır nesneler ve sürükle bırak gibi özelliklerle uygulama geliştirmek mümkün hale gelir. Gartner’a göre, 2024’e kadar, düşük kodlu uygulama geliştirmenin, uygulama geliştirme etkinliğinin %65’inden fazlasından sorumlu olacağı öngörülmektedir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description60">Açıklama</button>
+		<div id="description60" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question52">
+	<p class="question">Soru 61:<br> Mart 2022 istatistiklerine göre, Google Play Store’da 10 milyardan fazla kez indirilerek en çok indirilen 5 uygulama hangileridir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Mart 2022 istatistiklerine göre, Google Play Store’da 10 milyardan fazla kez indirilerek en çok indirilen 5 uygulama şu şekildedir:<br><br>
+• Google Play Hizmetleri<br>
+• YouTube<br>
+• Google Haritalar<br>
+• Google Chrome<br>
+• Gmail </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description61">Açıklama</button>
+		<div id="description61" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question53">
+	<p class="question">Soru 62:<br> PEGI etiketleri nelerdir? </p>
+	<span class="option" data-correct="true"><b>A)</b> PEGI etiketleri oyunlar için kategorilendirme yapmaktadır. Örneğin PEGI 3 tüm yaş grupları
+için uygun oyunların etiketlendiği kategoridir. Bunun dışında PEGI 7, 12, 16, 18 ve OK etiketleri de bulunmaktadır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description62">Açıklama</button>
+		<div id="description62" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question54">
+	<p class="question">Soru 63:<br> Apple’a göre 2019’da en çok indirilen ilk on ücretsiz iPhone uygulaması hangileridir?  </p>
+	<span class="option" data-correct="true"><b>A)</b> 1. YouTube<br>
+2. Instagram<br>
+3. Snapchat<br>
+4. TikTok<br>
+5. Messenger<br>
+6. Gmail<br>
+7. Netflix<br>
+8. Facebook<br>
+9. Google Haritalar<br>
+10. Amazon </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description63">Açıklama</button>
+		<div id="description63" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question55">
+	<p class="question">Soru 64:<br> AppGallery “Öne Çıkanlar” sekmesinde hangi bölümlere yer vermektedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> AppGallery “Öne Çıkanlar” sekmesinde yeni uygulama ve oyunlar, en çok oylanan uygulamalar, en eğlenceli oyunlar, en popülerler, yenilikçi uygulamalar, beğeneceğinizi düşündüklerimiz, olmazsa olmazlar, editörün tavsiyeleri, bu ayın en iyisi gibi bölümler sunmaktadır.
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description64">Açıklama</button>
+		<div id="description64" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

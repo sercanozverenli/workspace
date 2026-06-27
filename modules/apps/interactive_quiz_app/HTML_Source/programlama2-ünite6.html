@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+	  
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA II
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama2-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama2-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama2-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama2-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama2-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama2-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama2-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama2-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama2-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama2-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB ARAYÜZ PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİ YAPILARI
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veriyap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veriyap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veriyap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veriyap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veriyap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veriyap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veriyap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veriyap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veriyap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veriyap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          MOBİL UYGULAMA GELİŞTİRME
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="mobilug-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="mobilug-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="mobilug-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="mobilug-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="mobilug-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="mobilug-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="mobilug-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="mobilug-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="mobilug-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="mobilug-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          UNIX SİSTEM YÖNETİMİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="unixsy-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="unixsy-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="unixsy-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="unixsy-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="unixsy-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="unixsy-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="unixsy-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="unixsy-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="unixsy-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="unixsy-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Programlama II - Ünite 6 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Aşağıdaki şıklardan hangisi nesne yönelimli programlamadaki terimlerden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Nesne </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sınıf </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kalıtım </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Metot </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Dictionary </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      Nesne Yönelimli Programlamadaki Terimler<br><br>
+Sınıf (Class)<br>
+Nesne (Object)<br>
+Metotlar (Methods)<br>
+Kalıtım - Miras<br>
+Kapsülleme (Encapsulation)<br>
+Çok Biçimlilik (Polymorphism)<br>
+     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Sınıfın içerisinde tanımlanmaktadır. Bir nesnenin davranışlarını tanımlamak için kullanılırlar. Parametre alabilir, geri değer döndürebilir ve sadece çağrıldığında çalışan kod bloklarıdır.<br><br>
+Python programalama dili için, yukarıda verilen tanıma karşılık gelen kavram aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Nesne </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sınıf </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kalıtım </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Metot </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kalıtım </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Nesne yönelimli programlama kullanılarak, değişken ve metotlara erişim kısıtlanabilmektedir. Bu kısıtlama işlemi, verilerin doğrudan erişilip değiştirilmesini önlemek amacıyla kullanılmaktadır.<br><br>
+Python programalama dili için, yukarıda verilen tanıma karşılık gelen kavram aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Sınıf </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kalıtım </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Kapsülleme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Üzerine Yazma </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Çok Biçimlilik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Python programlama dilindeki yerleşik özelliklerden __doc__ özelliğinin işlevi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Sınıfa ait açıklama metni mevcutsa döndürür </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sınıfın niteliklerini içeren sözlük değerini döndürür </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sınıfın adını döndürür </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Çağrıldığı nesne veya fonksiyonun adını döndürür </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sınıfın temel sınıflarının demetini döndürür </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> class Personel:<br>
+ &emsp; "Personel tanımlarının yapıldığı sınıf"<br>
+ &emsp; birim = "Bilgi İşlem"<br>
+ &emsp; def selam(self):<br>
+&emsp; &emsp; print('Aramıza hoş geldiniz!', self.birim)<br>
+Hamdi = Personel()<br>
+Hamdi.birim = "Satınalma"<br>
+print( Hamdi.selam )<br><br>
+Yukarıda verilen örnek Python kodunun çıktısı, aşağıdaki seçeneklerden hangisi olabilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Aramıza hoş geldiniz! Bilgi İşlem </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Aramıza hoş geldiniz! Satınalma </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Aramıza hoş geldiniz </span><br>
+	<span class="option" data-correct="true"><b>D)</b> &lt;bound method Personel.selam of &lt;__main__.Personel object at 0x03D8D6F0&gt;&gt; </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kod hatalı, çalışmaz </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> class Araç:<br> 
+&emsp; def ……… (self, marka, son_hız, mesafe):<br> 
+  &emsp;  &emsp; self.marka = marka<br> 
+  &emsp;  &emsp; self.son_hız = son_hız<br> 
+  &emsp;  &emsp; self.mesafe = mesafe<br> 
+class ……. (Araç):<br> 
+&emsp; pass<br> 
+……… = Otobüs("BMC", 150, 17)<br> 
+print("Araç markası:", okul_servisi.marka, "Son hız:", okul_servisi.son_
+hız, "Mesafe:", okul_servisi.mesafe)<br> <br> 
+Yukarıda verilen örnek Python kodunda boş bırakılan yerlere sırasıyla aşağıdaki şıklardan hangisi gelmelidir?  </p>
+	<span class="option" data-correct="true"><b>A)</b> __init__, Otobüs, okul_servisi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> __init__, Araç, okul_servisi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> self, Otobüs, Araç </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Araç, Otobüs, okul_servisi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> class, Araç, okul_servisi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      Bir sınıftan yeni bir nesne oluşturulacağı zaman __init__()
+metodu çağrılmaktadır.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> I. Çoklu kalıtımı desteklemektedir<br>
+II. Çok düzeyli kalıtım yapılabilir<br>
+III. Türetilmiş bir sınıftan başka bir sınıf türetilemez<br><br>
+python programlama dili için yukarıda verilen maddelerden hangisi ya da hangileri <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> def __add__(self, nesne):<br>
+&emsp; return self.değer + 2 * nesne.değer<br><br>
+Yukarıda verilen Python kod parçası ile ilgili aşağıdakilerden hangisi doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b>  Verilen iki değerin toplamını döndürür </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Toplama operatörünün nesneler için aşırı yüklenmiş halidir </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Verilen değerin iki katını döndürür </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Nesnelerin çarpım sonucunu döndürür </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Hatalı bir kod parçasıdır </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      Temel işlem operatörleri, farklı türler için farklı şekilde davranış sergilemektedir. Örneğin “+” operatörü
+iki sayı için toplama işlemi yaparken, iki metin ifadesini / dizeyi birbirine ekler veya iki listeyi birleştirir.
+“+” operatörü kullanılan bir işlemde, yorumlayıcı arka planda __add__ metodunu otomatik olarak çağırmaktadır.
+Bu metot üzerinde ihtiyaca göre değişiklik yapılabilir. Aynı operatörün işlem yapılan türlere göre
+farklı davranışlar göstermesine operatörlerin aşırı yüklenmesi denmektedir.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> Nesne yönelimli programlamada verilerin kod içerisinde korunması için kullanılan bir yöntemdir.<br>
+Nesne bütünlüğü korunarak, sınıfın üyelerine sınırlı bir erişim verilir. Böylece, sınıf dışından verilere, metot ve özelliklere doğrudan erişim kısıtlanarak tek bir birim altında toplanmaktadır.<br><br>
+Python programalama dilindeki nesne yönelimli programlamada, yukarıda verilen tanıma karşılık gelen kavram aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Veri gizleme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kalıtım </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Üzerine yazma </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Çok biçimlilik </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sınıf </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> I. Çöp toplama mekanizması otomatik olarak çalışır<br> 
+II. Çöp toplama mekanizması elle de tetiklenebilir<br> 
+III. Çöp toplama mekanizması rasgele olarak çalışmaktadır<br> <br> 
+Python programlama dilindeki çöp toplama (garbage collection) için yukarıdaki maddelerden hangileri
+doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yalnız III </span><br>
+	<span class="option" data-correct="true"><b>D)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> Aşağıdakilerden hangisi,nesne yönelimli programlamada sınıfın içinde tanımlanmış fonksiyonlari ifade eder? </p>
+	<span class="option" data-correct="true"><b>A)</b> metotlar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> class </span><br>
+	<span class="option" data-correct="false"><b>C)</b> nesne </span><br>
+	<span class="option" data-correct="false"><b>D)</b> kalıtım </span><br>
+	<span class="option" data-correct="false"><b>E)</b>  kod çıktısı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> Aşağıdakilerden hangisi, mevcut bir sınıfın özellikleri ve davranışları değiştirilmeden yeni bir sınıfın oluşturulmasıni ifade eder? </p>
+	<span class="option" data-correct="false"><b>A)</b> metot </span><br>
+	<span class="option" data-correct="true"><b>B)</b> kalıtım </span><br>
+	<span class="option" data-correct="false"><b>C)</b> class </span><br>
+	<span class="option" data-correct="false"><b>D)</b> data </span><br>
+	<span class="option" data-correct="false"><b>E)</b> kod çıktısı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Aşağıdakilerden hangisi nesne yönelimli programlama kullanılarak nesne ve metotlara erişim kısıtlamasıni ifade eder? </p>
+	<span class="option" data-correct="false"><b>A)</b> class </span><br>
+	<span class="option" data-correct="false"><b>B)</b> alt sınıf </span><br>
+	<span class="option" data-correct="true"><b>C)</b> kapsülleme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> metot </span><br>
+	<span class="option" data-correct="false"><b>E)</b> data </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> Python dilinde sınıf tanımlamaları aşağıdaki hangi anahtar kelimesi ile baslar? </p>
+	<span class="option" data-correct="false"><b>A)</b> object </span><br>
+	<span class="option" data-correct="false"><b>B)</b> int </span><br>
+	<span class="option" data-correct="false"><b>C)</b> library </span><br>
+	<span class="option" data-correct="false"><b>D)</b> include </span><br>
+	<span class="option" data-correct="true"><b>E)</b> class </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> Aşağıdakilerden hangisi, farklı veri türleri, sınıflar için ortak bir arabirim kullanmayı ifade eder? </p>
+	<span class="option" data-correct="false"><b>A)</b> data </span><br>
+	<span class="option" data-correct="false"><b>B)</b> sınıf </span><br>
+	<span class="option" data-correct="false"><b>C)</b> kapsülleme </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Çok biçimlilik (polymorphism) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> kod </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Aşağıdakilerden hangisi python programlama dilinde özel fonksiyon olduğunu gosterir? </p>
+	<span class="option" data-correct="true"><b>A)</b> çift altçizgi ile başlayan fonksiyonlar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> class tanımı içindekiler </span><br>
+	<span class="option" data-correct="false"><b>C)</b> bütün nesneler </span><br>
+	<span class="option" data-correct="false"><b>D)</b> iki adet " ile ifade edilen sözcükler </span><br>
+	<span class="option" data-correct="false"><b>E)</b> include ile başlayan kodlar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> Aşağıdakilerden hangisi nesne ve özellik silme işlemi gerçekleştirir? </p>
+	<span class="option" data-correct="false"><b>A)</b> def </span><br>
+	<span class="option" data-correct="true"><b>B)</b> del </span><br>
+	<span class="option" data-correct="false"><b>C)</b> print </span><br>
+	<span class="option" data-correct="false"><b>D)</b> altçizgi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> çift altçizgi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Python programlama dilinde bir sınıf boş bırakılacak ise aşağıdaki anahtar kelimelerden hangisi kullanılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> del </span><br>
+	<span class="option" data-correct="false"><b>B)</b> class </span><br>
+	<span class="option" data-correct="true"><b>C)</b> pass </span><br>
+	<span class="option" data-correct="false"><b>D)</b> def </span><br>
+	<span class="option" data-correct="false"><b>E)</b> altçizgi işareti </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> Aşağıdakilerden hangisi python dilinde veri kapsülleme (data encapsulation) işlemi için yapılması zorunlu bir işlemdir? </p>
+	<span class="option" data-correct="false"><b>A)</b> datanın ayrı bir dosyada tutulması </span><br>
+	<span class="option" data-correct="false"><b>B)</b> datanın ziplenmesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> yazılan programın tar.gz formatında saklanması </span><br>
+	<span class="option" data-correct="true"><b>D)</b> özellik adından önce çift altçizgi eklenmesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> python kodlarının sadece ssh ile erişilebilir olması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      Python programlama dilinde veri kapsülleme, özellik adından önce önek olarak çift altçizgi “__” eklenerek yapılmaktadır. Bu özelliklerin sonlarına da en fazla bir adet altçizgi eklenebilir. Böylece, özellik özel/ erişilemez hale gelir ve kullanıcıdan gizlenir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> Python progragramlama dilinde bellek ayırma ve belleği serbest bırakma / temizleme işlemleri için aşağıdakilerden hangisi yapılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> del komutu verilir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> class private olarak tanımlanır </span><br>
+	<span class="option" data-correct="false"><b>C)</b> def için alt çizgi kullanılır </span><br>
+	<span class="option" data-correct="false"><b>D)</b> bu islem için ayrıca bir program yazılır </span><br>
+	<span class="option" data-correct="true"><b>E)</b> herhangi bir özel işleme gerek yoktur, python dilinde otomatik olarak yapılır </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Nesne yönelimli programlama dilinin özellikleri nelerdir? Nesne yönelimli programlama hangi öncelikli hedeflere odaklanmaktadır? </p>
+	<span class="option" data-correct="true"><b>A)</b> <br>
+Nesne yönelimli programlama, günümüz yazılım geliştirme uygulamalarında sıklıkla tercih edilen bir programlama dili modelidir. Yazılım tasarımını nesneler ve sınıflar üzerinde düzenleyen bir modeldir. Yaşanan teknolojik sorunlar ve ihtiyaçlar neticesinde 1960’lı yılların başında ortaya çıkmıştır.<br><br>
+
+Nesne yönelimli programlamada, her birinin kendi özellik ve davranışa sahip olduğu veri yapıları ve nesneler tanımlanmaktadır. Birbirleriyle etkileşime geçen nesneler kullanılarak yazılımlar tasarlanmıştır. Bu nesnelerin her biri de kendi özel metot ve prosedürlerini içerebilmektedir.<br><br>
+
+Nesne yönelimli programlama, Doğal, güvenilir, yeniden kullanılabilir, sürdürülebilir, genişletilebilir ve zamandan tasarruf sağlamak olmak üzere toplam 6 öncelikli hedefe odaklanmıştır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Nesne yönelimli programlamada sınıf terimini açıklayınız.
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Sınıf, nesne için bir tasarım, şablon veya ayrıntılı plandır diyebiliriz. Sınıf, bir örnek verecek olursak, araç için bir tasarım şablonu olduğunu düşünebiliriz. Rengi, boyutları, parça bilgileri, tesisat bağlantıları gibi tüm detaylı özellikleri içermektedir. Tüm bu özelliklere göre yeni bir araç üretimi için gerekli çalışmaların yapılabilmesine yardımcı olmaktadır. Örnekte, sınıf bir şablonu, araç ise bir nesneyi temsil etmektedir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> Sınıftan türetilen bir nesne üzerinden erişilebilen metotlara ne denir? </p>
+	<span class="option" data-correct="true"><b>A)</b> örnek
+metotları (instance methods) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Python'da kalıtım kavramını açıklayınız.
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Kalıtım ile mevcut bir sınıfın nitelikleri ve davranışları değiştirilmeden, bu özelliklerin tekrar düzenlenebileceği yeni bir sınıf oluşturulabilir. Yeni oluşturulan sınıf, türetilmiş bir sınıftır ve alt sınıf olarak da isimlendirilir. Benzer şekilde, mevcut sınıf bir temel sınıftır ve ana sınıf olarak da isimlendirilir.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> Nesne yönelimli programlamada çok biçimlilik kavramını açıklayınız.
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Nesne yönelimli programlamada Çok Biçimlilik kavramı, farklı veri türleri, sınıflar için ortak bir arabirim kullanma kabiliyetidir. Örneğin bir şeklin alan hesaplaması yapılması istendiğinde, farklı şekiller için farklı birer formül kullanılması gerekecektir. Aynı metodu kullanarak farklı şekillerin alanlarının hesaplanabilmesine çok biçimlilik denilmektedir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> Python'da sınıfların yerleşik özelliklerini listeleyiniz.
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Tüm Python sınıflarının yerleşik özellikleri vardır. Bu özelliklere diğer özelliklere erişildiği gibi (.) nokta operatörü kullanılarak erişilebilmektedir. Sınıfların yerleşik özellikleri de şu şekilde listeleyebiliriz:<br> <br> 
+
+<strong>• __doc__ :</strong> Sınıf oluşturulurken tanımlanmışsa, sınıfa ait açıklama metnini döndürür.<br> 
+
+<strong>• __dict__ :</strong> Sınıfın niteliklerini içeren sözlük değerini döndürür.<br> 
+
+<strong>• __name__ :</strong> Sınıfın adını döndürür.<br> 
+
+<strong>• __module__ :</strong> Çağrıldığı nesne veya fonksiyonun adını, yoksa None değeri döndürür.<br> 
+
+<strong>• __ bases__ :</strong> Bir sınıf nesnesinin temel sınıflarının, türetildiği sınıfların demetini (tuple) döndürür. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Python'da sınıf içinde tanımlanan fonksiyonlar hangi anahtar kelimesi ile olmalıdır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Sınıf içinde tanımlanan tüm fonksiyonlar, diğer normal fonksiyonlardan farklı olarak, ilk parametreleri <u><strong>self</strong></u> anahtar kelimesi olması gerekmektedir. Bu anahtar kelime, sınıfın kendisine verilen bir referanstır ve sınıfa ait tüm özelliklere erişmek için kullanılmaktadır. <u>Bu anahtar kelime “self” olarak isimlendirilmesi gerekmez, fakat genel kullanım bu yöndedir.</u> Bu şekilde kullanıldığında programı okuyan başka kişiler de zorlanmayacaktır. Ayrıca fonksiyon çağrıldığında bu parametreye değer atanmaz, Python yorumlayıcısı arka planda bunu yapmaktadır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> Sınıf kalıtımı (inheritance) kavramını açıklayınız.
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Kalıtım vasıtasıyla, tüm özelliklerini ve metotlarını türetildiği sınıftan alan ve bunlara yeni özellikler eklenmesine izin verilen bir alt sınıf oluşturulabilir. Oluşturulan sınıf alt sınıf, kalıtım aldığı sınıf da üst sınıf olarak da adlandırılır.<br><br>
+
+Kalıtım kullanılarak oluşturulan sınıflarda, üst/ana sınıfın tüm özellikleri alt sınıfa aktarılarak kullanılmasına izin verilir. İhtiyaç duyulması halinde üst sınıfın metotları geçersiz kılınarak (override) tekrar tanımlanabilir.<br><br>
+		
+Bir A sınıfından B sınıfı türetilmiş ise, B sınıfından oluşturulan tüm sınıflar da otomatik olarak A sınıfından türetilmiş olacaktır.		</span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> Python'da çoklu kalıtım kavramını açıklayınız </p>
+	<span class="option" data-correct="true"><b>A)</b> Python programlama dilinde de, C++ dilinde olduğu gibi, bir sınıf birden fazla temel sınıftan türetilebilmektedir. Bu türetilme işlemine çoklu kalıtım adı verilmektedir. Çoklu kalıtımla türetilen bir sınıf, türetildiği tüm temel sınıfların özelliklerini miras olarak almaktadır. Çoklu kalıtımın sözdimi de tekli kalıtımda kullanılana benzemektedir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> Python'da geçersiz kılma (Overriding)) yöntemi hangi durumlarda kullanılır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Ana sınıftan kalıtım ile türetilmiş bir alt sınıf, ana sınıfın tüm özelliklerine ve metotlarına sahip olacaktır. Fakat kimi durumlarda bu metotların yeni oluşturulan sınıfa özel hale getirilmesi gerekmektedir. Ana sınıftan kalıtım yoluyla geçen metotlar aynı isimle tekrar tanımlandığında, ana sınıftaki metot geçersiz hale gelecektir. Bu işleme ezme, geçersiz kılma adı verilmektedir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> Operatör aşırı yüklemesi (Overloading) kavramını açıklayınız.
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Temel işlem operatörleri, farklı türler için farklı şekilde davranış sergilemektedir. Örneğin “+” operatörü iki sayı için toplama işlemi yaparken, iki metin ifadesini / dizeyi birbirine ekler veya iki listeyi birleştirir. “+” operatörü kullanılan bir işlemde, yorumlayıcı arka planda __add__ metodunu otomatik olarak çağırmaktadır. Bu metot üzerinde ihtiyaca göre değişiklik yapılabilir. Aynı operatörün işlem yapılan türlere göre farklı davranışlar göstermesine operatörlerin aşırı yüklenmesi denmektedir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> Temel aşırı yükleme metotları nelerdir.<br>
+<br>
+		
+<table style="border: 1px solid darkred; border-collapse: collapse;">
+ <caption style="caption-side: top;">Temel aşırı yükleme metotları</caption>
+  <tr>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;">Metot</th>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;">Açıklama</th>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;">Örnek Kullanım</th>
+
+  </tr>
+	
+<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> __init__( self [, args…] ) </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Kurucu metottur. Opsiyonel olarak
+herhangi bir parametre alabilir </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> nesne = sınıfAdı( parametreler ) </td>
+	
+</tr>
+	
+
+<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> __cmp__( self, x ) </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Nesne karşılaştırma için kullanılır </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> cmp( nesne, x ) </td>
+	
+</tr>
+	
+<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> __str__( self ) </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Yazdırılabilir metin gösterimi </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> str( nesne ),
+format( nesne ) </td>
+	
+</tr>
+	
+<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> __repr__( self ) </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Hesaplanabilir metin gösterimi </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> repr( nesne ) </td>
+	
+</tr>
+	
+<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> __del__( self ) </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Yıkıcı metottur, nesneyi siler </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> del nesne </td>
+	
+</tr>
+	
+<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> d1.__add__(d2) </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Toplama </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> d1 + d2 </td>
+	
+</tr>
+	
+<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> d1.__sub__(d2) </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Çıkarma </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> d1 - d2 </td>
+	
+</tr>
+	
+<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> d1.__mul__(d2) </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Çarpma </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> d1 * d2 </td>
+	
+</tr>
+	
+<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> d1.__truediv__(d2) </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Bölme </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> d1 / d2 </td>
+	
+</tr>
+	
+<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> d1.__pow__(d2) </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Üs Alma </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> d1 ** d2 </td>
+	
+</tr>
+	
+<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> d1.__mod__(d2) </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Kalan bulma - Mod alma </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> d1 % d2 </td>
+	
+</tr>
+	
+<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> d1.__lt__(d2) </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Küçüktür </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> d1 &lt; d2 </td>
+	
+</tr>
+	
+<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> d1.__le__(d2) </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Küçük eşittir </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> d1 &lt;= d2 </td>
+	
+</tr>
+	
+<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> d1.__eq__(d2) </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Eşittir </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> d1 == d2 </td>
+	
+</tr>
+	
+<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> d1.__ne__(d2) </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Eşit değildir </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> d1 != d2 </td>
+	
+</tr>
+	
+<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> d1.__gt__(d2) </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Büyüktür </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> d1 &gt; d2 </td>
+	
+</tr>
+	
+<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> d1.__ge__(d2) </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Büyük eşittir </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> d1 &gt;= d2 </td>
+	
+</tr>
+	
+	
+
+  
+	
+</table>
+		
+		</p>
+	<span class="option" data-correct="true"><b>A)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> Nesne yönelimli programlamada Veri gizleme (Data Encapsulation) yönteminin amacını açıklayınız. </p>
+	<span class="option" data-correct="true"><b>A)</b> Nesne yönelimli programlamada verilerin kod içerisinde gizlenmesi için kullanılan bir yöntemdir. Nesne bütünlüğü korunarak, sınıfın üyelerine sınırlı bir erişim verilir. Veri gizlemede, sınıf dışından verilere, metot ve özelliklere doğrudan erişim kısıtlanarak tek bir birim altında toplanmaktadır.<br><br>
+
+Nesne yönelimli programlamada bir yazılım geliştirme tekniği olarak verilere özel erişim sağlanır, sınıf dışarısından izinsiz bir şekilde verilerin değiştirilmesi önlenmektedir. Sınıf üyelerindeki bu sınırlı karşılıklı bağımlılıklar, sistem karmaşıklığını azaltarak programın daha sağlam ve güvenli bir şekilde hazırlanmasına yardımcı olmaktadır.<br><br>
+
+Veri gizleme, bilgi gizleme ya da veri kapsülleme olarak da isimlendirilmektedir. Ayrıca veri kapsülleme uygulama detaylarını kullanıcılardan gizlemek için de kullanılır. Sınıf içerisindeki bir özellik özel “private” olarak belirtildiğinde, sadece o sınıf içerisinden erişilebilir, sınıf dışından erişilemez. Python programlama dilinde veri kapsülleme, özellik adından önce önek olarak çift altçizgi “__” eklenerek yapılmaktadır. Bu özelliklerin sonlarına da en fazla bir adet altçizgi eklenebilir. Böylece, özellik özel/ erişilemez hale gelir ve kullanıcıdan gizlenir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> Veri gizlemenin faydalarını ve zararlarını açıklayınız. </p>
+	<span class="option" data-correct="true"><b>A)</b> <u>Veri Gizlemenin Faydaları:</u><br>
+
+• Gizlenmiş verilere, kötü niyetli kişilerin erişimi engellenerek güvenlik arttırılır.<br>
+
+• Sınıf içindeki nesnelerin kendileri ile ilgisi olmayan veriler ile bağlantısı kesilir.<br>
+
+• Programcıyı yanlışlıkla ilgisiz verilere bağlanmasını engeller. Kod içinde kullanılan veriler hata vererek programcıyı uyararak düzeltmesini sağlar.<br>
+
+• Nesne yönelimli programlamanın temel konsepti olarak nesnelerin izolasyonunu sağlar.<br>
+
+• Geçici verileri kullanıcılardan gizleyerek olası zararların önüne geçilir.<br><br>
+
+<u>Veri Gizlemenin Zararları:</u><br>
+
+• Kimi zaman programcı fazladan kod yazmak zorunda kalabilir, bu da programcının işini zorlaştırır ve yazılan kodu uzatarak hataya daha açık hale getirir.<br>
+
+• Veriler arasındaki bağlantı, nesnelerin daha hızlı çalışmasını sağlarken veri gizleme bu bağlantıyı engeller. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> Python'da bellek ayrılması için hangi yöntemler kullanılır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Python programlama dilinde bellek ayırma ve ayrılan belleği serbest bırakma/temizleme işlemleri otomatik olarak yapılmaktadır. C ve C++ gibi dillerindeki gibi belleğin ayrılması ve serbest bırakılması işlemlerinin programcı tarafından yapılmasına gerek kalmamaktadır. Python dilinde bellek ayrılması için iki yöntem kullanılmaktadır.<br><br>
+
+• Referans sayımı<br>
+• Çöp toplama<br><br>
+
+Python 2.0 sürümünden önce, Python yorumlayıcısında bellek yönetimi için sadece referans sayım işlemi kullanılmaktaydı. Referans sayımı, bir nesneye sistemdeki diğer nesneler tarafından kaç kez referans verildiğini saymaktadır. Nesneye yapılan referanslar kaldırıldığında, nesneye ait referans sayısı bir azaltılır ve bu sayı sıfır olduğunda, nesne serbest bırakılır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> Döngülerde Otomatik Çöp Toplamayı açıklayınız </p>
+	<span class="option" data-correct="true"><b>A)</b> Referans döngülerinin bulunması hesaplama gerektirdiği için çöp toplama işlemi zamanlanmış bir
+aktivite olarak gerçekleştirilmektedir. Python, çöp toplama işlemini nesnelere hafızadan yer ayırma ve hafızadaki yeri serbest bırakma eşiğine göre zamanlamaktadır. Hafızada ayrılan yer sayısı ile serbest bırakılan yer sayısı arasındaki fark, eşik sayısından büyük olduğunda çöp toplayıcı çalıştırılmaktadır. Eşik değeri, gc modülü yardımı ile incelenebilir. get_threshold() fonksiyonu ile mevcut koleksiyon eşik değerleri görülebilmektedir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> Çöp Toplayıcının Elle Tetiklenmesini açıklayınız.  </p>
+	<span class="option" data-correct="true"><b>A)</b> Python programlama dili, arka planda geliştiriciler için bir dizi düşük seviyeli ayrıntıyı işleyen yüksek seviyeli bir dildir. Böylece kod geliştiricilerin üretkenlikleri de artmaktadır. Python kodu içerisinde çöp toplayıcı programcı tarafından da çağrılabilir. Fakat genel bir kural olarak arka planda gerçekleştirilen işlemlere manuel bir müdahalede bulunmak gereksizdir ve tavsiye edilmez. Ayrıca bu gibi müdahaleler programcıya istediği sonuçları vermeyebilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+			
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

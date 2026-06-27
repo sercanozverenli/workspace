@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="anasayfa.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA I
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama1-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama1-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama1-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama1-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama1-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama1-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama1-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama1-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama1-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama1-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          BİLİŞİM HUKUKU
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="bilisimhk-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="bilisimhk-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="bilisimhk-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="bilisimhk-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="bilisimhk-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="bilisimhk-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="bilisimhk-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="bilisimhk-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="bilisimhk-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="bilisimhk-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB'DE TELİF HAKLARI VE ETİK
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="webtelif-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="webtelif-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="webtelif-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="webtelif-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="webtelif-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="webtelif-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="webtelif-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="webtelif-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="webtelif-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="webtelif-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          AĞ YÖNETİMİ VE BİLGİ GÜVENLİĞİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="agyonetimi-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="agyonetimi-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="agyonetimi-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="agyonetimi-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="agyonetimi-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="agyonetimi-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="agyonetimi-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="agyonetimi-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="agyonetimi-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="agyonetimi-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİTABANI PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veritabaniprg-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veritabaniprg-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  </nav>
+  
+    <h4 id="ders">Programlama I - Ünite 6 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+
+ </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Aşağıdakilerden hangisi Nesne Yönelimli Programlama'nın avantajlarından biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Büyük yazılım projelerinin daha kolay yazılabilmesi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kodun tekrar kullanılabilirliği </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Gerçek hayatta var olan nesnelerin programlamada kullanılabilmesi </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Sadece belirli programlama dillerinde kullanılabilmesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sınıf ve nesnelerin anlaşılması ve uygulanmasının daha kolay olması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      Nesne Yönelimli Programlama ya da Nesne Tabanlı Programlama (Object Oriented Programming) yönteminde, her şey sınıf ve nesnelerin birbiri ile ilişkisi üzerine kuruludur. Nesneye yönelik programlamada kullanılan sınıf ve nesneler, gerçek hayatın bir uyarlaması olduğu için anlaşılması ve uygulanması daha kolaydır. Ayrıca program geliştiricilere de bir çok avantaj ve kolaylık sağlamaktadır. Büyük yazılım projelerinin çok sayıda yazılımcı ile küçük parçalara ayrılarak daha kolay yazılması, bir kere yazılan bir kodun ihtiyaç halinde başka yerlerde de kullanılabilmesi bu avantajlara örnek gösterilebilir.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Aşağıdakilerden hangisi Sınıf kavramı ile ilgili <u><strong>yanlış</strong></u> bir bilgidir?" </p>
+	<span class="option" data-correct="true"><b>A)</b> Sınıflar somut kavramlardır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sınıflar birer veri türüdür. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sınıflar nesnelerin özellikleri, üyeleri ve davranışları için bir şablon sunar. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sınıfların modüler yapıdaki önemi büyüktür. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Şablon yapı içerisinde nesnelerin özellikleri, üyeleri ve davranışları tanımlanır </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      SINIF (CLASS) KAVRAMI<br>
+Sınıflar da modüler yapının önemli bir parçasıdır hatta temel yapı taşıdır. Sınıflar soyut kavramlardır fakat somut olan nesnelerin oluşturulması için kullanılır. Sınıflar birer veri türüdür ve nesne oluşturabilmek için veri modeli sunar. Yani birer şablon yapıdır. Bu şablon içerisinde nesnelerin özellikleri, üyeleri ve davranışları tanımlanır     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Aşağıdakilerden hangisi struct (yapı) ile class (sınıf) arasındaki farkı ifade eder? </p>
+	<span class="option" data-correct="false"><b>A)</b> Struct yapıları referans (reference) tipindedir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Class yapıları değer (value) tipindedir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Struct tipinde oluşturulan bir nesne boş olabilir fakat class tipinde oluşturulan nesne boş olamaz. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Struct ve class yapıları hafızada aynı yeri tutarlar. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Sınıf tipinde oluşturulan bir nesne boş olabilir fakat struct tipinde oluşturulan nesne boş olamaz. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      C# programlama dilinde struct (yapı) ile class (sınıf ) yapıları oldukça benzer yapılardır.<br>
+<strong><u>Farkları</u></strong>, struct yapıları değer (value) tipinde, sınıf yapıları ise referans (reference) tipindedir. Hafızada tutuldukları yerler farklıdır. Bu yüzden sınıf tipinde oluşturulan bir nesne boş olabilir fakat struct tipinde oluşturulan nesne boş olamaz.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Aşağıdakilerden hangisi Struct ile sınıf arasındaki farklar arasında <u><strong>yer almaz?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Sınıflar hem interface (arayüz) hem de başka sınıflardan kalıtıma izin verirken, struct yapısı sadece interface (arayüz) uygulayabilir, kalıtımı desteklemez </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sınıflarda yapıcı (constructor) metotlar varken, struct yapılarında sadece ilk değer ataması yapılan, parametreli yapıcı metoda izin verilmektedir. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Struct, değer tipi olduğu için sınıflar gibi not null olamaz. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Struct elemanlarının default değerleri public tanımlıdır. Sınıf elemanlarının default değerleri ise private tanımlıdır </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bellekte büyük yer işgal etmeyen ve oluşturulan nesneler çok kullanılmayacak ise sınıf yerine struct kullanılabilir </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      Struct ile sınıf arasındaki farklara değinecek olursak;<br>
+• Sınıflarda yapıcı (constructor) metotlar varken, struct yapılarında sadece ilk değer ataması yapılan, parametreli yapıcı metoda izin verilmektedir.<br>
+• Struct, değer tipi olduğu için sınıflar gibi <u><strong>null olamaz</strong></u>.<br>
+• Sınıflar hem interface (arayüz) hem de başka sınıflardan kalıtıma izin verirken, struct yapısı sadece interface (arayüz) uygulayabilir, kalıtımı desteklemez.<br>
+• Struct elemanlarının default değerleri public tanımlıdır. Sınıf elemanlarının default değerleri ise private tanımlıdır.<br>
+• Bellekte büyük yer işgal etmeyen ve oluşturulan nesneler çok kullanılmayacak ise sınıf yerine struct kullanılabilir     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Aşağıdakilerden hangisi Nesne kavramı ile ilgili <u><strong>yanlış</strong></u> bir bilgidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Nesneler, sınıfların sahip olduğu metotları kullanabilen bir yapıdır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Nesneler, sınıflarda tanımı yapılmış değişkenlere anlamlı bir şekilde değer atanabilen bir yapıdır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Nesne oluşturma işlemine instantiate denir. </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Nesne, sınıf şablonunu kullanarak oluşturduğumuz soyut yapıdır.  </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Nesneler, sınıfların şablonlarından oluşturulan örneklerdir </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      NESNE KAVRAMI
+Nesneler, sınıflarda tanımı yapılmış değişkenlere anlamlı bir şekilde değer atanabildiği ve sınıfın sahip olduğu metotları kullanabilen bir yapıdır. Daha açık bir ifade ile <strong>sınıf şablonunu kullanarak oluşturduğumuz somut yapıdır</strong>. Şablondan oluşan bu yapıya değer atamaları yapılabilir. Nesne oluşturma işlemine instantiate denir.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Aşağıdakilerden hangisi C# programlama dilinde struct yapısının özelliklerinden biridir?  </p>
+	<span class="option" data-correct="false"><b>A)</b> Bellekte büyük yer işgal eden nesnelerin çok kullanılması durumunda kullanılır.  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Değer tipi olduğu için null olmaktadır.  </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Başka sınıflardan kalıtıma izin verilmektedir.  </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Elemanlarının default değerleri private tanımlıdır. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Parametreli yapıcı metoda izin verilmektedir.  </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> Aşağıdakilerden hangisi C# programlama dilinde bir metoda sadece tanımlandığı sınıf içerisinden erişimin olduğu erişim denetleyicisidir?  </p>
+	<span class="option" data-correct="true"><b>A)</b> private </span><br>
+	<span class="option" data-correct="false"><b>B)</b> public </span><br>
+	<span class="option" data-correct="false"><b>C)</b> internal </span><br>
+	<span class="option" data-correct="false"><b>D)</b> protected </span><br>
+	<span class="option" data-correct="false"><b>E)</b> protected internal </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> C# programlama dilinde struct (yapı) ile class (sınıf ) yapıları oldukça benzer yapılar olmasına rağmen, struct yapıları……………… tipinde, sınıf yapıları ise ……………….tipindedir.
+Cümlede boş bırakılan yerlere sırası ile hangi seçenek gelmelidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Değer-Referans </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Referans-Değer </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Karakter-Numara
+
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Değer-Köprü </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Tanımlayıcı-Şablon </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> I. Kod yazılırken, bir değişken için bir tane değer atama (set) ve bir tane de değer okuma (get) metodu kullanılmaktadır.<br>
+II. Değişken sayısı fazla olan sınıflarda I. öncülde (yukarıda) ifade edilen durum kodun aşırı uzamasına neden olmaktadır.<br>
+
+III. Uzun kodlamaların okunabilirliği daha kolay olmaktadır.<br><br>
+
+Yukarıdaki ifadelerden hangisi ya da hangileri doğru olarak verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I,II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Aşağıda yer alan seçeneklerden  hangisi Genişletilebilir(Extension) metot ve kullanımı için doğru bir ifade <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> .Net içerisinde bulunan sınıflara yeni metotlar eklenebilmesini sağlamaktadır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sınıf yapılarını modifiye etmeden ilgili sınıf için “extension” metotlar eklememize imkân vermektedir. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Dinamik bir sınıf içerisinde dinamik olarak tanımlanmalıdır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Genişletilecek sınıf, ilgili extension metoduna önünde “this” anahtar kelimesi eklenerek metodun ilk parametresi olarak verilmelidir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Extension metodu birden fazla parametre alabilir, ama sadece bir parametre “this” anahtar kelimesi ile tanımlanabilir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      <u><strong>GENİŞLETİLEBİLİR (EXTENSION) METOTLAR</strong></u><br><br>
+Kelime manası genişletilebilir metot anlamına gelen Extension metotlar, .Net içerisinde bulunan sınıflara yeni metotlar eklenebilmesini sağlamaktadır. Sınıf yapılarını modifiye etmeden ilgili sınıf için “extension” metotlar eklememize imkân verir. Bu metotları yazarken uyulması gereken birkaç kural bulunmaktadır. Bunlar;<br>
+• Static bir sınıf içerisinde static olarak tanımlanmalıdır.<br>
+• Genişletilecek sınıf, ilgili extension metoduna önünde “this” anahtar kelimesi eklenerek metodun ilk parametresi olarak verilmelidir.<br>
+• Extension metodu birden fazla parametre alabilir, ama sadece bir parametre “this” anahtar kelimesi ile tanımlanabilir.<br>
+Daha anlaşılır olması için konuyu bir örnek üzerinde inceleyelim. Örneğimizde integer bir değer alan metodumuz, bu sayının asal olup olmadığını bize döndürsün.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> I. Referans tipindedir.<br>
+II. Oluşturulan nesne boş olamaz.<br>
+III. Değişken ve metot içerir.<br>
+Yukarıda C# programlama dilinde struct ile ilgili ifadelerden hangisi/hangileri doğrudur?  </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I-II </span><br>
+	<span class="option" data-correct="true"><b>C)</b> II-III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I-III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I-II-III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> Aşağıdakilerden hangisi struct ile sınıf arasındaki farklardan biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Struct, değer tipi olduğu için sınıflar gibi null olamaz. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Sınıf elemanlarının default değerleri public tanımlıdır.  </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Struct yapılarında parametreli yapıcı metoda izin verilir.  </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sınıflarda yapıcı metotlar vardır.  </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Struct yapısı sadece interface (arayüz) uygulayabilir.  </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Aşağıdakilerden hangisi C# programlama dilinde aynı sınıftaki veya o sınıftan türetilen bir sınıftaki kodların metoda veya üyelerine erişmesine izin veren erişim denetleyicidir?  </p>
+	<span class="option" data-correct="false"><b>A)</b> public </span><br>
+	<span class="option" data-correct="false"><b>B)</b> private </span><br>
+	<span class="option" data-correct="false"><b>C)</b> internal </span><br>
+	<span class="option" data-correct="true"><b>D)</b> protected </span><br>
+	<span class="option" data-correct="false"><b>E)</b> protected internal </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      <strong>- internal:</strong> Bu erişim belirteci yalnızca tanımlandığı proje içindeki diğer sınıflar tarafından erişilebilir. Yani, aynı projedeki sınıflar public olmasa bile, internal olarak tanımlanan bir sınıfa erişebilirler.<br><br>
+
+<strong>- protected:</strong> Bu erişim belirteci, tanımlandığı sınıfın öğelerine yalnızca aynı sınıftan veya bu sınıftan türetilen sınıflardan erişilebileceğini belirtir. Yani, bu öğelere sınıfın dışından erişim engellenir.<br><br>
+
+<strong>- protected internal:</strong> Bu erişim belirteci, hem aynı proje içindeki diğer sınıflardan hem de aynı sınıftan veya bu sınıftan türetilen sınıflardan erişilebileceğini belirtir. Yani, bu öğelere hem proje içindeki diğer sınıflardan hem de sınıfın türetilen sınıflarından erişilebilir.<br><br>     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> I. Internal, açık-erişilebilir anlamına gelmektedir. <br>
+II. Private denetleyicisinin program içinde herhangi bir kısıtlaması yoktur.<br>
+III. Protected internal denetleyicisine aktif projeye ait sınıflardan ve bunların türevlerinden erişilebilir.<br><br>
+Yukarıda erişim denetleyiciler ile ilgili ifadelerden hangisi/hangileri doğrudur?  </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      <strong>- internal:</strong> Bu erişim belirteci yalnızca tanımlandığı proje içindeki diğer sınıflar tarafından erişilebilir. Yani, aynı projedeki sınıflar public olmasa bile, internal olarak tanımlanan bir sınıfa erişebilirler.<br><br>
+
+<strong>- protected:</strong> Bu erişim belirteci, tanımlandığı sınıfın öğelerine yalnızca aynı sınıftan veya bu sınıftan türetilen sınıflardan erişilebileceğini belirtir. Yani, bu öğelere sınıfın dışından erişim engellenir.<br><br>
+
+<strong>- protected internal:</strong> Bu erişim belirteci, hem aynı proje içindeki diğer sınıflardan hem de aynı sınıftan veya bu sınıftan türetilen sınıflardan erişilebileceğini belirtir. Yani, bu öğelere hem proje içindeki diğer sınıflardan hem de sınıfın türetilen sınıflarından erişilebilir.<br><br>     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> SınıfAdı değişkenAdı = ..... SınıfAdı()
+Yukarıdaki şablonda noktalı kısma C# dilinde hangi ifade gelir?  </p>
+	<span class="option" data-correct="true"><b>A)</b> new </span><br>
+	<span class="option" data-correct="false"><b>B)</b> class </span><br>
+	<span class="option" data-correct="false"><b>C)</b> string </span><br>
+	<span class="option" data-correct="false"><b>D)</b> struct </span><br>
+	<span class="option" data-correct="false"><b>E)</b> get  </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Aşağıdakilerden hangisi C# programlama dilinde erişim denetleyicilerin amacıdır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Sınıftaki üyelerin sınıf, metot ve özellik gibi diğer kod bloklarına nasıl erişeceğinin kurallarını belirlemek </span><br>
+	<span class="option" data-correct="false"><b>B)</b> .Net içerisinde bulunan sınıflara yeni metotlar eklenebilmesini sağlamak </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yeni bir sınıf oluşturmak </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Nesnenin varsayılan değerlerinin atanmasına imkân sağlamak </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Değişkenleri başka bir nesneden kopyalayarak bir nesne oluşturmak </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> I. Sınıflarda yapıcı (constructor) metotlar varken, struct yapılarında sadece ilk değer ataması yapılan, parametreli yapıcı metoda izin verilmektedir.<br>
+II. Struct, değer tipi olduğu için sınıflar gibi null olamaz.<br>
+III. Sınıflar hem interface (arayüz) hem de başka sınıflardan kalıtıma izin verirken, struct yapısı sadece interface (arayüz) uygulayabilir, kalıtımı desteklemez.<br>
+IV. Struct elemanlarının default değerleri public tanımlıdır. Sınıf elemanlarının default değerleri ise private tanımlıdır.<br><br>
+
+Yukarıdaki ifadelerden hangisi ya da hangileri doğru olarak verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II, III ve IV </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II, III ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Kodun fazla dağınık olması ve bu nedenle kodun anlaşılabilirliğinin, okunabilirliğinin zorlaştığı kod yazma stiline ne ad verilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Spagetti kod
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Düz kod </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sarmal kod
+
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Karışık kod </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Lineer kod </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> Aşağıdakilerden hangisi C# programlama dilinde mevcut bir nesnenin değerleri ile yeni bir nesne oluşturmak için kullanılan metottur?  </p>
+	<span class="option" data-correct="false"><b>A)</b> this Anahtar Kelimesi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İsim Alanı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Nesne Başlatıcı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yapıcı Metot </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Kopya Yapıcı Metot </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> I. Static bir sınıf içerisinde static olarak tanımlanır. <br>
+II. .Net içerisinde bulunan sınıflara yeni metotlar eklenebilmesini sağlar.<br>
+III. Birden fazla parametre alabilir. <br><br>
+Yukarıdaki genişletilebilir metot ile ilgili ifadelerden hangisi/hangileri doğrudur?  </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I-II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> II-III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I-III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I-II-III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Aşağıdakilerden hangisi C# programlama dilinde nesne oluşturmak ve nesnenin varsayılan değerlerinin atanmasına imkân sağlamak için tasarlanmış özel metotlardır?  </p>
+	<span class="option" data-correct="false"><b>A)</b> Kopya yapıcı metotlar </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Yapıcı metotlar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yıkıcı metotlar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Değişken metotlar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Derleyici metotlar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Aşağıdakilerden hangisi C# dilinde kütüphanelerin projeye dâhil edilmesi için sayfanın en başında kullanılan anahtar kelimedir?  </p>
+	<span class="option" data-correct="false"><b>A)</b> public </span><br>
+	<span class="option" data-correct="false"><b>B)</b> class </span><br>
+	<span class="option" data-correct="true"><b>C)</b> using </span><br>
+	<span class="option" data-correct="false"><b>D)</b> namespace </span><br>
+	<span class="option" data-correct="false"><b>E)</b> this </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> Aşağıdakilerden hangisi C# programlama dilinde sınıflarda tanımı yapılmış değişkenlere anlamlı bir şekilde değer atanabildiği ve sınıfın sahip olduğu metotları kullanabilen bir yapıdır?  </p>
+	<span class="option" data-correct="false"><b>A)</b> Struct </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sınıf  </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Nesne </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Alan  </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Arayüz </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Aşağıdakilerden hangisi günümüzde kullanılan en popüler Nesneye Dayalı Programlama dillerinden biri değildir?  </p>
+	<span class="option" data-correct="false"><b>A)</b> Java </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Python </span><br>
+	<span class="option" data-correct="false"><b>C)</b> C++ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> C# </span><br>
+	<span class="option" data-correct="true"><b>E)</b> C </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      Simula, nesneye dayalı ilk programlama dili sayılır. Java, Python, C ++, C#, PHP programlama dilleri günümüzde en popüler Nesneye Dayalı Programlama dilleridir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> ........ Personel<br>
+{<br>
+string isim ;<br>
+string soyisim ;<br>
+int dogumYili;<br>
+string cinsiyet ;<br>
+string meslek ;<br>
+string ehliyet = "B" ;<br>
+}<br><br>
+
+Yukarıda boş bırakılan yerlere  C# programlama dilinde aşağıdaki ifadelerden hangisi gelir?  </p>
+	<span class="option" data-correct="true"><b>A)</b> class </span><br>
+	<span class="option" data-correct="false"><b>B)</b> struct </span><br>
+	<span class="option" data-correct="false"><b>C)</b> new </span><br>
+	<span class="option" data-correct="false"><b>D)</b> public class </span><br>
+	<span class="option" data-correct="false"><b>E)</b> namespace </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> ........... olarak tanımlanan bir metoda aynı program içerisinden erişilebilir fakat başka bir program ya da farklı bir katmandan erişim mümkün değildir. Program içinde herhangi bir kısıtlaması yoktur. <br><br>Yukarıda boş bırakılan yerlere  C# programlama dilinde aşağıdaki ifadelerden hangisi gelir?  </p>
+	<span class="option" data-correct="false"><b>A)</b> public </span><br>
+	<span class="option" data-correct="false"><b>B)</b> private </span><br>
+	<span class="option" data-correct="true"><b>C)</b> internal </span><br>
+	<span class="option" data-correct="false"><b>D)</b> protected </span><br>
+	<span class="option" data-correct="false"><b>E)</b> protected internal </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> ......... : Aktif projeye ait sınıflardan ve bunların türevlerinden erişilebilir. Bileşik bir belirteçtir. Bir üye, “.........” hariç diğer erişim belirleyicilerden sadece birini alabilir.<br><br>Yukarıda boş bırakılan yerlere  C# programlama dilinde aşağıdaki ifadelerden hangisi gelir?</p>
+	<span class="option" data-correct="false"><b>A)</b> public </span><br>
+	<span class="option" data-correct="false"><b>B)</b> private </span><br>
+	<span class="option" data-correct="false"><b>C)</b> internal </span><br>
+	<span class="option" data-correct="false"><b>D)</b> protected </span><br>
+	<span class="option" data-correct="true"><b>E)</b> protected internal </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> Aşağıdakilerden hangisi Yapıcı Metot için doğru bir ifade <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Nesne oluşturmak ve nesnenin varsayılan değerlerinin atanmasına imkân sağlamak için tasarlanmış özel metotlardır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bir sınıfa ait yeni bir nesne oluşturulmak istendiğinde, ilgili sınıfın yapıcı metodu çağrılarak yeni nesne bu metoda göre şekillendirilebilir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yapıcı metotlar parametre alan ve almayan şekilde dizayn edilebilir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yapıcı metotlar, kendi sınıfları ile aynı isme sahiptirler ve herhangi bir geri dönüş değeri içermezler. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Yapıcı metotlar, sınıf içerisinde tanımlanmadıysa bu sınıftan nesne oluşturulurken otomatik olarak çağrılamazlar. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      Yapıcı metotlar sınıf içerisinde <strong>tanımlanmadıysa bile</strong> bu sınıftan nesne oluşturulurken <u><strong>otomatik olarak çağırılırlar</strong></u>.     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> Aşağıdakilerden hangisi C# programlama dilinde .Net içerisinde bulunan sınıflara yeni metotlar eklenebilmesini sağlayan metottur?   </p>
+	<span class="option" data-correct="false"><b>A)</b> Denetleyici metot </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yapıcı metot </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Genişletilebilir metot </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kopya yapıcı metot </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yıkıcı metot </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> I. Extension metodu birden fazla parametre alabilir, ama sadece bir parametre “this” anahtar kelimesi ile tanımlanabilir.<br>
+II. Genişletilecek sınıf, ilgili extension metoduna önünde “this” anahtar kelimesi eklenerek metodun ilk parametresi olarak verilmelidir.<br>
+III. Static bir sınıf içerisinde static olarak tanımlanmalıdır.<br><br>
+Yukarıdaki kurallardan hangisi genişletilebilir metot yazarken uyulması gereken kural ya da kurallardır?  </p>
+	<span class="option" data-correct="false"><b>A)</b> I-II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I-III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> II-III </span><br>
+	<span class="option" data-correct="true"><b>D)</b> I-II-III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yalnız III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> Erişim denetleyicilerden Public’in kullanım alanı ile ilgili aşağıdaki seçeneklerden hangisi doğrudur? </p>
+	<span class="option" data-correct="true"><b>A)</b> Açık-erişilebilir anlamına gelmektedir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sadece tanımlandığı sınıf içerisinden erişim mümkündür. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tanımlanan bir metoda aynı program içerisinden erişilebilir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kelime olarak korunan manasındadır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Aktif projeye ait sınıflardan ve bunların türevlerinden erişilebilir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> I. Kendi sınıfları ile aynı isme sahiptirler.<br>
+II. Herhangi bir geri dönüş değeri içermezler. <br>
+III. Alanlara erişimi yoktur.<br><br>
+Yukarıda yapıcı metotlar ile ilgili ifadelerden hangisi/hangileri doğrudur?  </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I-II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I-III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II-III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I-II-III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> I. Nesnenin artık kullanılmayacağı zaman çağrılırlar.<br>
+II. Bellekte yer açılmasını sağlarlar.<br>
+III. Başına tilda “~” işareti alan yıkıcı metotlar, parametre alamaz ve geri değer döndüremezler.<br><br>
+
+Yukarıda yer alan  Yıkıcı metotlar ile ilgili ifadelerden hangisi ya da hangileri doğru olarak verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> Aşağıdakilerden hangisi yapı “struct” ile sınıf “class” arasındaki farklardan <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Struct yapılarında sadece parametreli yapıcı metoda izin verilir </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Struct yapılarına arayüz “interface” uygulanamaz </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Struct yapıları sınıflar gibi null tanımlanamaz </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Struct elemanlarının öntanımlı değeri public olarak tanımlıdır </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Struct yapıları bellekte az yer kaplayan nesneler için kullanılır </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> class Personel<br>
+{<br>
+public string isim { get; set; }<br>
+public string soyisim { get; set; }<br>
+public int sicilno{ get; set; }<br>
+}<br><br>
+Yukarıda yapısı verilen sınıf için aşağıdaki nesne başlatıcılardan hangisi yanlıştır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Personel personel = new Personel() { isim ="Hakan", soyisim = "Kaya" }; </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Personel personel = new Personel() { isim ="Hakan", sicilno= 349820 }; </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Personel personel = new Personel() ( soyisim ="Kaya" ); </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Personel personel = new Personel() { sicilno=349820 }; </span><br>
+	<span class="option" data-correct="false"><b>E)</b>  Personel personel = new Personel() ; </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      C seçeneğinde nesne başlatıcısı parantez yerine süslü parantez kullanılmış ve bu bir sentaks hatasıdır. C# dilinde nesne başlatıcısı için süslü parantezler kullanılırken, metot çağrısı için normal parantezler kullanılır. Bu nedenle, doğru kullanımı şu şekilde olmalıdır:<br><br>
+
+Personel personel = new Personel() { soyisim = "Kaya" };
+
+
+     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> Aynı amaca hizmet eden veya belirli başlıklar
+altında toplanabilen kodların, sınıfların gruplanmasına denir. Program yazarken ihtiyaca göre projeye dâhil edilmesi ile desteklediği modüller kodda kullanılabilir.<br><br>
+Yukarıda açıklaması verilen ifade, aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Sınıf </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Modül </span><br>
+	<span class="option" data-correct="true"><b>C)</b> İsim Alanı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kapsülleme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Nesne </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      Türkçe karşılığını isim alanı olarak çevirebileceğimiz namespace kavramı, programlamada kütüphane
+kavramına karşılık gelmektedir.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> class Personel<br>
+{<br>
+private string kimlikNumarasi = "12345678900";<br>
+public int sicilno ;<br>
+protected string isim ;<br>
+}<br>
+static void Main(string[] args)<br>
+{<br>
+Personel personel = new Personel() ;<br>
+}<br><br>
+
+Yukarıda verilen örnek kod için aşağıda verilen kullanımlardan hangisi doğrudur? </p>
+	<span class="option" data-correct="true"><b>A)</b> personel.sicilno = 123;  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> personel.kimlikNumarasi = “11223344556”; </span><br>
+	<span class="option" data-correct="false"><b>C)</b> personel.isim = “Kerim Çağlar”;  </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Personel.kimlikNumarasi = “11223344556”; </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Personel.isim = “Veysel Şahin”; </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      A şıkkı doğrudur: personel.sicilno = 123;<br><br>
+
+B şıkkı hatalıdır, çünkü kimlikNumarasi özelliği private olarak belirlenmiştir ve sadece Personel sınıfı içinde erişilebilirdir.<br><br>
+
+C şıkkı hatalıdır, çünkü isim özelliği protected olarak belirlenmiştir ve sadece Personel sınıfı veya Personel sınıfından türetilmiş sınıflar içinde erişilebilir.<br><br>
+
+D şıkkı hatalıdır, çünkü kimlikNumarasi özelliği private olarak belirlenmiştir ve sadece Personel sınıfı içinde erişilebilir.<br><br>
+
+E şıkkı hatalıdır, çünkü isim özelliği protected olarak belirlenmiştir ve sadece Personel sınıfı veya Personel sınıfından türetilmiş sınıflar içinde erişilebilir. Ayrıca, isim özelliği herhangi bir değerle başlatılmamıştır, bu yüzden ona erişmek için önce bir değer atanması gerekir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> ...... Personel<br>
+{<br>
+...... int yas;<br>
+...... int yasGetir()<br>
+{<br>
+...... yas;<br>
+}<br>
+}<br><br>
+
+Yukarıdaki kodda, Personel adında tanımlanan sınıfın yas özelliğini sınıf dışından ulaşılabilirliğini kapatarak, yasGetir metodu ile yas değerinin ulaşılabilir olması için boş bırakılan yerlere gelecek değerler, aşağıdaki seçeneklerden hangisinde doğru olarak verilmiştir? </p>
+	<span class="option" data-correct="true"><b>A)</b> class, private, public, return </span><br>
+	<span class="option" data-correct="false"><b>B)</b>  class, public, private, return </span><br>
+	<span class="option" data-correct="false"><b>C)</b> class, public, public, return </span><br>
+	<span class="option" data-correct="false"><b>D)</b> class, static, public, return </span><br>
+	<span class="option" data-correct="false"><b>E)</b> class, private, function, return </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      Doğru cevap A'dır: class, private, public, return.<br><br>
+
+Soru "yas" özelliğinin sınıf dışından ulaşılabilirliğini kapatarak yalnızca "yasGetir()" metodu aracılığıyla erişilebilir hale getirmek istiyor. Bu nedenle, "yas" özelliği "private" olarak belirtilmeli, böylece sadece sınıfın içinde kullanılabilir. <br><br>
+			
+Ancak "yasGetir()" metodunun sınıf dışından erişilebilir olması için "public" olarak tanımlanmalıdır. "return" anahtar kelimesi ise yas değerinin geri döndürüleceği değeri belirtir. <br><br>
+
+"return" anahtar kelimesi ise yasGetir() metodu tarafından geri döndürülen değeri belirtir.    </div>
+	</div>
+</div>
+	  
+	  
+	
+		
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="anasayfa.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA I
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama1-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama1-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama1-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama1-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama1-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama1-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama1-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama1-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama1-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama1-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          BİLİŞİM HUKUKU
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="bilisimhk-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="bilisimhk-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="bilisimhk-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="bilisimhk-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="bilisimhk-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="bilisimhk-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="bilisimhk-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="bilisimhk-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="bilisimhk-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="bilisimhk-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB'DE TELİF HAKLARI VE ETİK
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="webtelif-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="webtelif-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="webtelif-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="webtelif-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="webtelif-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="webtelif-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="webtelif-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="webtelif-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="webtelif-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="webtelif-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          AĞ YÖNETİMİ VE BİLGİ GÜVENLİĞİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="agyonetimi-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="agyonetimi-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="agyonetimi-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="agyonetimi-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="agyonetimi-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="agyonetimi-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="agyonetimi-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="agyonetimi-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="agyonetimi-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="agyonetimi-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİTABANI PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veritabaniprg-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veritabaniprg-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  </nav>
+  
+    <h4 id="ders">Bilişim Hukuku - Ünite 7 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Aşağıdakilerden hangisi internet teknolojisinin
+eser sahibi için getirdiği tehlikelerden biridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Eserlerin hızlı yayılması </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Eserlerin kopyalanması </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Dijitalleşme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Multimedya olması </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Arama motorlarından bulunması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Değişim programlarında bir eserin kullanılması
+halinde eser sahibi ya da hak sahibinin aşağıdaki
+haklarından hangisi ihlal edilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Mali haklarının tümü </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Manevi haklarının tümü </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Çoğaltma hakkı, umuma iletim hakkı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İşleme hakkı, adın belirtilmesi hakkı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Eserde değişiklik yapılmasını men hakkı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Link tekniği ile ilgili aşağıdaki ifadelerden
+hangisi <u><strong>yanlıştır? </strong></u></p>
+	<span class="option" data-correct="false"><b>A)</b> Link, internet kullanıcısına bir başka içeriği işaret eder. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İnternet kullanıcısının bir diğer sayfaya geçişini mümkün kılar. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Harici ve dahili link olarak iki kısma ayrılabilir </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Bir sayfada diğer sayfanın da görüntülenmesini sağlar. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Çoğaltmalar kullanıcının bilgisayarında gerçekleşir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Frame teknolojisi ile ilgili aşağıdaki ifadelerden hangisi doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Bir sayfadan diğerine geçişi sağlar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İnternet kullanıcısının tek bir sayfasında birçok işlevi yüklemesini mümkün kılar. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Verilerin sıkıştırılmasını sağlar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Verilerin hızlı transferini sağlar </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Bir internet sayfasında bir başka sayfanın görüntülenebilmesini sağlar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Değişim programları ile ilgili aşağıdaki ifadelerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Merkezi olan ve olmayan değişim programları vardır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Her türlü verinin değişimi mümkündür </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Kullanıcının yaptığı fikri ürüne ilişkin değişimler FSEK.m.38 kapsamında yasaldır </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Değişimlerde eserin çoğaltılması söz konusudur </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Eserlerin umuma iletimi de vardır </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Paylaşım platformlarının sorumluluğu ile ilgili
+aşağıdaki ifadelerden hangisi doğrudur? </p>
+	<span class="option" data-correct="true"><b>A)</b> Aracı hizmet sağlayıcı olan paylaşım platformu kural olarak sorumlu değildir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Eser sahiplerinin haklarının ihlalinden sorumludur. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Eser sahiplerinin hak ihlalleri nedeniyle sitelerinin erişime engellenmesi mümkündür </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Eser sahiplerinin platforma koydukları eserleri kontrol yükümlülüğündedir </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İhlal teşkil eden eserlere ilişkin tazminat davasının tarafıdırlar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> Alan adı ile ilgili aşağıdaki ifadelerden hangisi doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Alan adı bir markadır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Alan adı bir ticaret unvanıdır </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Alan adı bir coğrafi işarettir </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Alan adı kendine özgü bir isimdir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Alan adı, sayılardır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> İnternet alan adının bir başkası tarafından
+marka olarak tescili halinde aşağıdakilerden hangisi yapılabilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Marka tesciline öncelik verilir ve marka tescili korunur. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Markanın hükümsüzlüğü talep edilir </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Marka sahibine tazminat davası açılır </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Hem marka hem de alan adı birlikte var olmaya devam eder </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Marka sahibi alan adı sahibine markasının korunması için dava açabilir </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> Bir eserin web sayfasında yayınlanması halinde
+eser sahibinin yararlanabileceği özel usul aşağıdaki kanunlardan hangisinde bulunur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Türk Ticaret Kanunu </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Fikir ve Sanat Eserleri Kanunu </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Elektronik Ticaretin Düzenlenmesi Hakkında Kanun </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Borçlar Kanunu </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Elektronik İmza Kanunu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Aşağıdakilerden hangisi marka ihlali <u><strong>sayılmaz?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Siemens markasının Bosch şirketi tarafından meta-tag olarak kullanımı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> AEG tarafından Grundig markasının adwords reklamlarda kullanımı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Arçelik markasının Profilo olarak alan adı olarak kullanımı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Regal markasının bir web sayfasında asıl unsur olarak kullanılması </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Arçelik tamircisinin, arceliktamircisierkan.com şeklinde bir alan adı alması. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> Link verilen sayfanın bağımsız bir sayfa olarak kullanıcının karşısına geçmesi halinde hangi tür link söz konusu olur?  </p>
+	<span class="option" data-correct="false"><b>A)</b> Deeplink </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Surface link </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İnline link </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İntern link </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Extern link </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> Aşağıdakilerden hangisinde eser sahibinin manevi haklarından biri yer alır?  </p>
+	<span class="option" data-correct="false"><b>A)</b> İşleme hakkı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Çoğaltma hakkı </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Değişiklik yapılmasını yasaklama hakkı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Umuma iletim hakkı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Dijital kopyaları dağıtma hakkı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Bir romanın kısaltılarak yayımlanmasına ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Sadeleştirme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kısaltma </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İşleme </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Çoğaltma </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yayım </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> Upload'un fikir ve sanat eserlerinin korunması bakımından niteliği aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Sadeleştirme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kısaltma </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İşleme </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Çoğaltma </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yayım </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      Bir web sayfasına müzik yükleme (upload), müzik değişim programı için hazır bulundurma bir çoğaltmadır ve bu eser sahibinin münhasır haklarındandır (FSEK m.22).     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> İnternete giren kişinin istediği sayfaları onun sayfasına getiren küçük programcıklara ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Router </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Frame </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veritabanı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ASP </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Widget </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Fikrî mülkiyete ilişkin hakların korunmasında, hangi ülkenin hukukuna göre koruma talep ediliyorsa o hukuka tabi olacağı ilkesine ne ad verilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> lex loci protectionis </span><br>
+	<span class="option" data-correct="false"><b>B)</b> lex specialis </span><br>
+	<span class="option" data-correct="false"><b>C)</b> lex superior </span><br>
+	<span class="option" data-correct="false"><b>D)</b> lex posterior </span><br>
+	<span class="option" data-correct="false"><b>E)</b> rebus sic stantibus </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> Bilişim sisteminde eser sahipleri ile ilgili temel düzenleme hangi Kanunda yer almaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Türk Medeni Kanunu </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Türk Borçlar Kanunu </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Türk Ticaret Kanunu </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Fikir ve Sanat Eserleri Kanunu </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Basın Kanunu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Aşağıdakilerden hangisi eser sahibinin mali haklarından biridir? </p>
+	<span class="option" data-correct="true"><b>A)</b> İşleme hakkı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Manevi haklar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yaşama hakkı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Adil yargılanma hakkı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Unutulma hakkı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> İnternet ortamında eser ve bağlantılı hak sahiplerinin haklarının ihlalinde en fazla kullanılan ve çözümsüzlük arz eden problem aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Peer to peer </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sıkıştırma problemi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> JAVA </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Fikri hak ihlali </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Active Server Pages </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      İnternet ortamında eser ve bağlantılı hak sahiplerinin haklarının ihlalinde en fazla kullanılan ve çözümsüzlük arz eden problem ‘peer to peer’ veya ‘filesharing’ olarak adlandırılan müzik değişim programlarıdır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> Aşağıdakilerden hangisinde eser sahibinin kendi sayfasına başkalarının link vermesini zımmen kabul ettiği varsayılır?  </p>
+	<span class="option" data-correct="true"><b>A)</b> Ekstern link </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Frame verme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Dahili link </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İntern link </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İntern Frame </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Aşağıdakilerden hangisinde işleme bir eser vardır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Bir tablonun değişik ışıklar altında sergilenmesi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Senaryonun yönetmen tarafından kısaltılması </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bir müzik eserine yeni bir güfte yazılması </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Link verilen sitenin belirli kısımları ile yeni bir görünüm elde etmesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bir müzik eserinin bir tiyatro oyununda kullanılması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> I. Eserin umuma arz edilmesi hakkı<br>
+II. Eserin işlenmesi hakkı<br>
+III. Eserin çoğaltılması hakkı<br><br>
+Yukarıdakilerden hangisi ya da hangileri bir eser sahibinin eseri üzerinde sahip olduğu münhasır haklardandır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> Bilişim sisteminde eser sahipleri ile ilgili temel düzenleme aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Fikri ve Sanat Eserleri Kanunu </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Marka Hakkında KHK </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sınai Mülkiyet Kanunu </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Türk Medeni Kanunu </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Türk Borçlar Kanunu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Aşağıdakilerden hangisi FSEK'te fikir ve sanat eseri olarak sayılan eser türlerinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> İlim ve edebiyat eserleri </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Musiki eserleri </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Kişisel veriler </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Güzel sanat eserleri </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sinema eserleri </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> I. Alan adı<br>
+II. İşletme adı<br>
+III. Ticaret unvanı<br>
+IV. Patent<br>
+V. Marka<br><br>
+Yukarıda sayılanlardan hangisi sınai hak olarak internet ortamında korunmaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>B)</b> II, III ve V </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I, II ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I, III ve IV </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, III ve V </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      Bilişim sistemlerinde sınai hak olarak nitelendirilen hakların korunması da özel bir öneme sahiptir. Ticaret unvanının, markanın ve alan adının kullanımı ve korunması gerekir.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> I. İlim ve edebiyat eserleri<br>
+II. Musiki eserleri<br>
+III. Güzel sanat eserleri<br><br>
+Yukarıdakilerden hangisi veya hangileri Fikir ve Sanat Eserleri Kanunu’na göre fikir ve sanat eseri sayılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Aşağıdakilerden hangisi eser sahibinin, eserde değişiklik yapılmasını yasaklama hakkı ile ilgili <u><strong>yanlış</strong></u> bir ifadedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Onarım, ihtiyaca uygun hale getirmek, halkın ve çevrenin güvenliği gibi zorunlu hallerde eserde değişiklik yapılabilmektedir </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Zorunlu haller dışında eserde değişikliklere izin verme yetkisi eser sahibine ve onun mirasçılarına aittir </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Eserde değişiklik yapılmasını yasaklama hakkı, eser sahibinin adı, eserin adı ve muhteva ile şekil olarak bütünlüğün korunmasını kapsamaktadır </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Eserde değişiklik yapılmasını yasaklama hakkı, eser sahibinin manevi haklarından birisidir </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Eserde değişiklik yapılmasını yasaklama hakkının kullanımının sözleşme ile üçüncü şahıslara devri mümkün değildir </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> Aşağıdakilerden hangisi özel bir bilgisayar programı ile gerçekleştirilen ve bir web sayfasından diğerine geçişi mümkün kılan tekniğin ismidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Çengel atma </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Browser </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Frame </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Deeplink </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Harici link </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> I. Eser sahibinin adının belirtilmesi<br>
+II. Eserde değişiklik yapılmasını yasaklama hakkı<br>
+III. Mali haklar<br><br>
+Yukarıda verilenlerden hangisi ya da hangileri eser sahibinin manevi haklarındandır? </p>
+	<span class="option" data-correct="false"><b>A)</b> I, II, III </span><br>
+	<span class="option" data-correct="true"><b>B)</b> I,II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> II, III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I,III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> Aşağıdakilerdne hangisi eser sahibinin sahip olduğu manevi haklardandır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Eser sahibinin adının belirtilmesi hakkı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İşleme hakkı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Çoğaltma hakkı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Umuma iletim hakkı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yayımlama hakkı  </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> Kullanıcının, doğrudan ziyaret ettiği sayfa üzerinden bir diğer kimsenin sayfasındaki bilgilere giriş sayfasını kullanmaksızın ulaşabilme imkanına kavuştuğu linklere ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Ekstern link </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Surface link </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Inline link </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Frame link </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Deeplink </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> Sosyal paylaşım programlarında bir eser izinsiz paylaşılırsa bunun niteliği ne olur? </p>
+	<span class="option" data-correct="true"><b>A)</b> Umuma iletim </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Çoğaltma </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İşleme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Adın kullanılması </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Değişiklik yasağı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> Aşağıdakilerden hangisi marka ihlali <u><strong>sayılmaz?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Hotpoint markasının Beko şirketi tarafından meta-tag olarak kullanımı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bellona markasının bir web sayfasında asıl unsur olarak kullanılması </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Arçelik markasının Profilo olarak alan adı olarak kullanımı </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Bosch tamircisinin,boschtamircisimehmet.com şeklinde bir alan adı alması </span><br>
+	<span class="option" data-correct="false"><b>E)</b> AEG tarafından Grundig markasının adwords reklamlarda kullanımı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> İnternet kullanıcısının, link verilen sayfada bulunan linklerin tıklanması ile diğer sayfaya ulaşmasına ne ad verilmektedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Harici (ekstern) link </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Dâhili (intern) link </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Asenkron kullanım </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Frame </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Çevrimdışı kullanım </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> Aşağıdakilerden hangisi Türkçe’de “çengel” veya bağlantı olarak adlandırılmaktadır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Link </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Frame </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Word </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Senkron </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Intern </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> Bir eserin aslının veya kopyalarının herhangi bir şekil veya yöntemle, tamamen veya kısmen, doğrudan veya dolaylı, geçici veya sürekli olarak çoğaltılması hangi fıkrayla yürürlüğe girmiştir? </p>
+	<span class="option" data-correct="true"><b>A)</b> FSEK 22. madde 1. fıkra </span><br>
+	<span class="option" data-correct="false"><b>B)</b> TSEK 22. madde 1. fıkra </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ÜSEK 22. madde 1. fıkra </span><br>
+	<span class="option" data-correct="false"><b>D)</b> RSEK 22. madde 1. fıkra </span><br>
+	<span class="option" data-correct="false"><b>E)</b> KSEK 22. madde 1. fıkra </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> Aşağıdakilerden hangisinde eser sahibinin kendi sayfasına başkalarının link vermesini zımmen kabul ettiği varsayılır?  </p>
+	<span class="option" data-correct="false"><b>A)</b> Eser sahibinin eserinde zorunlu hallerde değişiklik yapılabilmektedir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Zorunlu haller dışında eserinde değişikliklere izin verme yetkisi sadece eser sahibinindir. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Eser sahibi eserde değişiklik yapma hakkını her durumda üçüncü şahıslara devredebilir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Fikir ve sanat eserleri, eser sahibinin adı, eserin adı ve muhteva ile şekil olarak bir bütün teşkil eder. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Eserde değişiklik yapılmasını yasaklama hakkı manevi haklar arasında yer alır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      Eser sahibinin zorunlu haller dışında eserinde değişikliklere izin verme yetkisi sadece onun tarafından kullanılabilmektedir ve miras yolu ile intikale yahut üçüncü şahıslara devredilmeye elverişli bulunmamaktadır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> I. Miras yoluyla geçmez<br>
+II. Sadece kendisi kullanabilir<br>
+III. Başkasına devredilebilir<br><br>
+Yukarıdakilerden hangileri eser sahibinin eserde değişiklik yapılmasını yasaklama hakkının özelliklerindendir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>D)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> Bir malı diğerlerinden ayırt etmeye yarayan, ferdileştiren ve özelliklerini belirten işaretlere ne isim verilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Marka </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Alan adı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ticaret unvanı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İşletme adı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> IP adresi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> Türk hukukunda markalar hangi sayılı kararname ile korunmaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> 557 sayılı Markaların Korunması Hakkında Kanun Hükmünde Kararname </span><br>
+	<span class="option" data-correct="true"><b>B)</b> 556 sayılı Markaların Korunması Hakkında Kanun Hükmünde Kararname </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 558 sayılı Markaların Korunması Hakkında Kanun Hükmünde Kararname </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 559 sayılı Markaların Korunması Hakkında Kanun Hükmünde Kararname </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 560 sayılı Markaların Korunması Hakkında Kanun Hükmünde Kararname </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+		
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

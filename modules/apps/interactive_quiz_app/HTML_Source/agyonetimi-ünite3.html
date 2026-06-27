@@ -1,0 +1,2246 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+  <style>
+	  	  	  .block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="anasayfa.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA I
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama1-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama1-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama1-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama1-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama1-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama1-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama1-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama1-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama1-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama1-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          BİLİŞİM HUKUKU
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="bilisimhk-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="bilisimhk-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="bilisimhk-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="bilisimhk-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="bilisimhk-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="bilisimhk-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="bilisimhk-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="bilisimhk-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="bilisimhk-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="bilisimhk-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB'DE TELİF HAKLARI VE ETİK
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="webtelif-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="webtelif-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="webtelif-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="webtelif-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="webtelif-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="webtelif-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="webtelif-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="webtelif-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="webtelif-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="webtelif-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          AĞ YÖNETİMİ VE BİLGİ GÜVENLİĞİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="agyonetimi-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="agyonetimi-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="agyonetimi-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="agyonetimi-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="agyonetimi-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="agyonetimi-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="agyonetimi-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="agyonetimi-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="agyonetimi-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="agyonetimi-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİTABANI PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veritabaniprg-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veritabaniprg-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  </nav>
+  
+    <h4 id="ders">Ağ Yönetimi ve Bilgi Güvenliği - Ünite 3 </h4>
+	  	  <div id="parts">	 	  <button id="show-all">Tümü</button>
+<button class="block-group" data-start="0" data-end="19">Part 1</button>
+<button class="block-group" data-start="20" data-end="39">Part 2</button>
+<button class="block-group" data-start="40" data-end="59">Part 3</button>
+<button class="block-group" data-start="60" data-end="79">Part 4</button>
+<button class="block-group" data-start="80" data-end="99">Part 5</button>
+
+	  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> DES şifreleme algoritmasının kullandığı blok boyutu kaç
+bittir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 32 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 48 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 64 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 128 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 256 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> AES şifreleme algoritmasında kullanılabilecek anahtar boyutları aşağıdaki hangi seçenekte doğru verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 32/48/64 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 48/56/64 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 64/96/128 </span><br>
+	<span class="option" data-correct="true"><b>D)</b> 128/192/256 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 1024/2048/3072 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Aşağıda verilen algoritmalarından hangisi bir dizi şifreleme algoritmasıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> DES </span><br>
+	<span class="option" data-correct="false"><b>B)</b> AES </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 3DES </span><br>
+	<span class="option" data-correct="true"><b>D)</b> RC4 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> IDEA </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> DES algoritması kaç tur veya iterasyondan oluşur? </p>
+	<span class="option" data-correct="false"><b>A)</b> 8 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 10 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 12 </span><br>
+	<span class="option" data-correct="true"><b>D)</b> 16 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 32 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> AES şifreleme algoritması 128 bit uzunluğunda gizli anahtar kullanılması durumunda kaç tur veya iterasyondan oluşur? </p>
+	<span class="option" data-correct="false"><b>A)</b> 8 </span><br>
+	<span class="option" data-correct="true"><b>B)</b> 10 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 12 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 14 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 16 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Aşağıdakilerden hangisi bir blok şifreleme modu <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> ECB </span><br>
+	<span class="option" data-correct="false"><b>B)</b> CBC </span><br>
+	<span class="option" data-correct="false"><b>C)</b> CFB </span><br>
+	<span class="option" data-correct="false"><b>D)</b> OFB </span><br>
+	<span class="option" data-correct="true"><b>E)</b> BCB </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> DES algoritmasında şifreleme ve şifre çözme için kullanılan anahtar uzunluğu kaç bittir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 10 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 16 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 32 </span><br>
+	<span class="option" data-correct="true"><b>D)</b> 56 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 128 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> Toplam üç kişinin çalıştığı bir firma için simetrik şifreleme  algoritması kullanılarak güvenli bir iletişim oluşturulmak istenirse kaç adet gizli anahtara gereksinim vardır? </p>
+	<span class="option" data-correct="false"><b>A)</b> 2 </span><br>
+	<span class="option" data-correct="true"><b>B)</b> 3 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 5 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 10 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 20 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      [n*(n-1)]/2     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> IDEA algoritmasında kullanılan anahtar uzunluğu kaç bittir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 16 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 32 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 64 </span><br>
+	<span class="option" data-correct="true"><b>D)</b> 128 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 256 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Aşağıda verilenlerden hangisi simetrik şifreleme algoritmalarının temel öğelerinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Açık metin </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Şifreleme fonksiyonu </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Gizli anahtar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Çözme fonksiyonu </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Doğrulama fonksiyonu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      Simetrik şifreleme algoritmalarının beş temel öğesi vardır:<br>
+1- Açık metin<br>
+2- Şifreleme fonksiyonu<br>
+3- Gizli anahtar<br>
+4- Şifrelenmiş metin<br>
+5- Çözme fonksiyonu     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> "anadolu" sözcüğünün sırayla "a"'dan başlayıp "u"'ya kadar şifrelenerek metne dönüşmesi aşağıdakilerden hangisine örnektir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Dizi şifreleme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Simetrik şifreleme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Çözme fonksiyonu </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Açık anahtar şifreleme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Şifreleme fonksiyonu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> Şifreleme yapmak için birçok mod tanımlanmıştır.Aşağıda verilenlerden hangisi bunlardan birisi <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Elektronik Kod Kitabı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Çıktı Geri Besleme Modu </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Modern Kod Zincirleme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Şifre Blok Zincirleme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Şifre Geri Besleme Modu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">  <strong>Blok Şifreleme Metodları şunlardır:</strong><br>
+    	
+- Elektronik Kod Kitabı<br>
+- Şifre Blok Zincirleme<br>
+- Çıktı Geri Besleme Modu<br>
+- Sayaç Modu<br>
+- Şifre Geri Besleme Modu
+		
+		</div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Aşağıdakilerden hangisi Klasik Şifreleme Algoritmaları arasında <u><strong>yer almaz?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Sezar Şifreleme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Affine Şifreleme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Monoalfabetik Şifreleme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Vigenere Şifreleme </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Data Encryption Standard </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> Aşağıdakilerden hangisi Modern Simetrik Şifreleme Yöntemleri arasında <u><strong>yer almaz?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> DES (Data Encryption Standard) </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Vigenere Şifreleme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> AES (Advanced Encryption Standard) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> IDEA (International Data Encryption Algorithm) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 3DES </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> Günümüzde en yaygın ve güvenilir şifreleme
+algoritması olarak kabul edilen yöntem aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 3DES </span><br>
+	<span class="option" data-correct="false"><b>B)</b> DES (Data Encryption Standard) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> IDEA (International Data Encryption Algorithm) </span><br>
+	<span class="option" data-correct="true"><b>D)</b> AES (Advanced Encryption Standard) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Blok Şifreleme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Aşağıdakilerden hangisi Kriptografik algoritmalar ve protokollerin gruplandırıldığı dört temel alan arasında <u><strong>yer almaz?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Simetrik şifreleme </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Anahtar Doğrulama
+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Açık anahtar şifreleme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Veri bütünlüğü </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kimlik doğrulama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> I. Gerçek rastgele sayılar<br>
+II. Sözde rastgele sayılar<br>
+III. Kriptolojik olarak güvenli rastgele sayılar <br><br>		
+Yukarıdakilerden hangileri Bilgisayar Biliminde yer alan rastgele türlerindendir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve II </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> RC4 şifreleme algoritmasının kullandığı değişken boyutları aşağıdaki şıklardan hangisinden doğru olarak verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 32-128 bit </span><br>
+	<span class="option" data-correct="true"><b>B)</b> 40-256 bit </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 80-398 bit </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 80-512 bit </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 128-512 bit </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> Açık metnin algoritmaya göre uygun uzunluktaki bloklara bölünerek, her bloğun bağımsız şekilde gizli anahtar kullanılarak şifrelenmesi hangi blok şifreleme metodudur? </p>
+	<span class="option" data-correct="true"><b>A)</b> Elektronik Kod Kitabı (ECB) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Şifre Blok Zincirleme (CBC) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Çıktı Geribesleme Modu (OFM) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sayaç Modu (CM) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Şifre Geribesleme modu (CFB) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> 4 harfli bir alfabe için monoalfabetik şifrelemede kaç farklı şifreleme tablosu oluşturulabilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 16 </span><br>
+	<span class="option" data-correct="true"><b>B)</b> 24 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 32 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 40 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 100 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      4! = 24     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> International Data Encryption Algorithm kaç bitlik Anahtar kullanır? </p>
+	<span class="option" data-correct="false"><b>A)</b> 16 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 32 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 64 </span><br>
+	<span class="option" data-correct="true"><b>D)</b> 128 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 256 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      IDEA algoritmasında açık metin boyu 64 bittir. Benzer şekilde şifrelenmiş metin boyu da 64 bittir. 64 bitlik metinleri şifrelediğinden dolayı IDEA da bir blok şifreleme algoritmasıdır. <u><strong>Kullanılan anahtar uzunluğu ise 128 bittir.</strong></u> 1991 yılında Xuejia Lai ve James L. Massey tarafından geliştirilmiştir. 64 bitlik açık metin 16 bitlik dört bloğa ayrılarak, 16 bitlik bloklar halinde şifrelenir.      </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br>  I. Anahtar dağıtım problemi<br>
+II. Bloklara bölünememesi<br>
+III. Toplam anahtar sayısı problemi<br>
+IV. Aynı simetrik anahtarın bütün mesajlarda kullanılması<br><br>		
+Yukarıdakilerden hangileri Simetrik Şifreleme Algoritmalarının Problemleri/Dezavantajları arasında yer alır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> II ve IV </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I, II, III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, III, IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> Şifrelenmiş metin hangi harf ile ifade edilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> C </span><br>
+	<span class="option" data-correct="false"><b>B)</b> P </span><br>
+	<span class="option" data-correct="false"><b>C)</b> K </span><br>
+	<span class="option" data-correct="false"><b>D)</b> E </span><br>
+	<span class="option" data-correct="false"><b>E)</b> D </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      - Açık veya düz metin P,<br>
+- Şifrelenmiş metin C, <br>
+- Gizli anahtar K, <br>
+- Şifreleme fonksiyonu E <br>
+- Çözme fonksiyonu D ile temsil edilir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Eşzamanlı dizi şifrelemesinde kayan anahtar üretimi neye bağlıdır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Kullanıcının gizli anahtarına </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sistem saatine </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İnternet üzerindeki bir veri tabanına </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Dosya boyutuna </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Anlık üretilen rastlantısal bir sayıya </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> I. Bilinen en eski ve en basit şifreleme yöntemidir.<br>
+II. Alfabede her bir harfin belirli sayıda karakter ötelenmesi ile şifreleme tablosu elde edilir.<br>
+III. Elde edilen sonuçların mod 26 işlemine göre sonuçları bulunur.<br>
+IV. Bu şifreleme algoritmasında seçilen “3” rakamı gizli anahtardır. Bu anahtar her şifreleme için aynıdır.<br>
+V.İngiliz alfabesinde yer alan 26 harfe sıfırdan başlayarak sırayla bir pozisyon sayısı atanır. Alfabenin ilk harfi “a” 0 ile son harfi “z” ise 25 ile eşlenir.<br><br>
+Yukarıdaki maddelerden yola çıkarak aşağıdaki klasik şifreleme algoritmalarından hangisine ulaşılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Affine Şifreleme </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Sezar Şifreleme Algoritması </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Monoalfabetik Şifreleme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Vigenere Şifreleme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Simetrik Şifreleme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> Aşağıdaki seçeneklerin hangisinde 3DES algoritmasının anahtar uzunluğu doğru olarak verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 32 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 56 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 64 </span><br>
+	<span class="option" data-correct="true"><b>D)</b> 168 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 256 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Gizliliğin çok önemli olduğu durumlarda AES şifreleme algoritmasında 256 bitlik anahtar uzunluğu tercih edilebilir.  Bu durumda kaç tur yapılması gerekir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 10 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 11 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 12 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 13 </span><br>
+	<span class="option" data-correct="true"><b>E)</b> 14 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      128 bit uzunluğundaki anahtar günümüzde yeterli güvenlik sağlarken, gizliliğin çok önemli olduğu durumlarda 192 veya 256 bitlik anahtar uzunluğu tercih edilebilir. AES, anahtar uzunluğuna bağlı olarak birbirinin benzeri turlardan oluşmaktadır.<br><br>
+
+<u><strong>Anahtar uzunluğu &nbsp;- Tur sayısı</strong></u><br>
+128&emsp;&nbsp;&emsp;&nbsp;&emsp;&nbsp;&emsp;&nbsp;&emsp;&nbsp;&emsp;- 10<br>
+192&emsp;&nbsp;&emsp;&nbsp;&emsp;&nbsp;&emsp;&nbsp;&emsp;&nbsp;&emsp;- 12 <br> 
+256&emsp;&nbsp;&emsp;&nbsp;&emsp;&nbsp;&emsp;&nbsp;&emsp;&nbsp;&emsp;- 14 <br> 
+</div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> Bilinen en eski ve en basit şifreleme yöntemi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Blok Şifreleme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Vigenere Şifreleme </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Sezar Şifreleme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Affine Şifreleme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Monoalfabetik Şifreleme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> Simetrik şifreleme algoritmalarının beş temel öğesi vardır.<br><br>
+
+Bu öğelerden hangisi <u><em>'açık metnin yetkisi olmayan kişiler tarafından okunmaması için karıştırma işlemini yapma ile sorumlu olan'</em></u> simetrik şifreleme algoritma öğesi hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Gizli anahtar </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Şifreleme fonksiyonu </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Çözme fonksiyonu </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Şifrelenmiş metin </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Açık metin </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> Simetrik şifreleme algoritmalarının beş temel ögesinden biri olan çözme fonksiyonu aşağıda verilen değişkenlerden hangisi ile temsil edilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> P </span><br>
+	<span class="option" data-correct="false"><b>B)</b> C </span><br>
+	<span class="option" data-correct="false"><b>C)</b> K </span><br>
+	<span class="option" data-correct="false"><b>D)</b> E </span><br>
+	<span class="option" data-correct="true"><b>E)</b> D </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      - Açık veya düz metin P,<br>
+- Şifrelenmiş metin C, <br>
+- Gizli anahtar K, <br>
+- Şifreleme fonksiyonu E <br>
+- Çözme fonksiyonu D ile temsil edilir.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> .............................. açık metinden 64 bitlik bir bloğu 48 bitlik tur anahtar ile birlikte işleme tabi tutarak 64 bitlik şifrelenmiş metin elde eder. <br><br>
+Yukarıda boş bırakılan yere aşağıdakilerden hangisinin getirilmesi doğru olur? </p>
+	<span class="option" data-correct="false"><b>A)</b> RC4 algoritması </span><br>
+	<span class="option" data-correct="false"><b>B)</b> IDEA algoritması </span><br>
+	<span class="option" data-correct="false"><b>C)</b> AES algoritması </span><br>
+	<span class="option" data-correct="true"><b>D)</b> DES algoritması </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 3DES algoritması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> IBM tarafından geliştirilen, Amerikan Ulusal Güvenlik Ajansı tarafından algoritmanın bazı adımlarında değişiklik yapılarak kabul edilen ve 1977 – 2001 yılları arasında yaygın şekilde kullanılan bir blok şifreleme algoritması aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Data Encryption Standard (DES–Veri Şifreleme Standardı) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Advanced Encryption Standard </span><br>
+	<span class="option" data-correct="false"><b>C)</b> International Data Encryption Algorithm </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Vigenere Şifreleme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Monoalfabetik Şifreleme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> Tek zamanlı blok yönteminin uygulamasında karşılaşılan zorlukları ortadan kaldırmak için sonsuz kayan anahtar yerine,  belirli uzunlukta anahtar kullanılan dizi şifreleme algoritması aşağıdakilerin hangisinde doğru olarak verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Sezar Şifreleme Algoritması </span><br>
+	<span class="option" data-correct="true"><b>B)</b> RC4  Şifreleme Algoritması </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Vigenere Şifreleme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Affine Şifreleme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Monoalfabetik Şifreleme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      GSM şifrelemesinde kullanılan A5/1, A5/2 ve Wi-Fi güvenliğinde kullanılan RC4 gibi dizi şifreleme algoritmaları, bu tür şifreleme yöntemlerine örnektir     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> Bir bankacılık sistemi için güvenli veri aktarımında kullanılacak algoritma ve protokolleri hazırlayan kişi .......... çalışması sürdürmekte, yapılan protokolleri analiz ve açıklarını tespit çalışmasına da .......... denir.<br><br>
+Yukarıda verilen boşluklara sırası ile hangi iki kavram gelmelidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Kriptografi - kriptoanaliz </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kriptoanaliz - saldırı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Şifreleme - kimlik doğrulama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Şifreleme - kriptoanaliz </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Simetrik şifreleme - kriptografi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      Güvenli veri paylaşımı için gerekli algoritma ve protokolleri ortaya koyan çalışmaya kriptografi denir. Yapılan algoritma ve şifreleme sistemlerinin analizi ise kriptoanalizdir.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> 1991 yılında Xuejia Lai ve James L. Massey tarafından geliştirilen, 64 bitlik açık metnin 16 bitlik dört bloğa ayrılarak, 16 bitlik bloklar halinde şifrelendiği simetrik şifreleme algoritması aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> DES </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 3DES </span><br>
+	<span class="option" data-correct="false"><b>C)</b> AES </span><br>
+	<span class="option" data-correct="false"><b>D)</b> DDS </span><br>
+	<span class="option" data-correct="true"><b>E)</b> IDEA </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      International Data Encryption Algorithm (IDEA–Uluslararası
+Veri Şifreleme Algoritması)     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> I.Dizi simetrik şifreleme yöntemleri bit temelli şifreleme ve çözme yapar.<br> 
+II.Blok şifreleme yöntemleri belirli uzunlukta bloklara bölünmüş açık metni belirli sayıda birbirini takip eden karışıklık ve yayılma işlemlerini kullanarak şifrelenmiş metne dönüştürür.<br> 
+III.Dizi şifreleme algoritmaları bit tabanlı oldukları için şifreleme ve çözme fonksiyonları basit ve hızlıdır.<br> <br> 
+Yukarıdaki verilen Dizi ve blok şifreleme ile ilgili bilgilerden hangisi/hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I,II,III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> Sözde rastgele sayı fonksiyonları .................. sahip olacak şekilde tasarlanmışlardır.<br><br>
+Yukarıdaki cümlede .................. ile gösterine yere gelecek ifade aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Normal Dağılıma </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Tekdüze dağılıma </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Rassal sayılara </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Random () fonksiyonuna </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sayı üret fonksiyonuna </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br>  DES, 64-bit uzunluğunda bloklar kullanarak şifreleme yapar. 64 bitlik anahtar uzunluğu vardır fakat kaç biti etkili şekilde kullanılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> 50 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 52 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 54 </span><br>
+	<span class="option" data-correct="true"><b>D)</b> 56 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 58 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      DES, 64-bit uzunluğunda bloklar kullanarak şifreleme yapar. 64 bitlik anahtar uzunluğu vardır ama 56 biti etkili şekilde kullanılır, geriye kalan 8 bit kontrol amaçlıdır.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> Aşağıdakilerden hangisi uzun yıllar boyunca güvenle kullanılmış ve üzerinde en çok araştırma yapılmış simetrik şifreleme algoritmalarından biridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 3DES </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Advanced Encryption Standard </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Data Encryption Standard (DES) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> International Data Encryption Algorithm </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Affine </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> Vigenere şifreleme algoritmasındaki parolada her harf açık metindeki hangi karaktere karşılık gelir? </p>
+	<span class="option" data-correct="true"><b>A)</b> "A" </span><br>
+	<span class="option" data-correct="false"><b>B)</b> "B" </span><br>
+	<span class="option" data-correct="false"><b>C)</b> "C" </span><br>
+	<span class="option" data-correct="false"><b>D)</b> "D" </span><br>
+	<span class="option" data-correct="false"><b>E)</b> "E" </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question41">
+	<p class="question">Soru 41:<br> Aşağıdaki cevaplarda sırası ile Data Encryption Standard'ın (DES) toplam kaç bitlik bloklar halinde kullanıldığı ve bunun kaçının kontrol amaçlı kullanıldığı doğru şekilde verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 56-8 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 64-16 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 72-8 </span><br>
+	<span class="option" data-correct="true"><b>D)</b> 64-8 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 54-16 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description41">Açıklama</button>
+		<div id="description41" class="collapse">      Data Encryption Standard'ın (DES) <strong>toplamda 64</strong> bitlik bloklar kullanarak şifreleme yapar. <br>
+Bunun 56 biti etkin olarak kullanılırken <strong>8 bit 'i kontrol </strong>amaçlıdır.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question42">
+	<p class="question">Soru 42:<br> Hawai Alfabesi 13 harf'ten oluşmaktadır. Affine Şifrelemesi için kaç faklı şekilde anahtar değeri üretilebilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 12 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 13 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 26 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 39 </span><br>
+	<span class="option" data-correct="true"><b>E)</b> 156 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description42">Açıklama</button>
+		<div id="description42" class="collapse">      Eğer harf sayısı <u>asal bir sayısı ise;</u> <br>
+Bir eksiği ile çarpılarak bulunur. <br>
+<strong>Yani 13*12 = 156</strong>
+		
+		<strong>Yani Türk alfabesine göre de 29*28 =812 olur.</strong><br><br>
+		
+		Ancak İngiliz Alfabesi gibi asal olmayan (26) bir sayı kadar harf varsa, 26 ile aralarında asal olan kaç sayı varsa, 26 onunla çarpılır.
+		26 ile aralarında asal olan sayılar ({1, 3, 5, 7, 9,
+11, 15, 17, 19, 21, 23, 25}) 12 tane olduğundan. <strong><br>
+İngiliz alfabesine göre anahtar değeri sayısı;<br><br>			
+26*12= 312 olur</strong>
+		</div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question43">
+	<p class="question">Soru 43:<br> International Data Encryption Algorithm (IDEA) kullanılarak yapılan bir şifrelemede toplam kaç iterasyon vardır? </p>
+	<span class="option" data-correct="false"><b>A)</b> 3 </span><br>
+	<span class="option" data-correct="true"><b>B)</b> 17 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 28 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 51 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 128 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description43">Açıklama</button>
+		<div id="description43" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question44">
+	<p class="question">Soru 44:<br> Aşağıdakilerden hangisi kriptoloji ile ilgili doğru <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Kriptoloji, kriptografi ve kriptoanaliz olmak üzere ikiye ayrılır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kriptografi güvenli veri paylaşımı için gerekli algoritmaları ve protokolleri ortaya koyar. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kriptoanaliz ise kriptografik algoritmaların, varsa açıklarını tespit ederek, onları kırmaya çalışır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kriptoanaliz ile ilgilenen ve üzerinde araştırmalar yapan iki grup vardır. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Kriptografik algoritmalar ve protokoller üç temel alanda gruplandırılır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description44">Açıklama</button>
+		<div id="description44" class="collapse">      <strong>Kriptografik algoritmalar ve protokoller dört temel alanda gruplandırılır. Bu gruplar;</strong>
+• Simetrik şifreleme,<br>
+• Açık anahtar şifreleme,<br>
+• Veri bütünlüğü<br>
+• Kimlik doğrulama olarak sıralanabilir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question45">
+	<p class="question">Soru 45:<br> Aşağıdakilerden hangisi şifreleme algoritmasının çıktısı olarak ele alınır?  </p>
+	<span class="option" data-correct="false"><b>A)</b> Açık Metin </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Gizli Anahtar </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Şifrelenmiş Metin </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Şifreleme Fonksiyonu </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Çözme Fonksiyonu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description45">Açıklama</button>
+		<div id="description45" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question46">
+	<p class="question">Soru 46:<br> Şifreleme algoritmasının girdilerinden bir tanesi olan ve kullanıcının oluşturduğu ve güvenli şekilde paylaşmak istediği orijinal veriye ne ad verilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Açık metin </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Şifreleme fonksiyonu </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Gizli anahtar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Şifrelenmiş metin </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Çözme fonksiyonu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description46">Açıklama</button>
+		<div id="description46" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question47">
+	<p class="question">Soru 47:<br> "_________ şifreleme işlemi için açık metin belirlenen bir sayı ile çarpılır ve ________ şifrelemesinde olduğu gibi öteleme miktarıyla toplanır." <br><br>
+Yukarıdaki ifadede boş bırakılan yerlere aşğıdakilerden hangisi gelmelidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Vigenere - Affine </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Affine - Sezar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sezar - Affine </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Monoalfabetik - Sezar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Affine - Vigenere </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description47">Açıklama</button>
+		<div id="description47" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question48">
+	<p class="question">Soru 48:<br> Aşağıdakilerden hangisi hem üretilecek şifrelenmiş metnin kendisinden önceki bütün açık metinlere bağlı olmasını, hem de şifreleme yöntemini ilk turda rastgele sayılardan oluşturulan bir vektör kullanarak farklılaştırmayı amaçlamıştır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Şifre Geribesleme Modu (Cipher Feedback Mode–CFB) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Elektronik Kod Kitabı (Electronic Code Book–ECB) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sayaç Modu (Counter Mode–CM) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Çıktı Geribesleme Modu (Output Feedback Mode–OFM) </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Şifre Blok Zincirleme (Cipher Block Chaining–CBC) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description48">Açıklama</button>
+		<div id="description48" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question49">
+	<p class="question">Soru 49:<br> AES (Advanced Encryption Standard) şifreleme sisteminin anahtar uzunlukları ve tur sayıları hangi cevapta doğru verilmiştir? </p>
+	<span class="option" data-correct="true"><b>A)</b> 128:10,&emsp; 192:12,&emsp;  256:14 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 64:5,&emsp;  128:6,&emsp;  256:7 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 128:10,&emsp; 256:12,&emsp; 512:14 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 128:8,&emsp;  192:10,&emsp;  256:12 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 32:10,&emsp;  64:12,&emsp;  128:14 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description49">Açıklama</button>
+		<div id="description49" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question50">
+	<p class="question">Soru 50:<br> International Data Encryption Algorithm Xuejia Lai ve James L. Massey tarafından kaç yılında geliştirilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 1971 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 1981 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 1991 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 2001 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 2011 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description50">Açıklama</button>
+		<div id="description50" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question51">
+	<p class="question">Soru 51:<br> - OFM (Output Feedback Mode–OFM) moda yani Çıktı Geribesleme Moduna benzerdir.<br> - Şifreleme algoritmasına başlangıç vektörünün sonuna <u><strong>ilk tur için 1 sayısı eklenerek gönderilir ve diğer turlarda bu sayı artırılır</strong></u>.<br><br>
+Yukarıda özellikleri verilen şifreleme yapmak için kullanılan mod aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Şifre Geribesleme Modu </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Elektronik Kod Kitabı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Şifre Blok Zincirleme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Çıktı Geribesleme Modu </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Sayaç Modu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description51">Açıklama</button>
+		<div id="description51" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question52">
+	<p class="question">Soru 52:<br> Dizi şifreleme algoritmalarında kullanılan blok şifreleme metodu aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> ECB </span><br>
+	<span class="option" data-correct="false"><b>B)</b> CBC </span><br>
+	<span class="option" data-correct="false"><b>C)</b> CFB </span><br>
+	<span class="option" data-correct="false"><b>D)</b> CM </span><br>
+	<span class="option" data-correct="true"><b>E)</b> OFM </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description52">Açıklama</button>
+		<div id="description52" class="collapse">      Çıktı Geribesleme Modu (Output Feedback Mode–OFM)     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question53">
+	<p class="question">Soru 53:<br> International Data Encryption Algorithm Xuejia Lai ve James L. Massey tarafından kaç yılında geliştirilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 1971 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 1981 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 1991 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 2001 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 2011 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description53">Açıklama</button>
+		<div id="description53" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question54">
+	<p class="question">Soru 54:<br> Alfabenin ilk harfi “a” 0 ile son harfi “z” ise 25 ile eşlenerek (İngiliz Alfabesi 26 harfli olduğundan) ve Açık metinde yer alan her harfin pozisyon sayı 3 ile toplanarak uygulanan şifreleme aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Affine Şifreleme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Monoalfabetik Şifreleme </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Sezar Şifreleme Algoritması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Vigenere Şifreleme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 3DES </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description54">Açıklama</button>
+		<div id="description54" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question55">
+	<p class="question">Soru 55:<br> Ron Rivest tarafından 1987 yılında geliştirilmiştir. 40 ila 256 bit arasında değişken boyutta gizli anahtar kullanmaktadır. Algoritmanın temeli rastgele karıştırmaya (permutasyon) dayanmaktadır.<br><br>
+Yukarıda açıklaması yapılan şifreleme algoritması aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> RC4 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> A5/1 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> A5/2 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> XOR </span><br>
+	<span class="option" data-correct="false"><b>E)</b> RC6 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description55">Açıklama</button>
+		<div id="description55" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question56">
+	<p class="question">Soru 56:<br> Bu mod dizi şifreleme algoritmalarında kullanılır. İlk olarak, rastgele üretilen başlangıç vektörü şifreleme algoritmasına girdi olarak gönderilir. Şifreleme algoritmasının çıktısı açık metin ile XOR’lanır ve ilk şifrelenmiş metin bloğu elde edilir.
+Yukarıda tanımı verilen bloklama şifreleme metodu aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Elektronik Kod Kitabı (Electronic Code Book–ECB) </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Çıktı Geribesleme Modu (Output Feedback Mode–OFM) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Şifre Blok Zincirleme (Cipher Block Chaining–CBC) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Şifre Geribesleme Modu (Cipher Feedback Mode–CFB) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sayaç Modu (Counter Mode–CM) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description56">Açıklama</button>
+		<div id="description56" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question57">
+	<p class="question">Soru 57:<br> Simetrik şifreleme algoritmalarının beş temel öğesi vardır. <br><br>
+
+<em>'Simetrik şifreleme algoritmalarının girdilerinden ikincisidir ve bu anahtarı yalnızca güvenli iletişim kurmak isteyen kullanıcıların bildiği kabul edilir. Algoritmalarının güvenliği bu anahtarın gizliliğine dayandığından, bu öğeyi yalnızca haberleşmekte olan iki kullanıcının bilmesi gerekmektedir.'</em> şeklinde ifade edilen temel öğe hangisidir? <br><br>
+
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> Açık metin </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Şifreleme fonksiyonu </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Gizli anahtar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Şifrelenmiş metin </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Çözme fonksiyonu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description57">Açıklama</button>
+		<div id="description57" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question58">
+	<p class="question">Soru 58:<br> I. Simetrik şifreleme <br>II. Açık anahtar şifreleme <br>III. Veri bütünlüğü <br><br>Yukarıdakilerden hangileri kriptografik algoritmalar ve protokollerin gruplandırıldığı temel alanlardandır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description58">Açıklama</button>
+		<div id="description58" class="collapse">      <strong>Kriptografik algoritmalar ve protokoller dört temel alanda gruplandırılır. Bu gruplar;<br></strong>
+• Simetrik şifreleme,<br>
+• Açık anahtar şifreleme,<br>
+• Veri bütünlüğü,<br>
+• Kimlik doğrulama     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question59">
+	<p class="question">Soru 59:<br> Aşağıdakilerden hangisi Simetrik şifreleme algoritmalarının temel öğelerinden birisi <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Açık metin </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Şifreleme fonksiyonu </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Gizli anahtar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Şifrelenmiş metin </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Açık Anahtar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description59">Açıklama</button>
+		<div id="description59" class="collapse">      <strong>Simetrik şifreleme algoritmalarının beş temel öğesi vardır:<br></strong>
+1- Açık metin<br>
+2- Şifreleme fonksiyonu<br>
+3- Gizli anahtar<br>
+4- Şifrelenmiş metin<br>
+5- Çözme fonksiyonu      </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question60">
+	<p class="question">Soru 60:<br> 1. Simetrik şifreleme<br>
+2. Açık anahtar şifreleme<br>
+3. Veri bütünlüğü<br>
+4. Kimlik doğrulama<br><br>
+Yukarıda sıralananlardan hangileri kriptografik algoritmalar ve protokollerin dört temel grupları arasındadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnızca 1 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 1,3 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 2,3,4 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 1,3,4 </span><br>
+	<span class="option" data-correct="true"><b>E)</b> 1,2,3,4 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description60">Açıklama</button>
+		<div id="description60" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question61">
+	<p class="question">Soru 61:<br> İlk karakteri olan “m” şifrelendikten sonra ikinci karakter olan “e”nin şifrelenmesi işlemine ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Simetrik şifreleme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Şifrelenmiş metin </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Şifreleme fonksiyonu </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Dizi şifreleme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Şifreleme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description61">Açıklama</button>
+		<div id="description61" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question62">
+	<p class="question">Soru 62:<br> I. Son tur hariç diğer bütün turlarda aynı işlemler uygulanır. Son turda sütun karıştırma katmanı (MixColumn) işlemi uygulanmaz.<br>
+II. Kullanıcının gizli anahtarı kullanılarak her bir turda farklı olmak üzere tur anahtarları oluşturulur.<br>
+III.Çözme işleminde tur anahtarları  ters sırayla uygulanmalıdır. Yani çözme işleminde ilk turda kullanılacak anahtar, şifreleme işleminde en son turda kullanılan anahtar olmalıdır.<br>
+Yukarıda verilen ifadelerden hangileri DES ve AES için ortaktır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="true"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description62">Açıklama</button>
+		<div id="description62" class="collapse">      I. madde sadece AES ile ilgilidir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question63">
+	<p class="question">Soru 63:<br> "__________________ algoritması, monoalfabetik yöntemleri çözmekte kullanılan sıklık analizi saldırılarına karşı olan zafiyeti, şifrelenmiş metinde kullanılan her harfin neredeyse eşit sıklıkta kullanılmasıyla ortadan kaldırmıştır."<br><br>
+Yukarıda verilen tanımda boş bırakılan yere aşağıdakilerden hangisi gelmelidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Monoalfabetik Şifreleme </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Vigenere şifreleme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Blok şifreleme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Affine Şifreleme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sezar şifreleme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description63">Açıklama</button>
+		<div id="description63" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question64">
+	<p class="question">Soru 64:<br> I. Birçok programlama dilinde var olan rastgele sayı üretici fonksiyonların ürettiği rastgele sayılar bu grupta yer alır.<br>
+II. Fonksiyonları tekdüze dağılıma sahip olacak şekilde tasarlanmışlardır.<br>
+III. Üretilen bir sayı dizisini, başlangıç parametreleri ve fonksiyon katsayılarının bilinmesi halinde tekrar üretmek mümkündür.<br>
+IV. Bir sonra üretilecek sayının tahmin edilmesi mümkün değildir.<br><br>
+Yukarıda verilen ifadelerden hangileri sözde rastgele sayılar için doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>B)</b> III ve IV </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I, II ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II, III ve IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II, III ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description64">Açıklama</button>
+		<div id="description64" class="collapse">      IV. madde yanlıştır: bir sonra üretilecek sayının tahmin edilmesi mümkün olduğu için kriptoloji algoritmalarında kullanım alanı sınırlıdır.     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question65">
+	<p class="question">Soru 65:<br> I. RC4, Ron Rivest tarafından geliştirilmiştir.<br>
+II. 40 ila 256 bit arasında değişken boyutta gizli anahtar kullanmaktadır.<br>
+III. Algoritmanın temeli rastgele karıştırmaya (permutasyon) dayanmaktadır.<br><br>
+Yukarıda RC4 hakkında verilen bilgilerden hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description65">Açıklama</button>
+		<div id="description65" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question66">
+	<p class="question">Soru 66:<br> Aşağıdakilerden hangisi AES şifreleme algoritmasının DES şifreleme algoritmasının yerini almasının nedenleri arasında <u><strong>gösterilemez?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> DES algoritmasında üretilen şifreler düşük bütçeli donanımlar tarafından kırılabilir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> DES algoritmasında üretilen şifreler kaba kuvvet saldırılarına açıktır </span><br>
+	<span class="option" data-correct="false"><b>C)</b> DES algoritmasının tasarımında bir takım şüpheler bulunmaktadır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> DES algoritması ile 64 bitlik şifreleme elde edilirken, AES algoritması ile 128 bitlik şifreleme mümkündür. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> DES algoritması üzerinde yeterli çalışma yapılmadan kullanılmaya başlanmıştır </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description66">Açıklama</button>
+		<div id="description66" class="collapse">      DES algoritması uzun yıllar boyunca kullanılmış ve üzerinde bir çok araştırma yapılmıştır. Ancak bilgi teknolojilerinin gelişmesi ile daha uzun ve zor kırılabilen algoritmalara ihityaç duyulmaktadır. DES üzerinde zamanında araştırma yapılmış olsa da zamanla farklı bir algoritmaya ihtiyaç duyulmuştur.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question67">
+	<p class="question">Soru 67:<br> Bilgisayar bilimlerinde kaç farklı rastgale sayı vardır? </p>
+	<span class="option" data-correct="false"><b>A)</b> 1 </span><br>
+	<span class="option" data-correct="true"><b>B)</b> 3 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 5 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 7 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 9 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description67">Açıklama</button>
+		<div id="description67" class="collapse">      I. Gerçek rastgele sayılar<br>
+II. Sözde rastgele sayılar<br>
+III. Kriptolojik olarak güvenli rastgele sayılar     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question68">
+	<p class="question">Soru 68:<br> AES şifreleme algoritmasının turları üç temel işlemden oluşmaktadır;<br>
+&emsp;&emsp;1. Anahtar ekleme katmanı<br>
+&emsp;&emsp;2. Bayt yer değiştirme katmanı<br>
+&emsp;&emsp;3. Yayılma katmanı<br><br>
+Yukarıda sıralaması verilen işlemlerden hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız 1 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 1,3 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 1,2,3 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 2,3 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yalnız 2 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description68">Açıklama</button>
+		<div id="description68" class="collapse">      AES şifreleme algoritmasının turları üç temel işlemden oluşmaktadır:<br>
+&emsp;&emsp;• Anahtar ekleme katmanı: Tur anahtarı ile durum matrisi XOR’lanır<br>
+&emsp;&emsp;• Bayt yer değiştirme katmanı: Durum matrisi S-Box adı verilen doğrusal olmayan bir tablo ile dönüştürülür.<br>
+&emsp;&emsp;• Yayılma katmanı
+
+
+     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question69">
+	<p class="question">Soru 69:<br> İletilecek mesajı kullanılacak yönteme bağlı olarak eşit uzunlukta parçalara ayırarak şifrelenmiş metne dönüştüren şifreleme türü hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Blok şifreleme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Simetrik şifreleme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Dizi şifreleme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Gizli anahtar şifreleme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Açık anahtar şifreleme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description69">Açıklama</button>
+		<div id="description69" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question70">
+	<p class="question">Soru 70:<br> Açık veya düz metin hangi harf ile ifade edilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> C </span><br>
+	<span class="option" data-correct="false"><b>B)</b> K </span><br>
+	<span class="option" data-correct="true"><b>C)</b> P </span><br>
+	<span class="option" data-correct="false"><b>D)</b> E </span><br>
+	<span class="option" data-correct="false"><b>E)</b> D </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description70">Açıklama</button>
+		<div id="description70" class="collapse">      - Açık veya düz metin P,<br>
+- Şifrelenmiş metin C,<br>
+- Gizli anahtar K,<br>
+- Şifreleme fonksiyonu E<br>
+- Çözme fonksiyonu D ile temsil edilir.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question71">
+	<p class="question">Soru 71:<br> I. Kullanıcının oluşturduğu ve güvenli şekilde paylaşmak istediği orijinal veridir<br>
+II. Şifreleme algoritmasının girdilerinden bir tanesidir<br>
+III. Gizlenmek istenen her türlü içeriği ifade etmektedir<br>
+IV.  Bu unsur, bir e-posta mesajı olabileceği gibi, bir resim dosyası, bir kitap bölümü veya bir sayı dizisi de olabilir.<br><br>
+Yukarıdakilerden yola çıkarak simetrik şifreleme algoritmalarının beş temel öğesinden hangisine varılır?  </p>
+	<span class="option" data-correct="true"><b>A)</b> Açık metin </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Şifreleme fonksiyonu </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Gizli anahtar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Şifrelenmiş metin </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Çözme fonksiyonu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description71">Açıklama</button>
+		<div id="description71" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question72">
+	<p class="question">Soru 72:<br> Kaç yılına kadar yalnızca simetrik şifreleme algoritmaları kullanılmıştır? </p>
+	<span class="option" data-correct="false"><b>A)</b> 1956 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 1966 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 1976 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 1986 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 1996 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description72">Açıklama</button>
+		<div id="description72" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question73">
+	<p class="question">Soru 73:<br> Şifreleme algoritmasına başlangıç vektörünün sonuna ilk tur için 1 sayısı eklenerek gönderilir ve diğer turlarda bu sayı artırılarak uygulanan şifreleme aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Şifre Blok Zincirleme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Elektronik Kod Kitabı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sezar Şİfreleme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Advanced Encryption Standard </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Sayaç Modu (Counter Mode–CM)</span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description73">Açıklama</button>
+		<div id="description73" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question74">
+	<p class="question">Soru 74:<br> Simetrik şifreleme algoritmalarının beş temel öğesi vardır. Aşağıdakilerden hangisi bu temel öğelerden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Açık metin </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Şifreleme fonksiyonu </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Tek zamanlı blok </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Gizli anahtar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Şifrelenmiş metin </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description74">Açıklama</button>
+		<div id="description74" class="collapse">     <strong> Simetrik şifreleme algoritmalarının beş temel öğesi vardır:</strong><br><br> 
+- Açık metin<br>
+- Şifreleme fonksiyonu<br>
+- Gizli anahtar<br>
+- Şifrelenmiş metin<br>
+- Çözme fonksiyonu. <br>    </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question75">
+	<p class="question">Soru 75:<br> Aşağıdakilerden hangisi kriptografik algoritmalar ve protokollerin oluşturduğu temel gruplardan birisi <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Simetrik şifreleme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Açık anahtar şifreleme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veri bütünlüğü </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kimlik doğrulama </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Anahtar kullanmayan algoritmalar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description75">Açıklama</button>
+		<div id="description75" class="collapse">      <strong>Kriptografik algoritmalar ve protokoller dört temel alanda gruplandırılır. Bu gruplar;</strong><br> 
+• Simetrik şifreleme,<br> 
+• Açık anahtar şifreleme,<br> 
+• Veri bütünlüğü ve<br> 
+• Kimlik doğrulama olarak sıralanabilir.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question76">
+	<p class="question">Soru 76:<br> Ron Rivest tarafından 1987 yılında geliştirilen,GSM şifrelemesinde kullanılan A5/1, A5/2 ve Wi-Fi güvenliğinde kullanılan dizi şifreleme algoritması hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> RC4 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Vigenere </span><br>
+	<span class="option" data-correct="false"><b>C)</b> DES </span><br>
+	<span class="option" data-correct="false"><b>D)</b> AES </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 3DES </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description76">Açıklama</button>
+		<div id="description76" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question77">
+	<p class="question">Soru 77:<br> Aşağıdakilerden hangisi Modern Simetrik Şifreleme Yöntemlerinden biridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Sezar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Affine </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Monoalfabetik </span><br>
+	<span class="option" data-correct="true"><b>D)</b> 3DES </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Vigenere </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description77">Açıklama</button>
+		<div id="description77" class="collapse">      <strong>Modern Simetrik Şifreleme Yöntemleri:</strong><br>
+- Data Encryption Standard (DES)<br>
+- 3DES<br>
+- Advanced Encryption Standard (AES)	<br>	
+- International Data Encryption Algorithm (IDEA)		
+		</div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question78">
+	<p class="question">Soru 78:<br>  I- Oturum anahtar uzunluğunun büyük seçilmesi<br> 
+II - İletişimin sadece 2 kişi arasında sınırlı tutulması<br> 
+III- Her mesaj için farklı şifreleme algoritması kullanılması<br> 
+IV- Her mesaj için ayrı oturum anahtarı kullanılması<br><br> 
+Kaba kuvvet saldırılarına karşı güvenliği arttırmak için yukarıda verilen seçeneklerden hangisi ya da hangileri uygulanabilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> II ve IV </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description78">Açıklama</button>
+		<div id="description78" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question79">
+	<p class="question">Soru 79:<br> Açık metni, kullanılan algoritmaya göre uygun uzunluktaki bloklara böler. Her bir bloğu bağımsız şekilde gizli anahtar kullanarak şifrelenmiş metin elde eder. Aynı açık metin için her seferinde aynı şifrelenmiş metin elde edilir. Uzun ve belirli yapıda olan mesajlar için güvenlik açısından tavsiye edilmez. Bu yöntem, şifrelenmiş metinlerin yerlerini değiştirerek metnin içeriği ile oynanmasına da izin verir.<br><br>
+Yukarıda özellikleri verilmiş olan şifreleme yapmak için kullanılan mod aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Elektronik Kod Kitabı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Şifre Blok Zincirleme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Çıktı Geribesleme Modu </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sayaç Modu </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Şifre Geribesleme Modu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description79">Açıklama</button>
+		<div id="description79" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question80">
+	<p class="question">Soru 80:<br> DES algoritmasının yerini alan şifreleme algoritması aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> AES </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 3DES </span><br>
+	<span class="option" data-correct="false"><b>C)</b> IDEA </span><br>
+	<span class="option" data-correct="false"><b>D)</b> RC4 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> XOR </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description80">Açıklama</button>
+		<div id="description80" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question81">
+	<p class="question">Soru 81:<br> Şifreleme fonksiyonu: y = a*x + b mod 26<br>
+Çözme fonksiyonu: x = a-1(y–b) mod 26<br><br>
+
+Yukarıda verilen şifreleme ve çözme fonksiyonu aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Blok Şifreleme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sezar Şifreleme Algoritması </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Monoalfabetik Şifreleme </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Affine Şifreleme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Vigenere Şifreleme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description81">Açıklama</button>
+		<div id="description81" class="collapse">      Affine şifreleme yöntemi Sezar yönteminin geliştirilmesiyle elde edilmiştir. Şifreleme işlemi için açık metin belirlenen bir sayı ile çarpılır ve Sezar şifrelemesinde olduğu gibi
+öteleme miktarıyla toplanır.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question82">
+	<p class="question">Soru 82:<br> Aşağıdakilerden hangisi kriptografik algoritmalar ve protokollerin gruplandığı alanlardan biri değildir?  </p>
+	<span class="option" data-correct="false"><b>A)</b> Simetrik şifreleme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Veri bütünlüğü </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Açık anahtar şifreleme </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Kapalı anahtar şifreleme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kimlik doğrulama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description82">Açıklama</button>
+		<div id="description82" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question83">
+	<p class="question">Soru 83:<br> I-Rastgele sayıların "rastgelelik" ve "tahmin edilemezlik" olmak üzere iki önemli özelliği olmalıdır. <br>
+II-Bilgisayar bilimlerinde iki farklı rastgele sayı vardır. <br>
+III- Sözde rastgele sayı fonksiyonları, tekdüze dağılıma sahip olacak şekilde tasarlanmışlardır. <br>
+IV- Rastgele sayılar kriptolojide önemsiz olarak görülür. <br>
+V- Gerçek rastgele sayıların tekrar üretilebilme özelliği yoktur. <br><br>
+Rastgele sayılarla ilgili yukarıda verilen bilgilerden hangisi/hangileri doğru bilgi içermektedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> I-II-III </span><br>
+	<span class="option" data-correct="false"><b>B)</b> III-IV-V </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I-III-V </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I-V </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II-III-V </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description83">Açıklama</button>
+		<div id="description83" class="collapse">      <strong>II. seçenek yanlış. Bilgisayar biliminde iki değil <u>üç farklı</u> rastgele sayı vardır ve şunlardır:</strong><br>
+&emsp;&nbsp;- Gerçek rastgele sayılar<br>
+&emsp;&nbsp;- Sözde rastgele sayılar<br>
+&emsp;&nbsp;- Kriptolojik olarak güvenli rastgele sayılar<br><br>
+
+<strong>IV. seçenek yanlış.Rastgele sayılar kriptolojide oldukça <u>önemlidir</u></strong>
+</div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question84">
+	<p class="question">Soru 84:<br> I. Belirli uzunluktaki açık metni girdi olarak alır ve yine belirli uzunlukta şifrelenmiş metin çıktısı üretirler.<br>
+II. Açık metinden bir bit alıp gizli anahtarı kullanarak bir bit şifrelenmiş metin üretirler.<br>
+III. Eşzamanlı ve eşzamansız olmak üzere ikiye ayrılırlar.<br><br>
+Yularıda verilen ifadelerden hangileri dizi şifreleme için doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve III </span><br>
+	<span class="option" data-correct="true"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description84">Açıklama</button>
+		<div id="description" class="collapse">      I. seçenek yanlış. Belirli uzunluktaki (blok) açık metni girdi olarak alan ve yine belirli uzunlukta şifrelenmiş metin çıktısı üreten, <strong>blok şifreleme algoritmalarıdır. </strong><br><br>
+		
+		</div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question85">
+	<p class="question">Soru 85:<br> I.  RC4, 40 ila 256 bit arasında değişken boyutta gizli anahtar kullanmaktadır<br>
+II. RC4, Ron Rivest tarafından 1987 yılında geliştirilmiştir.<br>
+III. RC4, Wi-Fi güvenliğinde kullanılır.<br><br>
+Yukarıda RC4 dizi şifreleme algoritması hakkında verilen bilgilerden hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description85">Açıklama</button>
+		<div id="description85" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question86">
+	<p class="question">Soru 86:<br> DES algoritması birbirini takip eden kaç karışıklık ve yayılma operatöründen oluşmaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> 8 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 12 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 16 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 32 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 64 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description86">Açıklama</button>
+		<div id="description86" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question87">
+	<p class="question">Soru 87:<br> Temel bileşenler değişkenlerle ifade edilir.<br><br>
+1- Açık veya düz metin P,<br>
+2- Şifrelenmiş metin C,<br>
+3- Gizli anahtar K,<br>
+4- Şifreleme fonksiyonu E ve<br>
+5- Çözme fonksiyonu D ile temsil edilir.<br><br>
+Yukarıda sıralanan değişkenlerden hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> 1,3,4,5 </span><br>
+	<span class="option" data-correct="true"><b>B)</b> 1,2,3,4,5 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 2,3,4,5 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 1,4,5 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 1,2,3 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description87">Açıklama</button>
+		<div id="description87" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question88">
+	<p class="question">Soru 88:<br> Kullanıcılar arasında güvenli bir iletişim oluşturmak için gerekli algoritmaları ve protokolleri tasarlayan ve geliştiren bilim dalına ne ad verilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Kriptografi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Algoritma </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Matematik </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Fizik </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Şifreleme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description88">Açıklama</button>
+		<div id="description88" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question89">
+	<p class="question">Soru 89:<br> Sezar şifreleme algoritmasıyla şifrelenen bir metin, ortalama kaç deneme sonunda çözülür? </p>
+	<span class="option" data-correct="false"><b>A)</b> 3 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 9 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 13 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 22 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 25 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description89">Açıklama</button>
+		<div id="description89" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question90">
+	<p class="question">Soru 90:<br> Sezar şifreleme algoritmasına göre kodlanmış ve gizili anahtarı 3 olan şifreleme sonucunda EXAMINATION kelimesi 7-0-3-15-11-16-3-22-11-17-16 olarak kodlanmıştır. Buna göre aynı şifreleme tablosu kullanılarak şifrelenen MATE kelimesi hangi cevapta doğru verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 18-6-25-10 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 12-0-19-4 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 7-0-3-15 </span><br>
+	<span class="option" data-correct="true"><b>D)</b> 15-3-22-7 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 7-0-19-4 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description90">Açıklama</button>
+		<div id="description90" class="collapse">      Sezar şifreleme algoritmasında, karakterler gizli anahtar kadar ötelenerek kodlanırlar. EXAMINATION kelimesinde geçen MATE harflerine karşılık gelen sayılar yazıldığında 15-3-22-7 sayıları ile bu harflerin elde edildiği görülecektir.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question91">
+	<p class="question">Soru 91:<br> "64 bitlik bloklar ikiye bölünerek sol 32 ve sağ 32 bitlik bloklar elde edilir.Sağ 32 bitlik blok tanımlanmış bir fonksiyona gönderilir.Bu fonksiyonun girdileri sağ 32 bitlik blok ve 48 bitlik tur anahtarıdır.Fonksiyondan çıkan sonuç sol 32 bit ile XOR’lanarak bir sonraki turun sağ 32 bitlik bölümüne kopyalanır.Sağ 32 bitlik blok aynı zamanda bir sonraki turun sol 32 bitlik bölümüne kopyalanır.Bu işlem 16 kez tekrarlanır ama her turda 56 bitlik gizli anahtardan elde edilen farklı 48 bitlik tur anahtarı kullanılır."
+Yukarıda tanımlaması verilen şifreleme yöntemi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Affine şifreleme yöntemi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Monoalfabetik şifreleme </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Feistel şifreleme yöntemi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Vigenere şifreleme yöntemi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> RC4 şifreleme yöntemi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description91">Açıklama</button>
+		<div id="description91" class="collapse">      Şıklarda Fiestel yerine DES (Data Encryption Standard) olabilirdi. O zaman cevap DES olurdu. Çünkü DES, Feistel şifreleme yöntemi üzerine kurulmuştur.     </div>
+	</div>
+</div>s
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question92">
+	<p class="question">Soru 92:<br> AES şifreleme algoritmasında kullanılabilecek Tur sayıları aşağıdaki hangi seçenekte doğru verilmiştir?  </p>
+	<span class="option" data-correct="false"><b>A)</b> 3/6/8 </span><br>
+	<span class="option" data-correct="true"><b>B)</b> 10/12/14 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 20/30/40 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 18/36/54 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 128/256/512 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description92">Açıklama</button>
+		<div id="description92" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question93">
+	<p class="question">Soru 93:<br> Aşağıdakilerden hangisi AES algoritmasında kullanılabilen anahtar uzunluklarındandır? </p>
+	<span class="option" data-correct="false"><b>A)</b> 8/16/32 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 32/64/128 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 48/56/64 </span><br>
+	<span class="option" data-correct="true"><b>D)</b> 128/192/256 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 024/2048/3072 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description93">Açıklama</button>
+		<div id="description93" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question94">
+	<p class="question">Soru 94:<br> Aşağıdaki özelliklerden hangisi rastgele sayılarda bulunması gereken özelliklerdir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Tahmin edilebilir olması - belli bir sıra izlemesi </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Tekdüze dağılım sahip olması - önceki sayıya bağlı olmaması </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tahmin edilebilir olması - önceki sayıya bağlı olmaması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Oturum anahtarı kullanılması - belli bir sıra izlemesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Tekdüze dağılıma sahip olması - fonksiyonlarla üretilmesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description94">Açıklama</button>
+		<div id="description94" class="collapse">      Para atış işleminde olduğu gibi, tekdüze dağılıma sahip olması ve gelecek atışların önceki duruma bağlı olmaması gerçek rastgele sayılarda bulunması gereken özelliklerdir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question95">
+	<p class="question">Soru 95:<br> Geçmişten günümüze kötü niyetli kişilerin şifreleme sistemlerine saldırmaları, iyi niyetli kişilerin de bu saldırılara karşı savunma mekanizmaları geliştirmeleri hangi kavramın oluşmasına yol açmıştır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Bilgi Güvenliği </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Dizi Şifreleme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Dijital Hukuk </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Ağ Güvenliği </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kriptoloji </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description95">Açıklama</button>
+		<div id="description95" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question96">
+	<p class="question">Soru 96:<br> Aşağıdakilerden hangisi Blok şifreleme metotlarından biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> ECB </span><br>
+	<span class="option" data-correct="false"><b>B)</b> CBC </span><br>
+	<span class="option" data-correct="false"><b>C)</b> OFM </span><br>
+	<span class="option" data-correct="false"><b>D)</b> CFB </span><br>
+	<span class="option" data-correct="true"><b>E)</b> XOR </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description96">Açıklama</button>
+		<div id="description96" class="collapse">      Şifrelemede ,Toplama ve çarpmaya ek olarak kullanılan XOR bir operatörüdür. Şifreleme methodu değildir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question97">
+	<p class="question">Soru 97:<br> I. Tekdüze dağılıma sahip değildirler.<br>
+II. Bir sonraki adımda üretilecek sayı tahmin edilebilir.<br>
+III. Başlangıç parametrelerinin bilinmesi durumunda aynı sayı dizisinin tekrar üretilebilir.<br><br>
+Yukarıdaki ifadelerden hangileri kriptolojik olarak güvenli rastgele sayılar için doğrudur?  </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız II </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description97">Açıklama</button>
+		<div id="description97" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+		
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 119));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}
+			
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

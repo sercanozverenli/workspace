@@ -1,0 +1,1784 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+	  
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA II
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama2-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama2-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama2-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama2-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama2-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama2-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama2-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama2-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama2-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama2-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB ARAYÜZ PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİ YAPILARI
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veriyap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veriyap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veriyap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veriyap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veriyap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veriyap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veriyap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veriyap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veriyap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veriyap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          MOBİL UYGULAMA GELİŞTİRME
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="mobilug-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="mobilug-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="mobilug-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="mobilug-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="mobilug-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="mobilug-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="mobilug-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="mobilug-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="mobilug-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="mobilug-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          UNIX SİSTEM YÖNETİMİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="unixsy-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="unixsy-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="unixsy-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="unixsy-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="unixsy-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="unixsy-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="unixsy-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="unixsy-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="unixsy-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="unixsy-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Programlama II - Ünite 1 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	<button class="block-group" data-start="40" data-end="59">Part 3</button>
+	  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> I. Yüksek seviyeli bir dildir<br> 
+II. Derleme yerine yorumlanır<br> 
+III. Sadece Linux ortamında çalışır<br> <br> 
+Yukarı maddelerden hangileri Python programlama dili için doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      Python programlama dilinin bazı özelliklerinden de şu şekilde bahsedebiliriz:<br><br>
+• Basit yazım kuralları (Syntax) sayesinde kodun okunması kolaydır.<br>
+• Kodlar satır bazlı derlenerek çalıştırılır. Yani diğer çoğu dil gibi satır sonlarındaki “;” gibi işaretleri dikkate alarak çalışmaz.<br>
+• Kolay okunan kodları sayesinde kodun bakım ve geliştirmesi de kolaydır.<br>
+• Anahtar kelimeler, açık bir söz dizimi ve basit yapısı ile yeni başlayanların da hızlı bir şekilde öğrenmelerini sağlar.<br>
+• Farklı platformlarda aynı arabirim ile çalışarak kodun taşınabilir olmasını sağlar.<br>
+• Çalışma zamanında yorumlayıcı tarafından işlenir. Çalıştırmadan önce programın derlenmesi gerekmez. Bu özelliği ile PERL ve PHP gibi script dillerine benzemektedir.<br>
+• Çeşitli amaçlar için hazırlanmış, büyük çoğunluğu Windows, MacOS ve Linux üzerinde çalışabilen kullanımı kolay bir çok kütüphaneleri vardır.<br>
+• Tüm ticari veritabanı uygulamalarını destekler.<br>
+• Farklı platformlarda çalışabilen ve taşınabilen GUI (kullanıcı arayüzü) oluşturulmasını sağlar.<br>
+• Nesne yönelimli bir dil olmasının yanında, fonksiyonel ve prosedür tabanlı programlama metotlarını da destekler.<br>
+• Otomatik çöp toplama (garbage collector) desteği vardır.<br>
+• Dinamik tip kontrolünü destekler ve yüksek seviyeli dinamik veri tiplerini sağlamaktadır.<br>
+• Java, C, C++, CORBA, ActiveX ve COM ile kolay bir şekilde entegre edilebilir.<br>
+• Büyük programlar için de daha iyi ve ölçeklenebilir bir yapıyı desteklemektedir.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Aşağıdaki maddelerden hangisi Python programlama dili için söylenemez? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yazım kuralları basittir </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Satır sonlarına noktalı virgül işareti konulmalıdır </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Farklı platformlarda çalışabilir </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kodlar yorumlanarak çalıştırılır </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Otomatik çöp toplama desteği vardır </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      Python programlama dilinin bazı özelliklerinden de şu şekilde bahsedebiliriz:<br><br>
+• Basit yazım kuralları (Syntax) sayesinde kodun okunması kolaydır.<br>
+• Kodlar satır bazlı derlenerek çalıştırılır. Yani diğer çoğu dil gibi satır sonlarındaki “;” gibi işaretleri dikkate alarak çalışmaz.<br>
+• Kolay okunan kodları sayesinde kodun bakım ve geliştirmesi de kolaydır.<br>
+• Anahtar kelimeler, açık bir söz dizimi ve basit yapısı ile yeni başlayanların da hızlı bir şekilde öğrenmelerini sağlar.<br>
+• Farklı platformlarda aynı arabirim ile çalışarak kodun taşınabilir olmasını sağlar.<br>
+• Çalışma zamanında yorumlayıcı tarafından işlenir. Çalıştırmadan önce programın derlenmesi gerekmez. Bu özelliği ile PERL ve PHP gibi script dillerine benzemektedir.<br>
+• Çeşitli amaçlar için hazırlanmış, büyük çoğunluğu Windows, MacOS ve Linux üzerinde çalışabilen kullanımı kolay bir çok kütüphaneleri vardır.<br>
+• Tüm ticari veritabanı uygulamalarını destekler.<br>
+• Farklı platformlarda çalışabilen ve taşınabilen GUI (kullanıcı arayüzü) oluşturulmasını sağlar.<br>
+• Nesne yönelimli bir dil olmasının yanında, fonksiyonel ve prosedür tabanlı programlama metotlarını da destekler.<br>
+• Otomatik çöp toplama (garbage collector) desteği vardır.<br>
+• Dinamik tip kontrolünü destekler ve yüksek seviyeli dinamik veri tiplerini sağlamaktadır.<br>
+• Java, C, C++, CORBA, ActiveX ve COM ile kolay bir şekilde entegre edilebilir.<br>
+• Büyük programlar için de daha iyi ve ölçeklenebilir bir yapıyı desteklemektedir.		
+		
+		</div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> I. benim_sinifim<br>
+II. deger_1<br>
+III. continue<br><br>
+Yukarıdaki maddelerden hangilerinde doğru bir değişken isimlendirmesi yapılmıştır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yalnız III </span><br>
+	<span class="option" data-correct="true"><b>D)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      Python’da break ve continue ifadeleri normal bir döngünün akışını değiştirmek için kullanılmaktadır.<br>
+Bu sebeple continue değişken isimlendirilmesinde kullanılamaz     </div>
+	</div>
+</div>
+	  
+	   
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Pyhton programlama dilinde bir kod bloğu ............ ile başlar ve ............ ile biter.<br><br>
+Yukarıdaki cümlede boş bırakılan yere aşağıdaki seçeneklerden hangisi gelmelidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> {, } </span><br>
+	<span class="option" data-correct="false"><b>B)</b> #, tab </span><br>
+	<span class="option" data-correct="false"><b>C)</b> :, boşluk </span><br>
+	<span class="option" data-correct="false"><b>D)</b> [, ] </span><br>
+	<span class="option" data-correct="true"><b>E)</b> girinti, ilk girintisiz satır </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> def double(num):<br>
+&emsp; &emsp; """double değer hesaplayan fonksiyon"""<br>
+&emsp; &emsp; return 2 * num<br>
+print(double.__doc__)<br><br>
+Yukarıdaki kod parçasının çıktısı aşağıdaki seçeneklerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> double değer hesaplayan fonksiyon </span><br>
+	<span class="option" data-correct="false"><b>B)</b> double.__doc__ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 2 * num </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 2 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> double(num) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      def double(num):<br>
+Bu satırda bir fonksiyon tanımlanıyor. Fonksiyonun adı double ve bir parametre num alıyor.<br><br>
+			
+"""double değer hesaplayan fonksiyon"""<br>
+Bu satır, fonksiyonun başında bulunan üçlü tırnak içindeki metin, fonksiyonun docstring'ini (açıklama dizesi) temsil eder. Bu açıklama fonksiyonun ne yaptığını açıklar.<br><br>
+			
+return 2 * num<br>
+Bu satırda, num adlı parametrenin değerini alır, bu değeri 2 ile çarpar ve sonucu return ifadesiyle geri döndürür. Yani, bu satır fonksiyonun ana işlevini gerçekleştirir.<br><br>
+			
+print(double.__doc__)<br>
+Bu satır, double fonksiyonunun docstring'ini (belge dizesi) ("""double değer hesaplayan fonksiyon""") ekrana yazdırmak için kullanılır. double.__doc__, fonksiyonun docstring'ini elde etmek için kullanılan özel bir özelliktir.<br><br>
+			
+print(double.__doc__) satırı, double fonksiyonunun docstring'ini yazdırır.
+Docstring (belge dizesi), """double değer hesaplayan fonksiyon""" olarak tanımlanmıştır.<br><br>
+     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Aşağıdaki seçeneklerden hangisi Python programlama dilindeki standart veri türlerinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Numbers (Sayılar) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> String (Karakter Dizisi) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> List (Liste) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Tuple (Demet) </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Vector (Vektör) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      Python programlama dilinde;<br><br>
+- Numbers (Sayılar), <br>
+- String (Karakter Dizisi), <br>
+- List (Liste), <br>
+- Tuple (Demet),<br>
+- Dictionary (Sözlük) <br><br>
+olmak üzere beş standart veri türü bulunmaktadır.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> print(1, 2, 3, 4, sep='#', end='!')<br><br>
+
+Yukarıdaki Python kod parçasının çıktısı aşağıdaki seçeneklerden hangisinde doğru olarak verilmiştir? </p>
+	<span class="option" data-correct="true"><b>A)</b> 1#2#3#4! </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 1 2 3 4 # ! </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 1#!2#!3#!4#! </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 1!2!3!4!# </span><br>
+	<span class="option" data-correct="false"><b>E)</b> #1234! </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      1, 2, 3 ve 4, print fonksiyonuna yazdırılacak olan dört ayrı sayıdır.<br><br>
+sep='#' argümanı, bu dört sayı arasında kullanılacak ayraçdır. Yani, sayılar arasında # karakteri kullanılacak.<br><br>
+end='!' argümanı ise print fonksiyonunun çıktısının sonunda kullanılacak karakterdir. Yani, tüm çıktının sonunda bir ünlem işareti (!) olacaktır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> x = 123.456789<br>
+print('x değeri %3.4f' %x)<br><br>
+
+Yukarıdaki Python kod parçasının çıktısı aşağıdaki seçeneklerden hangisinde doğru olarak verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 123.45 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 123.457 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 123.4568 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 123.45679 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 123.456789 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      String ifadeler “%” operatörü yardımıyla da biçimlendirilebilir. Virgülden sonra kaç değerin yazdırılması
+isteniyor ise .f kullanırız.<br>
+<br>
+Kodun açıklaması:<br><br>
+x adlı değişken, 123.456789 ondalık sayısını içerir.<br><br>
+
+'x değeri %3.4f' stringi, bir formatlama dizesidir. Bu dize içinde yer alan %3.4f, bir formatlama işareti (placeholder) olarak kullanılır ve bir ondalık sayının formatını belirtir.<br><br>
+
+%3.4f formatlama işareti aşağıdaki gibi açıklanabilir:<br><br>
+
+%: Formatlama işareti başlangıcı.<br><br>
+3: Minimum alan genişliği. Bu, sayının sol tarafındaki boşlukların sayısını belirtir. Burada 3 kullanıldığı için sayının sol tarafında en az 3 karakterlik bir alan oluşturulur. Sayının kendisi daha az karakterliyse, boşluklar eklenir.<br><br>
+.: Kesirli kısmın başlangıcı.<br><br>
+4: Kesirli kısım için kaç basamağın gösterileceğini belirtir. Burada 4 kullanıldığı için 4 basamaklı bir ondalık sayı gösterilir.<br><br>
+f: Ondalık sayı formatı belirtilir.<br><br>
+% x: Bu işareti kullanarak, x değişkeninin değeri formatlama dizesine yerleştirilir. %3.4f formatlama işareti, x değerini bu belirtilen formata dönüştürür ve sonucu ekrana yazdırır.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> I. a or b bitsel bir işlemdir<br>
+II. a % b aritmetik bir işlemdir<br>
+III. a == b karşılaştırma işlemidir<br><br>
+Python programlama dilinde yapılan yukarıdaki seçeneklerdeki işlemlerden hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="true"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      Python'da or, mantıksal bir operatördür ve iki veya daha fazla mantıksal değeri karşılaştırmak için kullanılır.<br><br>
+"bitsel işlem" olarak da bilinen bit düzeyinde işlemler için | operatörü kullanılır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Python programlama dilinde, ............ operatörleri “in” ve “not in” olarak tanımlanmıştır. Bir dizide (string, list, tuple, set ve dictionary) bir değerin veya değişkenin bulunup bulunmadığını test etmek için kullanılırlar.<br><br>
+Yukarıdaki tanımda boş bırakılan yere aşağıdaki operatör türlerinden hangisi gelmelidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kimlik operatörü </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Üyelik operatörü </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Karşılaştırma operatörü </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kontrol operatörü </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bitwise (Bitsel) operatör </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> Python  programlama dili ile ilgili olarak, aşağıdaki bilgilerden hangisi doğru <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Kullanımı ücretsizdir ve kaynak kodu GNU Genel Kamu Lisansı (GPL) altında kullanılmaktadır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Platformlar arası bir programlama dilidir, tüm güncel işletim sistemlerinde çalıştırılabilir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bazı diğer diller gibi derleme (compilation) ve çalıştırma (execution) şeklinde ayrı adımları yoktur, yorumlayıcı tarafından satır satır çalıştırılır. </span><br>
+	<span class="option" data-correct="true"><b>D)</b> İsmini bir yılan türünden alır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Ticari veri tabanı uygulamalarını destekler. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      Python programlama dili, Guido van Rossum tarafından <u><strong>1990</strong></u> yılında tasarlanmaya başlanmıştır. Bu programlama dili ismini de sanıldığı gibi bir yılan cinsinden değil, Monty Python’s Flying Circus isimli skeç ve çizgi film sahnelerinden oluşan 45 bölümlük diziyi sergileyen <u><strong>Monty Python adlı altı kişilik bir İngiliz komedi grubundan almıştır.</strong></u>     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> İşletim sistemi üzerinde bir terminal penceresi açarak “python” komutunun girilmesi durumunda, konsol ekranında güncel sürümünüz ve sürümün yayınlanma tarihini takiben “&gt;&gt;&gt;” karakterleri ile başlayan bir satır görülür. Açılan bu ekrana ne ad verilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Immediate mode </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Launchpad </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Cmd </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Metin editörü </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Komut istemi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Programlama dilinden bağımsız olarak, uygulama geliştirme için programcıya kod ipuçları, sözdizimi vurgulama ve denetleme, dosya gezgini vb. gibi yararlı özellikler barındıran, kodun daha hızlı ve kolay bir şekilde tamamlanmasını sağlayan yazılımlara ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Immediate mode </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Tanımlayıcı </span><br>
+	<span class="option" data-correct="true"><b>C)</b> IDE - (Integrated Development Environment - Tümleşik Geliştirme Ortamı) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Anahtar kelime </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kod dokümantasyonu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> Python dilinde kullanılan tanımlayıcılar ile ilgili olarak aşağıdakilerden hangisi <u><strong>söylenemez?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Anahtar kelimeler tanımlayıcı olarak kullanılamaz. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bir tanımlayıcı bir rakamla başlayamaz. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Türkçe karakterler kesinlikle kullanılamaz. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Büyük ve küçük harfler ve rakamlar kullanılabilir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Alt çizgi (_) karakteri kullanılabilir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      Python 3 sürümünden
+itibaren Unicode (UTF-8) desteği sağlamaktadır. Böylece hem verilerde hem de program içerisinde kullanılan değişken, metot ve sınıf isimlendirmelerinde Türkçe karakterler kullanılabilmektedir     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> Aşağıda görülen Python dilinde yazılmış kod satırında, “Eskişehir” değeri hangi değişkene atanmıştır?
+sayi1, sayi2, metin1, metin2 = 56, 11, "Eskişehir", “Çorlu” </p>
+	<span class="option" data-correct="false"><b>A)</b> sayi1 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> sayi2 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> metin1 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> metin1 ve metin2 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Tüm değişkenler </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> demetim = ( 1 , “papatya”, “yabani” )<br>
+listem = [ 1, “karanfil”, “kırmızı”, 11.25 ]<br><br>
+
+Python dilindeki Tuple (Demet) veri türü, farklı tipteki verilerin bir araya getirildiği List (Liste) veri tipine benzer bir yapıdır. <br><br>
+Yukarıdaki kodda Tuple veri türünde “demetim” isimli değişken ve List veri tipinde “listem” isimli değişkenler tanımlanmıştır. Bu değişkenlerin tipleri göz önüne alıdığında, seçeneklerde yer alan kod parçalarından hangisi bir hata mesajı döndürecektir? </p>
+	<span class="option" data-correct="false"><b>A)</b> print("demetim[1] = ", demetim[1]) </span><br>
+	<span class="option" data-correct="true"><b>B)</b> demetim[1] =  “kasımpatı” </span><br>
+	<span class="option" data-correct="false"><b>C)</b> print("demetim[0:2] = ", demetim[0:2]) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> print("listem [0:3] = ", listem [0:3]) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> listem[2]= “beyaz” </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      B seçeneğindeki kod parçası, "demetim" adlı Tuple'ın 1. elemanını "kasımpatı" olarak değiştirmeye çalışır. Ancak Tuple'lar, değiştirilemez (immutable) veri türleri olarak bilinirler. Bu nedenle Tuple'ların elemanlarına sonradan müdahale edilemez. Bu kod hata üretecektir.     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> en = 12<br>
+boy = “10”<br>
+
+yükseklik = “60”<br>
+
+hacim = en * boy * yükseklik<br>
+
+print("Odanın hacmi:",hacim)<br><br>
+
+Yukarıdaki kodda, en, boy ve yükseklik isimli değişkenlerin çarpılarak sonucun hacim değişkenine atandığı görülmektedir. Ancak bu işlem gerçekleştirilemeyecek ve sonucunda bir hata mesajı alınacaktır. Bunun sebebi nedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Python dilinde rakamsal değerlerin tümü çift tırnak (“”) işareti içinde verilmelidir. En değişkeni bu şekilde tanımlanmamıştır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yükseklik değişken ismi Türkçe’ye özgü karakter olan ü harfini içerir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Python dilinde  çarpma işlemi için x karakteri kullanılmalıdır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Python dilinde çıkış işlemleri için (print) işlevi kullanılmaz. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Python, aritmetik işlemler yaparken string (metin dizisi) türündeki değişkenlere örtülü (Implicit) tür dönüşümü uygulamaz. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      Sorunun oluşmasının nedeni, "boy" ve "yükseklik" değişkenlerinin string (metin) türünde olmalarıdır. Python, string ve sayıları doğrudan çarpma işlemine tabi tutmaz ve bu tür bir işlemde hata alırsınız. Bu nedenle, "boy" ve "yükseklik" değişkenlerini sayısal değerlere dönüştürmek gereklidir.<br><br>
+
+Doğru kod bloğu şöyle olmalıydı:<br><br>
+en = 12<br>
+boy = 10<br>
+yükseklik = 60<br>
+hacim = en * boy * yükseklik<br>
+print("Odanın hacmi:", hacim)
+    </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> en = 12<br>
+boy = 10<br>
+
+yükseklik = “60”<br>
+
+"""Programın doğru çalışması için eklenecek kod burada yer almalıdır."""<br>
+
+hacim = en * boy * yükseklik<br><br>
+
+Yukarıdaki kodda, en, boy ve yükseklik isimli değişkenlerin çarpılarak sonucun hacim değişkenine atandığı görülmektedir. Ancak bu işlem gerçekleştirilemeyecek ve sonucunda bir hata mesajı alınacaktır. Bu programın doğru çalışması için düzenlenmesi gereken kod parçası aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> en = str(en)<br>
+boy = str(boy)
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> en = int(en)<br>
+boy = int(boy)
+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> en = str(en)<br>
+boy = str(boy)<br>
+yükseklik = int(yükseklik)
+ </span><br>
+	<span class="option" data-correct="true"><b>D)</b> yükseklik = int(yükseklik) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> yükseklik = str(yükseklik) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      Çözüm D şıkkıdır. C ve D şıkkı aynı değildir. En ve boy un str ile işleme alınması onu sayısal değil karaktere dönüştürür. Bu durumda hata oluşur en uygun seçenek D dir yani yüksekliği sayıya çevirmektir.      </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> x = 34<br>
+y = 26<br>
+
+# I<br>
+print('x &gt; y is',x&gt;y)<br><br>
+
+#II<br>
+print('x &lt; y is',x<br><br>
+
+#III<br>
+print('x == y is',x==y)<br><br>
+
+#IV<br>
+print('x != y is',x!=y)<br><br>
+
+#V<br>
+print('x &gt;= y is',x&gt;=y)<br><br>
+
+#VI<br>
+print('x &lt;= y is',x&lt;=y) <br><br>
+
+
+Yukarıda sayısal değerler atanmış olan x ve y değişkenleri üzerinde, karşılaştırma operatörleri aracılığı ile işlemler gerçekleştirilmiştir. Bu işlemler, I’den VI’ya kadar numaralandırılmıştır. <br><br>
+Buna göre hangi işlemler “FALSE” sonucunu döndürecektir? </p>
+	<span class="option" data-correct="true"><b>A)</b> II, III ve VI
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I, IV ve V
+
+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> II ve IV
+
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve V
+
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sadece V </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> Python programlama dili hangi programlamaları destekler? </p>
+	<span class="option" data-correct="true"><b>A)</b> Python, nesne tabanlı programlamanın yanında, fonksiyonel programlamayı da destekleyen, geniş kullanım alanına sahip bir programlama dilidir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Python hangi avantajları dolayısıyla öne çıkmaktadır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Diğer dillere göre daha kolay olması, dinamik bir yapıya sahip olması ve geniş bir kütüphaneye sahip olması gibi nedenlerle günümüzde veri işleme gibi alanlarda oldukça popülerleşmiş ve geniş bir kullanıcı kitlesine ulaşmıştır. Python’un standart kütüphanesine, diğer bir çok kütüphane ve geliştirme araçlarına, lisansa ihtiyaç duyulmadan ücretsiz bir şekilde ulaşılabilmektedir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Python programlama dilinin ilk versiyonu hangi yılda piyasaya çıkmıştır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Ocak 1994’te 1.0 versiyonu çıkan Python dilinin 2.0 versiyonu Ekim 2000’de, 3.0 versiyonu ise Aralık 2008’de piyasaya çıkmıştır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> Python hangi işletim sistemlerinde çalışabilmektedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Python, platformlar arası bir programlama dilidir, yani Microsoft Windows, Linux ve MacOS gibi farklı işletim sistemlerinde çalışabilmektedir. Tüm ticari veritabanı uygulamalarını destekler. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Python programlama dilinde kodlar nasıl çalıştırılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Kodlar satır bazlı derlenerek çalıştırılır. Yani diğer çoğu dil gibi satır sonlarındaki “;” gibi işaretleri dikkate alarak çalışmaz. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> Python yorumlayıcısı işletim sistemine kurulduktan sonra, uygulama geliştirmek için nasıl bir arayüze ihtiyaç vardır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Python yorumlayıcısı işletim sistemine kurulduktan sonra, uygulama geliştirmek için bir arayüze yani IDE (Integrated Development Environment - Tümleşik Geliştirme Ortamı) ihtiyaç duyulmaktadır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> Python programlama dilinde anahtar kelimeler ve tanımlayıcılar nasıl kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Python programlama dilinde anahtar kelimeler değişken adı, işlev/fonksiyon adı veya başka bir tanımlayıcı olarak kullanılamaz. Python dilinin söz dizimini ve yapısını tanımlamak için kullanılırlar. Python dilinde anahtar kelimeler büyük/küçük harf duyarlıdır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Python tanımlayıcı yazma kuralları nelerdir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Tanımlayıcılar, küçük harf (a’dan z’ye) veya büyük harf (A’dan Z’ye) veya rakamlardan (0 ila 9) veya alt çizgi _’den oluşan bir harf kombinasyonu olabilir.<br><br>
+
+myClass, var_1 ve print_this_to_screen gibi isimlendirmelerin tümü geçerli örneklerdir.<br><br>
+
+Bir tanımlayıcı bir rakamla başlayamaz.<br>
+		
+1değişken geçersiz, ancak değişken1 geçerli bir isimlendirmedir.<br><br>
+
+Anahtar kelimeler tanımlayıcı olarak kullanılamaz. Bu şekilde kullanıldığında, kod yorumlanırken geçersiz sözdizimi hatası verecektir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> C, C++ ve Java gibi programlama dillerinin çoğunda, bir kod bloğunu tanımlamak için { } ayraçları kullanılırken Python programlama dilinde ne kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Python programlama dilinde girinti kullanır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> Python programlama dilinde, yorum yazmaya başlamak için hangi sembol kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Python programlama dilinde, yorum yazmaya başlamak için hash (#) sembolü kullanılmaktadır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> Python programlama dilinde değer atamasının avantajları nelerdir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Python dilinde birden fazla değişkene aynı değer atanabilir. Aynı zamanda birden çok değişkene birden çok değer de atanabilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> Nesne yönelimli programlamada ne tür atamalar yapılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Nesne yönelimli programlamada iki tür atamadan bahsedilebilir. Biri değer tabanlı atama, diğeri de adres tabanlı atamadır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> Python programlama dilinde sabit kavramı nasıldır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Python programlama dilinde sabit kavramı yoktur. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> Python’da standart veri türleri nelerdir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Python’da beş standart veri türü vardır. Bunlar:<br><br>
+
+Numbers (Sayılar)<br>
+String (Karakter Dizisi)<br>
+List (Liste)<br>
+Tuple (Demet)<br>
+Dictionary (Sözlük) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> Python programalama dilinde uzun tam sayılar nasıl görüntülenir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Python, uzun tam sayıları büyük L harfiyle görüntüler. Küçük “l” harfi kullanılmasına izin verir, ancak 1 sayısıyla karıştırılmaması için yalnızca büyük “L” harfi kullanılması önerilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> Python’da artı (+) ve yıldız (*)  işaretleri ne operatörleri olarak işlev görür? </p>
+	<span class="option" data-correct="true"><b>A)</b> Artı (+) işareti metin dizesi birleştirme operatörü, yıldız işareti (*) ise tekrarlama operatörü olarak işlev görmektedir. ()aritmatik operatör olarak kullanımları ise toplama ve çarpmadır </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> Python programlama dilinde listeler nasıl oluşturulur? </p>
+	<span class="option" data-correct="true"><b>A)</b> Listeler string, tamsayı, ondalık sayı, tuple ve liste elemanlarından oluşabilir. Liste veri tipi değiştirilebilir (mutable) bir yapıya sahiptir. Yani bu veri tipine eleman ekleme, çıkartma ve güncelleme işlemleri yapılabilmektedir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> Python’da sözlükler nasıl tanımlanır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Python’da sözlükler, her öğe anahtar:değer biçiminde bir çift olacak şekilde süslü parantezler { } içinde tanımlanır. Değer kısmı herhangi bir veri tipinden değer alabilirken, anahtar kısmı sadece string ve int değerler alabilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> Python programlama dilinde kaç tip tür dönüşümü vardır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Python’da iki tip tür dönüşümü vardır:<br><br>
+Örtülü Tür Dönüşümü (Implicit)<br>
+Açık Tür Dönüşüm (Explicit) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> Python programlama dilinde aritmetik operatörleri nelerdir?
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> <div>
+		
+<table style="border: 1px solid darkred; border-collapse: collapse;">
+ <caption style="caption-side: top;">Aritmatik Operatörler</caption>
+  <tr>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;">Operatör</th>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;">Anlamı</th>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;">Örnek</th>
+  </tr>
+	
+ <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> + </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> İki işlenen veya tekli toplama </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> x + y+ 2 </td>
+
+ </tr>
+
+ <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> - </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Sağ işleneni soldan çıkarma veya tekli çıkarma </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> x - y- 2 </td>
+
+ </tr>
+
+ <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> * </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> İki işleneni çarpma </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> x * y </td>
+
+ </tr>
+
+ <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> / </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Sol işleneni sağa bölün (her zaman kayan nokta ile
+sonuçlanır) </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> x / y </td>
+
+ </tr>
+
+ <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> % </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Mod alma - sol işlenenin sağ tarafından bölümünden
+kalan </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> x % y
+(x/y bölümünden kalan) </td>
+
+ </tr>
+
+ <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> // </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Kat bölümü - soldaki sayının sağdaki sayıya
+bölümünden elde edilen tam sayı sonucu </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> x // y </td>
+
+ </tr>
+
+ <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> ** </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Üs - soldaki sayının sağdaki üs değerini hesaplama </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> x**y (x üssü y) </td>
+
+ </tr>
+
+
+
+
+  
+</table>
+		</div> </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> Python programlama dilinde karşılaştırma operatörleri nelerdir? </p>
+	<span class="option" data-correct="true"><b>A)</b><br>
+
+<strong>&gt; Büyüktür</strong> (Sol işlenen sağdan büyükse doğru) <br>
+<strong>&lt; Küçüktür</strong> (Sol işlenen sağdan küçükse doğru) <br>
+<strong>== Eşittir</strong> (Her iki işlenen de eşitse doğru)<br>
+<strong>!= Eşit değil</strong> (İşlenenler eşit değilse doğru)<br>		
+<strong>&gt;= Büyüktür  veya eşittir</strong> (Sol işlenen sağa eşitse veya büyükse doğru)<br>
+<strong>&lt;= Küçük  veya eşittir</strong> (Sol işlenen sağa eşitse veya küçükse doğru)<br>		
+		
+		</span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question41">
+	<p class="question">Soru 41:<br> Python programlama dilinde mantıksal operatörler nelerdir? </p>
+	<span class="option" data-correct="true"><b>A)</b><br>
+<strong>and</strong> - Her iki işlenen de doğruysa true<br>
+<strong>or</strong> - İşlenenlerden herhangi biri doğruysa true<br>
+<strong>not</strong> - İşlenen yanlış ise true (işlenen değerin tersini verir)</span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description41">Açıklama</button>
+		<div id="description41" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question42">
+	<p class="question">Soru 42:<br> Python programlama dilinde Bitwise (Bitsel) operatörler nelerdir? </p>
+	<span class="option" data-correct="true"><b>A)</b> 
+<div>
+Bitwise operatör, bitler üzerinde çalışır ve bit bit işlem gerçekleştirir. Yani işlem yapılan değerler ikilik tabandaki verilerdir.<br>
+		
+<table style="border: 1px solid darkred; border-collapse: collapse;">
+ <caption style="caption-side: top;">Bitwise Operatörler</caption>
+  <tr>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;">Operatör</th>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;">Anlamı</th>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;">Örnek</th>
+
+  </tr>
+	
+<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> & (AND) </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Her iki işlenende de 1 değeri varsa, sonuca 1
+değerini, değilse 0 değeri atanır </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> (a & b)<br>
+(Değeri 0000 1100) </td>
+
+</tr>
+
+<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> | (OR) </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> İki işlenenden birinde 1 değeri varsa sonuca 1
+değerini kopyalar </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> a | b) = 61<br>
+(Değeri 0011 1101) </td>
+
+</tr>
+
+<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> ^ (XOR) </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Her iki işlenenin değeri aynı ise ilgili bit değerine
+0, farklı ise 1 değerini kopyalar </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> (a ^ b) = 49<br>
+(Değeri 0011 0001) </td>
+
+</tr>
+
+<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> ~ (Tersini Alma) </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Tek işlenenlidir ve bitleri ‘ters çevirme’ etkisine
+sahiptir </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> (~a) = -61<br>
+(Değeri 1100 0011, İşaret
+bitinin aldığı değer nedeniyle
+- işaretli) </td>
+
+</tr>
+
+<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> &lt;&lt; (Sola Kaydırma) </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Sol işlenenlerin değeri, sağ işlenen tarafından belirtilen bit sayısı kadar sola taşınır. </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> a &lt;&lt; 2 = 240 <br>
+(Değeri 1111 0000) </td>
+
+</tr>
+
+<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> &gt;&gt; (Sağa Kaydırma) </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Sol işlenenlerin değeri, sağ işlenen tarafından belirtilen bit sayısı kadar sağa taşınır. </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> a &gt;&gt; 2 = 15 <br>
+(Değeri 0000 1111) </td>
+
+</tr>
+  
+</table>		
+		
+		</div> </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description42">Açıklama</button>
+		<div id="description42" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question43">
+	<p class="question">Soru 43:<br> Python programlama dilinde Atama operatörleri nelerdir?
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> 
+<table style="border: 1px solid darkred; border-collapse: collapse;">
+ <caption style="caption-side: top;">Atama Operatörleri</caption>
+  <tr>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;">Operatör</th>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;">Anlamı</th>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;">Örnek</th>
+
+  </tr>
+	
+<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> = </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> x = 5 </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> x = 5 </td>
+
+</tr>
+
+<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> += </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> x += 5 </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> x = x + 5 </td>
+
+</tr>
+
+<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> -= </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> x -= 5 </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> x = x - 5 </td>
+
+</tr>
+
+<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> *= </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> x *= 5 </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> x = x * 5 </td>
+
+</tr>
+
+<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> /= </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> x /= 5 </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> x = x / 5 </td>
+
+</tr>
+
+<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> %= </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> x %= 5 </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> x = x % 5 </td>
+
+</tr>
+
+
+<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> //= </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> x //= 5 </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> x = x // 5 </td>
+
+</tr>
+
+<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> **= </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> x **= 5 </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> x = x ** 5 </td>
+
+</tr>
+
+<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> &= </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> x &= 5 </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> x = x & 5 </td>
+
+</tr>
+
+<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> |= </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> x |= 5 </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> x = x | 5 </td>
+
+</tr>
+
+<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> ^= </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> x ^= 5 </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> x = x ^ 5 </td>
+
+</tr>
+
+<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> &gt;&gt;= </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> x &gt;&gt;= 5 </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> x = x &gt;&gt; 5 </td>
+
+</tr>
+
+<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> &lt;&lt;= </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> x &lt;&lt;= 5 </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> x = x &lt;&lt; 5 </td>
+
+</tr>
+
+  
+</table> </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description43">Açıklama</button>
+		<div id="description43" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question44">
+	<p class="question">Soru 44:<br> Python programlama dilinde Kimlik operatörleri nelerdir? </p>
+	<span class="option" data-correct="true"><b>A)</b> “is” ve “is not”, Python’daki kimlik operatörleridir. İki değerin (veya değişkenin) belleğin aynı bölümünde bulunup bulunmadığını kontrol etmek için kullanılırlar. İki değişkenin eşit olması, her zaman onların aynı olduğu anlamına da gelmemektedir.<br>
+		
+<table style="border: 1px solid darkred; border-collapse: collapse;">
+ <caption style="caption-side: top;">Kimlik Operatörleri</caption>
+  <tr>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;">Operatör</th>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;">Anlamı</th>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;"> Örnek</th>
+
+  </tr>
+	
+  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> is </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> İşlenenler aynıysa true<br>
+(aynı nesneye atıfta bulunuyorsa) </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> x is True </td>
+
+  </tr>
+  
+  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> is not </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> İşlenenler aynı değilse true<br>
+(aynı nesneye atıfta bulunmuyorsa) </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> x is not True </td>
+
+  </tr>	
+	
+</table> </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description44">Açıklama</button>
+		<div id="description44" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question45">
+	<p class="question">Soru 45:<br> Python programlama dilinde Üyelik operatörleri nelerdir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Python’daki üyelik operatörleri “in” ve “not in” olarak tanımlanmıştır. Bir dizide (string, list, tuple, set ve dictionary) bir değerin veya değişkenin bulunup bulunmadığını test etmek için kullanılırlar. Fakat dictionary tipinde sadece anahtar kelimenin olup olmadığı kontrol edilebilir, değer kontrolü yapılamaz<br>
+
+<table style="border: 1px solid darkred; border-collapse: collapse;">
+ <caption style="caption-side: top;">Üyelik Operatörleri</caption>
+  <tr>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;">Operatör</th>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;">Anlamı</th>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;"> Örnek</th>
+
+  </tr>
+	
+  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> in </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Dizide değer/değişken bulunursa True </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> 5 in x </td>
+
+  </tr>
+  
+  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> not in </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Değer/değişken dizide bulunmazsa True </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> 5 not in x </td>
+
+  </tr>	
+	
+</table>		
+		</span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description45">Açıklama</button>
+		<div id="description45" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+
+		
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

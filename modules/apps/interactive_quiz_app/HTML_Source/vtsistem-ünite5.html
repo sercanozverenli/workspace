@@ -1,0 +1,1662 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          ALGORİTMALAR
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="alg-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="alg-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="alg-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="alg-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="alg-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="alg-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="alg-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="alg-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="alg-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="alg-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB SUNUCU PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wsp-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wsp-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wsp-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wsp-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wsp-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wsp-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wsp-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wsp-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wsp-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wsp-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİ MADENCİLİĞİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="vmaden-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="vmaden-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="vmaden-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="vmaden-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="vmaden-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="vmaden-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="vmaden-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="vmaden-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="vmaden-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="vmaden-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİTABANI SİSTEMLERİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="vtsistem-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="vtsistem-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="vtsistem-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="vtsistem-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="vtsistem-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="vtsistem-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="vtsistem-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="vtsistem-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="vtsistem-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="vtsistem-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMADA YENİ EĞİLİMLER
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="prgyenieğilim-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="prgyenieğilim-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Veritabanı Sistemleri - Ünite 5 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	<button class="block-group" data-start="40" data-end="59">Part 3</button>
+  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Aşağıdakilerden hangisi Veri Tanımlama Dili ile ilişkili <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Tablo oluşturma </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Mevcut bir tablonun bir alanını silme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veritabanı üzerinde kullanıcı yetkisi oluşturma </span><br>
+	<span class="option" data-correct="true"><b>D)</b> XML’e veri aktarma </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Saklı yordam silme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Aşağıdakilerden hangisi veri tanımlama dili kapsamında veritabanında gerçeklenir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Sorgu optimizasyonu </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Saklı yordamın çağrılması </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tabloya ait verilerin listelenmesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kullanıcı haklarının tanımlanması </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Bir tablo ile ilgili sonradan kısıt eklenmesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Veri Tanımlama Dili ile ilgili aşağıdaki ifadelerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Görünüm oluşturulabilir. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Akış kontrolü yapılabilir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ALTER olayını temel alan tetikleyici tanımlanabilir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Tablo’nun bir alanı ile ilgili birincil anahtar tanımlanabilir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Komutları SQL standartlarındadır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> MS SQL Server üzerinde Veri tanımlama dili uygulamalarını yapabilmek için aşağıdakilerden hangisi son kullanıcı için imkan sağlar? </p>
+	<span class="option" data-correct="false"><b>A)</b> Veritabanı motoru servisleri </span><br>
+	<span class="option" data-correct="false"><b>B)</b> SQL Server Replication </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Windows Power Shell 2.0 </span><br>
+	<span class="option" data-correct="true"><b>D)</b> SQL Server Management Studio </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Net Framework </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Bir tabloda herhangi bir alan için mutlaka veri girişi olması isteniyorsa SQL komutu seçeneği olarak aşağıdakilerden hangisi kullanılabilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> NOT NULL </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ALLOW NULLS </span><br>
+	<span class="option" data-correct="false"><b>C)</b> NCHAR </span><br>
+	<span class="option" data-correct="false"><b>D)</b> REFRESH </span><br>
+	<span class="option" data-correct="false"><b>E)</b> NEW DATABASE </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Bir işletme veritabanında müşterileri için; adı, soyadı ve maksimum 5000 olan müşteri sayısı için bir numara vb.
+bilgiler olacak şekilde bir tablo oluşturulmak istensin. Aşağıdakilerden
+hangi veri oluşturma SQL komutu bu talebi tam karşılar? </p>
+	<span class="option" data-correct="false"><b>A)</b> CREATE TABLE<br> "Musteriler"(<br>
+[MusteriID] nchar (10) NULL<br>
+[MusteriAdi] nchar (20) NULL,<br>
+[MusteriSoyadi] nchar (20) NULL,<br>
+CONSTRAINT [PK_Musteri] PRIMARY KEY<br>
+("MusteriID")) </span><br><br>
+	<span class="option" data-correct="false"><b>B)</b> SELECT MusteriID<br>
+FROM Musteriler<br>
+WHERE MusteriID==5000; </span><br><br>
+	<span class="option" data-correct="false"><b>C)</b> CREATE TABLE <br>[Musteriler](<br>
+[MusteriID] int NOT NULL<br>
+[MusteriAdi] nchar (20) NULL,<br>
+[MusteriSoyadi] nchar (20) NULL) </span><br><br>
+	<span class="option" data-correct="false"><b>D)</b> CREATE TABLE<br> [Musteriler](<br>
+[MusteriID] nchar (5) NULL<br>
+[MusteriAdi] nchar (20) NULL,<br>
+[MusteriSoyadi] nchar (20) NULL) </span><br><br>
+	<span class="option" data-correct="true"><b>E)</b> CREATE TABLE<br> [Musteriler](<br>
+[MusteriID" “int” IDENTITY (1, 1)<br>
+NOT NULL,<br>
+[MusteriAdi] nvarchar (20) NULL,<br>
+[MusteriSoyadi] nvarchar (20) NULL,<br>
+CONSTRAINT [PK_Musteri] PRIMARY KEY<br>
+("MusteriID")) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> Bir işletme veritabanındaki tabloda çalışanların vatandaşlık numarası, ad, soyadları ayrı ayrı tutulması planlanmaktadır. Herhangi bir bölümde aynı ad ve soyada sahip kişilerin çalışması istenmiyor. Bu isteği veritabanı üzerinde
+karşılayabilecek en uygun komut aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> IDENTITY </span><br>
+	<span class="option" data-correct="false"><b>B)</b> PRIMARY KEY </span><br>
+	<span class="option" data-correct="true"><b>C)</b> UNIQE </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Attribute </span><br>
+	<span class="option" data-correct="false"><b>E)</b> CHECK </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> Aşağıdakilerden hangisi Yabancı Anahtar (Foreign Key) kullanım amacını en doğru tarif eder? </p>
+	<span class="option" data-correct="true"><b>A)</b> Bir tablodan farklı bir tablodaki alana öznitelik için bağlantı tanımlanmasını sağlar. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Veritabanı yönetim sistemine dış bağlantı sırasında birincil olarak kullanılır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İlişkisel şemanın tablo olarak tanımlanmasını sağlar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> SQL Server Management Studio’nun kullanımı için parola özelliği taşır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Tablodaki satırlar arası veri tekrarını önler. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> E-ticaret hizmeti sunan bir işletme veritabanında müşteriler ile ilgili tabloda kişisel bilgiler içinde doğum tarihi bilgisi de tutulmaktadır. İşletmenin müşteri sayısı milyonun üzerinde olup işletmenin farklı yaş aralıklarındaki müşterilere ait bilgiler için farklı şubelerde gün içinde sürekli belli sorgular ile veritabanında işlemler yapmaktadır. <br>
+<br>
+Bu veritabanında müşteriler tablosu üzerinde olan sorgularda hız artırımı için aşağıdakilerden hangisi kullanılabilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> CASCADE TABLE </span><br>
+	<span class="option" data-correct="true"><b>B)</b> CREATE INDEX </span><br>
+	<span class="option" data-correct="false"><b>C)</b> UNIQE VELOCITY </span><br>
+	<span class="option" data-correct="false"><b>D)</b> DROP TABLE </span><br>
+	<span class="option" data-correct="false"><b>E)</b> CHECK </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse"> İşletmenin müşteri sayısının milyonun üzerinde olması ve farklı yaş aralıklarındaki müşterilere ait bilgilerin veritabanında sürekli olarak sorgulanması durumunda, veritabanı performansını artırmak için indeksleme kullanılabilir.<br><br>
+
+İndeksleme, belirli bir sütun veya sütun kombinasyonunu temel alarak veritabanında bir indeks oluşturmayı sağlar. Bu indeks, verilerin daha hızlı erişilebilir hale gelmesini sağlar ve sorgu işlemlerinin daha verimli çalışmasına yardımcı olur. Özellikle sık kullanılan sorguların hızını artırır.<br><br>
+
+Doğum tarihi bilgisi, müşteriler tablosunda önemli bir sütun olduğu için doğru şekilde indeksleme yapılarak sorgu performansı artırılabilir. CREATE INDEX komutu kullanılarak bu indeks oluşturulabilir. Bu şekilde, işletme sürekli olarak doğum tarihine göre sorgulama yaparken daha hızlı sonuçlar elde edebilir.	</div>
+</div>
+</div>
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Aşağıdaki SQL komutlarından hangisi, veritabanı yönetim sistemlerinde raporlama amaçlı birden fazla tablo üzerinde sorgu oluşturma için kullanılabilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> FOREIGN KEY...REFERENCES </span><br>
+	<span class="option" data-correct="false"><b>B)</b> CREATE DATABASE </span><br>
+	<span class="option" data-correct="false"><b>C)</b> USE </span><br>
+	<span class="option" data-correct="true"><b>D)</b> CREATE VIEW </span><br>
+	<span class="option" data-correct="false"><b>E)</b> CREATE TABLE </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> I. Öznitelik verilerinin değerlerinin ne olacağının SQL’ de tanımlanması gerekir.<br>
+II. SQL, öznitelik değeri olarak NOT NULL kabul edebilir.<br>
+III. Veri tanımlaması gerekli ise ilgili öznitelik için NULL kısıtının tanımlanması gerekir.<br><br>
+Yukarıdaki ifadelerden hangileri doğrudur? </p>
+	<span class="option" data-correct="true"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      SQL, öznitelik değeri olarak NULL kabul edebilir. <br>
+Veri tanımlaması gerekli ise ilgili öznitelik için NOT NULL kısıtının tanımlanması gerekir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> SQL Server yazılımı için kurulum ve yazılım ara yüzleri için aşağıdaki adımlardan hangisi <u><strong>yoktur?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Kurulum (Installation)
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Evrensel Kurallar (Global Rules)
+
+ </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Arayüz Yapılandırması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kurulum Tipi (Installation Type)
+
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Lisanslama (License Terms) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse"> Oluşum Yapılandırması, Sunucu Yapılandırma (Server Configuration) ve Veritabanı Motoru Yapılandırması (Database Engine Configuration) olmak üzere 3 çeşit yapılandırma vardır.<br><br>
+			
+<u><strong>MS SQL Server 2014 Express Kurulum Adımları </strong></u>
+i) Kurulum (Installation) <br>
+ii) Evrensel Kurallar (Global Rules)<br>
+iii) Kurulum Tipi (Installation Type)<br>
+iv) Lisanslama (License Terms)<br>
+v) Özellik Seçimi (Feature Selection)<br>
+vi) Oluşum Yapılandırması (Instance Configuration)<br>
+vii) Sunucu Yapılandırma (Server Configuration)<br>
+viii) Veritabanı Motoru Yapılandırması (Database Engine Configuration)     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Görünüm oluşturmak için komuta aşağıdakilerden hangisi ile başlanmaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> DROP VIEW </span><br>
+	<span class="option" data-correct="false"><b>B)</b> DELETE VIEW </span><br>
+	<span class="option" data-correct="false"><b>C)</b> SHIFT DATABASE </span><br>
+	<span class="option" data-correct="true"><b>D)</b> CREATE VIEW
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> EXECUTE VIEW </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> Bu komut ile mevcut veritabanında bir şema içinde tablolar ve görünümler oluşturulabilir. Bu şema üzerinde farklı kullanıcılara ait yetkiler tanımlanabilir.<br><br>
+Yukarıda hangi DDL komutunun açıklaması verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> CREATE CERTIFICATE </span><br>
+	<span class="option" data-correct="false"><b>B)</b> CREATE INDEX </span><br>
+	<span class="option" data-correct="false"><b>C)</b> CREATE TABLE </span><br>
+	<span class="option" data-correct="true"><b>D)</b> CREATE SCHEMA </span><br>
+	<span class="option" data-correct="false"><b>E)</b> CREATE TRIGGER </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br>  “Anahtar kısıtının özel hali olan birincil anahtar kısıtı ile tablolardaki bir veya daha fazla eşsiz değere sahip olan öznitelikler ............ komutu ile tanımlanabilir.” cümlesinde noktalı yere aşağıdakilerden hangisi gelir? </p>
+	<span class="option" data-correct="true"><b>A)</b> PRIMARY KEY </span><br>
+	<span class="option" data-correct="false"><b>B)</b> DROP INDEX </span><br>
+	<span class="option" data-correct="false"><b>C)</b> CREATE TABLE </span><br>
+	<span class="option" data-correct="false"><b>D)</b> FOREIGN KEY </span><br>
+	<span class="option" data-correct="false"><b>E)</b> DEFAULT </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> MS SQL'de tablo veya görünüm üzerinde ilişkisel index oluşturmak için kullanılan komut aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Create Schema </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Create View </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Create Trigger </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Create Index </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Create Sequence </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> Aşağıdakilerden hangisi (DML Veri İşleme Dili) komutlarından biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> SELECT </span><br>
+	<span class="option" data-correct="false"><b>B)</b> INSERT </span><br>
+	<span class="option" data-correct="false"><b>C)</b> DELETE </span><br>
+	<span class="option" data-correct="false"><b>D)</b> UPDATE </span><br>
+	<span class="option" data-correct="true"><b>E)</b> ALTER </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      CREATE, DROP ve ALTER; DDL (Veri Tanımlama Dili) komutlarıdır.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Aşağıdakilerden hangisi bütünlük kısıtı için kullanılan bir komut <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> SET NULL </span><br>
+	<span class="option" data-correct="false"><b>B)</b> CASCADE </span><br>
+	<span class="option" data-correct="false"><b>C)</b> SET DEFAULT
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> FOREIGN KEY </span><br>
+	<span class="option" data-correct="true"><b>E)</b> PRIMARY KEY </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> Veritabanı yönetim sistemlerinde mevcut verilerin dizin hâline getirilerek istenilen tablo alanlarına daha hızlı ulaşılmasını sağlayan mekanizmalar aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Görünümler </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Fonksiyonlar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tetikleyiciler </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Prosedürler </span><br>
+	<span class="option" data-correct="true"><b>E)</b> İndeksler </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> Veri işleme dilinde verileri güncellemek için aşağıdaki hangi komutlar kullanılmaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Create </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Drop </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Alter </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Update </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Insert </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">       <u><strong>Veri İşleme Dilinde (DML);</strong></u><br>
+veri seçmek için SELECT, <br>
+veri eklemek için INSERT, <br>
+veri silmek için DELETE, <br>
+veri güncellemek için UPDATE 
+
+
+     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Veri tanımlamada kullanılan en temel komut olan CREATE için kullanım öğelerinden biri olan CREATE SEQUENCE aşağıdaki işlemlerden hangisini gerçekleştirmektedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Mevcut veritabanında bir şema içinde tablolar ve görünümler oluşturulabilir. Bu şema üzerinde farklı kullanıcılara ait yetkiler tanımlanabilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Veritabanında asimetrik anahtar oluşturur. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veritabanında yeni bir tablo oluşturur. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İçeriği sorgular ile belirlenen sanal bir tablo oluşturmaktadır. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Dizi üretimi için bir nesne ve özelliklerini oluşturur. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Aşağıdakilerden hangisi MS SQL’de yer alansayısal veri tiplerinden biri değildir? </p>
+	<span class="option" data-correct="false"><b>A)</b> tinyint </span><br>
+	<span class="option" data-correct="false"><b>B)</b> bigint </span><br>
+	<span class="option" data-correct="false"><b>C)</b> float </span><br>
+	<span class="option" data-correct="false"><b>D)</b> decimal </span><br>
+	<span class="option" data-correct="true"><b>E)</b> char </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      Depolanacak tamsayının büyüklüğüne göre <strong><u>tinyint</u></strong> (1 bayt), <u><strong>smallint</strong></u> (2 bayt), <u><strong>int</strong></u> (4 bayt), <u><strong>bigint</strong></u> (8 bayt) veri tipleri bulunmaktadır. Kayan noktalı sayı veri tipinde <u><strong>float</strong></u> (4 bayt) ve <u><strong>real</strong></u> (4 bayt) veri türü ya da kullanıcının ihtiyacına göre basamak sayıları tanımlanabilen <u><strong>decimal</strong></u> ve <u><strong>numeric</strong></u> veri tipleri alanları tanımlamak için kullanılabilmektedir. İkili sayılar veri tipinde, sabit uzunlukta <u><strong>binary</strong></u> ve değişken uzunlukta <u><strong>varbinary</strong></u> veri tipi bulunmaktadır.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> MS SQL’de bir alanın alacağı değerler aşağıdaki komutlardan hangisiyle sınırlandırılabilmektedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> DEFAULT </span><br>
+	<span class="option" data-correct="false"><b>B)</b> IDENTITY </span><br>
+	<span class="option" data-correct="true"><b>C)</b> CHECK </span><br>
+	<span class="option" data-correct="false"><b>D)</b> UPDATE </span><br>
+	<span class="option" data-correct="false"><b>E)</b> FOREIGN KEY </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> MS SQL’de oluşturulan bir görünümün silinmesi için aşağıdaki komutlardan hangisi kullanılmaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> CREATE PROCEDURE </span><br>
+	<span class="option" data-correct="false"><b>B)</b> CREATE VIEW </span><br>
+	<span class="option" data-correct="false"><b>C)</b> DROP PROCEDURE </span><br>
+	<span class="option" data-correct="true"><b>D)</b> DROP VIEW </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ALTER VIEW </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> I. CREATE<br>
+II. GRANT<br>
+III. REKOVE<br><br>
+Yukarıdakilerden hangisi DDL (Veri Tanımlama Dili) komutlarının en temel üç ifadesi olan komutlarından biridir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      DDL komutlarının en temel üç ifadesi CREATE, ALTER, DROP komutlarıdır. Bu komutlar veri tabanı nesneleri üzerinde sırasıyla oluşturma, düzenleme ve silme işlemlerini yerine getirir.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> Veri tanımlama dilinde CREATE TABLE komutu ile hangi kavramların tanımlaması yapılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> İndeks Oluşturma </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Form Oluşturma </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Görünüm Oluşturma
+
+ </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Tablo ve Kısıtların Oluşturulması
+
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Şekil Oluşturma </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      Veri tanımlama dilinde CREATE TABLE komutu ile VTYS’de yeni bir tablo, öznitelikleri ve kısıtların tanımlanması yapılabilir. Tablo oluşturmada alanlar ve veri tipleri ilk olarak belirlenir. Bunun yanı sıra alan kısıtları, birincil anahtar kısıtları ve bütünlük kısıtları da tanımlanabilir.
+
+
+     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br>  Veritabanı yönetim sistemlerinde yer alan CREATE, DROP VE ALTER hangi dile ait komutlardır? </p>
+	<span class="option" data-correct="true"><b>A)</b> DDL </span><br>
+	<span class="option" data-correct="false"><b>B)</b> DML </span><br>
+	<span class="option" data-correct="false"><b>C)</b> DCL </span><br>
+	<span class="option" data-correct="false"><b>D)</b> OCR </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ANSI </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> DDL’ de, tabloların oluşturulması, silinmesi ve bazı temel özelliklerinin düzenlenmesini sağlamak üzere sırası ile hangi komutlar kullanılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> UPDATE-CREATE-DROP </span><br>
+	<span class="option" data-correct="false"><b>B)</b> INSERT-SELECT-ALTER </span><br>
+	<span class="option" data-correct="true"><b>C)</b> CREATE-DROP-ALTER </span><br>
+	<span class="option" data-correct="false"><b>D)</b> REVOKE-DENY-INSERT </span><br>
+	<span class="option" data-correct="false"><b>E)</b> GRANT-REVOKE-DENY </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      DDL’ de, tabloların oluşturulması, silinmesi ve bazı temel özelliklerinin düzenlenmesini sağlamak üzere sırası ile  CREATE, DROP ve ALTER komutları kullanılır.     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br>  Aşağıdakilerden hangisi DML komutlarından biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> SELECT </span><br>
+	<span class="option" data-correct="false"><b>B)</b> INSERT </span><br>
+	<span class="option" data-correct="false"><b>C)</b> DELETE </span><br>
+	<span class="option" data-correct="false"><b>D)</b> UPDATE </span><br>
+	<span class="option" data-correct="true"><b>E)</b> ALTER </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> Sayısal veri tipleri ile ilgili hangisi doğrudur? </p>
+	<span class="option" data-correct="true"><b>A)</b> ayılar veri tipinde, sabit uzunlukta consbinary veri tipi kullanılmaktadır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İkili sayılar veri tipinde, değişken uzunlukta binary veri tipi bulunmaktadır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kayan noktalı sayı veri tipinde int (4 bayt), bigint (8 bayt) veri tipleri bulunmaktadır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sayısal veri tiplerinde tamsayı, kayan noktalı sayılar, nümerik sayılar ve ikili sayılar vb. için tanımlamalar yapılabilmektedir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sayısal veri tipinde değişken uzunluklu veri kümesi saklayan varchar olarak adlandırılır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      Depolanacak tamsayının büyüklüğüne göre <strong><u>tinyint</u></strong> (1 bayt), <u><strong>smallint</strong></u> (2 bayt), <u><strong>int</strong></u> (4 bayt), <u><strong>bigint</strong></u> (8 bayt) veri tipleri bulunmaktadır. Kayan noktalı sayı veri tipinde <u><strong>float</strong></u> (4 bayt) ve <u><strong>real</strong></u> (4 bayt) veri türü ya da kullanıcının ihtiyacına göre basamak sayıları tanımlanabilen <u><strong>decimal</strong></u> ve <u><strong>numeric</strong></u> veri tipleri alanları tanımlamak için kullanılabilmektedir. İkili sayılar veri tipinde, sabit uzunlukta <u><strong>binary</strong></u> ve değişken uzunlukta <u><strong>varbinary</strong></u> veri tipi bulunmaktadır.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> MS SQL sunucusunda yer alan bir veritabanı için bir tablo ve tetikleyici oluşturan yazılımcı aşağıdaki şıklardan hangisinde verilen komutları sırasıyla kullanmıştır? </p>
+	<span class="option" data-correct="false"><b>A)</b> CREATE TABLE, CREATE SCHEMA </span><br>
+	<span class="option" data-correct="false"><b>B)</b> CREATE SCHEMA, CREATE TRIGGER </span><br>
+	<span class="option" data-correct="false"><b>C)</b> CREATE VIEW, CREATE TRIGGER </span><br>
+	<span class="option" data-correct="true"><b>D)</b> CREATE TABLE, CREATE TRIGGER </span><br>
+	<span class="option" data-correct="false"><b>E)</b> CREATE VIEW, CREATE TABLE </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32"> <div class="question">
+	<p class="question">Soru 32:<br> 		
+<table style="border: 1px solid darkred; border-collapse: collapse;">
+  <tr>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;">Uzunluk</th>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;">ASCII</th>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;">UNICODE</th>
+   
+  </tr>
+  <tr>
+    <th style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Sabit Uzunluk </th>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> 1 </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> 3 </td>
+      </tr>
+	
+  <tr>
+    <th style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Değişken Uzunluk  </th>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> 2 </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> 4 </td>
+     </tr>
+</table><br>
+Metin-karakter veri tipleri ile ilgili olarak yukarıda oluşturulan tabloda 1,2,3 ve 4 numaralı boşluklara sırası ile hangi veri tipleri gelmelidir?</p> </div>
+	<span class="option" data-correct="false"><b>A)</b> 1- char, 2-nchar, 3- vrchar, 4-nvarchar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 1- char, 2-nchar, 3- char, 4-nvarchar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 1- nchar, 2-char, 3- nchar, 4-nvarchar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 1- varchar, 2-char, 3- nvarchar, 4-nchar
+
+  </span><br>
+	<span class="option" data-correct="true"><b>E)</b> 1- char, 2-varchar, 3- nchar, 4-nvarchar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      ASCII karakter seti için sabit uzunluklu veri kümesi char ile, değişken uzunluklu veri kümesi varchar ile saklanabilir. <br><br>
+
+Unicode karakter seti için, sabit uzunluklu veri kümesi nchar, değişken uzunluklu veri kümesi nvarchar ile saklanabilir.       </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> Yerel saklı yordam oluşturmaya hangi komut ile başlanır? </p>
+	<span class="option" data-correct="true"><b>A)</b> CREATE PROCEDURE </span><br>
+	<span class="option" data-correct="false"><b>B)</b> CREATE VIEW </span><br>
+	<span class="option" data-correct="false"><b>C)</b> CREATE SCHEMA </span><br>
+	<span class="option" data-correct="false"><b>D)</b> CREATE INDEX </span><br>
+	<span class="option" data-correct="false"><b>E)</b> CREATE TABLE </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> SQL'de içeriği sorgular ile belirlenen sanal bir tablo oluşturmak için aşağıdaki komutlardan hangisi kullanılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Create Schema </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Create Index </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Create View </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Create Table </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Create Trigger </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      Create View     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> Aşağıdakilerden hangisi sayısal veri tipi <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Tam sayı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kayan noktalı sayılar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Nümerik sayılar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İkili sayılar </span><br>
+	<span class="option" data-correct="true"><b>E)</b> ASCII karakter seti </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      ASCII karakter seti genellikle metin-karakter veri tiplerinde kullanılır      </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> Aşağıdakilerden hangi veri tipi ve boyutu doğru verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Tinyint 2 bayt </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Smallint 1 bayt </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bigint  16 bayt </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Float 4 bayt </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Int 8 bayt </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      Tamsayının büyüklüğüne göre<br><br>
+<strong><u>tinyint</u></strong> (1 byte),<br>
+ <u><strong>smallint</strong></u> (2 byte),<br>
+ <u><strong>int</strong></u> (4 byte),<br>
+ <u><strong>bigint</strong></u> (8 byte)<br>
+ <br><br>
+
+Kayan noktalı sayı veri tipinde;<br>
+<u><strong>float</strong></u> (4 byte)<br>
+ <u><strong>real</strong></u> (4 byte)     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> İndeks oluşturma komutunun yazım kuralı aşağıdakilerden hangisinde doğru verilmiştir? </p>
+	<span class="option" data-correct="true"><b>A)</b> CREATE [UNIQUE] INDEX &lt;INDX_ADI&gt; ON &lt;TABLO&gt; (&lt;ALAN&gt; [ASC|DESC]) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> DROP [UNIQUE] INDEX &lt;INDX_ADI&gt; ON &lt;TABLO&gt; (&lt;ALAN&gt; [ASC|DESC]) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> UPDATE [UNIQUE] INDEX &lt;INDX_ADI&gt; ON &lt;TABLO&gt; (&lt;ALAN&gt; [ASC|DESC]) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> CREATE [UNIQUE] TABLE&lt;INDX_ADI&gt; ON &lt;TABLO&gt; (&lt;ALAN&gt; [ASC|DESC]) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> CREATE [UNIQUE] SCHEME &lt;INDX_ADI&gt; ON &lt;TABLO&gt; (&lt;ALAN&gt; [ASC|DESC]) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      Oluşturma Örneği:<br>
+CREATE INDEX INDX_Sevk_Tarihi ON [Siparişler] ([Sevk Tarihi])<br><br>
+Silme Örneği:<br>
+DROP INDEX INDX_Sevk_Tarihi ON [Siparişler]     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> VTYS’de depolanacak tamsayının büyüklüğüne göre tinyint kaç bayta karşılık gelmektedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> 1 Byte  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 2 Byte </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 4 Byte </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 8 Byte </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 16 Byte </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> Veri Tanımlama Dili ilgili hangi bilgi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Ayrı bir dil olup, veritabanı nesnelerinin oluşturulması ve düzenlenmesi işlemlerini yapan SQL’den ayrı bir gruptur. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Veritabanı yönetim sistemi üzerinde gerçeklenmesi ise Veri Tanımlama Dili (DDL-Data Definition Language) ile mümkündür. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veritabanında tablolar, indeksler, görünümler vb. oluşturulabilir, silinebilir veya bazı temel özellikleri düzenlenebilir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> SQL’in gelişim süreci ile beraber DDL komut setlerinde de gelişmeler durmuştur. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> DDL’ de, tabloların oluşturulması, silinmesi CREATE, DROP komutları sırasıyla kullanılır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      DDL ayrı bir dil olmayıp, veritabanı nesnelerinin oluşturulması ve düzenlenmesi işlemlerini yapan Yapılandırılmış Sorgu Dilinin (SQL-Structured Query Language) alt komut grubudur.     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> Tablolardaki bir veya daha fazla eşsiz değere sahip olan öznitelikler hangi komut ile tanımlanabilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> FOREIGN KEY
+
+ </span><br>
+	<span class="option" data-correct="true"><b>B)</b> PRIMARY KEY </span><br>
+	<span class="option" data-correct="false"><b>C)</b> CASCADE KEY </span><br>
+	<span class="option" data-correct="false"><b>D)</b> UPDATE KEY </span><br>
+	<span class="option" data-correct="false"><b>E)</b> FIRST KEY </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question41">
+	<p class="question">Soru 41:<br> Tablolar için, bir alanın eklenmesi veya çıkartılması, bir alanın adının değiştirilmesi, tablodan kısıt çıkartılması veya eklenmesi vb. değişiklikler hangi komut ile yapılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> CHANGE </span><br>
+	<span class="option" data-correct="false"><b>B)</b> SHIFT </span><br>
+	<span class="option" data-correct="false"><b>C)</b> CLUSTER </span><br>
+	<span class="option" data-correct="false"><b>D)</b> COMMUTE </span><br>
+	<span class="option" data-correct="true"><b>E)</b> ALTER </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description41">Açıklama</button>
+		<div id="description41" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question42">
+	<p class="question">Soru 42:<br> SQL'de yazılan ALTER DATABASE Akademi MODIFY NAME=Anadolu; komut satırı aşağıdakilerden hangisini gerçekleştirir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Akademi ve Anadolu olarak iki ayrı veritabanı oluşturur.  </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Akademi isimli veritabanının adını Anadolu olarak değiştirir.  </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Anadolu isimli veritabanının adını Akademi olarak değiştirir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Akademi isimli tablonun adını Anadolu olarak değiştirir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Akademi ve Anadolu tablolarını ilişkilendirir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description42">Açıklama</button>
+		<div id="description42" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question43">
+	<p class="question">Soru 43:<br>  SQL'de Anadolu isimli bir veritabanını silmek için aşağıdaki komutlardan hangisi yazılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Create DATABASE Anadolu </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Use DATABASE Anadolu </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Select DATABASE Anadolu </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Delete DATABASE Anadolu </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Drop DATABASE Anadolu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description43">Açıklama</button>
+		<div id="description43" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question44">
+	<p class="question">Soru 44:<br> Aşağıdakilerden hangisinde veri tabanlarında ihtiyaç olan tekrarlı işlemler veya ortak kullanım için oluşturulan komut kümelerinin adı doğru verilmiştir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Saklı yordam </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İndeks </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Anahtarlar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Görünüm </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Şema </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description44">Açıklama</button>
+		<div id="description44" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question45">
+	<p class="question">Soru 45:<br> 1. Veritabanı oluşturma<br>
+
+2. Veritabanı adını değiştirme<br>
+
+3. Veritabanı silme<br><br>
+
+SQL komutları hangi cevapta doğru sıra ile verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> CREATE, DROP, ALTER </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ALTER, CREATE, DROP </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ALTER, DROP, CREATE </span><br>
+	<span class="option" data-correct="true"><b>D)</b> CREATE, ALTER, DROP </span><br>
+	<span class="option" data-correct="false"><b>E)</b> DROP, ALTER, CREATE </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description45">Açıklama</button>
+		<div id="description45" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question46">
+	<p class="question">Soru 46:<br> Bir dershanede yapılan öğrenci kayıtlarını takip etmek için oluşturulan veritabanında kayıt numaralarının 1000'den başlayarak birer birer artmasını sağlayan SQL komutu hangi cevapta doğru olarak verilmiştir.? </p>
+	<span class="option" data-correct="true"><b>A)</b> [Kayıt No][int] IDENTITY(1000,1) NOT NULL
+
+  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> [Kayıt No][int] IDENTITY(1,1) NOT NULL </span><br>
+	<span class="option" data-correct="false"><b>C)</b> [Kayıt No][money] IDENTITY(1,1000) NOT NULL </span><br>
+	<span class="option" data-correct="false"><b>D)</b> [Kayıt No][int] DEFAULT(1000,1) NOT NULL </span><br>
+	<span class="option" data-correct="false"><b>E)</b> [Kayıt No][int] CHECK(1000,1) NOT NULL </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description46">Açıklama</button>
+		<div id="description46" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question47">
+	<p class="question">Soru 47:<br> Aşağıdaki veri tiplerinden hangisi Veri Tanımlama Dili tablo işlemlerinde depolanacak tamsayının büyüklüğü 4 bayt ise kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> int </span><br>
+	<span class="option" data-correct="false"><b>B)</b> tinyint </span><br>
+	<span class="option" data-correct="false"><b>C)</b> smallint </span><br>
+	<span class="option" data-correct="false"><b>D)</b> bigint </span><br>
+	<span class="option" data-correct="false"><b>E)</b> binary </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description47">Açıklama</button>
+		<div id="description47" class="collapse">      Tamsayının büyüklüğüne göre<br><br>
+<strong><u>tinyint</u></strong> (1 byte),<br>
+ <u><strong>smallint</strong></u> (2 byte),<br>
+ <u><strong>int</strong></u> (4 byte),<br>
+ <u><strong>bigint</strong></u> (8 byte)<br>
+ <br><br>
+
+Kayan noktalı sayı veri tipinde;<br>
+<u><strong>float</strong></u> (4 byte)<br>
+ <u><strong>real</strong></u> (4 byte)     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question48">
+	<p class="question">Soru 48:<br> Sunucu üzerinde tutulan belirli bir görevi yerine getirmek için birden fazla tablo üzerinde işlem yapabilen, program içinden farklı parametreler ile çağrılarak kullanılabilen SQL tabanlı komut kümesi oluşturmak için hangi komut kullanılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Create Table </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Default Check </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Foreign Key </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Create Procedure </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Drop Database </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description48">Açıklama</button>
+		<div id="description48" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question49">
+	<p class="question">Soru 49:<br> MS SQL’de mevcut tablolarda değişiklik yapılabilmesi için aşağıdaki kullanılması gerekmektedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> UPDATE </span><br>
+	<span class="option" data-correct="false"><b>B)</b> CREATE </span><br>
+	<span class="option" data-correct="false"><b>C)</b> COSNTRAINT </span><br>
+	<span class="option" data-correct="true"><b>D)</b> ALTER </span><br>
+	<span class="option" data-correct="false"><b>E)</b> IDENTITY </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description49">Açıklama</button>
+		<div id="description49" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question50">
+	<p class="question">Soru 50:<br> MS SQL tablo, alan ve benzeri kullanıcı tanımı isimleri verirken hangi noktalama işareti kullanılabilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> (.) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> (,) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> (;) </span><br>
+	<span class="option" data-correct="true"><b>D)</b> (“) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> (:) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description50">Açıklama</button>
+		<div id="description50" class="collapse">      MS SQL tablo, alan ve benzeri kullanıcı tanımı isimleri verirken köşeli parantez ([]) ya da çift tırnak (“) kullanılabilir. Özellikle iki kelimeden ya da Türkçe karakterlerden oluşan ifadeler tanımlanırken adların bu semboller içine alınması derleyicinin ifadeleri doğru yorumlamasını sağlar.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question51">
+	<p class="question">Soru 51:<br> SQL'de Öğrenciler tablosuna öğrencinin yaşadığı şehir girdisi için yeni bir alan eklemek istersek aşağıdaki hangi komutu yazmak gerekir?  </p>
+	<span class="option" data-correct="true"><b>A)</b> ALTER TABLE Ogrenciler ADD [Sehir] VARCHAR(20); </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ALTER TABLE Ogrenciler DROP COLUMN [Sehir]; </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ADD TABLE Ogrenciler Alter [Sehir] VARCHAR(20); </span><br>
+	<span class="option" data-correct="false"><b>D)</b> USE TABLE Ogrenciler ADD [Sehir] VARCHAR(20); </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ALTER TABLE Ogrenciler CASCADE [Sehir] VARCHAR(20); </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description51">Açıklama</button>
+		<div id="description51" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question52">
+	<p class="question">Soru 52:<br> SQL'de belirli bir sayıdan başlayıp, belirlediğimiz aralığa göre artan veya azalan bir şekilde sayısal değer üretilmesi isteniyorsa aşağıdaki komutlardan hangisi kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Identity </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Default </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Check </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Alter </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Drop </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description52">Açıklama</button>
+		<div id="description52" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question53">
+	<p class="question">Soru 53:<br> Veri tanımlamada kullanılan en temel komut olan CREATE için MS SQL Server’da kullanılan ve DML, DDL vb. için tetikleyici oluşturan komut aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> CREATE SCHEMA </span><br>
+	<span class="option" data-correct="false"><b>B)</b> CREATE TABLE </span><br>
+	<span class="option" data-correct="false"><b>C)</b> CREATE VIEW </span><br>
+	<span class="option" data-correct="false"><b>D)</b> CREATE INDEX </span><br>
+	<span class="option" data-correct="true"><b>E)</b> CREATE TRIGGER </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description53">Açıklama</button>
+		<div id="description53" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question54">
+	<p class="question">Soru 54:<br> “Veritabanlarında ihtiyaç olan tekrarlı işlemler veya ortak kullanım için oluşturulan komut kümeleridir.”
+Yukarıdaki tanım aşağıdakilerden hangisine aittir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Stored Procedure </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Trigger </span><br>
+	<span class="option" data-correct="false"><b>C)</b> View </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Table </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Stored Function
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description54">Açıklama</button>
+		<div id="description54" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question55">
+	<p class="question">Soru 55:<br> Aşağıdakilerden hangisi veri tutarlılığında kullanılan komutlardan biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Default Check </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Foreign Key </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Create Procedure </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Identity </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Primary Key </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description55">Açıklama</button>
+		<div id="description55" class="collapse">      veri tutarlılığında kullanılan komutlar<br><br>
+DEFAULT,<br> CHECK,<br> IDENTITY,<br>
+PRIMARY KEY,<br> FOREIGN KEY     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question56">
+	<p class="question">Soru 56:<br> Bir okul kütüphanesindeki kitapları öğrencilere verirken kullanılacak veritabanı tasarımında daha hızlı sonuç alabilmek için öğrenci bilgilerinin olduğu tabloda aşağıdaki verilerden hangisine "Create Uniqe Index" komutu uygulanabilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Öğrencinin Anne Adı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Öğrencinin Baba Adı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Öğrencinin Sınıfı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Öğrencinin Şubesi </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Öğrencinin Numarası </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description56">Açıklama</button>
+		<div id="description56" class="collapse">      Create Unique Index komutunun uygulanabilmesi için ilgili alanda tekrarlanmayan değerlerin olması gerekir. Öğrenci bilgilerinin olduğu tabloda öğrenci numarası her öğrenci için tek olacağı için bu değer için indeks oluşturulabilir.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question57">
+	<p class="question">Soru 57:<br> SQL'de veritabanında bir tabloya girilecek yaş değerlerinin 18 ile 65 sayıları arasında olması istenmektedir. Bu kısıtlamayı yapan ifade hangi seçenekte doğru verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> [Yaş] [int] NULL </span><br>
+	<span class="option" data-correct="false"><b>B)</b> [Yaş] [int] NULL DEFAULT (18 &gt;0 AND 0&lt;65)
+
+  </span><br>
+	<span class="option" data-correct="false"><b>C)</b> [Yaş] [char] NULL DEFAULT (18 &gt;0 AND 0&lt;65) </span><br>
+	<span class="option" data-correct="true"><b>D)</b> [Yaş] [int] NULL CHECK (17&lt;yas AND yas&lt;66)
+
+  </span><br>
+	<span class="option" data-correct="false"><b>E)</b> [Yaş] [int] NULL CHECK (17&gt;yas AND yas&gt;66) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description57">Açıklama</button>
+		<div id="description57" class="collapse">      SQL'de Check komutu ile değerlerin kontrolü sağlanabilir. 18 yaşından büyük ve 65 yaşından küçük değerlerin girilebilmesi için yaş değerinin 17'den büyük ve 66'dan küçük olması gerekir.      </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question58">
+	<p class="question">Soru 58:<br> I. CREATE<br> 
+II. GRANT<br> 
+III. REKOVE<br> <br> 
+Yukarıdakilerden hangisi DDL komutlarının en temel üç ifadesi olan komutlarından biridir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description58">Açıklama</button>
+		<div id="description58" class="collapse">      DDL komutlarının en temel üç ifadesi CREATE, ALTER, DROP komutlarıdır.<br>
+<br>
+GRANT, REVOKE, DENY gibi komutlar DCL komutlarıdır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question59">
+	<p class="question">Soru 59:<br> Veri İşleme Dili’nde (DML) veri seçmek için ve veri eklemek için kullanılan komutla sırasıyla aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> CREATE- DROP </span><br>
+	<span class="option" data-correct="true"><b>B)</b> SELECT- INSERT </span><br>
+	<span class="option" data-correct="false"><b>C)</b> SELECT- UPDATE </span><br>
+	<span class="option" data-correct="false"><b>D)</b> UPDATE- DELETE </span><br>
+	<span class="option" data-correct="false"><b>E)</b> INSERT- ALTER </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description59">Açıklama</button>
+		<div id="description59" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question60">
+	<p class="question">Soru 60:<br> SQL (Structured Query Language) diline veritabanı şemalarının yönetimini mümkün kılan alt komut grubu DDL (Data Definition Language) hangi yıl eklenmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 1970 </span><br>
+	<span class="option" data-correct="true"><b>B)</b> 1992 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 1999 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 2003 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 2007 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description60">Açıklama</button>
+		<div id="description60" class="collapse">      SQL’in ilk sürümü 1970’lı yıllarda SEQUEL olarak ortaya çıkmıştır.<br><br>
+1980’li yıllarda ANSI standartlarında tanımlamalar yapılmıştır. <br>
+<br>
+1992 yılında ise SQL için ISO/ANSI standartları tanımlanmıştır. Bu tarihteki standartlar içinde, veritabanı şemalarının yönetimini mümkün kılan DDL özellikleri de eklenmiştir. <br>
+<br>
+1999 yılında bazı nesne tabanlı özellikler ve gömülü SQL özellikleri eklenmiştir. <br><br>
+2003 ve sonraki yıllarda ise XML(Extensible Markup Language) ile ilişkili özellikler SQL standartlarına eklenmiştir. XML için benzeri veri tanımlama dili özellikleri XSD (XML Schema Definition) ile gerçeklenmektedir     </div>
+	</div>
+</div>
+
+		
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+	  
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA II
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama2-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama2-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama2-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama2-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama2-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama2-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama2-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama2-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama2-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama2-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB ARAYÜZ PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİ YAPILARI
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veriyap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veriyap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veriyap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veriyap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veriyap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veriyap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veriyap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veriyap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veriyap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veriyap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          MOBİL UYGULAMA GELİŞTİRME
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="mobilug-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="mobilug-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="mobilug-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="mobilug-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="mobilug-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="mobilug-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="mobilug-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="mobilug-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="mobilug-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="mobilug-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          UNIX SİSTEM YÖNETİMİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="unixsy-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="unixsy-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="unixsy-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="unixsy-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="unixsy-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="unixsy-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="unixsy-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="unixsy-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="unixsy-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="unixsy-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Programlama II - Ünite 4</h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	<button class="block-group" data-start="40" data-end="59">Part 3</button>
+  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> x = 10<br>
+x = float(x)<br>
+print(x, " - ", type(x))<br><br>
+Yukarıda verilen örnek Python kodunun ekran çıktısı, aşağıdaki seçeneklerden hangisinde doğru olarak verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 10 - &lt;class ‘int’&gt; </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 10 - &lt;class ‘float’&gt; </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 10.0 - &lt;class ‘float’&gt; </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 10.0 - &lt;class ‘int’&gt; </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 10.0 - &lt;class ‘double’&gt; </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> pi = 3.14<br>
+r = float(input("yarı çap: "))<br>
+alan = pi * (r ** 2)<br>
+print("alan: "+ str(alan) + " - tipi: ", type(alan) )<br><br>
+Yukarıda verilen örnek Python kodunda yarıçap olarak “10” değeri girildiğinde alınacak ekran çıktısı aşağıdaki seçeneklerden hangisinde doğru olarak verilmiştir? </p>
+	<span class="option" data-correct="true"><b>A)</b> alan: 314.0 - tipi: &lt;class ‘float’&gt; </span><br>
+	<span class="option" data-correct="false"><b>B)</b> alan: 314.0 - tipi: &lt;class ‘double’&gt; </span><br>
+	<span class="option" data-correct="false"><b>C)</b> alan: 314 - tipi: &lt;class ‘int’&gt;  </span><br>
+	<span class="option" data-correct="false"><b>D)</b> alan: 314 - tipi:&lt;class ‘float’&gt; </span><br>
+	<span class="option" data-correct="false"><b>E)</b> alan: 314 - tipi: &lt;class ‘double’&gt; </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      İlk satırda pi = 3.14 ile pi (π) sabitini 3.14 değerine atadık.<br><br>
+
+İkinci satırda kullanıcıdan yarıçapı (radius) girmesini istedik ve bu değeri input() fonksiyonuyla aldık. Ancak input() fonksiyonu kullanıcının girdiğini her zaman bir metin olarak alır. Bu nedenle aldığımız metni float() fonksiyonu ile ondalık bir sayıya dönüştürdük ve bu değeri r değişkenine atadık.<br><br>
+
+Üçüncü satırda dairenin alanını hesapladık ve bu değeri alan adlı bir değişkene atadık. Alan hesaplama formülü şu şekildedir: alan = pi * (r ** 2). Burada pi yukarıda 3.14 olarak tanımlanan sabit değeri, r ise kullanıcının girdiği yarıçapı temsil eder. r nin karesi r ** 2 ile hesaplanır ve bu değer pi ile çarpılarak dairenin alanı hesaplanır.<br><br>
+
+Son satırda print() fonksiyonu ile hesaplanan alanı ve bu değerin veri tipini ekrana yazdırıyoruz. "alan: "+ str(alan) + " - tipi: ", type(alan) ifadesi ekrana alanın değerini ve veri tipini yazdırmak için kullanılır. str(alan) ifadesi alanı bir metin (string) olarak dönüştürür, type(alan) ise alan değişkeninin veri tipini verir.<br><br>
+
+Sonuç olarak, "alan: 314.0 - tipi: &lt;class 'float'&gt;" çıktısını alırız.      </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> I. Boş listeyi belirtmek için bir çift köşeli parantez kullanarak: [ ]<br> 
+II. Köşeli parantez kullanarak, öğeleri virgülle ayırarak: [a], [a, b, c]<br> 
+III.Tip yapıcısını kullanarak: list()<br> <br> 
+Python liste (list) veri tipi için yukarıda verilen maddelerden hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> mesaj = "Python öğrenmekten keyif alıyorum!".split()<br>
+print( mesaj )<br><br>
+Yukarıda verilen örnek Python kodunun ekran çıktısı, aşağıdaki seçeneklerden hangisinde doğru olarak verilmiştir? </p>
+	<span class="option" data-correct="true"><b>A)</b> [‘Python’, ‘öğrenmekten’, ‘keyif’, ‘alıyorum!’] </span><br>
+	<span class="option" data-correct="false"><b>B)</b> {‘Python’, ‘öğrenmekten’, ‘keyif’, ‘alıyorum!’} </span><br>
+	<span class="option" data-correct="false"><b>C)</b> [‘Python’, ‘öğrenmekten’, ‘keyif’, ‘alıyorum’, ‘!’] </span><br>
+	<span class="option" data-correct="false"><b>D)</b> (‘Python’, ‘öğrenmekten’, ‘keyif’, ‘alıyorum!’) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> (‘Python, öğrenmekten, keyif, alıyorum!’) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> I. Genellikle heterojen (farklı) veri türleri için kullanılır<br>
+II. Demet elemanları değiştirilemez ve silinemez<br>
+III.Demet yapısı yinelemeyi desteklemez<br><br>
+Python demet (tuple) veri tipi için yukarıda verilen maddelerden hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      Demet (Tuple) Yapısının Liste (List) Yapısına Göre Avantajları:<br><br>
+Demet yapıları, listelere oldukça benzer olduğundan, her ikisi de benzer durumlarda kullanılır. Ancak, liste yerine bir demet kullanmanın bazı avantajları vardır. Bu avantajlardan bazılarını şu şekilde ifade edebiliriz:<br><br>
+• Genellikle heterojen (farklı) veri türleri için demet yapıları ve homojen (benzer) veri türleri için listeler kullanılır.<br>
+• Demet yapıları değiştirilemez olduğundan, bir demet üzerinden yineleme yapmak liste yapısına kıyasla daha hızlıdır. Yani hafif bir performans artışı vardır.<br>
+• Değişmez öğeler içeren demetler, bir sözlük için anahtar olarak kullanılabilir. Listelerle bu mümkün değildir.<br>
+• Değişmeyen verileriniz varsa, bunları demet yapısında tutmak, yazmaya karşı korumalı kalmasını garanti edecektir.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Python programlama dilinde metin dizileri (string) ile yapılan aşağıdaki işlemlerden hangisi yanlıştır? </p>
+	<span class="option" data-correct="false"><b>A)</b> mesaj = “Programcılığı seviyorum” + “ ve herkese “ + “tavsiye ediyorum :)” </span><br>
+	<span class="option" data-correct="false"><b>B)</b> mesaj = “Üniversitede okuyorum ve “ + str(20) + “ yaşındayım” </span><br>
+	<span class="option" data-correct="true"><b>C)</b> mesaj = ‘Anadolu Üniversitesi’nde okuyorum’ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> mesaj = “””Hepiniz yazılım dünyasına hoş geldiniz!””” </span><br>
+	<span class="option" data-correct="false"><b>E)</b> mesaj = ‘’’Açıköğretim ile kendimi geliştiriyorum’’’ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      Tek tırnak kullanılabilir ancak cümlede de tek tırnak işareti olması sebebiyle soruna sebep olacaktır.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> print("Benim adım {2} {0} ve {1} yaşındayım.".format("Yavaş", 21, "Sami" ))<br><br>
+
+Yukarıda verilen örnek Python kodunun ekran çıktısı, aşağıdaki seçeneklerden hangisinde doğru olarak verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Benim adım 21 Sami ve Yavaş yaşındayım </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Benim adım Yavaş Sami ve 21 yaşındayım </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Benim adım Yavaş 21 ve Sami yaşındayım. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Benim adım 21 Yavaş ve Sami yaşındayım. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Benim adım Sami Yavaş ve 21 yaşındayım </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> I. Sıralanmamış bir öğeler topluluğudur<br>
+II. Her küme elemanı benzersizdir yani tekrar edilemez ve değiştirilemez<br>
+III.Kümeye eleman eklenip çıkarılabilir<br><br>
+Python küme (set) veri tipi için yukarıda verilen maddelerden hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> kume = {"Merhaba", 2.6, (9, 8, 2), 2.6}<br>
+kume.add("Python")<br>
+kume.add(3.10)<br>
+kume.add("Python")<br>
+kume.add("Öğrenmeye devam...")<br>
+kume.remove("Python")<br>
+kume.remove(2.6)<br>
+print(kume)<br><br>
+Yukarıda verilen örnek Python kodunun ekran çıktısı, aşağıdaki seçeneklerden hangisinde doğru olarak verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> {(9, 8, 2), 2.6, 3.1, ‘Python’, ‘Merhaba’, ‘Öğrenmeye devam...’} </span><br>
+	<span class="option" data-correct="true"><b>B)</b> {(9, 8, 2), 3.1, ‘Merhaba’, ‘Öğrenmeye devam...’} </span><br>
+	<span class="option" data-correct="false"><b>C)</b> {(9, 8, 2), 2.6, 3.1, ‘Python’, ‘Python’, ‘Python’, ‘Merhaba’, ‘Öğrenmeye devam...’} </span><br>
+	<span class="option" data-correct="false"><b>D)</b> . {(9, 8, 2), 3.1, ‘Python’, ‘Python’, ‘Python’, ‘Merhaba’, ‘Öğrenmeye devam...’} </span><br>
+	<span class="option" data-correct="false"><b>E)</b> {(9, 8, 2), 3.1, ‘Python’, ‘Merhaba’, ‘Öğrenmeye devam...’} </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      Kümede aynı elemandan birden fazla olamaz. Bu yüzden 2.6 ve Python elemanlarından zaten birer tane bulunabilir. Bunlar da .remove ile silindiği için kümede bu elemanlar bulunmaz.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> fibo = {1:1, 2:1, 3:2, 4:3, 5:5, 6:8, 7:13, 8:21, 9:34, 10:55}<br>
+fibo.pop(7)<br>
+fibo["Son"] = 89<br>
+fibo.pop(5)<br>
+fibo["Kredi"] = 4<br>
+fibo.popitem()<br>
+print(fibo)<br><br>
+Yukarıda verilen örnek Python kodunun ekran çıktısı, aşağıdaki seçeneklerden hangisinde doğru olarak verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> {1: 1, 2: 1, 3: 2, 4: 3, 6: 8, 7:13, 8: 21, 9: 34, 10: 55, ‘Son’: 89} </span><br>
+	<span class="option" data-correct="false"><b>B)</b> {1: 1, 2: 1, 3: 2, 4: 3, 6: 8, 8: 21, 9: 34, 10: 55, ‘Son’: 89, ‘Kredi’: 4 } </span><br>
+	<span class="option" data-correct="false"><b>C)</b> {1: 1, 2: 1, 3: 2, 4: 3, 5:5, 6: 8, 8: 21, 9: 34, 10: 55, ‘Son’: 89} </span><br>
+	<span class="option" data-correct="true"><b>D)</b> {1: 1, 2: 1, 3: 2, 4: 3, 6: 8, 8: 21, 9: 34, 10: 55, ‘Son’: 89} </span><br>
+	<span class="option" data-correct="false"><b>E)</b> {1: 1, 2: 1, 3: 2, 4: 3, 6: 8, 8: 21, 9: 34, 10: 55, ‘Kredi’: 4} </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      Öğeleri Sözlükten Kaldırma<br>
+
+pop() yöntemi kullanılarak sözlükteki belirli bir eleman kaldırılabilir. Bu yöntem, verilen anahtara karşılık gelen öğeyi kaldırır ve değeri döndürür. popitem() yöntemi, sözlükten rastgele bir (anahtar, değer) eleman çiftini kaldırmak ve döndürmek için kullanılabilir. Tüm öğeler clear() yöntemi kullanılarak bir kerede kaldırılabilir. Tek tek öğeleri veya tüm sözlüğün kendisini kaldırmak için del anahtar sözcüğü de kullanılabilir.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> Python dilinde kayan noktalı (float) sayı veri tipi, ondalık sayılar işlemek için kullanılır. Ancak bu veri tipi ile yapılan işlemler beklenenden farklı sonuçlar verebilir. Örneğin 1,1 ve 2,2 sayılarının toplamının 3,3 değerini eşit olması bekleriz, ancak bu değerleri kayan noktalı sayı veri tipinde toplarsak, Python sonucun 3,3’e eşit olmadığını söyler. Bunun sebebi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Python dilinin kendine özgü yapısı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Python dilinin hatalı bir şekilde geliştirilmiş olması </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Bilgisayarların ikili sayı sisteminden kaynaklanan donanımsal kısıtlamaları </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Python dilinin bilgisayarın donanımını doğru kullanamaması </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bilgisayarın kapasitesinin Python dilini çalıştırmak için yetersiz kalması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      Bilgisayarın yalnızca iki tabanındaki sayıları (0 ve 1) anlaması nedeniyle, kayan noktalı sayıların bilgisayar donanımında ikili tabanda kesirler olarak uygulandığı görülmektedir. … bu durum Python’da bir hata değildir, sadece bilgisayar donanım sınırlamasıdır <br><br>
+Sonuç, beklenen 3.3 değil, yaklaşık olarak 3.3000000000000003 olarak hesaplanır. Bu tür sonuçların nedeni, float sayıların kesirli ifadelerle tam olarak temsil edilememesi ve virgülden sonraki kesirli sayılarla ilgili hassasiyet kaybıdır. Bu tür hassasiyet sorunlarını ele almak için özel kütüphaneler veya işlemler kullanabilirsiniz, örneğin decimal kütüphanesi.    </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> Python dilinde kayan noktalı (float) sayı veri tipi, ondalık sayılar işlemek için kullanılır. Ancak bu veri tipi ile yapılan işlemler beklenenden farklı sonuçlar verebilir. Örneğin 1,1 ve 2,2 sayılarının toplamının 3,3 değerini eşit olması bekleriz, ancak bu değerleri kayan noktalı sayı veri tipinde toplarsak, Python sonucun 3,3’e eşit olmadığını söyler.
+
+Bu durumun önüne geçmek için, söz konusu toplama işlemindeki sayılar hangi veri tipinde ifade edilmelidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Float </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Decimal </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Fraction (kesir) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Math </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Int (tam sayı) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> film=["Barış Akarsu Merhaba", "Müjdemi İsterim", "Müstakbel Damat", "Tamirhane", "Hep Yek 5"]<br><br>
+
+Aşağıda yer alan Python kod satırlarından hangisi, yukarıdaki filmler listesi içerisinden birini rastgele olarak seçerek  film ismini döndürür? </p>
+	<span class="option" data-correct="false"><b>A)</b> print(random.shuffle(film))  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> print(random.random())
+ </span><br>
+	<span class="option" data-correct="true"><b>C)</b> print(random.choice(film))  </span><br>
+	<span class="option" data-correct="false"><b>D)</b> print(random.randrange(0, 4))  </span><br>
+	<span class="option" data-correct="false"><b>E)</b> print(film) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      # Dizi den rastgele bir değer döndürür<br>
+print(random.choice( dizi ))<br><br>
+			
+# Diziyi karışık şekilde dizer<br>
+random.shuffle( dizi )<br><br>
+			
+# diziyi ekrana yazar<br>
+print( dizi )<br><br>
+			
+# Rastgele bir değer döndürür<br>
+print(random.random())     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> import random<br> 
+film=["Barış Akarsu Merhaba", "Müjdemi İsterim", "Müstakbel Damat", "Tamirhane", "Hep Yek 5"]<br><br>
+
+Aşağıda yer alan Python kod satırları, yukarıdaki film isimli liste nesnesinden rastgele bir film adını sonuç olarak döndürmektedir. Seçeneklerden hangisi, bu kod parçası ile aynı işlevi yerine <u><strong>getirmez?</strong></u><br><br>
+
+rastgele_film = random.choice(film)<br>
+print(rastgele_film) </p>
+	<span class="option" data-correct="false"><b>A)</b><br> random.shuffle(film)<br>
+rastgele_film = film[0]<br>
+print(rastgele_film)
+ </span><br><br>
+	<span class="option" data-correct="false"><b>B)</b><br> rastgele_film = film<br> [random.randrange(0, 4)]<br>
+print(rastgele_film) </span><br><br>
+	<span class="option" data-correct="true"><b>C)</b><br> random.shuffle(film)<br>
+print(film) </span><br><br>
+	<span class="option" data-correct="false"><b>D)</b><br> print(film <br>[random.randrange(0, 4)]) </span><br><br>
+	<span class="option" data-correct="false"><b>E)</b><br> random.shuffle(film)<br>
+print(film[0]) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      random.shuffle( dizi ) Diziyi karışık şekilde dizer. <br><br>
+Ancak o diziden bir film adını seçmek için başka kod parçasına da ihtiyaç duyulur.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> film=["Barış Akarsu Merhaba", "Müjdemi İsterim", "Müstakbel Damat", "Tamirhane", "Hep Yek 5", “Niloya”, “Aya Sihirli Yolculuk”, “Karlar Kraliçesi ve Prenses”, “Aslan Hürkuş Görevimiz Gökbey”]<br><br>
+
+Yukarıdaki film isimli liste nesnesinde, “Niloya” ile başlayıp listenin sonuna kadar yer alan filmler, çocuklara yönelik, diğerleri ise yetişkinlere uygun filmlerdir. Aşağıdaki kod parçalarından hangisi ile bu listeden yetişkin ve çocuk filmlerinin ayrıldığı iki ayrı liste nesnesi oluşturulmuştur? </p>
+	<span class="option" data-correct="true"><b>A)</b><br> cocuk_film=film[5:]<br>
+yetiskin_film= film[0:5] </span><br><br>
+	<span class="option" data-correct="false"><b>B)</b><br> cocuk_film=film[0:5]<br>
+yetiskin_film= film[5:8] </span><br><br>
+	<span class="option" data-correct="false"><b>C)</b><br> cocuk_film = film[0:5]<br>
+del film[0:5]<br>
+yetiskin_film= film [5:8]
+ </span><br><br>
+	<span class="option" data-correct="false"><b>D)</b><br> film.reverse()<br>
+cocuk_film= film[0:4]<br>
+yetiskin_film= film[0:5]
+ </span><br><br>
+	<span class="option" data-correct="false"><b>E)</b><br> cocuk_film=film[5])<br>
+yetiskin_film=film[1])
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      A'daki kod satırları, çocuklara ve yetişkinlere yönelik filmleri doğru olarak iki ayrı değişkene atar. “Film” isimli listenin 6 sıradaki 5 indeksli elemanı olan “Niloya” ile başlayıp en sona kadar tüm elemanlar “cocuk_film” isimli liste nesnesine, 0 indeksli birinci eleman olan "Barış Akarsu Merhaba" ile başlayıp 4 indeksli beşinci eleman olan "Hep Yek 5" dahil diğer elemanlar “yetişkin_film” isimli liste nesnesine aktarılır.      </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Demet (Tuple) ve Liste (List) Python dilindeki birden fazla eleman içerebilen veri tipleridir ve üzerlerinde benzer işlemler gerçekleştirilebilir. <br><br>
+Aşağıdakilerden hangisi bu veri tiplerinin her ikisi için de kullanılabilen işlem <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Negatif indeksler yolu ile elemanlarına erişilebilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Üzerlerinde yineleme döngüsü (for) işlemleri gerçekleştirilebilir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Dilimleme operatörü (:) kullanılarak içlerindeki bir grup elemana erişilebilir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> del anahtar kelimesi ile tamamen silinebilirler. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> İçindeki elemanların bazıları silinebilirler </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      demet (tuple) tipi veriler istelerden farklı olarak, değişmez yapılardır. Bu, bir demetin elemanları atandıktan sonra değiştirilemeyeceği ya da silinemeyeceği anlamına gelmektedir     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> yaban_demeti = "menekşe", "leylak", "sümbül", "gelincik", "nergis"<br><br>
+
+cicekci_demeti = "gül", "karanfil", "zambak", "lale"<br>
+
+karisik_demet = cicekci_demeti + yaban_demeti<br><br>
+		
+Yukarıda Python programlama dilinde, yaban_demeti ve cicekci_demeti isimleri ile paketlenmiş iki demet (tuple) tipi nesne yer almaktadır. Bu nesnelere dayanarak karisik_sepet nesnesi oluşturulmuştur.<br><br>
+
+Buna göre, seçeneklerde verilen kod ve çıktı eşleşmelerinin hangisi <u><strong>hatalıdır? </strong></u></p>
+	<span class="option" data-correct="false"><b>A)</b> # Değer olarak 9 döndürür<br>
+print(len(karisik_demet)) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> # Değer olarak “sümbül” döndürür<br>
+print(karisik_demet[-3]) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> # Değer olarak “karanfil” döndürür<br>
+print(karisik_demet[1])  </span><br>
+	<span class="option" data-correct="true"><b>D)</b> # Değer olarak “lale” döndürür<br>
+print(karisik_demet[-1]) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> # Değer olarak “gelincik” döndürür<br>
+print(karisik_demet[-2]) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      negatif indislemede -1. indis sondan birinci elemanı. -2. indis ise sondan 2. elemanı gösteriri. Sondan başlatılan indisler baştan başlatılan indislerin aksine 0'dan başlamaz.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Python dilindeki dize (string) veri tipine ilişkin olarak aşağıdakilerden hangisi <u><strong>söylenemez?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> “+” operatörü ile iki veya daha fazla dize birleştirilebilir. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> İndeks kullanılarak bir dize nesnesinin içinde yer alan bir harf değiştirilebilir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bir harf grubunun bir dizede yer alıp almadığı “in” anahtar kelimesi ile test edilebilir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> len() yerleşik fonksiyonu ile kaç karakterden oluştuğu belirlenebilir. 
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> for döngüsü kullanılarak dize değişkeni üzerinde yineleme yapılabilir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      Listeler değiştirilebilir ancak Dizeler (metin dizileri) de tıpkı demetler gibi değişmezdir. Bir dize elemanları atandıktan sonra değiştirilemeyeceği anlamına gelmektedir. Buradaki dizeden kasıt metin dizesidir. Yani "..." içerisinde tanımlanan metinsel dizilerdir.    </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> Elimizde, 3 farklı çiçekçi dükkanında satılan çiçek türlerinin yer aldığı listeler bulunmaktadır. Bazı çiçek türleri birden fazla dükkanda satılmaktadır. Örneğin her üç dükkanda da gül satışı yapılmakta, hem birinci ve hem de üçüncü dükkanda lale bulunmaktadır.<br><br>
+Python dili ile geliştirdiğimiz uygulamada, her bir dükkanda yer alan çiçek türlerini ayrı ayrı bilmemiz, ama aynı zamanda tüm çiçekçilerde satılan çiçeklerin yer aldığı bir ortak çoklu eleman veri nesnesi oluşturmamız gerekmektedir. Bu nesnede her çiçek türü bir kez yer almalıdır.<br><br>
+
+Buna göre, çoklu eleman içeren veri tiplerinden hangisi, çiçekçilerde satılan çiçekleri içeren çoklu elemanlı veri nesnelerini oluşturmak için en uygun veri tipidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Liste (list) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Dize (string) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Demet (tuple) </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Küme (set) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sözlük (Dictionary) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      en kolay çözümü “Küme” veri tipi kullanılmasıdır. union() metodu kullanılarak her bir çiçekçi dükkanı için ayrı ayrı oluşturulan küme tipindeki çoklu elemanlı veri nesneleri birleştirildiğinde, birden fazla dükkanda satılan çiçeklerin yinelenmediği bir küme oluşmuş olur.      </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> kardesler = [{'isim': Neriman', 'yaş': 21},{'isim': Firuzan', 'yaş': 19},{'isim': Altan', 'yaş': 17},{'isim': İlhan', 'yaş': 15},{'isim': Şafak', 'yaş': 12}]<br><br>
+Yukarıdaki değişkende, Python programlama dili veri tiplerinin hangileri kullanılmıştır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Demet (tuple) ve dize (string) </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Liste (list) ve sözlük (dictionary)  </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sadece liste (list) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sadece sözlük (dictionary) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sadece demet (tuple) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      Kardesler = [], tanımlandığı şekli ile  Liste (list) tipi bir değişkendir. Listenin virgülle ayrılmış her bir elemanı, örneğin {'isim': Neriman', 'yaş': 21}, şekli ile anahtar-değer çiftlerinden oluşan sözlük (Dictionary) tipinde değişkenlerdir.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Veri tipleri neye denir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Veri öğelerinin sınıflandırılmasına veya veri değerini bir tür veri kategorisine koymaya Veri Tipleri deni </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Veri tiplerinin görevi nedir? 
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Bir değer üzerinde ne tür işlemlerin yapılabileceğini anlamaya yardımcı olur. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> Temel olarak sayı türleri nelerdir? </p>
+	<span class="option" data-correct="true"><b>A)</b> 1. Integer<br> 
+2. Long Integer <br>
+3. Float <br>
+4. Complex </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Integer sayılar nelerdir? 
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Integer: Pozitif ve negatif işaretli tam sayılardır. Float ile ayrıldıkları yer sayının içinde “.” işaretinin olup olmadığıdır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> Long Integer sayılar nelerdir? 
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Long Integer: Uzun tam sayıları ifade etmektedir. Sekizli ve onaltılı olarak da gösterilebilir. Long veri türü, Integer veri türünün yetersiz kaldığı durumlarda kullanılır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> Complex sayılar nelerdir? 
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Complex: Gerçek (real) ve hayali (imaginary) olmak üzere iki kısımdan oluşan sayı türüdür. x + yj formatında gösterilmektedir. Gerçek kısmı x, hayali kısmı ise y göstermektedir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Bir değişkenin veya bir değerin hangi sınıfa ait olduğunu öğrenmek için ve belirli bir sınıfa ait olup olmadığını kontrol etmek için hangi fonksiyon kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Bir değişkenin veya bir değerin hangi sınıfa ait olduğunu öğrenmek için type() fonksiyonu ve belirli bir sınıfa ait olup olmadığını kontrol etmek için isinstance () fonksiyonu kullanılabilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> Gömülü yazılımlar üzerinde çalışan bilgisayar programcılarının hangi sayı sistemleriyle çalışması gerekir? </p>
+	<span class="option" data-correct="true"><b>A)</b> ikili (2 lik taban), onaltılık (16 lık taban) ve sekizli (8 lik taban) sayı sistemleriyle çalışması gerekir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> Zorlama neye denir?
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Python dilinde, bir sayı türü diğer bir sayı türüne dönüştürülebilir. Bu işleme aynı zamanda zorlama da denilmektedir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> Türler arasında açık bir şekilde dönüştürme yapmak için hangi hazır fonksiyonlar kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> int(), float() ve complex() gibi hazır fonksiyonlar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> Decimal modülü ne zaman kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Decimal modülü, ondalık hesaplama yapmak istendiğinde kullanılır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> Hangi durumlarda float yerine decimal kullanılmaktadır? 
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> 
+• Tam ondalık gösterim gerektiren finansal uygulamalar yaparken<br>
+• Gerekli hassasiyet seviyesi kontrol edilmek istendiğinde<br>
+• Önemli ondalık basamak vurgulanmak istendiğinde </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> Float yani kayan noktalı veri türünden kesir oluştururken karşılaşılan olağandışı sonuçların sebebi nedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Float yani kayan noktalı veri türünden kesir oluştururken bazı olağandışı sonuçlarla karşılaşılabilir. Bu sonuçların sebebi de, ikilik tabanda kayan noktalı sayı gösteriminden kaynaklanmaktadır.  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> Python, math ve random gibi modülleri neden sunar? </p>
+	<span class="option" data-correct="true"><b>A)</b> Python, trigonometri, logaritma, olasılık ve istatistik gibi matematiğin farklı konularında çalışabilmek amacıyla, math ve random gibi modüller sunmaktadır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> Bir liste tanımı yapmanın farklı yolları nelerdir? </p>
+	<span class="option" data-correct="true"><b>A)</b> • Boş listeyi belirtmek için bir çift köşeli parantez kullanarak: [ ]<br>
+• Köşeli parantez kullanarak, öğeleri virgülle ayırarak: [a], [a, b, c]<br>
+• Tip yapıcısını kullanarak: list() veya list(yinelenebilir) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> Python dilinde, liste elemanlarına erişmenin yolları nelerdir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Listedeki bir öğeye erişmek için dizin operatörü [] kullanılabilir. Python’da indeksler 0’dan başlar. Yani, 10 elemanlı bir liste 0’dan 9’e kadar bir indekse (indis) sahip olacaktır. Bu aralıkların dışındaki dizi elemanlarına erişmeye çalışmak, IndexError hatası alınmasına neden olacaktır. İndeks bir tamsayı olmalıdır. Float veya diğer türler kullanılamaz, böyle bir durum TypeError ile sonuçlanacaktır. İç içe listelerde de, iç içe indeks kullanılarak erişilir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> Python dilinde, dilimleme operatörü olarak kullanılan “:” ne işe yarar?  </p>
+	<span class="option" data-correct="true"><b>A)</b> Python dilinde, dilimleme operatörü olarak “:” kullanılmaktadır. Bu operatör sayesinde bir listenin istenilen aralıktaki parçalarına erişilebilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> Python programlama dilinde, listeden bir veya daha fazla eleman nasıl silinir?  </p>
+	<span class="option" data-correct="true"><b>A)</b> Python programlama dilinde, “del” deyimi kullanılarak listeden bir veya daha fazla eleman silinebilir. Bu komut ile tüm liste de silinebilir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> İçeriği verilen elemanı listeden kaldırmak için ne kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> İçeriği verilen elemanı listeden kaldırmak için remove() metodu kullanılabilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> Demetler ve listeler arasındaki fark inedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Python programlama dilinde demet (tuple) yapısı ile liste birbirlerine benzer yapılardır. Demetler de, listeler gibi farklı veri türlerini içerisinde barındıran bir veri yapısıdır. İkisi arasındaki fark ise, bir demet (Tuple) verileri atandıktan sonra elemanlar değiştirilemez, ancak bir listenin elemanları değiştirilebilir. Demetlerde silme, ekleme, indeks değiştirme gibi işlemlere izin verilmez. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question41">
+	<p class="question">Soru 41:<br> Derleyicinin hata vermemesi için paketten çıkarma işlemi yapılırken ne olması gerekir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Atama yapılan eleman sayısı ile demetteki eleman sayısının aynı olması gerekmektedir. Aksi durumda derleyici hata verecektir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description41">Açıklama</button>
+		<div id="description41" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question42">
+	<p class="question">Soru 42:<br> Python, dizileri için negatif indekslemede -1 ve -2 neyi işaret etmektedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Python, dizileri için negatif indekslemeye izin verir. Negatif indekslemede -1 indeksi son elemana, -2 indeksi ise sondan ikinci elemana işaret etmektedir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description42">Açıklama</button>
+		<div id="description42" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question43">
+	<p class="question">Soru 43:<br> <u><strong>Demet (Tuple) Yapısının</strong></u> Liste (List) Yapısına Göre <u><strong>Avantajları</strong></u> nelerdir? </p>
+	<span class="option" data-correct="true"><b>A)</b> • Genellikle heterojen (farklı) veri türleri için demet yapıları ve homojen (benzer) veri türleri için listeler kullanılır.<br>
+• Demet yapıları değiştirilemez olduğundan, bir demet üzerinden yineleme yapmak liste yapısına kıyasla daha hızlıdır. Yani hafif bir performans artışı vardır.<br>
+• Değişmez öğeler içeren demetler, bir sözlük için anahtar olarak kullanılabilir. Listelerle bu mümkün değildir. <br>
+• Değişmeyen verileriniz varsa, bunları demet yapısında tutmak, yazmaya karşı korumalı kalmasını garanti edecektir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description43">Açıklama</button>
+		<div id="description43" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question44">
+	<p class="question">Soru 44:<br> Python’da Bir Dize Nasıl Oluşturulur?
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Dizeler, karakterleri tek tırnak veya çift tırnak içine alarak oluşturulabilir. Python’da üçlü tırnak işaretleri de kullanılabilir, ancak genellikle çok satırlı dizeleri ve belge dizilerini (docstring) temsil etmek amacıyla kullanılır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description44">Açıklama</button>
+		<div id="description44" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question45">
+	<p class="question">Soru 45:<br> Bir Dize Nasıl Değiştirilir veya Silinir?
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Dizeler de tıpkı demetler gibi değişmezdir. Bir dizenin elemanları atandıktan sonra  değiştirilemeyeceği anlamına gelmektedir. Fakat farklı değerleri aynı isimdeki dizelere yeniden atayabiliriz. Böylece dizeyi yeni atanan değer ile değiştirmiş oluruz. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description45">Açıklama</button>
+		<div id="description45" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question46">
+	<p class="question">Soru 46:<br> Sıralanmamış öğeler topluluğuna ne ad verilir?  </p>
+	<span class="option" data-correct="true"><b>A)</b> Bir <u>küme</u>, sıralanmamış bir öğeler topluluğudur. 
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description46">Açıklama</button>
+		<div id="description46" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question47">
+	<p class="question">Soru 47:<br> "Her küme elemanı benzersizdir yani tekrar etmemeli ve değiştirilemez olmalıdır. Ancak, bir kümenin kendisi değişkendir. Ona eleman eklenebilir veya çıkarılabilir" ifadesi doğru mudur? yanlış mıdır?  </p>
+	<span class="option" data-correct="true"><b>A)</b> Her küme elemanı benzersizdir yani tekrar etmemeli ve değiştirilemez olmalıdır. Ancak, bir kümenin kendisi değişkendir. Ona eleman eklenebilir veya çıkarılabilir (doğrudur).  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description47">Açıklama</button>
+		<div id="description47" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question48">
+	<p class="question">Soru 48:<br> Kümeler hangi küme işlemlerini gerçekleştirmek için kullanılabilir? 
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Kümeler aynı zamanda birleşim, kesişim, simetrik fark gibi matematiksel küme işlemlerini gerçekleştirmek için de kullanılabilir. 
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description48">Açıklama</button>
+		<div id="description48" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question49">
+	<p class="question">Soru 49:<br> Python programlama dilinde sözlük ne anlama gelir?  </p>
+	<span class="option" data-correct="true"><b>A)</b> Python programlama dilinde sözlük, sırasız bir eleman koleksiyonudur. Bir sözlüğün her öğesinin bir anahtar/değer çifti vardır. Sözlükler, anahtar bilindiğinde değerleri almak için optimize edilmiş bir veri türüdür. Sözlük, içerisinde farklı veri türleri barındırabilen ve değiştirilebilir (mutable) bir veri türüdür. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description49">Açıklama</button>
+		<div id="description49" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question50">
+	<p class="question">Soru 50:<br> Bir anahtarın sözlükte olup olmadığı nasıl test edilir?  </p>
+	<span class="option" data-correct="true"><b>A)</b> Anahtar sözcüğü kullanılarak </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description50">Açıklama</button>
+		<div id="description50" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

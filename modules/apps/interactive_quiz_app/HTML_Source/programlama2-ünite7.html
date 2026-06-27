@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+	  
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA II
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama2-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama2-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama2-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama2-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama2-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama2-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama2-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama2-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama2-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama2-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB ARAYÜZ PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİ YAPILARI
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veriyap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veriyap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veriyap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veriyap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veriyap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veriyap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veriyap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veriyap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veriyap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veriyap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          MOBİL UYGULAMA GELİŞTİRME
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="mobilug-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="mobilug-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="mobilug-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="mobilug-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="mobilug-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="mobilug-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="mobilug-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="mobilug-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="mobilug-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="mobilug-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          UNIX SİSTEM YÖNETİMİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="unixsy-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="unixsy-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="unixsy-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="unixsy-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="unixsy-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="unixsy-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="unixsy-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="unixsy-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="unixsy-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="unixsy-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Programlama II - Ünite 7 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Python programlama dilinde kullanılan, MySQL
+Connector’ın görevi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Dosya işlemleri modülü </span><br>
+	<span class="option" data-correct="true"><b>B)</b> MySQL sürücüsü </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İnternet bağlantı modülü </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bir python modülü </span><br>
+	<span class="option" data-correct="false"><b>E)</b> SQLite veritabanı bağlantı modülü </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Python programlama dili ile MySQL veritabanı için kod yazarken kullanılacak bir veritabanı oluşturmak için aşağıdaki komutlardan hangisi çalıştırılmalıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> CREATE TABLE </span><br>
+	<span class="option" data-correct="true"><b>B)</b> CREATE DATABASE </span><br>
+	<span class="option" data-correct="false"><b>C)</b> CREATE VIEW </span><br>
+	<span class="option" data-correct="false"><b>D)</b> OPEN DATABASE </span><br>
+	<span class="option" data-correct="false"><b>E)</b> OPEN TABLE </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> cursor = veritabani.cursor()<br>
+calisanTablosu = """CREATE TABLE calisan (<br>
+&emsp; &emsp; isim VARCHAR(30) NOT NULL,<br>
+&emsp; &emsp; soyisim VARCHAR(30),<br>
+&emsp; &emsp; birim VARCHAR(50),<br>
+&emsp; &emsp; maas DOUBLE(10, 2),<br>
+&emsp; &emsp; dogum_tarihi DATETIME<br>
+ )"""<br>
+cursor.execute(calisanTablosu)<br>
+veritabani.close()<br><br>
+Yukarıda verilen örnek Python kodu için aşağıdaki seçeneklerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> calisan isimli bir tablo oluşturulur </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Tabloda birincil anahtar oluşturulmamıştır </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tabloda 5 tane alan vardır </span><br>
+	<span class="option" data-correct="true"><b>D)</b> maas alanı en fazla 8 basamaklı bir sayı girişine izin verir </span><br>
+	<span class="option" data-correct="false"><b>E)</b> soyisim alanı boş bırakılabilir </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      "maas" sütunu toplamda 10 rakam içerecek ve bunlardan 2 tanesi ondalık basamak olacak şekilde tanımlanmıştır.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> MySQL de oluşturulmuş bir tabloya birincil
+anahtar ve otomatik arttırma özelliklerinin eklenmesi için yazılması gereken komut aşağıdaki seçeneklerden hangisinde doğru olarak verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> ALTER TABLE calisan ADD COLUMN id INT PRIMARY KEY </span><br><br>
+	<span class="option" data-correct="false"><b>B)</b> ALTER TABLE calisan ADD COLUMN id INT AUTO_INCREMENT </span><br><br>
+	<span class="option" data-correct="true"><b>C)</b> ALTER TABLE calisan ADD COLUMN id INT AUTO_INCREMENT PRIMARY KEY </span><br><br>
+	<span class="option" data-correct="false"><b>D)</b> ALTER TABLE calisan ADD id INT AUTO_INCREMENT PRIMARY KEY </span><br><br>
+	<span class="option" data-correct="false"><b>E)</b> . ALTER TABLE calisan ADD AUTO_INCREMENT PRIMARY KEY </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> I. Sadece tek tabloya veri girişi yapabilir<br>
+II. Tekli veri girişi yapılabilir<br>
+III.Çoklu veri girişine izin verir<br><br>
+
+INSERT_INTO MySQL komutu için yukarıdaki maddelerden hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> SELECT * FROM ogrenciler WHERE soyisim like ‘%OĞLU’<br> <br> 
+Verilen MySQL komutu için aşağıdaki maddelerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> ogrenciler tablosundan veri sorgular </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Tablodaki tüm alanların döndürülmesini ister </span><br>
+	<span class="option" data-correct="false"><b>C)</b> soyisim alanında ‘OĞLU’ ile biten kayıtları filtreler </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Soyismi ‘OĞLU’ olan öğrencileri filtreler </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Filtreye uyan eleman bulunmazsa boş değer döndürür </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> Tablo verilerinde istenilen filtreleme sonucunu, istenilen sütuna göre artan veya azalan düzende
+sıralama yapmak için kullanılmaktadır.<br><br>
+Yukarıda tanımı verilen MySQL komutu aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> LIMIT </span><br>
+	<span class="option" data-correct="true"><b>B)</b> ORDER BY </span><br>
+	<span class="option" data-correct="false"><b>C)</b> GROUP BY </span><br>
+	<span class="option" data-correct="false"><b>D)</b> SELECT </span><br>
+	<span class="option" data-correct="false"><b>E)</b> WHERE </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> I. Tablodaki verileri siler<br>
+II. Veritabanından tabloyu siler<br>
+III.WHERE filtresi ile kullanılmazsa tablodaki tüm verileri siler<br><br>
+MySQL DELETE komutu için yukarıdaki maddelerden hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve II </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> ............ calisan ............ dogum_tarihi = ‘2000-04-17’ WHERE id = 3<br> <br> 
+Yukarıda verilen MySQL komutunda boş bırakılan yerlere sırasıyla aşağıdaki şıklardan hangisi gelmelidir? 
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> UPDATE, SET </span><br>
+	<span class="option" data-correct="false"><b>B)</b> UPDATE, INTO </span><br>
+	<span class="option" data-correct="false"><b>C)</b> SELECT, INTO </span><br>
+	<span class="option" data-correct="false"><b>D)</b> SELECT, FROM </span><br>
+	<span class="option" data-correct="false"><b>E)</b> DELETE, FROM </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> I. commit() metodu kullanılmayan işlemler
+veritabanına aktarılmaz<br>
+II. WHERE filtresi uygulanmayan UPDATE komutu ile tüm tablo güncellenir<br>
+III.LIMIT ifadesi kullanılmayan sorgu sonucu boş gelir<br><br>
+MySQL veritabanı için yukarı maddelerden hangisi doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      LIMIT komutu, çalıştırılan sorgudan dönen sonuç kümesindeki verilerin sayısını kontrol etmek veya
+sınırlandırmak için kullanılmaktadır. Varsayılan olarak ilk kayıttan itibaren verilen limit değeri kadar veri getirmektedir. Ayrıca OFFSET anahtar kelimesi ile, özel aralıkların da alınabilmesi sağlanmaktadır.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> MySQL sürücüsünün doğru bir şekilde kurulup kurulmadığı aşağıdaki kodlardan hangisi ile kontrol edilebilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> import mysql.connector </span><br>
+	<span class="option" data-correct="false"><b>B)</b> data mysql.connector </span><br>
+	<span class="option" data-correct="false"><b>C)</b> import mysql.connector.connect </span><br>
+	<span class="option" data-correct="false"><b>D)</b> mysql.connector.python </span><br>
+	<span class="option" data-correct="false"><b>E)</b> data mysql.connector. python </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br>  MySQL veritabanında uretim isimli bir tablo oluşturulduğunu varsayalım. Tablo oluşturulduktan sonra bu tabloya yeni bir sütun ilave edileceği zaman hangi komut kullanılır?  </p>
+	<span class="option" data-correct="true"><b>A)</b> cursor.execute ("ALTER TABLE uretim ADD COLUMN id INT AUTO_INCREMENT PRIMARY KEY") </span><br><br>
+		
+	<span class="option" data-correct="false"><b>B)</b>  
+"""CREATE TABLE uretim (<br>
+id INT AUTO_INCREMENT PRIMARY KEY,<br>
+isim VARCHAR(30)<br>
+NOT NULL,<br>
+soyisim<br>
+VARCHAR(30),<br>
+birim VARCHAR(50),<br>
+pozisyon INT,<br>
+dogum_tarihi DATETIME<br>
+)""" </span><br><br>
+		
+	<span class="option" data-correct="false"><b>C)</b> cursor.execute ("ADD CIRCLE uretim ADD COLUMN id INT AUTO_INCREMENT PRIMARY KEY") </span><br><br>
+		
+	<span class="option" data-correct="false"><b>D)</b>  
+"""CREATE TABLE uretim (<br>
+id INT AUTO_INCREMENT PRIMARY KEY,<br>
+isim VARCHAR(30)<br>
+NOT NULL,<br>
+)""" </span><br><br>
+		
+	<span class="option" data-correct="false"><b>E)</b> veritabani.close() </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      Eğer tablo zaten oluşturulmuş ise, tabloya yeni bir sütun ilave etmek için ALTER TABLE komutu kullanılır.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Veritabanındaki tablolara tekli veya çoklu veri kaydı yapabilmek için aşağıdaki komutlardan hangisi kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> sql = "INSERT INTO calisan(isim, soyisim, birim) VALUES (%s, %s, %s)" </span><br>
+	<span class="option" data-correct="false"><b>B)</b> sql = "EXECUTE INTO calisan(isim, soyisim, birim) VALUES (%s, %s, %s)" </span><br>
+	<span class="option" data-correct="false"><b>C)</b> sql = "INSERT DATA calisan(isim, soyisim, birim) VALUES (%s, %s, %s)" </span><br>
+	<span class="option" data-correct="false"><b>D)</b> sql = "EXECUTE DATA calisan(isim, soyisim, birim) VALUES (%s, %s, %s)" </span><br>
+	<span class="option" data-correct="false"><b>E)</b> sql = "EXECUTEMANY calisan(isim, soyisim, birim) VALUES (%s, %s, %s)" </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> import mysql.connector<br>
+veritabani = mysql.connector.connect(<br>
+
+host="localhost",<br>
+
+user="kullanıcı_adı",<br>
+
+password="kurulum_şifresi",<br>
+
+database="personel" )<br>
+
+cursor = veritabani.cursor()<br>
+
+sql = "DROP TABLE IF EXIST calisan"<br>
+
+cursor.execute( sql )<br><br>
+
+Yukarıda yer alan bir kod yazıldığında aşağıdaki işlemlerden hangisi yapılmak istenmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Veri tabanında var olan bir tablodan veri çağırmak. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Veri tabanında var olan bir tabloyu silmek. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veri tabanında var olan bir tabloyu güncellemek. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Veri tabanında var olan bir tablodaki verileri küçükten büyüğe sıralamak. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Veri tabanında var olan bir tablodaki verileri büyükten küçüğe sıralamak. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> Çoğu yazılım veriler üzerinde işlem yapması gerektiği için, programlama dilleri bu veri kaynaklarına erişmek ve depolamak için araçlar sağlamaktadır.<br> <br> 
+Aşağıdakilerden hangisi Python programlama dilinde MySQL ile hazırlanmış veri kaynaklarına erişim için kullanılan sürücü paketlerinden biridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Cursor Execute </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Primary Key </span><br>
+	<span class="option" data-correct="true"><b>C)</b> MySQL Connector </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Inner Join </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Python DB API </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> import mysql.connector<br>
+veritabani = mysql.connector.connect(<br>
+
+host="localhost",<br>
+
+user="kullanıcı_adı",<br>
+
+password="kurulum_şifresi"<br>
+
+)<br>
+
+cursor = veritabani.cursor()<br>
+
+veritabanı_komut= “ ”<br>
+
+cursor.execute("veritabani_komut")<br><br>
+
+Yukarıda verilen kod parçasında, Python programlama dili içerisinden MySQL Connector sürücüsü kullanılarak bir veri bağlantısı nesnesi yaratılmıştır. Son satırda yer alan execute metodu kullanılarak “kitabevi” isimli bir veritabanı yaratmak için, veritabanı_komut değişkeninin değeri olarak ne yazılmalıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> SELECT DATABASE kitabevi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> CREATE TABLE kitabevi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> SELECT TABLE kitabevi </span><br>
+	<span class="option" data-correct="true"><b>D)</b> CREATE DATABASE kitabevi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> CREATE kitabevi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      Python üzerinden “CREATE DATABASE veritabanıAdı” şeklinde komut vererek bir MySQL veritabanı oluşturulabilir.     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> calisanTablosu = """CREATE TABLE calisan (<br>
+id INT AUTO_INCREMENT PRIMARY KEY,<br>
+
+isim VARCHAR(30) NOT NULL,<br>
+
+soyisim VARCHAR(30),<br>
+
+birim VARCHAR(50),<br>
+
+pozisyon INT,<br>
+
+dogum_tarihi DATETIME<br>
+
+)"""<br><br>
+
+Yukarıda yer alan kod parçası, Python programlama dili içerisinden MySQL Connector kullanılarak bağlanılan Personel isimli veri tabanına “calisan” isimli bir tablo eklemek üzere yazılmıştır. Kodun ikinci satırında yer alan ifadenin işlevi nedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Tabloya erişim önceliği tanımak </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Tabloda sadece tam sayı (integer) biçiminde verilerin kaydedilmesini sağlamak </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tabloyu benzersiz kılmak </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Tabloya eklenen verileri listelemek </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Tabloya eklenen her bir kayıt için benzersiz bir birincil anahtar oluşturmak </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      “ … tabloya eklenen her bir kayıt için benzersiz bir anahtar, değer içeren bir sütun da oluşturulmalıdır. Bu sütuna birincil anahtar adı verilmektedir ve sütunda tutulacak veri de “INT AUTO_INCREMENT PRIMARY KEY” ifadesiyle tanımlanmaktadır.”     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> calisanTablosu = """CREATE TABLE calisan (<br>
+
+id INT AUTO_INCREMENT PRIMARY KEY,<br>
+
+isim VARCHAR(30) NOT NULL,<br>
+
+soyisim VARCHAR(30),<br>
+
+birim VARCHAR(50),<br>
+
+pozisyon INT,<br>
+
+dogum_tarihi DATETIME<br>
+
+)"""<br>
+
+cursor.execute(calisanTablosu)<br><br>
+Python programlama dili içerisinden MySQL Connector kullanılarak bağlanılan bir veritabanında aşağıdaki komutla “calisan” isimli bir tablo oluşturulmuştur. Bu tabloya “tcKimlikNo” isimli bir sütun eklemek için aşağıdaki komutlardan hangisi kullanılmaldır? </p>
+	<span class="option" data-correct="true"><b>A)</b> cursor.execute("ALTER TABLE calisan ADD COLUMN tcKimlikNo BIGINT(11)") </span><br>
+	<span class="option" data-correct="false"><b>B)</b> cursor.execute("SELECT TABLE calisan ADD COLUMN tcKimlikNo BIGINT(11)") </span><br>
+	<span class="option" data-correct="false"><b>C)</b> cursor.execute("INSERT calisan ADD COLUMN tcKimlikNo BIGINT(11)")
+
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> cursor.execute("UPDATE calisan ADD COLUMN tcKimlikNo BIGINT(11)") </span><br>
+	<span class="option" data-correct="false"><b>E)</b> cursor.execute("INNER JOIN calisan ADD COLUMN tcKimlikNo BIGINT(11)") </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      “Eğer tablo zaten oluşturulmuş ise, tabloya yeni bir sütun ilave etmek için ALTER TABLE komutu kullanılır.”     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> Aşağıda, Python programlama dili ile MySQL veritabanı üzerinde kayıt işlemleri yapmak üzere cursor metodu için kullanılan bazı komutlar, açıklamalar ile eşleştirilerek verilmiştir. Seçeneklerden hangisindeki açıklama ve komut eşleştirmesi hatalıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> executemany - “insert” sorgusu ile bir kerede birden fazla veri satırı eklemek için kullanılır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> fetchall - “select” sorgusu sonucu veritabanından okunan tüm satırları döndürür. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> fetchone - “select” sorgusu sonucu veritabanından okunan  ilk satırı döndürür. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> rowcount - En son çalıştırılan SQL sorgusundan etkilenen kayıt sayısını döndürür. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> execute - “select” sorgusu sonucu veritabanından okunan tüm satırları siler. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      execute() kullanılarak komut çalıştırılır     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> Python programlama dili ile MySQL veritabanı üzerinde yapılan sorgularda, veritabanındaki veriyi değiştiren INSERT, UPDATE, DELETE gibi işlemlerde mutlaka kullanılması gereken bir metod bulunmaktadır. Bu metod kullanılmadığı takdirde veri tabanında bir değişiklik olmayacaktır. Veritabanı bağlantı nesnesi üzerinde etkili olan bu metod nedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> commit() </span><br>
+	<span class="option" data-correct="false"><b>B)</b> execute() </span><br>
+	<span class="option" data-correct="false"><b>C)</b> executemany() </span><br>
+	<span class="option" data-correct="false"><b>D)</b> fetchall() </span><br>
+	<span class="option" data-correct="false"><b>E)</b> cursor() </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      Veritabanına girilmesi istenen verilerin kaydedilmesi için de veritabani.commit() metodu kullanılmaktadır.<br><br>
+
+veritabani.commit() metodu çağrılmadan tablo üzerinde yapılan işlemler veritabanında güncellenmeyecektir.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> <em>SELECT sütun1, sütun2,...<br>
+FROM tablo1<br>
+
+LEFT JOIN tablo2 ON koşul<br><br></em>
+
+Söz dizimi için aşağıdakilerden hangisi söylenebilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Tablo1 ve Tablo 2'deki verileri döndürmektedir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Tablo1 ile ortak olmayan verileri hariç tutarak, Tablo2’deki verileri döndürmektedir. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Tablo2 ile ortak olmayan verileri hariç tutarak, Tablo1’deki verileri döndürmektedir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Tablo1 ve Tablo2'deki verileri birbirinden ayırmaktadır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Tablo1 ve Tablo2'deki verileri birleştirmektedir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      Join ve Inner Join komutları aynı şekilde çalışmaktadır. Tabloların kesişim elemanlarını döndürür.<br><br>Left Join: Tablo2 ile ortak olmayan verileri hariç tutarak, Tablo1’deki verileri döndürmektedir.
+     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Python programlama dili ile birlikte kullanılabilen MySQL nedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Veritabanı yönetim sistemidir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Veritabanı sürücüsüdür. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veri tablosudur. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Veri girişi arayüzüdür. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Veri bağlantısı arayüzü komutudur. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> Python programlama dili ile MySQL veritabanı üzerine tek bir seferde çok sayıda kayıt girişi yapmak için cursor nesnesi ile beraber kullanılan komut hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> execute </span><br>
+	<span class="option" data-correct="true"><b>B)</b> executemany </span><br>
+	<span class="option" data-correct="false"><b>C)</b> fetchall </span><br>
+	<span class="option" data-correct="false"><b>D)</b> fetchone </span><br>
+	<span class="option" data-correct="false"><b>E)</b> rowcount </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> sql = "SELECT id, isim, soyisim, birim FROM calisan WHERE isim LIKE %s "<br>
+
+arama = ("%ER%",)<br>
+
+cursor.execute( sql, arama )<br><br>
+
+Yukarıda, Python programlama dili ile MySQL veritabanı üzerinde yapılan sorguyu içeren bir kod parçası yer almaktadır. Sorgu sonucunda ismi içerisinde yanyana “ER” harflerinin bulunan kişiler döndürülecektir. <br><br>
+
+Görüldüğü üzere, sorgu ve parametre değerlerini ayırarak sorgu yapılmıştır. Bunun başlıca sebebi nedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kodun yazılmasını ve okunmasını kolaylaştırmak. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> SQL injection ile ortaya çıkabilecek sorunlara karşı korunmak. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Verilerin kullanıcılar tarafından yanlışlıkla silinmesine engel olmak. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Gereken durumlarda SQL injection yapılmasına olanak sağlamak. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kodun güncellenmesi gereken durumlarda kolaylık sağlamak. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">     SQL Injection denilen kavram, yaygın bir web korsanlığı türüdür ve gerekli önlemlerin alınmadığı durumlarda, veri kaybı, kullanıcı ele geçirme gibi can sıkıcı sonuçlara neden olabilir      </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> sql = "SELECT id, isim, soyisim FROM calisan WHERE birim LIKE '%ma%'" cursor.execute( sql )<br> <br> 
+Yukarıdaki örnek kod dikkate alındığında aşağıdaki kod çıktılarından hangisinin ekranda görünmesi beklenir? </p>
+	<span class="option" data-correct="true"><b>A)</b> (11, 'KEVSER', 'URUÇ', 'Ulaştırma') </span><br>
+	<span class="option" data-correct="false"><b>B)</b> (11, 'KEVSER', 'URUÇ', 'İletişim') </span><br>
+	<span class="option" data-correct="false"><b>C)</b> (11, 'KEVSER', 'URUÇ', 'Eğitim') </span><br>
+	<span class="option" data-correct="false"><b>D)</b> (11, 'KEVSER', 'URUÇ', 'Sağlık') </span><br>
+	<span class="option" data-correct="false"><b>E)</b> (11, 'KEVSER', 'URUÇ', 'Denetim') </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      Birim adında "ma" içeren sadece Ulaştırma birimidir.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> Python programlama dilinin MySQL programı ile ilişkisi ile ilgili olarak hangi seçenek doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> MySQL bir Python sürücüsüdür. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Python ile üzerinde işlem yapılacak veriler, MySQL ile depolanan veriler olabilir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> MySQL ile üzerinde işlem yapılacak veriler, Python ile depolanan veriler olabilir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> MySQL ile depolanacak verilere erişmek için Python mutlaka gereklidir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Python ile depolanan veriler üzerinde MySQL ile işlem yapılır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      “MySQL, piyasada kullanılan en popüler açık kaynak kodlu veritabanı yönetim sistemlerinden (DBMS) biri dir. Çoğu yazılım veriler üzerinde işlem yapması gerektiği için, Python gibi programlama dilleri bu veri kaynakları na erişmek ve depolamak için araçlar sağlamaktadır.”     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Veritabanındaki tablolardan veri çekme, filtreleme, veri güncellemesi ve verilerin silinmesi işlemleri esnasında veri tabanı sorgusu hangi komut kullanılarak yapılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> SELECT </span><br>
+	<span class="option" data-correct="true"><b>B)</b> WHERE </span><br>
+	<span class="option" data-correct="false"><b>C)</b> INSERT </span><br>
+	<span class="option" data-correct="false"><b>D)</b> INSERT INTO </span><br>
+	<span class="option" data-correct="false"><b>E)</b> SEARCH </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> cursor.execute( "DELETE FROM calisan WHERE birim = %s", ("Muhasebe",) )<br><br>
+Yukarıda yer alan örnek kodda hangi kısım yazılmazsa tabloda yer alan verilerin tamamı silinir? </p>
+	<span class="option" data-correct="false"><b>A)</b> cursor.execute () </span><br>
+	<span class="option" data-correct="false"><b>B)</b> cursor.execute </span><br>
+	<span class="option" data-correct="false"><b>C)</b> () </span><br>
+	<span class="option" data-correct="true"><b>D)</b> WHERE </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ,) ) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> Python programlama dili ile MySQL veritabanı üzerinde yapılan bir sorguda, iki ayrı tablodaki veri ilişkili sütunlara göre birleştirilerek erişmek istenmektedir. Bunun için hangi yapısal sorgulama dili (SQL) komutu kullanılmalıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> LIMIT </span><br>
+	<span class="option" data-correct="false"><b>B)</b> GROUP BY </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ORDER BY </span><br>
+	<span class="option" data-correct="true"><b>D)</b> JOIN </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ALTER TABLE </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      JOIN komutu ile iki veya daha fazla tablonun verileri, aralarındaki ilişkili sütunlara göre birleştirilir     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> Python kullanılarak MySQL veri tabanına bağlanmak için hangi komuta ihtiyaç duyulur? </p>
+	<span class="option" data-correct="true"><b>A)</b> mysql.connector modülündeki connect() metoduna ihtiyaç duyulmaktadır </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> MySQL veri tabanında bir tablonun var olup olmadığını nasıl kontrol edersiniz? </p>
+	<span class="option" data-correct="true"><b>A)</b> SHOW TABLES komutunu kullanarak MySQL'de bir tablo olup olmadığını kontrol edebilirsiniz.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> Bir tabloda PRIMARY KEY ne işe yarar? Bunun otomatik arttırılması için hangi söz dizini kullanılmalıdır? </p>
+	<span class="option" data-correct="true"><b>A)</b> PRIMARY KEY tabloya eklenen her verinin sadece o veriye ait benzersiz bir anahtar olmasını sağlar. Bunun her yeni eklenecek veriye bağlı otomatik arttırılması için:<br><br>
+
+AUTO_INCREMENT PRIMARY KEY <br><br>
+
+söz dizini kullanılır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> Daha Önce yaratılmış bir veri tabanındaki personel tablosuna Ad = Ali, Soyad = Veli = Birim= Başkanlık değerlerini nasıl eklersiniz?<br><br>
+
+Burada Ad, Soyad ve Tarih sütun verileri olup Ali, Veli, Başkanlık ise değerlerdir. Sadece söz dizimini vermeniz yeterli olacaktır.   </p>
+	<span class="option" data-correct="true"><b>A)</b> INSERT INTO personel (Ad, Soyad, Tarih) VALUES ("Ali", "Veli", "Başkanlık");
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> Bir MySQL veritabanı bağlantısında SELECT komutu ne işe yarar?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Daha önce tabloya girilmiş bir veriyi okumak için kullanılır.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> Bir MySQL veri tabanında personel tablosu aşağıdaki kod bloğundaki gibi yaratılmış olsun<br><br>
+
+CREATE TABLE personel( ad VARCHAR(128), soyad VARCHAR(128), bolum VARCHAR(16), yil CHAR(4)) <br><br>
+
+Bu tablo içerisinde adı Abdullah olan bir kaydı/kayıtları aramak için arama komutunun ne olması gerekir? </p>
+	<span class="option" data-correct="true"><b>A)</b> cursor.execute("SELECT ad, soyad, bölüm, yıl FROM personel WHERE ad = 'Abdullah'")
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> MySQL veri tabanında bir tabloyu silmek için hangi söz dizini kullanılır?
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Drop Table
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> MySQL veritabanında LIMIT komutunun görevi nedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> LIMIT komutu, çalıştırılan sorgudan dönen sonuç kümesindeki verilerin sayısını kontrol etmek veya sınırlandırmak için kullanılmaktadır.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> SQL JOIN komutu nedir ve ne zaman ihtiyacınız olur?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> SQL JOIN komutu, SQL'de iki tablodaki verileri birleştirmek için kullanılır. JOIN yan tümcesi, tablolarda ortak en az bir veri sütunu olduğunda sıklıkla kullanılır.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+
+		
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

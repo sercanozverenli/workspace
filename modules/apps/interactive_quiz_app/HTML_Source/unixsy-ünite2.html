@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+	  
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA II
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama2-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama2-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama2-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama2-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama2-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama2-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama2-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama2-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama2-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama2-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB ARAYÜZ PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİ YAPILARI
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veriyap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veriyap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veriyap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veriyap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veriyap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veriyap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veriyap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veriyap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veriyap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veriyap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          MOBİL UYGULAMA GELİŞTİRME
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="mobilug-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="mobilug-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="mobilug-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="mobilug-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="mobilug-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="mobilug-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="mobilug-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="mobilug-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="mobilug-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="mobilug-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          UNIX SİSTEM YÖNETİMİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="unixsy-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="unixsy-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="unixsy-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="unixsy-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="unixsy-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="unixsy-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="unixsy-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="unixsy-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="unixsy-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="unixsy-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Unix Sistem Yönetimi - Ünite 2 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Aşağıdakilerden hangisi kullanılan bilgisayarda sanallaştırma yolu ile başka işletim sistemini
+çalıştırmak için kullanılan yazılımlardandır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Microsoft Windows </span><br>
+	<span class="option" data-correct="false"><b>B)</b> MacOS </span><br>
+	<span class="option" data-correct="true"><b>C)</b> VirtualBox </span><br>
+	<span class="option" data-correct="false"><b>D)</b> VLC </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Ubuntu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      Piyasada kişisel kullanıma
+yönelik yaygın olarak Vmware ve Oracle tarafından desteklenen VirtualBox sanallaştırma yazılımları kullanılmaktadır. Vmware yazılımı lisanslı bir yazılımdır. VirtualBox ise açık kaynak lisanslı olup ücretsiz olarak kullanılabilmektedir.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Aşağıdakilerden hangisi sanallaştırma yazılımının sağladığı kolaylıklardandır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Ana makinedeki işletim sisteminde bir diğer işletim sisteminin çalıştırılması </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ana makinenin bellek miktarının sanal makine tarafından ayarlanması </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ana makinedeki yazılım paketlerinin sanal makine üzerinden yüklenmesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Ana makinedeki disk türünün sanal makine ile ayarlanması </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Ana makinenin ağ kartlarının sanal makine üzerinden ayarlanması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      VirtualBox’ın sağladığı kolaylıklardan bazıları şunlardır (Coter & Hayler, 2021):<br>
+• Birden çok işletim sistemi aynı anda çalıştırılabilir. Bu sayede ana makineyi yeniden başlatmaya gerek kalmadan Windows işletim sisteminde Linux ya da Linux işletim sisteminde Windows çalıştırılarak bir işletim sistemi için yazılmış yazılım başka işletim sisteminde çalıştırılabilir.<br>
+• Yazılım dağıtıcıları, tüm yazılım yapılandırmalarını önceden yapılandırılarak tek bir paket hâlinde göndermek için sanal makineleri kullanabilir. VirtualBox, birden çok işletim sistemi ve uygulama içeren karmaşık bir mimariyi bir cihazda paketlenmesine olanak tanır.<br>
+• VirtualBox, uygulama oluşturan ve test eden geliştiriciler için önemli bir araçtır. Kurulduktan sonra, sanal bir makine isteğe göre dondurulabilir, uyandırılabilir, kopyalanabilir, yedeklenebilir ve bir cihaz olarak ana bilgisayarlar arasında taşınabilir.<br>
+• VirtualBox, her biri özel bir işletim sistemine sahip ve zaman zaman kullanılan daha fazla fiziksel bilgisayar çalıştırmak yerine, birden çok sanal makinenin tek bir masaüstü veya dizüstü bilgisayarda birleştirilmesine olanak tanır.     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Araçlar menü öğelerinden hangisi ile ana bilgisayardaki tüm sanal makine diskleri görülebilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Ağ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Paylaşılan Klasörler </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Ortam </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bağlantı Noktaları </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Ekran </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Aşağıdaki ip adreslerinden hangisi localhost
+olarak da bilinen makinenin kendisine karşılık gelmektedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 255.255.0.0 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 192.168.56.101 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 127.0.0.1 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 172.20.10.3 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> fe80::a00:27ff:fee5:d8fe </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Aşağıdaki komutlardan hangisi ile Linux işletim sisteminde ağ cihazları ile ilgili bilgi alınabilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> ipv4 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ipv6 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> enp0s3 </span><br>
+	<span class="option" data-correct="true"><b>D)</b> ip a </span><br>
+	<span class="option" data-correct="false"><b>E)</b> lsblk </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Aşağıdaki dosya uzantılarından hangisi disk
+görüntü dosyaları için kullanılmaktadır? </p>
+	<span class="option" data-correct="true"><b>A)</b> *.iso  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> *.rar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> *.zip </span><br>
+	<span class="option" data-correct="false"><b>D)</b> *.exe </span><br>
+	<span class="option" data-correct="false"><b>E)</b> *.doc </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> Aşağıdakilerden hangisi ile ana bilgisayara
+takılan usb cihazının sanal makine tarafından da kullanılabilmesi sağlanmaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Köprü Bağdaştırıcı </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Misafir Eklentileri </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Paylaşılan klasörler </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Depolama aygıtları </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Nat Ağı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> Hangi ağ yapılandırması ile sanal makinede
+çalışan işletim sistemi ana makinenin ip adresi üzerinden internet ortamına çıkar? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnızca Ana makine Bağdaştırıcısı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Köprü Bağdaştırıcısı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Dahili Ağ </span><br>
+	<span class="option" data-correct="true"><b>D)</b> NAT </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Ethernet </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> Aşağıdaki komutlardan hangisi ile Linux işletim sistemindeki disk yapısı görüntülenebilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> mount </span><br>
+	<span class="option" data-correct="false"><b>B)</b> reboot </span><br>
+	<span class="option" data-correct="false"><b>C)</b> umount </span><br>
+	<span class="option" data-correct="false"><b>D)</b> mkdir </span><br>
+	<span class="option" data-correct="true"><b>E)</b> lsblk </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Aşağıdaki hangisi açık sanallaştırma dosya biçimi uzantısıdır? </p>
+	<span class="option" data-correct="true"><b>A)</b> *.ova </span><br>
+	<span class="option" data-correct="false"><b>B)</b> *.iso </span><br>
+	<span class="option" data-correct="false"><b>C)</b> *.img </span><br>
+	<span class="option" data-correct="false"><b>D)</b> *.vdi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> *.hdd </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      İçe Aktar üst menü öğesi ile başka sanallaştırma yazılımlarında dışarı aktarma yöntemiyle oluşturulmuş açık sanallaştırma formatlarındaki (*.ova ve *.ovf) sanal makineler VirtualBox yazılımına aktarılabilmektedir     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> Aşağıdakilerden hangisi, ubuntu Linux işletim sistemine sanallaştırma yazılımı olan Virtualbox kurulmasını sağlayan komuttur? </p>
+	<span class="option" data-correct="true"><b>A)</b> sudo apt install virtualbox </span><br>
+	<span class="option" data-correct="false"><b>B)</b> run virtualbox </span><br>
+	<span class="option" data-correct="false"><b>C)</b> virtualbox </span><br>
+	<span class="option" data-correct="false"><b>D)</b> sh virtualbox </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ls -l virtualbox </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      Ubuntu işletim sistemi Debian tabanlı olduğundan ve Debian tabanlı sistemlerde apt (advanced package tool) paket yönetim sistemi ile paket yönetimi yapıldığından virtualbox yazılım paketini Ubuntu yazılım depolaraında da olduğundan sudo apt install virtualbox komutu ile yüklenmenlidir.
+
+
+     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> Sanal makina için ayrılmış bellek kullanılabilir durumda değilse, kurulmuş olan ikinci sanal makina çalıştırıldığı zaman aşağıdakilerden hangisi görülür? </p>
+	<span class="option" data-correct="false"><b>A)</b> linux işletim sisteminde virus olduğunu gösterir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ana makina (host) çalışmasını durdurur </span><br>
+	<span class="option" data-correct="false"><b>C)</b> sanal makina, sanal özellikte olduğu için bellek olmadan da çalışırlar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> sanal makinalar her zaman çalışır </span><br>
+	<span class="option" data-correct="true"><b>E)</b> ikinci sanal makina başlatılamaz </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Aşağıdakilerden hangisi sda1 olarak bağlanmış olan USB aygıtının içerisini görüntüler? </p>
+	<span class="option" data-correct="false"><b>A)</b> df -h </span><br>
+	<span class="option" data-correct="true"><b>B)</b> ls -al /mnt/sda1 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> chmod 777 sda1 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> chgrp usb usb </span><br>
+	<span class="option" data-correct="false"><b>E)</b> mkdir sda1 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      ls: "ls" komutu, dosya ve dizinleri listelemek için kullanılır.<br><br>
+
+-al: Bu, komutun seçeneklerini belirtir:<br><br>
+
+-a: Gizli dosyaları (nokta ile başlayan dosyalar) da dahil olmak üzere tüm dosyaları ve dizinleri listeleyin.<br><br>
+-l: Dosya ve dizinlerin ayrıntılı bilgilerini (uzun listeleme) gösterin.<br><br>
+/mnt/sda1: Bu, listelemek istediğiniz dizini belirtir. /mnt dizini altında sda1 adında bir dizini listeliyoruz.     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br>  Ana makina ile sanal makina arasında ortak alan oluşturarak dosya aktarımı yapılabilen menü aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> tercihler menüsü </span><br>
+	<span class="option" data-correct="false"><b>B)</b> lsblk </span><br>
+	<span class="option" data-correct="true"><b>C)</b> paylaşılan klasörler menüsü </span><br>
+	<span class="option" data-correct="false"><b>D)</b> sudo apt </span><br>
+	<span class="option" data-correct="false"><b>E)</b> mount </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> Aşağıdakilerden hangisi, sanal makinada dil ayarlarının yapıldığı menüdür? </p>
+	<span class="option" data-correct="false"><b>A)</b> mount komutu </span><br>
+	<span class="option" data-correct="false"><b>B)</b> iso kalıbı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> paylaşılan klasörler menüsü </span><br>
+	<span class="option" data-correct="true"><b>D)</b> tercihler menüsü </span><br>
+	<span class="option" data-correct="false"><b>E)</b> bağlantı noktaları menüsü </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Aşağıdakilerden hangisi " ip a " komutu ile ekranda görüntülenen bilgilerdir? </p>
+	<span class="option" data-correct="false"><b>A)</b> yüklenen paketler listesi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> yüklenebilme şansı bulunan ancak yüklenmemiş paket listesi </span><br>
+	<span class="option" data-correct="true"><b>C)</b> makinanın internet adres bilgileri </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ev dizininde bulunan belgeler listesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> bağlanmış (mount edilmiş) usb cihaz listesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> Aşağıdakilerden hangisi USB aygıtını makinaya taktıktan sonra USB aygıtını görmek için kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> lsblk </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ls -l </span><br>
+	<span class="option" data-correct="false"><b>C)</b> cd </span><br>
+	<span class="option" data-correct="false"><b>D)</b> mkdir </span><br>
+	<span class="option" data-correct="false"><b>E)</b> chmod </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      lsblk komutu, Linux'ta blok aygıtlarını (örneğin, sabit disk sürücüleri ve USB aygıtları gibi) listelemek için kullanılan bir komuttur. Bu komut, sisteminizdeki aygıtları ve bu aygıtların hiyerarşik yapısını gösterir.<br><br>
+Sonuçlar, sisteminizdeki blok aygıtlarının bir ağaç yapısı olarak gösterilmesini sağlar. Bu yapıda genellikle sabit diskler (örneğin, /dev/sda) ve bu disklerin bölüntüleri (örneğin, /dev/sda1, /dev/sda2) bulunur. Ayrıca, USB aygıtları ve diğer taşınabilir depolama aygıtları da listelenebilir.<br><br>
+
+
+lsblk komutu, blok aygıtlarının isimleri, boyutları, bağlı oldukları noktalar ve daha fazla bilgiyi gösterir. Bu bilgiler, sistemdeki aygıtların hızlı bir gözden geçirilmesini ve yönetilmesini sağla     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br>  Aşağıdakilerden hangisi otomatik IP atama özelliği kazandırır? </p>
+	<span class="option" data-correct="false"><b>A)</b> bash </span><br>
+	<span class="option" data-correct="true"><b>B)</b> DHCP </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ekran menüsü </span><br>
+	<span class="option" data-correct="false"><b>D)</b> depolama menüsü </span><br>
+	<span class="option" data-correct="false"><b>E)</b> mount </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> Aşağıdakilerden hangisi belirli bir yazılım ya da paketin kurulmasını sağlayan komuttur? </p>
+	<span class="option" data-correct="false"><b>A)</b> apt update </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ls /var </span><br>
+	<span class="option" data-correct="false"><b>C)</b> lsblk </span><br>
+	<span class="option" data-correct="false"><b>D)</b> mount komutu </span><br>
+	<span class="option" data-correct="true"><b>E)</b> sudo apt install paket_ismi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> İşletim sistemlerinin kurulumlarının yapılacağı bilgisayarlar çeşitleri nelerdir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Taşınabilir, masaüstü, sunucu bilgisayarlar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      İşletim sistemlerinin kurulumlarının yapılacağı bilgisayarlar taşınabilir ya da masaüstü cihazlar olabileceği gibi sistem odalarında belirli fiziki şartlarda çalıştırılan sunucu bilgisayarlar da olabilmektedir.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Fiziksel makine içinde sanal makine kurulumu işletim sistemleri ve yazılımlar için hangi açıdan bir avantaj sağlamaktadır? </p>
+	<span class="option" data-correct="true"><b>A)</b>  Test edilebildiği ortamlar olmaları </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      Fiziksel makine içinde sanal makine kurulumu daha çok işletim sistemlerinin ve yazılımların test edilebildiği ortamlar olmaları açısından bir avantaj sağlamaktadır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Oracle firması tarafından ücretsiz olarak sunulan platformlar arası sanallaştırma yazılımının adı nedir ve ne amaçla kullanılmaktadır? </p>
+	<span class="option" data-correct="true"><b>A)</b> VirtualBox </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      Sanallaştırma yazılımlarından VirtualBox, Oracle firması tarafından ücretsiz olarak sunulan platformlar arası bir sanallaştırma yazılımıdır. VirtualBox sayesinde kullanıcılar kullandıkları bilgisayarlarda bir sabit sürücüyü bölmeye veya çift önyükleme modunda başka bir işletim sistemini çalıştırmaya gerek kalmadan başka bir ana işletim sistemi üzerinde bir konuk işletim sistemini çalıştırabilmektedir.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> Ubuntu 22.04 işletim sistemine VirtualBox’un komut satırı arayüzü ile kurulum işlemi hangi komut ile gerçekleştirilmektedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> sudo apt install virtualbox </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      Ubuntu 22.04 işletim sistemine VirtualBox’un komut satırı arayüzü ile kurulum işlemi sudo apt install virtualbox komutu ile gerçekleştirilmektedir:     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> VirtualBox Yöneticisinde sanal makineler listesi nerede bulunur? </p>
+	<span class="option" data-correct="true"><b>A)</b> Dikey gezinme menüsünde </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> Virtualbox'da Hoş Geldiniz, Ortam, Ağ ve Bulut menülerinden oluşan yazılım içindeki ayarların yapıldığı genel araçlar hangi menü başlığı altında yer almaktadır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Araçlar menüsünde </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> Sabit diskler sekmesi ile ilgili gerçekleştirilebilecek işlemler sekmenin hemen üstündeki menüde yatay olarak yer almaktadır. Bu işlemler nelerdir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Ekle, Kopyala, Taşı, Bırak, Özellikler ve Yenile </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Genellikle hangi modlarından biri kullanılarak sanal makinelerin internet ortamına çıkış yapmaları sağlanır? </p>
+	<span class="option" data-correct="true"><b>A)</b> NAT (Network Address Translation) ya da Köprü (Bridged)  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> Sanal makinelerin ana bilgisayarda depolandığı konum hangi klasör ismi ile adlandırılmaktadır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Makine Klasörü </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      Makine Klasörü, sanal makinelerin ana bilgisayarda depolandığı konumdur. Sanal makinelere ait dosyaların bilgisayarda başka bir sürücüye (Örneğin, D sürücüsü ya da harici taşınabilir disk gibi) kaydedilmesi isteniyorsa makine klasörü karşısındaki yol (path) değiştirilmelidir.     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> Sanal makineye ana makineden ayrılan bellek, hangi nedenle ayrılabilecek bellek miktarından fazlası olarak belirtilmemelidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Sanal makineye ana makineden ayrılan bellek, sanal makine çalışırken ana işletim sistemi tarafından kullanılamayacaktır </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      Sanal makine kurulumunda bellek ayarı dikkatle seçilmelidir. Sanal makineye ana makineden ayrılan bellek, sanal makine çalışırken ana işletim sistemi tarafından kullanılamayacaktır; bu nedenle ayrılabilecek bellek miktarından fazlası belirtilmemelidir.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> VirtualBox sanal makine çalıştırılırken yetersiz bellek kalması durumunda, ana makine ihtiyacı olan belleği nereden karşılamaktadır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Sabit diskteki takas alanından (swap)  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      Her zaman ana işletim sisteminin yeterli belleğe sahip olduğundan emin olunmalıdır. Yetersiz bellek kalması durumunda, ana makine ihtiyacı olan belleği sabit diskteki takas alanından (swap) karşılayacağından ana makinedeki işletim sistemi yavaşlayıp durma noktasına gelebilir.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> Sanal makine oluşturulurken sabitlenmiş boyut seçeneğinde sanal sabit disk kullanımı ne şekilde olmaktadır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Sanal sabit disk alanının yalnızca bir kısmı fiilen kullanımda olsa bile, belirtilen boyut ana makinenin diskinde daha en başta sanal makinenin kullanımı için ayrılır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      Sabitlenmiş boyut seçeneğinde ise sanal sabit disk alanının yalnızca bir kısmı fiilen kullanımda olsa bile, belirtilen boyut ana makinenin diskinde daha en başta sanal makinenin kullanımı için ayrılır. Bu seçenekte diske ihtiyaç olmasa bile belirlenen disk boyutu ana makineden rezerve edildiğinden ana makine diskinde daha fazla yer kaplarken, ihtiyaç duyulması durumunda büyüme yapmayacağından daha az ek yüke neden olur ve bu nedenle dinamik olarak ayrılmış bir dosyadan biraz daha hızlıdır.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> Sanal makine oluşturulduktan sonra VirtualBox yazılımında orta üst bölümde ayarlar butonuna tıklandığında üst menüde hangi eğeler yer almaktadır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Genel, Sistem, Ekran, Depolama, Ses, Ağ, Bağlantı Noktaları, Paylaşılan Klasörler ve Kullanıcı Arayüzü  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      Ayarlar butonuna tıkladıktan sonra üst menüde Genel, Sistem, Ekran, Depolama, Ses, Ağ, Bağlantı Noktaları, Paylaşılan Klasörler ve Kullanıcı Arayüzü menü öğeleri yer alacaktır     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> Sanal makine oluşturulduktan sonra, anlık görüntü dosyalarının kullanımı ne gibi faydalar sağlamaktadır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Sistemin tamamen geriye alınmak istenmesi durumunda kullanılmaktadır </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      Anlık görüntü dosyaları, sanal makinede belirli bir yere kadar yapılmış geliştirmelerin belirli bir anda alınmış yedeği olarak düşünülebilir. Geliştirmenin ilerleyen aşamasında yazılım geliştirme, paket kurulumu ya da güncelleme sonrası sistemin tamamen geriye alınmak istenmesi durumunda kullanılmaktadır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> Sistem menü ögesi altında hangi sekmeler yer almaktadır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Anakart, İşlemci ve Hızlandırma </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      Sistem menü öğesi altında Anakart, İşlemci ve Hızlandırma sekmeleri yer almaktadır. Anakart altında sanal makinenin oluşturulması aşamasında belirlenen Ana Bellek (Ram) miktarı, sanal makineye bağlı ortam dosyalarının açılışta kullanılacak sırası, Yonga Seti, İşaretleme Aygıtı ve Genişletilmiş Özellikler ile ilgili seçenekler yer almaktadır.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> Sanal makine tarafından kullanılması planlanan işlemci (Cpu) miktarı hangi sekmeden ayarlanmaktadır? </p>
+	<span class="option" data-correct="true"><b>A)</b> İşlemci sekmesinde </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      İşlemci sekmesinde ise sanal makine tarafından kullanılması planlanan işlemci (Cpu) miktarı ayarlanabilir. Sanal makine ilk kurulduğunda bu ayar varsayılan olarak 1 işlemci olarak belirlenmektedir     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> Uzak görüntü sekmesinde hangi ayarlar yer almaktadır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Sanal makineye uzak masaüstü erişimi sağlanması istenmesi durumunda belirlenecek ayarlar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      Uzak görüntü sekmesinde sanal makineye uzak masaüstü erişimi sağlanması istenmesi durumunda belirlenecek ayarlar yer almaktadır.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> Ekran menü öğesinde ekran, uzak görüntü ve kayıt sekmeleri bulunmaktadır. Ekran sekmesinde sanal makinenin hangi ayarları yapılmaktadır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Sanal makinenin ekran kartı, monitör yapılandırma ayarları, ölçekleme, grafik denetleyicisi ve hızlandırma ile ilgili ayarlarlar yapılmaktadır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      Ekran menü öğesinde ekran, uzak görüntü ve kayıt sekmeleri bulunmaktadır. Ekran sekmesinde sanal makinenin ekran kartı, monitör yapılandırma ayarları, ölçekleme, grafik denetleyicisi ve hızlandırma ile ilgili ayarlarlar yapılmaktadır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> Sanal makinenin internete çıkış ve diğer sanal makineler ile iletişim kurmak için kullanacağı ip adresleri hangi ayarlar ile tanımlanmaktadır?  </p>
+	<span class="option" data-correct="true"><b>A)</b> Ağ ayarları </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      Ağ ayarları ile sanal makinenin internete çıkış ve diğer sanal makineler ile iletişim kurmak için kullanacağı ip adresleri tanımlanmaktadır     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> VirtualBox Misafir Eklentileri hangi amaç doğrultusunda kullanılmaktadır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Ana bilgisayar ve sanal makinede kurulu işletim sistemi arasında daha yakın entegrasyon sağlamak için tasarlanmış aygıt sürücüleri ve sistem uygulamalarından oluşan bir pakettir. Sanal makinelerdeki işletim sistemlerinin genel etkileşim performansını ve kullanılabilirliğinin artmasına yardımcı olur. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      VirtualBox Misafir Eklentileri, ana bilgisayar ve sanal makinede kurulu işletim sistemi arasında daha yakın entegrasyon sağlamak için tasarlanmış aygıt sürücüleri ve sistem uygulamalarından oluşan bir pakettir. Sanal makinelerdeki işletim sistemlerinin genel etkileşim performansını ve kullanılabilirliğinin artmasına yardımcı olur.     </div>
+	</div>
+</div>
+      
+	
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

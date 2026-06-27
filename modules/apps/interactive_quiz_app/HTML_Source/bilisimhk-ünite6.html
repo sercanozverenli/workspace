@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="anasayfa.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA I
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama1-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama1-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama1-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama1-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama1-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama1-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama1-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama1-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama1-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama1-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          BİLİŞİM HUKUKU
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="bilisimhk-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="bilisimhk-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="bilisimhk-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="bilisimhk-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="bilisimhk-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="bilisimhk-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="bilisimhk-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="bilisimhk-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="bilisimhk-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="bilisimhk-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB'DE TELİF HAKLARI VE ETİK
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="webtelif-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="webtelif-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="webtelif-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="webtelif-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="webtelif-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="webtelif-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="webtelif-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="webtelif-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="webtelif-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="webtelif-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          AĞ YÖNETİMİ VE BİLGİ GÜVENLİĞİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="agyonetimi-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="agyonetimi-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="agyonetimi-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="agyonetimi-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="agyonetimi-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="agyonetimi-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="agyonetimi-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="agyonetimi-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="agyonetimi-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="agyonetimi-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİTABANI PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veritabaniprg-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veritabaniprg-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  </nav>
+  
+    <h4 id="ders">Bilişim Hukuku - Ünite 6 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	<button class="block-group" data-start="40" data-end="59">Part 3</button>
+  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Elektronik irade açıklaması ile ilgili aşağıdaki ifadelerden hangisi doğrudur? </p>
+	<span class="option" data-correct="true"><b>A)</b> İnternette yapılan açıklamayı ifade eder. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bir icaba davet şeklindedir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bir bilgisayar yazılımı yolu ile yapılan icap ve kabulleri ifade eder. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Karşı tarafa varması gerekli bir icaptır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bu tür öneri ve kabullerle bağlı olunmaz. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Aşağıda sayılan sözleşmelerden hangisi elektronik ortamda yapılabilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Gayrimenkulün devrine ilişkin sözleşme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Evlilik sözleşmesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Resmî şekil şartına tabi sözleşmeler </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bütün sözleşmeler </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Şekle bağlı olmayan sözleşmeler </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Ürün ve fiyatların da belirtildiği web sayfaları ile ilgili aşağıdaki ifadelerden hangisi doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Öneridir. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Herkese açık bir öneridir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kabuldür. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bir irade açıklaması olarak değerlendirilemez. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sadece bir reklamdır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Elektronik ortamda yazılı şekil şartına tabi
+tutulan bir sözleşmenin yapılabilmesi için aşağıdakilerden
+hangisi gerekir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Tarafların ayrıca kâğıt ortamında da sözleşmeyi yapması </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Tarafların tanık göstermesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tarafların yemin beyanında bulunması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Elektronik imza ile sözleşmeyi imzalamaları </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Güvenli elektronik imza ile sözleşmeyi imzalamaları </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> I. Bu sözleşme geçerli olur.<br>
+II. Taraflarca inkâr edilemez.<br>
+III. İspat problemi yaşanmaz.<br>
+IV. Geçerliliği için elektronik imza ile imzalanması da gerekir. <br>
+V. Bu sözleşmeye dair elektronik ortamdaki veriler belge sayılır.<br><br>
+		
+Elektronik ortamda yapılan şekil şartına tabi olmayan bir sözleşme </p>
+	<span class="option" data-correct="false"><b>A)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve IV </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I ve V </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> IV ve II </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Yazılı şekil şartına tabi olmayan ve 5.000
+TL’lik ödemeyi içeren bir sözleşmede güvenli elektronik imza kullanılmışsa bunun sonucu aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Sözleşmenin geçerliliğini sağlar. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sözleşmenin damga vergisine tabi olmasını gerektirir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sözleşmenin yazılı şekil şartına tabi olduğunu
+gösterir. </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Borcun ispatını sağlar. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Borca ilişkin tanık dinleme imkânını verir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> <u><strong>Elektronik ortamda</strong></u> kurulan sözleşmelerle ilgili
+aşağıdaki ifadelerden hangisi doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> E-posta yolu ile sözleşme kurulamaz. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> E-posta karşı tarafa ulaşsa bile öneriden dönülebilir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Elektronik ortamda irade açıklamasında bulunanların irade açıklamasında hata kabul edilemez. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sözleşmelerin kurulmasında teknik hatalara kullanıcı katlanır. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Bilişim sisteminde sadece ekrandaki teklifin belli bir zaman içinde reddedilmemesi irade açıklaması olarak kabul edilemez. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> Elektronik ortamdaki reklamlar ile ilgili aşağıdaki ifadelerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Reklamların aldatıcı, yanıltıcı ve haksız rekabete yol açar nitelikte olmamalıdır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Reklamı yapılan mal ve hizmetlerin toplam bedeli hakkında yanıltıcı bilgilerin verilmemelidir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bir web sayfasında kesintisiz reklam yapılmamalıdır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Rakiplerin kötülenmemeli, karalanmamalıdır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Rakiplerin itibarından haksız yararlanmaya yol açılmamalıdır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      <strong>Türk Ticaret Kanunu ve Borçlar Kanunu’nda bulunan haksız rekabet kurallarından ve tüketicilere ilişkin mevzuat esas alınarak belirlenmiştir:</strong><br>
+a. Reklamların aldatıcı, yanıltıcı ve haksız rekabete yol açar nitelikte olmaması,<br>
+b. Karşılaştırmalı reklam yapılıyor ise karşılaştırılan ürünlerin aynı nitelikte olması ve müşteriye yarar karşılaştırmaların yapılması, karşılaştırılan hususların ölçülebilir olması,<br>
+c. Reklamı yapılan mal ve hizmetlerin toplam bedeli hakkında yanıltıcı bilgilerin verilmemesi,<br>
+d. Sayısal verilere dayanan reklam unsurlarının bilimsel test ve raporlara dayanması,<br>
+e. Rakiplerin kötülenmemesi, karalanmaması,<br>
+f. Rakiplerin itibarından haksız yararlanmaya yol açılmaması,<br>
+g. Örtülü reklamlarla bilinçaltı reklamların yapılmaması,<br>
+h. Çocuklara yönelik reklamlarda onların zihni durumlarını sömürecek, onları gerçek
+dışı beklentilere ya da şiddete itecek reklamlara yer verilmemesi,<br>
+i. Kişisel hesaplarına istenmeyen reklam içeriklerinin gönderilmemesi,<br>
+j. Kişisel verileri esas alan reklamlarda ilgilisinden izin alınması,<br>
+k. Bir başkasına ait fikri ya da sınai hakkın kullanımına riayet etmek,<br>
+l. Ayrımcı, aşağılayıcı ya da saldırgan ifadelere reklamlarda yer verilmemesi.		</div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> Mesafeli sözleşmelerin kurulmasında cayma
+hakkı kaç gündür? </p>
+	<span class="option" data-correct="false"><b>A)</b> 1 hafta </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 8 gün </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 14 gün </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 1 ay </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 1 yıl </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Tüketici mesafeli sözleşmelerde cayma hakkı
+konusunda bilgilendirilmezse bunun sonucu aşağıdakilerden
+hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Satıcı idari para cezası ile cezalandırılır. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Cayma hakkını 1 yıl içinde kullanabilir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Cayma hakkı verilmemiş olur. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Satım sözleşmesi geçersiz olur. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Satım sözleşmesindeki aleyhe şartlar geçersiz
+olur. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> Aşağıdakilerden hangisi elektronik sözleşmenin avantajlarından <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Zamandan tasarruf sağlar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sitenin web sayfasında diğer mallar ile kolay karşılaştırma yapmayı sağlar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Mal ve hizmetlere kolay ulaşım imkanı sağlar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Mesafelerin engel olmaktan çıkar </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Daha güvenilirdir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> Mesafeli sözleşmelerle ilgili aşağıdaki ifadelerden hangisi <u><strong>yanlıştır? </strong></u></p>
+	<span class="option" data-correct="false"><b>A)</b> Ön bilgilendirme formunda buluna bilgilerin yanı sıra ilave bilgileri de içeren,  geniş kapsamlı bir sözleşmedir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Mesafeli sözleşmelerin en önemli kapsamları tarafların detaylı iletişim bilgileri, satışa konu mal ve hizmet ile ilgili detaylar,  iade ve cayma prosedürleri ile ilgilidir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> E-ticarette satış ancak mesafeli satış sözleşmesinin alıcı tarafından onaylanması ile tamamlanabilir. </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Mal ya da hizmetin sağlanması için de mesafeli satışlarda azami süre 15 günü geçemez. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Mesafeli sözleşme, satıcı veya sağlayıcı ile tüketicinin eş zamanlı fiziksel varlığı olmaksızın, mal veya hizmetlerin uzaktan pazarlanmasına yönelik olarak oluşturulmuş bir sistem çerçevesinde, taraflar arasında sözleşmenin kurulduğu ana kadar ve kurulduğu an da dâhil olmak üzere uzaktan iletişim araçlarının kullanılması suretiyle kurulan sözleşmelerdir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      Mal ya da hizmetin sağlanması için de mesafeli satışlarda azami süre 30 günü geçemez.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Aşağıdakilerden hangisi elektronik ortamdaki sözleşmelerin avantajları ile ilgili <u><strong>değildir? </strong></u></p>
+	<span class="option" data-correct="false"><b>A)</b> Kolay karşılaştırma </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Zamandan tasarruf </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Sayısı giderek artacak </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Mal ve hizmetlere kolay ulaşım </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Mesafelerin engel olmaktan çıkması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      Elektronik ortamda kurulan bu sözleşmelerin sayısının giderek artacağını söylemek hiç yanlış olmaz. Bu durum elektronik ortamdaki sözleşmenin avantajı değil gelecekte olabilecek durumu ile ilgili bir çıkarımdır.     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> Elektronik ortamda bir sözleşmenin kurulması sırasında bazı aşamalar yaşanır: <br><br>
+
+1. "Ürün ve müşteri/biz", <br>
+2. "İradenin oluşumu/irade beyanı", <br>
+3. "Sözleşmenin kurulması".<br><br>
+
+
+Aşağıdakilerden hangisi “İradenin oluşumu/irade beyanı” ile ilgilidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Web sayfası </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Online marketler </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Özel şikayet siteleri </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Uyuşmazlık çözüm merkezleri </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Ürüne ilişkin kullanıcı yorumları </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> Bir kimsenin sözleşme kurmaya yönelmiş olan irade açıklaması sadece bir aracı olan elektronik ortamda yer alabilir. Aşağıdakilerden hangisi elektronik ortam bakımında diğerlerinden farklıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Chat </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Skype </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Telefon </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Facebook sohbeti </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Elektronik posta </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Elektronik sözleşmenin kurulması için gerekli irade açıklamaları, irade açıklamalarının sonuçları, irade açıklamalarından dönebilme imkânları, irade açıklamalarındaki sakatlıklar hangi kanunda düzenlenmiştir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Borçlar kanunu </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Elektronik İmza Kanunu </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Elektronik Haberleşme Kanunu </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Elektronik Ticaretin Düzenlenmesi Hakkında Kanun </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Tüketicinin Korunması Hakkında Kanun ve Yönetmelikler </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> Taraf iradelerinin elektronik ortamda yani yüz yüze gelmeksizin karşılaştığı ve uyuştuğu elektronik ortamda kurulmuş sözleşmelere ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Atipik sözleşme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Vekalet sözleşmesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Eser sözleşmesi </span><br>
+	<span class="option" data-correct="true"><b>D)</b> E-sözleşme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Mesafeli satış sözleşmesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Satıcı veya sağlayıcı ile tüketicinin eş zamanlı fiziksel varlığı olmaksızın, mal veya hizmetlerin uzaktan pazarlanmasına yönelik olarak oluşturulmuş bir sistem çerçevesinde, taraflar arasında sözleşmenin kurulduğu ana kadar ve kurulduğu an da dâhil olmak üzere uzaktan iletişim araçlarının kullanılması suretiyle kurulan sözleşmelere ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Tüketici sözleşmesi </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Mesafeli sözleşme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Senet </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Elektronik imza </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İrade beyanı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> Aşağıdakileden hangisinde güvenli elektronik imza şekil şartını karşılar </p>
+	<span class="option" data-correct="false"><b>A)</b> Resmi yazılı şekil </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Adi yazılı şekil </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Çek </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bono </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Poliçe </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      Güvenli elektronik imza ile imzalanan belgenin yazılı şekil şartını yerine getirebildiği şekil, adi yazılı şekildir. Buna karşın resmî yazılı şeklin öngörüldüğü sözleşmeler ve tabii olarak irade beyanları ile merasimli şekil şartına tabi sözleşmeler, elektronik imza yolu ile de olsa yapılamazlar. Yine bono, poliçe ya da çekin de elektronik imza ile şekil şartının tamamlanması mümkün olmaz.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> Aşağıdaki sözleşmelerden hangisi şekil serbestisi ilkesine tabidir ve İnternet üzerinden yapılması mümkündür?  </p>
+	<span class="option" data-correct="false"><b>A)</b> Evlilik sözleşmesi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Taşınmaz satışı sözleşmesi </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Eser sözleşmesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Miras sözleşmesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Tapu devir sözleşmesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AB Direktifleri’nde kural, şekil serbestisidir. Ancak bununla birlikte resmî bir makamın katılması gereken sözleşmeler (taşınmaz satımları) istisna tutulmuştur. Ayrıca aile ve miras hukuku ile ilgili sözleşmeler de şekil serbestisi ilkesine tabi değildir ve İnternet üzerinden yapılmaları mümkün değildir.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Türk hukukunda kural, sözleşmelerin akdinde şekil serbestisi olsa da bazı sözleşmeler için kanun koyucu özel şekil şartları öngörmüştür. Bu şekil şartları, kendi içinde merasimli şekil şartı (evlilik gibi), resmi şekil şartı (tapu ve noterde yapılan sözleşmeler gibi) ve yazılı şekil şartı şeklinde üç ana başlıkta toplanabilir. </p>
+	<span class="option" data-correct="false"><b>A)</b> Kefalet sözleşmesi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Tapunun devri sözleşmesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Taşınmaz satış vaadi sözleşmesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Noterde yapılan sözleşmeler </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Evlilik sözleşmesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      Türk hukukunda kural, sözleşmelerin akdinde şekil serbestisi olsa da bazı sözleşmeler için kanun koyucu özel şekil şartları öngörmüştür. Bu şekil şartları, kendi içinde merasimli şekil şartı (evlilik gibi), resmi şekil şartı (tapu ve noterde yapılan sözleşmeler gibi) ve yazılı şekil şartı şeklinde üç ana başlıkta toplanabilir     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Sözleşmelerin kurulmasında yer alan irade açıklamaları ile ilgili olarak aşağıdakilerden hangisi sözleşme ile ilgili <u><strong>yanlış</strong></u> bilgi içermektedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> İrade açıklamalarının elektronik ortamda yapılması mümkün değildir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sözleşme tarafların birbirine uygun ve karşılıklı irade açıklamaları ile kurulur </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Elektronik ortamda yapılan irade açıklamalarına hukukun ne tür sonuçlar bağladığı önem kazanmaktadır </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İrade beyanının elektronik ortamda yapılmış olması, sözleşmelerin Borçlar Kanunu’nda düzenlenen prensiplerden daha farklı prensiplere tabi kılınmasını gerektirmez </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İrade açıklamalarının elektronik ortamda yapılması, seçilen iletişim yolunun farklılaşmasının getirdiği birtakım farklı hukuki sonuçların olması tabiidir </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      BK m. 1’e göre sözleşme, tarafların birbirine uygun ve karşılıklı irade açıklamaları ile kurulur. İrade açıklamalarının elektronik ortamda yapılması mümkündür.      </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> Bazı meslekler için reklam yasakları vardır. Bu mesleklerde reklam yasaklarının getirilmesinin nedeni, bu mesleklerin hayati öneme sahip olması ve reklam yolu ile bu hizmete ihtiyaç duyanların yanıltılması endişesidir. Aşağıdakilerden hangisi bu meslek gruplarından biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Eczacılar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Avukatlar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Doktorlar </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Eğitmenler </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Mali müşavirler </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> İrade açıklamaları ile ilgili aşağıdaki ifadelerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> İnternet üzerinden bir uçak biletinin alımında Irade açıklaması doğrudan bir yazılım tarafından oluşturulmaktadır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bilişim sisteminde sadece ekrandaki teklifin belli bir zaman içinde reddedilmemesi irade açıklaması olarak kabul edilemez. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Elektronik ortamda irade açıklamasında bulunanların irade açıklamasında hata kabul edilemez. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bir kimsenin sözleşme kurmaya yönelmiş olan irade açıklaması, chat, skype, facebook sohbeti veya elektronik posta ile yapılabilir.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bir web sayfasında ‘fare’ yardımı ile bir sözleşmenin kabul edilmesindeki irade açıklamalarında elektronik ortam, sadece bir aracıdır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> Aşağıdakilerden hangisinde kural olarak hazırlar arası bir irade beyanı söz konusudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Web sayfasındaki arayüzden ürünün temel özelliklerine ulaşılması </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Web sayfasından emlak satışı için randevu alınması. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Doğrudan mesajlaşma esnasında irade açıklanması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Web sayfasında, ilgili ürünün satıcısının adresine ulaşılması </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Şahsi e-posta adresine mesaj atma yoluyla ürün siparişi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> Hizmet sağlayıcı, elektronik iletişim araçlarıyla bir sözleşmenin yapılmasından önce aşağıdaki bilgilerden hangisini sunmak durumunda <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Sözleşmenin kurulabilmesi için izlenecek teknik adımlara ilişkin bilgileri. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Alıcıların kolayca ulaşabileceği şekilde ve güncel olarak tanıtıcı bilgilerini. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Hizmet sağlayıcı tarafından saklanıp saklanmayacağı ile bu sözleşmeye alıcının daha sonra erişiminin mümkün olup olmayacağı bilgisini. </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Tüketicilerin kullanıcı yorum bilgilerini. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Veri girişindeki hataların açık ve anlaşılır bir şekilde belirlenmesine ve düzeltilmesine ilişkin teknik araçlara ilişkin bilgileri. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Aşağıdakilerden hangisi internet mecrasında yapılan reklamları, diğer mecralarda yapılan reklamlardan ayıran yönlerinden biri <u><strong>değildir?</strong></u>  </p>
+	<span class="option" data-correct="true"><b>A)</b> Ekonomik değildir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Maliyetler diğer mecralara göre son derece ucuzdur </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İki taraflılık vardır </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Reklamın muhatapları, İnternet mecrasında aktiftir </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Reklamın etkisi bu mecrada daha kolay ölçülebilmektedir </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> İnternet üzerinde bulunan bilgisayar veya İnternet sitelerinin adresini belirlemek için kullanılan İnternet protokol adresini tanımlayan ad aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Banner </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Meta-Tag </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Reklam </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Alan adı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Web </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> Aşağıdakilerden hangisi elektronik ortamda sözleşmelerin avantajlarından biri <u><strong>değildir? </strong></u></p>
+	<span class="option" data-correct="false"><b>A)</b> Zamandan tasarruf </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kolay karşılaştırma </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Mal ve hizmetlere kolay ulaşım </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Sadece yüz yüze kurulabilmesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Mesafelerin engel olmaktan çıkması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> Aşağıdakilerden hangisi elektronik ortamda sözleşmelerin avantajlarından biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Kolay karşılaştırma </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Mal ve hizmetlere kolay ulaşım </span><br>
+	<span class="option" data-correct="true"><b>C)</b> İletişim kurma eksikliği/ yetersizliği </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Zamandan tasarruf </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Mesafelerin engel olmaktan çıkması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> İrade açıklamasına ilişkin olarak aşağıda verilen ifadelerden hangisi doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> İrade beyanı açık olsa bile yoruma ihtiyaç vardır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İrade beyanı yorumlanırken subjektif ölçütler esas alınır. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Bilgisayar kullanıcılarının irade açıklamalarında hatalar olabilir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bilgisayar kullanıcılarının beyanları hiç bir zaman iptal edilemez. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bilgisayarla yapılan irade açıklamalarının objektif ölçütlenmesi gerekmez. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> Sözleşmenin tarafları sözleşme yaparken diledikleri şekli seçmekte serbest oldukları gibi kural olarak sözleşmenin kurulması da kanunen herhangi bir şekle tabi tutulmamıştır.<br><br>
+Yukarıda ifade edilen ilke aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Hukukun üstünlüğü ilkesi </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Şekil serbestisi ilkesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İfade özgürlüğü ilkesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kanun önünde eşitlik ilkesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Hukuk güvenliği ilkesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> Aşağıdaki sözleşmelerden hangisi şekil serbestisi ilkesine tabidir ve İnternet üzerinden yapılması mümkündür?  </p>
+	<span class="option" data-correct="false"><b>A)</b> Evlilik sözleşmesi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Taşınmaz satışı sözleşmesi </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Eser sözleşmesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Miras sözleşmesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Tapu devir sözleşmesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> Aşağıdakilerden hangisi sözleşme için <u><strong>söylenemez?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Gelecekte var olmayacaktır </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yüzyıllar öncesinden beri vardır </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Devletin kuruluşu sözleşmelere dayanır </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Devletin meşruiyeti sözleşmelere dayanır </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İnsanoğlunun hayatını devam ettirmek için yaptığı ilk işlemlerdendir </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> Aşağıdakilerden hangisi elektronik ortamdaki reklamların hukuki çerçevesini oluşturan öğelerden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Anayasa </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Reklam yapılacak mesleklerle ilgili mevzuat </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Elektronik Ticaret Kanunu </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Tüketicinin Korunması Mevzuatı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Haksız Rekabete İlişkin Düzenlemeler (TTK-BK) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      
+Reklam yapılacak mesleklerle ilgili mevzuat<br>
+Elektronik Ticaret Kanunu<br>
+Tüketicinin Korunması Mevzuatı<br>
+Haksız Rekabete İlişkin Düzenlemeler<br>
+İlgili ürünlerle ilgili Reklam Düzenlemeleri </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> Aşağıdakilerden hangisi elektronik ortamda yapılan sözleşmelerin yasal çerçevesinden biri <u><strong>değildir? </strong></u></p>
+	<span class="option" data-correct="true"><b>A)</b> İş kanunu </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Elektronik İmza Kanunu </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Elektronik Ticaretin Düzenlenmesi Hakkında Kanun </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Tüketicinin Korunması Hakkında Kanun ve Yönetmelikler </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Borçlar Kanunu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> Elektronik ticaret faaliyetinde bulunan gerçek ya da tüzel kişileri ifade eden kavram aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Bilgi verici </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sağlayıcı </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Hizmet sağlayıcı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Satıcı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yükümlü </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> Borçlar Kanununa göre yazılı şekil şartının en önemli unsuru aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Daktilo ile yazılmış olması </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İnternet ortamında yapılması </span><br>
+	<span class="option" data-correct="false"><b>C)</b> En az 3 tarafın olması </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Islak imzalanması </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Metnin 3.kişi tarafından yazılması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> I. İçerik sağlayıcı (content provider)<br>
+II. Misafir eden sağlayıcı (content provider)<br>
+III. Aracı hizmet sağlayıcı<br>
+IV. İnternet servis sağlayıcısı (internet provider)<br><br>
+İnternet ortamında yapılan faaliyete göre birden fazla sıfat/aktör vardır. Verilenlerden hangisi ya da hangileri bu sıfat veya aktörlerdendir? </p>
+	<span class="option" data-correct="false"><b>A)</b> I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> II-III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I-III-IV </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I-II-III-IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> I. Ürün/Müşteri<br>
+II. İradenin Oluşumu/irade beyanı<br>
+III. Sözleşmenin kurulması<br><br>
+
+Ali bey elektronik ortamda bir ürünü ya da hizmeti bir web sayfasında ya da bir online markette beğenir. Ancak hâlen bu sayfanın ve bu sayfada yapılan ticaretin güvenilirliği konusunda tereddütler yaşar ve ürüne ilişkin kullanıcı yorumlarını okumaya başlar. Bu durum yukarıdaki elektronik sözleşmenin aşamalarınIN hangisi/hangileri içine girer?		</p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="true"><b>B)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I, II ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yalnız III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question41">
+	<p class="question">Soru 41:<br> I. Teknolojik gelişmeler karşısında yürürlükte bulunan hükümlerin yetersiz kalması<br>
+II. Son yıllara kadar hem teknolojiyi hem de hukuku takip eden ve bunu kamuoyuna taşıyan hukukçuların yokluğu<br>
+III. Mevcut hukuk sisteminde elektronik dokümanların ispat gücü<br>
+IV. Elektronik dokümanların ispat değerine sahip olma gereksinimi<br>
+V. Güvenli elektronik imza ve ispat gücü<br><br>
+Yukarıdakilerden hangileri elektronik ortamlarda yapılan sözleşme iradelerini ispatlamada karşılaşılan problemlerdendir? </p>
+	<span class="option" data-correct="false"><b>A)</b> I, II ve III </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I, II, III ve IV </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I, II, III, IV, ve V </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I, III ve V </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description41">Açıklama</button>
+		<div id="description41" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question42">
+	<p class="question">Soru 42:<br> I. Türk Ticaret Kanunu<br>
+II. Borçlar kanunu<br>
+III. Elektronik İmza Kanunu<br>
+IV. Elektronik Haberleşme Kanunu<br>
+V. Elektronik Ticaretin Düzenlenmesi Hakkında Kanun<br>
+VI. Tüketicinin Korunması Hakkında Kanun ve Yönetmelikler<br><br>
+Elektronik ortamda haksız rekabete ilişkin düzenlemeler yukarıdaki kanunlardan hangisi/ hangileri ile gerçekleştirilmektedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> III ve IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> V ve VI </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description42">Açıklama</button>
+		<div id="description42" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question43">
+	<p class="question">Soru 43:<br> Aşağıdakilerden hangisi elektronik ortamdaki sözleşmeler için <u><strong>söylenemez?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> İnternetten yemek veya çiçek sipariş edebilirsiniz </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bu ortam çoktan gündelik hayatın bir parçası olmuştur </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sözleşmeler kitle iletişim araçları ile de kurulabilmektedir </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Tatile gideceğiniz yer ile ilgili gerekli bilgiye sahip olabilirsiniz </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Elektronik ortamda kurulan bu sözleşmelerin sayısı giderek artacaktır </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description43">Açıklama</button>
+		<div id="description43" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question44">
+	<p class="question">Soru 44:<br> Sözleşmenin taraflarından birinin tüketici olması durumunda, sözleşmenin kurulması ve sözleşmeden caymaya ilişkin özel düzenlemeler aşağıdakilerden hangisinde yer almaktadır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Tüketicinin Korunması Hakkında Kanun ve ilgili Yönetmelikler </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Elektronik Ticaretin Düzenlenmesi Hakkında Kanun </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Elektronik sözleşme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Elektronik İmza Kanunu </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Borçlar Kanunu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description44">Açıklama</button>
+		<div id="description44" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question45">
+	<p class="question">Soru 45:<br> Elektronik dokümanların ispat değerinin asıl tartışıldığı alan aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Ceza hukuku </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Özel hukuk </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Medeni hukuk </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İş ve sosyal güvenlik hukuku </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Şirketler ve ticaret hukuku </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description45">Açıklama</button>
+		<div id="description45" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question46">
+	<p class="question">Soru 46:<br> I. Borçlar Kanunu<br>
+II. Elektronik İmza Kanunu<br>
+III. Elektronik Ticaretin Düzenlenmesi Hakkında Kanun<br>
+IV. Tüketicinin Korunması Hakkında Kanun ve Yönetmelikler<br><br>
+Verilenlerden hangisi ya da hangileri elektronik ortamda yapılan sözleşmelerin yasal çerçevesini oluşturmaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I-II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I-III-IV </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I-II-III-IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description46">Açıklama</button>
+		<div id="description46" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question47">
+	<p class="question">Soru 47:<br> Türk usul hukuk sisteminde senet kesin deliller arasında sayılmıştır. HMK m. 200’e göre bir hakkın değeri, kaç Türk Lira' sını geçtiği takdirde senetsiz ispat artık mümkün değildir. </p>
+	<span class="option" data-correct="true"><b>A)</b> 2.500 TL </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 5.000 TL </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 7.500 TL </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 10.000 TL </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 15.000 TL </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description47">Açıklama</button>
+		<div id="description47" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question48">
+	<p class="question">Soru 48:<br> Aşağıdakilerden hangisi elektronik imzanın güvenli elektronik imza sayılabilmesi için gerekli olan özelliklerden biri değildir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Münhasıran imza sahibine bağlı olması </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sadece imza sahibinin tasarrufunda bulunan güvenli elektronik imza oluşturma amacı ile oluşturulması </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Nitelikli elektronik sertifikaya dayanarak imza sahibinin kimliğinin tespitini sağlaması </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Vekaletle münhasıran imza verilebilmesi ve imzanın vekil sahibine bağlı olması </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İmzalanmış elektronik veride sonradan herhangi bir değişiklik yapılıp yapılmadığının tespitinin sağlanması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description48">Açıklama</button>
+		<div id="description48" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question49">
+	<p class="question">Soru 49:<br> Elektronik ortamda açık ve örtülü irade açıklaması ile ilgili aşağıdaki verilenlerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Borçlar Kanunu, irade açıklamasının açık ya da örtülü olabileceğini söylemektedir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bilişim sistemlerinde bir irade açıklamasından bahsedebilmek için kural olarak açık bir irade açıklamasına ihtiyaç olduğu söylenebilir </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Borçlar Kanunu, örtülü kabulü, belirli bir süre susmaya veya başka bir deyişle reddetmeme hâlinde kabul etmiş ve sözleşmenin kurulacağını hükme bağlamıştır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bilişim ortamlarında istisnai durumlar haricinde örtülü kabule yer vermemek gerekir. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Bir bilişim sisteminde sadece ekrandaki teklifin belli bir zaman içinde reddedilmemesi irade açıklaması olarak kabul edilebilir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description49">Açıklama</button>
+		<div id="description49" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question50">
+	<p class="question">Soru 50:<br> Aşağıdaki düzenlemelerden hangisi elektronik ortamda yapılan sözleşmelerin yasal çerçevesini <u><strong>oluşturmaz?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Tüketicinin Korunması Hakkında Kanun </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Türk Ceza Kanunu </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Elektronik Ticaretin Düzenlenmesi Hakkında Kanun </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Elektronik İmza Kanunu </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Borçlar Kanunu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description50">Açıklama</button>
+		<div id="description50" class="collapse">     <strong> Elektronik ortamda yapılan sözleşmelerin yasal çerçeve:<br><br></strong>
+
+I. Borçlar Kanunu<br>
+II. Elektronik İmza Kanunu<br>
+III. Elektronik Ticaretin Düzenlenmesi Hakkında Kanun<br>
+IV. Tüketicinin Korunması Hakkında Kanun ve Yönetmelikler<br><br>     </div>
+	</div>
+</div>
+		
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

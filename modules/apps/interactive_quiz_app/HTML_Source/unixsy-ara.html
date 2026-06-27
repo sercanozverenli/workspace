@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+	  
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA II
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama2-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama2-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama2-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama2-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama2-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama2-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama2-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama2-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama2-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama2-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB ARAYÜZ PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİ YAPILARI
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veriyap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veriyap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veriyap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veriyap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veriyap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veriyap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veriyap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veriyap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veriyap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veriyap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          MOBİL UYGULAMA GELİŞTİRME
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="mobilug-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="mobilug-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="mobilug-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="mobilug-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="mobilug-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="mobilug-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="mobilug-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="mobilug-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="mobilug-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="mobilug-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          UNIX SİSTEM YÖNETİMİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="unixsy-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="unixsy-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="unixsy-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="unixsy-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="unixsy-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="unixsy-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="unixsy-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="unixsy-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="unixsy-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="unixsy-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Unix Sistem Yönetimi - Çıkmış Sorular (Ara Sınav) </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> OpenSUSE'deki paket yöneticisi
+aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> apt </span><br>
+	<span class="option" data-correct="false"><b>B)</b> dpkg </span><br>
+	<span class="option" data-correct="true"><b>C)</b> zypper </span><br>
+	<span class="option" data-correct="false"><b>D)</b> dnf </span><br>
+	<span class="option" data-correct="false"><b>E)</b> rpm </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">    <u> Eğer şıklarda zypper yok ise cevap rpm'dir. Zypper var ise cevap Zypper olur.</u><br><br>
+ OpenSUSE’deki paket yöneticileri <u><strong>zypper ve yast2</strong></u>’dir. Zypper ve YaST2’nin temelinde ZYpp vardır. YaST2 (Bir diğer Kurulum Aracı- Yet another Setup Tool) OpenSUSE Linux’u yönetmek, kurmak ve yapılandırmak için kullanılırken zypper, ZYpp paket yöneticisinin komut satırı arayüzüdür (CLI). Open- SUSE 15.4 Tumbleweed işletim sistemi gibi güncel versiyonlarda yast2 komutu çalışmakla birlikte artık kullanılmamakta ve yast2 ile girilen komut satırı arayüz komutlarında zypper komutunun kullanılması gerektiği önerilmektedir.<br><br>
+Debian’daki dpkg komutu gibi paket yüklemek için <u><strong>rpm</strong> komutu kullanılıyor olsa da zypper komutunun
+aksine rpm komutu ile yüklenen paketlerde bağımlılık kontrol edilmediği için paket yönetiminde
+zypper komutunun kullanılması önerilmektedir.</u> zypper komutu, paketleri yönetmek için kullanımı kolay
+bir komut satırı aracı sağlar. YaST2’deki Yazılım Kataloglarını (depolar) eklemek ve mevcut yazılım paketleri,
+yamalar ve güncellemeler hakkında bilgi almak ve yüklemek için zypper kullanılabilir. YaST2’de
+olduğu gibi, zypper yazılım paketi bağımlılıklarını otomatik olarak çözmektedir.
+     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Aşağıdakilerden hangisi çalıştırılan komutları çekirdek aracılığı ile donanıma ileten komut satırı arayüzüdür? </p>
+	<span class="option" data-correct="false"><b>A)</b> dpkg </span><br>
+	<span class="option" data-correct="false"><b>B)</b> KDE </span><br>
+	<span class="option" data-correct="false"><b>C)</b> dnf </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Gnome </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Shell </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      Bourne shell, Korn shell, C shell ve birçok kullanıcı hesabı varsayılan olarak gelen Bourne-Again Shell (Bash) olmak üzere Linux işletim sisteminde çeşitli kabuklar bulunmaktadır     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Aşağıdakilerden hangisi Pardus'ta paket
+yöneticisi olarak kullanılan komutlardan biridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> pacman </span><br>
+	<span class="option" data-correct="true"><b>B)</b> dpkg </span><br>
+	<span class="option" data-correct="false"><b>C)</b> dnf </span><br>
+	<span class="option" data-correct="false"><b>D)</b> yast2 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> zypper </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      Pardus Debian tabanlı olduğu için Debian paket yöneticisi olarak <u><strong>apt ve dpkg</strong></u> komutları kullanılmaktadır     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Aşağıdakilerden hangisi en çok bilinen
+Debian tabanlı Linux dağıtımlarından biridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Rocky </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Fedora </span><br>
+	<span class="option" data-correct="false"><b>C)</b> OpenSuse </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Arch </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Ubuntu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      Popüler Debian tabanlı dağıtımlar arasında;<br>
+- Linux Mint, <br>
+- Temel elementary OS, <br>
+- Zorin OS, <br>
+- LXLE, <br>
+- Kali Linux ve <br>
+- Pardus bulunmakla birlikte <u>en çok bilinen</u> Debian dağıtımı <u>Ubuntu</u>’dur.       </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Aşağıdaki Linux dağıtımlarından hangisinde
+emerge paket yönetim sistemi kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Gentoo </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Debian </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Pardus </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Centos </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Ubuntu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      Gentoo’nun emerge olarak bilinen bir paket yöneticisi vardır.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Aşağıdaki komutlardan hangisi ile sanal
+makineye eklenmiş USB aygıtının bağlantı noktası kaldırılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> umount </span><br>
+	<span class="option" data-correct="false"><b>B)</b> lsblk </span><br>
+	<span class="option" data-correct="false"><b>C)</b> mount </span><br>
+	<span class="option" data-correct="false"><b>D)</b> blkid </span><br>
+	<span class="option" data-correct="false"><b>E)</b> loop </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> Aşağıdakilerden hangisi kullanılan
+bilgisayarda sanallaştırma yolu ile başka işletim sistemini çalıştırmak için kullanılan yazılımlardandır? </p>
+	<span class="option" data-correct="false"><b>A)</b> MacOS </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ubuntu </span><br>
+	<span class="option" data-correct="false"><b>C)</b> NPM </span><br>
+	<span class="option" data-correct="false"><b>D)</b> VLC </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Vmware </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      Piyasada kişisel kullanıma
+yönelik yaygın olarak <u><strong>Vmware</strong></u> ve Oracle tarafından desteklenen <u><strong>VirtualBox</strong></u> sanallaştırma yazılımları kullanılmaktadır. Vmware yazılımı lisanslı bir yazılımdır. VirtualBox ise açık kaynak lisanslı olup ücretsiz olarak kullanılabilmektedir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> Sanal makinede belirli bir yere kadar yapılan
+geliştirmelerin belirli bir anda alınmış yedeğine ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> USB diski </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ana makine disk </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sanal makine disk görüntü dosyası </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Anlık görüntü dosyası </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sanal makine diski </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> Aşağıdaki komutlardan hangisi ile virtualbox
+yazılımı Ubuntu işletim sistemine yüklenir? </p>
+	<span class="option" data-correct="false"><b>A)</b> sudo dnf install virtualbox </span><br>
+	<span class="option" data-correct="false"><b>B)</b> sudo zypper install virtualbox </span><br>
+	<span class="option" data-correct="true"><b>C)</b> sudo apt install virtualbox </span><br>
+	<span class="option" data-correct="false"><b>D)</b> sudo dpkg install virtualbox </span><br>
+	<span class="option" data-correct="false"><b>E)</b> sudo pacman install virtualbox </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Yetersiz bellek kalması durumunda, ana
+makine ihtiyacı olan belleği sabit diskteki hangi alandan alır? </p>
+	<span class="option" data-correct="false"><b>A)</b> root </span><br>
+	<span class="option" data-correct="true"><b>B)</b> swap </span><br>
+	<span class="option" data-correct="false"><b>C)</b> lsblk </span><br>
+	<span class="option" data-correct="false"><b>D)</b> home </span><br>
+	<span class="option" data-correct="false"><b>E)</b> boot </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> Aşağıdakilerden hangisi A sınıfı varsayılan
+alt ağ maskesidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 255.252.0.0 </span><br>
+	<span class="option" data-correct="true"><b>B)</b> 255.0.0.0 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 255.255.0.0 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 255.255.255.0 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 255.255.252.0 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      A sınıfı varsayılan alt ağ maskesi: 255.0.0.0<br>
+B sınıfı varsayılan alt ağ maskesi: 255.255.0.0<br>
+C sınıfı varsayılan alt ağ maskesi: 255.255.255.0  <br>   </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> Aşağıdaki komutlardan hangisi ile fiziksel
+hacim yeniden boyutlandırılır?  </p>
+	<span class="option" data-correct="true"><b>A)</b> pvresize </span><br>
+	<span class="option" data-correct="false"><b>B)</b> vgresize </span><br>
+	<span class="option" data-correct="false"><b>C)</b> lsblk </span><br>
+	<span class="option" data-correct="false"><b>D)</b> vg -lv </span><br>
+	<span class="option" data-correct="false"><b>E)</b> lvresize </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      
+<u><strong>pvresize</strong></u> komutu ile fiziksel hacmin yeniden boyutlandırılacağı,<br><br>
+
+<u><strong>lvresize</strong></u> komutu ile tüm boş disk alanının (100%FREE) kök dizine (/dev/mapper/ubuntu--vg-ubuntu--lv) verileceğini, <br><br>
+
+<u><strong>resize2fs</strong></u> ile kök dizine verilecek disk alanının büyütme işleminin gerçekleştirilmesi   </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Linux'ta kişisel dosyalar ve ayarların
+tutulduğu kullanıcı dizini aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> / </span><br>
+	<span class="option" data-correct="false"><b>B)</b> /root </span><br>
+	<span class="option" data-correct="true"><b>C)</b> /home </span><br>
+	<span class="option" data-correct="false"><b>D)</b> swap </span><br>
+	<span class="option" data-correct="false"><b>E)</b> /boot </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> C sınıfı bir alt ağ maskesinde en fazla
+verilecek toplam IP sayısı kaçtır? </p>
+	<span class="option" data-correct="true"><b>A)</b> 256 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 128 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 64 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 32 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 16 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      
+A Sınıfı: 16 milyon üzeri IP adresi<br>
+A sınıfı: IP Adres (Oktet) Aralığı: 1 – 126<br><br>
+B Sınıfı: 65,535 IP adresi<br>
+B sınıfı: IP Adres (Oktet) Aralığı: 128 – 191<br><br>
+C Sınıfı: 256 IP adresi<br>
+C sınıfı: IP Adres (Oktet) Aralığı: 192 – 223     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> Aşağıdaki komutlardan hangisi ile Debian
+tabanlı sistemlerde yüklü yazılım paketleri paket.txt dosyasına yazdırılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> yum install package-list &gt; paket.txt </span><br>
+	<span class="option" data-correct="false"><b>B)</b> pacman list packages &gt; paket.txt </span><br>
+	<span class="option" data-correct="false"><b>C)</b> rpm install package-list &gt; paket.txt </span><br>
+	<span class="option" data-correct="false"><b>D)</b> dnf list --installed &gt; paket.txt </span><br>
+	<span class="option" data-correct="true"><b>E)</b> apt list --installed &gt; paket.txt </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Aşağıdakilerden hangisi ssh istemci
+yazılımlarından biridir?  </p>
+	<span class="option" data-correct="false"><b>A)</b> Microk8s </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Postgresql </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Prometheus </span><br>
+	<span class="option" data-correct="true"><b>D)</b> MobaXterm </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Docker </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      Linux ve Mac
+OS işletim sistemlerinde varsayılan olarak gelen terminal yazılımı ile ssh erişimi sağlanırken Windows işletim sistemlerinde kurulumda opsiyonel olarak gelen ve etkinleştirilmesi gereken OpenSSH Client ya da Putty, mRemoteNG ve Mobaxterm gibi 3. parti yazılımlar aracılığı ile sağlanmaktadır.     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> Aşağıdakilerden hangisi ile ssh anahtarı
+başka bir dosyaya yapıştırılmak için kopyalanır? </p>
+	<span class="option" data-correct="false"><b>A)</b> nano </span><br>
+	<span class="option" data-correct="false"><b>B)</b> copy </span><br>
+	<span class="option" data-correct="true"><b>C)</b> pbcopy </span><br>
+	<span class="option" data-correct="false"><b>D)</b> pbpaste </span><br>
+	<span class="option" data-correct="false"><b>E)</b> paste </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      ssh anahtarı pbcopy
+komutu ile de dosyayı açmadan kopyalanıp başka bir dosyaya pbpaste ya da başka bir alana doğrudan Command+V tuşu ile yapıştırılabilir     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Aşağıdaki komutlardan hangisi ile diskin
+ekleneceği bölüm grubu adı öğrenilir?  </p>
+	<span class="option" data-correct="false"><b>A)</b> vgenxtend </span><br>
+	<span class="option" data-correct="false"><b>B)</b> pvcreate </span><br>
+	<span class="option" data-correct="false"><b>C)</b> resize2fs </span><br>
+	<span class="option" data-correct="true"><b>D)</b> vgdisplay </span><br>
+	<span class="option" data-correct="false"><b>E)</b> pvextend </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> Aşağıdaki komutlardan hangisi ile mantıksal
+bölüm tüm boş alan kullanılacak şekilde genişletilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> resize2fs -l +100%FREE
+/dev/ubuntu-vg/ubuntu-lv </span><br>
+	<span class="option" data-correct="false"><b>B)</b> pvextend -l +100%FREE
+/dev/ubuntu-vg/ubuntu-lv </span><br>
+	<span class="option" data-correct="false"><b>C)</b> vgextend -l +100%FREE
+/dev/ubuntu-vg/ubuntu-lv </span><br>
+	<span class="option" data-correct="true"><b>D)</b> lvextend -l +100%FREE
+/dev/ubuntu-vg/ubuntu-lv  </span><br>
+	<span class="option" data-correct="false"><b>E)</b> pvcreate -l +100%FREE
+/dev/ubuntu-vg/ubuntu-lv </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> Windows 10 işletim sisteminde SSH anahtarı
+oluşturmak için yüklenmesi gereken paket aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> ssh-keygen </span><br>
+	<span class="option" data-correct="true"><b>B)</b> OpenSSH istemcisi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> OpenSSH sunucusu </span><br>
+	<span class="option" data-correct="false"><b>D)</b> GPG anahtarları </span><br>
+	<span class="option" data-correct="false"><b>E)</b> powershell </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Aşağıdaki komutlardan hangisiyle "sda4"
+isimli bir fiziksel bölüm oluşturulur?  </p>
+	<span class="option" data-correct="false"><b>A)</b> vgcreate /dev/sda4 </span><br>
+	<span class="option" data-correct="true"><b>B)</b> pvcreate /dev/sda4 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Lvcreate /dev/sda4
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> lsblk /dev/sda4 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> cfdisk /dev/sda4 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      sda4 fiziksel taraftan
+bakıldığında disk bölümü olmakla birlikte Mantıksal Bölüm Yönetimi tarafından bakıldığında bir fiziksel bölümdür. <br><br>
+pvcreate /dev/sda4 komutu ile sda4 adında bir fiziksel bölüm oluşturulur     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Cinnamon adlı bir türü bulunan Linux
+dağıtımı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kali </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Fedora </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ubuntu </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Alma </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Mint </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      Linux Mint’in Cinnamon, XFCE ve MATE olmak üzere 3 çeşidi bulunmaktadır     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> Aşağıdakilerden hangisi "127.0.0.1"
+rakamlarından oluşan sanal makinenin kendisini temsil eder? </p>
+	<span class="option" data-correct="false"><b>A)</b> enp0s3 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> enp0s8 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ipV6 </span><br>
+	<span class="option" data-correct="true"><b>D)</b> lo </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ipV4 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      lo, localhost olarak da bilinen ve 127.0.0.1 rakamlarından oluşan sanal makinenin kendisini temsil etmektedir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> A sınıfı varsayılan alt ağ maskesinin bit
+cinsinden değeri aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> 8 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 16 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 20 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 24 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 32 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      A sınıfı varsayılan alt ağ maskesi: 255.0.0.0<br>
+B sınıfı varsayılan alt ağ maskesi: 255.255.0.0<br>
+C sınıfı varsayılan alt ağ maskesi: 255.255.255.0<br>
+<br>
+255 rakamını elde etmek için 128, 64, 32, 16, 8, 4, 2 ve 1 rakamlarını
+toplamamız gerektiğinden her bir bölümün altına 1 rakamını yazıyoruz. Bu birlerin toplamı 8 olmaktadır.
+A sınıfı varsayılan alt ağ maskesindeki diğer 3 bloktaki rakamlar 0 (sıfır) olduğundan bu rakamlar için bit
+değerleri de 0 (sıfır) olmaktadır. <u>Bu yüzden A sınıfı varsayılan alt ağ maskesinin bit cinsinden değeri 8’dir
+ve /8 olarak gösterilir </u> <br><br>
+Benzer şekilde B sınıfı alt ağ maskesinin varsayılan değeri 255.255.0.0’dır. 255 rakamının bit cinsinden
+değerinin 8 adet 1 olduğu yukarıda hesaplanmıştı. Bu alt ağ maskesinde 2 adet 255 olduğundan <u>B sınıfı Sınıfsız
+Alanlararası Yönlendirme Değeri= /16 olacaktır</u><br><br>
+			
+C sınıfı alt ağ maskesinin varsayılan değeri 255.255.0.0’dır.C sınıfı alt ağ maskesinde 3 adet 255 olduğundan <u>C sınıfı Sınıfsız Alanlararası
+Yönlendirme Değeri= /24 olacaktır	</u>		
+   </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> Aşağıdakilerden hangisi sanal makinenin
+yeniden başlatılmasında shutdown komutu ile birlikte kullanılması gereken parametredir? </p>
+	<span class="option" data-correct="false"><b>A)</b> -s </span><br>
+	<span class="option" data-correct="true"><b>B)</b> -r </span><br>
+	<span class="option" data-correct="false"><b>C)</b> -t </span><br>
+	<span class="option" data-correct="false"><b>D)</b> -a </span><br>
+	<span class="option" data-correct="false"><b>E)</b> -h </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      Disk bölümlendirmenin
+sistem tarafından algılanabilmesi için reboot ya da shutdown -r now komutlarından biri ile yeniden başlatılması gerekmektedir.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> Aşağıdakilerden hangisi Suse tabanlı
+sistemlerde kullanılan paket yöneticisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> rpm </span><br>
+	<span class="option" data-correct="false"><b>B)</b> apt </span><br>
+	<span class="option" data-correct="false"><b>C)</b> dpkg </span><br>
+	<span class="option" data-correct="false"><b>D)</b> pacman </span><br>
+	<span class="option" data-correct="false"><b>E)</b> emerge </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      <u> Eğer şıklarda zypper yok ise cevap rpm'dir. Zypper var ise cevap Zypper olur.</u><br><br>
+ OpenSUSE’deki paket yöneticileri <u><strong>zypper ve yast2</strong></u>’dir. <u>Zypper ve YaST2’nin temelinde ZYpp</u> vardır. YaST2 (Bir diğer Kurulum Aracı- Yet another Setup Tool) OpenSUSE Linux’u yönetmek, kurmak ve yapılandırmak için kullanılırken zypper, ZYpp paket yöneticisinin komut satırı arayüzüdür (CLI). Open- SUSE 15.4 Tumbleweed işletim sistemi gibi güncel versiyonlarda yast2 komutu çalışmakla birlikte artık kullanılmamakta ve yast2 ile girilen komut satırı arayüz komutlarında zypper komutunun kullanılması gerektiği önerilmektedir.<br><br>
+Debian’daki dpkg komutu gibi paket yüklemek için <u><strong>rpm</strong> komutu kullanılıyor olsa da zypper komutunun aksine rpm komutu ile yüklenen paketlerde bağımlılık kontrol edilmediği için paket yönetiminde zypper komutunun kullanılması önerilmektedir.</u> zypper komutu, paketleri yönetmek için kullanımı kolay bir komut satırı aracı sağlar. YaST2’deki Yazılım Kataloglarını (depolar) eklemek ve mevcut yazılım paketleri, yamalar ve güncellemeler hakkında bilgi almak ve yüklemek için zypper kullanılabilir. YaST2’de olduğu gibi, zypper yazılım paketi bağımlılıklarını otomatik olarak çözmektedir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Aşağıdakilerden hangisi Debian tabanlı Linux
+dağıtımlarından biridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Arch </span><br>
+	<span class="option" data-correct="false"><b>B)</b> OpenSuse </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Kali </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Rocky </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Fedora </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      Popüler Debian tabanlı dağıtımlar arasında;<br>
+- Linux Mint, <br>
+- Temel elementary OS, <br>
+- Zorin OS, <br>
+- LXLE, <br>
+- Kali Linux ve <br>
+- Pardus bulunmakla birlikte <u>en çok bilinen</u> Debian dağıtımı <u>Ubuntu</u>’dur.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> Aşağıdakilerden hangisi kullanılan
+bilgisayarda sanallaştırma yolu ile başka işletim sistemini çalıştırmak için kullanılan yazılımlardan biridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> TCP </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ubuntu </span><br>
+	<span class="option" data-correct="false"><b>C)</b> VLC </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Shell </span><br>
+	<span class="option" data-correct="true"><b>E)</b> KVM </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      Sanallaştırma ortam yazılımları olarak adlandırılan bu yazılımlar fiziksel bir makineye kurularak fiziksel makine içinde bir veya daha fazla sanal makine çalıştırma imkânı sunmaktadır. Hatta büyük veri merkezlerinde de bazı istisnalar dışında sunucuların bu sanallaştırma yazılımları <u><strong>(Örneğin VmWare ESXi ve KVM- Kernel-based Virtual Machine)</strong></u> ile kurulumu gerçekleştirilmektedir. Piyasada kişisel kullanıma yönelik yaygın olarak <u><strong>Vmware</strong></u> ve <u>Oracle tarafından desteklenen</u> <u><strong>VirtualBox</strong></u> sanallaştırma yazılımları kullanılmaktadır. <u>Vmware yazılımı lisanslı bir yazılımdır. VirtualBox ise açık kaynak lisanslı olup ücretsiz olarak kullanılabilmektedir. </u>    </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> VirtualBox yazılımında Sistem menü öğesi
+altındaki hangi sekmede sanal makinenin Ram (Bellek) miktarı belirlenir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Ana makine diski </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Hızlandırma </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İşlemci </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Anakart </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sanal makine diski </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      <strong>Sistem</strong> menü ögesi altında <u>Anakart, İşlemci ve Hızlandırma</u> sekmeleri yer almaktadır.<br><br>
+<u><strong>Anakart</strong></u> altında sanal makinenin oluşturulması aşamasında belirlenen Ana Bellek (Ram) miktarı, sanal makineye bağlı ortam dosyalarının
+<u>açılışta kullanılacak sırası, Yonga Seti, İşaretleme Aygıtı ve Genişletilmiş Özellikler</u> ile ilgili seçenekler yer almaktadır. Burada ihtiyaç olması durumunda <u>ana bellek miktarında azaltma ya da artış yapılıp</u> diğer tüm
+ayarlar varsayılan değerlerde bırakılabilir. Ana Bellek miktarında değişiklik yapılması isteniyorsa ağ ayarlarının aksine sanal makinenin henüz başlatılmamış ve kapalı konumda olması gerekmektedir<br><br>
+			
+İşlemci sekmesinde ise sanal makine tarafından kullanılması planlanan işlemci (Cpu) miktarı ayarlanabilir. Sanal makine ilk kurulduğunda bu ayar varsayılan olarak 1 işlemci olarak belirlenmektedir.<br><br>
+			
+			
+     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> Aşağıdakilerden hangisi Linux işletim
+sistemi kurulurken ip adresi bilgilerinin manuel verilmek istenmesi durumunda alt ağ maskesine karşılık gelmektedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Address </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Subnet </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Gateway </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Name server
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Domain </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> Aşağıdaki komutlardan hangisi ile sda3
+fiziksel alanı yeniden boyutlandırılır?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> vgresize /dev/sda3 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> vresize -l +100%FREE /dev/sda3 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> resize2fs /dev/sda3
+ </span><br>
+	<span class="option" data-correct="true"><b>D)</b> pvresize /dev/sda3
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> lsblk /dev/sda3
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> 352 adet IP ihtiyacı olan bir birimde
+aşağıdaki ağ yapılandırma sınıflarından hangisi kullanılmalıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> A </span><br>
+	<span class="option" data-correct="true"><b>B)</b> B </span><br>
+	<span class="option" data-correct="false"><b>C)</b> C </span><br>
+	<span class="option" data-correct="false"><b>D)</b> D </span><br>
+	<span class="option" data-correct="false"><b>E)</b> E </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> Disk ekleme yöntemi ile disk boyutu
+artırılırken "cfdisk /dev/sdb" komutu sonrasında komut satırı arayüzünde aşağıdakilerden hangisi seçilmelidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> gpt </span><br>
+	<span class="option" data-correct="false"><b>B)</b> dos </span><br>
+	<span class="option" data-correct="false"><b>C)</b> sgi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> sun </span><br>
+	<span class="option" data-correct="false"><b>E)</b> sdb </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      cfdisk /dev/sdb çalıştırıldıktan sonra açılan komut satırı arayüzü menüsünde gpt (GUID Partition Table) seçeneği ile devam edilerek eklenen diskin bölümlendirmesi ekranına geçilecektir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> Aşağıdakilerden hangisi ile kullanılan ana
+makineden kurulumu yapılan Linux işletim sistemine parola girmeden bağlantı sağlanır? </p>
+	<span class="option" data-correct="false"><b>A)</b> TCP </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Putty </span><br>
+	<span class="option" data-correct="false"><b>C)</b> FTP </span><br>
+	<span class="option" data-correct="false"><b>D)</b> DHCP </span><br>
+	<span class="option" data-correct="true"><b>E)</b> SSH anahtarı
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> “vgextend ubuntu-vg /dev/sda4”
+Yukarıdaki komut örneğinde hangi bölüm disk grubu adını gösterir? </p>
+	<span class="option" data-correct="false"><b>A)</b> /dev </span><br>
+	<span class="option" data-correct="false"><b>B)</b> vgextend </span><br>
+	<span class="option" data-correct="true"><b>C)</b> ubuntu-vg </span><br>
+	<span class="option" data-correct="false"><b>D)</b> /dev/sda4 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> vg </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+	  
+
+		
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

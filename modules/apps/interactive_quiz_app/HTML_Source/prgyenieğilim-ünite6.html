@@ -1,0 +1,1643 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          ALGORİTMALAR
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="alg-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="alg-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="alg-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="alg-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="alg-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="alg-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="alg-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="alg-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="alg-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="alg-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB SUNUCU PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wsp-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wsp-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wsp-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wsp-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wsp-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wsp-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wsp-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wsp-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wsp-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wsp-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİ MADENCİLİĞİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="vmaden-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="vmaden-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="vmaden-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="vmaden-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="vmaden-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="vmaden-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="vmaden-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="vmaden-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="vmaden-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="vmaden-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİTABANI SİSTEMLERİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="vtsistem-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="vtsistem-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="vtsistem-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="vtsistem-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="vtsistem-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="vtsistem-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="vtsistem-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="vtsistem-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="vtsistem-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="vtsistem-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMADA YENİ EĞİLİMLER
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="prgyenieğilim-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="prgyenieğilim-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Programlamada Yeni Eğilimler - Ünite 6 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	<button class="block-group" data-start="40" data-end="59">Part 3</button>
+  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Merkezi işlemci birimi ile ilgili verilen aşağıdaki ifadelerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Paralel işlem yapabilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Aritmetik işlemler yapabilir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Mantıksal işlemler yapabilir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Elektronik devredir </span><br>
+	<span class="option" data-correct="true"><b>E)</b> GPU’ya göre performansı yüksektir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Grafik işlemci birimi (GPU) ile ilgili aşağıda verilen aşağıdaki bilgilerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Programlanabilir aritmetik birimlere sahiptir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Grafik yaratımı için kullanılan aygıttır.
+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Paralel işlem yapmak için kullanılabilir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bilgisayar ekranındaki piksellerin renklerini belirler </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Çok kuyruklu sistemlerde çalışmaz. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Aşağıdakilerden hangisi grafik işlemci birimi programlamanın videolarla ilgili uygulama alanlarından biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Video düzenleme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Efekt ekleme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Dijital animasyon </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Hesaplamaya dayalı finans
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Gerçekleme (Rendering) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Aşağıdakilerden hangisi windows, Linux, Mac OS ve Solaris gibi birçok işletim sisteminde ve oyun konsollarında iki
+ve üç boyutlu grafikleri ekrana çizmek için kullanılan uygulama geliştirme arabirimlerinden biridir? </p>
+	<span class="option" data-correct="true"><b>A)</b> OpenGL </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Visual Studio </span><br>
+	<span class="option" data-correct="false"><b>C)</b> CPU </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bellek </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Ekran </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Aşağıdakilerden hangisi GPU programlama için NVIDIA firmasının sunduğu C, C++, Fortran gibi programlama dilleriyle birlikte kullanılabilen mimari ve teknolojilerden biridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Solaris </span><br>
+	<span class="option" data-correct="true"><b>B)</b> CUDA </span><br>
+	<span class="option" data-correct="false"><b>C)</b> OpenGL </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Visual Studio </span><br>
+	<span class="option" data-correct="false"><b>E)</b> DirectX </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Aşağıdakilerden hangisi CUDA’nın sunduğu avantajlardan biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> C/C++ dillerinde uygulama geliştirilebilmesi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ortak hafıza kullanılabilmesi </span><br>
+	<span class="option" data-correct="true"><b>C)</b> OpenGL ile çalışabilirliğinin tek yönlü olması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Hafızadan rastgele bir adresin okunabilmesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Tam sayı işlemlerine tam destek vermesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> CUDA’da cihaz tarafında çalışacak fonksiyonu belirtmek için kullanılan anahtar kelime aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> __global__ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> main </span><br>
+	<span class="option" data-correct="false"><b>C)</b> #define </span><br>
+	<span class="option" data-correct="false"><b>D)</b> void </span><br>
+	<span class="option" data-correct="false"><b>E)</b> include </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> I. Giriş verisi CPU’nun belleğinden GPU belleğine kopyalanır.<br>
+II. GPU programı yüklenir ve giriş verisine göre işlemleri yapar.<br>
+III. İşlem sonuçlarını GPU belleğinden CPU belleğine kopyalar.<br><br>
+Yukarıdaki adımlardan hangileri GPU programlama yaparken sırayla gerçekleşir? </p>
+	<span class="option" data-correct="true"><b>A)</b> I – II – III </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I – III – II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> II – I – III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> III – I – II </span><br>
+	<span class="option" data-correct="false"><b>E)</b> III – II – I </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> CUDA’da kuyruklar ile paralel işlem yaparken, ana (main) fonksiyonda bütün kuyrukların sonucunu bekleyebilmek için kullanılan komut aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> nvcc </span><br>
+	<span class="option" data-correct="false"><b>B)</b> cudaMemcpy()
+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> __global__ </span><br>
+	<span class="option" data-correct="true"><b>D)</b> cudaDeviceSynchronize()
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> #define </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Paralel hesaplama ile ilgili aşağıda verilen bilgilerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Problemi daha hızlı çözebilir </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Sadece CPU’da yapılabilir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Büyük ölçekli problemleri çözebilir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> GPU’da yapılabilir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Paylaşılmış hafıza ile veri alışverişi sağlanır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> Görüntü işleme komutlarını çalıştırmak için özelleşmiş elektronik devrelere ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Merkezi işlemci birimi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> OpenGL </span><br>
+	<span class="option" data-correct="false"><b>C)</b> CUDA </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Grafik işlemci birimi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> DirectX </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> "Grafik İşlemci Birimi" 'nin kısaltması nedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> GPU </span><br>
+	<span class="option" data-correct="false"><b>B)</b> CPU </span><br>
+	<span class="option" data-correct="false"><b>C)</b> RAM </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ROM </span><br>
+	<span class="option" data-correct="false"><b>E)</b> VGA </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      Grafik işlemci birimi (Graphical Processing Unit–GPU),     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> C dilinde yazılmış bir kod NVIDIA derleyicisinde hangi komut kullanılarak derlenebilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Nccv </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Nvvc </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Vnnc </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Cvvn </span><br>
+	<span class="option" data-correct="true"><b>E)</b> nvcc </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> GPU'da çalıştırılacak bir kodun yapısı nasıl olmalıdır? </p>
+	<span class="option" data-correct="true"><b>A)</b> __global__ void cihaz(void) {<br>
+} </span><br>
+	<span class="option" data-correct="false"><b>B)</b> __global__ void cihaz {<br>
+} </span><br>
+	<span class="option" data-correct="false"><b>C)</b> void cihaz(void) {<br>
+} </span><br>
+	<span class="option" data-correct="false"><b>D)</b> __global__ void(void) {<br>
+} </span><br>
+	<span class="option" data-correct="false"><b>E)</b> __global__ void cihaz(void) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> Aşağıdakilerden hangisi  GPU’ların  günümüzde kullanım alanlarından biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> biyoinformatik </span><br>
+	<span class="option" data-correct="false"><b>B)</b> sayısal analitik </span><br>
+	<span class="option" data-correct="false"><b>C)</b> moleküler dinamik </span><br>
+	<span class="option" data-correct="false"><b>D)</b> medikal görüntüleme </span><br>
+	<span class="option" data-correct="true"><b>E)</b> ps oyunları </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> I. CPU birkaç çekirdekten oluşmaktadır.<br>
+II. GPU yüzlerce çekirdekten oluşmaktadır.<br>
+III. CPU’lar uzun hesaplama komutlarının hâkim olduğu çoklu kuyruklu uygulamalarda kullanılmaktadır.<br>
+IV. CPU’lar ile ondalıklı sayı işlemleri günümüzde GPU’lardan 20 kat kadar daha hızlı yapılabilmektedir.<br><br>
+Yukarıdaki ifadelerden hangisi/hangileri doğrudur? </p>
+	<span class="option" data-correct="true"><b>A)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> III ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> Aşağıdakilerden hangisi CPU ile GPU arasındaki farklardan biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> CPU’larda hesaplamaların sonuçlarının hafızaya ne şekilde yazılacağı ve korunacağına dair kısıtlar bulunmaktadır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> CPU genellikle seri olarak işlem yapmak için tasarlanmış birkaç çekirdekten oluşmaktadır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> GPU birden fazla görevi bir arada paralel olarak yapabilmek için tasarlanmış yüzlerce çekirdekten oluşmaktadır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> GPU üzerinde çalışan kodda hata ayıklama yapabilecek bir metod bulunmamaktadır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> GPU ile sadece piksellerin renk hesaplaması değil, farklı nümerik hesaplamaların yapılması da mümkün hâle gelmiştir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      <strong>GPU</strong>’lar p­ikseller­in renkler­ini­ hesaplamak i­çi­n tasarlandığından,  genel hesaplamalar i­çi­n kullanılmak istendi­ği­nde bazı kısıtlar vardır. Örneği­n, geleneksel  ­işlemci­ yapısından farklı olarak graf­ik ­işlemc­i birimleri­, hafıza değerleri­ni­ kolaylıkla değişti­rmeye yönel­ik olarak organi­ze ed­ild­ikleri­nden, yapılan hesaplamaların sonuçlarının hafızaya ne şek­ilde yazılacağı ve korunacağı bunlardan b­iri­di­r. Ayrıca ondalıklı sayılarla i­lgi­li­ hesaplamaların nasıl yapılacağı da üzer­inde düşünülmes­i gereken konulardan biridi­r. Diğer bi­r kısıt ­ise, programın yanlış sonuçlar yüzünden sonlandırılması gerekt­iğinde,  GPU üzer­inde çalışan kodda hata ayıklama yapabi­lecek b­ir metodun bulunmamasıdı       </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> I. 1980’lerin sonu 1990’ların başlarında, Microsoft Windows ve Mac OS gibi grafik tabanlı işletim sistemlerinin popülerliğinin artmasıyla yeni tip işlemciler pazarlarda yerini almaya başladı.<br><br>
+II. Kullanıcılar, iki boyutlu ekran hızlandırıcıları satın almaya başladılar, bu ekran hızlandırıcıları, grafiksel işletim sistemlerinin kullanılabilirliğini artırmak amacıyla Bitmap işlemlerinde donanım yardımı sunmaya başlamıştır.<br><br>
+		
+III. Yaklaşık aynı zamanlarda, Silicon Graphics şirketi de üç-boyutlu grafik işlemleri üzerinde çalışmaya başlamıştır.<br><br>
+		
+IV. Silicon Graphics üç-boyutlu grafik uygulamalarında kullanılmak üzere standart platformdan bağımsız OpenGL kütüphanesini tasarlamıştır.<br><br>
+		
+V. Günümüzde OpenGL Windows, Linux, Mac OS X ve Solaris gibi birçok işletim sisteminde ve oyun konsollarında iki ve üç boyutlu grafikleri ekrana çizmek için kullanılmaktadır.<br><br>
+		
+Grafik işlemci birimi tarihçesine ilişkin olarak yukarıdaki seçeneklerde yer alan ifadelerden hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I, IV ve V </span><br>
+	<span class="option" data-correct="false"><b>C)</b> III, IV ve V </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I, II, III ve IV </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II, III, IV ve V </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> I. 2000’li yılların başlangıcında, grafik işlemci birimleri programlanabilir aritmetik birimleri kullanarak, her bir piksel için renk üretmek üzere yeniden tasarlanmıştır.<br><br>
+		
+II. Yeni nesil grafik işlemci birimleri her bir pikseli için çeşitli bilgiler kullanarak renk hesaplaması yapmaktadır, bu bilgiler giriş renkleri, doku koordinatları gibi bilgiler olabilir.<br><br>
+		
+III. Giriş renkleri ve dokular üzerindeki aritmetik işlemlerin tümü programcının kontrolünde yapılmaktadır.<br><br>
+		
+IV. Grafik işlemci birimi geliştiren araştırmacılar, bahsedilen iyileştirmeleri tasarlarken, bu giriş değerlerinin sadece renk bilgisi değil, herhangi bir bilgi olabileceğini fark etmişlerdir.<br><br>
+		
+V. Grafik işlemci birimleri görüntü işlemenin yanı sıra, başka aritmetik işlemleri de yapabilen ve merkezi işlemci birimlerine destek olabilecek bir yapıya doğru evrilmiştir.<br><br>
+		
+VI. Renkten başka herhangi bir sayısal bilgi grafik işlemci birimine girdi olarak sağlanabilirse, bilgisayar programcıları bilgi üzerinde istedikleri hesaplamaları grafik işlemci birimine de yaptırabilirler.<br><br>
+
+VII. Böylece, GPU ile sadece piksellerin renk hesaplaması değil, farklı nümerik hesaplamaların yapılması da mümkün hâle gelmiştir.<br><br>
+
+Grafik işlemci birimi tarihçesine ilişkin olarak yukarıdaki seçeneklerde yer alan ifadelerden hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> III, IV, V ve VII </span><br>
+	<span class="option" data-correct="false"><b>C)</b> II, III, IV, V ve VI </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I, II, III, IV, V ve VII </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II, III, IV, V, VI ve VII </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> I. CPU programlama genellikle sınırlı sayıda kuyrukların çalışacağı uygulamalar için optimize edilmiştir, GPU ise farklı bir spektrumda programlamayı amaçlamaktadır.<br><br>
+		
+II. GPU’lar uzun hesaplama komutlarının hâkim olduğu çoklu kuyruklu uygulamalarda kullanılmaktadır.<br><br>
+		
+III. Günümüzde GPU’lar kuyruk işleme, veri önbelleği, sanal bellek yönetimi gibi konularda gelişmeye devam etmektedir.<br><br>
+		
+IV. GPU’lar genel olarak görüntü işleme operasyonlarını yürütmek için tasarlanmıştır.<br><br>
+		
+V. Görüntü işlemede aynı tür hesaplamalar birçok piksel için tekrar edilmektedir, bu nedenle GPU’lar işlemler arasındaki geçişi hızlı bir şekilde yapabilmektedirler.<br><br>
+		
+VI. GPU’larda aritmetik işlem yapan birimler, CPU’lara göre daha fazla sayıda bulunmaktadır, bu nedenle çok fazla aritmetik işlem gerektiren operasyonları GPU’lar daha hızlı yapabilmektedir.<br><br>
+
+VII. GPU’lar ile ondalıklı sayı işlemleri günümüzde CPU’lardan 20 kat kadar daha hızlı yapılabilmektedir.<br><br>
+
+CPU ve GPU ile programlama arasındaki farklara ilişkin olarak yukarıdaki seçeneklerde yer alan ifadelerden hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> III, IV, V ve VII </span><br>
+	<span class="option" data-correct="false"><b>C)</b> II, III, IV, V ve VI </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I, II, III, IV, V ve VII </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II, III, IV, V, VI ve VII </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br>  Aşağıdaki ifadelerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> GPU’lar ile ondalıklı sayı işlemleri günümüzde CPU’lardan 20 kat kadar daha hızlı yapılabilmektedir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> CUDA, DirectX ya da OpenGL’e göre paralel kullanım erişilebilirliğini kolaylaştırmıştır. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> CUDA kayıtlı OpenGL hafızasına ulaşabilirken,OpenGL CUDA  hafızasına erişememektedir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Standart C’de derlenebilen bazı kodlar, CUDA C’de derlenememektedir </span><br>
+	<span class="option" data-correct="false"><b>E)</b> CUDA (Compute Unified Device Architecture), GPU programlama için NVIDIA firmasının sunduğu C, C++, Fortran gibi programlama dilleriyle birlikte kullanılabilen mimari
+ve teknolojidir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      OpenGL kayıtlı CUDA hafızasına ulaşabilirken, CUDA OpenGL hafızasına erişememektedir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> I. Geleneksel hesaplama ortamında bilgisayarlar tek çekirdekli bir işlemciye sahiptir.<br>
+II. Bütün hesaplama işlemleri bu işlemci tarafından yürütülür.<br>
+
+III. Hesaplama ortamında eşzamanlı olarak çalışan bir ya da iki komut işleyici vardır.<br><br>
+
+Geleneksel hesaplama ile ilgili verilen bilgilerden hangisi/hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I-II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I-III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II-III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      Tek işlemci olması nedeniyle bilgisayar, aynı anda yalnızca bir tane komut çalıştırabilir.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> CUDA ile heterojen hesaplama basamaklarından hangisi/hangileri doğrudur?<br><br>
+I. Giriş verisi GPU’nun belleğinden CPU belleğine kopyalanır.<br>
+
+II. CPU programı yüklenir ve giriş verisine göre işlemler yapılır.<br>
+
+III. İşlem sonuçları GPU belleğinden CPU belleğine kopyalanır.<br> </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I-II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I-III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II-III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      Doğru Sıralama:<br><br>
+I. Giriş verisi CPU’nun belleğinden GPU belleğine kopyalanır.<br>
+II. GPU programı yüklenir ve giriş verisine göre işlemleri yapar.<br>
+III. İşlem sonuçlarını GPU belleğinden CPU belleğine kopyalar.<br><br>     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> I. Bir hesaplamanın paralel olarak yapılması problemine algoritma geliştirilmesi açısından bakılacak olursa en önemli olan konulardan biri, genel problemin nasıl alt parçalara ayrılacağı konusudur.<br><br>
+		
+II. Paralel programlama çeşitli amaçlarla kullanılabilir, ancak en belirgin amaç, bir problemin daha hızlı biçimde çözülmesini sağlamaktır.<br><br>
+		
+III. Herhangi bir hesaplama probleminin paralel şekilde çözülmesi hemen her zaman seri şekilde çözülmesinden çok daha hızlı tamamlanacaktır.<br><br>
+		
+IV. İkincil amaç, arka planda yatan motivasyon hala zaman kazanmak olsa da çok büyük problemlerin çözülebilmesine olanak sağlamasıdır<br><br>
+		
+V. Asıl motivasyon problemin çözümü için gerekecek zaman aralığını kısaltmak olsa da paralel programlama sayesinde, çözümüne ulaşılması mümkün görünmeyen problemler çözülebilir olurlar.<br><br>
+		
+VI. Paralel programlamanın bir başka faydası ise sınırlı hesaplama kaynaklarının, birden fazla kişi tarafından ortak biçimde kullanılmasını sağlamaktır ve bu sayede sınırlı sayıdaki işlem birimi daha fazla kişi tarafından verimli biçimde kullanılabilir.<br><br>
+
+Paralel programlamaya ilişkin olarak yukarıdaki seçeneklerde yer alan ifadelerden hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> III, IV, V ve VI </span><br>
+	<span class="option" data-correct="false"><b>C)</b> II, III, IV, V ve VI </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I, II, III, ve IV </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II, III, IV, V ve VI </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> I. C<br>
+II. C++<br>
+III. Fortran<br><br>
+CUDA (Compute Unified Device Architecture), GPU programlama için yukarıdaki programlama dillerinden hangileriyle birlikte kullanılabilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> I, II ve III </span><br>
+	<span class="option" data-correct="false"><b>B)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yalnız I </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> 3 GHz frekansa sahip bir işlemci saniyede kaç saat vuruşuna sahiptir? </p>
+	<span class="option" data-correct="true"><b>A)</b> 3*10<sup>9</sup> </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 3*10<sup>8</sup> </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 3*10<sup>7</sup> </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 3*10<sup>6</sup> </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 3*10<sup>5</sup> </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> "Geleneksel programlamada bir problemin çözümü tek bir işlemcinin üzerinde gerçekleştirilirken, ............. hesaplamada problem çeşitli alt bölümlere ayrılır ve her bir bölüm farklı işlemciler tarafından paralel bir şekilde çözülür."<br><br>
+Boşluk bırakılan yere aşağıdakilerden hangisi gelmelidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Paralel </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Grafik </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Birimsel </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Tabansal </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İşlemsel </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> Aşağıdaki ifadelerden hangisi doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Frekans değeri işlemcinin hızı hakkında fikir vermez. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 3 GHz frekansa sahip bir işlemci saniyede 3×1000 saat vuruşuna sahiptir </span><br>
+	<span class="option" data-correct="true"><b>C)</b> İşlemcilerin içindeki elektronik devreler, bir tür saat vuruşu mekanizması ile hareket ederler. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Merkezi İşlemci Birimleri görüntü işleme komutlarını çalıştırmak üzere özelleşmiş bir elektronik devreler bütünüdür. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Paralel hesaplama teknikleri ile iş yükü bir işlemcinin üzerine atanır ve çözüm süresi uzar. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> Aşağıdakilerden hangisi Grafik işlemci biriminin özelliklerindendir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Günümüz işlemcilerinin ilk işlemcilere göre binlerce kez daha hızlı olduğu
+söylenebilir. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Paralel işlem yapmak üzere özelleşmiş olan bu birimler görüntü işlemede ve bilgisayar grafiğinde etkilidir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Aritmetik ve mantıksal operasyonları gerçekleştiren bir elektronik devreler bütünüdür. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İşlemcilerin içindeki elektronik devreler, bir tür saat vuruşu mekanizması ile hareket ederler. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İş yükü birden fazla işlemcinin üzerine paylaştırılabilir ve çözüm daha kısa sürede elde edilebilir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> Aşağıdakilerden hangisi ile dönüşüm ve aydınlatma hesaplamaları doğrudan grafik işlemci üzerinden yapılmaya başlandı? </p>
+	<span class="option" data-correct="false"><b>A)</b> NVIDIA  GeForce 3 </span><br>
+	<span class="option" data-correct="true"><b>B)</b> NVIDIA GeForce 256 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> DirectX 8.0 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> OpenGL API </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ATI </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> Silicon Graphics şirketi tarafından üç-boyutlu grafik uygulamalarında kullanılmak üzere standart platformdan bağımsız tasarlanan kütüphane aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> OpenGL </span><br>
+	<span class="option" data-correct="false"><b>B)</b> DirectX </span><br>
+	<span class="option" data-correct="false"><b>C)</b> WebGL </span><br>
+	<span class="option" data-correct="false"><b>D)</b> DirectX </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Vulkan </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> I. Çok büyük problemlerin çözülebilmesine olanak sağlamak<br>
+II. Bir problemin daha hızlı biçimde çözülmesini sağlamak<br>
+III. sınırlı hesaplama kaynaklarının, birden fazla kişi tarafından ortak biçimde kullanılmasını sağlamak<br><br>
+Yukarıdakilerden hangileri paralel programlamanın amaç ve faydaları arasındadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> I. Derleme hatalarının nasıl ayıklanabileceği<br>
+II. İşlem sonuçlarının hafızaya nasıl kaydedileceği<br>
+III. Ondalıklı sayılar ile hesaplamanın nasıl yapılabileceği<br><br>
+Yukarıdakilerden hangileri GPU hesaplamanın erken dönemlerindeki kısıtlardandır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> Aşağıdakilerden hangisi seri ve paralel hesaplama arasındaki farklardan biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Bir problemin daha hızlı biçimde çözülmesini sağlamaktır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sınırlı hesaplama kaynaklarının,
+birden fazla kişi tarafından ortak biçimde kullanılmasını sağlamaktır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Arka planda yatan motivasyon hala zaman kazanmak olsa da çok büyük problemlerin çözülebilmesine olanak sağlamasıdır </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Çözümüne ulaşılması mümkün görünmeyen problemler çözülebilir olurlar </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Dizideki eleman sayısı çok büyük olduğunda, iki işlemcili bilgisayarın çözüme dahayavaş bir şekilde ulaştığı gözlenir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      Dizideki eleman sayısı çok büyük olduğunda, iki işlemcili bilgisayarın çözüme yaklaşık iki kat daha hızlı bir şekilde ulaştığı gözlenir.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> Aşağıdakilerden hangisi Grafik işlemcilerin özelliklerinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Grafik işlemciler ilk olarak sadece grafik tabanlı işlemler için kullanılıyordu. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sonraları grafik işlemcilerin sadece piksellerin rengini hesaplanması işinden farklı olarak çeşitli nümerik işlemleri de yapabileceği fark edilmiştir. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Programlamada bir problemin çözümü tek bir işlemcinin üzerinde gerçekleştirilir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Günümüzde biyoinformatik, hesaplamaya dayalı finans, sayısal analitik, moleküler dinamik, medikal görüntüleme,
+hava iklim tahmini gibi birçok uygulama alanında kullanılmaktadır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Grafik işlemci biriminin yüksek işlem hızı aritmetik işlemler için de kullanılmaya başlanmıştır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> Paralel programlama kullanımının en temel amacı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Bir problemin daha hızlı biçimde çözülmesini sağlamak </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bir problemin daha güvenli biçimde çözülmesini sağlamak </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bir problemin daha ucuz biçimde çözülmesini sağlamak </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bir problemin daha pahalı biçimde çözülmesini sağlamak </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bir problemin daha maliyetli biçimde çözülmesini sağlamak </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> CPU ile ilgili bilgilerden hangisi yanlıştır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Genellikle seri olarak işlem yapmak için tasarlanmış birkaç çekirdekten oluşur. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Genellikle sınırlı sayıda kuyrukların çalışacağı uygulamalar için optimize edilmiştir. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Genel olarak görüntü işleme operasyonlarını yürütmek için tasarlanmıştır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Aritmetik işlem yapabilir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İşlemcilerin içindeki elektronik devreler, bir tür saat vuruşu mekanizması ile hareket ederler. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> Günümüz işlemcileri ile ilgili olarak aşağıdakilerden hangisi söylenebilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Boyutları büyümüştür. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Maliyeti artmıştır. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Hızları artmıştır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Boyutları aynı kalmıştır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Hesaplama performansları azalmıştır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	   
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> Aşağıdakilerden hangisi bilgisayarda aritmetik ve mantıksal operasyonlarının gerçekleştiği birimdir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Grafik işlemci birimi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> CUDA </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Elektronik devreler </span><br>
+	<span class="option" data-correct="false"><b>D)</b> GPU </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Merkezi işlemci birimi (CPU)
+</span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> Aşağıda verilen bilgilerden hangisi doğrudur? </p>
+	<span class="option" data-correct="true"><b>A)</b> CPU genellikle seri olarak işlem yapmak için tasarlanmış birkaç çekirdekten oluşmaktadır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> GPU birden fazla görevi bir arada paralel olarak yapabilmek için tasarlanmış tek bir çekirdekten oluşmaktadır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Günümüzde GPU programlama her alanda CPU programlamaya tercih edilmektedir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> GPU programlama genellikle sınırlı sayıda kuyrukların çalışacağı uygulamalar için optimize edilmiştir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> CPU’lar genel olarak görüntü işleme operasyonlarını yürütmek için tasarlanmıştır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question41">
+	<p class="question">Soru 41:<br> GPU’lar ilk olarak aşağıdakilerden hangisini analiz etmek için tasarlanmıştır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Renk </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ses </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Moleküler dinamik </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Medikal görüntüleme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Biyoinformatik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description41">Açıklama</button>
+		<div id="description41" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question42">
+	<p class="question">Soru 42:<br> Bir grafik işlemci birimi için aşağıdaki ifadelerden hangisi geçerli değildir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Tablet ve oyun konsolu gibi bilgisayar dışındaki cihazlarda kullanılırlar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İçlerinde bulunan hafıza birimlerini oldukça çok hızlı biçimde yönetirler </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Görüntü arabirimlerine (monitör, mobil cihaz ekranı vb.) çıktı sağlarlar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bulunmadığı durumda görevini merkezi işlemci birimi üstlenir </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bu birimler paralel işlem yapmak üzere özelleşmişlerdir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description42">Açıklama</button>
+		<div id="description42" class="collapse">      Grafi­k işlemc­i b­ir­imleri­ kişi­sel bi­lgi­sayarlarda, cep telefonlarında, tabletlerde ve oyun konsolları g­ib­i çeş­itl­i si­stemlerde kullanılmaktadır.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question43">
+	<p class="question">Soru 43:<br> I. CUDA’nın kısıtlarından en önemlisi standart C kütüphanelerini tamamen desteklememesidir.<br>
+II. Standart C’de derlenebilen bazı kodlar, CUDA C’de derlenememektedir.<br>
+III. Gerçekleme (rendering) dillerinden OpenGL ile çalışabilirliği tek yönlüdür.<br>
+IV. OpenGL kayıtlı CUDA hafızasına ulaşabilirken, CUDA OpenGL hafızasına erişememektedir.<br><br>
+CUDA’nın kısıtlarına ilişkin olarak yukarıdaki seçeneklerde yer alan ifadelerden hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> II ve IV </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I, II ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II, III ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description43">Açıklama</button>
+		<div id="description43" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question44">
+	<p class="question">Soru 44:<br> Aşağıdaki seçeneklerden hangisinde CUDA'nın kısıtlarından biri yer alır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Standart C kütüphanelerini tamamen desteklememesi. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Hafızadan rastgele seçilen bir adresin CUDA kodu ile okunabilmesi. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bit seviyesinde işlemler ile tam sayı ve ondalıklı sayı işlemler için tam destek sağlaması. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> GPU ile veri okuma işlemleri çok hızlı bir şekilde yapılabilmesi. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Paralel hesaplamalarda kuyrukların veri paylaşımı için kullanabilecek hızlı bir ortak hafıza alanı sunulması. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description44">Açıklama</button>
+		<div id="description44" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question45">
+	<p class="question">Soru 45:<br> Her bir blok için kuyruk sayısını hangi parametre belirler? </p>
+	<span class="option" data-correct="false"><b>A)</b> void </span><br>
+	<span class="option" data-correct="true"><b>B)</b> BLOCK_WIDTH </span><br>
+	<span class="option" data-correct="false"><b>C)</b> cudaDeviceSynchronize </span><br>
+	<span class="option" data-correct="false"><b>D)</b> if </span><br>
+	<span class="option" data-correct="false"><b>E)</b> NUM_BLOCKS </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description45">Açıklama</button>
+		<div id="description45" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question46">
+	<p class="question">Soru 46:<br> Aşağıdakilerden hangisi Merkezi işlemci birimlerinin özelliklerinden biridir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Geçmişten günümüze yaşanan teknolojik gelişmeler ile işlemcilerin boyutları küçülmüş, maliyetleri azalmış ve hızları da artmıştır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Merkezi işlemci birimlerinden farklı olarak görüntü işleme komutlarını çalıştırmak üzere özelleşmiş bir elektronik devreler bütünüdür. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İçlerinde bulunan hafıza birimlerini oldukça çok hızlı biçimde yönetirler. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Görüntülerin oluşturulmasını sağlayan komutların yüksek performansta çalıştırılmalarını sağlarlar. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Ekran kartının sisteme katılmasıyla grafikler çok daha hızlı biçimde işlenmeye başlayacak ve görüntü netleşecektir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description46">Açıklama</button>
+		<div id="description46" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question47">
+	<p class="question">Soru 47:<br> GPU programlama ile ilgili verilen bilgilerden hangisi/hangileri doğrudur?<br><br>
+I. Genellikle seri olarak işlem yapmak için tasarlanmış birkaç çekirdekten oluşmaktadır.<br>
+II. Kuyruk işleme, veri önbelleği, sanal bellek yönetimi gibi konularda gelişmeye devam etmektedir.<br>
+III. Genel olarak görüntü işleme operasyonlarını yürütmek için tasarlanmıştır. </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I-II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I-III </span><br>
+	<span class="option" data-correct="true"><b>D)</b>  II-III </span><br>
+	<span class="option" data-correct="false"><b>E)</b>  I-II-III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description47">Açıklama</button>
+		<div id="description47" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question48">
+	<p class="question">Soru 48:<br> Üç boyutlu ultrason görüntüleme metodunu kullanan cihazlar hangi programlama diliyle yazılımları yazılmaktadır? </p>
+	<span class="option" data-correct="true"><b>A)</b> CUDA C </span><br>
+	<span class="option" data-correct="false"><b>B)</b> CUDA PHP </span><br>
+	<span class="option" data-correct="false"><b>C)</b> CUDA JAVA </span><br>
+	<span class="option" data-correct="false"><b>D)</b> CUDA Python </span><br>
+	<span class="option" data-correct="false"><b>E)</b> CUDA VB </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description48">Açıklama</button>
+		<div id="description48" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question49">
+	<p class="question">Soru 49:<br> I. OpenGL kayıtlı CUDA hafızasına erişememektedir.<br>
+
+II. CUDA OpenGL hafızasına ulaşabilir.<br>
+
+III. Standart C’de derlenebilen bazı kodlar, CUDA C’de derlenememektedir.<br><br>
+
+Yukarıdaki ifadelerden hangileri CUDA'nın kısıtlarındandır? </p>
+	<span class="option" data-correct="false"><b>A)</b>  Yalnız I </span><br>
+	<span class="option" data-correct="true"><b>B)</b>  Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>C)</b>  I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b>  II ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b>  I, II ve III
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description49">Açıklama</button>
+		<div id="description49" class="collapse">     OpenGL kayıtlı CUDA hafızasına ulaşabilirken, CUDA OpenGL hafızasına erişememektedir.
+     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question50">
+	<p class="question">Soru 50:<br> I. Hafızadan rastgele seçilen bir adresin okunabilmesi.<br>
+II. Bit seviyesinde işlemler ile tam sayı ve ondalıklı işlemler için destek sağlaması.<br>
+IIII. Standart C kütüphanelerinin tamamen desteklemesidir.<br><br>
+CUDA ile alakalı yukarıdakilerden hangisi/hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yalnız III </span><br>
+	<span class="option" data-correct="true"><b>D)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description50">Açıklama</button>
+		<div id="description50" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question51">
+	<p class="question">Soru 51:<br>  DirectX 8.0 standardını uygulayan ilk yonga hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> GeForce 1 Serisi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> GeForce 2 Serisi </span><br>
+	<span class="option" data-correct="true"><b>C)</b>  GeForce 3 Serisi </span><br>
+	<span class="option" data-correct="false"><b>D)</b>  GeForce 4 Serisi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> GeForce GTX Serisi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description51">Açıklama</button>
+		<div id="description51" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question52">
+	<p class="question">Soru 52:<br> Aşağıdakilerden hangisi CUDA'nın avantajlarından birisi <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Hafızadan rastgele seçilen bir adresin CUDA kodu ile okunabilmesidir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bit seviyesinde işlemler ile tam sayı ve ondalıklı sayı işlemler için tam destek sağlaması. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> GPU ile veri okuma işlemleri çok hızlı bir şekilde yapılabilmesi. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Paralel hesaplamalarda kuyrukların veri paylaşımı için kullanabilecek hızlı bir ortak hafıza alanı sunulması. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Standart C kütüphanelerinin tamamını desteklemesi. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description52">Açıklama</button>
+		<div id="description52" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question53">
+	<p class="question">Soru 53:<br> I. CUDA Standart C kütüphanelerini tamamen desteklememesidir.<br>
+II. Yalnız GPU kullanıldığı hesaplama ortamlarına heterojen hesaplama ortamı denilmektedir.<br>
+III. OpenGL ile çalışabilirliği tek yönlüdür.<br>
+IV. CUDA OpenGL hafızasına ulaşabilirken, OpenGL kayıtlı CUDA hafızasına erişememektedir<br><br>
+CUDA ile ilgili yukarıdakilerden hangisi doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> I ve II </span><br>
+	<span class="option" data-correct="true"><b>B)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> III ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description53">Açıklama</button>
+		<div id="description53" class="collapse">      CPU ve GPU’nun birlikte kullanıldığı hesaplama ortamlarına heterojen hesaplama ortamı denilmektedir. Heterojen hesaplama terminolojisinde sunucu (host) ve cihaz (device) olmak üzere iki temel terim vardır. Sunucu, CPU ve sunucunun belleğinden oluşmaktadır. Cihaz ise <br><br>
+OpenGL kayıtlı CUDA hafızasına ulaşabilirken, CUDA OpenGL hafızasına erişememektedir.
+     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question54">
+	<p class="question">Soru 54:<br> Grafik işlemci birimi ile ilgili aşağıdakilerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Merkezi işlemci birimlerinden farklı olarak görüntü işleme komutlarını çalıştırmak üzere özelleşmiştir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Görüntülerin oluşturulmasını sağlayan komutların yüksek performansta çalıştırılmalarını sağlarlar. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Grafik işlemci birimleri genel amaçlı komutların çalıştırılmasını sağlarken, merkezi işlemci birimleri görüntü işleme komutları için optimize edildiğinden, görüntü arabirimlerine çıktı sağlarlar. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bir bilgisayarda görüntü işlemci birimi bulunmuyorsa monitördeki görüntünün merkezi işlemci birimi tarafından işlenerek sunulduğu ve kesik kesik olduğu görülecektir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Grafik işlemci birimleri kişisel bilgisayarlarda, cep telefonlarında, tabletlerde ve oyun konsolları gibi çeşitli sistemlerde kullanılmaktadır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description54">Açıklama</button>
+		<div id="description54" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question55">
+	<p class="question">Soru 55:<br> I. Merkezi işlemci birimleri, aritmetik ve mantıksal operasyonları gerçekleştiren bir elektronik devreler bütünüdür.<br><br>
+II. İlk işlemciler büyük ve yüksek maliyetli işlemcilerdi ve işlem yapma kapasiteleri düşüktü.<br><br>
+III. Geçmişten günümüze yaşanan teknolojik gelişmeler ile işlemcilerin boyutları küçülmüş, maliyetleri azalmış ve hızları da artmıştır.<br><br>
+IV. Günümüz işlemcilerinin ilk işlemcilere göre binlerce kez daha hızlı olduğu söylenebilir.<br><br>
+V. Günümüz mobil cihaz işlemcileri dahi, yalnızca 10 yıl önceki kişisel bilgisayarların işlemcilerinden birkaç kat daha hızlıdır.<br><br>
+VI. İşlemcilerin hızlarının artması, birim zamanda yapabildiği iş miktarının, dolayısıyla da hesaplama performanslarının artması anlamına gelmektedir.<br><br>
+Merkezi işlemci birimine (Central Processing Unit–CPU) ilişkin olarak yukarıdaki seçeneklerde yer alan ifadelerden hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>B)</b> III, IV ve V </span><br>
+	<span class="option" data-correct="false"><b>C)</b> II, IV, V ve VI </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II, III, IV, V ve VI </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II, III, IV, V ve VI </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description55">Açıklama</button>
+		<div id="description55" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question56">
+	<p class="question">Soru 56:<br> Aşağıdaki seçeneklerden hangisi paralel programlama ile ilgili olarak doğrudur? </p>
+	<span class="option" data-correct="true"><b>A)</b> Hesaplama ortamında eşzamanlı olarak çalışan birden fazla komut işleyici vardır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bilgisayarlar tek çekirdekli bir işlemciye sahiptir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Aynı anda yalnızca bir tane komut çalıştırabilir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Komut serileri, işlemci tarafından her defasında sırasıyla bir komut çalıştırılarak hesaplamalar yapılır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Hesaplama ortamında her adımda yalnızca bir eleman genel toplama eklenir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description56">Açıklama</button>
+		<div id="description56" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question57">
+	<p class="question">Soru 57:<br> GPU programlama ile ilgili verilen bilgilerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> GPU programlama genellikle sınırlı sayıda kuyrukların çalışacağı uygulamalar için optimize edilmiştir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> GPU’lar uzun hesaplama komutlarının hâkim olduğu çoklu kuyruklu uygulamalarda kullanılmaktadır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> GPU’lar genel olarak görüntü işleme operasyonlarını yürütmek için tasarlanmıştır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Çok fazla aritmetik işlem gerektiren operasyonları GPU’lar daha hızlı yapabilmektedir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> GPU’lar ile ondalıklı sayı işlemleri günümüzde daha hızlı yapılabilmektedir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description57">Açıklama</button>
+		<div id="description57" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question58">
+	<p class="question">Soru 58:<br> Aşağıdakilerden hangisi grafik tabanlı işlemcinin özelliklerinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Bilgisayar ekranındaki piksellerin renklerini belirler. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kişisel bilgisayarlarda, cep telefonlarında, tabletlerde ve oyun konsolları gibi çeşitli sistemlerde kullanılmaktadır. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Seri işlem yapmak için özelleşmişlerdir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Görüntü arabirimlerine (monitör, mobil cihaz ekranı vb.) çıktı sağlarlar. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Görüntü işleme komutlarını çalıştırmak üzere özelleşmiş bir elektronik devreler bütünüdür. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description58">Açıklama</button>
+		<div id="description58" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question59">
+	<p class="question">Soru 59:<br> GPU’lar ile ondalıklı sayı işlemleri günümüzde CPU’lardan kaç kat kadar daha hızlı yapılabilmektedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 5 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 10 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 20 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 50 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 100 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description59">Açıklama</button>
+		<div id="description59" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question60">
+	<p class="question">Soru 60:<br> Geleneksel yöntem olarak bir hesaplama işleminin, tek işlemcili bir bilgisayarda yapılması ile ilgili olarak aşağıdaki seçeneklerden hangisi söylenebilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Hesaplama ortamında eşzamanlı olarak çalışan birden fazla komut işleyici vardır </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Problem, birden fazla hesaplama birimi tarafından eşzamanlı olarak çözülür. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Problem, eşzamanlı olarak çözülebilecek parçalara ayrılarak, her bir parça farklı işlemciler tarafından hesaplanır. </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Bütün hesaplama birimlerinin sonuçları birleştirilerek genel sonuca ulaşılır </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Komut serileri, işlemci tarafından her defasında sırasıyla bir komut çalıştırılarak hesaplamalar yapılır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description60">Açıklama</button>
+		<div id="description60" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

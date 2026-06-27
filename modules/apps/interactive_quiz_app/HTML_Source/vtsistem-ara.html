@@ -1,0 +1,2599 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          ALGORİTMALAR
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="alg-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="alg-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="alg-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="alg-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="alg-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="alg-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="alg-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="alg-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="alg-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="alg-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB SUNUCU PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wsp-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wsp-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wsp-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wsp-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wsp-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wsp-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wsp-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wsp-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wsp-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wsp-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİ MADENCİLİĞİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="vmaden-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="vmaden-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="vmaden-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="vmaden-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="vmaden-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="vmaden-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="vmaden-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="vmaden-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="vmaden-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="vmaden-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİTABANI SİSTEMLERİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="vtsistem-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="vtsistem-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="vtsistem-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="vtsistem-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="vtsistem-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="vtsistem-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="vtsistem-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="vtsistem-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="vtsistem-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="vtsistem-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMADA YENİ EĞİLİMLER
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="prgyenieğilim-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="prgyenieğilim-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Veritabanı Sistemleri - Çıkmış Sorular (Ara Sınav) </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	<button class="block-group" data-start="40" data-end="59">Part 3</button>
+	<button class="block-group" data-start="60" data-end="79">Part 4</button>
+	<button class="block-group" data-start="80" data-end="99">Part 5</button>
+	<button class="block-group" data-start="100" data-end="119">Part 6</button>
+	  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Veritabanında saklanacak olan verilerin
+tanımlanmasından ve bu verilerin depolanması ve gösterilmesi için gerekli olan uygun yapıların seçilmesinden sorumlu olan veritabanı kullanıcısı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Veritabanı yöneticisi </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Veritabanı tasarımcısı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sistem analistleri </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Uygulama programcıları </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Parametrik kullanıcılar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Verilerin düzenlenmesi ve depolanmasına
+ilişkin ayrıntıların gizlenmesi ve verinin daha iyi anlaşılmasını sağlamak için veriye ilişkin temel özelliklerin vurgulanmasına ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Veri güncelleme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Veri gruplama </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Veri soyutlama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Veri örnekleme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Veri yapılandırma </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Kavramsal şemanın, dışsal şemalarda ya da
+uygulama programlarında değişiklik
+yapılmaksızın değiştirilebilmesine ne ad
+verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Veri soyutlama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Fiziksel veri bağımsızlığı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kavramsal eşleştirme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İçsel eşleştirme </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Mantıksal veri bağımsızlığı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Sistem analisti tarafından belirlenen
+ayrıntıları program haline getiren ve daha sonra test eden, hataları ayıklayan, belgeleyen ve kaydedilmiş işlemler olarak sürekliliğini sağlayan veritabanı kullanıcıları aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Gelişmiş son kullanıcılar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bağımsız son kullanıcılar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veritabanı yöneticileri </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Veritabanı tasarımcıları </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Uygulama programcıları </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Veritabanı tanımlamak, veritabanı
+oluşturmak, veritabanında işlem yapmak, veritabanının farklı kullanıcı yetkilerini belirlemek, veritabanının bakımını ve yedeklemesini yapmak için geliştirilmiş programlar bütününe ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Veritabanı programlama sistemi </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Veritabanı yönetim sistemi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kurumsal kaynak planlama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yapılandırılmış sorgulama dili </span><br>
+	<span class="option" data-correct="false"><b>E)</b> OLAP sistemleri </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Veritabanında saklanacak verilerin,
+kısıtlarının ve ilişkilerinin gösteriminin yapıldığı veri modeli aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> İç model </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Dış model </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Kavramsal veri modeli </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Mantıksal veri modeli </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Fiziksel veri modeli </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> Veritabanı yönetim sisteminin kurulduğu ve
+mevcut verilerin dönüştürülerek veritabanına aktarıldığı veritabanı yaşam döngüsü fazı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Operasyon </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Veritabanı tasarımı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Gereksinim analizi </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Uygulama ve yükleme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bakım </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> İlişkisel veri tabanlarında; bir tablonun
+birinci anahtarının diğer bir tabloya daha kolay bağlanması amacıyla ikinci tablo üzerinde bir sütun olarak yer almasına ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Birincil öznitelik </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Yabancı anahtar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Benzersiz anahtar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İkincil öznitelik </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İkincil anahtar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> Bir organizasyon veya işletmenin verilerinin
+detaylı ve mantıksal temsilinin grafiksel
+gösterimine ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Öznitelik diyagramı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Etkinlik diyagramı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bileşen diyagramı </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Varlık ilişki diyagramı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Etki alanı diyagramı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Bir özniteliğin alabileceği değerlerin
+tümünün oluşturduğu kümeye ne ad verilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Etki alanı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Anahtar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İlişki </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Varlık </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Nitelik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> Sabit boydaki karakter dizisinde, yabancı
+dildeki karakter kümelerinden, karakterleri depolamak için kullanılması gereken veri tipi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> NATIONAL CHAR </span><br>
+	<span class="option" data-correct="false"><b>B)</b> BIT VARYING </span><br>
+	<span class="option" data-correct="false"><b>C)</b> GEOMETRY </span><br>
+	<span class="option" data-correct="false"><b>D)</b> DOUBLE PRECISION </span><br>
+	<span class="option" data-correct="false"><b>E)</b> TIMESTAMP </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> Krediler (KrediNo, KrediMiktarı): Krediler
+tablosunda müşterilere ait kredi numaraları ve verilen kredilerin miktarları tutulur.<br><br>
+Yukarıdaki "Krediler" adlı tablo tanımına göre, KrediNo değeri 8 olan kayıtları getirmek için kullanılması gereken ilişkisel cebir işlemi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kartezyen çarpım </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kesişim </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yansıtma </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Şartlı bitişme </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Seçim </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> I. (25 x 3) + 100 = 175<br>
+II. (25 x 3 x Null) + 100 = 175<br>
+III. (25 x 3) + 100 + Null = Null<br>
+IV. (25 x 3) + 100 + Null = 175<br><br>
+İlişkisel veritabanında tanımlanan yukarıdaki işlemlerden hangilerinin sonuçları doğru olarak verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız III </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> <span style="color: darkred; margin-left: 30px;"><img src="vts.jpg" alt="Veritabanı Sistemleri 2017 Ara Sınav Soru 14"> </span> <br><br>
+Yukarıdaki tablo örneğinde çok parçalı alan aşağıdakilerden hangisidir?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> MüşteriAdSoyad </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Gno </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Dersler </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sinif </span><br>
+	<span class="option" data-correct="true"><b>E)</b> PostakoduSehir </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> Aşağıdakilerden hangisi tablodaki alanlar
+üzerine uygulanan kısıtlardan biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Not null kısıtı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Anahtar kısıtı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Check kısıtı </span><br>
+	<span class="option" data-correct="true"><b>D)</b> İndeks kısıtı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Default kısıtı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Hastanede çalışan bir doktorun birden fazla
+hastaya bakması ve bir hastanın ise aynı hastanede birden fazla doktora muayene olması durumunda doktor bilgileri ve hasta bilgileri tabloları arasında aşağıdaki ilişki türlerinden hangisi gerçekleşir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Çoka çok ilişkisi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bire bir ilişkisi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bire çok ilişkisi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Veri türü ilişkisi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Belirsiz İlişki </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> Access veritabanındaki tablolar ile ilgili
+aşağıdaki ifadelerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Access tablolarının yapısı dinamiktir. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Access’te tablo isimleri istenen uzunlukta verilebilir, karakter sınırlaması yoktur. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Farklı veritabanlarındaki tablolar birbiri ile
+bağlanabilir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Veritabanında oluşturulmuş bir tabloya yeni
+alan eklenebilir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Veritabanında oluşturulmuş bir tablonun
+alan veri türü değiştirilebilir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      Access’te tablo isimleri en fazla 64 karakter
+uzunluğu ile sınırlıdır.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> I. Elde edilmesi kolay olan ucuz sistemlerdir.<br>
+II. Üst düzey kullanıcı bilgisi gerektirir.<br>
+III. Basit ihtiyaçların karşılanması için kullanılan
+sistemlerdir.<br><br>
+Masaüstü veritabanı yönetim sistemleri ile
+ilgili yukarıdaki ifadelerden hangileri
+doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve II </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> E-posta adresleri ya da web sayfaları gibi
+bağlantıların yer aldığı Access tablo alanı veri türü aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> OLE nesnesi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Evet/Hayır </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ek </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Köprü </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Not </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> MS Access tablolarında depolanmış verileri
+özel bir görünümle kullanıcıya sunan veritabanı nesnesi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Sorgular </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sekmeler </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Raporlar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Formlar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Modüller </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Kullanıcıdan ya da yazılım sorunlarından
+kaynaklanabilecek veri kaybının önlenmesi amacıyla veritabanının yedeklerinin alınması ve kurtarma işlemlerine ilişkin düzenlemelerin yapılması, veritabanı sorumlularının yerine getirdikleri aşağıdaki temel görevlerden hangisi kapsamında yer alır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Veritabanı güvenliğinin sağlanması </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Veritabanı tasarımının yapılması </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veritabanının işletiminin izlenmesi ve sürekliliğinin sağlanması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Veritabanı kullanım yetkilerinin
+tanımlanması </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Veritabanından beklenen performansın
+sağlanması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Aşağıdakilerden hangisi veritabanı yönetim
+sistemi yazılımlarından biri <u><strong>değildir? </strong></u></p>
+	<span class="option" data-correct="false"><b>A)</b> MySQL </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Oracle </span><br>
+	<span class="option" data-correct="true"><b>C)</b> MS Word </span><br>
+	<span class="option" data-correct="false"><b>D)</b> MS SQL Server </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sybase </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> Veritabanına iletilen sorguların anlamsal ve söz dizimsel çözümlemesini, kullanıcı yetkisinin kontrolünü ve sorguları işlemek için kullanılması gereken algoritmayı belirleme işlerini gerçekleştiren veritabanı yönetim sistemi bileşeni aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yapısal sorgulama dili </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Sorgu işleyici </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veri işleme dili </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İçsel eşleştirici </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Veri tanımlama dili derleyicisi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Aşağıdakilerden hangisi veritabanı
+modellerinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Hiyerarşik </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Nesneye yönelik </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Masaüstü </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Ağ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İlişkisel </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> Charles Bachman tarafından geliştirilen ilk
+genel amaçlı veritabanı yönetim sistemi
+aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> IDS </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ER </span><br>
+	<span class="option" data-correct="false"><b>C)</b> IBM </span><br>
+	<span class="option" data-correct="false"><b>D)</b> VTYS </span><br>
+	<span class="option" data-correct="false"><b>E)</b> IMS </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> Varlık ilişki modelinde varlık kümesindeki
+her bir örnek için farklı değer alan özniteliğe ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Çok değerli öznitelik </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Anahtar öznitelik </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tek değerli öznitelik </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Türetilen öznitelik </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Basit öznitelik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Veri süreklilik teknolojisinin belirli bir
+sürümü ile bağımlı, tamamıyla bağlanmış veri modeli aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> İç model </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kavramsal veri model </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Dış model </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Mantıksal veri modeli </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Fiziksel veri modeli </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> En az iki varlık kümesi arasındaki etkileşimi gösteren bağlantıya ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Etki alanı </span><br>
+	<span class="option" data-correct="true"><b>B)</b> İlişki </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Basit öznitelik </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Türetilen öznitelik </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Birleşik anahtar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> Veritabanının kullanıldığı bilgi sistemi
+kullanıma alındıktan sonra, yeni gereksinimlerin gerçekleştirildiği veritabanı yaşam döngüsü fazı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Uygulama ve yükleme </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Bakım </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Operasyon </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Tasarım </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Gereksinim analizi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> Bir işletmede kullanılan bilgi sisteminin yeni
+veritabanına ihtiyacının ortaya konulması
+veritabanı yaşam döngüsünün hangi fazında
+oluşturulur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Veritabanı Tasarımı </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Gereksinim Tasarımı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bakım </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Uygulama ve Yükleme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Operasyon </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> Varlık ilişki modelinde zayıf varlık kümesi
+aşağıdaki şekillerden hangisi ile gösterilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> <img src="vtsA.jpg" alt="Veritabanı Sistemleri 2018 Ara Sınav Soru 10"> </span><br><br>
+	<span class="option" data-correct="false"><b>B)</b> <img src="vtsB.jpg" alt="Veritabanı Sistemleri 2018 Ara Sınav Soru 10"> </span><br><br>
+	<span class="option" data-correct="false"><b>C)</b> <img src="vtsC.jpg" alt="Veritabanı Sistemleri 2018 Ara Sınav Soru 10"> </span><br><br>
+	<span class="option" data-correct="true"><b>D)</b> <img src="vtsD.jpg" alt="Veritabanı Sistemleri 2018 Ara Sınav Soru 10"> </span><br><br>
+	<span class="option" data-correct="false"><b>E)</b> <img src="vtsE.jpg" alt="Veritabanı Sistemleri 2018 Ara Sınav Soru 10"> </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> I. Ne kadar çok indeks kullanılırsa veritabanının performansı o kadar artar.<br>
+II. Bir indekste çok fazla alan kullanılmamalıdır.<br>
+III. Farklı değeri az olan alanlar indekslenmemelidir.<br><br>
+İndekslerle ilgili yukarıdaki ifadelerden hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> I. İki tablonun tüm kayıtlarını getirir.<br>
+II. İki tablonun ortak kayıtlarını getirir.<br>
+III. Bir tablonun kayıtlarının alt kümesi olarak yeni bir tablo üretir.<br><br>
+Yukarıdaki ilişkisel cebir işlemleri
+aşağıdakilerden hangisinde doğru olarak
+verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> I: Doğal bitişme, II: Şartlı bitişme, III: Seçim </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I: Doğal bitişme, II: Şartlı bitişme, III: Teta
+bitişme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I: Kartezyen çarpım, II: Doğal bitişme,
+III:Yansıtma </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I: Birleşim, II: Kesişim, III: Şartlı bitişme </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I: Birleşim, II: Kesişim, III: Seçim </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> Bir tablonun sadece seçilen alanlarından yeni bir tablo oluşturan ilişkisel cebir işlemi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kartezyen çarpım </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Doğal bitişme </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Yansıtma </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Birleşim </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Şartlı bitişme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> <span style="color: darkred; margin-left: 30px;"><img src="vts1.jpg" alt="Veritabanı Sistemleri 2018 Ara Sınav Soru 15"></span><br><br>
+Yukarıdaki R tablosundan seçim yapılmış ve S tablosu elde edilmiştir.<br><br> 
+
+Buna göre, R tablosuna uygulanan ilişkisel cebir ifadesi aşağıdakilerden hangisidir?
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> σ<sub>A&gt;3</sub>(R) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> σ<sub>A&gt;4</sub>(R) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> σ<sub>B&gt;2</sub>(R) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> σ<sub>B&gt;3</sub>(R) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> σ<sub>C&gt;3</sub>(R) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      θ (Theta): İlişki sağlama operatörüdür. θ sembolü, iki tablo arasındaki ilişkiyi ifade etmek için kullanılır. θ sembolünün üzerine geçerli bir ilişki sembolü eklenir. Örneğin, θ (equality) sembolü "=" kullanılarak "eşitlik ilişkisi" gösterilebilir.<br><br>
+π (Pi): İlgilenilen sütunları seçmek için kullanılır. π sembolü ile birlikte seçilen sütunların isimleri veya özellikleri belirtilir.<br><br>
+σ (Sigma): Belirli bir koşulu sağlayan satırları seçmek için kullanılır. σ sembolü ile birlikte koşul ifadesi belirtilir.<br><br>
+∪ (Birleşim) ve ∩ (Kesişim): İki veya daha fazla tablonun birleşim veya kesişimini ifade etmek için kullanılır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> Bir tabloya kayıtlar girildiğinde ya da bir
+tablodan kayıtlar silinmek istendiğinde, tablolar arasında tanımlanan ilişkileri korumak için izlenen kurallara ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Veri türü </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Birincil anahtar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yabancı anahtar </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Bilgi tutarlığı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Alt form </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> Uzun metin blokları ve metin biçimlendirilmesinin kullanıldığı metinler olarak tanımlanan Access tablo alanı veri türü aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Evet/Hayır </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ek </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Köprü </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Not </span><br>
+	<span class="option" data-correct="false"><b>E)</b> OLE nesnesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> I. Tablolarda her satır bir alan, her sütun bir
+kayıt olarak kabul edilir.<br>
+II. İki tablo arasında ilişki oluşturmak için
+tabloların ortak ya da ilişkili alana sahip
+olması gerekir.<br>
+III. İlişkisel veritabanlarında farklı tablolarda yer
+alan veriler başka bir tabloyu ilgilendirebilir.<br><br>
+Tablolar ile ilgili yukarıdaki ifadelerden
+hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve III </span><br>
+	<span class="option" data-correct="true"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      Tablodaki her
+satır bir kayıt her sütun ise bir alan olarak kabul edilir     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> Veritabanındaki bir tablonun bir kaydı ile
+diğer tablonun bir kaydı eşleşiyorsa, bu iki tablo arasındaki ilişki aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Çoka çok ilişkisi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Belirsiz ilişki </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Bire bir ilişkisi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bire çok ilişkisi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Birincil anahtar ilişkisi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> Aşağıdakilerden hangisi masaüstü veritabanı
+yazılımlarından biridir? </p>
+	<span class="option" data-correct="true"><b>A)</b> MS Access </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sybase </span><br>
+	<span class="option" data-correct="false"><b>C)</b> MS SQL Server </span><br>
+	<span class="option" data-correct="false"><b>D)</b> MySQL </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Oracle </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question41">
+	<p class="question">Soru 41:<br> Veritabanında veri tanımlarının yer aldığı
+yapıya ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Sorgu işleyici </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Veri derleyicisi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yapısal sorgulama dili </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Veri işleyici </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Veri sözlüğü </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description41">Açıklama</button>
+		<div id="description41" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question42">
+	<p class="question">Soru 42:<br> Aşağıdakilerden hangisi veritabanında yer
+alan bir verinin farklı uygulamalarda kullanımı söz konusu olduğunda, veri üzerinde yapılacak bir değişimin verinin kullanıldığı diğer uygulamalara da yansıtılmasını ifade eder? </p>
+	<span class="option" data-correct="true"><b>A)</b> Veri bütünlüğünün sağlanması </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Gereksiz veri tekrarı ve veri tutarsızlığının
+önlenmesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Verilerin güvenliğinin sağlanması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Veri paylaşımının sağlanması </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Verilerin gizliliğinin sağlanması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description42">Açıklama</button>
+		<div id="description42" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question43">
+	<p class="question">Soru 43:<br> Menü kullanımı ya da araç çubukları gibi
+grafiksel ögeler yardımıyla kullanım kolaylığı sağlayan hazır paket programlarını kullanarak kişisel veritabanlarının sürekliliğini sağlayan veritabanı kullanıcıları aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Parametrik son kullanıcılar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Veritabanı tasarımcıları </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Gelişmiş son kullanıcılar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Uygulama programcıları </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Bağımsız son kullanıcılar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description43">Açıklama</button>
+		<div id="description43" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question44">
+	<p class="question">Soru 44:<br> Grafik unsurları ve multimedya unsurlarını
+kullanmaya uygun olan veri modellerinin kullanıldığı veritabanı türü aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Hiyerarşik veritabanı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İlişkisel veritabanı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Standart veritabanı </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Nesneye yönelik veritabanı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Ağ veritabanı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description44">Açıklama</button>
+		<div id="description44" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question45">
+	<p class="question">Soru 45:<br> Verilerin yer aldığı fiziksel adreslerin birer indeks numarası ile tanımlanıp, bu indeks numaralarının da ayrı bir dosya olarak saklandığı, veriye erişim yaklaşımı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Sıralı erişim </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Doğrudan erişim </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Rasgele erişim </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Tekrarlı erişim </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Düzenli erişim </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description45">Açıklama</button>
+		<div id="description45" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question46">
+	<p class="question">Soru 46:<br> Varlık ilişki modelinde kişi, yer, nesne, olay veya kavramların temsil edildiği öge aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Öznitelik </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Varlık </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İlişki </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Etki alanı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Nitelik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description46">Açıklama</button>
+		<div id="description46" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question47">
+	<p class="question">Soru 47:<br> Veritabanı yaşam döngüsünün son aşaması
+aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Bakım </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Gereksinim analizi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Operasyon </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Uygulama ve yükleme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Veritabanı tasarımı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description47">Açıklama</button>
+		<div id="description47" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question48">
+	<p class="question">Soru 48:<br> Varlık ilişki diyagramları ile ilgili aşağıdaki ifadelerden hangisi doğrudur? </p>
+	<span class="option" data-correct="true"><b>A)</b> Zayıf varlık kümesi güçlü varlık kümesi olmadan kullanılamaz </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Öznitelikler daire şekli ile gösterilir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Varlıklar oval şekli ile gösterilir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bir varlığın alabileceği değerlere etki alanı denir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Öznitelikler arasındaki ilişkiler eşkenar dörtgen ile gösterilir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description48">Açıklama</button>
+		<div id="description48" class="collapse">      Öznitelikler elips/oval şekli ile gösterilir<br><br>
+Varlıklar dikdörtgen şekli ile gösterilir.<br><br>
+Bir <u><strong>özniteliğin</strong></u> alabileceği değerlerin tümünün oluşturduğu kümeye etki alanı (domain)
+denir.<br><br>
+<br>
+<u><strong>İlişkiler</strong></u> varlık ilişki diyagramında eşkenar dörtgen yani baklava dilimi şekliyle gösterilir
+
+
+     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question49">
+	<p class="question">Soru 49:<br> Tablolarda indeksler oluşturma, tabloları
+birleştirme ve Denormalization işlemlerinin
+uygulandığı veri modeli aşağıdakilerden
+hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> İç model </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kavramsal model </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Mantıksal model </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Dış model </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Fiziksel model </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description49">Açıklama</button>
+		<div id="description49" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question50">
+	<p class="question">Soru 50:<br> Bir hastanede kullanılan ilaç varlığına ait bir alanda; doz, tür (şurup, hap), son_kullanma_tarihi öznitelikleri birlikte tutulmuştur.<br><br>
+Buna göre, bu alan ile ilgili aşağıdaki ifadelerden hangisi doğrudur? </p>
+	<span class="option" data-correct="true"><b>A)</b> Birleşik özniteliktir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Benzersiz özniteliktir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Basit özniteliktir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Anahtar özniteliktir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Çok değerli özniteliktir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description50">Açıklama</button>
+		<div id="description50" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question51">
+	<p class="question">Soru 51:<br> Aşağıdakilerden hangisi temel veritabanı
+nesnelerinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> İndeksler </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Tablolar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Görünümler </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Varlıklar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Saklı yordamlar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description51">Açıklama</button>
+		<div id="description51" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question52">
+	<p class="question">Soru 52:<br> İki tablonun alanlarının tüm olası
+eşleşmelerini getiren ilişkisel cebir işlemi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Kartezyen çarpım </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Birleşim </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Şartlı bitişme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yansıtma </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Doğal bitişme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description52">Açıklama</button>
+		<div id="description52" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question53">
+	<p class="question">Soru 53:<br> Veritabanı tablolarında alanın mutlaka dolu
+olmasını zorlayan ifade aşağıdakilerden
+hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Full </span><br>
+	<span class="option" data-correct="false"><b>B)</b> No Empty </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Not Null </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Default </span><br>
+	<span class="option" data-correct="false"><b>E)</b> No None </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description53">Açıklama</button>
+		<div id="description53" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question54">
+	<p class="question">Soru 54:<br> Aşağıdakilerden hangisi tam sayısal veri
+tiplerinden biridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Bit </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Timestamp </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Nchar </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Decimal </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Character </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description54">Açıklama</button>
+		<div id="description54" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question55">
+	<p class="question">Soru 55:<br> Çalışanlar(ÇalışanNo, ÇalışanAd, Maas):
+Çalışanlar tablosunda çalışanların aldığı ücretler Maas alanında tutulur.<br><br>
+Yukarıdaki Çalışanlar adlı tablo tanımına göre, 2500 TL’den daha fazla ücret alan çalışanları getiren ilişkisel cebir ifadesi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> σ <sub>Maas</sub>(Çalışanlar, Maas&gt;2500) </span><br>
+	<span class="option" data-correct="true"><b>B)</b> σ <sub>Maas&gt;2500</sub>(Çalışanlar) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> π <sub>Maas</sub>(Çalışanlar, Maas&lt;2500) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> π <sub>Maas&gt;2500</sub>(Çalışanlar) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> π <sub>Maas&gt;</sub>2500(Çalışanlar)  </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description55">Açıklama</button>
+		<div id="description55" class="collapse">      σ (Sigma): Belirli bir koşulu sağlayan satırları seçmek için kullanılır. σ sembolü ile birlikte koşul ifadesi belirtilir.
+     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question56">
+	<p class="question">Soru 56:<br> Hasta bilgileri tablosunda kayıtlı olan bir
+hastanın hastaneye yatışı yapılacaktır. Yatak
+bilgileri tablosundan bir yatak seçilerek
+hastanın bu yatağa atanması durumunda
+hasta bilgileri ve yatak bilgileri tabloları
+arasındaki ilişki aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Bire bir ilişkisi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Çoka çok ilişkisi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bire çok ilişkisi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Belirsiz İlişki </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Veri türü ilişkisi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description56">Açıklama</button>
+		<div id="description56" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question57">
+	<p class="question">Soru 57:<br> Çıktısı alınabilecek şekilde tasarlanan Access
+veritabanı nesnesi aşağıdakilerden
+hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Raporlar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sorgular </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Alanlar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Makrolar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Formlar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description57">Açıklama</button>
+		<div id="description57" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question58">
+	<p class="question">Soru 58:<br> Ortak alanların olduğu iki tablo arasında
+kurulan mantıksal bağlantıya ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Rapor </span><br>
+	<span class="option" data-correct="true"><b>B)</b> İlişki </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veri </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sorgu </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Köprü </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description58">Açıklama</button>
+		<div id="description58" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question59">
+	<p class="question">Soru 59:<br> Access yazılımında ayrı ayrı tablolarda
+depolanan ilişkili verilerle çalışırken, birden
+fazla tablo ya da sorgudan alınan verileri aynı
+form üzerinde görüntülemek için kullanılan
+yapı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Makrolar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İndeksler </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Raporlar </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Alt formlar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Tablolar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description59">Açıklama</button>
+		<div id="description59" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question60">
+	<p class="question">Soru 60:<br> Aşağıdakilerden hangisi Access yazılımında
+kullanılan sorgu türlerinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Parametre sorgusu </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Seçme sorgusu </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Eylem sorgusu </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Çapraz sorgu </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Tetikleme sorgusu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description60">Açıklama</button>
+		<div id="description60" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question61">
+	<p class="question">Soru 61:<br> Tek başına bir anlam ifade etmeyen ham
+gözlemler, işlenmemiş gerçekler ya da izlenimler olarak tanımlanan kavram aşağıdakilern hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Veri </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Veritabanı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bilgi sistemi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bilgi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bellek </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description61">Açıklama</button>
+		<div id="description61" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question62">
+	<p class="question">Soru 62:<br> Aşağıdakilerden hangisi veritabanı
+modellerinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Hiyerarşik </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ağ </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Sunucu </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İlişkisel </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Nesneye yönelik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description62">Açıklama</button>
+		<div id="description62" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question63">
+	<p class="question">Soru 63:<br> Aşağıdakilerden hangisi veritabanı
+sorumlularının yerine getirdikleri temel
+görevler arasında yer almaz? </p>
+	<span class="option" data-correct="true"><b>A)</b> Son kullanıcıların gereksinimlerini belirleme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Veritabanının işletimini izleme ve sürekliliğini sağlama </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Güncelleme ihtiyaçlarına cevap verebilme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Veritabanı tasarımını yapma </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Veritabanından beklenen performansı sağlama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description63">Açıklama</button>
+		<div id="description63" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question64">
+	<p class="question">Soru 64:<br> Veritabanına erişim yetkilerini belirleme,
+veritabanı kullanımının düzenlenmesi ve izlenmesini sağlama, ihtiyaç duyulan yazılım ve donanım kaynaklarının edinmesinden sorumlu olan kişi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Sistem Analistleri </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Uygulama Programcıları </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Parametrik Kullanıcılar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Veritabanı Tasarımcısı </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Veritabanı Yöneticisi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description64">Açıklama</button>
+		<div id="description64" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question65">
+	<p class="question">Soru 65:<br> Bir veritabanının mantıksal yapısını
+tanımlamada kullanılacak kavramlar, işlemler ve kurallar bütününe ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Veri sözlüğü </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Veri modeli </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veri mimarisi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Veri ambarı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Veri deposu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description65">Açıklama</button>
+		<div id="description65" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question66">
+	<p class="question">Soru 66:<br> Sütun adı, sütun veri türü, kısıtlamaları,
+birincil ve yabancı anahtarlar da dahil olmak üzere tüm tablo yapılarının gösterildiği veri modeli aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kavramsal veri modeli </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İç model </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Dış model </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Fiziksel veri modeli </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Mantıksal veri modeli </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description66">Açıklama</button>
+		<div id="description66" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question67">
+	<p class="question">Soru 67:<br> Aşağıdakilerden hangisi bir tablodaki
+verilere daha hızlı ulaşmak için uygulanan yapılardır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kısıt </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Hareket tablosu </span><br>
+	<span class="option" data-correct="true"><b>C)</b> İndeks </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Saklı yordam </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Görünüm </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description67">Açıklama</button>
+		<div id="description67" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question68">
+	<p class="question">Soru 68:<br> Birbirleri ile ilişkili nesneleri hiyerarşik bir ağaç yapısında saklayan özelleştirilmiş veri türü aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> XML </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Geography </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Geometry </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Hierarchyid </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Real </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description68">Açıklama</button>
+		<div id="description68" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question69">
+	<p class="question">Soru 69:<br> Aşağıdakilerden hangisi birincil anahtarın
+özelliklerinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Birincil anahtar kümelenmiş indeks kullanır. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Tabloda birden fazla birincil anahtar
+tanımlanabilir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tabloda bir kaydı belirlemek için kullanılır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Birincil anahtar içindeki değerler
+benzersizdir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> NULL değeri alamaz. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description69">Açıklama</button>
+		<div id="description69" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question70">
+	<p class="question">Soru 70:<br> Aşağıdakilerden hangisi Access veritabanı
+tablolarında kullanılan veri türlerinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Para birimi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Otomatik sayı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Not </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sayı </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Geometrik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description70">Açıklama</button>
+		<div id="description70" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question71">
+	<p class="question">Soru 71:<br> Bir hastanedeki hasta ve yatak varlıklarının depolanacağı veritabanında yatak ve hasta arasındaki ilişki türü aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Bire bir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İlişki yok </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Çoka çok </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Form ilişkisi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bire çok </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description71">Açıklama</button>
+		<div id="description71" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question72">
+	<p class="question">Soru 72:<br> Sabit boydaki karakterleri depolamak için
+kullanılması gereken veri tipi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> TIMESTAMP </span><br>
+	<span class="option" data-correct="false"><b>B)</b> DOUBLE PRECISION </span><br>
+	<span class="option" data-correct="true"><b>C)</b> CHAR </span><br>
+	<span class="option" data-correct="false"><b>D)</b> BIT VARYING </span><br>
+	<span class="option" data-correct="false"><b>E)</b> GEOMETRY </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description72">Açıklama</button>
+		<div id="description72" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question73">
+	<p class="question">Soru 73:<br> Aşağıdakilerden hangisi veritabanı yönetim
+sistemi yazılımlarından biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Tableau </span><br>
+	<span class="option" data-correct="false"><b>B)</b> MS SQL Server </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sybase </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Oracle </span><br>
+	<span class="option" data-correct="false"><b>E)</b> DB2 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description73">Açıklama</button>
+		<div id="description73" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question74">
+	<p class="question">Soru 74:<br> Farklı tablolardaki alanlar arasındaki
+değerlerin kontrol ve doğrulanmasına izin veren kısıt aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> DEFAULT </span><br>
+	<span class="option" data-correct="false"><b>B)</b> CHECK </span><br>
+	<span class="option" data-correct="true"><b>C)</b> KEY </span><br>
+	<span class="option" data-correct="false"><b>D)</b> NOT NULL </span><br>
+	<span class="option" data-correct="false"><b>E)</b> NULL </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description74">Açıklama</button>
+		<div id="description74" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question75">
+	<p class="question">Soru 75:<br> Aşağıdakilerden hangisi veritabanı
+sistemlerinde şema düzeyleri arasındaki dönüştürme kapasitesi olarak tanımlanır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Veri izolasyonu </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Veri ilişkilendirme </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Veri bağımsızlığı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Veri dönüştürme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Veri bağlama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description75">Açıklama</button>
+		<div id="description75" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question76">
+	<p class="question">Soru 76:<br> Veri soyutlama ile ilgili aşağıdakilerden
+hangisi doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yetkisiz kullanıcıların veriye erişimlerini
+engeller. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Veritabanı üzerinde ekleme, silme,
+değiştirme, veriyi geri çağırma gibi genel
+işlemleri ifade eder. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veri tutarlılığı için veritabanı yönetim
+sistemindeki kuralları ifade eder. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Veriyi veritabanında oluşturan ile veriye
+erişen kullanıcıların birbirinden ayrılmasını
+sağlar. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Farklı kullanıcıların verileri tercih ettikleri
+ayrıntı seviyesinde algılamalarına, gereksiz
+ayrıntıları görmemelerine olanak sağlar. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description76">Açıklama</button>
+		<div id="description76" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question77">
+	<p class="question">Soru 77:<br> Üniversite ve fakülte varlıklarının arasındaki
+ilişki türü aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Çoka az </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Bire çok </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bire az </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bire bir </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Çoka çok </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description77">Açıklama</button>
+		<div id="description77" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question78">
+	<p class="question">Soru 78:<br> Değeri ilgili olduğu diğer özniteliklerden
+hesaplanabilen öznitelik aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Anahtar öznitelik </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Atomik öznitelik </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Birleşik öznitelik </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Çok değerli öznitelik </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Türetilen öznitelik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description78">Açıklama</button>
+		<div id="description78" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question79">
+	<p class="question">Soru 79:<br> Veritabanında saklanan veriler arttıkça
+veritabanının performans için uyarlanması, zaman içinde ortaya çıkabilecek bozuk ya da kalıntı verilerin düzenlenmesi gibi işlemler veritabanı yaşam döngüsünün hangi fazında gerçekleştirilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Bakım </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Gereksinim Analizi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veritabanı Tasarımı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Operasyon </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Uygulama ve Yükleme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description79">Açıklama</button>
+		<div id="description79" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question80">
+	<p class="question">Soru 80:<br> Aşağıdaki veritabanı nesnelerinden hangisi
+tabloların küçük bir kısmının kopyasının
+saklanarak veriye daha hızlı erişilmesine
+olanak sağlayan yapılardır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Görünümler </span><br>
+	<span class="option" data-correct="true"><b>B)</b> İndeksler </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tetikleyiciler </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Saklı yordamlar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Tablolar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description80">Açıklama</button>
+		<div id="description80" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question81">
+	<p class="question">Soru 81:<br> Veritabanlarında ana tablodaki birincil
+anahtarın alt tablodaki karşılık gelen kopyası aşağıdakilerden hangisi ile tanımlanmaktadır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Yabancı anahtar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İlişki anahtarı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bağlama anahtarı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kopya anahtar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Benzersiz anahtar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description81">Açıklama</button>
+		<div id="description81" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question82">
+	<p class="question">Soru 82:<br> Birbiri ile ilişkili veri dosyaları ve veri
+tabloları kümesinin çok amaçlı kullanıma olanak sağlayacak şekilde depolanmasına ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Veri deposu </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Veri ambarı </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Veritabanı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İlişkisel veriler </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Veri sistemi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description82">Açıklama</button>
+		<div id="description82" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question83">
+	<p class="question">Soru 83:<br> Aşağıdakilerden hangisi MS Access
+masaüstü veritabanı yazılımında word belgesi gibi belgeleri depolamak için kullanılan veri türüdür? </p>
+	<span class="option" data-correct="false"><b>A)</b> Otomatik Sayı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Not </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Metin </span><br>
+	<span class="option" data-correct="true"><b>D)</b> OLE Nesnesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Köprü </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description83">Açıklama</button>
+		<div id="description83" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question84">
+	<p class="question">Soru 84:<br> İlişkisel veritabanlarında bilinmeyen veya
+olmayan değeri göstermek için kullanılan
+ifade aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> NOTHING </span><br>
+	<span class="option" data-correct="false"><b>B)</b> NA </span><br>
+	<span class="option" data-correct="true"><b>C)</b> NULL </span><br>
+	<span class="option" data-correct="false"><b>D)</b> EMPTY </span><br>
+	<span class="option" data-correct="false"><b>E)</b> NONE </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description84">Açıklama</button>
+		<div id="description" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question85">
+	<p class="question">Soru 85:<br> Bir veya daha fazla alana girilebilecek
+değerlerin sınırlandırılmasını sağlayan ifade
+aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> CHECK </span><br>
+	<span class="option" data-correct="false"><b>B)</b> CONST </span><br>
+	<span class="option" data-correct="false"><b>C)</b> REST </span><br>
+	<span class="option" data-correct="false"><b>D)</b> WHERE </span><br>
+	<span class="option" data-correct="false"><b>E)</b> DEFAULT </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description85">Açıklama</button>
+		<div id="description85" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question86">
+	<p class="question">Soru 86:<br> Aşağıdakilerden hangisi MS Access' te yer
+alan temel nesnelerden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Tablolar </span><br>
+	<span class="option" data-correct="true"><b>B)</b> İlişkiler </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Formlar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sorgular </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Raporlar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description86">Açıklama</button>
+		<div id="description86" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question87">
+	<p class="question">Soru 87:<br> <span style="color: darkred; margin-left: 30px;"><img src="vts.jpg" alt="Veritabanı Sistemleri 2017 Ara Sınav Soru 14"> </span> <br><br>
+Yukarıdaki tablo örneğinde çok değerli alan aşağıdakilerden hangisidir?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> MüşteriAdSoyad </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Gno </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Dersler </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sinif </span><br>
+	<span class="option" data-correct="false"><b>E)</b> PostakoduSehir </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description87">Açıklama</button>
+		<div id="description87" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question88">
+	<p class="question">Soru 88:<br> Kavramsal, mantıksal ve fiziksel veri
+modellerinin oluşturulduğu veritabanı yaşam döngüsü fazı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Uygulama ve yükleme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bakım </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Gereksinim analizi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Operasyon </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Veritabanı tasarımı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description88">Açıklama</button>
+		<div id="description88" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question89">
+	<p class="question">Soru 89:<br> Ad – soyad, ya da posta adresi gibi kısa
+alfasayısal değerlerin yer aldığı Access tablo alanı veri türü aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Köprü </span><br>
+	<span class="option" data-correct="false"><b>B)</b> OLE nesnesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ek </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Metin </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Evet/Hayır </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description89">Açıklama</button>
+		<div id="description89" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question90">
+	<p class="question">Soru 90:<br> Bir tabloda herhangi bir alan için karakter
+veri girişinin olması isteniyorsa aşağıdaki veri tiplerinden hangisi kullanılabilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> TINYINT </span><br>
+	<span class="option" data-correct="false"><b>B)</b> BIGINT </span><br>
+	<span class="option" data-correct="true"><b>C)</b> VARCHAR </span><br>
+	<span class="option" data-correct="false"><b>D)</b> BINARY </span><br>
+	<span class="option" data-correct="false"><b>E)</b> FLOAT </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description90">Açıklama</button>
+		<div id="description90" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question91">
+	<p class="question">Soru 91:<br> Veritabanındaki bir tablonun bir kaydı ile
+diğer tablonun birden fazla kaydı eşleşiyorsa,
+bu iki tablo arasındaki ilişki aşağıdakilerden
+hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Bire çok ilişkisi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Belirsiz ilişki </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Çoka çok ilişkisi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bire bir ilişkisi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Birincil anahtar ilişkisi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description91">Açıklama</button>
+		<div id="description91" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question92">
+	<p class="question">Soru 92:<br> <span style="color: darkred; margin-left: 30px;"><img src="vts2.jpg" alt="Veritabanı Sistemleri 2018 Final Soru 4"></span><br><br>
+Yukarıdaki şekilde verilen R ve S tablolarının kesişim işleminin sonucu aşağıdakilerden hangisidir?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> <img src="vts2A.jpg" alt="Veritabanı Sistemleri 2018 Final Soru 4"> </span><br><br>
+	<span class="option" data-correct="false"><b>B)</b> <img src="vts2B.jpg" alt="Veritabanı Sistemleri 2018 Final Soru 4"> </span><br><br>
+	<span class="option" data-correct="false"><b>C)</b> <img src="vts2C.jpg" alt="Veritabanı Sistemleri 2018 Final Soru 4"> </span><br><br>
+	<span class="option" data-correct="true"><b>D)</b> <img src="vts2D.jpg" alt="Veritabanı Sistemleri 2018 Final Soru 4"> </span><br><br>
+	<span class="option" data-correct="false"><b>E)</b> <img src="vts2E.jpg" alt="Veritabanı Sistemleri 2018 Final Soru 4"> </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description92">Açıklama</button>
+		<div id="description92" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question93">
+	<p class="question">Soru 93:<br> <strong>Çalışanlar(ÇalışanNo, ÇalışanAd, Maas):</strong>
+Çalışanlar tablosunda çalışanların adları ÇalışanAd alanında ve ücretleri Maas alanında tutulur.<br><br>
+<strong>Bölümler (BölümNo, BölümAdı, ÇalışanNo) :</strong> Bölümler tablosunda çalışanların bulunduğu bölümler tutulur.<br><br>
+<strong>Yukarıdaki Çalışanlar ve Bölümler adlı tablo tanımlarına göre BölümNo değeri 15 olan çalışanların adlarını (ÇalışanAd) ve ücretlerini (Maas) getiren ilişkisel cebir ifadesi aşağıdakilerden hangisidir?</strong> </p>
+		<span class="option" data-correct="true"><b>A)</b> π<sub>ÇalışanAd, Maas</sub>(σ<sub>BölümNo=15</sub>(Çalışanlar⋈<sub>ÇalışanNo=ÇalışanNo</sub>Bölümler)) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> σ<sub>ÇalışanAd, Maas</sub>(σ<sub>BölümNo=15</sub>(Çalışanlar⋈<sub>ÇalışanNo=ÇalışanNo</sub>Bölümler)) </span><br>
+		<span class="option" data-correct="false"><b>C)</b> σ<sub>ÇalışanAd, Maas</sub>(σ<sub>BölümNo=15</sub>(Çalışanlar∪Bölümler)) </span><br>
+	  <span class="option" data-correct="false"><b>D)</b> π<sub>ÇalışanAd, Maas</sub>(σ<sub>BölümNo=15</sub>(Çalışanlar∪Bölümler)) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> π<sub>ÇalışanAd, Maas</sub>(σ<sub>BölümNo=15</sub>(Çalışanlar∩Bölümler)<sub>ÇalışanNo=ÇalışanNo</sub> </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description93">Açıklama</button>
+		<div id="description93" class="collapse">     θ (Theta): İlişki sağlama operatörüdür. θ sembolü, iki tablo arasındaki ilişkiyi ifade etmek için kullanılır. θ sembolünün üzerine geçerli bir ilişki sembolü eklenir. Örneğin, θ (equality) sembolü "=" kullanılarak "eşitlik ilişkisi" gösterilebilir.<br><br>
+
+π (Pi): İlgilenilen sütunları seçmek için kullanılır. π sembolü ile birlikte seçilen sütunların isimleri veya özellikleri belirtilir.<br><br>
+
+σ (Sigma): Belirli bir koşulu sağlayan satırları seçmek için kullanılır. σ sembolü ile birlikte koşul ifadesi belirtilir.<br><br>
+
+∪ (Birleşim) ve ∩ (Kesişim): İki veya daha fazla tablonun birleşim veya kesişimini ifade etmek için kullanılır. <br><br> 
+
+Şartlı Bitişme (⋈θ) Sonuç şeması kartezyen çarpımdaki gibidir. İki tablonun Kartezyen çarpım sonucundan verilen şarta uygun olanlar getirilir. Teta (Theta) bitişmesi diye de adlandırılır     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question94">
+	<p class="question">Soru 94:<br> Aşağıdakilerden hangisi anlamlı alt parçalara sahip öznitelik türüdür? </p>
+	<span class="option" data-correct="false"><b>A)</b> Türetilen öznitelik </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Tek değerli öznitelik </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Birleşik öznitelik </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Basit öznitelik </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Zorunlu öznitelik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description94">Açıklama</button>
+		<div id="description94" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question95">
+	<p class="question">Soru 95:<br> Son kullanıcıların önemli bir bölümünü
+oluşturan ve temel iş fonksiyonları, veritabanı üzerinde sürekli bir sorgulama ve güncelleme yapmayı gerektiren veritabanı kullanıcıları aşağıdakilerden hangileridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Bağımsız son kullanıcılar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Standart son kullanıcılar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Gelişmiş son kullanıcılar </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Parametrik son kullanıcılar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Harici son kullanıcılar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description95">Açıklama</button>
+		<div id="description95" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question96">
+	<p class="question">Soru 96:<br> Tablo alanında bulunan tüm değerlere
+uygulanan ve bu değerlerin ne tür veriler
+olabileceğini belirleyen bir dizi niteliğe ne ad
+verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Veri nesnesi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Veri alanı </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Veri türü </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Veri sayfası </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Veri tablosu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description96">Açıklama</button>
+		<div id="description96" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question97">
+	<p class="question">Soru 97:<br> Aşağıdakilerden hangisi birleşik özniteliğe
+örnek olarak verilebilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Öğrencinin lise mezuniyet yılı </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Öğrencinin ev adresi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Öğrencinin cinsiyeti </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Öğrencinin yaşı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Öğrencinin dönem not ortalaması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description97">Açıklama</button>
+		<div id="description97" class="collapse">      Her bir varlık kümesinin özellikleri olur. Öznitelik, işletmede kullanılan varlık kümesinin
+özellikleri veya karakteristikleridir . Modelde öznitelikler oval ile gösterilir ve içine adı yazılır<br>
+<br>
+Çalışan: Çalışan_no, Şirket, Ad, Soyad, Telefon,
+Adres özniteliklerine, Çalışan_Ayrıcalıkları: Çalışan_no, Ayrıcalık_no özniteliklerine sahiptir.<br>
+<br>
+
+Aşağıda bazı varlık kümeleri ve bu kümelerin öznitelikleri örnek olarak verilmiştir.<br><br>
+
+
+Öğrenci : Öğrenci_no, Öğrenci_adı, Ev_adresi, Telefon, Doğum_tarihi
+Araç : Şasi_No, Renk, Ağırlık, Motor_gücü <br><br>
+
+			Ancak bazı öznitelikler daha detay bilgileri içeren anlamlı
+alt parçalara bölünebilir. Bu tip öznitelikler birleşik öznitelikler (çok parçalı) olarak
+adlandırılır. Örneğin Şekil Çalışan varlığının adresi veya öğrencinin ev adresi birleşik özniteliktir
+    </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question98">
+	<p class="question">Soru 98:<br> Herhangi bir konuda birbiriyle ilişkili olan ve amaca uygun olarak düzenlenmiş, mantıksal ve fiziksel olarak tanımlanmış veriler bütününe ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Veri </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Veri Ambarı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veritabanı Yönetim Sistemi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sistem </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Veritabanı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description98">Açıklama</button>
+		<div id="description98" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question99">
+	<p class="question">Soru 99:<br> Farklı tablolardaki alanlar arasındaki
+değerlerin kontrol ve doğrulanmasına izin
+veren kısıt aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> DEFAULT </span><br>
+	<span class="option" data-correct="false"><b>B)</b> CHECK </span><br>
+	<span class="option" data-correct="true"><b>C)</b> KEY </span><br>
+	<span class="option" data-correct="false"><b>D)</b> NOT NULL </span><br>
+	<span class="option" data-correct="false"><b>E)</b> NULL </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description99">Açıklama</button>
+		<div id="description99" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question100">
+	<p class="question">Soru 100:<br> Aşağıdaki veritabanı kullanıcı türlerinden
+hangisi son kullanıcılar sınıfına <u><strong>girmez?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Standart kullanıcı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Parametrik kullanıcı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Gelişmiş kullanıcı </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Veritabanı tasarımcısı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bağımsız kullanıcı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description100">Açıklama</button>
+		<div id="description100" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question101">
+	<p class="question">Soru 101:<br> Bir hastane veritabanında, çalışan özlük bilgileri için Çalışan, çalışan unvanları için ÇalışanUnvan ve unvan tanımları için Unvanlar adlı üç varlık kümesi tanımlanıyor.<br><br>
+Buna göre, bu varlık kümelerinden sırasıyla (Çalışan, ÇalışanUnvan, Unvanlar) hangilerinin zayıf hangilerinin güçlü olduğu aşağıdakilerden hangisinde doğru olarak verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> güçlü - güçlü - güçlü </span><br>
+	<span class="option" data-correct="false"><b>B)</b> güçlü - güçlü - zayıf </span><br>
+	<span class="option" data-correct="true"><b>C)</b> güçlü - zayıf - güçlü </span><br>
+	<span class="option" data-correct="false"><b>D)</b> güçlü - zayıf - zayıf </span><br>
+	<span class="option" data-correct="false"><b>E)</b> zayıf - zayıf - güçlü </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description101">Açıklama</button>
+		<div id="description101" class="collapse">      çalışan, öğrenci, hasta güçlü varlık kümeleridir. Bu kümelerde her zaman varlıkları
+birbirinden benzersiz olarak ayıran bir öznitelik veya öznitelik birleşimi bulunur.<br><br>
+Bunun tersine, bir varlık kümesi güçlü varlık kümesine bağlı olarak var olabiliyorsa zayıf
+varlık kümesi olarak adlandırılır.
+     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question102">
+	<p class="question">Soru 102:<br> Birbirleriyle ilişkilendirilip
+yorumlanmadıkları sürece tek başlarına anlam ifade etmeyen ham gözlemlere ne ad
+verilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Veri </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kaynak </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bilgi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kayıt </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Dosya </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description102">Açıklama</button>
+		<div id="description102" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question103">
+	<p class="question">Soru 103:<br> Aşağıdakilerden hangisi Access tablo
+alanında bulunan veri türlerinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Sorgu </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Otomatik sayı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Not </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sayı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Para birimi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description103">Açıklama</button>
+		<div id="description103" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question104">
+	<p class="question">Soru 104:<br> Aşağıdakilerden hangisi İlişkisel Veritabanı Yönetim Sisteminde yer alan basit veri tipilerinden bir <u><strong>değildir? </strong></u></p>
+	<span class="option" data-correct="false"><b>A)</b> Karakter </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bit </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yaklaşık sayısal </span><br>
+	<span class="option" data-correct="true"><b>D)</b> İkili nesneler </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Tam sayısal </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description104">Açıklama</button>
+		<div id="description104" class="collapse">      - Karakter<br>
+- Bit<br>
+- Yaklaşık Sayısal<br>
+- Tam Sayısal<br>
+- Tarih ve Zaman     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question105">
+	<p class="question">Soru 105:<br> Microsoft Access’te oluşturulan masaüstü
+veri tabanı dosya uzantısını aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> .accdb </span><br>
+	<span class="option" data-correct="false"><b>B)</b> .xlsm </span><br>
+	<span class="option" data-correct="false"><b>C)</b> .pptx </span><br>
+	<span class="option" data-correct="false"><b>D)</b> .gms </span><br>
+	<span class="option" data-correct="false"><b>E)</b> .xlsx </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description105">Açıklama</button>
+		<div id="description105" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question">
+	<p class="question">Soru 106:<br> Veritabanı tablosundaki herhangi bir alana
+tam sayısal değerler girilecekse, seçilecek
+veri tipi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> DOUBLE </span><br>
+	<span class="option" data-correct="false"><b>B)</b> NCHAR </span><br>
+	<span class="option" data-correct="true"><b>C)</b> INTEGER </span><br>
+	<span class="option" data-correct="false"><b>D)</b> FLOAT </span><br>
+	<span class="option" data-correct="false"><b>E)</b> TIMESTAMP </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description106">Açıklama</button>
+		<div id="description106" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question107">
+	<p class="question">Soru 107:<br> Aşağıdakilerden hangisi veritabanı yönetim
+sistemlerinin geleneksel dosya sistemlerine göre üstünlüklerinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Veri tekrarı ve veri tutarsızlığını önlemesi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Verileri yedekleme ve kurtarmanın kolay
+olması </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kullanıcı yetkileri ile veriye kolay erişim
+sağlaması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Veri paylaşımına olanak vermesi </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Uygulamalarda uzmanlık bilgisine ihtiyaç
+duyulması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description107">Açıklama</button>
+		<div id="description107" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question108">
+	<p class="question">Soru 108:<br> I. Anahtar öznitelikte iki örneğin değeri aynı olamaz.<br>
+II. Anahtar öznitelik tek bir öznitelikten oluşabileceği gibi birden fazla özniteliği birleşimi ile de tanımlanabilir.<br>
+III. Anahtar öznitelik tanımlandığı varlık kümesinde bulunan tüm örnekler için benzer değerler alır.<br><br>
+Anahtar öznitelik ile ilgili verilen yukarıdaki ifadelerden hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız III </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description108">Açıklama</button>
+		<div id="description108" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question109">
+	<p class="question">Soru 109:<br> Veri üzerinde ön işlem yaparak veritabanı dışına gönderilecek verinin miktarını düşürmek için ------- kullanılır.<br><br>
+Yukarıdaki cümlede boş bırakılan yeri aşağıdakilerden hangisi doğru şekilde tamamlar? </p>
+	<span class="option" data-correct="false"><b>A)</b> tablolar </span><br>
+	<span class="option" data-correct="true"><b>B)</b> saklı yordamlar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> indeksler </span><br>
+	<span class="option" data-correct="false"><b>D)</b> kısıtlar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> görünümler </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description109">Açıklama</button>
+		<div id="description109" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question110">
+	<p class="question">Soru 110:<br> I. Bir rapor genellikle belli bir soruya yanıt<br>
+verecek şekilde düzenlenir.<br>
+II. Raporlar sadece tek bir tablodaki verilerin
+alınıp düzenlenmesi ile oluşturulur.<br>
+III. Raporlar üzerinde düzenleme yapılarak
+bilgiler istenilen biçimde görüntülenebilir.<br>
+IV. Raporlara logo veya arka plan görüntüsü
+eklenebilir, koşullu biçimlendirme
+uygulanabilir.<br><br>
+Yukarıdaki MS Access veritabanı raporları ile
+ilgili ifadelerden hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve IV </span><br>
+	<span class="option" data-correct="false"><b>C)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>D)</b> I, III ve IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II, III ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description110">Açıklama</button>
+		<div id="description110" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question111">
+	<p class="question">Soru 111:<br> Bir hastane veritabanında yatan hastalar ve
+çalışan hemşirelerin kayıtlarının yer aldığı
+"Hastalar" ve "Hemşireler" isimli tablolar
+arasında kurulması gereken ilişki
+aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Çoka çok </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Tablo ilişkisi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bire çok </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bire bir </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İlişki yok </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description111">Açıklama</button>
+		<div id="description111" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question112">
+	<p class="question">Soru 112:<br> Veritabanındaki "Siparişler" tablosuna kayıt
+eklerken "Sipariş Tarihi" alanına boş değer
+girilememesi ve "Sipariş Miktarı" alanının da
+sıfır ve daha küçük değer alamaması için
+aşağıdaki kısıtlardan hangileri
+kullanılmalıdır? </p>
+	<span class="option" data-correct="true"><b>A)</b> NOT NULL - CHECK </span><br>
+	<span class="option" data-correct="false"><b>B)</b> NOT NULL - DEFAULT </span><br>
+	<span class="option" data-correct="false"><b>C)</b> DEFAULT - CHECK </span><br>
+	<span class="option" data-correct="false"><b>D)</b> NULL - DEFAULT </span><br>
+	<span class="option" data-correct="false"><b>E)</b> NULL - CHECK </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description112">Açıklama</button>
+		<div id="description112" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question113">
+	<p class="question">Soru 113:<br> Aşağıdakilerden hangisi kavramsal veri
+modelinin özelliklerinden biridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Tablolar arasındaki ilişki yabancı anahtar ile
+sağlanır. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Kullanıcı gereksinimlerini karşılamak için
+oluşturulur. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Her varlığın tüm öznitelikleri belirlenmiştir </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Her varlık için benzersiz anahtar belirtilir </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Tüm tablo ve sütunlar belirtilir </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description113">Açıklama</button>
+		<div id="description113" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question114">
+	<p class="question">Soru 114:<br> Bir veya daha fazla alana girilebilecek
+değerlerin sınırlandırılması sağlayan ifade aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> CHECK </span><br>
+	<span class="option" data-correct="false"><b>B)</b> DEFAULT </span><br>
+	<span class="option" data-correct="false"><b>C)</b> REST </span><br>
+	<span class="option" data-correct="false"><b>D)</b> CONST </span><br>
+	<span class="option" data-correct="false"><b>E)</b> WHERE </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description114">Açıklama</button>
+		<div id="description114" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	 
+		
+	  
+<div class="question-block">
+	<div id="question115">
+	<p class="question">Soru 115:<br> MS Access yazılımında verileri farklı
+şekillerde görüntülemek, yalnızca belirli alanlarda çalışma yapmak ve verileri çözümlemek için kullanılan yapı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Makrolar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Raporlar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tablolar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Formlar </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Sorgular </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description115">Açıklama</button>
+		<div id="description115" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

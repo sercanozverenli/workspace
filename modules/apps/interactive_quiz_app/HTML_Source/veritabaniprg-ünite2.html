@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı - Veritabanı Programlama</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  .block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="anasayfa.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA I
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama1-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama1-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama1-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama1-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama1-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama1-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama1-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama1-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama1-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama1-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          BİLİŞİM HUKUKU
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="bilisimhk-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="bilisimhk-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="bilisimhk-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="bilisimhk-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="bilisimhk-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="bilisimhk-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="bilisimhk-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="bilisimhk-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="bilisimhk-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="bilisimhk-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB'DE TELİF HAKLARI VE ETİK
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="webtelif-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="webtelif-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="webtelif-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="webtelif-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="webtelif-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="webtelif-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="webtelif-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="webtelif-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="webtelif-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="webtelif-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          AĞ YÖNETİMİ VE BİLGİ GÜVENLİĞİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="agyonetimi-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="agyonetimi-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="agyonetimi-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="agyonetimi-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="agyonetimi-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="agyonetimi-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="agyonetimi-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="agyonetimi-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="agyonetimi-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="agyonetimi-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİTABANI PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veritabaniprg-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veritabaniprg-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  </nav>
+  
+    <h4 id="ders">Veritabanı Programlama - Ünite 2 </h4>
+	  	  	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="45">Part 2</button>
+
+	  </div>
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> SQL Server ile ilgili aşağıdaki ifadelerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> SQL’de veri kontrolüne yönelik komutlar vardır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> SQL standartlarında akış kontrolüne yönelik komut yoktur. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Veri işleme dili özellikleri sadece T-SQL de bulunmaktadır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> SQL’de yerel değişken tanımlanamaz. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> PL/SQL Oracle tabanlı sistemler için özelleşmiştir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> SQL Komutlari ile ilgili olarak aşağıdakilerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> GRANT komutu standart SQL ANSI standartları içinde yer almaktadır. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> SQL Server Management Studio Oracle için de kullanılabilir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> SQL Server Management Studio içinde tablo oluşturma
+SQL kod ve yardımcı görsel arayüz ile yapılabilir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> T-SQL›de yerel değişken tanımlanabilir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> T-SQL Sysbase’i destekler. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Aşağıdaki ifadelerden hangisi T-SQL’de hata ile <u><strong>sonuçlanmaz?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> DECLARE @UrunNo INT; UrunNo=5; </span><br>
+	<span class="option" data-correct="false"><b>B)</b> DECLARE @UrunNo INT; SET UrunNo=5; </span><br>
+	<span class="option" data-correct="false"><b>C)</b> DECLARE @UrunNo INT, SET @urunno=5; </span><br>
+	<span class="option" data-correct="true"><b>D)</b> DECLARE @UrunNo INT;SET @urunno=5; </span><br>
+	<span class="option" data-correct="false"><b>E)</b> DECLARE @UrunNo INT; @UrunNo=5; </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> T-SQL’de “DECLARE @islemNO INT; DECLARE @islemAdi VARCHAR (50);” ile iki değişken tanımlanmış olsun.<br>
+Bu değişkenlere uygun değerler atandığını varsayarsak aşağıdakilerden
+hangisi T-SQL’de hata üretmez? </p>
+	<span class="option" data-correct="true"><b>A)</b> PRINT @islemAdi+’ işlem numarası :’+CAST(@islemNO
+as VARCHAR) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> PRINT @islemAdi+’ işlem numarası :’+@islemNO </span><br>
+	<span class="option" data-correct="false"><b>C)</b> PRINT @islemAdi & ‘ işlem numarası :’& CAST(@
+islemNO as VARCHAR) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> PRINT @islemAdi &’ işlem numarası :’ & @islemNO </span><br>
+	<span class="option" data-correct="false"><b>E)</b> PRINT @islemAdi+’ işlem numarası :’+@islemNO as
+VARCHAR </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> T-SQL’de açıklama eklemek ile ilgili aşağıdaki ifadelerden hangisi doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Açıklama ‘/’ ile başlar ‘*’ ile biter. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Tek satırlık açıklamalar ‘--’ ile başlar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Açıklamalar ‘%’ ile başlar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Tek satırlık açıklamalar ‘//’ ile başlar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Açıklamalar ‘**’ ile başlar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Sistem fonksiyonu olan ‘@@ERROR’ ile ilgili aşağıdaki ifadelerden hangisi doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Bir T-SQL kodundaki oluşan tüm hataları aynı aynda
+verir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ERROR_SEVERITY () ile aynı sonucu döndürür. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ERROR_STATE() ile aynı sonucu döndürür. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> “@@ERROR’ ile TRY...CATCH birbiri yerine kullanılabilir. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Sadece son SQL kodu ile oluşan hatayı döndürür. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> T-SQL’de değişken isimlendirme kuralları ile ilgili hangisi doğrudur?<br><br>
+
+I. Değişkenler Türkçe karakter ve boşluk içermez<br>
+II. Değişken isimleri ilk karakteri harf ile başlayıp harf, rakam ve alt çizgi (_) ile devam edebilir.<br>
+III. Değişken isimlerinde küçük veya büyük harf kullanımı fark eder. </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      T-SQL’de değişken isimlendirme küçük veya büyük harf kullanımı fark etmez     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> DECLARE @a INT;<br>
+DECLARE @b INT;<br>
+DECLARE @c INT;<br><br>
+Set @a=19<br>
+Set @b=5<br>
+Set @c=@a%@b<br><br>
+
+CASE c<br>
+     &emsp;WHEN '1' THEN 'Bir'<br>
+     &emsp;WHEN '2' THEN 'İki'<br>
+     &emsp;WHEN '3' THEN 'Üç'<br>
+     &emsp;WHEN '4' THEN 'Dört'<br>
+     &emsp;WHEN '5' THEN 'Beş'<br>
+END<br><br>
+
+T-SQL kodunu görüntüleyen çıktı hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Bir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İki </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Üç </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Dört </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Beş </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      "%" sembolü bölümünden kalan işlemini ifade eder. Yani, @a değeri 19 ve @b değeri 5 olarak tanımlandığı için, @c değişkenine @a%@b ifadesiyle 19 mod 5 işlemi yapılır ve sonuç 4 olur.<br><br>
+			
+			CASE ifadesi, @c değişkeninin değerine göre bir karar yapısıdır. Bu durumda, @c değişkeninin değeri 4 olduğu için, WHEN '4' THEN 'Dört' koşulu gerçekleşir ve çıktı "Dört" olur.
+
+
+
+     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> DECLARE @sayi INT<br>
+SET @sayi=1<br>
+WHILE (@sayi<3)<br>
+BEGIN<br>
+      &emsp;Print '*'<br>
+      &emsp;Set @sayi=@sayi+1<br>
+END<br><br>
+
+Yukarıdaki kod çalıştırıldığında ekran çıktısı ne olur? </p>
+	<span class="option" data-correct="false"><b>A)</b> * </span><br>
+	<span class="option" data-correct="true"><b>B)</b> ** </span><br>
+	<span class="option" data-correct="false"><b>C)</b> *** </span><br>
+	<span class="option" data-correct="false"><b>D)</b> **** </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ***** </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      Kod çalıştırıldığında ekrana "" karakteri iki kez yazdırılır. Çünkü while döngüsü, @sayi değişkeninin değeri 3'ten küçük olduğu sürece devam eder. İlk başta @sayi değişkeni 1'e eşit olduğu için döngüye girilir ve ekrana "*" karakteri yazdırılır. Daha sonra @sayi değişkeni 1 artırılarak 2 olur ve döngü tekrar çalışır. Yine @sayi değişkeninin değeri 3'ten küçük olduğu için ekrana "*" karakteri bir kez daha yazdırılır. Sonrasında @sayi değişkeni 3 olur ve döngüden çıkılır. Döngü şartı ikikez sağlandığından ekranda ** çıktısı oluşmuş olur    </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> DECLARE @PC_alis INT<br>
+DECLARE @PC_satis INT<br>
+DECLARE @PC_kar INT<br>
+SET @PC_alis=400<br>
+SET @PC_satis=432<br>
+SELECT @PC_satis-@PC_alis<br><br>
+Yukarıdaki T-SQL kodunun sonucu aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 400 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 432 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 32 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 832 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> @PC_satis-@PC_alis </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      @PC_satis değişkenine 432, @PC_alis değişkenine 400 atandığı için sonuç 432-400=32 olacaktır.<br><br>
+<strong>SELECT</strong> komutu ise belirtilen sorguyu çalıştırarak sonucu döndürmektedir. Bu örnekte, SELECT @PC_satis-@PC_alis ile kar hesaplanmakta ve sonuç ekrana yazdırılmaktadır.
+
+
+
+     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> T-SQL dilinde yerel değişken tanımlamak için kullanılan ön ek aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> & </span><br>
+	<span class="option" data-correct="false"><b>B)</b> $ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> # </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ## </span><br>
+	<span class="option" data-correct="true"><b>E)</b> @ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> T-SQL dilinde değişken tanımlama aşağıdakilerden hangi komut ile yapılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> NOT </span><br>
+	<span class="option" data-correct="false"><b>B)</b> VARIABLE </span><br>
+	<span class="option" data-correct="false"><b>C)</b> UPDATE </span><br>
+	<span class="option" data-correct="false"><b>D)</b> DIM </span><br>
+	<span class="option" data-correct="true"><b>E)</b> DECLARE </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      T-SQL’ de değişken isimlendirme kuralları diğer diller ile aynıdır. Değişken tanımlama DECLARE komutu ile yapılır.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Kullanıcıların belirleyecekleri bir veri kümesinde her bir satırda birer birer ilerlemelerini sağlayan yapı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Cursor </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Switch </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Current </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Case </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Goto </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> Birden fazla koşulun kontrol edilmesi gerektiğinde kolay kullanım sağlayan bir akış kontrolü komutu olan ve SQL sorgu ifadelerinin içinde de koşul amacıyla kullanılan T-SQL komutu aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> CASE </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ELSE </span><br>
+	<span class="option" data-correct="false"><b>C)</b> VARCHAR </span><br>
+	<span class="option" data-correct="false"><b>D)</b> IF </span><br>
+	<span class="option" data-correct="false"><b>E)</b> WHEN </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> T-SQL'de WHILE komutunun kullanılış amacı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Belirli koşullar sağlandığı takdirde gerçekleştirmesi istenen işlemler için kullanılı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Birden fazla koşulun kontrol edilmesi gerektiğinde kolay kullanım sağlayan bir akış kontrolü komutudur. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Verilen bir koşulun sağlanması durumunda belirlenen komut bloğununu tekrar eden bir yapıdır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Açıklama eklemek için kullanılır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> SQL sorgularının sırasıyla yığınlar olarak çalıştırılması amacıyla kullanılır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Aşağıdaki hangi SQL komutu Veri Kontrol Dili (DCL) amacıyla kullanılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> CREATE TABLE </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ALTER TABLE </span><br>
+	<span class="option" data-correct="false"><b>C)</b> SELECT </span><br>
+	<span class="option" data-correct="false"><b>D)</b> INSERT </span><br>
+	<span class="option" data-correct="true"><b>E)</b> GRANT </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      V<strong>eri Kontrol Dili (DCL)</strong> veritabanı kullanıcısı veya rolü ile ilgili izinlerin düzenlenmesini sağlar. Bu kategoride, kullanıcıya yetki tanımlama için <strong>GRANT</strong>, kullanıcı yetkilerini engellemek için <strong>DENY</strong> ve daha önce yapılmış olan yetki ve izinleri kaldırmak için <strong>REVOKE</strong> komutları kullanılır.     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> DECLARE @Ders_Sayisi INT;
+SELECT @Ders_Sayisi=COUNT(*) FROM Dersler WHERE (Not>49)
+IF (@Ders_Sayisi>4)
+     PRINT 'Sınıfı geçtiniz.'
+ELSE IF (@Ders_Sayisi>3)
+     PRINT '1 dersten sınıfta kaldınız.'
+ELSE IF (@Ders_Sayisi>2)
+     PRINT '2 dersten sınıfta kaldınız.'
+ELSE IF (@Ders_Sayisi>1)
+     PRINT '3 dersten sınıfta kaldınız.'
+ELSE
+     PRINT '4 dersten sınıfta kaldınız.'
+Yukarıdaki programa göre Ders_Sayisi 3 olarak gelirse hangi sonuç görüntülenecektir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Sınıfı geçtiniz </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 1 dersten sınıfta kaldınız. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 2 dersten sınıfta kaldınız </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 3 dersten sınıfta kaldınız </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 4 dersten sınıfta kaldınız </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      Ders_Sayisi 3 olarak gelirse (@Ders_Sayisi>2) seçeneği doğru olacaktır. Ekranda '2 dersten sınıfta kaldınız.' yazacaktır.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Aşağıdakilerden hangisi verilerin tutulduğu nesneler olan tabloların oluşturulmasını, silinmesini ve bazı temel özelliklerinin düzenlenmesini sağlar? </p>
+	<span class="option" data-correct="false"><b>A)</b> Komutsal Dil
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İşlevsel Dil
+
+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veri Kontrol Dili
+
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Veri İşleme Dili
+
+ </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Veri Tanımlama Dili </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      Veri Tanımlama Dili- DDL     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> T-SQL’de oluşan hata mesajları ve kodları aşağıdakilerden hangisinde tutulmaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> “sys.messages” adlı sistem viewlerinde </span><br>
+	<span class="option" data-correct="false"><b>B)</b> “sys.logs” adlı sistem fonksiyonlarında </span><br>
+	<span class="option" data-correct="false"><b>C)</b> “sys.tables” adlı sistem tablosunda </span><br>
+	<span class="option" data-correct="false"><b>D)</b> “sys.logs” adlı sistem tablosunda </span><br>
+	<span class="option" data-correct="true"><b>E)</b> “sys.messages” adlı sistem tablosunda </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> Bir T-SQL kodu olmayıp SQL sorgularının sırasıyla yığınlar olarak çalıştırılmasını sağlayan komut aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> OUTPUT </span><br>
+	<span class="option" data-correct="true"><b>B)</b> GO </span><br>
+	<span class="option" data-correct="false"><b>C)</b> CATCH </span><br>
+	<span class="option" data-correct="false"><b>D)</b> END </span><br>
+	<span class="option" data-correct="false"><b>E)</b> FETCH </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Veri Kontrol Dili (DCL) veritabanı kullanıcısı veya rolü ile ilgili izinlerin düzenlenmesini sağlar. Bu kategoride, daha önce yapılmış olan yetki ve izinleri kaldırmak için kullanılan komut aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> INSERT </span><br>
+	<span class="option" data-correct="false"><b>B)</b> DELETE </span><br>
+	<span class="option" data-correct="false"><b>C)</b> UPDATE </span><br>
+	<span class="option" data-correct="false"><b>D)</b> DENY </span><br>
+	<span class="option" data-correct="true"><b>E)</b> REVOKE </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      Veri Kontrol Dili (DCL) veritabanı kullanıcısı veya rolü ile ilgili izinlerin düzenlenmesini sağlar. <br>
+Bu kategoride, kullanıcıya yetki tanımlama için <strong>GRANT</strong>,<br>
+ kullanıcı yetkilerini engellemek için <strong>DENY</strong> ve <br>
+daha önce yapılmış olan yetki ve izinleri kaldırmak için <strong>REVOKE</strong> komutları kullanılır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Diğer diller ile aynı olan T-SQL’ deki değişken isimlendirme kurallarından <u><strong>yanlış olanı</strong></u> aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Değişkenler Türkçe karakter ve boşluk içermektedir.
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Değişken isimleri ilk karakteri harf ile başlayıp harf, rakam ve alt çizgi (_) ile devam edebilir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> SQL veya T-SQL için kullanılan komutlar ve ayrılmış sözcükler (SELECT, INSERT, UPDATE, NOT vb.) kullanılmaz. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Değişken ismi, SQL’de özel anlamı olan sembollerle (@, @@, #, ##, $) başlamamalıdır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Değişken isimlerinde küçük veya büyük harf kullanımı fark etmez.
+
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      D'şıkkında bahsedilen değişken isimlerinin başına getirilien ÖN EK olan "@" haricinde kullanılması hakkındadır ve doğrudur.<br>
+<strong>A şıkkı ise yanlıştır değişken isimleri türkçe karakter ve boşluk içermemelidir.  </strong>    </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> Aşağıdaki komutlardan hangisi kullanılarak değişkenler ekranda görüntülenebilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> DECLARE </span><br>
+	<span class="option" data-correct="false"><b>B)</b> SET </span><br>
+	<span class="option" data-correct="true"><b>C)</b> SELECT </span><br>
+	<span class="option" data-correct="false"><b>D)</b> INSERT </span><br>
+	<span class="option" data-correct="false"><b>E)</b> UPDATE </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      Değişkenlere atanan değerleri ekranda görüntülemek için <strong>PRINT (veya SELECT)</strong> komutu kullanılabilir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Veritabanı sorgularında kullanıcıların belirleyecekleri bir veri kümesinde her bir satırda birer birer ilerlemelerini sağlayan İMLEÇ (Cursor) yapısı kullanılmaktadır. İmleç işlemlerinde <strong>bir önceki kayda</strong> ilerlemeyi sağlayan komut aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> FETCH NEXT </span><br>
+	<span class="option" data-correct="true"><b>B)</b> FETCH PRIOR </span><br>
+	<span class="option" data-correct="false"><b>C)</b> FETCH LAST </span><br>
+	<span class="option" data-correct="false"><b>D)</b> FETCH FIRST </span><br>
+	<span class="option" data-correct="false"><b>E)</b> FETCH </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">       İmleç işlemlerindeki <strong>FETCH</strong> komutu kayıtlar arasında gezinmeyi sağlar.<br>
+<strong>- FETCH NEXT</strong> bir sonraki, <br>
+<strong>- FETCH PRIOR</strong> bir önceki, <br>
+<strong>- FETCH LAST </strong>son kayda ve <br>
+<strong>- FETCH FIRST</strong> ilk kayda ilerlemeyi sağlar.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> I. T-SQL’de oluşan hata mesajları ve kodları “sys.messages” adlı sistem tablosunda tutulmaktadır.
+II. SQL sorgu penceresinde “PRINT sys.messages” ile tüm hata mesajları listelenebilir.
+III. “@@ERROR” sistem fonksiyonunda tüm hata mesajlarının kodu tutulur.
+IV. TRY...CATCH komutu hata denetimi için kullanılabilir.
+Veritabanı yönetim sisteminde hata denetimi ile ilgili yukarıda verilen bilgilerden hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> III ve IV </span><br>
+	<span class="option" data-correct="true"><b>D)</b> I ve IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      SQL sorgu penceresinde <strong>“SELECT * FROM sys.messages”</strong> ile tüm hata mesajları listelenebilir. (Print ile değil) <br>
+“@@ERROR” sistem fonksiyonunda <strong>son hata mesajının</strong> kodu tutulur. Alt alta birden fazla sorgu yazıp en sonda hata kontrolü yapıldığı takdirde yalnızca son SQL sorgusundan kaynaklı hatalar yakalanabilir. <br>
+ Doğru cevap D.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> Veri Tanımlama Dili (DDL), verilerin tutulduğu nesnelerolan tabloların oluşturulmasını, silinmesini ve bazı temel özelliklerinin düzenlenmesinisağlar. Bu kategoride, tabloda değişiklik yapmak için kullanılan komut aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> DROP TABLE </span><br>
+	<span class="option" data-correct="false"><b>B)</b> CREATE TABLE </span><br>
+	<span class="option" data-correct="true"><b>C)</b> ALTER TABLE </span><br>
+	<span class="option" data-correct="false"><b>D)</b> DENY TABLE </span><br>
+	<span class="option" data-correct="false"><b>E)</b> INSERT TABLE </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      Bu kategoride, <br>
+yeni bir tablo oluşturmak için <strong>CREATE TABLE</strong>, <br>
+tabloda değişiklik yapmak için <strong>ALTER TABLE</strong> ve <br>
+tabloyu silmek için <strong>DROP TABLE</strong> kullanılan bazı yaygın komutlardır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Aşağıdakilerden hangisi T-SQL için <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> T-SQL, Microsoft SQL Server için kullanılabilecek bir dildir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> T-SQL, Sybase için kullanılabilecek bir dildir. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> T-SQL, Oracle için kullanılabilecek bir dildir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> T-SQL ile çeşitli veri tipleri ve fonksiyonlar tanımlanabilmektedir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> T-SQL ile döngüler, akış kontrolü gibi işlemlerde gerçeklenebilir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      <strong>Oracle</strong> için kullanılabilecek dil. Oracle tarafından üretilmiş olan <strong>PL/SQL</strong>'dir.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> Aşağıdakilerden hangisi T-SQL dilinde yapılmış yanlış bir değişken isimlendirmesidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> DECLARE @OgrenciNo INT; </span><br>
+	<span class="option" data-correct="true"><b>B)</b> DECLARE @OgrenciAdı VARCHAR(25); </span><br>
+	<span class="option" data-correct="false"><b>C)</b> DECLARE @OgrenciSoyadi VARCHAR(25); </span><br>
+	<span class="option" data-correct="false"><b>D)</b> DECLARE @OgrenciBolumu VARCHAR(40); </span><br>
+	<span class="option" data-correct="false"><b>E)</b> DECLARE @OgrenciCinsiyeti VARCHAR(1); </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      T-SQL'de değişkenler Türkçe karakter ve boşluk içermez.     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> Aşağıdakilerden hangisi ile değişkenlere değer ataması yapabiliriz? </p>
+	<span class="option" data-correct="false"><b>A)</b> DECLARE </span><br>
+	<span class="option" data-correct="true"><b>B)</b> SELECT </span><br>
+	<span class="option" data-correct="false"><b>C)</b> PRINT </span><br>
+	<span class="option" data-correct="false"><b>D)</b> INSERT </span><br>
+	<span class="option" data-correct="false"><b>E)</b> UPDATE </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      Değişkenlere SET ya da SELECT ifadeleri kullanılarak değer ataması yapabiliriz.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> T-SQL ile ilgili aşağıdaki bilgilerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Oracle için geliştirilmiştir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yordamsal dil özelliklerine sahiptir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> T-SQL ile veri tipleri tanımlanabilir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> T-SQL ile fonksiyonlar tanımlanabilir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> T-SQL ile döngüler kurulabilir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      T-SQL, Microsoft SQL Server ve Sybase için kullanılabilecek bir dildir. Oracle veritabanı yönetim sistemleri için yordamsal dil özelliklerine sahip PL/SQL geliştirilmiştir.      </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> T-SQL içinde verilen bir koşulun sağlanması durumunda belirlenen komut bloğunun tekrar edilmesi amacıyla kullanılan akış kontrlü yapısı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> IF...ELSE Yapısı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> CASE Yapısı </span><br>
+	<span class="option" data-correct="true"><b>C)</b> WHILE Yapısı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> GOTO Yapısı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> BEGIN...END yapısı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      Programlama dillerinde döngüler, tekrar gerektiren işlemler için kullanılmaktadır. WHILE döngüsü birçok programlama dilinde olduğu gibi verilen bir koşulun sağlanması durumunda belirlenen komut bloğunu tekrar eden bir yapıdır.      </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> I. T-SQL’de açıklama eklemek için “--” ifadesi kullanılabilir.<br>
+II. T-SQL’de açıklama eklemek için “/*...*/” ifadesi kullanılabilir.<br>
+III. Tek satırlık açıklama eklemek için açıklama satırının önüne “--” ifadesi kullanılabilir.<br>
+IV. Birden fazla satırı açıklama satırı yapmak için satırın sonuna “/*” işareti kullanılması yeterlidir.<br><br>
+T-SQL’de açıklama ekleme ile yukarıdaki bilgilerden hangileri doğrudur? </p>
+	<span class="option" data-correct="true"><b>A)</b> I,II ve III </span><br>
+	<span class="option" data-correct="false"><b>B)</b> II, III ve IV </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I, III ve IV </span><br>
+	<span class="option" data-correct="false"><b>D)</b> III ve IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      Bir veya daha fazla satırı açıklama satırı olarak göstermek için açıklama satırının başına “/*” işareti ve açıklama satırının sonuna “*/” işareti eklenir. Sadece açıklama satırının sonuna “*/” işareti eklenmesi yeterli değildir.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> While yapısı içinde döngüden çıkmayı sağlayan komut aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> CONTINUE </span><br>
+	<span class="option" data-correct="false"><b>B)</b> BEGIN </span><br>
+	<span class="option" data-correct="false"><b>C)</b> END </span><br>
+	<span class="option" data-correct="true"><b>D)</b> BREAK </span><br>
+	<span class="option" data-correct="false"><b>E)</b> DECLARE </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      While yapısı içinde CONTINUE ve BREAK komutları bir sonraki adıma geçme ve döngüden çıkmak için kullanılabilir. <strong>CONTINUE</strong> komutundan sonra gelen ifadeler göz ardı edilerek bir sonraki adımdan döngü devam eder. <strong>BREAK</strong> komutu ise While yapısı içinde döngüden çıkmayı sağlar.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> Aşağıdaki özelliklerden hangisi T-SQL'de dinamik SQL sorgularına özgü bir özelliktir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Akış kontrolü kullanılması </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Metin ve tamsayı değişken tiplerinin kullanılması </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Değişken tanımlama komutlarının tek satırda yazılması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Koşul ifadelerinin yer alması </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Sorgu komutunun bir değişkene aktarılması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> SQL komutları kullanım amaçlarına göre üç genel kategoriye ayrılır. Aşağıdakilerden hangisi bu kategorilerden biridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Veri Tamamlama Dili </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Veri Komuta Dili </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veri Derleme Dili </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Veri İşleme Dili </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Veri Toplama Dili </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      SQL komutları kullanım amaçlarına göre;<br>
+
+• Veri Tanımlama Dili (DDL)<br>
+• Veri İşleme Dili (DML)<br>
+• Veri Kontrol Dili (DCL)<br>
+şeklinde üç genel kategoriye ayrılır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> I. Yerel değişken adı @ ile evrensel değişken adı @@ ile başlar.<br>
+II. Değişken isimlerinin ilk karakteri $ ile başlamalıdır.<br>
+III. SELECT değişken ismi olamaz.<br>
+IV. DECLARE @boy INT; SET @boy=179 ile sayısal değer alabilen boy adlı bir değişken tanımlanmış ve değişkenin değerine 179 atanmıştır.<br><br>
+T-SQL'de değişken tanımlama ile ilgili yukarıda verilen bilgilerden hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> II, III ve IV </span><br>
+	<span class="option" data-correct="true"><b>B)</b> I, III ve IV </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I, II ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I ve II </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      T-SQL'de değişken ismi, SQL’de özel anlamı olan sembollerle (@, @@, #, ##, $) başlamamalıdır. Ve özel komutlara ait ifadeler kullanılamaz.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> Veri İşleme Dili kullanımı sonucunda değişiklik olan kayıtları listelemek için aşağıdakilerden hangi komut kullanılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Show </span><br>
+	<span class="option" data-correct="false"><b>B)</b> List </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Select </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Print </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Output </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> ERROR_STATE() fonksiyonunun işlevi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Oluşan hata numarasını döndürür </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Hatanın önem düzeyini döndürür </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Hatanın oluştuğu satır numarasını döndürür </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Hatayı açıklayan tam metin mesajı döndürür </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Hatanın durum numarasını döndürür </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      <strong>ERROR_NUMBER()</strong> Oluşan hata numarasını döndürür.<br>
+<strong>ERROR_SEVERITY()</strong> Hatanın önem düzeyini döndürür.<br>
+<strong>ERROR_STATE()</strong> Hatanın durum numarasını döndürür.<br>
+<strong>ERROR_PROCEDURE() </strong>Hataya neden olan saklı yordam (stored procedure) veya tetikleyici (trigger) adını döndürür.<br>
+<strong>ERROR_LINE()</strong> Hatanın oluştuğu satır numarasını döndürür.<br>
+<strong>ERROR_MESSAGE()</strong> Hatayı açıklayan tam metin mesajı döndürür. <br>    </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> Aşağıdakilerden hangisi T-SQL ile bir hata bloğu yakalanırken hataya neden olan saklı yordam veya
+tetikleyici adını döndürür? </p>
+	<span class="option" data-correct="false"><b>A)</b> ERROR_NUMBER() </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ERROR_SEVERITY() </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ERROR_STATE() </span><br>
+	<span class="option" data-correct="true"><b>D)</b> ERROR_PROCEDURE() </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ERROR_LINE() </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">       <strong>ERROR_NUMBER()</strong> Oluşan hata numarasını döndürür.<br>
+<strong>ERROR_SEVERITY()</strong> Hatanın önem düzeyini döndürür.<br>
+<strong>ERROR_STATE()</strong> Hatanın durum numarasını döndürür.<br>
+<strong>ERROR_PROCEDURE() </strong>Hataya neden olan saklı yordam (stored procedure) veya tetikleyici (trigger) adını döndürür.<br>
+<strong>ERROR_LINE()</strong> Hatanın oluştuğu satır numarasını döndürür.<br>
+<strong>ERROR_MESSAGE()</strong> Hatayı açıklayan tam metin mesajı döndürür.      </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> İmleç (cursor,) veri kümelerinin satırları arasında birer birer ilerlemeyi sağlayan programlama yapılarıdır. İmleç işlemlerindeki FETCH komutu aşağıda verilen hangi işlemi gerçekleştirmek için kullanılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kullanıcının atayacağı değişkenlere göre veri oluşturmak için </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kod içerisinde belirlenen bir etikete direkt geçiş yapılıp bu etiketten sonra devam etmek için </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tekrar gerektiren işlemler için </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Belirli koşullar sağlandığı takdirde gerçekleştirmesi istenen işlemler için </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Kayıtlar arasında gezinmek için </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      İmleç işlemlerindeki <strong>FETCH</strong> komutu kayıtlar arasında gezinmeyi sağlar.<br>
+<strong>- FETCH NEXT</strong> bir sonraki, <br>
+<strong>- FETCH PRIOR</strong> bir önceki, <br>
+<strong>- FETCH LAST </strong>son kayda ve <br>
+<strong>- FETCH FIRST</strong> ilk kayda ilerlemeyi sağlar.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question41">
+	<p class="question">Soru 41:<br> Hedeflenen çıktıları üretmek üzere belirlenebilecek algoritmaların kodlanabildiği dildir.<br><br>
+Yukarıdaki tanım aşağıdakilerden hangisine aittir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Komutsal Dil </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kuralsal Dil </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tanımsal Dil </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İşlevsel Dil </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Yordamsal Dil </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description41">Açıklama</button>
+		<div id="description41" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question42">
+	<p class="question">Soru 42:<br> TRY..CATCH komutununda CATCH bloğu içinde kendi değerlerini tutan CATCH bloğu dışında ise NULL değerler döndüren çeşitli fonksiyonları vardır. Bu fonksiyonlardan işlevi "Hatanın önem düzeyini döndürür." şeklinde tanımlanan fonksiyon aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> ERROR_NUMBER() </span><br>
+	<span class="option" data-correct="true"><b>B)</b> ERROR_SEVERITY() </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ERROR_STATE() </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ERROR_LINE() </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ERROR_MESSAGE() </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description42">Açıklama</button>
+		<div id="description42" class="collapse">      <strong>ERROR_NUMBER()</strong> Oluşan hata numarasını döndürür.<br>
+<strong>ERROR_SEVERITY()</strong> Hatanın önem düzeyini döndürür.<br>
+<strong>ERROR_STATE()</strong> Hatanın durum numarasını döndürür.<br>
+<strong>ERROR_PROCEDURE() </strong>Hataya neden olan saklı yordam (stored procedure) veya tetikleyici (trigger) adını döndürür.<br>
+<strong>ERROR_LINE()</strong> Hatanın oluştuğu satır numarasını döndürür.<br>
+<strong>ERROR_MESSAGE()</strong> Hatayı açıklayan tam metin mesajı döndürür.      </div>
+	</div>
+</div>
+		
+		
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+	  
+    <script>
+		///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 119));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}	
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

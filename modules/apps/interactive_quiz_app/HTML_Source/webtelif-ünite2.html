@@ -1,0 +1,1838 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	  <link rel="icon" type="image/png" href="icon.png">
+  <style>
+	  .block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="anasayfa.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA I
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama1-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama1-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama1-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama1-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama1-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama1-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama1-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama1-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama1-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama1-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          BİLİŞİM HUKUKU
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="bilisimhk-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="bilisimhk-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="bilisimhk-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="bilisimhk-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="bilisimhk-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="bilisimhk-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="bilisimhk-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="bilisimhk-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="bilisimhk-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="bilisimhk-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB'DE TELİF HAKLARI VE ETİK
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="webtelif-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="webtelif-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="webtelif-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="webtelif-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="webtelif-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="webtelif-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="webtelif-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="webtelif-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="webtelif-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="webtelif-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          AĞ YÖNETİMİ VE BİLGİ GÜVENLİĞİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="agyonetimi-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="agyonetimi-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="agyonetimi-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="agyonetimi-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="agyonetimi-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="agyonetimi-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="agyonetimi-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="agyonetimi-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="agyonetimi-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="agyonetimi-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİTABANI PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veritabaniprg-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veritabaniprg-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  </nav>
+  
+    <h4 id="ders">Web'de Telif Hakları ve Etik - Ünite 2 </h4>
+	  	 <div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	<button class="block-group" data-start="40" data-end="59">Part 3</button>
+	<button class="block-group" data-start="60" data-end="79">Part 4</button>
+
+	  </div>
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Hangisi sınai mülkiyet haklarından <u><strong>değildir? </strong></u></p>
+	<span class="option" data-correct="false"><b>A)</b> Patent </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Faydalı modeller </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Telif hakları </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Marka </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Coğrafi İşaret </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Aşağıdakilerden hangisi "çoklu ortamlı iletim" anlamına gelmektedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Transformasyon </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Medya </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Multimedya </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bluetooth </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Enformasyon </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Hangisi FSEK’te belirtilen eser türlerinden
+değildir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Multimedya eser </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İlim ve edebiyat eseri </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Müzik eseri </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Güzel sanat eseri </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sinema eseri </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Aşağıdakilerden hangisi yanlış bir ifade içermektedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Multimedya eser dijital ortamda kullanılır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> MMultimedya iletim sistemi birkaç formatta veriyi
+aynı platformda sunar. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Her türlü veri ve bilgiyi iletirken kullanılan
+araçların tümü birer medyadır. </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Multimedya eser FSEK tarafından tartışmasız
+olarak korunur. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> E-gazeteler birer multimedya eser örneği teşkil
+ederler. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Bir eserde radyo ve televizyon kuruluşlarının sahip oldukları haklara ne denir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Çoğaltma hakkı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Eser sahibinin hakları </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Bağlantılı (komşu) haklar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Umuma iletim hakkı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yayma hakkı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Hangisi uluslararası sözleşmelerin bir amacı olarak <u><strong>sayılamaz?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Daha etkin bir telif hakları hukuku koruma sistemi oluşturulması </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ülkelerin milli hukuklarında telif hakları için yeknesak bir korumanın sağlanması </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Esere ücretsiz erişimin sağlanması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bilgi ve iletişim teknolojilerinde yaşanan gelişmelerin eser sahibinin haklarını olumsuz etkisinin önüne geçilmesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Fikri mülkiyet korumasına tabi eserlere uluslararası düzeyde etkin koruma alanının yaratılması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> Hangisi dijital dünyayı düzenleyen bir hüküm <u><strong>içermez?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Bilgi Toplumu Yönergesi </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Bern Sözleşmesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> WIPO Telif Hakları Sözleşmesi (WCT) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> WIPO İcracılar ve Fonogramlar Sözleşmesi
+(WPPT) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Dijital Ortak Pazarda Telif Hakları Yönerge Tasarısı
+(COM (2016) 593 final) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> Hangisi etki alanı açısından en geniş uluslararası sözleşmedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> WCT </span><br>
+	<span class="option" data-correct="false"><b>B)</b> WPPT </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bern Sözleşmesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Roma Sözleşmesi </span><br>
+	<span class="option" data-correct="true"><b>E)</b> TRIPs </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> Hangisi uluslararası düzenlemelerin getirdiği temel esaslardan biri olarak <u><strong>gösterilemez? </strong></u></p>
+	<span class="option" data-correct="false"><b>A)</b> Ülkesellik ilkesi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Eşit işlem ilkesi </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Silahların eşitliği ilkesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Karşılıklılık ilkesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Asgari Haklar ilkesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Aşağıdakilerden hangisi TRIPs Sözleşmesi’nin özelliklerinden biri olarak <u><strong>sayılamaz?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Etki alanı açısından en geniş uluslararası sözleşmedir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> DTÖ’ye üye ülkelerin hepsinin yürürlük tarihinden itibaren bir yıl içinde TRIPs Sözleşmesi’ni uygulamaya koyma mecburiyeti getirilmiştir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Minimum hakları düzenlemiş olan ilk sözleşmedir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sahte mal ticareti dahil ticaretle bağlantılı fikri
+mülkiyet haklarını düzenlemektedir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Temel amacı uluslararası ticaretin önündeki engellerin azaltılması ve kaldırılmasıdır </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> Hangisi sınai mülkiyet haklarından <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Baglantılı Haklar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Marka </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Patent </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Faydalı Model </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Endüstriyel Tasarım </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      Fakat fikri hak,
+bazı kaynaklarda sınai hakları da içine alan üst bir kavram olarak kullanılmaktadır. Bu açıdan Fikri Mülkiyet hakları; Fikri Haklar
+(Telif Hakları) ve Sınai Haklar şeklinde ikiye ayrılır.<br><br>
+<strong>Fikri Haklar (Telif Hakları):</strong><br>
+• Eser Sahibinin Hakları<br>
+• Bağlantılı Haklar<br><br>
+<strong>Sınai Haklar:</strong><br>
+• Marka<br>
+• Patent<br>
+• Coğrafi İşaret<br>
+• Faydalı Model<br>
+• Endüstriyel Tasarım<br>
+• Entegre Devre Topografyaları<br>
+• Yeni Bitki Çesitleri Üzerinde Islahçı Hakları
+
+     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> Aşağıdakilerden hangisi uluslararası nitelikteki başlıca ilkelerden <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Ülkesellik İlkesi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Karşılıklılık İlkesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Asgari (Minimum) Haklar İlkesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Herhangi Bir Formaliteye Tabi Olmama İlkesi </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Eşitlik ilkesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">     <strong> Uluslararası nitelikteki başlıca ilkeler şunlardır:</strong><br>
+- Ülkesellik İlkesi <br>
+- <u>Eşit İşlem İlkesi</u> <br>
+- Karşılıklılık İlkesi <br>
+- Asgari (Minimum) Haklar İlkesi<br>
+- Herhangi Bir Formaliteye Tabi Olmama İlkesi<br>
+- Tükenme İlkesi     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Fikri ve sınai mülkiyet haklarının uluslararası boyutu göz önünde bulundurularak uluslararası korumanın tüm devletlerde aynı seviyede ve tam olarak sağlanmasını ihtiyacını karşılamak için 1994 yılında imzalanan sözleşme aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> WPPT </span><br>
+	<span class="option" data-correct="false"><b>B)</b> WCT </span><br>
+	<span class="option" data-correct="false"><b>C)</b> WIPO </span><br>
+	<span class="option" data-correct="true"><b>D)</b> TRIPs </span><br>
+	<span class="option" data-correct="false"><b>E)</b> UCC </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      Fikri ve sınai mülkiyet haklarının uluslararası boyutu göz önünde bulundurularak uluslararası korumanın tüm devletlerde aynı seviyede ve tam olarak sağlanması ihtiyacını karşılamak için TRIPs Sözleşmesi, 1994 yılında Dünya Ticaret Örgütü’nün kurucu anlaşmasının “mütemmim cüzü” olarak kabul edilmiştir.     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> Edebiyat ve sanat eserlerinin korunmasına ilişkin 9 Eylül 1886 tarihinde on bir devlet arasında Paris’te imzalananan Sözleşme, kendisinden sonra imzalanan bütün uluslararası sözleşmelere de esas teşkil etmiştir.<br><br>
+Yukarıda tanımlanan sözleşme aşağıdakilerden hangisidir?  </p>
+	<span class="option" data-correct="false"><b>A)</b> Roma Sözleşmesi </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Bern Sözleşmesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> TRIPs Sözleşmes </span><br>
+	<span class="option" data-correct="false"><b>D)</b> WIPO İnternet Sözleşmeleri </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Cenevre Sözleşmesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> Bilgisayarın donanım ve yazılım unsurları arasında karşılıklı etkilenme ve bağlantıyı oluşturan program bölümlerine ne denir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Arayüz </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Araişlerlik </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Program </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Alt bölümler </span><br>
+	<span class="option" data-correct="false"><b>E)</b> emas noktaları </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Sinema eseri gibi görsel-işitsel eserler içindeki ses tespitleri hariç olmak üzere, bir icrada yer alan seslerin veya diğer seslerin veya ses temsillerinin tespit edildiği ses taşıyıcısı fiziki ortama ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Tespit </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Fonogram </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Lisans </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yayın </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Ummum </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> İnternetteki adap ile görgü kuralları ve dijital ahlak için standart oluşturmaya yönelik etik kurallar bütününe ne ad verilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Netiket </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Umum </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bağlantılı Haklar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Tespit </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Lisans </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      Netiket, internetteki adap ile görgü kuralları ve dijital ahlak için standart oluşturmaya yönelik etik kurallar bütünüdür. İnterneti yöneten, kontrol eden tek bir otorite olmaması sebebiyle herkesin üzerinde anlaştığı, genel geçer kurallar değillerdir. Bu kurallar riayet etmek gönüllülük esasına ve özdenetime dayanır, genellikle kanuni yaptırımları yoktur.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Aşağıdakilerden hangisi yayımı ifade etmektedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Basılıp satışa çıkarılan kitap </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Radyo ve televizyon aracılığıyla halka sunulan program </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Gazete </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Kitap, gazete vb. okunacak şeylerin basılıp dağıtılması </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Neşriyat </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      Türkçe’nin en karıştırılan iki kelimesi “yayın” ve “yayım”dır. Bu iki kavramın özellikle fiil halleri dilimize yanlış yerleşmiştir. TDK’nın Güncel Türkçe Sözlüğü’ne başvurulduğunda şu açıklamalar karşımıza çıkar:<br><br>
+Yayın (isim): 1. Basılıp satışa çıkarılan kitap, gazete vb., neşriyat 2. Radyo ve televizyon aracılığıyla halka sunulan, duyurulan, iletilen eser, program, neşriyat<br><br>
+Yayım (isim): 1. Yayma işi 2. Kitap, gazete vb. okunacak şeylerin basılıp dağıtılması, neşir 3. Herhangi bir eserin radyo ve televizyon aracılığıyla dinleyiciye, seyirciye ulaştırılması, neşir<br><br>
+<strong>Fakat burada dikkat edilmesi gereken nokta bu iki ismin fiile dönüştürülmesidir. Şöyle ki, “yayın” isminin fiile dönüşmüş hali “yayınlamak” değildir. Böyle bir sözcük sözlükte yoktur. Bu ismin fiili “yayımlamak”tır </strong>    </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> "Fonogram" aşağıdakilerden hangisinde doğru olarak tanımlanmıştır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Eseri meydana getiren, ona hususiyetini vererek yaratan kişidir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Üzerindeki haklar saklı kalmak kaydıyla, ansiklopediler ve antolojiler gibi içeriği seçme ve düzenlemelerden oluşan ve bir düşünce yaratıcılığı sonucu olan eserdir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Taşınır ve taşınmaz mülkiyetinin yanında fikri mülkiyetin de mevcut olduğunu savunan fikri mülkiyet teorisine dayanan terimdir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kar amacı gütmeyen, telif hakları alanında esneklik ve paylaşımı yaygınlaştırmak amacıyla kurulmuş bir düşünce hareketi ve organizasyonudur. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Sinema eseri gibi görsel-işitsel eserler içindeki ses tespitleri hariç olmak üzere, bir icrada yer alan seslerin veya diğer seslerin veya ses temsillerinin tespit edildiği ses taşıyıcısı fiziki ortamdır. Kasetler, örnek olarak verilebilir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> Aşağıdaki telif haklarıyla ilgili uluslararası çok taraflı sözleşmelerden hangisi diğerlerinden önce imzalanmıştır? </p>
+	<span class="option" data-correct="false"><b>A)</b> UCC (Universal Copyright Convention) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> WCT (WIPO Copyright Treaty) </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Bern Sözleşmesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Roma Sözleşmesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> WPPT (WIPO Performance and Phonograms Treaty) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      Telif Haklarına İlişkin Önemli Çoklu Sözleşmelerin en eskisi Bern Sözleşmesidir (1886 - Taraf Sayısı 168) Türkiye tarafından 1948 yılında kabul edilmiştir.    </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Seçeneklerden hangisi insanın düşüncesine, zihinsel faaliyetlerine, emeğine ve bunlar sonucu ortaya çıkmış ürünlere dayanan haklardır? </p>
+	<span class="option" data-correct="false"><b>A)</b> İnsan hakları </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Tüketici hakları </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Mülkiyet hakları </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Fikri mülkiyet hakları </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Vatandaşlık hakları </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Özgün eser üzerindeki haklar saklı kalmak kaydıyla, ansiklopediler ve antolojiler gibi içeriği seçme ve düzenlemelerden oluşan ve bir düşünce yaratıcılığı sonucu olan esere ne denir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Multimedya eser </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Özgün eser </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İşlenme eser </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kopya eser </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Derleme eser </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> İlk olarak hangi uygulama ile bireyin haber ile arasındaki hemen hemen tüm engellerin kalktığı söylenebilmektedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Periscope </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Facebook </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Whatsapp </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Snapchat </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Twitter </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Eser sahibinin manevi ve mali haklarına zarar vermemek kaydıyla ve eser sahibinin izniyle bir eseri özgün bir biçimde yorumlayan, tanıtan, anlatan, söyleyen, çalan ve çeşitli biçimlerde icra eden sanatçıların, bir icra ürünü olan veya sair sesleri ilk defa tespit eden fonogram yapımcıları ile radyotelevizyon kuruluşlarının sahip oldukları haklara  ne ad verilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Komşu haklar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bağlantılı haklar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sınai haklar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kişisel haklar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Eser hakları </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> Hangisi fikri mülkiyet hakkı için <u><strong>söylenemez?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> insanın düşüncesine dayanır </span><br>
+	<span class="option" data-correct="false"><b>B)</b> zihinsel faaliyetlerine dayanır </span><br>
+	<span class="option" data-correct="false"><b>C)</b> emeğine dayanır </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ortaya çıkmış ürünlere dayanır </span><br>
+	<span class="option" data-correct="true"><b>E)</b> eser üzerindeki hakkı ifade eder </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      Eser üzerindeki hakkı fiade eden Telif hakkıdır.      </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br>  I- Multimedya, çoklu ortamlı iletim demektir.<br>
+II- Multimedya iletimi birkaç formatta veriyi bir arada barındırdığından bu parçaların hepsi eser olmak zorundadır.<br>
+III- Multimedya iletim sisteminin bir eser içermesi durumunda bu eserin FSEK(Fikir ve Sanat Eserleri Kanunu) kapsamında korunacağından kuşku yoktur.<br>
+Multimedya ile ilgili yukarıda verilen bilgilerden hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="true"><b>D)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      Multimedya iletimi birkaç formatta veriyi bir arada barındırdığından bu parçaların hepsi eser olmayabilir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Kar amacı gütmeyen, telif hakları alanında esneklik ve paylaşımı yaygınlaştırmak amacıyla kurulmuş bir düşünce hareketi ve organizasyonuna ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Telif hakkı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Netiket </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Mülkiyet hakkı </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Creative commons </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Medya </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> Aşağıdakilerden hangisi fikri haklardandır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Eser sahibinin hakları </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Marka </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Patent </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Faydalı model </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Coğrafi işaret </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      Fakat fikri hak,
+bazı kaynaklarda sınai hakları da içine alan üst bir kavram olarak kullanılmaktadır. Bu açıdan Fikri Mülkiyet hakları; Fikri Haklar
+(Telif Hakları) ve Sınai Haklar şeklinde ikiye ayrılır.<br><br>
+<strong>Fikri Haklar (Telif Hakları):</strong><br>
+• <u>Eser Sahibinin Hakları</u><br>
+• Bağlantılı Haklar<br><br>
+<strong>Sınai Haklar:</strong><br>
+• Marka<br>
+• Patent<br>
+• Coğrafi İşaret<br>
+• Faydalı Model<br>
+• Endüstriyel Tasarım<br>
+• Entegre Devre Topografyaları<br>
+• Yeni Bitki Çesitleri Üzerinde Islahçı Hakları     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> Eser sahibinin manevi ve mali haklarına zarar vermemek kaydıyla komşu hak sahipleri ile filmlerin ilk tespitini gerçekleştiren film yapımcılarının sahip olduğu haklara ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Komşu haklar </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Bağlantılı haklar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kişisel haklar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sınai haklar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Şahsi haklar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> <em>Fikir mülkiyet hakları, her devletin ülke sınırları içinde ve kendi düzenlemelerine göre korunmaktadır.</em><br><br>
+Yukarıda tanımlanan ilke aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Karşılıklılık ilkesi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Asgari haklar ilkesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tükenme ilkesi </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Ülkesellik ilkesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Eşit işlem ilkesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> TRIPs Sözleşmesi ile ilgili aşağıdaki ifadelerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Fikri Mülki-yet Hakları (TRIPs) Sözleşmesi 1994 yılında Dünya Ticaret Örgütü’nün (DTÖ/WTO) kurucu anlaşmasının “mütemmim cüzü” olarak kabul edilmiştir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sözleşme, telif hakları, ticari markalar, coğrafi işaretler, tasarımlar, patentler, entegre devre tasa-rımları, ticari sırlar ve açıklanmamış bilgiyi kapsamaktadır </span><br>
+	<span class="option" data-correct="false"><b>C)</b> TRIPs, bu amaca hizmet eden, oluşturduğu fikri mülkiyet hakları koruma sistemi açısından bugüne kadar düzenlenmiş en kapsamlı uluslararası metindir. </span><br>
+	<span class="option" data-correct="true"><b>D)</b> TRIPs etki alanı dar olan uluslar arası sözleşmedir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Türkiye DTÖ’nün kurucu üyelerindendir ve TRIPs Sözleşmesi’ne kuruluş aşamasında taraf olmuştur. Hükümlerini uygulamaya ise 2000 yılında başlamıştır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      Fikri ve sınai mülkiyet haklarının uluslar arası boyutu göz önünde bulundurularak uluslar arası korumanın tüm devletlerde aynı seviyede ve tam olarak sağlanması ihtiyacını karşılamak için Sahte Mal Ticareti Dahil Ticaretle Bağlantılı Fikri Mülkiyet Hakları (TRIPs) Sözleşmesi 1994 yılında Dünya Ticaret Örgütü’nün (DTÖ/WTO) kurucu anlaşmasının “mütemmim cüzü” olarak kabul edilmiştir. Aynı zamanda Gümrük Tarifeleri ve Ticaret Genel Sözleşmesi’ne (GATT) ve DTÖ’ye üye ülkelerin hepsinin yürürlük tarihinden itibaren bir yıl içinde TRIPs Sözleşmesi’ni uygulamaya koyma mecburiyeti getirilmiştir. <u><strong>Hiç şüphesiz ki bu mecburiyet TRIPs’in etki alanını Dünya Fikri Mülkiyet Örgütü’nün etki alanından daha geniş bir noktaya taşımıştır.</strong></u>
+Sözleşme, telif hakları, ticari markalar, coğrafi işaretler, tasarımlar, patentler, entegre devre tasarımları, ticari sırlar ve açıklanmamış bilgiyi kapsamaktadır. DTÖ’nün kurucu anlaşmasına ek niteliğinde düzenlenen bir metin olarak temel amacının uluslararası ticaretin önündeki engellerin azaltılması ve kaldırılması, fikri mülkiyet haklarının uygulamada serbest ticarete engel oluşturmamasının sağlanmasının olduğu belirtilmelidir. TRIPs, bu amaca hizmet eden, oluşturduğu fikri mülkiyet hakları koruma sistemi açısından bugüne kadar düzenlenmiş en kapsamlı uluslararası metindir. Diğer uluslararası düzenlemelerin korumaya dair tüm esaslarını kabul etmekle birlikte onlardan daha geniş bir koruma sistemi oluşturmaktadır. Ayrıca üye ülkeler arasındaki olası ihtilafların çözümüne yönelik hükümler içermektedir.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> Her türlü veri ve bilgiyi iletirken kullanılan araçların tamamını ifade eden kavram aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Netiket </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Telif hakkı </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Medya </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Fikri mülkiyet
+
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Hiçbiri </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> Aşağıdaki telif haklarıyla ilgili uluslararası çok taraflı sözleşmelerden hangisini imzalayan taraf sayısı diğerlerinden daha azdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Roma Sözleşmesi </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Ses Taşıyıcılarla (Fonogram) İlgili Cenevre Sözleşmesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> TRIPs (Trade-Related Aspects of Intellectual Property Rights Agreement) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> WPPT (WIPO Performance and Phonograms Treaty) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> UCC (Universal Copyright Convention) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      Önemli sözleşmelerden en az taraf sayısına sahip sözleşmedir (Taraf sayısı - 78)     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> Aşağıdakilerden hangisi Türkiye’nin imzası bulunmayan telif haklarına ilişkin çoklu sözleşmelerden biridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Bern Sözleşmesi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Roma Sözleşmesi </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Fonogram ile İlgili Cenevre Sözleşmesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> WIPO Kuruluş Sözleşmesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> TRIPs Sözleşmesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      Telif haklarına ilişkin önemli sözleşmelerden Türkiye'nin imzası bulunmayan sözleşmeler;<br>
+ <strong>- Ses Taşıyıcılarla (Fonogram) İlgili Cenevre Sözleşmesi</strong> ve<br>
+<strong>- UCC (Universal Copyright Convention) Sözleşmesi</strong> 'dir.  </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> Kullanıcının internetten ve dolayısıyla eserden faydalanma alanları seçeneklerden hangisinde doğru olarak verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Bilim-kültür, ticaret, eğitim </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ticaret, eğitim, eğlence </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Bilim-kültür, ticaret, eğlence </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Ticaret, eğlence, bilgi edinme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bilim-kültür, bilgi edinme, eğlence </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> Bern sözleşmesinin ilk imza yılı kaçtır? </p>
+	<span class="option" data-correct="false"><b>A)</b> 1881 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 1882 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 1883 </span><br>
+	<span class="option" data-correct="true"><b>D)</b> 1886 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 1887 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> Aşağıdaki ifadelerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Sınai hak, bazı kaynaklarda fikri hakları da içine alan üst bir kavram olarak kullanılmaktadır  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Telif hakkı literatürde fikri hak teriminin yerine de kullanılır </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İngilizce'de telif hakkına Copyright kelimesi karşılık gelmektedir </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Copyright kelimesinin kökeni Latince Copia'dan gelmektedir </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Telif hakkı eser üzerindeki hakkı ifade eder
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      <strong>Fikri hak,</strong> bazı kaynaklarda sınai hakları da içine alan üst bir kavram olarak kullanılmaktadır.      </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> Aşağıdaki sayılı kanunlardan hangisi  Fikir ve Sanat Eserleri Kanunu’dur? </p>
+	<span class="option" data-correct="false"><b>A)</b> 6331 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 4982 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 5846 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 3627 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 7525 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> Kullanıcının internetten faydalandığı alanlar kaça ayrılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> 2 </span><br>
+	<span class="option" data-correct="true"><b>B)</b> 3 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 4 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 5 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 6 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      Kullanıcının internetten faydalandığı alanları <strong>bilim – kültür, eğlence ve ticaret</strong> olarak üçe ayırabiliriz. Bu alanlar aynı zamanda kullanıcının, eser sahibinin ve bağlantılı hak sahibinin haklarının kaynağı olan, eserden de faydalanma alanlarıdır.     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> Aşağıdakilerden hangisi sınai haklardan <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Marka </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Patent </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Coğrafi İşaret </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Eser Sahibinin Hakları </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Entegre Devre Topografyaları </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">       Fakat fikri hak,
+bazı kaynaklarda sınai hakları da içine alan üst bir kavram olarak kullanılmaktadır. Bu açıdan Fikri Mülkiyet hakları; Fikri Haklar
+(Telif Hakları) ve Sınai Haklar şeklinde ikiye ayrılır.<br><br>
+<strong>Fikri Haklar (Telif Hakları):</strong><br>
+• <u>Eser Sahibinin Hakları</u><br>
+• Bağlantılı Haklar<br><br>
+<strong>Sınai Haklar:</strong><br>
+• Marka<br>
+• Patent<br>
+• Coğrafi İşaret<br>
+• Faydalı Model<br>
+• Endüstriyel Tasarım<br>
+• Entegre Devre Topografyaları<br>
+• Yeni Bitki Çesitleri Üzerinde Islahçı Hakları     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question41">
+	<p class="question">Soru 41:<br> Aşağıdakilerden hangisi netiket (netiquette) kavramını açıklayan ifadelerden biridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Herkesin üzerinde anlaştığı genel geçer kurallardır </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kanuni yaptırımlarla korunmaktadır </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Uluslararası alanda tüm ülkelerde geçerlidir </span><br>
+	<span class="option" data-correct="true"><b>D)</b> İnternet’teki adap ile görgü kuralları ve dijital ahlak için standart oluşturmaya yönelik etik kurallar bütünüdür </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yerel kanunların oluşturulmasında etkilidir </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description41">Açıklama</button>
+		<div id="description41" class="collapse">      Netiket;<br>
+İnternet’teki adap ile görgü kuralları ve dijital ahlak için standart oluşturmaya yönelik etik kurallar bütünüdür. <br>
+İnternet’i yöneten, kontrol eden tek bir otorite olmaması sebebiyle herkesin üzerinde anlaştığı, genel geçer kurallar değillerdir. <br>
+Bu kurallara riayet etmek, gönüllülük esasına ve özdenetime dayanır. <br>
+Genellikle kanuni yaptırımları yoktur.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question42">
+	<p class="question">Soru 42:<br> Aşağıdakilerden hangisi "yayımlamak" sözcüğünün anlamlarından biri <u><strong>değildir? </strong></u></p>
+	<span class="option" data-correct="false"><b>A)</b> Kitap, gazete, dergi vb. şeyleri basmak ve dağıtmak, neşretmek </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Dinlenilecek, görülecek şeyleri radyo ve televizyonla sunmak, bildirmek, duyurmak </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bir yazıya, habere, resme gazetede yer vermek </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Resmen bildirmek, açıklamak, ilan etmek </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Basılıp satışa çıkarılan kitap, gazete vb., neşriyat
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description42">Açıklama</button>
+		<div id="description42" class="collapse">      <u><strong>Yayın (isim):</strong></u> <br>
+1. Basılıp satışa çıkarılan kitap, gazete vb., neşriyat <br>
+2. Radyo ve televizyon aracılığıyla halka sunulan, duyurulan, iletilen eser, program, neşriya     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question43">
+	<p class="question">Soru 43:<br> Aşağıdakilerden hangisi kar amacı gütmeyen, telif hakları alanında esneklik ve paylaşımı yaygınlaştırmak amacıyla kurulmuş bir düşünce hareketi ve organizasyon adının kısaltmasıdır? </p>
+	<span class="option" data-correct="true"><b>A)</b> CC </span><br>
+	<span class="option" data-correct="false"><b>B)</b> BGH </span><br>
+	<span class="option" data-correct="false"><b>C)</b> WPC </span><br>
+	<span class="option" data-correct="false"><b>D)</b> WIPO </span><br>
+	<span class="option" data-correct="false"><b>E)</b> WPPT </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description43">Açıklama</button>
+		<div id="description43" class="collapse">      Creative Commons (CC) lisansı, telif hakkı bulunan bir eserin veya çalışmanın ücretsiz olarak dağıtılmasını sağlayan bir çeşit kamu telif hakkı lisansı.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question44">
+	<p class="question">Soru 44:<br>  “WIPO İcralar ve Fonogramlar Sözleşmesi (WPPT) 1996 yılında 178 ülke tarafından kabul edilmiş ve 30 ülkenin onayı ile hangi tarihte yürürlüğe girmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 2001 </span><br>
+	<span class="option" data-correct="true"><b>B)</b> 2002 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 2003 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 2004 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 2005 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description44">Açıklama</button>
+		<div id="description44" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question45">
+	<p class="question">Soru 45:<br> Aşağıdakilerden hangisi seslerin veya ses temsillerinin veya ses ve görüntülerin anlaşılabilecek, çoğaltılabilecek veya iletilebilecek şekilde bir araca kaydedilmesi işlemidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Tespit </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kopya </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kayıt </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Fonogram </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Patent </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description45">Açıklama</button>
+		<div id="description45" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question46">
+	<p class="question">Soru 46:<br> Bir kitap satın alındığında basılı ürünün yanında içindeki eserin de sahibi olunmasını engelleyerek eser sahibini koruyan hak aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Fikri mülkiyet hakkı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Telif hakkı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Mutlak hak </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Nısbi hak </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Mülkiyet hakkı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description46">Açıklama</button>
+		<div id="description46" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question47">
+	<p class="question">Soru 47:<br> I- Yazılım, elektronik cihazların tanımlanmış bir işi yapmasını sağlayan programların tümü için kullanılan bir terimdir.<br>
+II- Bilgisayar programı ise geniş anlamıyla, doğ- rudan doğruya bilgisayara hitap eden komutlar bütünüdür.<br>
+III- Program, çalıştırılabilir yazılımların ve içerdiği verilerin bütünü düşünüldüğünde üst bir kavramdır.<br><br>
+ Yazılım ve program hakkında yukarıda verilen bilgilerden hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description47">Açıklama</button>
+		<div id="description47" class="collapse">      III nolu madde hatalıdır. Program, çalıştırılabilir yazılımların ve içerdiği verilerin bütünü düşünüldüğünde üst bir kavram değil, burada yazılım üst bir kavramdır.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question48">
+	<p class="question">Soru 48:<br> Eser sahibinin hakları kaça ayrılmaktadır? </p>
+	<span class="option" data-correct="true"><b>A)</b> 2 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 3 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 4 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 5 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 6 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description48">Açıklama</button>
+		<div id="description48" class="collapse">      Eser sahibinin hakları <strong>mali ve manevi</strong> haklar olmak üzere iki ana başlık altında incelenir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question49">
+	<p class="question">Soru 49:<br> Aşağıdakilerden hangisi kar amacı gütmeyen, telif hakları alanında esneklik ve paylaşımı yaygınlaştırmak amacıyla kurulmuş bir düşünce hareketi ve organizasyonudur? </p>
+	<span class="option" data-correct="true"><b>A)</b> Creative Commons </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Digital Age </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Digital Planet </span><br>
+	<span class="option" data-correct="false"><b>D)</b> International Federation for Information Processing </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Clarivate Analytics </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description49">Açıklama</button>
+		<div id="description49" class="collapse">      Creative Commons (CC)     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question50">
+	<p class="question">Soru 50:<br> Ulusal anlamda telif hakkı kavramına yer veren ve eser sahibine telif hakkını tanıyan ilk hukuki metin seçeneklerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Matbaa Nizamnamesi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Telif Nizamnamesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Eser Nizamnamesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Hak Nizamnamesi </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Encümen-i Danış Nizamnamesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description50">Açıklama</button>
+		<div id="description50" class="collapse">      1850 yılında çıkarılan Encümen-i Danış̧ Nizamnamesi, telif hakkı kavramına yer veren ve eser sahibine telif hakkını tanıyan ilk hukuki metin olma özelliği taşımaktadır.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question51">
+	<p class="question">Soru 51:<br> Dünya ticaret örgütü hangi ülkede kurulmuştur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Paris </span><br>
+	<span class="option" data-correct="true"><b>B)</b> İsviçre </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Almanya </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Amerika </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Çin </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description51">Açıklama</button>
+		<div id="description51" class="collapse">      Dünya ticaret örgütü 1995 yılında isviçre de kurulmuştur.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question52">
+	<p class="question">Soru 52:<br> Tamamlanmış bir eser üzerindeki mali hakların kullanma ve yararlanma yetkilerinin başkasına bırakılması hangi sözleşme ile gerçekleştirilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Tüketici sözleşmesi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Evlilik sözleşmesi </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Lisans sözleşmesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Ticari sözleşme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Alış-veriş sözleşmesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description52">Açıklama</button>
+		<div id="description52" class="collapse">      Tamamlanmış bir eser üzerindeki mali hakların kullanma ve yararlanma yetkilerinin başkasına bırakılması yani lisans sahibine tahsis edilmesi lisans (ruhsat) sözleşmesi ile gerçekleşmektedir.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question53">
+	<p class="question">Soru 53:<br> Seçeneklerde hangisi yayın kavramına örnek olarak gösterilebilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kitabevi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> TV Kanalı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kütüphane </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Gazete </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Telefon </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description53">Açıklama</button>
+		<div id="description53" class="collapse">      Yayının anlamı; basılıp satışa çıkarılan kitap, gazete vb. neşriyat, radyo ve tv aracılığıyla halka sunulan, duyurulan , iletilen eser, program ve neşriyat olarak belirtilir.     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question54">
+	<p class="question">Soru 54:<br> Eser sahibi ile ilgili internet haklarında "gerçek kişidir" ifadesi hangi tarihte çıkartılmıştır? </p>
+	<span class="option" data-correct="false"><b>A)</b> 2003 </span><br>
+	<span class="option" data-correct="true"><b>B)</b> 2004 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 2005 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 2006 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 2007 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description54">Açıklama</button>
+		<div id="description54" class="collapse">      Eser sahibi, eseri meydana getiren, ona hususiyetini vererek yaratan kişidir (FSEK m. 1/B (b)). Maddenin eski halinde “gerçek kişidir” ifadesi bulunmaktaydı. Fakat 2004’teki değişiklikle “gerçek” kelimesi kaldırılmıştır. Bu durum doktrinde tartışmalara neden olmuştur. Aradaki fark şudur ki, ABD, İngiltere başta olmak üzere bazı hukuk sistemlerinde tüzel kişilerin eser sahibi olması mümkündür. Bizim dahil olduğumuz Kıta Avrupası Hukuk Sisteminde ise yayımcılar, yapımcılar ve tüzel kişiler eser sahibi olarak kabul edilmezler. Fakat kanun koyucunun 2004’te tanımdan “gerçek” kelimesini çıkartması, dahil olduğumuz sistemden Anglo-Sakson Hukuk Sistemine doğru bir eksen kayması olduğu yorumlarını güçlendirmiştir. Fakat bu konuda bir fikir birliği oluştuğunun söylenmesi imkansızdır.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question55">
+	<p class="question">Soru 55:<br> FSEK'nin açılımı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Fikir ve Sivil Eserler Kanunu </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Fikri Mülkiyet Hakları Kanunu </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Fikir ve Sanat Eserleri Çoğaltma Kanunu </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Fikir ve Sanat Eserleri Kanunu </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Fahri Sanat Eserleri Kanunu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description55">Açıklama</button>
+		<div id="description55" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question56">
+	<p class="question">Soru 56:<br> I- WIPO<br>
+II- UNESCO<br>
+III-WTO<br><br>
+Yukarıdakilerden hangileri telif hakları ile ilgili uluslar arası kuruluşlardandır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description56">Açıklama</button>
+		<div id="description56" class="collapse">      - WIPO, <br>
+- Dünya fikri mülkiyet örgütü, <br>
+- UNESCO, <br>
+- Birleşmiş Milletler Eğitim, Bilim ve Kültür Kurumu (UNESCO), <br>
+- WTO, <br>
+- Dünya Ticaret Örgütü <br>
+Tüm bu kurumlar telif hakları ile ilgili uluslararası kurumlardır.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question57">
+	<p class="question">Soru 57:<br> I.Entegre Devre Topografyaları<br>
+II. Eser Sahibinin Hakları<br>
+III. Patent<br>
+Fikri mülkiyet haklarının sınıflandırılması göz önüne alındığında, yukarıda verilenlerden hangisi ya da hangileri sınai haklardandır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve II </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description57">Açıklama</button>
+		<div id="description57" class="collapse">      Eser Sahibinin Hakları Sınai haklardan değil Fikri haklardandır. Fikri Haklar:<br>
+- Eser Sahibinin Haklar<br>
+- Bağlantılı Haklar     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question58">
+	<p class="question">Soru 58:<br> Mutlak haklar sayesinde eser sahibi hangi yararlanma şekillerine sadece kendisi sahip hale gelmekte ve eser üzerindeki mali haklarını kime, ne kadar ve nasıl kullandıracağını belirleme yetkisine de kavuşmuş olmaktadır. Aşağıdakilerden hangileri bu mutlak haklardandır?<br>
+I. çoğaltma<br>
+II. iletim<br>
+III. dağıtım<br>
+IV. satım<br>
+V. kira </p>
+	<span class="option" data-correct="false"><b>A)</b> I,II ve III </span><br>
+	<span class="option" data-correct="false"><b>B)</b> II ve V </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I,II,III,IV ve V </span><br>
+	<span class="option" data-correct="false"><b>D)</b> IV ve V </span><br>
+	<span class="option" data-correct="false"><b>E)</b> III,IV ve V </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description58">Açıklama</button>
+		<div id="description58" class="collapse">      Telif hakları düzenlemeleri ile kanun eser sahibine herkese karşı ileri sürülebilen haklar vermiştir. Söz konusu mutlak haklar sayesinde eser sahibi çoğaltma, iletim, dağıtım, satım, kira, ödünç verme gibi eserin
+tüm yararlanma şekillerine sadece kendisi sahip hale gelmekte ve eser üzerindeki mali haklarını kime, ne kadar ve nasıl kullandıracağını belirleme yetkisine de kavuşmuş olmaktadır     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question59">
+	<p class="question">Soru 59:<br> Aşağıdakilerden hangisi çoklu sözleşmelerle ortaya çıkan temel ilkelerden <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Tükenme ilkesi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ülkesellik İlkesi </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Bireysellik ilkesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Eşit işlem ilkesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Karşılıklılık ilkesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description59">Açıklama</button>
+		<div id="description59" class="collapse">      Uluslararası
+nitelikteki başlıca ilkeler şunlardır:<br> 
+• Ülkesellik İlkesi<br> 
+• Eşit İşlem İlkesi<br> 
+• Karşılıklılık İlkesi<br> 
+Asgari (Minimum) Haklar İlkesi<br> 
+• Herhangi Bir Formaliteye Tabi Olmama İlkesi<br> 
+• Tükenme İlkesi     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question60">
+	<p class="question">Soru 60:<br> Aşağıdakilerden hangisi kullanıcının hem İnternet'ten faydalandığı alanlardan hem de eser sahibinin ve bağlantılı hak sahibinin haklarının kaynağı olan, eserden de faydalanma alanlarından biridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Çoğaltma </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Manipülasyon </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kamuoyu oluşturma </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Gündem belirleme </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Ticaret </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description60">Açıklama</button>
+		<div id="description60" class="collapse">      Kullanıcının internetten faydalandığı alanları bilim – kültür, eğlence ve ticaret olarak üçe ayırabiliriz. Bu alanlar aynı zamanda kullanıcının, eser sahibinin ve bağlantılı hak sahibinin haklarının kaynağı olan, eserden de faydalanma alanlarıdır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question61">
+	<p class="question">Soru 61:<br> Yerel düzenlemelerle o ülkenin vatandaşı olan fikri mülkiyet hak sahiplerine sağlanan korumanın, iki ülkenin karşılıklı olarak birbirinin vatandaşı olan hak sahiplerine tanımları ile ilgili telif hakları hukuku ilkesi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Ülkesellik ilkesi </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Karşılıklılık ilkesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Eşit işlem ilkesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Tükenme ilkesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Asgari haklar ilkesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description61">Açıklama</button>
+		<div id="description61" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question62">
+	<p class="question">Soru 62:<br> Uluslararası düzeyde telif hakları hukuku korunmasının çatısını oluşturan, bugün dahi alanındaki en temel belge olma özelliğini korumuş bir düzenleme aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Bern sözleşmesi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Roma sözleşmesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> TRIPs sözleşmesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> WIPO internet sözleşmeleri </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Hiçbiri </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description62">Açıklama</button>
+		<div id="description62" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question63">
+	<p class="question">Soru 63:<br> "1. Basılıp satışa çıkarılan kitap, gazete vb., neşriyat<br>
+2. Radyo ve televizyon aracılığıyla halka sunulan, duyurulan, iletilen eser, program, neşriyat "<br><br>
+TDK’nın Güncel Türkçe Sözlüğü’ne göre tanımlanan kavram aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Yayın </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yayım </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Lisans </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Fonogram </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Telif Hakkı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description63">Açıklama</button>
+		<div id="description63" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question64">
+	<p class="question">Soru 64:<br> FSEK tanımları göz önüne alındığında, bilgisayar program bölümlerinin fonksiyonel olarak birlikte çalışması ve karşılıklı etkilenmesi ve alışverişi yapılan bilginin karşılıklı kullanım yeteneğine ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Arayüz </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Araişlerlik </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yazılım </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Program </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bilgisayar programı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description64">Açıklama</button>
+		<div id="description64" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question65">
+	<p class="question">Soru 65:<br> Aşağıdakilerden hangisi değişik ve çeşitli görevleri yerine getirmesi amacıyla tasarlanmış olan, elektronik cihazların birbirleriyle iletişim ve uyum içinde görevlerini tamamlamak ya da kullanılabilirliklerini arttırmayı sağlayan makina komutlarıdır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Yazılım </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Donanım </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Arayüz </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Araişlerlik </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bilgisayar programı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description65">Açıklama</button>
+		<div id="description65" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question66">
+	<p class="question">Soru 66:<br> Aşağıdakilerden hangisi eser üzerindeki hakkı ifade eder? </p>
+	<span class="option" data-correct="true"><b>A)</b> Telif hakkı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Marka hakkı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Patent hakkı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Faydalı model hakkı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Coğrafi işaret hakkı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description66">Açıklama</button>
+		<div id="description66" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question67">
+	<p class="question">Soru 67:<br> Aşağıdakilerden hangisi telif hakları ile ilgili uluslararası kuruluşlardan biridir? </p>
+	<span class="option" data-correct="true"><b>A)</b> UNESCO </span><br>
+	<span class="option" data-correct="false"><b>B)</b> OPEC </span><br>
+	<span class="option" data-correct="false"><b>C)</b> AGIT </span><br>
+	<span class="option" data-correct="false"><b>D)</b> EİT </span><br>
+	<span class="option" data-correct="false"><b>E)</b> G-8 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description67">Açıklama</button>
+		<div id="description67" class="collapse">      Telif hakları ile ilgili uluslararası kuruluşlar; <br>
+- Dünya Fikri Mülkiyet Örgütü (World Intellectual Organization – WIPO), <br>
+- Birleşmiş Milletler Eğitim Bilim ve Kültür Kurumu (United Nations Educational - Scientific and Cultural Organizaton – UNESCO) ve <br>
+- Dünya Ticaret Örgütü ( World Trade Organization – WTO) olarak sıralanmaktadır.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question68">
+	<p class="question">Soru 68:<br> Çoklu sözleşmeler ile ortaya çıkan ilkeler göz önüne alındığında, yabancıya yerli hak sahibiyle eşit şekilde işlem yapılmasını öngören ve bu şekilde yabancı eser sahibine, yerli eser sahibinin ülkesinde yararlandığı haklarla eşit imkanlara sahip olmasını sağlayan ilke aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Ülkesellik ilkesi </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Eşit işlem ilkesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Asgari haklar ilkesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Karşılıklılık ilkesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Tükenme ilkesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description68">Açıklama</button>
+		<div id="description68" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question69">
+	<p class="question">Soru 69:<br> “Bir bilgisayar sisteminin özel bir işlem veya görev yapmasını sağlayacak bir şekilde düzene konulmuş bilgisayar emir dizgesini ve bu emir dizgesinin oluşum ve gelişimini sağlayacak hazırlık çalışmaları” tanımı aşağıdaki kavramlardan hangisine aittir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Bilgisayar yazılımı </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Bilgisayar programı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Arayüz </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Araişlerlik </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bilgisayar donanımı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description69">Açıklama</button>
+		<div id="description69" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question70">
+	<p class="question">Soru 70:<br> Uluslararası Hukuk kişileri olan devletlerin ve Uluslararası Örgütlerin, kendi rızaları ile bağlandıkları, kendi hakkında bağlayıcı hukuk kuralları yaratan metinler aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Antlaşma </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İkili anlaşma </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Sözleşme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kanunname </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Tüzük </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description70">Açıklama</button>
+		<div id="description70" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question71">
+	<p class="question">Soru 71:<br> Aşağıdakilerden hangisi "Sahibinin hususiyetini taşıyan ve ilim ve edebiyat, musiki, güzel sanatlar veya sinema eserleri olarak sayılan her nevi fikir ve sanat mahsulleri” olarak tanımlanmıştır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Eser </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Netiket </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ürün </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Marka </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Patent </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description71">Açıklama</button>
+		<div id="description71" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question72">
+	<p class="question">Soru 72:<br> Aşağıdaki faaliyetlerden hangisi elektronik yayımcılık alanına girmektedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Bilgi akışına, görüş oluşmasına yardım edecek metin ve resimler </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Eğlene amaçlı metin ve resimler </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Redaksiyona tabi yayınlar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Gazetecilik niteliğine haiz belirli periyodlarla gerçekleştirilen yayımlar </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Blog </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description72">Açıklama</button>
+		<div id="description72" class="collapse">      E-dergi ve e-gazeteler, blog, sosyal medya tarzında, haberin ve diğer basın ürünü içeriklerin kamuyla buluşmasını sağlayan diğer her türlü dijital medya yöntemi, elektronik yayımcılık kavramının altında değerlendirilir.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question73">
+	<p class="question">Soru 73:<br> Eserin erişim, paylaşım ve kullanımını sınırların ötesine taşıyan temel gelişme aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Bilgi teknolojilerinin getirdiği yenilikler </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Netiket sistemi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Multimedya eserler </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Fikri mülkiyet hakları </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Telif hakkı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description73">Açıklama</button>
+		<div id="description73" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question74">
+	<p class="question">Soru 74:<br> Dünya fikri mülkiyet örgütü kaç yılında kurulmuştur? </p>
+	<span class="option" data-correct="true"><b>A)</b> 1967 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 1945 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 1995 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 2000 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 1965 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description74">Açıklama</button>
+		<div id="description74" class="collapse">      World Intellectual Organization (Dünya Fikri Mülkiyet Örgütü) 1967 yılında İsviçrede kurulumuştur. Türkiye bu örgüte 1975 yılında katılmıştır.    </div>
+	</div>
+</div>
+
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+	  
+    <script>
+////////////////soruları parta bölme////////////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 119));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}	
+			
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

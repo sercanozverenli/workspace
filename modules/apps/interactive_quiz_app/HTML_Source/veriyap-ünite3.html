@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+	  
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA II
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama2-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama2-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama2-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama2-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama2-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama2-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama2-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama2-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama2-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama2-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB ARAYÜZ PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİ YAPILARI
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veriyap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veriyap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veriyap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veriyap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veriyap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veriyap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veriyap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veriyap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veriyap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veriyap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          MOBİL UYGULAMA GELİŞTİRME
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="mobilug-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="mobilug-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="mobilug-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="mobilug-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="mobilug-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="mobilug-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="mobilug-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="mobilug-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="mobilug-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="mobilug-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          UNIX SİSTEM YÖNETİMİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="unixsy-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="unixsy-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="unixsy-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="unixsy-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="unixsy-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="unixsy-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="unixsy-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="unixsy-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="unixsy-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="unixsy-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Veri Yapıları - Ünite 3 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	<button class="block-group" data-start="40" data-end="59">Part 3</button>
+  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Aşağıdakilerden hangisi yığın yapısına yeni
+veri eklemek için kullanılan yöntemdir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Enqueu </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Dequeu </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Pop </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Push </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Peek </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Aşağıdakilerden hangisi yığın yapısında tepedeki veriyi görüntülemek için kullanılan yöntemdir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Enqueu </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Dequeu </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Pop </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Push </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Peek </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Aşağıdakilerden hangisi yığın yapısından tepedeki veriyi çıkarmak için kullanılan yöntemdir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Enqueu </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Dequeu </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Pop </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Push </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Peek </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Yığın yapısında tüm verileri temizlemek için
+kullanılan yöntem aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Clear </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Contains </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Pop </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Push </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Peek </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Yığın yapısındaki verileri bir diziye aktarmak için kullanılan yöntem aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Clear </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Contains </span><br>
+	<span class="option" data-correct="true"><b>C)</b> ToArray </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Push </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Peek </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		 
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> C# dilinde yeni bir yığın yapısı oluşturmak
+için aşağıdaki yöntemlerden hangisi kullanılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yigin yigin = new Yigin(); </span><br>
+	<span class="option" data-correct="false"><b>B)</b> PQueue yigin = new PQueue(); </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Queue kuyruk = new Queue(100,3); </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Queue kuyruk = new Queue(); </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Stack yigin = new Stack(25); </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      Varsayılan stack sınıfı oluşturucusu, 10 eleman kapasiteli bir yığın yapısı oluşturur. Aşağıdaki kod bloğundan incelenebilir.<br>
+Stack myStack = new Stack();<br><br>
+
+Stack sınıfını oluştururken parametre olarak gönderilen değer, yığının boyutunu belirler. Aşağıdaki kod bloğundan incelenebilir. Elaman sayısı olarak 25 belirlenmiştir.<br>
+Stack myStack = new Stack(25);<br><br>
+
+Bu yöntemlerin haricinde, dizi elemanları ile de yığın oluşturulabilir. Aşağıdaki kod bloğundan incelenebilir.<br>
+string[] sehirler= new string[] {"Ankara", "İstanbul", "İzmir"};<br>
+Stack sehirYigin= new Stack(sehirler);
+Yığın y     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> Yeni veriyi kuyruk yapısına eklemek için kullanılabilecek yöntem aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Enqueu </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Dequeu </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Pop </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Push </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Peek </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> Kuyruk yapısında, kuyruğun en önündeki
+veriyi çıkarmak için kullanılan yöntem aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Enqueu </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Dequeu </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Pop </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Push </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Peek </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> C# dilinde kuyruk yapısı oluşturulmak isteniyor. Kuyruk yapısının başlangıç kapasitesi 25
+eleman olacaktır. Kapasite dolduğunda ise bir sonraki kapasite 100 olmalıdır. İstenilen kuyruk yapısını oluşturan kod aşağıdakilerin hangisinde doğru
+olarak verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Stack myStack = new Stack(25,100); </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Stack myStack = new Stack(25,3); </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Queue kuyruk = new Queue(100); </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Queue kuyruk = new Queue(25, 3); </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Queue kuyruk = new Queue(32, 4); </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      Bu kod, bir kuyruk oluştururken başlangıç kapasitesini 32 (istenilen 25 elemandan büyük olmalıdır) ve büyüme faktörünü 4 olarak belirler. Bu, kuyruğun başlangıçta 32 elemanı destekleyeceğini ve kapasitesinin dolduğunda 4 katına çıkacağını belirtir (yani, 32 * 4 = 128 elemana kadar otomatik olarak büyüyecektir).
+		
+		25 kapasite ve 100 kapasite şartlarını sağlayan ve kuyruk yapısını ifade eden tek şık E seçeneğidir. Ancak doğru cevap şöyle de olabilirdi.
+		
+		Queue kuyruk = new Queue(25, 4);
+Bu kod, başlangıçta kuyruğun 25 elemanı destekleyeceğini ve kapasitesinin dolduğunda 4 katına çıkacağını belirtir. </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Aşağıdakilerden hangisi kuyruk yapısında,
+en öndeki veriyi görüntülemek için kullanılan yöntemdir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Enqueu </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Dequeu </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Pop </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Push </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Peek </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> Push işlemi hangi amaçla kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Yığınlara öge eklemek için kullanılır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yığından öge çıkartmak için kullanılır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ögeyi yığından kaldırmadan sadece görüntülemek için kullanılır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yığını oluşturmak için kullanılır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yığını sıralamak için kullanılır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> Ögeyi yığından kaldırmadan sadece görüntülemek için C# dilinde ne kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Peek </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Pop </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Push </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Get </span><br>
+	<span class="option" data-correct="false"><b>E)</b> List </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> CopyTo yönteminin kullanıldığı işlem aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Bir yığının içeriğini tek boyutlu bir diziye kopyalamak için kullanılır.  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> En üstteki ögeyi yığından çıkarmak için kullanılır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ögeyi yığından çıkarmaksızın yığının tepesindeki ögenin değerine bakmak için kullanılır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yığındaki tüm elemanları kaldırıp öge sayısını sıfır olarak ayarlamak için kullanılır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bir ögenin, yığın içerisinde bulunup bulunmadığını kontrol etmek için kullanılır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      CopyTo yöntemi, bir yığının içeriğini tek boyutlu bir diziye kopyalamak için kullanılır. Hedef dizi, tüm yığın nesnelerinin veri türüyle aynı olmalıdır. CopyTo yöntemi, hedef dizi ve başlangıç indeksini gösteren iki parametre alır. Yığının ögeleri LIFO şeklinde kopyalanır. Yığına son eklenen öge, dizinin ilk elemanı olacaktır.     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> Stack isimli yeni bir yığın oluşturduğumuzda sırasıyla aşağıdaki işlemler sonrasında yığın görüntüsü ne olacaktır?<br><br>
+	 mystack.push(1);<br>
+ mystack.push(2);<br>
+ mystack.push(3);<br>
+ mystack.push(4);<br>
+ mystack.pop();<br>
+ mystack.pop();<br>
+ mystack.push(5);	<br>
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> 5 2 1 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 1 2 3 4 5 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 4 3 2 1 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 5 4 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 5 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      Bir yığındaki iki temel işlem, yığına ögelerin eklenmesi ve ögelerin yığından çıkarılmasıdır. Yığınlara öge eklemek için Push (itme) işlemi kullanılır. Yığından ögeyi çıkarTmak için ise Pop(Çekme) işlemi kullanılabilir.
+		
+		Yığın'dan çıkarma işleminde son giren ilk çıkar (LIFO)</div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> yenikuyruk isimli yeni bir kuyruk yapısı oluşturduğumuzda sırasıyla aşağıdaki işlemler sonrasında kuyruk görüntüsü ne olacaktır?<br><br>
+
+yenikuyruk.enqueue(1);<br>
+
+yenikuyruk.enqueue(2);<br>
+
+yenikuyruk.enqueue(3);<br>
+
+yenikuyruk.enqueue(4);<br>
+
+yenikuyruk.dequeue();<br>
+
+yenikuyruk.enqueue(5);<br>
+
+yenikuyruk.dequeue(); </p>
+	<span class="option" data-correct="true"><b>A)</b> 3 4 5 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 5 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 1 2 3 4 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 1 2 3 4 5 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 1 5 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      Doğrusal veri yapılarının diğer önemli yapısı Kuyruk (Queue) yapılarıdır. Kuyruk; verilerin liste olarak tutulduğu, yeni gelen verinin listenin arkasına eklendiği, kaldırma işleminin ise listenin önündeki veriye uygulandığı bir yapıdır yani her zaman ilk önce giren veri ilk çıkar (FIFO- First In First Out). Kuyruk yapısına, banka sırası örnek olarak verilebilir. Bankada sırası gelen müşteri işini bitirir ve sıradakinin işlemi başlar. Yeni gelen müşteriler kuyruğun arkasından sıraya eklenir.<br><br>
+
+Kuyruklar, ögeleri oluştukları sırayla depolamak için kullanılır. Bir işletim sistemine veya yazdırma biriktiricisine gönderilen işlemleri sipariş etmek için kullanılabilir.
+
+
+     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Queue nesnesi kullanılarak yeni bir kuyruk oluşturulduğunda nesne varsayılan olarak kaç eleman kapasiteli bir kuyruk oluşur? </p>
+	<span class="option" data-correct="false"><b>A)</b> 16 </span><br>
+	<span class="option" data-correct="true"><b>B)</b> 32 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 64 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 128 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 100 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      Kuyruk yapısında kullanılan temel yöntemleri önceki örnekte inceledik. Bu yöntemleri inceleyebilmek için bir problemi Kuyruk yapısı kullanarak çözen bir program yazmak daha detaylı incelememize olanak sağlayacaktır.<br><br>
+
+C# dilinde, Yığın yapısında olduğu gibi, kuyruk yapısını oluşturmak içinde dil ile birlikte gelen nesneler kullanılabilir. Queue nesnesi kullanılarak yeni bir kuyruk oluşturulabilir. Nesne varsayılan olarak 32 eleman kapasiteli bir kuyruk oluşturur. Kuyruğun kapasitesi doldukça bir sonraki kapasite iki katı olacak şekilde art- tırılır. Yani varsayılan değer (32 öge) ile oluşturulan kuyruğun kapasitesi dolduğunda 64 eleman kapasitesine çıkarılacaktır. Buradaki kapasiteyi her defasında iki katına çıkaran sayı, büyüme faktörü olarak adlandırılır.     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> 500 öge kapasiteli ve kapasitesi dolduktan sonra 5 katına çıkacak olan kuyruk tanımlaması aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Queue kuyruk = new Queue(100, 500); </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Queue kuyruk = new Queue(500, 5); </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Queue kuyruk = new Queue(500, 2500); </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Queue kuyruk = new Queue(500, 5+); </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Queue kuyruk = new Queue(500, 500); </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      Kuyruk kapasitesini belirtirken büyüme faktörünü de değiştirebilirsiniz. Constructura iletilen ikinci değer büyüme faktörünün belirtildiği sayıdır. Aşağıdaki kod bloğunda belirtilen 3 rakamından dolayı kuyruğun kapasitesi dolduktan sonra yeni boyut 300 olacaktır.<br><br>
+
+Queue kuyruk = new Queue(100, 3);     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Verilerin liste olarak tutulduğu, yeni gelen verinin listenin arkasına eklendiği, kaldırma işleminin ise listenin önündeki veriye uygulandığı bir yapı hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Stack </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yığın </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Kuyruk </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Dizi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Liste </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> Contains yöntemi hangi amaçla kullanılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Bir yığının içeriğini tek boyutlu bir diziye kopyalamak için kullanılır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bir yığının içeriğini silmek için kullanılır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bir yığından öge çıkartmak amacıyla kullanılır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bir yığına öge eklemek amacıyla kullanılır. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Bir ögenin, yığın içerisinde bulunup bulunmadığını kontrol etmek için kullanılır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 20:<br> CopyTo yöntemi ile ilgili aşağıdaki bilgilerden hangisi <u><strong>hatalıdır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Bir yığının içeriğini tek boyutlu bir diziye kopyalamak için kullanılır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Hedef dizi, tüm yığın nesnelerinin veri türüyle aynı olmalıdır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Hedef dizi ve başlangıç indeksini gösteren iki parametre alır. </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Yığının ögeleri FIFO şeklinde kopyalanır </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yığına son eklenen öge, dizinin ilk elemanı olacaktır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 21:<br> Yığın yapısında Pop işlemi aşağıdakilerden hangi görevi üstlenir? </p>
+	<span class="option" data-correct="true"><b>A)</b> En üstteki ögeyi döndürürken ögeyi yığından kaldırır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Seçilen ögeyi yığından kaldırmadan sadece görüntüler. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yığının en başına yeni bir öge ekler. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yığının en sonundan öge kaldırır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yığının verilen indisine öge ekler. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question41">
+	<p class="question">Soru 22:<br> C dilinde ögeyi yığından kaldırmadan sadece görüntülemek için kullanılan işleme ne ad verilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Tepe (peek) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İtme (push) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Çekme (pop) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Döndürme (for) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Temizleme (clear) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      Ögeyi yığından kaldırmadan sadece görüntülemek için kullanılan işlem ise C# dilinde Peek (Tepe) olarak adlandırılır.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question42">
+	<p class="question">Soru 23:<br> Yığın yapısı ile ilgili aşağıda verilen bilgilerden hangisi <u><strong>hatalıdır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Tek taraflı veri giriş ve çıkışına izin verir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Verileri sıralı olarak tutar. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> İlk Giren Son Çıkar (FILO - First In Last Our) veri yapısı olarak bilinir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> En sık kullanılan veri yapılarından biridir ve anlaşılması kolaydır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Standart model, bir restorandaki tabak yığını olarak düşünülebilir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question43">
+	<p class="question">Soru 24:<br> Yığındaki tüm elemanları kaldırıp, öge sayısını sıfır olarak ayarlayan yöntem aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Clear </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Contains </span><br>
+	<span class="option" data-correct="false"><b>C)</b> CopyTo </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Peek </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Stack </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question44">
+	<p class="question">Soru 25:<br> String[] ulkeler= new string[] {"Almanya", "Çin", "Fransa", "İtalya", "Türkiye"};<br><br>
+Stack ulkeYigin= new Stack(ulkeler);<br><br>
+Yukarıdaki kod parçası ile oluşan yığına Pop işlemi uygulandığında aşağıdakilerden hangisi gerçekleşir? </p>
+	<span class="option" data-correct="true"><b>A)</b> İlk olarak Türkiye ögesi yığından çıkarılacaktır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İlk olarak Almanya ögesi yığından çıkarılacaktır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Almanya ve ardından Çin ögesi birlikte yığından çıkarılacaktır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Mevcut ögelerin tümü tekrar yığına eklenir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Tüm ögeler yığından çıkarılacaktır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      Constructora iletilen dizinin son elemanı, yığınında son elemanı yani tepesidir. Yığına Pop işlemi uygulandığında ilk olarak Türkiye ögesi yığından çıkarılacaktır.
+Yığında LIFO sistemi kullanılmaktadır. Son giren ilk çıkar
+
+     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question45">
+	<p class="question">Soru 26:<br> I. Külahta alınmış dondurma topları<br>
+II. Bankada sırada duran müşteriler<br>
+
+III. Bilgisayarda Ctrl+Z(geri alma) işlemi <br>
+
+IV. Restoranda üst üste duran tabaklar<br><br>
+
+Yukarıdakilerden hangisi veya hangileri kuyruk yapısına örnektir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I-III-IV </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I-II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> III-IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I-II-III-IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      Kuyruk yapısı - FIFO (İlk giren ilk çıkar)<br><br>
+Yığın yapısı - LIFO (Son giren ilk çıkar)     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question46">
+	<p class="question">Soru 27:<br> Yığınlara öge eklemek ve çıkarmak için yapılan işlemlere sırasıyla ne ad verilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> İtme ve çekme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Çekme ve bekleme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İlerletme ve işleme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İşleme ve sunma </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İşleme ve itme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      Bir yığındaki iki temel işlem, yığına ögelerin eklenmesi ve ögelerin yığından çıkarılmasıdır. Yığınlara öge eklemek için Push (itme) işlemi kullanılır. Yığından ögeyi çıkartmak için ise Pop (Çekme) işlemi kullanılabilir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question47">
+	<p class="question">Soru 28:<br> Aşağıdakilerden hangisi yığın yapısının özelliklerinden biridir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Veriyi sıralı tutma </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Çift taraflı giriş ve çıkışı mümkün kılma </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Az tercih edilme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Anlaşılırlığı nispeten düşük olma </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İlk giren ilk çıkar prensibini kullanma </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      Yığın yapısı, programlama dillerinde en sık kullanılan veri yapılarından biridir ve anlaşılması kolaydır. Tek taraflı veri giriş ve çıkışına izin veren yığın yapısı, verileri sıralı olarak tutar. Yığın; yalnızca yığının tepesi olarak adlandırılan, listenin sonundan erişilebilen ögelerin bir listesi olarak tanımlanabilir.<br><br>
+Yığın için standart model, bir restorandaki tabak yığınıdır. Yığındaki tabaklar her zaman üstten çıkarılır. Yığına ekleme yapılacaksa da üstten ekleme yapılabilir. Yığın, Son Giren İlk Çıkar (LIFO - Last In First Out) veri yapısı olarak bilinir.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question48">
+	<p class="question">Soru 29:<br> Queue kuyruk = new Queue(100, 4);<br><br>
+Yukarıdaki kod bloğu ile ilgili aşağıda verilen bilgilerden hangisi doğrudur? </p>
+	<span class="option" data-correct="true"><b>A)</b> Kuyruk kapasitesi dolduktan sonra yeni boyut 400 olacaktır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Varsayılan olarak 32 eleman kapasiteli bir kuyruk oluşturulur. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kuyruğun kapasitesi dolduğunda 64 eleman kapasitesine çıkarılacaktır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kuyruk kapasitesi iki katı olacak şekilde arttırılacaktır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kuyruk kapasitesi 3 kez arttılabilecektir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      C# dilinde, Yığın yapısında olduğu gibi, kuyruk yapısını oluşturmak içinde dil ile birlikte gelen nesneler kullanılabilir. Queue nesnesi kullanılarak yeni bir kuyruk oluşturulabilir. Nesne varsayılan olarak 32 eleman kapasiteli bir kuyruk oluşturur. Kuyruğun kapasitesi doldukça bir sonraki kapasite iki katı olacak şekilde arttırılır. Yani varsayılan değer (32 öge) ile oluşturulan kuyruğun kapasitesi dolduğunda 64 eleman kapasitesine çıkarılacaktır. Buradaki kapasiteyi her defasında iki katına çıkaran sayı, büyüme faktörü olarak adlandırılır.<br><br>
+
+Kuyruk kapasitesini belirtirken büyüme faktörünü de değiştirebilirsiniz. Constructura iletilen ikinci değer büyüme faktörünün belirtildiği sayıdır. Aşağıdaki kod bloğunda belirtilen 3 rakamından dolayı kuyruğun kapasitesi dolduktan sonra yeni boyut 300 olacaktır.
+
+Queue kuyruk = new Queue(100, 3);     </div>
+	</div>
+</div>
+
+
+
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> Palindrom nedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Tersten okunuşu da aynı olan kelimelere verilen bir isimdir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> Stack sınıfı nedir?  </p>
+	<span class="option" data-correct="true"><b>A)</b> Bir LIFO koleksiyonunu veya bir yığını temsil eden ICollection arabiriminin bir uygulamasıdır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> 10 veri kapasiteli bir stack, son değerde eklendikten sonra kaç veri kapasitesine genişletilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> 20 (varsayılan olarak 2 katına çıkarılır) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> Stack sınıfı ile ikinci yığın oluşturucu yöntemi neye olanak tanır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Başka bir koleksiyon nesnesinden bir yığın nesnesi oluşturmaya. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> Peek yöntemi neye bakmamızı sağlar? </p>
+	<span class="option" data-correct="true"><b>A)</b> Ögeyi yığından çıkarmak zorunda kalmadan yığının tepesindeki ögenin değerine bakmayı sağlar. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> Yığının içerisindeki tüm elemanları temizlememiz gereken durumlarda, eleman sayısı kadar Pop işlemi uygulamak yerine ne yöntemi uygulanabilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Clear </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> Bir yığının içeriğini tek boyutlu bir diziye kopyalamak için hangi yöntem kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> CopyTo </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> Kuyruk yapısına örnek verilebilecek sıra nedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Banka sırası </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> Yapıya ilk yerleştirilen ögenin yapıdan çıkarılan ilk öge olduğu veri yapısı nedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Kuyruk </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 39:<br> Programlama dillerinde çalışırken genelde veriler ne halinde düzenlenir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Liste </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 40:<br> Aşağıdakilerden hangisi liste olarak düzenlenen verilerle çalışmak için kullanılan sınıflardır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Array ve ArrayList </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 41:<br> Anlaşılması kolay soyutlamalar sağlayan liste yönelimli iki veri yapısı hangileridir?  </p>
+	<span class="option" data-correct="true"><b>A)</b> Yığın ve kuyruk yapıları. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description41">Açıklama</button>
+		<div id="description41" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 42:<br> Uzman programcıyı ortalama programcıdan ayıran becerilerden biri nedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Veri yapılarını uygun ve verimli kullanmayı öğrenmek. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description42">Açıklama</button>
+		<div id="description42" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 43:<br> Tek taraflı veri giriş ve çıkışına izin veren yığın yapısı, verileri nasıl tutar? </p>
+	<span class="option" data-correct="true"><b>A)</b> Sıralı olarak </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description43">Açıklama</button>
+		<div id="description43" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 44:<br> Yığın için standart kabul edilen model hangisidir?  </p>
+	<span class="option" data-correct="true"><b>A)</b> Bir restorandaki tabak yığını. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description44">Açıklama</button>
+		<div id="description44" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 45:<br> Bir yığındaki iki temel işlem nedir?  </p>
+	<span class="option" data-correct="true"><b>A)</b> Yığına ögelerin eklenmesi ve ögelerin yığından çıkarılması. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description45">Açıklama</button>
+		<div id="description45" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 46:<br> Yeni bir Yigin nesnesi başlatıldığında değişken başlangıçta kaç olarak ayarlanır? </p>
+	<span class="option" data-correct="true"><b>A)</b> -1 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description46">Açıklama</button>
+		<div id="description46" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 47:<br> Pop yöntemi kaç şey yapar?  </p>
+	<span class="option" data-correct="true"><b>A)</b> Üç şey yapar: <br>
+En üstteki ögeyi yığından çıkarmak için RemoveAt metodunu çağırır, <br>
+index değişkenini 1 azaltır <br>
+Yığından çıkarılan nesneyi döndürür </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description47">Açıklama</button>
+		<div id="description47" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  	  
+		
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

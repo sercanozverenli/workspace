@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="anasayfa.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA I
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama1-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama1-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama1-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama1-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama1-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama1-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama1-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama1-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama1-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama1-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          BİLİŞİM HUKUKU
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="bilisimhk-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="bilisimhk-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="bilisimhk-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="bilisimhk-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="bilisimhk-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="bilisimhk-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="bilisimhk-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="bilisimhk-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="bilisimhk-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="bilisimhk-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB'DE TELİF HAKLARI VE ETİK
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="webtelif-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="webtelif-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="webtelif-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="webtelif-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="webtelif-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="webtelif-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="webtelif-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="webtelif-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="webtelif-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="webtelif-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          AĞ YÖNETİMİ VE BİLGİ GÜVENLİĞİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="agyonetimi-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="agyonetimi-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="agyonetimi-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="agyonetimi-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="agyonetimi-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="agyonetimi-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="agyonetimi-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="agyonetimi-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="agyonetimi-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="agyonetimi-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİTABANI PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veritabaniprg-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veritabaniprg-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  </nav>
+  
+    <h4 id="ders">Web'de Telif Hakları ve Etik - Ünite 8 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Ünlü markalara, şirketlere, isimlere ait internet
+alan adlarının esas hak sahiplerinden önce
+davranılarak tescil ettirilmesi ve büyük meblağlarla
+esas hak sahiplerine satılmaya çalışılması şeklindeki
+büyük soruna ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Alan Adı Cambazlığı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Hosting Bilmecesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Alan Adlarının Marka Olarak Kullanılması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Alan Adı Korsanlığı / Domain Grabbing </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Hiçbiri </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Aşağıdakilerden hangisi alan adları konusu ile
+ilgili <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> ICANN </span><br>
+	<span class="option" data-correct="false"><b>B)</b> nic.tr </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Unutulma Hakkı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Trabis </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ODTÜ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Veri tabanı yapımcısına sağlanan koruma aleniyet tarihinden itibaren kaç yıldır? </p>
+	<span class="option" data-correct="true"><b>A)</b> 15 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 10 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 5 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sınırsız </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Hiçbiri </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Aşağıdakilerden hangisi 5237 Sayılı Kanun
+olan Türk Ceza Kanunu’nun Bilişim Alanında Suçlar başlıklı 10. Bölümündeki suçlardan <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Bilişim sistemine girme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bilişim sistemini engelleme, bozma </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Verileri yok etmeme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Verileri yok etme veya değiştirme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yasak cihaz veya programları satışa arz etme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Alan adlarına ilişkin aşağıdaki önermelerden
+hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> “av.tr’’ avcılık ruhsatına sahip gerçek kişiler ve avcı derneklerine tahsis edilmiştir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ‘‘dr.tr’’ Tıp doktorları, doktor ortaklıkları, hastaneler ve Sağlık Bakanlığı birinci basamak sağlık kuruluşlarına, tahsis edilmiştir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ‘‘.gov.tr’’ T.C. Devlet kurum ve kuruluşlarına tahsis edilmiştir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ‘‘.bel.tr’’ T.C. İl, ilçe ve belde belediye teşkilatlarına tahsis edilmiştir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ‘‘.edu.tr’’ T.C. YÖK’ ce onaylanmış yükseköğretim
+kurumlarına, tahsis edilmiştir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Bu yönetimin, Türkiye sınırları içerisinde görevi “.tr” uzantılı alan adı başvurusunda bulunan yurt içi/yurt dışı tüm kurum, kuruluş ve şahısların, alan adı başvurularını değerlendirmek ve uygun olan başvuruların tahsis işlemlerini sonuçlandırmak,<br><br>
+
+Mevcut alan adları ile ilgili gerekli olan veya talep edilen idari, mali ve teknik işlemleri gerçekleştirmek, tüm alan adı işlemleri sırasında telefon, mesaj ve e-posta aracılığı ile destek vermektir.Bu kuruma ne ad verilmektedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> IBAN </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ICANN.Tr </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Nic.Tr </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Hacettepe Üniversitesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> BTK </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> Tescilli markanın koruma süresi başvuru tarihinden itibaren kaç yıldır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Beş yıl </span><br>
+	<span class="option" data-correct="true"><b>B)</b> On Yıl </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sekiz yıl </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yedi Yıl </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Üç Yıl </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> Fikri haklar günümüzde teknik açıdan sıklıkla
+uygun teknolojik önlemlerle korunurlar. “Dijital Haklar Yönetim Sistemi” bu önlemlere verilen genel addır. Dijital Hak Yönetimi’ni (Digital Rights Management = DRM) teknolojik önlemler, dijital haklar yönetim sistemi ve hak yönetim bilgisi unsurları çerçevesinde açıklayabiliriz. Bu teknolojiyi ilk kullanan şirket 1980 yılında bilgisayar oyunları ve programlarını kopyalamadan vb. korumak için kullanan IBM şirketidir. DRM adını sıkça DVD ve CD’lerin içeriklerini koruma konusunda duyurmuştur. DRM, eser hakkındaki bilgileri verirken “Hak Yönetim Bilgisi” ni kullanır. Aşağıdakilerden hangisi bu bilgilerden <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Eser üzerinde korunan haklar. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Eser sahibi ve diğer hak sahiplerinin isimleri, </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Eserin oluşturulma zamanı </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Eserden yararlanacak olan kitle </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Tanımlama işleminde kullanılan metot/metotlar
+vb. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> İnternet ortamı üzerinden kullanıcılara sunulan her türlü bilgi veya veriyi üreten, değiştiren ve sağlayan gerçek veya tüzel kişilere ne ad verilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> İçerik Sağlayıcı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Erişim Sağlayıcı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yer Sağlayıcı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Veri Denetçisi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Mülkiye Müfettişi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Mevzuat’a göre; internet ortamında yapılan ve Kanun’da katalog şeklinde sayılan suçları oluşturduğu hususunda yeterli şüphe sebebi bulunan yayınlarla ilgili olarak erişimin engellenmesine karar verilir. Aşağıdakilerden hangisi bunlardan birisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Çocukların Cinsel İstismarı Hakkında Akademik
+Yazılar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Toplumsal Hiciv </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Dini Paylaşım </span><br>
+	<span class="option" data-correct="true"><b>D)</b> İntihara Yönlendirme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sağlık için tehlikeli maddelerin tanıtılması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> I.Marka sahibinin izni alınmadan kullanılması,<br>
+II.Marka sahibinin izni olmaksızın markayı veya ayırt edilemeyecek derecede benzerini kullanmak suretiyle taklit edilmesi,<br>
+
+III. Marka sahibi tarafından sözleşmeye dayalı lisans yoluyla verilmiş hakların izinsiz genişletilmesi suretiyle kullanılması,<br><br>
+
+Yukarıda sıralanan maddeler aşağıdakilerden hangisini ifade eder? </p>
+	<span class="option" data-correct="true"><b>A)</b> Marka hakkına tecavüz </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Marka hakkının süresi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Internet sujelerinin sorumlulukları </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Erişim engelleme sonuçları </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Marka hakkından yararlanma koşulları </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> “k12.tr” uzantısı aşağıdakilerden hangisine tahsis edilmektedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Emniyet teşkilatına </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ticari özel ve tüzel kişiliklere </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Serbest avukatlar, hukuk büroları ve avukatlık ortaklarına </span><br>
+	<span class="option" data-correct="true"><b>D)</b> MEB’ce onaylanmış ilkokul ve liselere </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Devlet kurum ve kuruluşlarına </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Aşağıdakilerden hangisi DRM’in geçersiz sayarak akademisyenler ve sivil toplum örgütleri tarafından tepki görmesine yol açtığı kurallardan biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Adil kullanım </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Fikir – ifade ayırımı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Koruma süresi </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Umuma iletim </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İlk satış hakkı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> “.tr” uzantılı alan adları ile ilgili ülkemizde yetkili kuruluş aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Bilim ve Sanayi Bakanlığı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Enformasyon Genel Müdürlüğü </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Orta Doğu Teknik Üniversitesi (ODTÜ) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Tübitak </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Telekomünikasyon İletişim Başkanlığı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> Aşağıdakilerden hangisi en yüksek internet idare organıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> WIPO </span><br>
+	<span class="option" data-correct="true"><b>B)</b> ICANN </span><br>
+	<span class="option" data-correct="false"><b>C)</b> NDS </span><br>
+	<span class="option" data-correct="false"><b>D)</b> GNSO </span><br>
+	<span class="option" data-correct="false"><b>E)</b> CCNSO </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Hizmet ve içerikleri barındıran sistemleri sağlayan veya işleten gerçek veya tüzel kişiler hangi internet süjesinin tanımıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> İnternet ortamı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Erişim sağlayıcı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İçerik sağlayıcı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> URL adresi </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Yer sağlayıcı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> Marka başvuruları aşağıdaki kurumlardan hangisine yapılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Türk Patent ve Marka Kurumu </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bilgi Teknolojileri ve İletişim Kurumu </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İnternet Tahsisli Sayılar ve İsimler Kurumu </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Ticaret Bakanlığı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Orta Doğu Teknik Üniversitesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Aşağıdakilerden hangisi ISBN sisteminin sağladığı yararlardan biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Ticari dağıtım sistemlerinde kolaylık sağlar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bibliyografik aramalarda hız kazandırır </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Toplu katalogların oluşturulmasını kolaylaştırır </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Aynı yayıncı başka materyalleri için de kullanabilir </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Materyalin uluslararası erişimini kolaylaştırır </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> Hangisi elektronik bir belgenin güncel konumuna bağlı olmayan kalıcı bir tanımlayıcıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> DNS </span><br>
+	<span class="option" data-correct="true"><b>B)</b> DOI </span><br>
+	<span class="option" data-correct="false"><b>C)</b> DRM </span><br>
+	<span class="option" data-correct="false"><b>D)</b> FTP </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ISSN </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> Tacirler, kendini ve işletmesini tanıtmaya yarayan hangi  işaretlere  göre alan adı satın almak istemektedir? I. marka II. işletme adı III. ticaret unvanı </p>
+	<span class="option" data-correct="false"><b>A)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>B)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I,II ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sadece III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Ülkemizin internet alan adı uzantısı olan “.tr”nin ülkemizde yetkili kuruluşu aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> İstanbul Üniversitesi </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Ortadoğu Teknik Üniversitesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Anadolu Üniversitesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yıldız Teknik Üniversitesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Boğaziçi Üniversitesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Web üzerindeki sayfa ve hizmet bütünü olarak tanımlanan kavram aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Web sitesi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Alan adı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sosyal ağ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Ipnumarası </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Hosting </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> ICANN tahkiminde kararın, RUDRP’ye göre karar verecek heyetin atanmasından sonra kaç gün içerisinden verilmesi gerekir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 11 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 12 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 13 </span><br>
+	<span class="option" data-correct="true"><b>D)</b> 14 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 15 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Sırasıyla, <br>
+- Türkiye’deki bir yükseköğretim kurumuna, <br>
+- Bir derneğe, <br>
+- Ticari bir işletmeye ait internet sitesi alan adı uzantıları aşağıdaki seçeneklerden hangisinde doğru verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> com.tr, gov.tr ve web.tr </span><br>
+	<span class="option" data-correct="true"><b>B)</b> edu.tr, org.tr ve com.tr </span><br>
+	<span class="option" data-correct="false"><b>C)</b> edu.tr, web.tr ve com.tr </span><br>
+	<span class="option" data-correct="false"><b>D)</b> web.tr, org.tr ve edu.tr </span><br>
+	<span class="option" data-correct="false"><b>E)</b> edu.tr, gov.tr ve com.tr </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> Aşağıdakilerden hangisi ISBN sisteminin sağladığı yararlardan biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Ticari dağıtım sistemlerinde kolaylık sağlar. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bibliyografik aramalarda hız kazandırır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Toplu katalogların oluşturulmasını kolaylaştırır </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Aynı yayıncı başka materyalleri için de kullanabilir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Materyalin uluslararası erişimini kolaylaştırır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> Internet Protocol(IP) numarasının akılda kalabilmesi ve daha rahat kullanılması için hangi isim verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Domain Grabbing
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Hosting </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Domain Name </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ICANN </span><br>
+	<span class="option" data-correct="false"><b>E)</b> gTLDs </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Türkiye ‘‘ikinci düzey alt alan adı’’ modelini benimsemiştir. Alan Adı Yönetimi tarafından tahsisi yapılan ikinci düzey alan adlarından hangisi “Vakıf, dernek, sivil toplum örgütü vb. kuruluşlar ve oluşumlara” tahsis edilmiştir? </p>
+	<span class="option" data-correct="true"><b>A)</b> ‘‘.org.tr’’
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ‘.com.tr’’ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ‘‘.net.tr’’ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ‘‘.gov.tr’’ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ‘‘.pol.tr’’ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> Türkiye ‘‘ikinci düzey alt alan adı’’ modelini benimsemiştir. Alan Adı Yönetimi tarafından tahsisi yapılan ikinci düzey alan adlarından hangisi “T.C. MEB’ ce onaylanmış ilköğretim ve liselere” tahsis edilmiştir? </p>
+	<span class="option" data-correct="true"><b>A)</b> ‘‘.k12.tr’’ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ‘‘.edu.tr’’ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ‘‘.bel.tr’’ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ‘‘.gov.tr’’ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ‘‘.pol.tr’’ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> İnternet’in anavatanı olarak gösterilen ülke aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kanada </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Rusya </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Amerika Birleşik Devletleri </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Çin </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İngiltere </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> Marka hakkı aşağıdaki durumların hangilerinin gerçekleşmesi durumunda sona erer? <br><br>
+
+I. Koruma süresinin dolması ve yenilenmemesi <br>
+II. Marka sahibinin markanın hizmetlerinin bir kısmından veya tamamından vazgeçmesi<br> 
+III. Alan adının değişmesi  </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> İnternete bağlanıldığında her bilgisayara özgü aldığı numara nedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> IP numarası </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Hosting numarası </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Web numarası </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Alan adı numarası </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Telekom numarası </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> Elinde bir kitap, bir süreli yayın ve bir makale olan bir kişi bu materyalleri uluslararası nitelikte olan bir kataloglamaya tabi tutmak isterse sırasıyla aşağıdaki seçeneklerden hangilerini kullanması gerekir? </p>
+	<span class="option" data-correct="false"><b>A)</b> ISBN, DOI, ISSN </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ISSN, ISBN, DOI </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ISSN, DOI, ISBN </span><br>
+	<span class="option" data-correct="false"><b>D)</b> DOI, ISSN, ISBN </span><br>
+	<span class="option" data-correct="true"><b>E)</b> ISBN, ISSN, DOI </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> Türkiye ‘‘ikinci düzey alt alan adı’’ modelini benimsemiştir. Alan Adı Yönetimi tarafından tahsisi yapılan ikinci düzey alan adlarından hangisi “T.C. Devlet Kurum ve kuruluşlarına” tahsis edilmiştir? </p>
+	<span class="option" data-correct="true"><b>A)</b> ‘.gov.tr’’ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ‘‘.org.tr’’ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ‘‘.biz.tr’’ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ‘‘.net.tr’’ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ‘‘.info.tr’’ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br>  ‘‘DNS Çalışma Grubu’’ kaç kuruluş temsilcisinden oluşmaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> 10 </span><br>
+	<span class="option" data-correct="true"><b>B)</b> 11 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 12 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 13 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 14 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> ‘‘.tr’’ alan adları tahsis aşamasında kaç kategoride sınıflandırılmaktadır? </p>
+	<span class="option" data-correct="true"><b>A)</b> iki </span><br>
+	<span class="option" data-correct="false"><b>B)</b> üç </span><br>
+	<span class="option" data-correct="false"><b>C)</b> dört </span><br>
+	<span class="option" data-correct="false"><b>D)</b> beş </span><br>
+	<span class="option" data-correct="false"><b>E)</b> altı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      ‘‘.tr’’ alan adları tahsis aşamasında, ‘‘Belgeli’’ ve ‘‘Belgesiz’’ olarak iki kategoride sınıflandırılmaktadır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> Tescilli markanın koruma süresi başvuru tarihinden itibaren kaç yıldır? </p>
+	<span class="option" data-correct="false"><b>A)</b> 2 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 5 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 7 </span><br>
+	<span class="option" data-correct="true"><b>D)</b> 10 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 20 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> ‘‘.biz.tr’’ alan adı aşağıdakilerden hangisine tahsis edilmiştir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Ticari özel ve tüzel kişiliklere </span><br>
+	<span class="option" data-correct="false"><b>B)</b> T.C. Emniyet teşkilatına </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Vakıf, dernek, sivil toplum örgütlerine </span><br>
+	<span class="option" data-correct="false"><b>D)</b> T.C. YÖK’ ce onaylanmış yükseköğretim kurumlarına </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Serbest avukatlar, hukuk büroları ve avukatlık ortaklıklarına </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> Uluslararası bir numaralama sistemi olan ISBN kaç rakamdan oluşmaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> 10 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 11 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 12 </span><br>
+	<span class="option" data-correct="true"><b>D)</b> 13 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 14 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> Aşağıdakilerden hangisi ISBN almaz? </p>
+	<span class="option" data-correct="true"><b>A)</b> El yazması eserler </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Elektronik kitaplar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Haritalar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Mikrofilm yayınları </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Eğitim/öğretim amaçlı filmler </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> Marka tescili ve korunmasına ilişkin aşağıdaki ifadelerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Markaya sağlanan koruma tescilin kapsamına giren mal ve hizmetlerle sınırlıdır. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Bir ülkede alınmış marka tescili tüm dünyada markanın korunmasını sağlar. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Başvuru ve tescil işlemlerini yürütebilmek için marka vekili tutma zorunluluğu yoktur. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yabancılar Türkiye’deki tescil işlemlerini ancak marka vekilleri eliyle gerçekleştirebilir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Marka başvuru Türk Patent ve Marka Kurumu’na yapılır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

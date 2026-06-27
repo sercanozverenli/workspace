@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="anasayfa.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA I
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama1-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama1-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama1-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama1-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama1-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama1-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama1-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama1-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama1-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama1-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          BİLİŞİM HUKUKU
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="bilisimhk-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="bilisimhk-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="bilisimhk-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="bilisimhk-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="bilisimhk-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="bilisimhk-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="bilisimhk-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="bilisimhk-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="bilisimhk-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="bilisimhk-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB'DE TELİF HAKLARI VE ETİK
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="webtelif-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="webtelif-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="webtelif-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="webtelif-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="webtelif-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="webtelif-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="webtelif-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="webtelif-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="webtelif-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="webtelif-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          AĞ YÖNETİMİ VE BİLGİ GÜVENLİĞİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="agyonetimi-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="agyonetimi-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="agyonetimi-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="agyonetimi-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="agyonetimi-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="agyonetimi-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="agyonetimi-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="agyonetimi-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="agyonetimi-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="agyonetimi-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİTABANI PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veritabaniprg-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veritabaniprg-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  </nav>
+  
+    <h4 id="ders">Bilişim Hukuku - Ünite 8 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+ 
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> İnternete erişim hakkının bir insan hakkı olarak tanınması yönündeki en önemli belge aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Avrupa Birliği Adalet Divanı’nın Google/Unutulma Hakkı Kararı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İnsan Hakları Evrensel Beyannamesi </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Birleşmiş Milletler Raporu </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İnsan Hakları Avrupa Sözleşmesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Avrupa Birliği Temel Haklar Bildirgesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Kişisel verilerin korunması hakkı kaçıncı kuşak
+haklar arasında kabul edilmektedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Üçüncü kuşak haklar </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Dördüncü kuşak haklar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İkinci kuşak haklar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Birinci kuşak haklar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Beşinci kuşak haklar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Üç Kuşak Haklar Teorisi aşağıdakilerden
+hangisine aittir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Karel Vasak </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Georg Jellinek </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Avrupa Birliği Adalet Divanı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Anayasa Mahkemesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Hukuk Genel Kurulu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Aşağıdakilerden hangisi üçüncü kuşak haklara
+örnek olarak gösterilebilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> İnanç ve ibadet özgürlüğü </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Düşünceyi açıklama ve yayma hürriyeti </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yaşam hakkı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Unutulma hakkı </span><br>
+	<span class="option" data-correct="true"><b>E)</b> İnternete erişim hakkı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Dördüncü kuşak haklarla ilgili aşağıdaki ifadelerden hangisi doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Bu hakların temel özelliği, kişilere, devletin karışmayacağı özel bir alan yaratmasıdır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bu haklar devlete karışmama ödevi değil, aksine eylemde bulunma, harekete geçme yani hizmet sağlama ödevi yüklemektedir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Dördüncü kuşak hak mevcut değildir </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Bunlar bilişim teknolojisinde yaşanan gelişmelerin insan onurunun korunması bakımından yarattığı riskler nedeniyle ortaya çıkmıştır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bu haklara dayanışma hakları da denilmektedir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Unutulma hakkı ile ilgili aşağıdaki ifadelerden
+hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Üçüncü kuşak haklardan kabul edilir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Dördüncü kuşak haklardan kabul edilir </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kişisel verilerin korunması hakkıyla ilişkilidir </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Ülkemizde bu hakka ilişkin spesifik bir düzenleme bulunmamaktadır </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Diğer temel hak ve özgürlükler ile bazen kesişme bazen ise çatışma şeklinde ilişki halindedir </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> Unutulma hakkı aşağıdaki hukuki metinlerin
+hangisinde açıkça düzenlenmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 2016/680 sayılı “2008/977/JHA Çerçeve Kararı Yürürlükten Kaldıran, Yetkili Makamlar Tarafından Suçun Önlenmesi, Soruşturulması, Tespiti Veya Kovuşturulması Veya Cezai Süreçlerin Yürütülmesi Amacıyla İşlenen Kişisel Verilere İlişkin Gerçek Kişilerin Korunmasına Ve Bu Tür Verilerin Serbest Dolaşımına Dair Direktif ” </span><br><br>
+	<span class="option" data-correct="true"><b>B)</b> 2016/679/EU sayılı “Gerçek Kişilere Dair Kişisel Verilerin İşlenmesine ve 95/46/EC sayılı Kişisel Verilerin İşlenmesi ve Serbest Dolaşımı Bakımından Bireylerin Korunmasına İlişkin Direktifin Kaldırılmasına Dair Regülasyon” </span><br><br>
+	<span class="option" data-correct="false"><b>C)</b> 95/46/EC sayılı “Kişisel Verilerin İşlenmesi ve Serbest Dolaşımı Bakımından Bireylerin Korunmasına İlişkin Direktif ” </span><br><br>
+	<span class="option" data-correct="false"><b>D)</b> 2006/24/EC sayılı “Veri Saklama Direktifi” </span><br><br>
+	<span class="option" data-correct="false"><b>E)</b> Avrupa Birliği Temel Haklar Bildirgesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> Türkiye’de unutulma hakkı ile ilgili spesifik bir düzenleme bulunmamakla birlikte, unutulma hakkıyla benzer sonuç doğurması muhtemel en önemli hukuki düzenleme aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 4721 sayılı Türk Medeni Kanunu’nun 23 ve devamı maddeleri. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 6098 sayılı Türk Borçlar Kanunu’nun 49 ve devamı maddeleri </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 5237 sayılı Türk Ceza Kanunu’nun 132 ve devamı maddeleri </span><br>
+	<span class="option" data-correct="true"><b>D)</b> 5651 sayılı İnternet Ortamında Yapılan Yayınların Düzenlenmesi ve Bu Yayınlar Yoluyla İşlenen Suçlarla Mücadele Edilmesi Hakkında Kanun’un 9. maddesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 5651 sayılı İnternet Ortamında Yapılan Yayınların Düzenlenmesi ve Bu Yayınlar Yoluyla İşlenen Suçlarla Mücadele Edilmesi Hakkında Kanunu’nun 9/A maddesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> ABAD kararı uyarınca unutulma hakkıyla ile
+ilgili aşağıdaki ifadelerden hangisi doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> İnternette üçüncü şahıslarca yayınlanmış bilgiyi konumlandırma, otomatik olarak indeksleme, geçici olarak saklama ve son olarak belirli bir tercih sırasına göre internet kullanıcılarına sunulmasından oluşan arama motoru faaliyeti, kişisel verilerin işlenmesi olarak nitelendirilemez. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Arama motoru işletmecisi veri sorumlusu olarak kişisel verilerin işlenmesinden sorumlu tutulamaz. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Unutulma hakkı çerçevesinde başvuru yapılabilmesi için ilgili kişiye ait kişisel verilerin önceden veya eş zamanlı olarak web sitesinden çıkartılması veya ilgili kişinin kendisine ait bu bilginin çıkartılması için web sitesi sahibine başvurması gerekmektedir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Üçüncü kişilerce yayınlanan verilerin hukuka aykırı olması gerekmektedir </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Karar, arama motorlarından kişisel verilere link içeren sonuçların silinmesine dairdir </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Ulusal yüksek yargı organlarınca verilen kararlar ışığında unutulma hakkı ile ilgili aşağıdaki ifadelerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> AYM’ye göre bu hak, kişisel verilerin bulunduğu içeriğin kaldırılmasına da olanak sağlamaktadır </span><br>
+	<span class="option" data-correct="false"><b>B)</b> HGK’na göre bu hak, sadece dijital ortamda yer alan kişisel veriler için değil, kamunun kolayca ulaşabileceği yerde tutulan her türlü kişisel verilere yönelik olarak da kabul edilmelidir </span><br>
+	<span class="option" data-correct="true"><b>C)</b> AYM’ye göre bu hak, sadece dijital ortamda yer alan kişisel veriler için değil, kamunun kolayca ulaşabileceği yerde tutulan her türlü kişisel verilere yönelik olarak da kabul edilmelidir </span><br>
+	<span class="option" data-correct="false"><b>D)</b> AYM’ye göre bu hak, Anayasa m. 20/3’de düzenlenen kişisel verilerin korunmasını isteme hakkı ile bağlantılı olarak Anayasa m. 17/1’de düzenlenen kişinin maddi ve manevi varlığını koruma ve geliştirme hakkı çerçevesinde değerlendirilmelidir </span><br>
+	<span class="option" data-correct="false"><b>E)</b> HGK’na göre bu hak, ilgili verinin kamu hayatında oynadığı önemli rol ve halkın ilgili veriye yönelik yoğun ilgisi şeklinde, üstün bir kamu yararını ortaya koyan özel sebepler bulunmadığı sürece kabul edilmelidir </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> İnternete erişim hakkı özellikle hangi kuşak hakları içerisinde tartışılmaktadır?  </p>
+	<span class="option" data-correct="true"><b>A)</b> Üçüncü </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Birinci  </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Beşinci </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İkinci  </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Dördüncü </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> Aşağıdakilerden hangisi ikinci kuşak haklar arasında yer alır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yaşam hakkı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kişi dokunulmazlığı </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Sözleşme hakkı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Çevre hakkı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Gelişme hakkı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      A ve B şıkları birinci kuşak haklar; D ve E şıkları ise üçüncü kuşak haklar arasında yer alır. Sözleşme hakkı ikinci kuşak haklardandır.      </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Aşağıdakilerden hangisi unutulma hakkının çatıştığı haklar arasında <u><strong>yer almaz?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Haberleşme özgürlüğü hakkı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İletişim özgürlüğü hakkı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İfade özgürlüğü hakkı </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Kişisel verilerin korunması hakkı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Basın hürriyeti hakkı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> Anayasaya göre kişisel verilerin korunmasıyla ilgili hangisi talep edilemez? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kişisel verilerle ilgili bilgilendirilme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kişisel verilere erişme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kişisel verilerin düzeltilmesini isteme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kişisel verilerin silinmesini isteme </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Kişisel verilerin gerçeğe aykırı uyarlanmasını isteme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> Unutulma hakkı yakın bir zamana kadar normatif bir dayanağa sahip olmayan, ........... ile insan hakları teorisine kazandırılmış bir haktır.<br><br>
+Verilen boşluğa aşağıdakilerden hangisi gelmelidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kanunlar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Milletlerarası sözleşmeler </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tüzükler </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Yargı kararları </span><br>
+	<span class="option" data-correct="false"><b>E)</b> AB Direktifleri </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Dördüncü kuşak haklar ile ilgili olarak aşağıdakilerden hangisi <u><strong>söylenemez? </strong></u></p>
+	<span class="option" data-correct="false"><b>A)</b> Verilerin bir kısmının sağlık ve güvenlik gibi değerli amaçlar için saklanması
+ve kullanılmasında kuşkusuz kişisel ve toplumsal
+yarar bulunmaktadır. </span><br><br>
+	<span class="option" data-correct="false"><b>B)</b> Ancak bu verilerin kişi özgürlüğünü ve mahremiyetini ihlal edecek biçimde kullanılma olasılığı da çok yüksektir. </span><br><br>
+	<span class="option" data-correct="false"><b>C)</b> son yıllarda dördüncü kuşak insan haklarından
+bahsedilmektedir. Bunlar bilişim teknolojisinde
+yaşanan gelişmelerin insan onurunun korunması bakımından yarattığı riskler nedeniyle ortaya
+çıkmıştır. </span><br><br>
+	<span class="option" data-correct="true"><b>D)</b> Üçüncü kuşak hakların
+bilimin ve teknolojinin olası kötüye kullanımına
+karşı insan onurunun korunması amacına dayandığı kabul edilmektedir. </span><br><br>
+	<span class="option" data-correct="false"><b>E)</b> 2010 değişikliğiyle, dördüncü kuşak
+haklardan biri olarak kabul edilen kişisel verilerin
+korunması hakkı, ülkemizde de anayasal güvenceye
+bağlanmıştır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      Dördüncü kuşak hakların
+bilimin ve teknolojinin olası kötüye kullanımına
+karşı insan onurunun korunması amacına dayandığı kabul edilmektedir.     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> Unutulma Hakkının Kapsamı hakkında aşağıdakilerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Google, kişisel verilerin korunması konusunda en
+çok eleştirilen şirketlerden biridir ve hatta “gizlilik
+muhalifi” olarak nitelendirilmiştir. </span><br><br>
+	<span class="option" data-correct="true"><b>B)</b> Unutulma hakkından yararlanabilmek
+için, kişisel verinin içeriğinin yanlış olması
+şarttır. </span><br><br>
+	<span class="option" data-correct="false"><b>C)</b> ABAD'a göre arama motoru işletmecisinin şirket merkezinin ülke dışında olması, şirketin bir şubesinin ülkede faaliyet göstermesi halinde,
+şirketin bu sorumluluktan kaçabilmesine
+olanak vermemektedir </span><br><br>
+	<span class="option" data-correct="false"><b>D)</b> ABAD'a göre bireyler kendilerine tanınan temel hak ve
+özgürlüklerden, özellikle mahremiyet hakkından, tam olarak faydalanabilmek için,
+arama motoru işletmecisine doğrudan başvuru yapabilmelidir.  </span><br><br>
+	<span class="option" data-correct="false"><b>E)</b> ABAD'a göre kişinin genel olarak geçmişiyle bağlı kalmama hakkı mevcuttur.  </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      Unutulma hakkından yararlanabilmek
+için, kişisel verinin içeriğinin yanlış olması
+şart değildir. Gerçeği yansıtan bir verinin de
+kaldırılması talep edilebilir.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> AYM'nin Unutulma Hakkı Kararı hakkında aşağıdakilerden hangisi söylenebilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> ABAD, unutulma hakkını çok geniş çerçevede ele almıştır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Mahkemeye göre bireyin kişisel şeref ve itibarı,
+“maddi varlık” kapsamında yer almaktadır </span><br>
+	<span class="option" data-correct="true"><b>C)</b> AYM, ABAD’dan farklı olarak haber
+arşiv içeriğinin, dolayısıyla ilgili sayfanın kendisinin, unutulma hakkı çerçevesinde silinebileceğini belirtmiştir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İnternet ortamında şeref ve itibara yönelik saldırıların, kişisel verilerin korunması hakkı ile bağlantılı
+olarak değerlendirilmesi şart değildir </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kişisel verilerin ancak kanunla veya kişinin açık rızası ile işlenebileceği belirtildiğinden Anayasa’da tanımlanan ifade ve basın özgürlükleri kapsamında yapılan bir haber de anılan sınırlara tabidir </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> Unutulma hakkının altında yatan en önemli faktör nedir?  </p>
+	<span class="option" data-correct="true"><b>A)</b> İnsan onuru </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kişiliğin geliştirilmesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kişisel verilerin güncellliği </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Toplumsal hayatın devamlılığı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kişisel özgürlükler </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> Belirli bir grubun değil, bir toplumdaki tüm sosyal grupların ihtiyaçlarına cevap vermeyi amaçlayan haklar kaçıncı kuşak haklardır? </p>
+	<span class="option" data-correct="false"><b>A)</b> 1. kuşak haklar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 2. kuşak haklar </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 3. kuşak haklar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 4. kuşak haklar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 5. kuşak haklar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Dördüncü kuşak haklardan biri olarak kabul edilen kişisel verilerin korunması hakkı, ülkemizde hangi yılda anayasal güvenceye alınmıştır? </p>
+	<span class="option" data-correct="false"><b>A)</b> 1982 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 1991 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 2000 </span><br>
+	<span class="option" data-correct="true"><b>D)</b> 2010 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 2017 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Unutulma hakkına ilişkin yargı kararları ile ilgili olarak aşağıdakilerden hangisi <u><strong>söylenemez?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> AB içerisinde en üst mahkeme olan ve AB
+hukukunun uygulanmasında son sözü söyleyen,
+böylece AB hukukunun, hukuki denetim, yorum,
+uyuşmazlık çözme, hukuk yaratma ve boşluk doldurma yollarıyla, AB içinde her yerde aynı şekilde
+yorumlanmasını sağlayan ABAD’ın kararları her
+ne kadar Türkiye için resmiyette bağlayıcı değilse
+de; Google/Unutulma Hakkı kararı bu hakla ilgili uluslararası alanda verilmiş ilk karardır. Karar
+95/46/EC sayılı Direktifin yorumlanmasını esas
+almaktadır. </span><br><br>
+	<span class="option" data-correct="false"><b>B)</b> Google/Unutulma Hakkı kararı  95/46/EC sayılı Direktifin yorumlanmasını esas almaktadır. </span><br><br>
+	<span class="option" data-correct="false"><b>C)</b> Direktifin 2018 yılında yürürlükten
+kalkacak olması ve yerini 2016/679/EU sayılı Regülasyona bırakacak olması, kararın önemine zeval
+vermemektedir; zira Regülasyonun 17. maddesi bu
+kararda açıklanan temel ilkeler dikkate alınarak yazılmıştır. </span><br><br>
+	<span class="option" data-correct="false"><b>D)</b> Yine 95/46/EC ile getirilen genel ilkeler
+bakımından Regülasyonla bir değişikliğin olmadığı
+da Regülasyonun resital bölümünde, yani başlangıç bölümünde ifade edilmiştir. 6698 sayılı Kişisel
+Verilerin Korunması Kanunu’nun, 95/46/EC sayılı
+Direktifin dikkate alınarak hazırlandığının da bu
+noktada altı çizilmelidir. </span><br><br>
+	<span class="option" data-correct="true"><b>E)</b> ABAD’ın Google/Unutulma Hakkı kararı, ülkemizi sadece aday ülke sıfatıyla ilgilendirmektedir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      ABAD’ın Google/Unutulma Hakkı
+kararı, ülkemizi sadece aday ülke sıfatıyla değil,
+aynı zamanda 6698 sayılı Kanun’un yorumlanması bakımından da ilgilendirmektedir.
+
+
+     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> I- ABAD<br>
+II- AYM<br>
+III- HGK<br><br>
+
+Yukarıdakilerden hangisinin ya da hangilerinin unutulma hakkı kararı sadece internet ortamında yer alan kişisel veriler için değil, <u><strong>offline işlenen kişisel veriler için de</strong></u> geçerlidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      HGK, diğer yargı organlarından farklı olarak unutulma hakkını offline olarak da ele almaktadır.
+
+
+     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Aşağıdakilerden hangisi birinci kuşak haklar arasında yer almaz?  </p>
+	<span class="option" data-correct="false"><b>A)</b> Yaşam hakkı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kişi dokunulmazlığı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Düşünce özgürlüğü </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Toplu sözleşme hakkı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İnanç özgürlüğü </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      Birinci kuşak haklar, kişi haklarını yani medeni hakları ve siyasal hakları içerir. Bunlara örnek olarak, yaşam hakkı ve kişi
+dokunulmazlığı, kişi özgürlüğü ve kişi güvenliği, düşünce ve düşünceyi açıklama özgürlüğü, inanç ve ibadet özgürlüğü, konut dokunulmazlığı hakkı verilebilir.      </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> Aşağıdakilerden hangisi ikinci kuşak haklar arasında yer alır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Sosyal güvenlik hakkı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Çevre hakkı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Gelişme hakkı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İnsanlığın ortak mal varlığına saygı hakkı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Tüketici hakları </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      İkinci kuşak haklar, devlete karışmama ödevi değil, aksine eylemde bulunma, harekete geçme yani hizmet sağlama ödevi yüklemektedir. Bunlar genellikle sosyal haklar olarak adlandırılmaktadır. Bunlara örnek olarak toplu sözleşme hakkı, dinlenme hakkı, sosyal güvenlik hakkı, sağlık hakkı, korunmaya muhtaç toplumsal sınıfların (yaşlılar, engelliler, çocuklar vs.) korunmasına yönelik haklar verilebilir.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br>  Aşağıda verilen bilgilerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Arama motoru işletmecisinin şirket merkezinin ülke dışında olması, şirketin bir şubesinin ülkede faaliyet göstermesi halinde, şirketin bu sorumluluktan kaçabilmesine olanak vermemektedir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bireyler kendilerine tanınan temel hak ve özgürlüklerden, özellikle mahremiyet hakkından, tam olarak faydalanabilmek için, arama motoru işletmecisine doğrudan başvuru yapabilmelidir. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> İlgili kişi arama sonuçlarında yer alan linklerin kaldırılmasını, bu linklerin içeriğinde
+kendisiyle ilgili gerçek bilgilerin bulunması halinde isteyemez. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Unutulma hakkı çerçevesinde yapılan başvurularda unutulma hakkı ile çatışan diğer temel hak ve özgürlükler arasında denge kurulmalıdır.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ilgili kişinin ilgili linkin kaldırılmasını isteyebilmesi için, kişinin linkin içeriğinden dolayı zarar görmesi veya böyle bir tehlikeyle karşı karşıya kalması gerekmemektedir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      İlgili kişi arama sonuçlarında yer alan linklerin kaldırılmasını, bu linklerin içeriğinde kendisiyle ilgili gerçek bilgilerin bulunması halinde dahi isteyebilecektir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Bilişim teknolojisinin günümüzde eriştiği düzeyin ortaya çıkardığı, insan onurunu tehdit eden yeni tehlikelere karşı yeni hakların güvence altına alınması ve/veya mevcut hakların yeni durumları kapsayacak biçimde ek güvencelerle desteklenmesi hangi kuşak hakları ortaya çıkarmıştır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Birinci kuşak haklar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İkinci kuşak haklar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Üçüncü kuşak haklar </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Dördüncü kuşak haklar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Beşinci kuşak haklar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> Unutulma hakkı ile ilgili aşağıdaki önermelerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Kişi ile ilgili sosyal medyada yer alan rahatsız edici bir bilginin kaldırılması talebini içerir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kişisel verilerin belli bir süre sonra silinmesi gerektiğini savunan bir görüş mevcuttur. </span><br>
+	<span class="option" data-correct="false"><b>C)</b>  Unutulma hakkının en önemli muhataplarından biri arama motorlarıdır.  </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Unutulma hakkı, kişilerin hayatlarında yeni bir sayfa açma hakkının kabulü ile doğmuştur. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Unutulma hakkı, kişinin kendi hakkındaki bilgilerin silinmesini talep edeceğinden yalnızca pozitif bir haktır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      Unutulma hakkı pozitif ve negatif olmak üzere iki yönlüdür. Unutulma hakkı, kişisel veriler üzerindeki tasarruf hakkının bir uzantısı olması yönüyle pozitif bir hak içermektedir. Bu yönüyle unutulma hakkı ile bir kişinin kendisi hakkındaki bilgilerin kapsamlı ve geniş biçimde silinmesini talep edebileceği kabul edilmektedir. Söz konusu kişisel verilerin içeriği doğru olabileceği gibi yayınlamanın yasal dayanağı bulunabilir veya üçüncü kişi tarafından yayınlanmış olabilir. Bu hakkın; bireylerin fotoğraf, internet günlüğü gibi kendileri hakkındaki içerikleri silmek için üçüncü şahısları zorlamayı içermesinin yanında geçmişteki cezalarına ilişkin bilgilerin veya haklarında olumsuz yorumlara neden olabilecek bilgi ve fotoğraflarının kaldırılmasını isteme hakkını tanıdığı kabul edilmektedir. <br><br>
+
+Unutulma hakkının negatif yönü ise bireylerin rahatsız edici bulduğu kişisel verilerin geleceklerini olumsuz etkilememesi için, bu verilerin bir daha geri getirilemeyecek biçimde ortandan kaldırılmasını isteyebilmeleri olarak tanımlanmaktadır. Dolayısıyla bu hak bireyin geçmişiyle ilgili belirli
+verilerin hatırlanmaması için önlemler alınmasını da içermektedir.      </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> Aşağıdakilerden hangisi ABAD Unutulma Kararlarının esaslarıyla ilgili verilen <u><strong>yanlış</strong></u> bir bilgidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Arama motoru işletmecisi hem veri sorumlusu hem de verilerin işlenmesinden sorumludur. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kişinin genel olarak geçmişiyle bağlı kalma hakkı mevcuttur. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kişisel verilerin içeriğinin yanlış olması şart değildir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kişisel verilerin yayınlanmasının hukuka aykırı olmaması gerekir. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Arama motoru işletmecisine doğrudan başvurabilmek için web sitesi sahibine önceden veya eş zamanlı olarak başvuru gereklidir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      ABAD Kararlarına göre; arama motoru işletmecisine doğrudan başvurabilmek için web sitesi sahibine önceden veya eş zamanlı olarak başvuru gerekli değildir. Aynı şekilde ilgili sayfanın webmasterına bu hususta bilgi vermesi de şart değildir.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> Aşağıdakilerden hangisi bir toplumdaki tüm sosyal grupların ihtiyaçlarına cevap vermeyi amaçlayan 3.kuşak haklarından biridir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Gelişme hakkı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İbadet özgürlüğü </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Konut dokunulmazlığı hakkı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sosyal güvenlik hakkı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sağlık hakkı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> Aşağıdakilerden hangisi diğer yargı organlarından farklı olarak unutulma hakkını sadece internet ortamında yer alan kişisel veriler için değil, offline işlenen kişisel veriler için de kabul etmiştir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Hukuk Genel Kurulu (HGK) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Anayasa Mahkemesi (AYM) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İdari Yargı Mahkemeleri (İYM) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yargıtay </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Asliye Hukuk Mahkemesi (AHM) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> Unutulma hakkı kişisel veriler üzerinde tasarruf hakkının bir uzantısı olması nedeniyle hangi haklar içerisinde yer alır?  </p>
+	<span class="option" data-correct="true"><b>A)</b> Pozitif haklar  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Negatif haklar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sosyal haklar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Birinci kuşak haklar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İkinci kuşak haklar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br>  Aşağıdakilerden hangisinde unutulma hakkı kapsamında göz önünde tutulacak bir mevzuat <u><strong>yer almaz?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> 6698 sayılı Kanun </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Tüketici Kanunu </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Türk Medeni Kanunu </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Türk Borçlar Kanunu </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Türk Ceza Kanunu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> Üç kuşak haklar teorisiyle ilgili olarak aşağıdakilerden hangisi söylenebilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Bu sınıflandırma, bilişim çağının gereksinimlere göre dördüncü kuşak haklara ilişkin tartışmalara da olanak tanımaz. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Karel
+Vasak’a göre ikinci kuşak hakların temel özelliği, kişilere, devletin karışmayacağı özel bir alan
+yaratmasıdır. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Birinci kuşak haklar,
+kişi haklarını yani medeni hakları ve siyasal hakları
+içerir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Birinci kuşak haklar ise, devlete karışmama ödevi değil, aksine eylemde bulunma,
+harekete geçme yani hizmet sağlama ödevi yüklemektedir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İkinci kuşak haklar ise ilk iki kuşak haklardan farklı olarak belirli bir grubun değil, bir toplumdaki tüm sosyal
+grupların ihtiyaçlarına cevap vermeyi amaçlayan
+haklardır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      Birinci kuşak hakların temel özelliği, kişilere, devletin karışmayacağı özel bir alan
+yaratmasıdır.  <br>
+<br>
+İkinci kuşak haklar ise, devlete karışmama ödevi değil, aksine eylemde bulunma,
+harekete geçme yani hizmet sağlama ödevi yüklemektedir.  <br>
+<br>
+Üçüncü kuşak
+haklar ise ilk iki kuşak haklardan farklı olarak belirli bir grubun değil, bir toplumdaki tüm sosyal
+grupların ihtiyaçlarına cevap vermeyi amaçlayan
+haklardır.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> 5651 sayılı Kanun'un 9. maddesine göre, birlik tarafından erişim sağlayıcıya gönderilen içeriğe erişimin engellenmesi kararı erişim sağlayıcı tarafından en geç ne kadar süre içerisinde yerine getirilmelidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 4 saat </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 6 saat </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 8 saat </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 12 saat </span><br>
+	<span class="option" data-correct="true"><b>E)</b> 24 saat </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> İlgili kişinin, arama motoru işletmecisinden, kendilerine ilişkin bilgileri içeren web sitelerine dair arama sonuçlarında yer alan linklerin kaldırılmasını isteyebilmesi için aşağıdaki şartlardan hangisi ya da hangilerinin gerçekleşmesi gerekir?<br><br>
+
+1. Kişisel veriler rızaya dayalı olarak yahut bir zorunluluk gereği paylaşılmasına rağmen hukuka ve dürüstlük kuralına uygun bir biçimde işlenmemişse<br>
+
+2. Kişisel veriler belirli, açık, ölçülü ve meşru amaçlarla toplanmamışsa<br>
+
+3. Kişisel veriler meşru amaçla toplanmasına rağmen bu amaçlarla bağdaşmayacak şekilde işlenmiş ve kullanılmışsa<br>
+
+4. İşleme faaliyeti yeterli, ilgili ve amaca uygun nitelikte değilse<br>
+
+5. Kişisel veriler doğru ve güncel olarak tutulmamışsa </p>
+	<span class="option" data-correct="true"><b>A)</b> Herhangi bir tanesi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 1 ve 3 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 2 ve 5 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Hiçbiri </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Tamamı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br>  "Kişisel veriler, toplama ve/veya müteakip olarak işleme amaçları için yeterli ve bu işlemlerle ilgili olacak, aşırı olmayacaktır."<br><br>
+Yukarıdaki ifade kişisel verilerle ilgili hangi ilkeyi ifade etmektedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Adil ve Yasal İşleme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Amaç ile Sınırlılık </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Doğruluk ve Güncellik </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Süreyle Sınırlılık </span><br>
+	<span class="option" data-correct="true"><b>E)</b> İlgililik ve Orantılılık </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> Arama motorları internette üçüncü şahıslarca yayınlanmış bilgiyi<br><br>
+I) Konumlandırmakta,<br>
+II) Otomatik olarak indekslemekte,<br>
+III) Geçici olarak saklamakta ve<br>
+IV) Belirli bir tercih sırasına göre internet kullanıcılarına sunmaktadır.<br><br>
+
+Avrupa Birliği Adalet Divanı'na göre bu faaliyetlerden hangisi arama motorlarının sorumluluğunu doğurur? </p>
+	<span class="option" data-correct="false"><b>A)</b> I, II, III </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I, III, IV </span><br>
+	<span class="option" data-correct="false"><b>C)</b> II, III, IV </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I, II, IV </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I. II. III. IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> Unutulma hakkı Anayasa’mızda açıkça düzenlenmemiştir. “insanın maddi ve manevi varlığının gelişmesi için gerekli şartları hazırlamaya çalışmak” ifadesi ile devlete pozitif bir yükümlülük yüklenmiştir. Anayasa’nın kaçıncı maddesinde “Devletin Temel Amaç Ve Ödevleri” başlığı altında düzenlenme yapılmıştır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Beşinci madde </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Dördüncü madde </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Üçüncü madde </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Birinci madde </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İkinci madde </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> Avrupa Birliği Komisyonu tarafından unutma hakkı ilk kez kaç yılında önerilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 2001 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 2005 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 2008 </span><br>
+	<span class="option" data-correct="true"><b>D)</b> 2010 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 2015 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

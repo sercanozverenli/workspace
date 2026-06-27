@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+	  
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA II
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama2-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama2-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama2-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama2-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama2-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama2-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama2-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama2-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama2-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama2-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB ARAYÜZ PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİ YAPILARI
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veriyap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veriyap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veriyap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veriyap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veriyap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veriyap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veriyap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veriyap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veriyap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veriyap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          MOBİL UYGULAMA GELİŞTİRME
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="mobilug-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="mobilug-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="mobilug-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="mobilug-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="mobilug-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="mobilug-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="mobilug-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="mobilug-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="mobilug-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="mobilug-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          UNIX SİSTEM YÖNETİMİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="unixsy-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="unixsy-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="unixsy-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="unixsy-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="unixsy-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="unixsy-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="unixsy-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="unixsy-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="unixsy-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="unixsy-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Veri Yapıları - Çıkmış Sorular (Final) </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Doğrusal aramanın uzay karmaşıklığı
+aşağıdakilerden hangisidir?  </p>
+	<span class="option" data-correct="false"><b>A)</b> O(Logn) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> O(n) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> O(nLogn) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> O(sqrt(n)) </span><br>
+	<span class="option" data-correct="true"><b>E)</b> O(1) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Listenin bir ucundaki elemandan  başlayan ve
+listenin her bir elemanını istenen eleman bulunana kadar geçen, bulunamadığı durumda aramaya veri kümesinin sonuna kadar devam eden sıralı bir arama algoritmasıdır.<br><br>
+
+Yukarıda açıklaması verilen kavram aşağıdakilerden hangisidir?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> Aralıklı arama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Üçlü arama </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sabit maliyetli arama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İkili arama </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Doğrusal arama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> I. Böl ve yönet yaklaşımını kullanır.<br>
+II. Artan veya azalan sıralanmış bir eleman
+düzenlemesi gerektirir.<br>
+III. Verilere sırayla erişir.<br>
+Yukarıdakilerden hangisi/hangileri ikili aramanın özelliklerindendir?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yalnız III </span><br>
+	<span class="option" data-correct="true"><b>D)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      
+İkili arama (Binary Search), sıralanmış elemanlar üzerinde verimli bir şekilde çalışan bir tür aralıklı arama algoritmasıdır. Aranan elemanın listenin orta ögesiyle karşılaştırıldığı bir böl ve yönet algoritmasıdır. Eşitlerse hedefin orta konumda bulunduğu anlamına gelir. Aksi takdirde arama alanı yarıya indirilir yani hedef &lt; orta öge veya hedef &gt; orta öge olmasına bağlı olarak listenin sol ve sağ yarısından herhangi birine ikili arama uygulanır. Bir eşleşme bulunana veya dizinin boyutu 1’e ulaşana kadar bu işleme devam edilir.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> “Sıralanmış diziler üzerinde çalışan bir tür aralıklı arama algoritmasıdır. orta1 ve orta2 olmak üzere iki orta nokta kullanarak dizi[sol, sağ] şeklinde üç parçaya bölünür.”<br><br>
+Yukarıda açıklaması verilen arama algoritması türü aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Ardışık arama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sıralı arama </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Doğrusal arama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İkili arama </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Üçlü arama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> İki yönlü referans alanına sahip olan
+düğümlerden oluşan liste tasarımı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Tek yönlü bağlantılı liste </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Çift bağlantılı liste </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yığın </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kuyruk </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Dairesel bağlantılı liste </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Bu veri yapısında her düğüm, bir sonraki düğümü işaret eder. Listenin son düğümü ise ilk düğümü işaret eder.<br><br>
+
+Yukarıda açıklaması verilen veri yapısı türü aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kuyruk </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yığın </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Dairesel bağlantılı liste </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Çift bağlantılı liste </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Tek yönlü bağlantılı liste </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> Aşağıdakilerden hangisi çift bağlantılı liste
+yapısının özelliklerinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Her iki yönde gezinmeye imkân sağlar </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Dinamik olarak büyüyüp küçülemez </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ters çevirmek kolaydır </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İşlemler, tek bağlı listelere kıyasla fazladan işaretçileri işlemenin ek yükü nedeniyle daha fazla zaman gerektirir </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bir önceki düğüme erişim olduğu için bir düğüm kolayca silinebilir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> - Düğüm adı verilen sınıf nesnelerinin
+ oluşturduğu bir yapıdır.<br>
+- Her düğüm bir sonraki düğümün referans
+ adresini tutar.<br>
+- Düğümler verileri tutacakları alanlardan ve  referans için ayrılan bölümlerden oluşur<br><br>
+Yukarıda özellikleri verilen veri yapısı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Bağlantılı liste </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sözlük </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kuyruk </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Dizi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yığın </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> <span style="color: darkred; margin-left: 30px;"><img src="veriyap3.JPG" alt="Veri Yapıları - 2023 Final Soruları " style="width: 60%;"></span><br><br>
+Yukarıdaki Açıköğretim Sistemi ağaç yapısının kök düğümü aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Açıköğretim Sistemi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Açıköğretim Fakültesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İşletme Fakültesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İktisat Fakültesi
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yönetim Bilişim Sistemler </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Ağacın boyutu hakkında bilgi verir. Kök
+düğümünden en uzaktaki yaprak düğümüne kadar olan mesafeyi belirtir.<br><br>
+Yukarıda açıklaması verilen kavram aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Çocuk düğüm </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kenar </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Yükseklik </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yaprak </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Ebeveyn düğüm </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> <span style="color: darkred; margin-left: 30px;"><img src="veriyap4.JPG" alt="Veri Yapıları - 2023 Final Soruları " style="width: 30%;"></span><br><br>
+Yukarıdaki görselde verilen ağaç yapısı aşağıdakilerden hangisidir?  </p>
+	<span class="option" data-correct="true"><b>A)</b> Tam ikili ağaç </span><br>
+	<span class="option" data-correct="false"><b>B)</b> B-Ağaç </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Çarpık ikili ağaç </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Mükemmel ikili ağaç </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Dejenere ağaç </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      Tüm düğümlerin çocuk sayısı, iki veya sıfır olan ağaçlar, Tam İkili Ağaç Yapısı olarak adlandırılır.      </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> İkili arama ağacındaki verileri küçükten
+büyüğe doğru hizalı olarak sıralamak için kullanılacak gezinme yöntemi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kök-Sol-Sağ </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Sol-Kök-Sağ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sağ-Kök-Sol
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kök-Sağ-So </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sağ-Sol-Kök </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> <span style="color: darkred; margin-left: 30px;"><img src="veriyap5.JPG" alt="Veri Yapıları - 2023 Final Soruları " style="width: 50%;"></span><br><br>
+Yukarıdaki grafta 1 düğümünün komşuluk listesinde yer alan düğümlerin tamamı aşağıdakilerden hangisidir?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> 1 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 2 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 1,2 </span><br>
+	<span class="option" data-correct="true"><b>D)</b> 3,4,5 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 1,2,3,5 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> <span style="color: darkred; margin-left: 30px;"><img src="veriyap6.JPG" alt="Veri Yapıları - 2023 Final Soruları " style="width: 50%;"></span><br><br>
+Yukarıdaki yönlü grafın kenar kümesi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> K={(1,2), (1,4), (3,2), (3,4), (5,5)} </span><br>
+	<span class="option" data-correct="false"><b>B)</b> K={(1,2), (1,4), (3,2), (3,4), (5,6)} </span><br>
+	<span class="option" data-correct="false"><b>C)</b> K={(2,1), (2,3), (4,1), (4,3), (5,5), (6,6)} </span><br>
+	<span class="option" data-correct="false"><b>D)</b> K={(2,1), (2,3), (4,1), (4,3), (5,5)} </span><br>
+	<span class="option" data-correct="false"><b>E)</b> K={(1,2), (1,4), (3,2), (3,4), (5,5), (6,6)} </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> <span style="color: darkred; margin-left: 30px;"><img src="veriyap7.JPG" alt="Veri Yapıları - 2023 Final Soruları " style="width: 50%;"></span><br><br>
+Aşağıdakilerden hangisi yukarıda verilen yönlü grafın kenarlarından biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> (f,e) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> (b,c) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> (a,b) </span><br>
+	<span class="option" data-correct="true"><b>D)</b> (d,c) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> (f,b) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> <u><strong>1.adım:</strong></u> Grafın düğümlerinden herhangi birini kuyruğun sonuna ekleyerek başlayın.<br><br>
+<u><strong>2.adım:</strong></u> Kuyruğun ilk ögesini alın ve ziyaret  edilenler listesine ekleyin.<br><br>
+<u><strong>3.adım:</strong></u> Bu düğümün bitişik düğümlerinin bir  listesini oluşturun. Ziyaret edilenler  listesinde olmayanları sıranın en  arkasına ekleyin.<br><br>
+<u><strong>4.adım:</strong></u> Kuyruk boşalana kadar 2. ve 3. adımları  tekrarlamaya devam edin.<br><br>
+Yukarıda adımları verilen kavram aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Ağırlıklı graf </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yönlü graf </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Önce Genişlik Araması (BFS) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bitişiklik matrisi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Önce Derinlik Araması (DFS) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> using System;<br>
+class SiraliArama {<br>
+&emsp; public static int arama(int[] dizi, int x)<br>
+&emsp; {<br>
+ &emsp; &emsp; int N = dizi.Length;<br>
+ &emsp; &emsp; for (int i = 0; i &lt; N; i++) {<br>
+ &emsp; &emsp; &emsp; if (dizi[i] == x)<br>
+ &emsp; &emsp; &emsp; &emsp; return i;<br>
+ &emsp; &emsp; }<br>
+ &emsp; &emsp; return -1;<br>
+ &emsp; }<br>
+ &emsp; public static void Main()<br>
+ &emsp; {<br>
+ &emsp; &emsp; int[] dizi= {<br>
+ &emsp; &emsp; 85, 90, 46, 12, 15, 22, 35, 88<br>
+ &emsp; &emsp; };<br>
+ &emsp; &emsp; int x = 5;<br><br>
+
+ &emsp; &emsp; int sonuc = arama(dizi, x);<br>
+&emsp; &emsp; &emsp; Console.WriteLine(sonuc);<br>
+&emsp; }<br>
+}<br><br>
+Yukarıdaki kod bloğunun çıktısı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 22 </span><br>
+	<span class="option" data-correct="true"><b>B)</b> -1 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 22 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> sonuc=5 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> sonuc </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      int[] dizi adında bir dizi oluşturulur ve bu dizi içinde belirli tam sayılar bulunur.<br><br>
+
+int x = 5; ifadesi ile x adında bir tam sayı değişkeni oluşturulur ve bu değişken 5 değerini alır.<br><br>
+
+arama adında bir fonksiyon tanımlanır. Bu fonksiyon, bir dizi ve bir hedef değeri (x) alır. Dizideki her elemanı sırayla kontrol eder ve hedef değeri bulursa bu elemanın dizideki konumunu döndürür. Eğer hedef değeri dizide bulunmazsa -1 değerini döndürür.<br><br>
+
+arama fonksiyonu dizi dizisini ve x değerini alır.<br><br>
+
+Bir döngü (for döngüsü) kullanılarak dizinin her elemanı tek tek kontrol edilir. Dizinin uzunluğu (N) kadar dönülür.<br><br>
+
+Her bir eleman dizi[i] ile kontrol edilir ve x ile karşılaştırılır. Eğer dizi[i] ile x aynıysa, bu durumda i değeri, hedef değerin dizideki pozisyonunu temsil eder ve bu i değeri arama fonksiyonu tarafından döndürülür.<br><br>
+
+Eğer dizi içinde x değeri bulunmazsa, döngü sona erer ve fonksiyon -1 değerini döndürür.<br><br>
+
+sonuc adında bir değişken tanımlanır ve arama fonksiyonu çağrılır. Bu durumda x değeri olan 5, dizide bulunmamaktadır, bu yüzden arama fonksiyonu -1 değerini döndürür.<br><br>
+
+Son olarak, Console.WriteLine(sonuc); ifadesi kullanılarak sonuc değeri ekrana yazdırılır. Bu nedenle çıktı olarak -1 alınır, çünkü 5 değeri dizide bulunmamaktadır.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Son düğümünün Link alanının başlık
+düğümünü gösterdiği veri yapısı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Çift bağlantılı liste </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Dairesel bağlantılı liste </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yığın </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Tek yönlü bağlantılı liste </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kuyruk </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> <span style="color: darkred; margin-left: 30px;"><img src="veriyap3.JPG" alt="Veri Yapıları - 2023 Final Soruları " style="width: 60%;"></span><br><br>
+Yukarıdaki Açıköğretim Sistemi ağaç yapısı şeklinde gösterilmiştir. <br><br>
+Buna göre şemada kaç adet yaprak düğüm bulunmaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> 3 </span><br>
+	<span class="option" data-correct="true"><b>B)</b> 7 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 1 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 5 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 9 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> <span style="color: darkred; margin-left: 30px;"><img src="veriyap8.JPG" alt="Veri Yapıları - 2023 Final Soruları " style="width: 45%;"></span><br><br>
+Aşağıdakilerden hangisi, yukarıda verilen yönlü grafta A ve F düğümleri arasındaki yollardan biri <u><strong>değildir?</strong></u>  </p>
+	<span class="option" data-correct="false"><b>A)</b> A→C→D→F </span><br>
+	<span class="option" data-correct="false"><b>B)</b> A→D→F </span><br>
+	<span class="option" data-correct="true"><b>C)</b> A→D→C </span><br>
+	<span class="option" data-correct="false"><b>D)</b> A→D→B→C→F </span><br>
+	<span class="option" data-correct="false"><b>E)</b> A→C→E→F </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      D'den C'ye yol yoktur.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> int[] sayılar = {12, 16, 17, 24, 32, 44, 56}<br><br>
+Yukarıda verilen liste üzerinde yapılacak bir
+ikili arama için aşağıdakilerden hangisi
+doğrudur?
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> 16 sayısının bulunduğu indis değeri 1'dir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ortalama durum karmaşıklığı O(3n)’dir </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 44 sayısının bulunabilmesi için en az 4 kez
+işlem yapılması gerekmektedir </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 100 sayısının bulunması işleminin
+karmaşıklığı O(2n)'dir </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 9 sayısının bulunması işlemi için hiç işlem
+yapmaya gerek yoktur </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Aralıklı arama algoritması için
+aşağıdakilerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> En iyi durumdaki karmaşıklık o(1)’dir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ortalama durumda O(log n (taban 2))
+karmaşıklığını verir </span><br>
+	<span class="option" data-correct="false"><b>C)</b> En kötü durumda karmaşıklık O(log n (taban
+2))'dir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Uzay karmaşıklığı O(1)'dir </span><br>
+	<span class="option" data-correct="true"><b>E)</b> En iyi durum, aranan eleman dizinin başında
+olduğunda gerçekleşir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> I. Liste boyutu ihtiyaç oldukça arttırılır, önceden bellek ayırmaya gerek yoktur.<br>
+II. Listeyi oluşturan düğümler arasında daha hızlı geçiş sağlanmaktadır<br>
+III. Ekleme ve silme daha az maliyet ile yapılabilir<br><br>
+Yukarıdakilerden hangisi/hangileri bağlantılı listelerin dizi yapılarına göre avantajlarındandır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="true"><b>D)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II ve III
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> public void Metot(Object yeniOge, Object onceki)<br>
+{<br>
+ &emsp; Dugum mevcut = new Dugum();<br>
+ &emsp; Dugum yeniDugum= new Dugum(yeniOge);<br>
+ &emsp; mevcut = Bul(onceki);<br>
+ &emsp; yeniDugum.Slink = mevcut.Link;<br>
+ &emsp; yeniDugum.Olink = mevcut;<br>
+ &emsp; mevcut.Flink = yeniDugum;<br>
+}<br><br>
+Yukarıdaki kod bloğunun görevi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Çift Bağlantılı Liste için son düğümü bulur </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Çift Bağlantılı Liste için kaldırma işlemi
+yapar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tek Bağlantılı Liste için ekleme yapar </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Çift Bağlantılı Liste için ekleme yapar.
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Tek Bağlantılı Liste için kaldırma işlemi
+yapar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> İkili arama ağacının zaman karmaşıklığı
+aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Ağacın yüksekliği kadardır.
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> O(n^2)
+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ağacın yaprak sayısı kadardır.
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> O(log n)
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Ağacın toplam elemanı kadardır.
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br>  Bir ağacın dengeli ikili ağaç olarak
+adlandırılabilmesi için aşağıdaki özelliklerden hangisine sahip olması gerekir?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> Tüm düğümlerin yalnızca bir çocuğu olmalı
+veya hiç çocuğu olmamalıdır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Çocuk düğümleri soldan doldurulan en
+düşük seviye hariç tüm seviyeler tamamen
+doldurulmalıdır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Her dahili düğüm tam olarak iki alt düğüme
+sahip olmalı ve tüm yaprak düğümler aynı
+seviyede olmalıdır. </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Herhangi bir düğümün sol ve sağ alt
+ağacının yükseklik farkı 1’den fazla
+olmamalıdır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yapıyı oluşturan düğümlerin, tek çocuğu
+olmalıdır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> İkili ağaç yapıları, düğümlerin yerleşimine göre
+farklı gruplara ayrılmıştır. Grupları
+belirleyen faktör, çocuk düğümlerin ağaçtaki
+dağılımıdır.<br><br>
+Buna göre, aşağıdakilerden hangisi ikili ağaç
+değildir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Eksiksiz ikili ağaç </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Yarım ikili ağaç  </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Çarpık ikili ağaç </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Mükemmel ikili ağaç
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Tam ikili ağaç
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> İkili arama ağacındaki verileri küçükten
+büyüğe doğru hizalı olarak sıralamak için kullanılacak gezinme yöntemi aşağıdakilerden hangisidir?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> Kök-Sol-Sağ
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sağ-Kök-Sol
+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kök-Sağ-Sol
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sağ-Sol-Kök
+ </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Sol-Kök-Sağ
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> I. Her kenarına sayısal bir ağırlık verilmektedir.<br>
+II. Etiketleri genellikle pozitif sayılardır.<br>
+III. Yönlendirilmiş olmak zorundadır.<br><br>
+Ağırlıklı graf ile ilgili yukarıda verilenlerden
+hangisi/hangileri yanlıştır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> <span style="color: darkred; margin-left: 30px;"><img src="veriyap24.JPG" alt="Veri Yapıları - 2023-2024 Final Soruları " style="width: 70%;"></span><br><br>
+Yukarıdaki graf için Eskişehir düğümünden başlayarak soldan sağa doğru DFS (Önce Derinlik Araması) arama algoritması uygulandığında çıkan sonuç aşağıdakilerden hangisidir?  </p>
+	<span class="option" data-correct="true"><b>A)</b> Eskişehir, İstanbul, Kırklareli, Edirne, İzmir, Antalya, Ankara
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Eskişehir, İstanbul, İzmir, Antalya, Kırklareli, Ankara, Edirne
+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Eskişehir, Edirne, Ankara, Kırklareli, İstanbul, Antalya, İzmir
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Eskişehir, İzmir, İstanbul, Antalya, Kırklareli, Edirne, Ankara
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Eskişehir, Antalya, İzmir, İstanbul, Edirne, Kırklareli, Ankara
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+
+		
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          ALGORİTMALAR
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="alg-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="alg-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="alg-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="alg-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="alg-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="alg-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="alg-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="alg-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="alg-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="alg-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB SUNUCU PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wsp-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wsp-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wsp-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wsp-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wsp-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wsp-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wsp-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wsp-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wsp-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wsp-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİ MADENCİLİĞİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="vmaden-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="vmaden-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="vmaden-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="vmaden-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="vmaden-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="vmaden-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="vmaden-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="vmaden-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="vmaden-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="vmaden-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİTABANI SİSTEMLERİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="vtsistem-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="vtsistem-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="vtsistem-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="vtsistem-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="vtsistem-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="vtsistem-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="vtsistem-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="vtsistem-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="vtsistem-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="vtsistem-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMADA YENİ EĞİLİMLER
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="prgyenieğilim-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="prgyenieğilim-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Algoritmalar - Ünite 2 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Olgu, kavram ve komutların, iletişim, yorum ve
+işlem için elverişli biçimde gösterimine ne ad verilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Veri </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Değer </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Değişken </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Veri yapısı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Algoritma </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Veri yapıları konusunda aşağıdaki ifadelerden
+hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Veri yapıları basit veri türleri ve karmaşık veri
+yapıları olmak üzere sınıflanabilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Programcılar ellerindeki görevin karakteristiklerine
+göre veri yapısı seçer. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Her veri yapısının kendine özgü avantajları ve
+dezavantajları vardır. </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Veri yapıları programlama dilleri tarafından belirlenir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> char basit veri yapılarındandır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      <u><strong>Programcılar</strong></u> amaçlarına ulaştıracak algoritmalarda kullanmak için bir veri yapısını kullanmayı seçebilir ya da amaçlarına özgü bir veri yapısı oluşturabilirler.<br><br>
+			
+<u><strong>Basit Veri Türleri</strong></u><br>
+Boolean <br>
+Sayılar <br>
+Karakter (Char) <br>
+Gösterge (Pointer) <br><br><br>
+
+<u><strong>Karmaşık Veri Yapıları</strong></u><br>
+Doğrusal Karmaşık Veri Yapıları<br>
+Doğrusal Olmayan Karmaşık<br>
+Veri Yapıları			
+     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Veri yapısı üzerindeki nesnelerin çıktısının
+üretilmesine ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Arama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sıralama </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Gezinme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Birleştirme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Çıktı alma </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      Programcının veri yapısı
+tercihi genellikle bu işlemlerin hangilerini ne sıklıkta kullanacağına bağlı olarak değişir:<br><br>
+
+1. <u><strong>Gezinme (traversing):</strong></u> Veri yapısı üzerindeki nesnelerin çıktı olarak üretilmesidir.<br>
+2. <u><strong>Arama (searching):</strong></u> Veri yapısı üzerinde bir değerin aranmasıdır.<br>
+3. <u><strong>Ekleme (insertion):</strong></u> Veri yapısında istenilen noktaya element eklenmesidir.<br>
+4. <u><strong>Silme (deletion):</strong></u> Veri yapısında istenilen elementin silinmesidir.<br>
+5. <u><strong>Sıralama (sorting):</strong></u> Veri yapısı üzerindeki elementlerin belirlenen kritere göre sıralanmasıdır.<br>
+6. <u><strong>Birleştirme (merging):</strong></u> Veri yapısı üzerindeki elementlerin birleştirilmesidi     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Kayar noktalı sayıları tutmak için kullanılabilecek
+basit veri türü aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> float </span><br>
+	<span class="option" data-correct="false"><b>B)</b> char </span><br>
+	<span class="option" data-correct="false"><b>C)</b> integer </span><br>
+	<span class="option" data-correct="false"><b>D)</b> pointer </span><br>
+	<span class="option" data-correct="false"><b>E)</b> boolean </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> “3 sayısının 4 sayısından küçük olup olmadığı”
+kontrolünün sonucu aşağıdaki basit veri yapılarından hangisinde saklanır? </p>
+	<span class="option" data-correct="false"><b>A)</b> float </span><br>
+	<span class="option" data-correct="false"><b>B)</b> char </span><br>
+	<span class="option" data-correct="false"><b>C)</b> integer </span><br>
+	<span class="option" data-correct="false"><b>D)</b> pointer </span><br>
+	<span class="option" data-correct="true"><b>E)</b> boolean </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      Boolean, yalnızca "true" (doğru) veya "false" (yanlış) değerlerini saklayabilen veri türüdür. "3 sayısının 4 sayısından küçük olup olmadığı" gibi koşullar sonucunda boolean veri türü "true" (doğru) veya "false" (yanlış) değerlerini alabilir.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Integer veri yapısı ile ilgili aşağıdaki ifadelerden hangisi doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kayar noktalı (ondalıklı sayıları) saklayabilir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Negatif değerleri saklayamaz </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Tutabileceği değer sayısı ayrılan bellek alanına göre belirlenir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 0 değerini saklayamaz </span><br>
+	<span class="option" data-correct="false"><b>E)</b> A değerini saklayabilir </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      Basit veri türlerinde tanımlanan değişkenlerin kapladıkları bellek alanı sabittir.
+Bu nedenle de integer gibi tipteki değişkenlerde saklanabilecek en büyük ve en küçük değerlerden söz
+edilir. Buna karşın karmaşık veri türlerinde saklanan veri sayısı artabileceğinden sabit bir bellek alanından
+bahsedilemez     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> Tanımlı bir değişkenin bellek adresini saklayan
+basit veri yapısı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> float </span><br>
+	<span class="option" data-correct="false"><b>B)</b> char </span><br>
+	<span class="option" data-correct="false"><b>C)</b> integer </span><br>
+	<span class="option" data-correct="true"><b>D)</b> pointer </span><br>
+	<span class="option" data-correct="false"><b>E)</b> boolean </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> A=(1, 2, 3) kümesindeki değerleri tutmak
+için en az bellek alanı harcayan veri yapısı aşağıdakilerden
+hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Dizi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ağaç </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Çizge </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bağlı liste </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Integer </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      Dizi, sabit boyutlu ve ardışık bellek alanlarında verileri tutan bir veri yapısıdır. Bellek alanını önceden belirlediğiniz için verilerin sıralı olarak depolanması ve gereksiz boşlukların olmaması nedeniyle bellek kullanımı daha verimlidir.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> Dizilerle ilgili aşağıdaki ifadelerden hangisi
+doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Basit bir veri türüdür </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Dizilerin indisleri her zaman sıfırdan başlar </span><br>
+	<span class="option" data-correct="true"><b>C)</b> İndisler yoluyla herhangi bir elementine doğrudan
+erişilebilir </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Elementleri bellek alanında saçılmıştır </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Çalışma zamanında boyutları değiştirilebilir </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      Dizilerin indisleri <u><strong>genelde</strong></u> sıfırdan başlar     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> 30 kullanıcı arasındaki sosyal ilişkileri modellemek için aşağıdaki veri yapılarından hangisi kullanılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Float </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Dizi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kuyruk </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bağlı liste </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Çizge </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      Sosyal ilişkileri modellemek için çizgeler (graphs) kullanılır. Çizgeler, düğümler (nodes) ve düğümleri birbirine bağlayan kenarlar (edges) içeren matematiksel yapılar olarak düşünülebilir. Her düğüm, bir kullanıcıyı temsil ederken, kenarlar da kullanıcılar arasındaki sosyal ilişkileri gösterir. Çizgeler, sosyal ağlar, arkadaşlık ilişkileri, ağ bağlantıları gibi birçok alanda kullanılan önemli veri yapılarından biridir.
+
+
+     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> Aşağıdakilerden hangisi doğrusal olmayan karmaşık veri yapıları arasında yer alır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Ağaç </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Dizi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Integer </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Float </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Char </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      <u><strong>Doğrusal veri yapıları:</strong></u> Veriler arasında bir ardışıklık söz konusudur. Bir element kendinden önceki ve sonraki elementle bağlantılıdır. <br>
+<u><strong>Diziler (array), yığınlar (stack), kuyruklar (queue)</strong></u> ve <u><strong>bağlı listeler (linked list)</strong></u> doğrusal veri yapılarıdır. <br>
+<br>
+<u><strong>Doğrusal olmayan veri yapıları:</strong></u> Elementler arası bağlantılar asimetriktir. Ayrıca bağlantı sayıları farklılaşabilmektedir.<br>
+<u><strong>Ağaçlar (tree)</strong></u> ve <u><strong>çizgeler (graph)</strong></u> doğrusal olmayan veri yapılarıdır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> C# programlama dilinde  "-52" sayısını tutmak ve bellek alanının etkin kullanımı için hangi veri türü kullanılmalıdır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Byte </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Integer </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Float </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Double </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Unicode </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      C# programlama dilinde tam sayıları tutmak üzere Byte ve Integer türleri tanımlanmıştır (Microsoft, t.y.). 8 bit genişlikte tanımlanan Byte türü -127 ile +128 arasındaki sayıları tutabilirken 64 bite kadar çıkabilen Integer türünde -2147483648 ile 2147483647 arasındaki değerler tutulabilmektedir. Benzer şekilde ondalıklı sayılar için Float (32b) ve Double (64b) veri türleri tanımlanmıştır. Bu tanımlamalara baktığımızda -52 sayısının tutulması ve bellek alanının etkin kullanımı için 8 bit (1 byte) olan  Byte veri türünün kullanımının uygun olduğu görülmektedir.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Veri yapıları konusunda aşağıdaki ifadelerden hangisi ya da hangileri doğrudur?<br>
+
+I. Bilgisayar sistemleri üzerinde veri yapılarının uygulayıcıları programlama dilleridir.<br>
+II. Veri yapılarının amacı bilgisayar sistemi ile programcının zihni arasında bir köprü kurmaktır.<br>
+III. Her veri yapısının yeterlikleri, avantajları ve sınırlılıkları birbirinin aynıdır. </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> - Son Giren İlk Çıkar (LIFO – Last In First Out) prensibinde çalışan doğrusal veri yapılarıdır.<br>
+- Bu veri yapılarının en tepesine veri eklenebilir ve en tepedeki veri çıkarılabilir.<br>
+- Bu yapılar dikkatli bir şekilde kullanılmazsa çalışma zamanı hataları alınabilir.<br><br>
+
+Yukarıda özellikleri verilen veri yapısı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Dizi </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Yığın </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Çizge </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kuyruk </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bağlı Liste </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> I. Kök düğümden başlayarak aşağı doğru açılan düğüm düzeyleridir.<br>
+II. Bir düğüme, kök düğümden gelen yolun uzunluğudur.<br>
+III. Bir düğümden, yaprak düğüme giden yolun uzunluğudur.<br><br>
+Yukarıda I, II ve III ile tanımlanmış ifadeler aşağıdakilerden hangisinde sırasıyla doğru olarak verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yükseklik-derinlik-katman </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Derinlik-kenar-yükseklik </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Derinlik-katman-yükseklik </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Katman-yükseklik-derinlik </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Katman-derinlik-yükseklik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Çizgeler (Graph) veri yapıları ile ilgili aşağıdaki ifadelerden hangisi ya da hangileri doğrudur?<br><br>
+I. Düğümler (vertice) ve bu düğümleri birleştiren kenarlardan (edge) oluşan veri yapılarıdır.<br>
+II. Ağaç yapılarında olduğu gibi iki düğüm arasında tek bir yol tanımlıdır.<br>
+III. İletişim ağlarının gösteriminde, veri organizasyonunda ve hesaplamaların akışını göstermede kullanılır. </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="true"><b>D)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      Çizgelerde, ağaç yapılarında olduğu gibi iki düğüm arasında tek bir yol tanımlı <u><strong>değildir</strong></u>.     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> Birbirine bağlı düğüm serilerinden oluşan doğrusal veri yapılarına ne denir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Diziler </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Bağlı listeler </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yığınlar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kuyruklar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Göstergeler </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Diziler ile bağlı listeler karşılaştırıldığında, aşağıdakilerden hangisi bağlı listelerin en önemli avantajı arasında yer alır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Element sayılarını dinamik olarak arttırılabilmesi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Element sayılarını dinamik olarak azaltabilmesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Aynı türdeki birden fazla değeri saklaması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Farklı türdeki birden fazla değeri saklaması </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bellekte tutulan bir değişkenin fiziksel adresini saklaması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      Bağlı listelerin dizilere oranla en önemli avantajı element sayılarını dinamik olarak arttırılabilmesidir. <br><br>
+
+Diziler tanımlandıkları boyutun ötesinde element tutamazken dinamik bellek kullanabilme yeteneği sayesinde bağlı listelere kolaylıkla element eklenebilmektedir. <br><br>
+Dizilerde araya değer ekleme ya da değer silme işlemleri oldukça karmaşıktır. Örneğin araya bir değer eklenmesi istendiğinde dizide bu konumdan sonraki tüm elementlerin yerinin kaydırılması gerekmektedir. Bağlı listelerde bu işlem bellek adreslerinin değiştirilmesi yoluyla kolaylıkla yapılabilmektedir. <br><br>
+Çalışma zamanında dizilerin boyutunun artırılması olanaksızken bağlı listelere ekleme yapılabilmektedir. Bu sayede programcının liste boyutu belirlemesine gerek kalmaz. <br><br>
+Düğüm sayısı dinamik olarak düzenlenebildiğinden, dizilerde olduğu gibi gereksiz bellek kaynağı ayrılması problemleri yaşanmaz. Ayrıca bellekteki herhangi bir alan kullanılabildiğinden kuramsal olarak tüm bellek alanı kullanılabilir durumdadır. Dizilerde elementlerin yan yana tutulması gereksinimi bu kullanıma izin vermeyebilir.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> I. Bir element kendinden önceki ve kendinden sonraki elementler arasındadır.<br>
+II. Elementler rastgele yerleştirilmiştir.<br>
+III. Bir element, yalnızca çevresindeki iki elementle bağlantılıdır.<br>
+IV. Elementler arası bağlantı sayısı birden fazladır. <br><br>
+Yukarıda doğrusal veri yapıları ile yer alan bilgilerden hangisi ya da hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> I-II </span><br>
+	<span class="option" data-correct="true"><b>B)</b> I-III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> II-IV </span><br>
+	<span class="option" data-correct="false"><b>D)</b> III-IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II-III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      Doğrusal veri yapılarında bir element kendinden önceki ve kendinden sonraki elementler arasındadır. Bu element, yalnızca çevresindeki iki elementle bağlantılıdır.<br><br>
+Doğrusal olmayan veri yapılarında ise elementler arası bağlantı sayısı birden fazladır. <u><strong>Doğrusal olmayan</strong></u> veri yapılarında elementler rastgele yerleştirilmiştir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> G (V,E) fonksiyonu şeklinde tanımlanan çizgeler fonksiyonunda V kümesi ve E kümesi sırasıyla neyi temsil etmektedirler? </p>
+	<span class="option" data-correct="true"><b>A)</b> Düğüm-Kenar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kenar-Düğüm </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Çocuk-Yaprak </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yaprak-Çocuk </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Katman-Derinlik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      Çizgeler G(V, E) fonksiyonu ile tanımlanabilir. Bu tanımlamada V kümesi düğümleri, E kümesi ise
+kenarları ifade etmektedir. <br><br>
+Örneğin; <br>
+V(V1, V2, V3, V4, V5) kümesi 5 adet düğümü ifade etmektedir.<br><br>
+
+Bu düğümler arasındaki 6 kenar ise; <br>
+E((V1, V2), (V1, V3), (V2, V4), (V1, V4), (V1, V5), (V4, V1))<br>
+kümesi ile ifade edilir.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Aşağıdakilerden hangisi doğrusal olmayan veri yapılarıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Diziler </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yığınlar </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Çizgeler </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kuyruklar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bağlı Listeler </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">       <u><strong>Doğrusal veri yapıları:</strong></u> Veriler arasında bir ardışıklık söz konusudur. Bir element kendinden önceki ve sonraki elementle bağlantılıdır. <br>
+<u><strong>Diziler (array), yığınlar (stack), kuyruklar (queue)</strong></u> ve <u><strong>bağlı listeler (linked list)</strong></u> doğrusal veri yapılarıdır. <br>
+<br>
+<u><strong>Doğrusal olmayan veri yapıları:</strong></u> Elementler arası bağlantılar asimetriktir. Ayrıca bağlantı sayıları farklılaşabilmektedir.<br>
+<u><strong>Ağaçlar (tree)</strong></u> ve <u><strong>çizgeler (graph)</strong></u> doğrusal olmayan veri yapılarıdır.      </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Dizilerle ilgili aşağıdaki ifadelerden hangisi doğru <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Dizilerdeki elementlerin bellek adresleri bitişiktir. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Her bir element için ayrılan bellek alanı birbirinden farklıdır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tanımlanandan fazla elemente ihtiyaç duyulması sorun yaratır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Element sayısı tanımlama satırında belirlenir ve değiştirilemez. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Aynı türdeki birden fazla değerin saklanması için oldukça elverişli veri yapılarıdır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      Dizilerdeki elementlerin bellek adresleri bitişiktir. Bunun yanında her bir element için ayrılan bellek alanı eşittir.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> Aşağıda verilenlerden hangisi ya da hangileri bağlı listelerin avantajları arasında yer almaktadır?<br><br>
+
+I. Element sayılarının dinamik olarak arttırılabilmesi<br>
+II. Elementlere indis numarası yoluyla rastgele erişim olanağının olmaması<br>
+III. Dizilere oranla daha fazla bilgi (veri, bağlantı adresi) kullanılması </p>
+	<span class="option" data-correct="true"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      Bağlı listelerin dizilere oranla en önemli <u><strong>avantajı</strong></u> element sayılarını dinamik olarak arttırılabilmesidir. <br><br>
+
+Diziler tanımlandıkları boyutun ötesinde element tutamazken dinamik bellek kullanabilme yeteneği sayesinde bağlı listelere kolaylıkla element eklenebilmektedir. <br><br>
+Dizilerde araya değer ekleme ya da değer silme işlemleri oldukça karmaşıktır. Örneğin araya bir değer eklenmesi istendiğinde dizide bu konumdan sonraki tüm elementlerin yerinin kaydırılması gerekmektedir. Bağlı listelerde bu işlem bellek adreslerinin değiştirilmesi yoluyla kolaylıkla yapılabilmektedir. <br><br>
+Çalışma zamanında dizilerin boyutunun artırılması olanaksızken bağlı listelere ekleme yapılabilmektedir. Bu sayede programcının liste boyutu belirlemesine gerek kalmaz. <br><br>
+Düğüm sayısı dinamik olarak düzenlenebildiğinden, dizilerde olduğu gibi gereksiz bellek kaynağı ayrılması problemleri yaşanmaz. Ayrıca bellekteki herhangi bir alan kullanılabildiğinden kuramsal olarak tüm bellek alanı kullanılabilir durumdadır. Dizilerde elementlerin yan yana tutulması gereksinimi bu kullanıma izin vermeyebilir.  <br><br>
+Bu avantajlarının yanında bağlı listelerin diziler karşısında bazı <u><strong>dezavantajları</strong></u> da bulunmaktadır.<br>
+
+Örneğin bağlı listelerdeki elementlere indis numarası yoluyla rastgele erişim olanağı yoktur. <br>
+Listedeki
+dördüncü elemente ulaşabilmek için ilk üç elemente erişilmesi gerekmektedir. Ayrıca bağlı listelerde
+dizilere oranla daha fazla veri kullanılmaktadır. <br>
+Dizilerdeki elementlerde yalnızca veriler tutulurken
+bağlı listelerde verilerin yanında bir sonraki düğümü işaret eden göstergelerin (pointer) tutulması gerekmektedir. Son olarak tek yönlü bir bağlı listede sondan başa doğru bir gezinme (reverse traversing) işlemi yapılamaz    </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Bir uçlarından ekleme, diğer uçlarından silme işlemleri yapılabilen doğrusal veri yapıları aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Ağaç (tree) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Diziler (array) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yığınlar (stack) </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Kuyruklar (queue) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bağlı listeler (linked list) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> I. İlk Giren İlk Çıkar prensibinde çalışır.<br>
+II. Son Giren İlk Çıkar prensibinde çalışır.<br>
+III. Bir uçlarından ekleme, diğer uçlarından silme işlemleri yapılabilir.<br>
+IV. Tek bir alfanumerik karakterin tutulması için kullanılır.<br><br>
+Yukarıda kuyruklar veri yapısı ile ilgili yer alan bilgilerden hangisi ya da hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız IV </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I-II </span><br>
+	<span class="option" data-correct="true"><b>D)</b> I-III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II-III-IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br>  Aşağıdakilerden hangisi basit veri türleri arasında yer alır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Integer </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Dizi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yığın </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kuyruk </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bağlı liste </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      <u><strong>Basit Veri Türleri</strong></u><br>
+Mantıksal - Boolean<br>
+Sayısal - Float, integer <br>
+Karakter (Char) <br>
+Gösterge (Pointer)     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Basit veri türlerine ait aşağıdaki ifadelerden hangisi doğru <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> A değeri B değerine eşit midir gibi sorgulamaları yapan mantıksal ifadelerin sonucu boolean türündedir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Float veri türünde pozitif ya da negatif tam sayılar tutulabilir. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Integer veri türünde de pozitif ya da negatif tam sayılar ya da ondalıklı sayılar tutulabilir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Karakter veri türünde büyük ya da küçük harfler, rakamlar ve özel işaretler tutulabilir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Gösterge veri türü, bellekte tutulan başka bir değişkenin fiziksel adresini saklamak amacıyla kullanılır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      Integer veri türünde pozitif ya da negatif tam sayılar tutulabilir. Ondalıklı sayılar tutulmaz.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> Ağaç veri yapılarında, birbirine kenarlar ile bağlanmış düğüm serilerine ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kök (root) </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Yol (path) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yaprak (leaf ) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Katman (level) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Alt ağaç (subtree) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> Aşağıdakilerden hangisi ağaç veri yapılarından bahsederken kullanılan kavramlardan biri olan derinlik (depth) kavramının açıklamasıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Ağaç yapısının en üstündeki düğümdür. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kök düğümden başlayarak aşağı doğru açılan düğüm düzeyidir. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Bir düğüme, kök düğümden gelen yolun uzunluğudur. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bir düğümden, yaprak düğüme giden yolun uzunluğudur. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Aynı ebeveynden gelen düğümlerdir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> "Son Giren İlk Çıkar (LIFO – Last In First Out)" prensibinde çalışan doğrusal veri yapıları aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Yığınlar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bağlı listeler </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Diziler </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Gösterge </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Karakter </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+		
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

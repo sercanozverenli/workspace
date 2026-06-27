@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="anasayfa.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA I
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama1-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama1-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama1-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama1-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama1-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama1-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama1-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama1-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama1-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama1-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          BİLİŞİM HUKUKU
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="bilisimhk-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="bilisimhk-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="bilisimhk-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="bilisimhk-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="bilisimhk-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="bilisimhk-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="bilisimhk-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="bilisimhk-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="bilisimhk-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="bilisimhk-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB'DE TELİF HAKLARI VE ETİK
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="webtelif-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="webtelif-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="webtelif-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="webtelif-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="webtelif-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="webtelif-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="webtelif-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="webtelif-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="webtelif-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="webtelif-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          AĞ YÖNETİMİ VE BİLGİ GÜVENLİĞİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="agyonetimi-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="agyonetimi-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="agyonetimi-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="agyonetimi-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="agyonetimi-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="agyonetimi-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="agyonetimi-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="agyonetimi-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="agyonetimi-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="agyonetimi-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİTABANI PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veritabaniprg-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veritabaniprg-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  </nav>
+  
+    <h4 id="ders">Ağ Yönetimi ve Bilgi Güvenliği - Ünite 6 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Aşağıdakilerden hangisi Web kavramının ortaya çıkardığı ve güvenlik sorunlarına sebep olan durumlardan biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> İletişimin iki yönlü olması </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Web sunucuların kurumların bilgisayar sistemlerine ulaşmak için bir atlama noktası olarak düşünülebilmesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Güvenlik konularında eğitilmemiş kullanıcıların Web-tabanlı sistemlerin temel müşterileri olmaları </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Web-tabanlı sistemlerin dünyanın her yanında şirketlerde ve kurumlarda kullanılması </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Arka planda çalışan gelişmiş ve karmaşık yazılımın güvenlik açıklarının fazla olması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Aşağıdakilerden hangisi Web güvenliği tehditlerinin incelendiği gruplardan birisi <u><strong>değildir</strong></u>? </p>
+	<span class="option" data-correct="false"><b>A)</b> Gizliliğe yönelik tehditler </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Web-tabanlı sistemleri kullanan şirketlere yönelik tehditler </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kimlik doğrulamaya yönelik tehditler </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bütünlüğe yönelik tehditler </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Hizmet engellemeye yönelik tehditler </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Aşağıdakilerden hangisi SSL’yi oluşturan protokollerden birisi <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Dosya Aktarımı Protokolü </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kayıt Protokolü </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Uyarı Protokolü </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Şifre Değiştirme Protokolü </span><br>
+	<span class="option" data-correct="false"><b>E)</b> El Sıkışma Protokolü </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Aşağıdakilerden hangisi TLS protokolünün temel amaçlarından birisi <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Kriptografik güvenlik </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Maliyeti düşürmek </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bağıl verim </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Geliştirilebilirlik </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Birlikte çalışabilirlik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> HTTPS’nin bağlantı noktası numarası kaçtır? </p>
+	<span class="option" data-correct="false"><b>A)</b> 80 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 135 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 20 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 53 </span><br>
+	<span class="option" data-correct="true"><b>E)</b> 443 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Aşağıdakilerden hangisi SSH’yi oluşturan protokollerden birisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Şifre değiştirme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kayıt </span><br>
+	<span class="option" data-correct="false"><b>C)</b> IP </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Kullanıcı kimlik doğrulama </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Uyarı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> Aşağıdakilerden hangisi IEEE 802.11 standardında sağlanması gereken hizmetlerden <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Kimlik doğrulama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Dağıtım </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tümleştirme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bağlanma </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yeniden bağlanma </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> IEEE 802.11i dayanıklı güvenlik ağının operasyonlarının doğru sıralaması aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Doğrulama – Korumalı Veri Transferi – Keşif –
+Anahtar Yönetimi – Bağlantı Sonlandırma </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Doğrulama – Anahtar Yönetimi – Keşif – Korumalı
+Veri Transferi – Bağlantı Sonlandırma </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Keşif – Doğrulama – Anahtar Yönetimi – Korumalı
+Veri Transferi – Bağlantı Sonlandırma </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bulgulama – Anahtar Yönetimi – Korumalı Veri
+Transferi – Doğrulama – Bağlantı Sonlandırma </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Keşif – Anahtar Yönetimi – Korumalı Veri Transferi
+– Bağlantı Sonlandırma – Doğrulama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> Aşağıdakilerden hangisi IEEE 802.11i standardının sağladığı temel hizmetlerden <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Kimlik doğrulama </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Yeniden bağlanma </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Erişim denetimi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Mesaj bütünlüğü </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Gizlilik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Aşağıdaki konulardan hangisi kablosuz uygulama protokolünde (WAP) ayrıntıları ile <u><strong>belirlenmemiştir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> WWW programlama modeline dayanan bir programlama modeli </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Mobil, kablosuz terminal için uygun küçük tarayıcı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> XML’e bağlı kalan bir biçimlendirme dili (Kablosuz İşaretleme Dili) </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Kablo bağlantılarının nasıl gerçekleştirileceği </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Hafif iletişim protokolü yığını </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> HTTP kaç numaralı bağlantı noktasını kullanır? </p>
+	<span class="option" data-correct="true"><b>A)</b> 80 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 443 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 43 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 48 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 100 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      Normal HTTP bağlantısı <u><strong>80</strong></u> numaralı bağlantı noktasını kullanır. <br>
+<br>
+Eğer HTTPS kullanılacaksa, bağlantı noktası numarası 443 olur.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> "Verinin biçimsel düzenlemesinin yapıldığı katmandır" <br><br>
+
+Bu tanım aşağıdaki OSI modeli katmanlarından hangisini tanımlamaktadır?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> Ağ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İletim </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Sunum </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Uygulama </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Oturum </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      Bir ağda cihazların nasıl iletişim kuracakları Açık Sistemler Arabağlaşımı (Open Systems Interconnection – OSI) modeli tarafından tanımlanmıştır. Bu model 7 adet katmandan oluşur;<br><br>
+
+<u><strong>Fiziksel:</strong></u> Veri bitlerinin alıcıya nasıl iletileceğinden sorumludur.<br>
+<u><strong>Veri Bağlantısı:</strong></u> Uç düğümler arasında verinin hatasız bir şekilde transferini sağlar.<br>
+<u><strong>Ağ:</strong></u> Verinin iletileceği ağ üzerinde en uygun yolu belirler.<br>
+<u><strong>İletim:</strong></u> Verinin hangi protokoller kullanılarak iletileceğini belirler.<br>
+<u><strong>Oturum:</strong></u> Uç düğümler arasında bağlantının oluşturulması, kullanılması ve sonlandırılmasından sorumludur.<br>
+<u><strong>Sunum:</strong></u> Verinin biçimsel düzenlemesinin yapıldığı katmandır.<br>
+<u><strong>Uygulama:</strong></u> Ağ bağlantısını kullanacak programdır.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Aşağıdakilerden hangisi web tabanlı uygulamalar için bir güvenlik sağlama tekniğidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> LAN </span><br>
+	<span class="option" data-correct="false"><b>B)</b> MAC </span><br>
+	<span class="option" data-correct="true"><b>C)</b> SSL </span><br>
+	<span class="option" data-correct="false"><b>D)</b> HTTP </span><br>
+	<span class="option" data-correct="false"><b>E)</b> IP </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> Aşağıdakilerden hangisi ev, okul, kurum binası gibi daha sınırlı alanlarda bulunan bilgisayar, telefon ve yazıcı gibi ağ aygıtlarını birbirine bağlar? </p>
+	<span class="option" data-correct="false"><b>A)</b> Postane </span><br>
+	<span class="option" data-correct="true"><b>B)</b> LAN </span><br>
+	<span class="option" data-correct="false"><b>C)</b> WAN </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kara yolu </span><br>
+	<span class="option" data-correct="false"><b>E)</b> VIN </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> MAC protokol veri birimi çerçevesini oluşturan alanlardan hangisi dijital veride iletim sırasında bir hatanın oluşup oluşmadığını tespit etmek için kullanılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> MAC Kontrol </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Hedef MAC Adres </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kaynak MAC Adres </span><br>
+	<span class="option" data-correct="false"><b>D)</b> MAC Hizmet Veri Birimi </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Döngüsel Artıklık Denetimi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Client_hello mesajının sahip olduğu parametrelerden hangisi istemci tarafından üretilen 32-bit zaman damgası ve 28 bayt içeren rastgele
+yapıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Sürüm </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Rastgele </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Oturum Kimliği </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Şifre Kümesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sıkıştırma Metodu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      Alışveriş client_hello mesajı gönderen istemci tarafından başlatılır. Bu mesaj aşağıdaki parametrelere sahiptir:<br><br>
+
+<u><strong>• Sürüm:</strong></u> İstemci tarafından kullanılabilecek en yüksek SSL sürümünü belirtir.<br>
+<u><strong>• Rastgele:</strong></u> İstemci tarafından üretilen 32-bit zaman damgası ve 28 bayt içeren rastgele yapıdır. 28 bayt güvenli rastgele sayı üreticisi tarafından üretilir. Bu değerler bağlantıya özeldir ve anahtar değişiminde tekrar saldırılarını (replay) önlemek için kullanılır.<br>
+<u><strong>• Oturum Kimliği:</strong></u> Değişken uzunlukta oturum tanımlayıcısını gösterir. Sıfırdan farklı değer, istemcinin var olan bağlantı parametrelerini güncellemek veya bu oturumda yeni bir bağlantı oluşturmak istediğini belirtir. Sıfır değeri, istemcinin yeni bir oturumda yeni bir bağlantı kurmak istediğini gösterir.<br>
+<u><strong>• Şifre Kümesi:</strong></u> Azalan tercih sırasına göre, istemci tarafından desteklenen şifreleme algoritmalarını içeren bir listedir. Listenin her bir elemanı hem anahtar değişim algoritmasını hem de şifreleme algoritmasını tanımlar.<br>
+<u><strong>• Sıkıştırma Metodu:</strong></u> İstemci tarafından desteklenen sıkıştırma metotlarının listesini gösterir.
+
+
+     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> I. SSH iletim katmanı protokolü<br>
+II. SSH kullanıcı kimlik doğrulama protokolü<br>
+III. SSH bağlantı protokolü<br><br>
+Yukarıda verilenlerden hangisi veya hangileri SSH'nin ayrıldığı protokoller arasında yer almaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      SSH iletim katmanı protokolü, SSH kullanıcı kimlik doğrulama protokolü ve SSH bağlantı protokolü olmak üzere üç protokole ayrılır.      </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Sinyallerin kodlanması ve kodlarının çözülmesi işlevi ve bitlerin iletimi ve alımı işlevlerini gerçekleştiren IEEE 802  katmanı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Fiziksel katman </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ortam erişim denetimi katmanı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Mantıksal bağlantı denetimi katmanın </span><br>
+	<span class="option" data-correct="false"><b>D)</b> SSH iletim katmanı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kablosuz iletim katmanı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> Şifreleme algoritmaları ve Web vekil sunucular web’e karşı olan tehditlerden hangisine karşı geliştirilen bir çözümdür? </p>
+	<span class="option" data-correct="true"><b>A)</b> Gizliliğe karşı tehditler </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bütünlüğe yönelik tehditler </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Hizmet engellemeye yönelik tehditler </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kimlik doğrulama işlemine yönelik tehditler </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Donanıma yönelik tehditler </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> Aşağıdaki protokollerden hangisi Güvenli Soket Katmanı üzerinde çalışır? </p>
+	<span class="option" data-correct="false"><b>A)</b> UDP </span><br>
+	<span class="option" data-correct="false"><b>B)</b> TCP </span><br>
+	<span class="option" data-correct="false"><b>C)</b> IPv4 </span><br>
+	<span class="option" data-correct="true"><b>D)</b> HTTP </span><br>
+	<span class="option" data-correct="false"><b>E)</b> MAC </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br>  Aşağıdakilerden hangisi TLS protokolünün temel amaçlarından birisi <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Bağıl verim </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Kullanılabilirlik </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Geliştirilebilirlik </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Birlikte çalışabilirlik </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kriptografik güvenlik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      TLS’nin bir avantajı uygulama protokolünün bağımsız olmasıdır. Yüksek seviyeli protokoller, TLS protokolünün üzerinde şeffaf bir şekilde yer alabilirler. TLS protokolünün temel amaçları aşağıda verilmiştir:<br><br>
+
+
+<strong>- Kriptografik güvenlik:</strong> TLS iki taraf arasında güvenli bir bağlantı kurmak için kullanılır.<br>
+<strong>- Birlikte çalışabilirlik:</strong> Bağımsız programcılar birbirlerinin kod bilgilerini bilmeden kriptografik parametreleri değiştirmeyi sağlayan TLS kullanan uygulamalar geliştirmelidir. <br>
+<strong>- Geliştirilebilirlik:</strong> TLS gerektiğinde yeni açık anahtarlar ve şifreleme yöntemlerinin dâhil edilebildiği bir çerçeve sağlamayı amaçlamaktadır. Bu aynı zamanda iki alt amacın gerçekleşmesini de sağlayacaktır. Bu amaçlardan birincisi, yeni protokol oluşturma ihtiyacının önlenmesidir. İkinci alt amaç ise tümüyle yeni bir güvenlik kütüphanesi oluşturma ihtiyacından kaçınılmasıdır.<br>
+<strong>- Bağıl verim:</strong> Özellikle açık anahtar işlemleri olmak üzere kriptografik işlemler yoğun şekilde CPU kullanırlar. Bu nedenle TLS protokolü sıfırdan kurulacak bağlantı sayısını azaltmak için isteğe bağlı oturumları önbelleğe alan bir düzen geliştirmiştir. Ek olarak ağ aktivitesinin azaltılması için çalışılmıştır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Aşağıdakilerden hangisi Açık sistemler arabağlaşımı modelinin katmanlarından <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Fiziksel </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Veri bağlantısı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ağ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İletim </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Dijital </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      Bu model 7 katmandan oluşur:<br>
+<br>
+- Fiziksel, <br>
+- Very bağlantısı, <br>
+- Ağ, <br>
+- İletim, <br>
+- Oturum, <br>
+- Sunum, <br>
+- Uygulama.        </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> HTTPS kullanıldığında iletişimin aşağıda verilenlerden hangisi şifrelenmez? </p>
+	<span class="option" data-correct="false"><b>A)</b> Dokuman içeriği </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Kullanıcı kimliği </span><br>
+	<span class="option" data-correct="false"><b>C)</b> HTTP başlığının içeriği </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Tarayıcı formların içeriği </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İstenen dokümanın URL adresi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> IEEE 802.11i Dayanıklı Güvenlik Ağı’nın operasyonunun gerçekleştiği beş evreden çerçevelerin erişim noktası aracılığıyla son istasyonlar arasında gönderildiği evre aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Keşif </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Doğrulama </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Anahtar yönetimi </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Korumalı veri transferi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bağlantı sonlandırma </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> I. Rastgele sayı<br>
+II. Gizli anahtar<br>
+III. Sıra numaraları<br><br>
+Yukarıda verilenlerden hangisi veya hangileri bir bağlantı durumunu tanımlayan parametrelerdendir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      Bir bağlantı durumu aşağıdaki parametreler ile tanımlanır:<br><br>
+
+- Rastgele sayı<br>
+- Sunucuya ait MAC gizli anahtarı<br>
+- İstemciye ait MAC gizli anahtarı<br>
+- Gizli Anahtar<br>
+- Başlatma Vektörleri<br>
+- Sıra Numaraları  <br>   </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> Uç düğümler arasında bağlantının oluşturulması, kullanılması ve sonlandırılmasından sorumlu olan Açık Sistemler Arabağlaşımı modeli aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Veri bağlantısı </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Oturum </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Uygulama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İletim </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sunum </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Açık Sistemler Arabağlaşımı (Open Systems Interconnection – OSI) modeli kaç adet katmandan oluşur? </p>
+	<span class="option" data-correct="true"><b>A)</b> 7 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 6 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 5 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 4 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 3 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      Bu model 7 katmandan oluşur:<br>
+<br>
+- Fiziksel, <br>
+- Very bağlantısı, <br>
+- Ağ, <br>
+- İletim, <br>
+- Oturum, <br>
+- Sunum, <br>
+- Uygulama.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br>  Aşağıdakilerden hangisi bir oturumun yeni bağlantılar başlatmak için kullanılıp kullanılamayacağını belirlemek için kullanılan parametrelerdendir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Ana Sır </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Yenilenebilir </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Oturum tanımlayıcısı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Veri sıkıştırma metodu </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Şifreleme yönteminin belirlenmesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> I. SSL kriptografik yöntemler<br>
+II. Özet fonksiyonlar<br>
+III. Dijital imzalar<br>
+IV. Sertifikalar<br><br>
+Yukarıda sıralananlardan hangisi veya hangileri Web-tabanlı uygulamalar için güvenliği sağlamak için kullanılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> II, III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I, II, III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II, III, IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> Başarılı bir şekilde doğrulanmayan ve yeniden yönlendirilen mesajları algılayan ve reddeden koruma yöntemi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kimlik Doğrulaması </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Hizmet engelleme koruması </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veri Bütünlüğü </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İletim </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Uygulama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> "Ağ bağlantısını kullanacak programdır" bu tanım aşağıdaki OSI modeli katmanlarından hanAğgisini tanımlamaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Ağ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İletim </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Oturum </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sunum </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Uygulama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> Aşağıdakilerden hangisi şifreleme kullanarak güvenli olmayan bir ağ üzerinde uzaktan bağlanma ve diğer ağ hizmetlerini güvenli şekildegerçekleştirmeyi sağlayan bir protokoldür? </p>
+	<span class="option" data-correct="false"><b>A)</b> SSL </span><br>
+	<span class="option" data-correct="false"><b>B)</b> LAN </span><br>
+	<span class="option" data-correct="true"><b>C)</b> SSH </span><br>
+	<span class="option" data-correct="false"><b>D)</b> WAN </span><br>
+	<span class="option" data-correct="false"><b>E)</b> WIN </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> Aşağıdakilerden hangisi bir oturum durumunu tanımlamak için gerekli parametrelerden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Rastgele sayı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Veri sıkıştırma metodu </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ana sır </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yenilenebilir </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Oturum tanımlayıcısı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> I. Geliştirilebilirlik<br>
+II. Bağıl verim<br>
+III. Kriptografik güvenlik<br><br>
+Yukarıda verilenlerden hangisi veya hangileri TLS protokolünün temel amaçları arasında yer alır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      TLS protokolünün temel amaçları şunlardır:<br><br>
+
+- Kriptografik güvenlik<br>
+- Birlikte çalışabilirlik<br>
+- Geliştirilebilirlik<br>
+- Bağıl verim     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> Normal HTTP bağlantısı “_______________” numaralı bağlantı noktasını kullanır. Eğer HTTPS kullanılacaksa, bağlantı noktası numarası “______________” olur.
+Yukarıdaki boşluklara gelmesi gereken numaralar aşağıdakilerden hangisinde doğru olarak verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 70-400 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 75- 440 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 80- 443 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 85- 445 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 90- 452 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> SSL kayıt protokolünün başlığı toplam kaç bitten oluşur? </p>
+	<span class="option" data-correct="true"><b>A)</b> 40 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 32 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 24 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 16 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 8 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      SSL kayıt protokolü işleminin son adımı aşağıdaki alanları içeren bir baslık hazırlamaktır:<br><br>
+
+ İçerik Tipi (8 bit), <br>
+Başlıca Sürüm (8 bit), <br>
+İkincil Sürüm (8 bit) ve <br>
+Sıkıştırılmış Uzunluk (16 bit).     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> Aşağıda yer alan hangi protokolün sunduğu iki servis gizlilik ve mesaj bütünlüğü olarak adlandırılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> SSL </span><br>
+	<span class="option" data-correct="false"><b>B)</b> TCP </span><br>
+	<span class="option" data-correct="false"><b>C)</b> MAC </span><br>
+	<span class="option" data-correct="false"><b>D)</b> HTTP </span><br>
+	<span class="option" data-correct="false"><b>E)</b> OSI </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> Verinin hangi protokoller kullanılarak iletileceğini belirleyen OSI katmanı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Fiziksel </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Veri bağlantısı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ağ </span><br>
+	<span class="option" data-correct="true"><b>D)</b> İletim </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Oturum </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+Rastgele Sayı	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> Aşağıdakilerden hangisi sunucu ve istemci arasında iletilecek verinin gizlenmesi için kullanılacak simetrik şifreleme algoritması anahtarıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Rastgele Sayı </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Gizli Anahtar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Başlatma Vektörleri </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sıra Numaraları </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sunucuya ait MAC gizli anahtarı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> Aşağıdakilerden hangisi HTTPS'nin kulanılmasının en önemli sebebidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Maliyet </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Güvenlik </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Hız </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Erişilebilirlik </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İçerik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

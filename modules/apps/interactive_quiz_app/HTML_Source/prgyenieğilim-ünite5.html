@@ -1,0 +1,1661 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          ALGORİTMALAR
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="alg-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="alg-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="alg-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="alg-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="alg-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="alg-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="alg-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="alg-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="alg-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="alg-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB SUNUCU PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wsp-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wsp-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wsp-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wsp-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wsp-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wsp-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wsp-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wsp-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wsp-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wsp-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİ MADENCİLİĞİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="vmaden-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="vmaden-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="vmaden-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="vmaden-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="vmaden-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="vmaden-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="vmaden-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="vmaden-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="vmaden-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="vmaden-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİTABANI SİSTEMLERİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="vtsistem-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="vtsistem-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="vtsistem-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="vtsistem-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="vtsistem-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="vtsistem-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="vtsistem-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="vtsistem-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="vtsistem-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="vtsistem-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMADA YENİ EĞİLİMLER
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="prgyenieğilim-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="prgyenieğilim-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Programlamada Yeni Eğilimler - Ünite 5 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	<button class="block-group" data-start="40" data-end="59">Part 3</button>
+  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Aşağıdakilerden hangisi insanların oyun oynamayı sevmelerindeki en önemli nedenlerden biridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Korku </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sürpriz </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Merak </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Eğlence </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Macera </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Aşağıdakilerden hangisi dijital oyun türlerinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Klavye </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Birinci şahıs nişancı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Simulasyon </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Strateji </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Dövüş </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Aşağıdakilerden hangisi dijital oyun geliştirilirken dikkat edilmesi gereken unsurlardan biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Hedef kitle ortamı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Oynanabilirlik ve rekabet ortamı </span><br>
+	<span class="option" data-correct="true"><b>C)</b>  Zaman	yönetimi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kullanıcı arayüzü ve kullanıcı deneyimi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Donanım kaynakları yönetimi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      Dijital oyun geliştirme sürecinde, oyunun ana temasını oluşturan fikir ve o fikrin nasıl işleneceğinin belirlendiği senaryo kısımları çok önemlidir. Bu aşamalar
+sonrasında hedef kitlenin belirlenmesi, senaryoya uygun hikayenin hazırlanması, oynanabilirlik ve rekabet
+ortamının da mutlaka hesaba katılması, tabii ki donanım kaynaklarının tüketiminin de unutulmaması
+gerekmektedir.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Aşağıdakilerden hangisi dijital oyun tasarımı ve programlama yapısı içerisindeki aşamalardan biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Modelleme </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Zamanlama </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kaplama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Animasyon </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Programlama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Bir dijital oyunun daha az bellek ve işlem gücü kullanması için yapılan işlemlere ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Varlık </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Poligon	sayısı </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Optimizasyon </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sonuçlandırma </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Donatma </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Aşağıdakilerden hangisi bir dijital oyunda mermi izi, sıçrayan kanlar, posterler ve çöpler gibi arka planda bulunan
+ancak oyuna detay katan yapılardan biridir? </p>
+	<span class="option" data-correct="true"><b>A)</b>  Çıkartmalar	(Decals)
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b>  Kaplamalar	(Shaders) </span><br>
+	<span class="option" data-correct="false"><b>C)</b>  Doku	Döşeme	(Tiling	Textures) </span><br>
+	<span class="option" data-correct="false"><b>D)</b>  Giydirme	(Skinning) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Donatma	(Ringing) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> Bir nesnenin ana formunu oluşturan, hiçbir detay içermeyen yapıya ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Detay Modelleri </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Varlık </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Üçgen </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Silüet </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Poligon </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> Aşağıdakilerden hangisi bir dijital oyunda herhangi bir etkileşim olmadığı durumlarda, oyunun akıcı bir şekilde çalışmasını sağlayan yapılardan biridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Oyun	Durumu	(Game	State) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 	 Fizik	Motoru	(Physics	Engine) </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Oyun	Döngüsü	(Game	Loop)
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b>  Yapay	Zekası	(AI) </span><br>
+	<span class="option" data-correct="false"><b>E)</b>  Yol	İşaretleri	(Waypoints) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> Aşağıdakilerden hangisi günümüz popüler oyun motorlarından biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Unreal	Engine </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Unity </span><br>
+	<span class="option" data-correct="false"><b>C)</b> CryEngine </span><br>
+	<span class="option" data-correct="false"><b>D)</b>  Microsoft	XNA </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Microsoft	.NET </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">     Günümüz popüler oyun motorları<br><br>
+- Unreal	Engine<br>
+- Unity<br>
+- CryEngine<br>
+- Microsoft	XNA<br>
+- CopperCube      </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Aşağıdakilerden hangisi nesnelere parlaklık katmada kullanılan haritalardan biridir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Yansıma	Haritası (Specular Map) </span><br>
+	<span class="option" data-correct="false"><b>B)</b>  Saydamlık	Haritası (Alpha Map) </span><br>
+	<span class="option" data-correct="false"><b>C)</b>  Işık Haritası	(Light	Map)
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b>  Yayılma Haritası	(Emissive	Map) </span><br>
+	<span class="option" data-correct="false"><b>E)</b>  Dağılım	Haritası	(Diffuse	Map) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      Yansıma Haritası (Specular Map):	Nesnelere	parlaklık	katmada	kullanılmaktadır.	Haritadaki siyah bölgeler parlamazken beyaz bölgeler parlama özelliği göstermektedir.      </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> Aşağıdakilerden hangisi dijital bir oyunun arka plan yapılarından biridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Donatma </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kaplamalar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Doku Döşeme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Giydirme </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Çıkartmalar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> Bir faaliyete ilişkin düşünce ve duyguları ortaya çıkaran, eğlence odaklı aktiviteye ne ad verilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Oyun </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Deneyim </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yanılma </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Oyuncak </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Faaliyet </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Dijital oyunlar sınıflandırılırken aşağıdakilerden hangisi esas alınmaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Oyunların oyuncu kitlesi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Oyunların oynanış süresi </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Oyunların oynanış tarzı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Oyunların oynanış yeri </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Oyunların ücreti </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> Bir dijital oyunu meydana getirmek için en önemli aşama aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Fikir ve senaryo aşaması </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Baş rol oyuncu aşamas </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Hedef kitle belirleme aşaması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Maliyet belirleme aşaması </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Oyun süresini belirleme aşaması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> Oyunların, içeriklerini belli bir hızda görselleştirerek sonuçlandırması gerekmektedir. Oyuncu bir tuşa bastığında hemen sonuçlandırılmasını beklemektedir. Bu süre birçok unsurdan etkilenebilmektedir. Modelleme aşamasında kullanılan başlıca terimlerden olan  bu tanım aşağıdakilerden hangisini anlatmaktadır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Gerçek Zamanlı Sonuçlandırma (Real Time Rendering) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Varlık (Asset) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Detay Modelleri (LOD Models) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İyileştirme (Optimization) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Poligon Sayısı (Polygon Count) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Yapay zekânın anlayabileceği en basit hâliyle oluşturulan seviyelere verilen isimdir. Programlama aşamasında kullanılan başlıca terimlerden olan  bu tanım aşağıdakilerden hangisini anlatmaktadır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Yol İşaretleri
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Oyun Döngüsü </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Motor Döngüsü </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kullanıcı Arayüzü </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Oyun Motoru </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      Yol İşaretleri (Waypoints)     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> Yanıtlanması için sorulan şaşırtıcı ve eğlendirici soruların kullanıcıya yöneltilerek oynandığı oyun türü aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Bilmece oyunları </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Simulasyon oyunları </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Strateji oyunları </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Spor oyunları </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Mantıksal oyunlar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Günümüz dijital oyuncuları söz konusu olduğunda aşağıdakilerden hangisi geçerlidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Yaş ortalaması 30 olup bunların %68 (yüzde altmışsekiz)’i 18 yaşından büyük üniversite öğrencilerinden oluşmaktadır </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yaş ortalaması 30 olup bunların %68’i 18 yaşından küçük kullanıcılardan oluşmaktadır </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yaş ortalaması 18 olup bunların %68 (yüzde altmışsekiz)’i 30 yaşından büyük kullanıcılardan oluşmaktadır </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yaş ortalaması 18 olup bunların %18 (yüzde onsekiz)’i 68 yaşından büyük kullanıcılardan oluşmaktadır </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yaş ortalaması 18 olup bunların %68 (yüzde altmışsekiz)’i 30 yaşından küçük kullanıcılardan oluşmaktadır </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br>  Varlık, poligon sayısı, üçgen, dörtgen, gerçek zamanlı sonuçlandırma ve iyileştirme kavramları aşağıda verilen oyun geliştirme aşamalarından hangisine aittir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Modelleme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Senaryo </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kaplama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Animasyon </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Programlama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> Aşağıdakilerden hangisi modellemenin üç boyutlu ortamlarının gerçeğe yakın ve oyun türüne uygun olacak şekilde hazırlanması için bünyesinde barındırdığı bölümdür? </p>
+	<span class="option" data-correct="false"><b>A)</b> Bölüm Editörü </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Model Editörü </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kod Kütüphanesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kütüphane Eklentileri </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kaplama ve Kod Editörü </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Modelleme aşamasında kullanılan başlıca terimlerden hangisi aşağıda yer almıştır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yerdeğişim </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yayılma </span><br>
+	<span class="option" data-correct="true"><b>C)</b> İyileştirme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yükselti Haritası </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Çıkartmalar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      <u><strong>Modelleme aşamasında kullanılan başlıca terimler</strong></u><br><br>
+
+<u><strong>Varlık (Asset):</strong></u> Kısaca	varlık	olarak	çevrilen	terim,	3ds	Max,	Photoshop vb.	harici	programlarda üretilmiş modeller, dokular, ses efektleri ve animasyonlar gibi içeriklerin tamamına verilen genel bir isimdir.<br><br>
+
+<u><strong>Poligon Sayısı (Polygon Count):</strong></u> Üç boyutlu ortamda hesaplanan modelde kullanılan toplam üç kenarlı poligon sayısıdır. Bu sayı ne kadar yüksek olursa sistemin onu işlemesi ve	sonuçlandırması	(rendering)	o	kadar	uzun	sürecektir.	<br><br>
+
+<u><strong>Üçgen (Triangle):</strong></u> Bir üç boyutlu modelin, üç kenarından oluşan poligon yüzeyini ifade etmektedir. Üç boyutlu modeldeki her poligon üçgenleştirilerek oyun motoruna alınmaktadır.<br><br>
+
+<u><strong>Dörtgen (Quad):</strong></u> Bir üç boyutlu modelin dörtkenarından oluşan poligon yüzeyidir.
+Teknik olarak iki üçgenden oluşmaktadır.<br><br>
+
+<u><strong>Gerçek Zamanlı Sonuçlandırma (Real Time Rendering):</strong></u> Oyunların, içeriklerini belli bir hızda görselleştirerek sonuçlandırması gerekmektedir. Oyuncu bir tuşa bastığında hemen sonuçlandırılmasını beklemektedir. Bu süre birçok unsurdan etkilenebilmektedir. Fakat oyun başarılı bir biçimde optimize edildiyse, genelde sonuçlar da hızlı bir biçimde işlenmektedir. Eğer yavaşlama varsa muhtemelen	“görsel varlık (art asset)” tan kaynaklanmaktadır.<br><br>
+
+<u><strong>İyileştirme (Optimization):</strong></u> Bu terim en uygun hale getirme olarak tanımlanabilir. Oyunun daha az bellek ve işlem gücü kullanması için yapılan tüm işlemlere verilen addır. Örneğin modeller, nesne siluetlerini kaybetmeyecekleri şekilde optimize edilerek poligon sayıları olabilecek en düşük seviyeye getirilebilir.<br><br>
+
+<u><strong>Detay Modelleri (LOD Models):</strong></u> Oyunun farklı çözünürlüklerinde kullanılan sürümleridir. Bu modeller, nesnenin kameraya olan uzaklığının temel alınmasıyla poligon sayısı açısından farklı şekilde ifade edilmesinden oluşmaktadır. Oyunun optimize edilmesi için en önemli yapılardan biridir. Yakındaki nesneler yüksek detaylı, uzaktakiler daha az detaylı olmaktadır. <br><br>
+			
+<u><strong>Siluet (Silhoulette):</strong></u> Bir nesnenin silueti, onun ana formunu oluşturmaktadır. Bu sayede duvara vuran gölgeden nesnenin ne olduğu anlaşılabilmektedir. Bu durum modeller için de geçerlidir. Siluetler hiçbir detay içermemekte ancak ana formları seçilebilmektedir. Gerekli detay kısımları “normal harita (normal map)” adıyla aşağıda bahsedilecektir. 
+     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Aşağıdakilerden hangisi, Üç Türk kardeşin kurduğu Crytek adlı firma tarafından geliştirilmiş oyun motoru CryEngine' nin özelliklerinden biridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Üç boyutlu oyun motoru olan, gelişmiş özelliklere sahip üç boyutlu dijital oyunların cihaza kurulmadan oynanmasını sağlayan bir yapıya sahiptir. 3D motorunu kullanan oyunlar, oyun Eklentisi sayesinde hiçbir kurulum işlemi olmadan bir tarayıcı  üzerinden çalışabilmektedir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Piyasadaki çoğu birinci şahıs nişancı (FPS) türü oyunların yapımında kullanılmıştır. Programlama dili olarak C++ kullanılsa da birçok kütüphane ve script dillerini desteklemektedir. Çoklu platform desteğinin de gelmesiyle dijital oyun programcıları arasında popülerliğini arttırmaktadır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> NET çatısını kullanarak iki boyutlu ve üç boyutlu oyunlar geliştirmek için piyasaya sürdüğü bir başka çatıdır. bir programlama dili olmayıp içerisinde yüzlerce sınıf barındırmaktadır. Bu sayede nesneye yönelik programlama yapısıyla sınıflar sunacak şekilde yapılandırılmıştır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Oldukça yeni grafik editörü ve oyun motorudur. Piyasadakilerden farklı olarak hiçbir teknik kodlama ve profesyonel üç boyut bilgisi gerektirmeden
+üç boyutlu dijital oyunlar oluşturulabilmesini sağlamaktadır. İçerisinde birçok üç boyutlu model, kamera setleri, malzemeler, yapay zekâ davranışları ve daha pek çok yapı bulunmaktadır. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Yüksek grafik kalitesini sağlarken dışarıdan fizik motoru veya kütüphane ihtiyacının duyulmaması  motorunu popüler yapan özelliklerindendir. Öte yandan dezavantaj olarak, geliştirilen dijital oyunların yüksek kapasiteli donanım gereksinimi olması gösterilebilir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      Üç Türk kardeşin kurduğu Crytek adlı firma tarafından geliştirilmiş oyun motorudur. Yüksek grafik kalitesini sağlarken dışarıdan fizik motoru veya kütüphane ihtiyacının duyulmaması CryEngine motorunu popüler yapan özelliklerindendir. <br><br>
+
+Öte yandan dezavantaj olarak, geliştirilen dijital oyunların yüksek kapasiteli donanım gereksinimi olması gösterilebilir. CryEngine 4 ile bu optimizasyon sorunları indirgenmiş olsa da hala piyasada  donanım altyapısı açısından yüksek gereksinim isteyen oyun motorlarından biridir.  <br><br>
+
+
+		
+----<br><br>
+
+<u><strong>CopperCube:</strong></u> Oldukça yeni grafik editörü ve oyun motorudur. Piyasadakilerden farklı olarak hiçbir teknik kodlama ve profesyonel üç boyut bilgisi gerektirmeden  üç boyutlu dijital oyunlar oluşturulabilmesini sağlamaktadır. İçerisinde birçok üç boyutlu model, kamera setleri, malzemeler, yapay zekâ davranışları ve daha pek çok yapı bulunmaktadır.<br><br>
+
+<u><strong>Microsoft XNA:</strong></u> NET çatısını kullanarak iki boyutlu ve üç boyutlu oyunlar geliştirmek için piyasaya sürdüğü bir başka çatıdır. bir programlama dili olmayıp içerisinde yüzlerce sınıf barındırmaktadır. Bu sayede nesneye yönelik programlama yapısıyla sınıflar sunacak şekilde yapılandırılmıştır.<br><br>
+			
+<u><strong>Unreal Engine: </strong></u>Piyasadaki çoğu birinci şahıs nişancı (FPS) türü oyunların yapımında kullanılmıştır. Programlama dili olarak C++ kullanılsa da birçok kütüphane ve script dillerini desteklemektedir. Çoklu platform desteğinin de gelmesiyle dijital oyun programcıları arasında popülerliğini arttırmaktadır.<br>
+<br>
+<u><strong>Unity:</strong></u> Üç boyutlu oyun motoru olan, gelişmiş özelliklere sahip üç boyutlu dijital oyunların cihaza kurulmadan oynanmasını sağlayan bir yapıya sahiptir. 3D motorunu kullanan oyunlar, oyun Eklentisi sayesinde hiçbir kurulum işlemi olmadan bir tarayıcı  üzerinden çalışabilmektedir.
+ </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> Genel olarak insanın bilmek eylemi üzerine kurgu oluşturan oyun türü aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Bilmece oyunları </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Bulmaca / Zekâ Oyunları </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Mantıksal Oyunlar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Çevrimiçi Oyunlar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Simulasyon Oyunları </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Aşağıdakilerden hangisi dijital oyun geliştirme aşamalarından biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Fikir ve senaryo belirleme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Hedef kitle </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Sponsor beklentileri </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Hikâye, oynanabilirlik ve rekabet ortamı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Donanım kaynakları tüketimi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> Aşağıdakilerden hangisi oyun yapımı ve programlama aşamalarından kaplama aşamasına ilişkin bir kavramdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Üçgen </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Dörtgen </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İyileştirme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Detay modelleri </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Doku döşeme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      <strong>Kaplama aşamasında kullanılan başlıca terimler</strong><br><br>
+
+
+<u><strong>UV Haritası (UV Map):</strong></u> Üç boyutlu model oluşturmanın temel unsurlarındandır. Üç boyutlu nesnelerle iki boyutlu dokular arasında köprü görevi gören, çizilen detayların objenin neresinde ve nasıl görüneceğinin koordinatları ile belirlendiği kısımdır.<br><br>
+			
+<u><strong>Dağılım Haritası (Diffuse Map):</strong></u>	 Nesnenin	 ana	 rengini	 oluşturan	 ve tek renk	 bilgisi	 barındıran haritaya verilen addır. Temel olarak, herhangi bir özel etki içermeden sadece modelin etrafını saran bir haritadır.<br><br>
+			
+<u><strong>Yükselti Haritası (Bump Map):</strong></u>	 Sonlandırma	 (render)	 süresi	 oluşturmadan nesneye yükseklik ve derinlik katma hilesi sağlayan haritadır. Siyah, beyaz ve gri renkten oluşmaktadır. Siyah alan girintileri, beyaz alan çıkıntıları ve gri alan da nötr bölgeleri göstermektedir. Bu detayların yükselti haritasıyla oluşturulması, modelin poligon sayısını düşürmeye yardımcı olmaktadır.<br><br>
+			
+<u><strong>Normal Harita (Normal Map):</strong></u> Yükselti haritası gibi, geometrik olmayan detayların oluşturulmasını	 sağlamaktadır.	Renk	uzayı	içerisinde	ana	renkler	olan	kırmızı,	mavi ve yeşil	renklerin	tanımına	göre tasarlanan RGB	(Red, Green, Blue)	değerlerini	kullanarak, yüzey normallerinin yönü tayin edilmektedir. Genellikle “düşük poligonlu (low polygon)” olarak bilinen modellere yüksek çözünürlüklü detay bindirilmesinde kullanılmaktadır.<br><br>
+			
+<u><strong>Yansıma Haritası (Specular Map):</strong></u>	Nesnelere	parlaklık	katmada	kullanılmaktadır.	Haritadaki siyah bölgeler parlamazken beyaz bölgeler parlama özelliği göstermektedir.<br><br>
+			
+<u><strong>Saydamlık Haritası (Alpha Map):</strong></u> Oluşturulan grafiklerde, saydamlık bilgisi içeren kanala “Alfa” ismi verilmektedir. Bu, modelin hangi bölgesinin saydam olacağını belirleyen kanaldır. Siyah bölgeler opakken, beyaz alanlar şeffaf olmaktadır. Saç, kıyafet, pencere vb. yapılarda çok kullanılmaktadır. Alfa kanalı aynı zamanda maskeleme için de kullanılmaktadır. Alfa haritasının dışında kalan bölgeler sonlandırılmayacağı için çalışma alanının sınırları tayin edilmiş olmaktadır.<br><br>
+			
+<u><strong>Yerdeğişim Haritası (Displacement Map):</strong></u> Normal haritaya	benzer	bir	şekilde	modele detay	eklemekte	kullanılmaktadır.	Normal haritadan	farklı	olarak modeli	fiziksel	olarak değiştirir. Bu harita oluşturulurken uygulanan modelin fiziksel değişikliğine yetecek yoğunlukta noktalarının bulunmasına ve optimizasyona ekstra yük getireceği için temkinli kullanılmasına dikkat edilmelidir.<br><br>
+			
+<u><strong>Yayılma Haritası (Emissive Map):</strong></u> Yansıyan ışıktan oluşan parlama yerine kendisi ışık kaynağı olan nesnelerin, ışık yayma şeklini tayin eden haritadır. Bu haritalar herhangi bir renkte olabilmektedir ancak koyu bölümler ışık yaymamaktadır.<br><br>
+			
+<u><strong>Işık Haritası (Light Map):</strong></u> Çevresel ışıklar fazlasıyla hafıza kullanmaktadır. Olabildiğince fazla işlem ışık haritasına taşınarak simule edilmektedir. Bir kısmı da dokular üzerine boyanarak istenilen etki sağlanmaktadır. Böylece oyundaki statik ışıklar en aza düşürülerek oyunun hızlı çalışması sağlanabilmektedir.<br><br>
+			
+<u><strong>Doku Döşeme (Tiling Textures):</strong></u> Dokular belli yönlerde sonsuza kadar tekrar edilerek döşenebilir. Duvarlar, su, yer yüzeyleri gibi alanlarda çok kullanılmaktadır. Bunların her biri için özel doku boyamak oldukça zor olacağından, birden fazla doku oluşturup bunları üst üste gelmeyecek şekilde döşemek en iyi yoldur.<br><br>
+			
+<u><strong>Çıkartmalar (Decals):</strong></u> Saydamlık barındıran dokulardır. Uygulandıkları yerlerde ilginç sonuçlar doğurabilmektedir. Mermi izleri, sıçrayan kanlar, posterler, çöpler ve buhar bunlara örnek verilebilir     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> Oyun programlamada kaplama sürecinde nesnenin ana rengini oluşturan ve tek renk bilgisi barındıran haritaya verilen isim aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Dağılım Haritası (Diffuse Map) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yükselti Hartası (Bump Map) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Normal Harita (Normal Map) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yansıma Haritası (Specular Map) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Saydamlık Haritası (Alpha Map) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Aşağıdakilerden hangisi araştırma, keşif, bulmaca çözme gibi unsurları içeren, hikâye odaklı bir dijital oyun türüdür? </p>
+	<span class="option" data-correct="false"><b>A)</b> Eğitsel oyunlar </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Macera oyunları </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Aksiyon oyunları </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Mantıksal oyunlar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bulmaca / Zekâ oyunları </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> I. Linux<br>
+II. WebGL<br>
+III. HTML5<br>
+IV. Android<br><br>
+Ambier CopperCube Professional editörü ile yukarıdakilerden hangilerine uyumlu dijital oyunlar tasarlamak mümkündür? </p>
+	<span class="option" data-correct="false"><b>A)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> II ve IV </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I, II ve III </span><br>
+	<span class="option" data-correct="true"><b>D)</b> II, III ve IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II, III ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      Windows, Android, iOS, HTML5, Adobe Flash ve WebGL     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> Dijital oyun geliştirme aşamalarından, aşağıdakilerden hangisi oyunlardaki karakterlerin ve ortamın itici olmaması, kendini kullanıcıya sevdirerek akılda kalmasını sağlamayı da amaçlar? </p>
+	<span class="option" data-correct="true"><b>A)</b> Hikâye, oynanabilirlik ve rekabet ortamı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Donanım Kaynakları Tüketimi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Hedef Kitle </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Fikir ve Senaryo Belirleme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Maddi beklentilerin karşılanması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> Kullanıcılar genellikle bir oyuna başladıktan sonra o oyun içerisinde aşağıdakilerden hangisini görmek isterler? </p>
+	<span class="option" data-correct="false"><b>A)</b> Rakip oyuncunun hamlelerini </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Rakip oyuncunun özelliklerini </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Skor bilgilerini </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Süre bilgilerini </span><br>
+	<span class="option" data-correct="false"><b>E)</b> En başarılı oyuncu bilgilerini </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      Kullanıcılar genellikle bir oyuna başladıktan sonra o oyun içerisinde kullanılacak olan yapıları veya skor bilgilerini görebilmek ister.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> Aşağıdakilerden hangisi oyun tasarımı ve programlama yapısının aşamalarından biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Modelleme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kaplama </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Animasyon </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Programlama </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Pazarlama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> Gelişmiş özelliklere sahip üç boyutlu dijital oyunların cihaza kurulmadan oynanmasını sağlayan bir yapıya sahip olan günümüz popüler oyun motoru aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Unity </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Unreal Engine </span><br>
+	<span class="option" data-correct="false"><b>C)</b> CryEngine </span><br>
+	<span class="option" data-correct="false"><b>D)</b> CopperCube </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Microsoft XNA </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> Epic Games firması tarafından geliştirilen, piyasadaki çoğu birinci şahıs nişancı (FPS) türü oyunların yapımında kullanılan günümüz popüler oyun motoru aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Unity </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Unreal Engine </span><br>
+	<span class="option" data-correct="false"><b>C)</b> CryEngine </span><br>
+	<span class="option" data-correct="false"><b>D)</b> CopperCube </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Microsoft XNA </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> “Gerçeğe yakın olan dijital oyun türleri arasındadır. Gerçek hayatta yapılan bazı işlerin dijital ortama aktarılıp oyun hâline getirilmesi şeklinde tasarlanır. Bu tür dijital oyunlarda fantastik öğeler barınmadığı gibi, gerçek hayata aykırı karakterler de pek fazla görünmemektedir.” <br><br>
+
+Tanımı yapılan dijital oyun türü aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Simulasyon oyunları </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Strateji oyunları </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Spor oyunları </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Mantıksal oyunlar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bilmece oyunları </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> Basit düzey oyun geliştirme sürecinde aşağıdaki öğelerden hangisi <u><strong>yer almaz?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Yazılım geliştirme kiti </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Model, kaplama, ses </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Oyun motorunda kodlama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bölüm editörü </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Grafiksel kodlama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> Oyun tasarımı ve programlama aşamalarından modelleme aşamasına ait olan ve Photoshop gibi harici programlarda üretilmiş modeller, dokular, ses efektleri ve animasyonlar gibi içeriklerin tamamını tanımlamak için kullanılan kavram aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Poligon sayısı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Dörtgen </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Varlık </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Gerçek zamanlı sonuçlandırma </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İyileştirme  </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> Oyun geliştirmek için kullanılan temel sistemlerdir. Geliştiricilerin çeşitli varlıklar (asset) kullanabileceği ve fonksiyonel oyunlar oluşturabileceği yazılımsal çerçeveler kullanmaktadır. Programlama aşamasında kullanılan başlıca terimlerden olan  bu tanım aşağıdakilerden hangisini anlatmaktadır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Oyun Motoru </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Oyun Döngüsü </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Oyun Durumu </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Fizik Motoru </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kod Yazma </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> Cihazın oyundaki karakter ve sistemleri yönettiği karar alma mekanizması aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Yapay Zekâ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Fizik Motoru </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Oyun Motoru </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Oyun Durumu </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yol İşaretleri </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> Aşağıdakilerden hangisi dijital oyunun geliştirme sürecinin temelinde <u><strong>yer almaz?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Fikir ve senaryo belirleme, hedef kitle, hikaye, oynanabilirlik, rekabet ortamı ve donanım kaynakları tüketimi olarak ifade edilebilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Oyun motoru, kişilerin veya şirketlerin oyun yapımında kullandıkları ücretli veya ücretsiz yazılımlara verilen genel bir isimdir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Dijital oyunun geliştirme sürecinde ilk olarak oyunun ne amaçla ve hangi türde yapılacağı kararlaştırılmalı ve doğrultuda gerekli yöntemler izlenmelidir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İleri düzey oyun geliştirme sürecinde ise detaylanmış modeller, kod kütüphaneleri, bölüm editörü, model editörü, kaplama ve kod editörlerinde düzenlenerek programlanır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Hazırlanan bölümler grafiksel kodlarla desteklenerek oyun tamamlanma aşamasına getirilmektedir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> Oyuncuların ekranda gördüğü arayüze verilen genel addır. Örneğin, bir dijital oyunda kalan cephane bilgisi, zaman, dokunmatik ekran elementleri, puanlar vb. buna dâhildir. Programlama aşamasında kullanılan başlıca terimlerden olan  bu tanım aşağıdakilerden hangisini anlatmaktadır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Kullanıcı Arayüzü
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Oyun Döngüsü </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Oyun Durumu </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Oyun Motoru </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Fizik Motoru </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question41">
+	<p class="question">Soru 41:<br> Bir dokunun piksel cinsinden boyutlarını ifade eden terim aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Doku Çözünürlüğü </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Fizik Motoru </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kaplama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Çıkartma </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Donatma </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description41">Açıklama</button>
+		<div id="description41" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question42">
+	<p class="question">Soru 42:<br> Aşağıdakilerden hangisi dijital oyun geliştirme aşamalarından biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Oyun motorunun seçilmesi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Fikir ve senaryo belirleme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Hedef kitle </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Oynanabilirlik </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Rekabet ortamı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description42">Açıklama</button>
+		<div id="description42" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question43">
+	<p class="question">Soru 43:<br> Oyun geliştirmede animasyon aşamasında temel hareketlerin ortasına yerleşip, onlarla gizlice karışabilen animasyonlara verilen isim aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Eklenebilen Animasyonlar (Additive Animations) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Giydirme (Skinning) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tek Animasyon (One-off Animation) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Döngüsel Animasyonlar (Looping Animations) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Soket (Socket) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description43">Açıklama</button>
+		<div id="description43" class="collapse">     <u><strong>Animasyon aşamasında kullanılan başlıca terimler:</strong></u><br><br>
+
+ <u><strong>Donatma (Ringing (yazım yanlışı "Rigging" olmalı)):</strong></u> Animasyona kemik sistemi oluşturmak için kullanılmaktadır. Kontrol	teçhizatları	ve sahne	teçhizatları	(rig)	gibi alt anlamları da	bulunmaktadır.<br><br>
+
+<u><strong>Giydirme (Skinning):</strong></u> Oluşturulan kemik sistemiyle modelin gövdesinin tüm etkileşimini	barındıran	süreçtir.	Kemiklerle	deri/gövde	arasındaki	ilişki, özel	ağırlık	değerleriyle	
+belirlenmektedir. Oldukça detaylı ve teknik olan bu süreç, poligonların hareketlere nasıl tepki vereceğini tayin etmektedir.<br><br>
+			
+<u><strong>Tek Animasyon (one-off Animation):</strong></u> Bir nesnenin veya karakterin özel animasyonlarına verilen isimdir. Silah çekme, top fırlatma gibi örnekler verilebilir.<br><br>
+			
+<u><strong>Döngüsel Animasyonlar (Looping Animations):</strong></u> Oyuncunun fark etmediği, devamlılık içeren animasyonlardır. Koşmak ve yürümek gibi örnekler verilebilir.<br><br>
+			
+<u><strong>Soket (Socket):</strong></u> İkincil animasyonlarda kullanılabilmesi için, kemik sistemine ve kontrol teçhizatlarına yerleştirilen geçici nesnedir. Örnek vermek gerekirse bir karakter yerden silah aldığında, karakterin sırtına yerleşmesi soket sayesinde olmaktadır. <br><br>
+
+<u><strong>Eklenebilen Animasyonlar (Additive Animations):</strong></u> Temel hareketlerin ortasına yerleşip, onlarla gizlice karışabilen animasyonlara verilen isimdir. Örneğin, oyuncu ateş ederken, belli aralıklarla silahındaki mermileri doldurmak isteyecektir. Bu durumda karakterin ana hareketlerini kesmeden silahın doldurulması gerekmektedir. Bunu sağlayan hareket, eklenebilen animasyon kapsamına girmektedir. Bu alandaki animasyonlar oyunun kalitesini ve çeşitliliğini arttıran önemli etmenlerdendir.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question44">
+	<p class="question">Soru 44:<br> Aşağıdakilerden hangisi üç Türk kardeşin kurduğu bir firma tarafından geliştirilmiş olan, dışarıdan fizik motoru veya kütüphane kullanımına gerek duyulmayan fakat diğerlerine nazaran zor bir arayüze sahip olan oyun motorudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Unity </span><br>
+	<span class="option" data-correct="true"><b>B)</b> CryEngine </span><br>
+	<span class="option" data-correct="false"><b>C)</b> CopperCube </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Microsoft XNA </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Unreal Engine </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description44">Açıklama</button>
+		<div id="description44" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question45">
+	<p class="question">Soru 45:<br> Hareket, hız, savaş ve birtakım şiddet unsurlarını da içerisinde barındırabilen dijital oyun türü aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Aksiyon oyunları </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Spor oyunları </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Rol yapma oyunları </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Eğitsel Oyunlar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Strateji Oyunları </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description45">Açıklama</button>
+		<div id="description45" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question46">
+	<p class="question">Soru 46:<br> Kişilerin veya şirketlerin oyun yapımında kullandıkları çok sayıda kütüphane dosyalarını içeren yapılar içeren ücretli veya ücretsiz yazılımlar olup, oyun tasarımcısının önceden tanımlanmış bu yapıları kullanarak oyunu geliştirmelerine olanak sağlayan yazılımlara ne ad verilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Oyun motoru </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Oyun hızlandırıcısı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Oyun kartı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Oyun konsolu </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Oyun şablonu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description46">Açıklama</button>
+		<div id="description46" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question47">
+	<p class="question">Soru 47:<br> Dijital oyunun içsel mantığını oluşturan ve zamanlayıcılar, skorlar, seviyeler, bölümler gibi önemli aşamaların gidişatını izleyen sistemdir. Oyun geliştirme mantığının ana yapısı, tamamıyla bunun üzerine kurulmaktadır. Programlama aşamasında kullanılan başlıca terimlerden olan  bu tanım aşağıdakilerden hangisini anlatmaktadır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Oyun Durumu </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Oyun Motoru </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Oyun Döngüsü </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Motor Döngüsü </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kod Yazma </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description47">Açıklama</button>
+		<div id="description47" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question48">
+	<p class="question">Soru 48:<br>  “Sonlandırma (render) süresi oluşturmadan nesneye yükseklik ve derinlik katma hilesi sağlayan haritadır. Siyah, beyaz ve gri renkten oluşmaktadır.” Tanımı yapılan harita türü aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> UV Haritası </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Dağılım Haritası </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Yükselti Haritası </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Normal Harita </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yansıma Haritası </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description48">Açıklama</button>
+		<div id="description48" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question49">
+	<p class="question">Soru 49:<br> Dijital oyunun senaryosundaki hangi unsur kullanıcıyı bunaltacaktır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Hikayenin sonunu seyircinin tamamlaması </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Hikaye kısmının uzun görsellerle anlatılması </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Hikayedeki kahramanın tanınmamış biri olması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Hikayenin anlatımında parlak renklerin kullanılması </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Hikayenin konusunun yaşanmış öykü olması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description49">Açıklama</button>
+		<div id="description49" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question50">
+	<p class="question">Soru 50:<br> Dijital bir oyunu akıcı hale getiren yapı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yapay zekası </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yol işaretleri </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Oyun durumu </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Fizik motoru </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Oyun döngüsü </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description50">Açıklama</button>
+		<div id="description50" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question51">
+	<p class="question">Soru 51:<br> Dijital oyun geliştirilirken aşağıdakilerden hangisi göz ardı edilebilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Zaman yönetimi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Hedef kitle ortamı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Oynanabilirlik ve rekabet ortamı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Donanım kaynakları yönetimi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kullanıcı arayüzü ve kullanıcı deneyimi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description51">Açıklama</button>
+		<div id="description51" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question52">
+	<p class="question">Soru 52:<br> Aşağıdakilerden hangisi Oyun tasarımı ve programlama yapısı elemanlarından biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Modelleme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kaplama </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Animasyon </span><br>
+	<span class="option" data-correct="true"><b>D)</b> model editör </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Programlama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description52">Açıklama</button>
+		<div id="description52" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question53">
+	<p class="question">Soru 53:<br> “Bir nesnenin veya karakterin özel animasyonlarına verilen isimdir. Silah çekme, top fırlatma gibi örnekler verilebilir.” Tanımı verilen kavram aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Tek Animasyon </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Döngüsel Animasyonlar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Eklenebilen Animasyonlar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Donatma </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Giydirme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description53">Açıklama</button>
+		<div id="description53" class="collapse">       <u><strong>Animasyon aşamasında kullanılan başlıca terimler:</strong></u><br><br>
+
+ <u><strong>Donatma (Ringing (yazım yanlışı "Rigging" olmalı)):</strong></u> Animasyona kemik sistemi oluşturmak için kullanılmaktadır. Kontrol	teçhizatları	ve sahne	teçhizatları	(rig)	gibi alt anlamları da	bulunmaktadır.<br><br>
+
+<u><strong>Giydirme (Skinning):</strong></u> Oluşturulan kemik sistemiyle modelin gövdesinin tüm etkileşimini	barındıran	süreçtir.	Kemiklerle	deri/gövde	arasındaki	ilişki, özel	ağırlık	değerleriyle	
+belirlenmektedir. Oldukça detaylı ve teknik olan bu süreç, poligonların hareketlere nasıl tepki vereceğini tayin etmektedir.<br><br>
+			
+<u><strong>Tek Animasyon (one-off Animation):</strong></u> Bir nesnenin veya karakterin özel animasyonlarına verilen isimdir. Silah çekme, top fırlatma gibi örnekler verilebilir.<br><br>
+			
+<u><strong>Döngüsel Animasyonlar (Looping Animations):</strong></u> Oyuncunun fark etmediği, devamlılık içeren animasyonlardır. Koşmak ve yürümek gibi örnekler verilebilir.<br><br>
+			
+<u><strong>Soket (Socket):</strong></u> İkincil animasyonlarda kullanılabilmesi için, kemik sistemine ve kontrol teçhizatlarına yerleştirilen geçici nesnedir. Örnek vermek gerekirse bir karakter yerden silah aldığında, karakterin sırtına yerleşmesi soket sayesinde olmaktadır. <br><br>
+
+<u><strong>Eklenebilen Animasyonlar (Additive Animations):</strong></u> Temel hareketlerin ortasına yerleşip, onlarla gizlice karışabilen animasyonlara verilen isimdir. Örneğin, oyuncu ateş ederken, belli aralıklarla silahındaki mermileri doldurmak isteyecektir. Bu durumda karakterin ana hareketlerini kesmeden silahın doldurulması gerekmektedir. Bunu sağlayan hareket, eklenebilen animasyon kapsamına girmektedir. Bu alandaki animasyonlar oyunun kalitesini ve çeşitliliğini arttıran önemli etmenlerdendir.     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question54">
+	<p class="question">Soru 54:<br> Aşağıdakilerden hangisi Programlama aşamasında kullanılan başlıca terimlerden biridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kaplamalar </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Oyun Döngüsü </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Giydirme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Soket </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Eklenebilen Animasyonlar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description54">Açıklama</button>
+		<div id="description54" class="collapse">      <strong>Programlama aşamasında kullanılan başlıca terimler:</strong><br><br>
+
+
+<u><strong>Oyun Motoru (Game Engine):</strong></u> Oyun geliştirmek için kullanılan temel sistemlerdir. Geliştiricilerin	çeşitli	varlıklar	(asset)	kullanabileceği ve fonksiyonel	oyunlar	oluşturabileceği	 yazılımsal çerçeveler kullanmaktadır.<br><br>
+
+<u><strong>Fizik Motoru (Physics Engine):</strong></u> Oyun motorlarının en büyük kolaylıklarından biri
+kendi içinde gelen fizik motorlarıdır. Oyundaki fizik kurallarının etkisinin görülebildiği yapıları fizik motoru belirlemektedir. Bir oyundaki fizik kurallarının etkisini görebilmek için binlerce satır kod yazmak gerekmektedir. Ancak oyun motorlarında bu optimizasyon otomatik ve değiştirilebilir bir şekilde gelmektedir. Günümüzde oyun motorlarının fizik gücü ve dışarıdan desteği oldukça gelişmiştir.<br><br>
+			
+<u><strong>Oyun Döngüsü (Game Loop):</strong></u> Herhangi bir etkileşimin olmadığı durumlarda bile, oyunun akıcı bir şekilde çalışmasını sağlayan yapıdır.<br><br>
+			
+<u><strong>Oyun Durumu (Game State):</strong></u> Dijital oyunun içsel mantığını oluşturan ve zamanlayıcılar, skorlar, seviyeler, bölümler gibi önemli aşamaların gidişatını izleyen sistemdir. Oyun geliştirme mantığının ana yapısı, tamamıyla oyun durumu üzerine kurulmaktadır.<br><br>
+			
+<u><strong>Kullanıcı Arayüzü (GUI):</strong></u> Oyuncuların ekranda gördüğü arayüze verilen genel addır. Örneğin, bir dijital oyunda kalan cephane bilgisi, zaman, dokunmatik ekran elementleri, puanlar vb. buna dâhildir.<br><br>
+
+<u><strong>Yapay Zekâ (AI):</strong></u> Cihazın oyundaki karakter ve sistemleri yönettiği karar alma mekanizmasıdır.<br><br>
+			
+<u><strong>Yol İşaretleri (Waypoints):</strong></u> Yapay zekânın anlayabileceği en basit hâliyle oluşturulan seviyelere verilen isimdir.<br><br>
+			
+<u>Kod Yazma (Scripting):</u> Yüksek seviyeli dillerle kod yazma ve oyundaki tüm fonksiyonel yapıyı ortaya çıkarmak anlamına gelmektedir. Hazır kütüphaneler kullanılarak daha az kodlama yapılarak da dijital oyun geliştirmek mümkündür. 			
+
+		</div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question55">
+	<p class="question">Soru 55:<br> Oyuncu karakterinin kendi gözünden oynandığı dijital oyun türüne ne ad verilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Birinci Şahıs Nişancı Oyunları </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Platform oyunları </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Dövüş oyunları </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Macera oyunları </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Aksiyon oyunları </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description55">Açıklama</button>
+		<div id="description55" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question56">
+	<p class="question">Soru 56:<br> Aşağıdakilerden hangisi dijital oyun geliştirme aşamaları arasında <u><strong>yer almaz?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Oynanabilirlik </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Grafik Kalitesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Rekabet Ortamı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Fikir ve Senaryo Belirleme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Donanım Kaynakları Tüketimi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description56">Açıklama</button>
+		<div id="description56" class="collapse">      Dijital oyun geliştirme aşamaları; fikir ve senaryo belirleme, hedef kitle, hikâye, oynanabilirlik, rekabet ortamı ve donanım kaynakları tüketimi olarak ifade edilebilir     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question57">
+	<p class="question">Soru 57:<br> Aşağıdakilerden hangisi bir oyun motoru değildir? </p>
+	<span class="option" data-correct="true"><b>A)</b> GameForce </span><br>
+	<span class="option" data-correct="false"><b>B)</b> XNA </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Unity </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Unreal </span><br>
+	<span class="option" data-correct="false"><b>E)</b> CryEngine </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description57">Açıklama</button>
+		<div id="description57" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question58">
+	<p class="question">Soru 58:<br> I. Programlama<br>
+II. Animasyon<br>
+III. Modelleme<br>
+IV. Tasarım<br><br>
+Yukarıdakilerden hangileri oyun tasarımı ve programlama yapısının kısımlarındandır? </p>
+	<span class="option" data-correct="false"><b>A)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> II ve IV </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I, II ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II, III ve IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II, III ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description58">Açıklama</button>
+		<div id="description58" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question59">
+	<p class="question">Soru 59:<br> Oyuncunun fark etmediği, devamlılık içeren animasyonlardır. Koşmak ve yürümek gibi örnekler verilebilir. Bir film yapımında kullanılan görsel efekt çalışmalarına benzeyen animasyon aşamasında kullanılan başlıca terimler olan  bu tanım aşağıdakilerden hangisini anlatmaktadır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Döngüsel Animasyonlar (Looping Animations) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Tek Animasyon (one-off Animation) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Eklenebilen Animasyonlar (Additive Animations) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Giydirme (Skinning) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Soket (Socket) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description59">Açıklama</button>
+		<div id="description59" class="collapse">       <u><strong>Animasyon aşamasında kullanılan başlıca terimler:</strong></u><br><br>
+
+ <u><strong>Donatma (Ringing (yazım yanlışı "Rigging" olmalı)):</strong></u> Animasyona kemik sistemi oluşturmak için kullanılmaktadır. Kontrol	teçhizatları	ve sahne	teçhizatları	(rig)	gibi alt anlamları da	bulunmaktadır.<br><br>
+
+<u><strong>Giydirme (Skinning):</strong></u> Oluşturulan kemik sistemiyle modelin gövdesinin tüm etkileşimini	barındıran	süreçtir.	Kemiklerle	deri/gövde	arasındaki	ilişki, özel	ağırlık	değerleriyle	
+belirlenmektedir. Oldukça detaylı ve teknik olan bu süreç, poligonların hareketlere nasıl tepki vereceğini tayin etmektedir.<br><br>
+			
+<u><strong>Tek Animasyon (one-off Animation):</strong></u> Bir nesnenin veya karakterin özel animasyonlarına verilen isimdir. Silah çekme, top fırlatma gibi örnekler verilebilir.<br><br>
+			
+<u><strong>Döngüsel Animasyonlar (Looping Animations):</strong></u> Oyuncunun fark etmediği, devamlılık içeren animasyonlardır. Koşmak ve yürümek gibi örnekler verilebilir.<br><br>
+			
+<u><strong>Soket (Socket):</strong></u> İkincil animasyonlarda kullanılabilmesi için, kemik sistemine ve kontrol teçhizatlarına yerleştirilen geçici nesnedir. Örnek vermek gerekirse bir karakter yerden silah aldığında, karakterin sırtına yerleşmesi soket sayesinde olmaktadır. <br><br>
+
+<u><strong>Eklenebilen Animasyonlar (Additive Animations):</strong></u> Temel hareketlerin ortasına yerleşip, onlarla gizlice karışabilen animasyonlara verilen isimdir. Örneğin, oyuncu ateş ederken, belli aralıklarla silahındaki mermileri doldurmak isteyecektir. Bu durumda karakterin ana hareketlerini kesmeden silahın doldurulması gerekmektedir. Bunu sağlayan hareket, eklenebilen animasyon kapsamına girmektedir. Bu alandaki animasyonlar oyunun kalitesini ve çeşitliliğini arttıran önemli etmenlerdendir.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question60">
+	<p class="question">Soru 60:<br> Bu terim en uygun hale getirme olarak tanımlanabilir. Oyunun daha az bellek ve işlem gücü kullanması için yapılan tüm işlemlere verilen addır. Örneğin modeller, nesne siluetlerini kaybetmeyecekleri şekilde optimize edilerek poligon sayıları olabilecek en düşük seviyeye getirilebilir. Modelleme aşamasında kullanılan başlıca terimlerden olan  bu tanım aşağıdakilerden hangisini anlatmaktadır? </p>
+	<span class="option" data-correct="true"><b>A)</b> İyileştirme (Optimization) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Gerçek Zamanlı Sonuçlandırma (Real Time Rendering) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Detay Modelleri (LOD Models) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Poligon Sayısı (Polygon Count) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Siluet (Silhoulette) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description60">Açıklama</button>
+		<div id="description60" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

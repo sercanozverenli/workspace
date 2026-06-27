@@ -1,0 +1,1837 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">	  
+  <style>
+	  	  	  .block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="anasayfa.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA I
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama1-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama1-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama1-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama1-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama1-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama1-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama1-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama1-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama1-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama1-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          BİLİŞİM HUKUKU
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="bilisimhk-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="bilisimhk-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="bilisimhk-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="bilisimhk-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="bilisimhk-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="bilisimhk-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="bilisimhk-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="bilisimhk-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="bilisimhk-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="bilisimhk-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB'DE TELİF HAKLARI VE ETİK
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="webtelif-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="webtelif-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="webtelif-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="webtelif-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="webtelif-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="webtelif-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="webtelif-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="webtelif-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="webtelif-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="webtelif-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          AĞ YÖNETİMİ VE BİLGİ GÜVENLİĞİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="agyonetimi-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="agyonetimi-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="agyonetimi-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="agyonetimi-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="agyonetimi-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="agyonetimi-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="agyonetimi-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="agyonetimi-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="agyonetimi-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="agyonetimi-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİTABANI PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veritabaniprg-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veritabaniprg-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  </nav>
+  
+    <h4 id="ders">Ağ Yönetimi ve Bilgi Güvenliği - Ünite 2 </h4>
+	  	  <div id="parts">	 	  <button id="show-all">Tümü</button>
+<button class="block-group" data-start="0" data-end="19">Part 1</button>
+<button class="block-group" data-start="20" data-end="39">Part 2</button>
+<button class="block-group" data-start="40" data-end="59">Part 3</button>
+<button class="block-group" data-start="60" data-end="79">Part 4</button>
+
+	  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Bilgisayarlarda donanım ile kullanıcı arasında arayüz görevi üstlenen yazılım türü aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Uygulama Yazılımları </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yönetim Bilgi Üssü </span><br>
+	<span class="option" data-correct="true"><b>C)</b> İşletim Sistemleri </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Araç Uygulaması </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yönetilen Cihaz </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Aşağıdaki donanımlardan hangisi çok kapılı tekrarlayıcıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Modem </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Köprü </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Anahtar Cihaz </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yönlendirici </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Göbek Cihaz </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> MAC adreslerini, içerisinde bulunan bir tabloda saklayarak seçimli gönderim yapan çok kapılı cihaz aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Modem </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Köprü </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Anahtar Cihaz </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yönlendirici </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Göbek Cihaz </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Aşağıdakilerden hangisi ağ yönetimi için kullanılan araçlardan biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> İstatistiklerin İzlenmesi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yönlendirme Tablolarının İzlenmesi </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Sistem Isısının İzlenmesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yetkisiz Girişlerin İzlenmesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sistemin İzlenmesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Aşağıdakilerden hangisi ağ yönetim çeşitlerini beş kategoride sınıflandıran kuruluşun kısaltmasıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> TCP/IP </span><br>
+	<span class="option" data-correct="true"><b>B)</b> ISO </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ICANN </span><br>
+	<span class="option" data-correct="false"><b>D)</b> IEEE </span><br>
+	<span class="option" data-correct="false"><b>E)</b> OSI </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Aşağıdakilerden hangisi bir ağ yönetim çeşidi <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Performans Yönetimi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Hata Yönetimi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yapılandırma Yönetimi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Güvenlik Yönetimi </span><br>
+	<span class="option" data-correct="true"><b>E)</b> IP Adresi Yönetimi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> Ağ hakkında bilgi sağlayarak, gerektiğinde değişiklikleri bildirmeyi kolaylaştıran yazılım aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Yönetici Öğe </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yönetilen Cihaz </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yönetim Bilgi Üssü </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yönetim Protokolü </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Araç Uygulaması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> Aşağıdakilerden hangisi veri tanımlama dili, yönetim bilgisinin veri tipleri, nesne modeli ve yazım ve düzenlemedeki kuralları içermektedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yönetici Öğe </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yönetim Bilgi Üssü </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yönetilen Öğe </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Yönetim Bilgi Yapısı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> SNMP </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> SNMP protokolünün geliştirilmesinde rol oynayan kontrol protokolü aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> FTP </span><br>
+	<span class="option" data-correct="false"><b>B)</b> SMTP </span><br>
+	<span class="option" data-correct="true"><b>C)</b> SGMP </span><br>
+	<span class="option" data-correct="false"><b>D)</b> SIP </span><br>
+	<span class="option" data-correct="false"><b>E)</b> UDP </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> SNMP üzerinde güvenlik güncelleştirmeleri aşağıdaki sürümlerden hangisi ile kullanıma sunulmuştur? </p>
+	<span class="option" data-correct="false"><b>A)</b> SNMPv1 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> SNMPv2 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> SNMPv3 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> SNMPv4 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> SNMPv5 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> I. Windows<br> 
+II. Ubuntu<br> 
+III. MacOs X<br> 
+IV. Hubs<br> <br> 
+Yukarıdakilerden hangisi ya da hangileri işletim sistemidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>D)</b> I, II ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II, III ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">       Yaygın olarak kullanılan işletim sistemleri Windows, Ubuntu Linux, Pardus, MacOS X gibi çeşitlendirilebilmektedir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> Uluslararası Elektroteknik Komisyonu’nun çalışma sahasına giren elektrik ve elektronik mühendisliği konuları dışında, bütün teknik ve teknik dışı dallardaki standartların belirlenmesi çalışmalarını yürütmek amacıyla 1946’da Cenevre’de kurulan uluslararası teşkilâtın kısaltması nedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> MAC </span><br>
+	<span class="option" data-correct="true"><b>B)</b> ISO </span><br>
+	<span class="option" data-correct="false"><b>C)</b> TCP/IP </span><br>
+	<span class="option" data-correct="false"><b>D)</b> UTP </span><br>
+	<span class="option" data-correct="false"><b>E)</b> MIB </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Günümüz teknolojisinde ağ kartının UTP kablo üzerindeki hızı __________________ arasında değişmektedir.<br> <br> 
+Yukarıda verilen ifadede boş bırakılan yere aşağıdakilerden hangisi gelmelidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> 1 Gbps ile 10 Gbps  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 10 Gbps ile 100 Gbps </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 1 Gbps ile 1000 Gbps  </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 10 Gbps ile 1000 Gbps  </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 100 Gbps ile 1000 Gbps  </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> Belirli bir cihazdan çok, üzerine kurulan yazılımlar sayesinde ağ yöneticisine gerekli bilgileri toplayan sanal bir depolama ünitesi şeklinde tanımlanan kavram hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Ağ yönetimi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ağ yönetim sistemi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Merkezi ağ yönetimi </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Yönetim bilgi üssü </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Standart internet yönetimi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> Aşağıdakilerden hangisi, ağ dağıtımı için kullanılan cihazlardan birisi değildir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Repeaters </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Mesh </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Switches </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bridges </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Hubs </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AĞ BİLEŞENLERİ<br>
+
+Bir ağı oluşturan parçalar, basit ağlar için; bilgisayar, ağ kartı, kablolu ya da kablosuz iletişim ortamı, protokoller ve işletim sistemi olarak tanımlansa da aslında ağ dağıtımı için kullanılan cihazlar da ağ yönetiminde ön plana çıkmaktadır. Bu cihazlar;<br><br>
+- Tekrarlayıcılar (Repeaters), <br>
+- Göbek Cihazlar (Hubs), <br>
+- Köprüler (Bridges), <br>
+- Anahtar Cihazlar (Switches) ve son ve en önemli olarak da <br>
+- Yönlendiricilerdir (Routers). 
+     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Aşağıdakilerden hangisi bilgisayarlarda kullanılan işletim sistemlerinden birisi <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Cobol </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ubuntu </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Linux </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Pardus </span><br>
+	<span class="option" data-correct="false"><b>E)</b> MacOS X </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">Yaygın olarak kullanılan işletim sistemleri<br>
+Windows, Ubuntu Linux, Pardus, MacOS X gibi çeşitlendirilebilmektedir.     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> Aşağıdakilerden hangisi taşınabilir cihazlar için geliştirilen işletim sistemlerinden birisi <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Ubuntu </span><br>
+	<span class="option" data-correct="false"><b>B)</b> IOS </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Android </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Windows Mobile </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bada </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      Tablet bilgisayarlar ve akıllı telefonlar için taşınabilir cihazlara özel geliştirilen;
+			iOS, <br>Android, <br>Windows Mobile, <br>Bada gibi farklı işletim sistemleri geliştirilmiştir.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Aşağıdakilerden hangisi ağ yönetiminde ön plana çıkan ağ dağıtımı için kullanılan cihazlardan biri değildir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Tekrarlayıcılar (Repeaters) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Göbek Cihazlar (Hubs) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Köprüler (Bridges) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Anahtar Cihazlar (Switches) </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Ses Kartı  (Sound card) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br>  SNMP PROTOKOLÜ ile ilgili olarak aşağıdaki ifadelerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Ağ yönetiminde önerilen protokol, Basit Ağ Yönetim Protokolü (SNMP–Simple Network Management Protocol)’dür. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Oluşturlan SNMP protokolü, TCP/IP modelinin içerisinde yer almaktadır. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> SNMP protokolü dâhilinde cihazların ısı değerleri, internet bağlantı hızları, yönlendirme tabloları, çalışma süreleri vb. veriler değerlendirmeye alınmaz.  </span><br>
+	<span class="option" data-correct="false"><b>D)</b> SNMP aracılığıyla, ağ problemlerinin tanımlanması, çözümlerin zamanında uygulanması ve genişleme durumunda kolay karar verme yetisi kazanılmaktadır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> SNMP, istek gönderme ve cevap bekleme esasıyla çalışan basit bir protokoldür. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      Protokollerin tamamı, iki farklı bilgisayar özelliğine sahip cihazın uygulamalarının haberleşmesi konusunda altyapı sağlamaktadır. SNMP de aynı şekilde gönderici bir cihazdan, alıcı cihaza veri aktarımı ile ilgili bir protokoldür. Fakat burada cihazlardan bir tanesi üzerinde özel yazılımlar çalışan bilgisayar özelliğine sahip bir cihaz iken, bir diğeri programlanabilir anahtar, modem ya da yönlendirici gibi ağ ara cihazı olabilmektedir. SNMP protokolü dâhilinde cihazların ısı değerleri, internet bağlantı hızları, yönlendirme tabloları, çalışma süreleri vb. verileri tutmayı sağlayan ağaç yapısı mevcut bulunmaktadır     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br>  Aşağıdakilerden hangisi tekrarlayıcı cihazların özelliklerinden biridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Bilgisayar donanımı ve kullanıcı arasında arayüz oluşturmaları. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Alınan veriyi güçlendirerek diğer arayüzden tekrardan göndermeleri. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sisteme bağlı cihazların aktivitelerini periyodik olarak izlemeleri. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Özellikle bilgisayar anakart üzerinde yerleşik olmaları. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Ağa izinsiz girişleri tespit edebilmeleri. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Uluslararası Standartlar Teşkilatı(ISO) tarafından oluşturulan ağ yönetim kategorilerinden Hata Yönetiminin amacı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Ağın verimliliğinin, çıkış gücü kavramlarının ele alınarak ölçülmesi, analiz edilmesi, raporlanması ve kontrol edilmesidir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ağ yöneticisi, ağa bağlı bulunan cihazların durumları ve yapılandırmaları konusunda bilgi sahibi olmaktadır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ağ kaynaklarının, ağ cihazları tarafından nasıl kullanıldığı ile ilgilidir. </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Ağın arızalarını kaydetmek ve raporlamak ve gerekli aksiyonları almak için geliştirilmiştir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Ağa bağlantı yapan kaynakların, ağın izin verdiği yazılımlarla bağlantı sağlaması anlamına gelmektedir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Anahtar cihazlar hangi topolojisinde kullanılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yol topolojisi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Halka topolojisi </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Yıldız topolojisi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Ağaç topolojisi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Karmaşık topoloji </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> SNMP protokolünün geliştirilmesinde rol oynayan kontrol protokolü aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> UTP </span><br>
+	<span class="option" data-correct="false"><b>B)</b> TCP </span><br>
+	<span class="option" data-correct="false"><b>C)</b> IP </span><br>
+	<span class="option" data-correct="false"><b>D)</b> HTTP </span><br>
+	<span class="option" data-correct="true"><b>E)</b> SGMP </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      Ağ yönetiminde önerilen protokol, Basit Ağ Yönetim Protokolü (SNMP–Simple Network Management Protocol)’dür. Bir grup üniversite işbirliği ile oluşturulan Basit Ağ Geçidi İzleme Protokolü (SGMP–Simple Gateway Monitoring Protocol), SNMP’nin geliştirilmesinde öncü rol oynamıştır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Hangi ağ yöneticisi, ağa bağlı bulunan cihazların durumları ve yapılandırmaları konusunda bilgi sahibi olmaktadır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Yapılandırma Yönetimi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Hata Yönetimi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Performans Yönetimi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Hesaplama Yönetimi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Güvenlik Yönetimi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> Veri paketlerini IP adresine göre hangi arayüzden gönderileceğine karar veren ağ cihazı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Switches </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Hubs </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Repeaters </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Routers </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bridges </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> Aşağıdakilerden hangisi ağ üzerinde yönetici öge ve yönetilen cihaz arasında köprü görevi gören yönetim protokolüdür? </p>
+	<span class="option" data-correct="false"><b>A)</b> Hata Yönetimi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Performans Yönetimi </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Basit Ağ Yönetimi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yapılandırma Yönetimi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Hesaplama Yönetimi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Paket yönlendirmesi sayesinde küresel internete bağlı bilgisayarlar arasında paket değişimine olanak sağlayan ağ bileşeni aşağıdakileren hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Tekrarlayıcı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Göbek cihazlar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Köprüler </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Yönlendiriciler </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Anahtar cihazlar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      TCP/IP modelinin üçüncü katmanında çalışan yönlendiricilerin asıl sorumluluğu, paket yönlendirmesi sayesinde küresel internete bağlı bilgisayarlar arasında paket değişimine olanak sağlamaktır. Tahmin edileceği üzere, binlerce ağ yolu ile cihazlar arası bağlantı sağlanmaktadır.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> Bir arayüzünden aldığı veriyi, diğer tüm arayüzlerine güçlendirerek gönderen ve bu sayede aynı anda bağlantı yapan çok sayıda cihaza verinin ulaşması sağlayan cihaz hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Anahtar Cihaz </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Köprüler </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Göbek cihaz (Hub) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yönlendirici </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Modem </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> Ağ kartının tekil özelliği, fabrika çıkışında üzerinde bulunan yerleşik belleğe kodlanmış bulunan adrese ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> UTP </span><br>
+	<span class="option" data-correct="true"><b>B)</b> MAC </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Coaxial </span><br>
+	<span class="option" data-correct="false"><b>D)</b> GSM </span><br>
+	<span class="option" data-correct="false"><b>E)</b> TCP/IP </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      Ağ kartının tekil özelliği, ilk ünitede açıklandığı gibi, fabrika çıkışında üzerinde bulunan yerleşik belleğe kodlanmış bulunan MAC adresidir. 48 bitten oluşan bu sayı, tüm ağ kartları için farklı değer almakta ve yerel alan ağ haberleşmesi bu küresel tekil sayıya bağlı olarak gerçekleşmektedir.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> SNMP protokolü kullanımı için gerekli üç bileşen hangisinde doğru verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Sunucu Uygulama, Veri Uygulama ve Ağ Bilgi Sistemi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Araç Uygulama, Sunucu Uygulama ve Ağ Bilgi Sistemi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Araç Uygulama, Sistem Uygulama ve Ağ Bilgi Sistemi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Araç Uygulama, Sistem Uygulama ve Ağ Yönetim Sistemi </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Araç Uygulama, Yönetici Uygulama ve Ağ Yönetim Sistemi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> Aşağıdakilerden hangisi Bir ağı oluşturan parçalardan biridir?<br><br>
+I. Bilgisayar,<br>
+II. Ağ kartı,<br>
+III. Kablolu ya da kablosuz iletişim ortamı,<br>
+IV. Protokoller </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I, II, III ve IV </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II, III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> Örnek : Ev kullanıcısı olarak internete bağlanmak üzere bir ADSL ağında kotalı internet hizmetinden faydalanıldığını düşünelim. İnternet hizmetinden faydalandıkça kotanın dolması, tamamen dolduktan sonra farklı ücretlendirme yapılması gibi durumlar ortaya çıkmaktadır.<br><br>
+Yukarıda verilen örnekte ortaya çıkan durumlar hangi ağ yönetim çeşitinde yer almaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Performans Yönetimi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Hata Yönetimi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yapılandırma Yönetimi </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Hesaplama Yönetimi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Güvenlik Yönetimi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      Hesaplama Yönetimi: Hesaplama yönetimi, ağ kaynaklarının, ağ cihazları tarafından nasıl kullanıldığı ile ilgilidir.      </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> Dışarıdan ağa yapılacak saldırılara karşı aşağıdakilerden hangisi kullanılmaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Köprüler (Bridges) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> SNMP–Simple Network Management Protocol </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yönlendiriciler (Routers) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Anahtar Cihazlar (Switches) </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Ateş Duvarı (Firewall) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> Aşağıdakilerin hangisi ağ yönetimini sağlamak için kullanılan ağ bileşenlerinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> İşletim sistemleri </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bilgisayarlar </span><br>
+	<span class="option" data-correct="true"><b>C)</b> SSD Sürücüler </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Anahtar cihazlar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Köprüler </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> 48 bitten oluşan ve fabrika çıkışında ağ kartının üzerinde bulunan yerleşik belleğe kodlanmış sayıya ne ad verilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> MAC adresi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> MacOs X </span><br>
+	<span class="option" data-correct="false"><b>C)</b> GSM </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Tekrarlayıcılar(repeaters) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Göbek cihazlar(Hubs) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      Ağ kartının tekil özelliği fabrika çıkışında üzerinde bulunan yerleşik belleğe kodlanmış bulunan MAC adresidir. 48 bitten oluşan bu sayı, tüm ağ kartları için farklı değer almakta ve yerel alan ağ haberleşmesi bu küresel tekil sayıya bağlı olarak gerçekleşmektedir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> Ağ bağlantılarının düzenli bir biçimde veri alışverişinde bulunmak ihtiyaç duyduğu kurallara ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Tekrarlayıcı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Göbek cihazlar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Köprü </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Protokol </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Anahtar cihaz </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> Aşağıdakilerden hangisi ağ dağıtımı için kullanılan cihazlardan Yönlendiricilerin bir diğer adıdır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Routers </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Switches </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bridges </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Hubs </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Repeaters </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      Bir ağı oluşturan parçalar, basit ağlar için; bilgisayar, ağ kartı, kablolu ya da kablosuz iletişim ortamı, protokoller ve işletim sistemi olarak tanımlansa da aslında ağ dağıtımı içinkullanılan cihazlar da ağ yönetiminde ön plana çıkmaktadır. Bu cihazlar;<br><br> 
+	Tekrarlayıcılar (Repeaters), <br>Göbek Cihazlar (Hubs), <br>Köprüler (Bridges), <br>Anahtar Cihazlar (Switches) ve son ve en önemli olarak da<br> Yönlendiricilerdir (Routers).     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> I.Araç Uygulama<br>
+II.Yönetici Uygulama<br>
+III.Ağ Yönetim Sistemi<br>
+IV. Yönlendiriciler<br><br>
+Yukarıdakilerden hangisi/hangileri SNMP protokolü kullanımı için gerekli bileşenlerdendir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve IV </span><br>
+	<span class="option" data-correct="false"><b>C)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I,II,III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> Aşağıdakilerden hangisi Performans yönetiminin asıl amacından biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Ağın verimliliğinin, ölçülmesi, </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Analiz edilmesi,
+</span><br>
+	<span class="option" data-correct="false"><b>C)</b> Raporlanması, </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Hatasız çalışması, </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Ağın arızalarının kontrolü, </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      Performans Yönetimi: Performans yönetiminin asıl amacı;
+			ağın verimliliğinin, <br> çıkış
+gücü kavramlarının ele alınarak ölçülmesi,<br>  analiz edilmesi,<br>  raporlanması ve kontrol edilmesine
+dayanmaktadır.     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> Dışarıdan yetkisiz girişler ve ağa ya da ağ cihazlarına zarar verecek şekilde geliştirilen yazılımların yasaklanması ya da pasif hale getirilmesi konusu, aşağıdaki hangi ağ yönetim çeşitinde yer almaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Performans Yönetimi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Hata Yönetimi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yapılandırma Yönetimi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Hesaplama Yönetimi </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Güvenlik Yönetimi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      Güvenlik Yönetimi :  Güvenlik yönetimi, ağa bağlantı yapan kaynakların, ağın izin verdiği yazılımlarla bağlantı sağlaması anlamına gelmektedir.<br>
+<br>
+ Dışarıdan yetkisiz girişler ve ağa ya da ağ cihazlarına zarar verecek şekilde geliştirilen yazılımların yasaklanması ya da pasif hale getirilmesi konusu, güvenlik yönetiminin alanıdır.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question41">
+	<p class="question">Soru 41:<br> I) Göbek Cihazlar( Hubs)<br>
+II) Tekrarlayıcılar(Repeaters)<br>
+III) Anahtar Cihazlar (Switches)<br><br>
+Yukarıdakilerden hangileri çoklu arayüzü olan ağ cihazlarındandır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description41">Açıklama</button>
+		<div id="description41" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question42">
+	<p class="question">Soru 42:<br> TCP/IP modelinin üçüncü katmanında çalışan, paket yönlendirmesi sayesinde küresel internete bağlı bilgisayarlar arasında paket değişimine olanak sağlayan ağ bileşeni aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Tekrarlayıcı </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Yönlendirici </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Köprü </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Anahtar cihaz </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Göbek cihaz </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description42">Açıklama</button>
+		<div id="description42" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question43">
+	<p class="question">Soru 43:<br> Altında farklı bilgisayarları barındıran (web çıkışı, ticari program kullanılması ya da işletim sistemi desteği vermek vb.) cihazlara verilen isim aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Süper bilgisayar </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Sunucu bilgisayar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kişisel bilgisayar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Taşınabilir bilgisayar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Ağ kartı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description43">Açıklama</button>
+		<div id="description43" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question44">
+	<p class="question">Soru 44:<br> Tekrarlayıcı cihazın çok arayüze sahip olanına ne ad verilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Göbek Cihaz (Hub) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Protokol </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Köprü (Bridge) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Anahtar Cihaz(Switch) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yönlendirici (Router)
+
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description44">Açıklama</button>
+		<div id="description44" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question45">
+	<p class="question">Soru 45:<br> Ağ kaynaklarının, ağ cihazları tarafından nasıl kullanıldığı ile ilgilenen ağ yönetim kategorisi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Performans Yönetimi
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Hata Yönetimi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yapılandırma Yönetimi </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Hesaplama Yönetimi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Güvenlik Yönetimi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description45">Açıklama</button>
+		<div id="description45" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question46">
+	<p class="question">Soru 46:<br> Aşağıdakilerden hangisi Kablolu ve Kablosuz İletişim Ortamlarında kullanılan kablo çeşitlerinden biridir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Fiber Optik kablodur.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> XLPE Kablo
+
+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> NYY Kablo
+
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> NYM Kablo
+
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> TTR Kablolar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description46">Açıklama</button>
+		<div id="description46" class="collapse">      Kablolu veri iletişim ağları için <strong>üç farklı kablo türünden</strong> bahsetmek mümkündür.<br><br>
+<u><strong>Eşmerkezli Kablo (Coaxial Cable):</strong></u> Anten kablosu olarak da adlandırılan kablodur. BNC adaptör ve konnektör ile birbirine bağlantı yapılan ağların veri transferi için kullanılmaktadır.<br><br>
+		
+<u><strong>UTP Kablo (Unshielded Twisted Pair – Korumasız Bükümlü Çift):</strong></u> Günümüz internet
+altyapısının yerel alan ağlarında kullanımı sıklıkla görülen kablo türüdür. Sağladıkları bant genişliğine göre Cat1, Cat2, Cat3, Cat4, Cat5, Cat5e, Cat6, Cat6a gibi çeşitleri bulunmaktadır. Cat1 kablo telefon iletişimi için kullanılmaktadır. Cat2 kablo ile 4 Mbps hızdan başlayarak, Cat6a kabloda 10 Gbps hızına kadar veri akışı elde edilmektedir. İçerisinde Turuncu, Turuncu Beyaz, Yeşil, Yeşil Beyaz, Mavi, Mavi Beyaz, Kahverengi, Kahverengi Beyaz olmak üzere dört adet çift, bükümlü şekilde bulunmaktadır.<br><br>
+
+<u><strong>Fiber Optik Kablo: </strong></u>En hızlı ve en uzak mesafe veri iletimine imkân sağlayan kablo türüdür. Fiber optik kabloda gönderici taraf, kablonun çeşidine göre, led ışık kaynağı ya da lazer ışık kaynağı olabilmektedir. Alıcı taraf bir fotodiyottur. Işığın algılanması “1”, ışık olmaması ise “0” kodlaması esasına göre çalışmaktadır. Plastik bir ceketin içerisinde ışığın geçebilmesine olanak sağlayan plastik ya da cam fiberlerden oluşmuş bir yapıya sahiptir. Maliyetinin yüksek ve işçiliğinin zor olmasına rağmen, yüksek hız ve uzun mesafe imkânı nedeniyle uzak mesafe bağlantılarda sıklıkla kullanılmaktadır.
+		</div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question47">
+	<p class="question">Soru 47:<br> Ağ problemlerinin tanımlanmasını, çözümlerin zamanında uygulanmasını ve genişleme durumunda kolay karar verme yetisini kazandıran protokol aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> SGMP PROTOKOLÜ </span><br>
+	<span class="option" data-correct="true"><b>B)</b> SNMP PROTOKOLÜ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> UDP PROTOKOLÜ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> SIP PROTOKOLÜ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> FTP PROTOKOLÜ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description47">Açıklama</button>
+		<div id="description47" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question48">
+	<p class="question">Soru 48:<br> Aşağıdakilerden hangisinde "Anahtar Cihaz"ın tanımı doğru olarak verilmiştir? </p>
+	<span class="option" data-correct="true"><b>A)</b> MAC adreslerini, içerisinde bulunan bir tabloda saklayarak seçimli gönderim yapan çok kapılı cihazdır.
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Herhangi bir kablolu ortama ihtiyaç duymaksızın kablosuz ağ yayını yapan bir merkeze bağlanarak ağa dâhil olan cihazdır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bir arayüzünden aldığı veriyi, diğer tüm arayüzlerine güçlendirerek gönderen cihazdır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yönetici öge ile yönetilen cihaz üzerindeki ağ yönetim aracının ortak bir dil kullanmasını sağlayan bir cihazdır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Ağ hakkında bilgi sağlayarak, gerektiğinde değişiklikleri bildirmeyi kolaylaştıran bir yazılımdır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description48">Açıklama</button>
+		<div id="description48" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question49">
+	<p class="question">Soru 49:<br> SNMP protokolü hangi protokol modelinin içerisinde yer almaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> UTP </span><br>
+	<span class="option" data-correct="false"><b>B)</b> FTP </span><br>
+	<span class="option" data-correct="false"><b>C)</b> HTTP </span><br>
+	<span class="option" data-correct="true"><b>D)</b> TCP/IP </span><br>
+	<span class="option" data-correct="false"><b>E)</b> SGMP </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description49">Açıklama</button>
+		<div id="description49" class="collapse">      Bilgi ağlarının genişlemesiyle yönetim ihtiyacı ortaya çıkmıştır. Ağa bağlanan bilgisayar sayısının artması ve farklı coğrafi bölgelere genişlemesi, anahtar cihaz ve yönlendirici kullanımını zorunlu kılmaktadır. Ağa bağlı bulunan son kullanıcı ve ara cihaz sayısının artması, ağın yönetim ve kontrolünü zorunlu hale getirmektedir. Bu sebeple oluşturulan SNMP protokolü de TCP/IP modelinin içerisinde yer almaktadır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question50">
+	<p class="question">Soru 50:<br> "Ağ Kartı" ile ilgili aşağıdaki ifadelerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Ethernet kartı olarak da bilinen teknoloji, kablolu ve kablosuz bağlantıya uyumlu olacak şekilde tasarlanmıştır. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> UTP kablo ucuna basılan RJ11 konnektör yardımıyla, üzerinde bağlı bulunduğu cihazın ağ ile bağlantısını sağlamaktadır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Günümüz teknolojisinde ağ kartının UTP kablo üzerindeki hızı 1 Gbps ile 10 Gbps arasında değişmektedir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kablosuz cihaz ise herhangi bir kablolu ortama ihtiyaç duymaksızın kablosuz ağ yayını yapan bir merkeze bağlanarak ağa dâhil olmaktadır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Ağ kartının tekil özelliği, fabrika çıkışında üzerinde bulunan yerleşik belleğe kodlanmış bulunan MAC adresidir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description50">Açıklama</button>
+		<div id="description50" class="collapse">      Günümüzde kullanılan kablolu ağ kartı, UTP kablo ucuna basılan <u><strong>RJ45</strong></u> konnektör yardımıyla, üzerinde bağlı bulunduğu cihazın ağ ile bağlantısını sağlamaktadır.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question51">
+	<p class="question">Soru 51:<br> UTP kablo aracılığıyla aldığı veriyi, güçlendirerek daha uzun mesafelere taşımak için kullanan ağ bileşeni aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Köprüler </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kablolu ağ kartı </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Tekrarlayıcılar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Göbek Cihazlar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Anahtar Cihazlar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description51">Açıklama</button>
+		<div id="description51" class="collapse">      Tekrarlayıcılar bunlardan en basit olanıdır. İki arayüzü bulunan cihaz, bir taraftan aldığı veriyi, güçlendirerek diğer arayüzünden tekrar göndermektedir. Özellikle UTP kablo menzilinin 100 metre civarında olduğu düşünülürse daha uzun mesafelerde veri taşımak için tekrarlayıcılardan faydalanılmaktadır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question52">
+	<p class="question">Soru 52:<br> Ham veriyi alarak üzerinde işlemler yapan, bilgi olarak çıkış veren, gerektiği durumlarda ise bilgiyi depolayarak daha sonra kullanımına olanak sağlayan elektronik cihazlara ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> TV </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Bilgisayar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ağ kartı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Hubs </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Switches </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description52">Açıklama</button>
+		<div id="description52" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question53">
+	<p class="question">Soru 53:<br> "Ağ yöneticisi, sisteme bağlı cihazların aktivitelerini periyodik olarak izlemektedir. Yönetici bilgisi dışında devre dışı kalan bir cihaz ağ problemine sebep olmaktadır. Bu sebeple kullanıcının bilgisi dışında kapanan cihazlara karşı acil önlem almak, cihazın tekrar faaliyete girmesini sağlamak ya da arıza durumunda onarım ve yenisi ile değiştirmek gibi işlemler gerçekleştirilmelidir."
+Yukarıda verilen bilgi hangisi ile açıklanır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Bir ağ cihazında ya da yönlendiricide ağ kartının arızasını belirlemek </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Sistemi İzlemek </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kaynak Dağılımı için Ağ Trafiğini İzlemek </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İstatistiklerin İzlenmesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yönlendirme tablolarındaki hızlı değişiklikleri belirlemek </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description53">Açıklama</button>
+		<div id="description53" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question54">
+	<p class="question">Soru 54:<br> Aşağıdakilerin hangisi sayesinde ağ bağlantıları, ağı iki farklı bölüme ayıracak şekilde düzenlenmektedir </p>
+	<span class="option" data-correct="false"><b>A)</b> Repeaters </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Hub </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Bridges </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Switches </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Routers </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description54">Açıklama</button>
+		<div id="description54" class="collapse">      İkinci katman cihazlar olan köprüler sayesinde ağ bağlantıları, ağı iki farklı bölüme ayıracak şekilde düzenlenmektedir. İki arayüze sahip köprüler, paketlerin başlığında bulunan MAC adreslerine göre seçimli olarak veri iletimine imkân sağlamaktadır. Bu sayede iletimi gerekmeyen veriler diğer arayüze geçmemekte ve ağ kaynakları verimli biçimde kullanılmaktadır.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question55">
+	<p class="question">Soru 55:<br> Aşağıdakilerden hangisi TCP/IP modeline göre olan protokollerden <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Uygulama katmanı protokolleri, </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Taşıma katmanı protokolleri, </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ağ katmanı protokolleri, </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Veri erişim katmanı protokolleri, </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Alıcı bilgisayara veri ileten protokoller, </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description55">Açıklama</button>
+		<div id="description55" class="collapse">      uygulama katmanı protokolleri,<br> taşıma katmanı
+protokolleri,<br> ağ katmanı protokolleri ve<br> veri erişim katmanı protokolleri    </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question56">
+	<p class="question">Soru 56:<br> Bir <u><strong>yerel ağ</strong></u> içerisinde aşağıdakilerden hangisi ağ verimliliğini kontrol eden izleme yöntemidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> İstatistiklerin İzlenmesi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sistemin İzlemesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İzinsiz girişlerin izlenmesi </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Ağ trafiğinin izlenmesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yönlendirme tablolarının izlenmesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description56">Açıklama</button>
+		<div id="description56" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question57">
+	<p class="question">Soru 57:<br> İnternet teknolojisinin atası olarak kabul edilen ARPANET’in yaşadığı sorun ve bu sorun sebebiyle yaklaşık olarak dört saat devre dışı kalması, ağ sisteminde meydana gelen ilk çökme olarak anılmaktadır. O yıllar için bu sorun, kullanıcı sayısının azlığı ve ağın kapasitesinin sınırlı olması dolayısıyla çok büyük zararlara yol açmadan atlatılmıştır. Fakat günümüzde değil saatler, dakikalar için bile böylesi bir sorunun meydana gelmesi, büyük maddi kayıplarla sonuçlanacaktır. Bu sebeple ağ yönetimi, ağ ortamında meydana gelecek hataları izlemek, hatayı oluşumundan önce belirlemek ve gidermek ile sorumludur.
+Yukarıda bahsedilen sorun hangi yılda gerçekleşmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 1978 </span><br>
+	<span class="option" data-correct="true"><b>B)</b> 1980 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 1982 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 1984 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 1986 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description57">Açıklama</button>
+		<div id="description57" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question58">
+	<p class="question">Soru 58:<br> Aşağıdakilerden hangisi ağ yönetim çeşitlerinden biri değildir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Performans yönetimi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Hata yönetimi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yapılandırma yönetimi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Hesaplama yönetimi </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Sınıflama yönetimi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description58">Açıklama</button>
+		<div id="description58" class="collapse">      Ağ yönetim modeli, ağ yönetimini beş farklı kategoride sınıflandırmaktadır:<br>
+- Performans yönetimi, <br>
+- Hata yönetimi, <br>
+- Yapılandırma yönetimi, <br>
+- Hesaplama yönetimi, <br>
+- Güvenlik yönetimi.      </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question59">
+	<p class="question">Soru 59:<br> ISO (International Organization for Standardization), Uluslararası Standartlar Teşkilâtı, Uluslararası Elektroteknik Komisyonu’nun çalışma sahasına giren elektrik ve elektronik mühendisliği konuları dışında, bütün teknik ve teknik dışı dallardaki standartların belirlenmesi çalışmalarını yürütmek amacıyla Cenevre’de kurulan uluslararası teşkilât kaç yılında kurulmuştur? </p>
+	<span class="option" data-correct="false"><b>A)</b> 1944 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 1945 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 1946 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 1947 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 1948 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description59">Açıklama</button>
+		<div id="description59" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question60">
+	<p class="question">Soru 60:<br> Aşağıdakilerden hangisi Ağ yönetim araçlarının kullanım amaçlarından birisi <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Ağda kesinti olmadan önce arıza çıkarabilecek kısımları tespit etmek ve önlem almak </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Ağa izinsiz girişlerde sistemi tamamen kapatmak </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bir ağ cihazında ya da yönlendirici de ağ kartının arızasını belirlemek </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kaynak dağılımı için ağ trafiğini izlemek </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yönlendirme tablolarındaki hızlı değişiklikleri belirlemek </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description60">Açıklama</button>
+		<div id="description60" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question61">
+	<p class="question">Soru 61:<br>  Aşağıdakilerden hangisi Ağ yönetim yapısını oluştururken sorulacak sorulardan <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> İzlenecek olan nedir?
+</span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ağ yönetici tarafından kontrol edilecek veriler hangileridir?
+</span><br>
+	<span class="option" data-correct="false"><b>C)</b> Raporlanacak ya da değişime tabi tutulacak özel form bilgisi nedir?
+</span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bu bilgi değişiminde kullanılacak protokoller hangileridir? </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Yönetim Bilgi Üssünün coğrafi yeri neresidir? </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description61">Açıklama</button>
+		<div id="description61" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question62">
+	<p class="question">Soru 62:<br> Ağa bağlantı yapan kaynakların, ağın izin verdiği yazılımlarla bağlantı sağlaması hangi yönetime girer? </p>
+	<span class="option" data-correct="false"><b>A)</b> Performans Yönetimi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Hata Yönetimi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yapılandırma Yönetimi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Hesaplama Yönetimi </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Güvenlik Yönetimi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description62">Açıklama</button>
+		<div id="description62" class="collapse">      Güvenlik Yönetimi: Güvenlik yönetimi, ağa bağlantı yapan kaynakların, ağın izin verdiği yazılımlarla bağlantı sağlaması anlamına gelmektedir. Dışarıdan yetkisiz girişler ve ağa ya da ağ cihazlarına zarar verecek şekilde geliştirilen yazılımların yasaklanması ya da pasif hale getirilmesi konusu, güvenlik yönetiminin alanıdır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question63">
+	<p class="question">Soru 63:<br> Hangisi yaygın olarak kullanılan işletim sistemlerinden değildir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Vyond </span><br>
+	<span class="option" data-correct="false"><b>B)</b> MacOs X </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Windows </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Ubuntu Linux </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Pardus </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description63">Açıklama</button>
+		<div id="description63" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question64">
+	<p class="question">Soru 64:<br> İnternet hizmetinden faydalandıkça kotanın dolması, tamamen dolduktan sonra farklı ücretlendirme yapılması gibi konular hangi ağ yönetim konusunun içindedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Performans Yönetimi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yapılandırma Yönetimi, </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Hata Yönetimi,
+
+ </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Hesaplama Yönetimi, </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Güvenlik yönetimi, </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description64">Açıklama</button>
+		<div id="description64" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question65">
+	<p class="question">Soru 65:<br> “UTP kablo ucuna basılan RJ45 konnektör yardımıyla, üzerinde bağlı bulunduğu cihazın ağ ile bağlantısını sağlamaktadır” bahseden kişi aşağıdakilerden hangisinden bahsetmektedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Kablolu ağ kartı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Tekrarlayıcılar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Göbek Cihazlar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Köprüler </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Anahtar Cihazlar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description65">Açıklama</button>
+		<div id="description65" class="collapse">      Ethernet kartı olarak da bilinen teknoloji, kablolu ve kablosuz bağlantıya uyumlu olacak şekilde tasarlanmıştır. Günümüzde kullanılan kablolu ağ kartı, UTP kablo ucuna basılan RJ45 konnektör yardımıyla, üzerinde bağlı bulunduğu cihazın ağ ile bağlantısını sağlamaktadır. Kablosuz cihaz ise herhangi bir kablolu ortama ihtiyaç duymaksızın kablosuz ağ yayını yapan bir merkeze bağlanarak ağa dâhil olmaktadır.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question66">
+	<p class="question">Soru 66:<br> Ağ yöneticileri bazı yöntemler ve araçlar ile ağı takip ederek verimli çalışmasını sağlamak için farklı araçlardan faydalanmaktadırlar.<br><br>
+I.Bir ağ cihazında ya da yönlendiricide ağ kartının arızasını belirlemek<br>
+II.Sistemi izlemek ve istatistiklerin izlenmesi <br>
+III.Kaynak tespiti için Ağ trafiğini izlemek <br>
+IV.Yönlendirme tablolarındaki hızlı değişiklikleri düzenlemek<br>
+V.Ağa izinsiz girişleri tespit etmek<br><br>
+Yukarıdakilerden hangileri ağ araçları arasında yer almaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> I, II ve III </span><br>
+	<span class="option" data-correct="false"><b>B)</b> II, III ve IV </span><br>
+	<span class="option" data-correct="false"><b>C)</b> III, IV ve V </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I, III ve IV </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve V </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description66">Açıklama</button>
+		<div id="description66" class="collapse">      Ağ yöneticileri bazı yöntemler ve araçlar ile ağı takip ederek verimli çalışmasını sağlamak için farklı araçlardan faydalanmaktadırlar.  Bu araçlardan bazıları aşağıda açıklanmaktadır.<br><br>
+1. Bir ağ cihazında ya da yönlendiricide ağ kartının arızasını belirlemek<br>
+2. Sistemi İzlemek ve İstatistiklerin İzlenmesi <br>
+3. Kaynak <u><strong>Dağılımı</strong></u> için Ağ Trafiğini İzlemek <br>
+4. Yönlendirme tablolarındaki hızlı değişiklikleri <u><strong> belirlemek </strong></u><br>
+5. Ağa izinsiz girişleri tespit etmek     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question67">
+	<p class="question">Soru 67:<br> I. Bir yönlendiriciye işlemci gücünü aşan sayıda paket gelmesi durumunda, bu paketlerin bir kısmı yönlendirici belleğinde işlenmek üzere saklanmaktadır.<br>
+II. Herhangi bir yerel alan ağında ya da ağlar arasında trafiğin aşırı artması, ağın kapasitesinin üzerine çıkması, tıkanıklığa (congestion) yol açmakta ve veri paketi kayıpları oluşmaktadır.<br>
+III. Ağ yöneticisi, yerel alan ağlarının içerisinde ve yerel alan ağları arasında gerçekleşen trafiği izlemekte ve bu izleme aracılığıyla ağın verimliliğini de tespit etmektedir.<br><br>
+Yukarıda verilen bilgilerden hangileri <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Hiçbiri </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description67">Açıklama</button>
+		<div id="description67" class="collapse">      3 maddede de verilen bilgilerin hepsi doğrudur. Buna göre verilen yanlış bir bilgi yoktur.      </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question68">
+	<p class="question">Soru 68:<br> I.iOS ve Android<br>
+II.Windows Mobile<br>
+III.Bada<br><br>
+Yukarıdakilerden hangisi/hangileri tablet bilgisayarlar ve akıllı telefonlar için taşınabilir cihazlara özel geliştirilen işletim sistemlerindendir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I,II,III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description68">Açıklama</button>
+		<div id="description68" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question69">
+	<p class="question">Soru 69:<br> Ağın arızalarını kaydetmek ve raporlamak ve gerekli aksiyonları almak için geliştirilen ağ yönetimi hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Performans Yönetimi </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Hata Yönetimi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yapılandırma Yönetimi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Hesaplama Yönetimi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Güvenlik Yönetimi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description69">Açıklama</button>
+		<div id="description69" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question70">
+	<p class="question">Soru 70:<br> Bir taraftan aldığı veriyi, güçlendirerek diğer arayüzünden tekrar gönderen, iki arayüzü bulunan cihaz aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Anahtar Cihazlar (Switches) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Köprüler (Bridges) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yönlendiriciler (Routers) </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Tekrarlayıcılar (Repeaters) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> MAC adresi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description70">Açıklama</button>
+		<div id="description70" class="collapse">      Ağ ortamının, sadece bilgisayarlar ve onları birbirine bağlayan kablolu ya da kablosuz ortamlardan oluşmadığından bahsedilmiştir. Ağı bir araya getirmek için farklı dağıtıcı ve yönlendirici cihazlara da ihtiyaç duyulmaktadır. Tekrarlayıcılar bunlardan en basit olanıdır. İki arayüzü bulunan cihaz, bir taraftan aldığı veriyi, güçlendirerek diğer arayüzünden tekrar göndermektedir.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question71">
+	<p class="question">Soru 71:<br> Aşağıdakilerden hangisi Basit Ağ Yönetim Protokolü(SNMP) dahilindeki cihazların veri işlemlerinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Çalışma Süresi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İnternet Bağlantı Hızı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Isı Değerleri </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Veriyi Güçlendirmesi
+
+  </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yönlendirme Tabloları </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description71">Açıklama</button>
+		<div id="description71" class="collapse">      SNMP protokolü dâhilinde cihazların ısı değerleri, internet bağlantı hızları, yönlendirme tabloları, çalışma süreleri vb. verileri tutmayı sağlayan ağaç yapısı mevcut bulunmaktadır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question72">
+	<p class="question">Soru 72:<br>  Ret edilen IP adresleri, Ethernet paketlerindeki çarpışma hataları, DNS sunucu bilgisayar üzerindeki bilgilerin sürüm numaraları, yönlendirme yol haritaları gibi bilgilerin hepsi  tek bir yerde toplanmaktadır.<br><br>
+Aşağıdakilerden hangisi bu yerin adıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Basit Ağ Geçidi İzleme Protokolü (SGMP–Simple Gateway Monitoring Protocol) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Basit Ağ Yönetim Protokolü (SNMP–Simple Network Management Protocol) </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Yönetim Bilgi Üssü (MIB–Management Information Base) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yönlendiriciler (Routers) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Tekrarlayıcılar (Repeaters) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description72">Açıklama</button>
+		<div id="description72" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question73">
+	<p class="question">Soru 73:<br> Aşağıdakilerden hangi SNMP Protokolü sürümünde büyük veri tablolarından oluşan verileri depolamak için gerkli düzenleme yapılmıştır? </p>
+	<span class="option" data-correct="false"><b>A)</b> SNMPv3 </span><br>
+	<span class="option" data-correct="true"><b>B)</b> SNMPv2 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> SNMPv1 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> SNMPv4 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> SNMPv5 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description73">Açıklama</button>
+		<div id="description73" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question74">
+	<p class="question">Soru 74:<br> Ağ bağlantısı oluşturulabilmesi için aşağıdakilerden hangi protokol gereklidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> UTP </span><br>
+	<span class="option" data-correct="true"><b>B)</b> TCP/IP </span><br>
+	<span class="option" data-correct="false"><b>C)</b> HTTP </span><br>
+	<span class="option" data-correct="false"><b>D)</b> FTP </span><br>
+	<span class="option" data-correct="false"><b>E)</b> SMTP </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description74">Açıklama</button>
+		<div id="description74" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question75">
+	<p class="question">Soru 75:<br> Aşağıdakilerden hangisi ağ dağıtımı için kullanılan cihazlardan biridir?<br><br>
+I. Tekrarlayıcılar (Repeaters),<br>
+II. Göbek Cihazlar (Hubs),<br>
+III. Köprüler (Bridges),<br>
+IV. Anahtar Cihazlar (Switches)<br>
+V. Yönlendiricilerdir (Routers). </p>
+	<span class="option" data-correct="true"><b>A)</b> I.II.III.IV.V </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I.II.III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I.II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II.III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yalnız I </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description75">Açıklama</button>
+		<div id="description75" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"</button> </footer>
+		
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 119));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}
+			
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

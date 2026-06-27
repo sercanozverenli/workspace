@@ -1,0 +1,1625 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+	  
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA II
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama2-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama2-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama2-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama2-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama2-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama2-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama2-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama2-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama2-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama2-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB ARAYÜZ PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİ YAPILARI
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veriyap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veriyap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veriyap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veriyap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veriyap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veriyap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veriyap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veriyap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veriyap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veriyap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          MOBİL UYGULAMA GELİŞTİRME
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="mobilug-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="mobilug-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="mobilug-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="mobilug-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="mobilug-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="mobilug-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="mobilug-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="mobilug-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="mobilug-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="mobilug-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          UNIX SİSTEM YÖNETİMİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="unixsy-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="unixsy-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="unixsy-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="unixsy-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="unixsy-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="unixsy-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="unixsy-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="unixsy-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="unixsy-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="unixsy-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Unix Sistem Yönetimi - Ünite 6 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	<button class="block-group" data-start="40" data-end="59">Part 3</button>
+	  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Aşağıdakilerden hangisi Linux sistem yönetiminde temel bileşenlerden olan belgeleme süreçlerinde kullanılan iş takip yazılımıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Gitbook </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Virtualbox </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Docker </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kubernetes </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Redmine </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Aşağıdaki komutlardan hangisi ile komut satırı arayüzünde içinde bulunulan dizin öğrenilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> bin </span><br>
+	<span class="option" data-correct="false"><b>B)</b> cd </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ls </span><br>
+	<span class="option" data-correct="true"><b>D)</b> pwd </span><br>
+	<span class="option" data-correct="false"><b>E)</b> mkdir </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Linux işletim sisteminde bulunulan dizindeki
+tüm dosya ve klasörleri listelemek için kullanılan komut hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> alh </span><br>
+	<span class="option" data-correct="true"><b>B)</b> ls </span><br>
+	<span class="option" data-correct="false"><b>C)</b> cd </span><br>
+	<span class="option" data-correct="false"><b>D)</b> pwd </span><br>
+	<span class="option" data-correct="false"><b>E)</b> bin </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Linux işletim sisteminde klasörünün içindeki
+dosyalar ile birlikte boyutunu görmek için hangi komut kullanılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> ls -ltr </span><br>
+	<span class="option" data-correct="false"><b>B)</b> pwd </span><br>
+	<span class="option" data-correct="true"><b>C)</b> du -alh </span><br>
+	<span class="option" data-correct="false"><b>D)</b> cd </span><br>
+	<span class="option" data-correct="false"><b>E)</b> rmdir </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      klasörün içindeki dosyalar ile birlikte boyutunu görmek için ls yerine bir başka
+komut olan du komutu kullanılabilir. Bu komuttaki “a” parametresi tüm dosyaları, “l” ana dizine bağlı
+olan dosya ve klasörlerin boyutunun hesaplanacak şekilde ve “h” ile dosya ve dizinlerin boyutlarının insanın
+anlayacağı (human readable) formatta listelenmesi sağlanır.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Linux işletim sisteminde içinde alt dizin(ler) ve/veya dosya(lar) olan klasörleri silmek için hangi komut kullanılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> rmdir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ls -ltr </span><br>
+	<span class="option" data-correct="false"><b>C)</b> tree -h </span><br>
+	<span class="option" data-correct="false"><b>D)</b> tail -f </span><br>
+	<span class="option" data-correct="true"><b>E)</b> rm -r </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Linux işletim sisteminde yeni bir klasör oluşturmak ve bu klasörün içerisine de alt klasörler oluşturmak için mkdir komutu ile birlikte kullanılan parametre aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> -l </span><br>
+	<span class="option" data-correct="false"><b>B)</b> -h </span><br>
+	<span class="option" data-correct="false"><b>C)</b> -r </span><br>
+	<span class="option" data-correct="true"><b>D)</b> -p </span><br>
+	<span class="option" data-correct="false"><b>E)</b> -s </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      “p” parametresi gerekirse üst (parent) klasörleri oluştur anlamına gelmektedir     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> Aşağıdakilerden hangisi SSH protokolü ile
+oturum açan lmsuser kullanıcısının sisteme giriş yaptığında komut satırı arayüzünde görünen “lmsuser@ubuntu:~$” ifadesine karşılık gelen konumdur? </p>
+	<span class="option" data-correct="false"><b>A)</b> /root/lmsuser </span><br>
+	<span class="option" data-correct="false"><b>B)</b> /var/lmsuser </span><br>
+	<span class="option" data-correct="true"><b>C)</b> /home/lmsuser </span><br>
+	<span class="option" data-correct="false"><b>D)</b> /boot/lmsuser </span><br>
+	<span class="option" data-correct="false"><b>E)</b> /ubuntu/lmsuser </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      $ işaretinden önceki tilda (~) işareti Türkçe klavyede Sağ Alt tuşuna
+basılı iken “ü” harfine basılarak elde edilir ve aslında /home/lmsuser yani kullanıcının ev dizini
+anlamına gelir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> Geçerli kullanıcı için Linux işletim sisteminde çalışan tüm süreçleri listeleyen komut aşağıdakilerden hangisidir?
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> ps ux </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ps aux </span><br>
+	<span class="option" data-correct="false"><b>C)</b> less </span><br>
+	<span class="option" data-correct="false"><b>D)</b> mkdir </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ls </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> Linux işletim sisteminde çalışan htop komutu ile süreçlerin görüntülendiği ekranda PRI sütunu aşağıdakilerden hangisini gösterir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Sürecin sahibi kullanıcı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sürecin kullandığı sanal bellek miktarı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sürecin kullandığı paylaşılan bellek miktarı </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Linux çekirdeği tarafından görüntülenen süreç önceliği </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İşlemin mevcut durumu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      htop Komutunda Süreç Bilgilerinin Altında Verildiği Başlıklar<br><br>
+<u><strong>PID</strong></u> : Sürecin ID numarası<br>
+<u><strong>USER</strong></u> : Sürecin sahibi kullanıcı<br>
+<u><strong>PRI</strong></u> : Linux çekirdeği tarafından görüntülenen süreç önceliğini tanımlar.<br>
+<u><strong>NI</strong></u> : Sürecin önceliğini etkileyen nice değeri. -20 ile +19 arasında bir değerdir.<br>
+<u><strong>VIRT</strong></u> : Sürecin kullandığı sanal bellek miktarı<br>
+<strong>RES</strong> : Sürecin kullandığı fiziksel RAM miktarı. Kilobayt cinsinden ölçülür.<br>
+<u><strong>SHR</strong></u> : Sürecin kullandığı paylaşılan bellek miktarı<br>
+<u><strong>S</strong></u> : İşlemin mevcut durumu (zombi, uykuda, çalışıyor, kesintisiz uykuda veya izleniyor)<br>
+<u><strong>%CPU</strong></u> : Süreç tarafından kullanılan işlemci süresinin yüzdesi<br>
+<u><strong>%MEM</strong></u> : Süreç tarafından kullanılan fiziksel belleğin yüzdesi<br>
+<u><strong>TIME+</strong></u> : İşlemin çalışmaya başlamasından bu yana geçen süre<br>
+<u><strong>COMMAND</strong></u> : Süreci başlatan komutun adı
+		</div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Linux işletim sisteminde çalışan htop komutunda sürecin durumunun gösterildiği S sütunundaki Z değeri aşağıdakilerden hangisini gösterir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Süreç geçici olarak durdurulmuştur. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Süreç zombi sürecidir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Süreç uyku modundadır ve durdurulabilir </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Süreç uyku modundadır fakat durdurulamaz. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Süreç çalışmaktadır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      • R: Süreç çalışmaktadır.<br>
+• S: Süreç uyku modundadır (beklemede) ve durdurulabilir.<br>
+• D: Süreç uyku modundadır fakat durdurulamaz.<br>
+• T: Süreç geçici olarak durdurulmuştur.<br>
+• Z: Süreç zombi sürecidir. Bu süreçler genelde hiçbir şey yapmazlar ve çok hızlı bir şekilde sonlandırılırlar.<br>
+Sonlandırılmadıkları durumlarda çalışan süreçleri olumsuz etkileyebilirler.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> Linux kimlik ve erişim düzeylerine göre aşağıdakilerden hangisi kaynağın kullancısının çalıştırma erişimini temsil eder? </p>
+	<span class="option" data-correct="true"><b>A)</b> u+x </span><br>
+	<span class="option" data-correct="false"><b>B)</b> g+r </span><br>
+	<span class="option" data-correct="false"><b>C)</b> o+w </span><br>
+	<span class="option" data-correct="false"><b>D)</b> g+x </span><br>
+	<span class="option" data-correct="false"><b>E)</b> o+x </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      Standart Linux izinleri, üç kimlik ve üç erişim düzeyi içerir.<br>
+<br>
+<u>Kimlik düzeyleri aşağıdaki gibidir: </u><br>
+<strong>• Kullanıcı (u):</strong> Kaynağın kullanıcısı ya da sahibi<br>
+<strong>• Grup (g):</strong> Belirlenmiş bir grup<br>
+<strong>• Diğerleri Others (o):</strong> Yukarıda belirtilen kullanıcı ya da gruba dahil olmayan herkes<br><br>
+
+
+<u>Erişim seviyeleri de dosya ve dizinler için aşağıdaki gibidir:</u><br>
+<strong>• Okuma (r):</strong> Dosya ya da dizinin içeriğini görme<br>
+<strong>• Yazma (w):</strong> Dosya ya da dizinin içine yazma<br>
+<strong>• Çalıştırma (x):</strong> betik (script) gibi çalıştırılabilir ögeleri çalıştırma ya da cd (change directory) komutu ile dizin değiştirme     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> Aşağıdakilerden hangisi standart UNIX erişim kontrol şemasının izlediği temel kurallardan biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Dosyalar ve süreçler gibi nesnelerin sahipleri vardır. Sahipleri, nesneleri üzerinde geniş fakat tam erişimin şart olmadığı kontrole sahiptir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Nesneleri oluşturan aynı zamanda sahibidir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Root kullanıcısı herhangi bir nesnenin sahibi olarak davranabilir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yalnızca root hesabı belirli hassas yönetim işlemleri gerçekleştirebilir. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Erişim denetimi ile ilgili kurallar, hangi kullanıcının bir işlemi gerçekleştirmeye çalıştığına bağlı değildir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      Erişim kontrol şemasının izlediği temel kurallardan bazıları aşağıdaki gibidir:<br><br>
+• Erişim denetimi ile ilgili kurallar, hangi kullanıcının bir işlemi gerçekleştirmeye çalıştığına veya bazı durumlarda o kullanıcının bir Unix grubuna üye olmasına <u>bağlıdır</u>.<br> 
+• Dosyalar ve süreçler gibi nesnelerin sahipleri vardır. Sahipleri, nesneleri üzerinde geniş fakat tam erişimin şart olmadığı kontrole sahiptir.<br> 
+
+• Nesneleri oluşturan aynı zamanda sahibidir.<br> 
+• Root kullanıcısı herhangi bir nesnenin sahibi olarak davranabilir.<br> 
+• Yalnızca root hesabı belirli hassas yönetim işlemleri gerçekleştirebilir.
+
+
+     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> <span style="color: darkred; margin-left: 5px;"><img src="unix1.JPG" alt="Unix Sistemleri - Ünite 6 Alıştırma Soruları " style="width: 95%;"></span><br><br>
+Şekil'e göre kullanıcının /home/lmsuser dizininde olduğunu varsayarsak bu dizinden /var/log dizinine gitmek için hangi komut satırı yazılmalıdır? </p>
+	<span class="option" data-correct="true"><b>A)</b> user@ubuntu:~$ cd /var/log </span><br>
+	<span class="option" data-correct="false"><b>B)</b> user@ubuntu:~$ mkdir /var/log </span><br>
+	<span class="option" data-correct="false"><b>C)</b> user@ubuntu:~$ ls -al </span><br>
+	<span class="option" data-correct="false"><b>D)</b> user@ubuntu:~$ rm /var/log </span><br>
+	<span class="option" data-correct="false"><b>E)</b> user@ubuntu:~$ cp /var/log </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      Şekil'de gösterilen dizin yapısında içinde bulunduğumuz dizinden /var/log klasörüne giderek dizinimizi değiştirelim. Bunun için öncelikle içinde bulunduğumuz dizini öğrenmek için komut satırı arayüzünde pwd komutunu kullanıyoruz: user@ubuntu:~$ pwd<br><br>
+
+/home/lmsuser<br><br>
+
+Mavi yazı renkli yoldan görüleceği üzere kullanıcı /home/lmsuser dizinindedir. Bulunulan dizinden /var/log dizinine gitmek için cd komutu aşağıdaki gibi kullanılacaktır:<br><br>
+
+user@ubuntu:~$ cd /var/log<br><br>
+
+user@ubuntu:/var/log$ pwd
+
+/var/log     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> Linux'te ls - al komutu aşağıdakilerden hangisini listeler? </p>
+	<span class="option" data-correct="true"><b>A)</b> Gizli dosyalar dahil tüm dosyaları dikey liste şeklinde listeler. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Dosyaları insanın anlayacağı formatta listeler. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Dosyaları değiştirilme tarihine göre sıralayarak listeler. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Dosyaları boyutlarına göre listeler. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sadece gizli dosyaları dikey liste olarak listeler. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      Bulunulan dizindeki tüm dosya ve klasörleri listelemek için ls komutu kullanılır<br>
+<br>
+-alh parametresinde “a” tümü, yani gizli dosyalar dahil herşeyi; “l” dikey
+liste şeklinde ve “h” ile dosya ve dizinlerin boyutlarının insanın anlayacağı (human readable) formatta
+listelenmesi sağlanır. “     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> Aşağıdakilerden hangisi aynı dizindeki bir dosyanın kopyasını oluşturur? </p>
+	<span class="option" data-correct="true"><b>A)</b> cp dosya1 dosya2 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> cp dosya </span><br>
+	<span class="option" data-correct="false"><b>C)</b> cp -r /var/log/ /home/log </span><br>
+	<span class="option" data-correct="false"><b>D)</b> cp --help </span><br>
+	<span class="option" data-correct="false"><b>E)</b> man cp </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> chmod 764 dosya1 komutu sonrası ls -l komutu aşağıdakilerden hangisini gösterecektir? </p>
+	<span class="option" data-correct="true"><b>A)</b><br> 
+		user@ubuntu:~$ chmod 764 dosya1<br>
+user@ubuntu:~$ ls -l<br>
+-rwxrw-r-- 1 user user 221 Oct 9 07:25 dosya1</span><br><br>
+	<span class="option" data-correct="false"><b>B)</b><br> 
+		user@ubuntu:~$ chmod 764 dosya1<br>
+user@ubuntu:~$ ls -l<br>
+-rwxrwxrwx 1 user user 221 Oct 9 07:25 dosya1</span><br><br>
+	<span class="option" data-correct="false"><b>C)</b><br> 
+		user@ubuntu:~$ chmod 764 dosya1<br>
+user@ubuntu:~$ ls -l<br>
+-rwxr---wx 1 user user 221 Oct 9 07:25 dosya1
+ </span><br><br>
+	<span class="option" data-correct="false"><b>D)</b><br> 
+		user@ubuntu:~$ chmod 764 dosya1<br>
+user@ubuntu:~$ ls -l<br>
+-r-xr--rwx 1 user user 221 Oct 9 07:25 dosya1</span><br><br>
+	<span class="option" data-correct="false"><b>E)</b><br> 
+		user@ubuntu:~$ chmod 764 dosya1<br>
+user@ubuntu:~$ ls -l<br>
+-r--r---wx 1 user user 221 Oct 9 07:25 dosya1</span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      r = okuma (rakamsal değeri 4)<br>
+ w = yazma (rakamsal değeri 2)<br>    
+x = çalıştırma (rakamsal değeri 1)<br><br>
+		
+Soldan ilk rakam öğe sahibinin izinlerini<br>
+İkinci rakam öğenin atandığı grubun izinlerini<br>
+Üçüncü rakam öğe için diğerlerinin izinlerini ifade eder.<br><br>
+		
+764 için<br><br>
+
+7 = öğe sahibinin izinleri<br>
+(<u><strong>r,w,x</strong></u> = 4+2+1)<br><br>
+		
+6 = öğenin atandığı grubun izinleri<br>
+(<u><strong>r,w</strong></u> = 4+2)	<br> <br>
+		
+4 = öğe için diğerlerinin izinleri<br>
+(<u><strong>r</strong></u> = 4)	
+	
+		</div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> Sisteme normal kullanıcı olarak giriş yapıldıktan sonra hangi komut ile root kullanıcı yerine geçebilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> su </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ls </span><br>
+	<span class="option" data-correct="false"><b>C)</b> cp </span><br>
+	<span class="option" data-correct="false"><b>D)</b> cd </span><br>
+	<span class="option" data-correct="false"><b>E)</b> rm </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> ps komutu aşağıdakilerden hangisini gerçekleştirir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Çalışan programları, kullandıkları kaynakları ve kimin çalıştırdığını gösterir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Normal kullanıcı olarak giriş yapıldıktan sonra root kullanıcısı yerine geçirir. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Dosya ve klasör izinlerini verilen parametrelere göre değiştirir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Dizinler arası dosya kopyalaması sağlar. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Dizinlerdeki tüm dosyaları listeler. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> htop komutunda süreç ve açıklaması eşleştirmelerinden hangisi hatalıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> PID: Sürecin ID numarası </span><br>
+	<span class="option" data-correct="false"><b>B)</b> PRI: Linux çekirdeği tarafından görüntülenen süreç önceliğini tanımlar. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> RES: Sürecin kullandığı fiziksel RAM miktarı. Kilobayt cinsinden ölçülür. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> SHR:  Sürecin kullandığı paylaşılan bellek miktarı </span><br>
+	<span class="option" data-correct="true"><b>E)</b> %MEM: Süreç tarafından kullanılan işlemci süresinin yüzdesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      htop Komutunda Süreç Bilgilerinin Altında Verildiği Başlıklar<br><br>
+<u><strong>PID</strong></u> : Sürecin ID numarası<br>
+<u><strong>USER</strong></u> : Sürecin sahibi kullanıcı<br>
+<u><strong>PRI</strong></u> : Linux çekirdeği tarafından görüntülenen süreç önceliğini tanımlar.<br>
+<u><strong>NI</strong></u> : Sürecin önceliğini etkileyen nice değeri. -20 ile +19 arasında bir değerdir.<br>
+<u><strong>VIRT</strong></u> : Sürecin kullandığı sanal bellek miktarı<br>
+<strong>RES</strong> : Sürecin kullandığı fiziksel RAM miktarı. Kilobayt cinsinden ölçülür.<br>
+<u><strong>SHR</strong></u> : Sürecin kullandığı paylaşılan bellek miktarı<br>
+<u><strong>S</strong></u> : İşlemin mevcut durumu (zombi, uykuda, çalışıyor, kesintisiz uykuda veya izleniyor)<br>
+<u><strong>%CPU</strong></u> : Süreç tarafından kullanılan işlemci süresinin yüzdesi<br>
+<u><strong>%MEM</strong></u> : Süreç tarafından kullanılan fiziksel belleğin yüzdesi<br>
+<u><strong>TIME+</strong></u> : İşlemin çalışmaya başlamasından bu yana geçen süre<br>
+<u><strong>COMMAND</strong></u> : Süreci başlatan komutun adı     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> Sistem yöneticilerinin gerçekleştirmesi beklenen ana görevler nelerdir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Sistem yöneticilerinin gerçekleştirmesi beklenen ana görevler aşağıdaki gibidir:<br><br>
+
+- Kullanıcı Hesap Yönetimi<br>
+- Donanım Bileşeni Ekleme<br>
+- Görevleri Otomatikleştirme<br>
+- Yedekleme ve Geri Yükleme<br>
+- Yazılım Yükleme ve Güncelleme<br>
+- Sorun Tespiti<br>
+- Sistemi İzleme<br>
+- Belgelemek<br>
+- Güvenliği Dikkatli Bir Şekilde İzleme<br>
+
+Performans Ayarı<br>
+Ticari Dağıtıcılarla Çalışma  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Root iznine sahip olmayan normal kullanıcılar sistemde neleri <u><strong>yapamaz?</strong></u>
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Linux işletim sisteminde bazı yapılandırma ayarlarını değiştiremez ve hatta bazı durumlarda bu ayarları göremez.  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> İzleme görevinin gerçekleştirilmesinde sistem yöneticileri tarafından hangi açık kaynak kodlu yazılımlar kullanılabilir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> - Prometheus,<br> - Grafana,<br> - Nagios Core ve<br> - Zabbix<br><br> gibi bir dizi açık kaynak kodlu yazılımlar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> Sunuculara yetkisiz erişimleri engellemek amacıyla hangi tedbirler alınabilir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> - SSH erişiminin yalnızca kurumsal ağdan ve belirli kullanıcılar tarafından gerçekleştirilmesi <br>
+- Standart portlar olarak ifade edilen 80 ve 443 TCP portları dışındaki portların kapalı olması <br>
+- Sunucuların güvenlik duvarı ve yük dengeleyici arkasında yapılandırılması  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Standart Linux izinlerinin içerdiği 3 kimlik nedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> <strong>- Kullanıcı (u):</strong> Kaynağın kullanıcısı ya da sahibi<br>
+<strong>- Grup (g):</strong> Belirlenmiş bir grup<br>
+<strong>- Diğerleri Others (o):</strong> Yukarıda belirtilen kullanıcı ya da gruba dahil olmayan herkes </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> Standart Linux izinlerinin içerdiği dosya ve dizinler için 3 erişim seviyesi nelerdir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> <strong>- Okuma (r):</strong> Dosya ya da dizinin içeriğini görme<br>
+<strong>- Yazma (w):</strong> Dosya ya da dizinin içine yazma<br>
+<strong>- Çalıştırma (x):</strong> betik (script) gibi çalıştırılabilir ögeleri çalıştırma ya da cd (change directory) komutu ile dizin değiştirme.  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> Erişim kontrol şemasının izlediği temel kurallardan bazıları nelerdir? </p>
+	<span class="option" data-correct="true"><b>A)</b> - Erişim denetimi ile ilgili kurallar, hangi kullanıcının bir işlemi gerçekleştirmeye çalıştığına veya bazı durumlarda o kullanıcının bir Unix grubuna üye olmasına bağlıdır.<br>
+- Dosyalar ve süreçler gibi nesnelerin sahipleri vardır. Sahipleri, nesneleri üzerinde geniş fakat tam erişimin şart olmadığı kontrole sahiptir.<br>
+- Nesneleri oluşturan aynı zamanda sahibidir.<br>
+- Root kullanıcısı herhangi bir nesnenin sahibi olarak davranabilir.<br>
+- Yalnızca root hesabı belirli hassas yönetim işlemleri gerçekleştirebilir.  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Oturum açıldığında varsayılan olarak /home/lmsuser yolundaki konumda olunacağına göre, dosyalar klasörü altındaki deneme.txt dosyasının içini görüntülemek için kullanılacak komut ne olacaktır? </p>
+	<span class="option" data-correct="true"><b>A)</b> lmsuser@ubuntu:~$ cat dosyalar/deneme.txt   </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> Bir dizin oluşturmak için kullanılacak komut nedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Bir dizin oluşturmak için “mkdir” komutu kullanılır.
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> Bulunulan dizindeki tüm dosya ve klasörleri listelemek için hangi komut kullanılır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> <strong>ls</strong> </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> -alh parametresinde sırasıyla “a”; “l” ve “h” neleri temsil eder? </p>
+	<span class="option" data-correct="true"><b>A)</b> “a” tümü, yani gizli dosyalar dahil herşeyi;<br> 
+“l” dikey liste şeklinde ve <br>
+“h” ile dosya ve dizinlerin boyutlarının insanın anlayacağı (human readable) formatta listelenmesi sağlanır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> Tree komutunun kullanılabilmesi için Debian tabanlı Linux işletim sistemlerinde hangi komut ile yüklenmesi  gerekir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> sudo apt install tree </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> Boş olan bir dizini silmek için hangi komut kullanılır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Boş olan bir dizini silmek için rmdir komutu kullanılır. 
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> İçinde alt dizin(ler) ve/veya dosya(lar) olan klasörleri silmek için rm komutu hangi parametreyle birlikte kullanılmalıdır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b>  rm komutu -r (yinelemeli- recursively) parametresi ile kullanılmalıdır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> Linux’ta dosya ve dizinlerle ilişkili izinler için her dosyaya atanan dokuz bit neyi tanımlamaktadır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Sizin ve başkalarının dosyalara erişimini tanımlamaktadır.  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> Eğer bir dosyanın sahibiyseniz bu dosya üzerindeki izni istediğiniz gibi değiştirmek için hangi komut kullanılır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> chmod  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> Root hesaba erişmenin sonuçlar bağlamında en sorunsuz yolu hangi komutu kullanmaktır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> "su" komutunu kullanmaktır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> Root dışındaki kullanıcıların yerine geçmek için hangi komut kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Yerine geçilecek kullanıcının parolası biliniyorsa;<br><br> su - yerine_gecilecek_kullanici<br><br> komutu ile bir başka kullanıcının yerine oturum geçişi yapılabilir.  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> Linux işletim sistemlerinde süreçler ne şekilde tanımlanmaktadır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Linux işletim sistemlerinde süreçler süreç ID’ler (PID) ile tanımlanmaktadır. 
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> Çekirdeğin dahili veri yapılarının her bir süreç hakkında kaydettiği bilgi parçalarının önemli olanlarından bazıları nelerdir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> - Sürecin adres alanı haritası<br>
+- Sürecin mevcut durumu (uyuyor, durmuş, çalıştırılabilir vb.)<br>
+- Sürecin yürütme önceliği<br>
+- Sürecin kullandığı kaynaklar (işlemci, bellek, vb.)<br>
+- Sürecin açtığı dosyalar ve ağ bağlantı noktaları hakkında bilgi<br>
+- Sürecin sinyal maskesi (sinyallerin engellendiği bir kayıt)<br>
+- Sürecin sahibi  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> Süreçlerle ilgili bir kavram olan iş parçası ne demektir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Süreç içerisindeki çalıştırılma ortamıdır.  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question41">
+	<p class="question">Soru 41:<br> top komutu ile htop komutu arasındaki fark nedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> top komutu en fazla sistem kaynağını tüketen işlemlere odaklanırken htop, çalışan tüm süreçleri gösterir. 
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description41">Açıklama</button>
+		<div id="description41" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question42">
+	<p class="question">Soru 42:<br> Çalışan süreçleri kontrol etmek için en yaygın yardımcı program hangi komuttur?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> <strong>ps</strong> komutudur.  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description42">Açıklama</button>
+		<div id="description42" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question43">
+	<p class="question">Soru 43:<br> ps komutundaki STAT sütunu, R ve S neleri temsil etmektedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> STAT sütunu, işlemin durumunu temsil eder; <br>
+	R, çalışmakta olan bir süreci ve <br>
+	S uyumakta olan bir süreci göstermektedir.  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description43">Açıklama</button>
+		<div id="description43" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question44">
+	<p class="question">Soru 44:<br> VSZ neyi göstermektedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> VSZ (sanal set boyutu- virtual set size) imaj sürecinin boyutunu kilobyte olarak gösterir. 
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description44">Açıklama</button>
+		<div id="description44" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question45">
+	<p class="question">Soru 45:<br> RSS neyi göstermektedir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> RSS (yerleşik set boyutu- resident set size) çalışan programın hafızadaki boyutunu gösterir. 
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description45">Açıklama</button>
+		<div id="description45" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question46">
+	<p class="question">Soru 46:<br> htop uygulaması hangi görevi yerine getirir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> htop, Linux sistemlerde işlemci/çekirdek başına kullanımı ve bellek ve takas kullanımının anlamlı bir metin grafiğini gösteren etkileşimli ve gerçek zamanlı bir süreç izleme uygulamasıdır.  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description46">Açıklama</button>
+		<div id="description46" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question47">
+	<p class="question">Soru 47:<br> F1 tuşu ile hangi menüye ulaşılabilir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> F1 tuşu ile htop yazılımı ile ilgili klavye kısayollarının yer aldığı bir menüye ulaşılabilir.  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description47">Açıklama</button>
+		<div id="description47" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question48">
+	<p class="question">Soru 48:<br> F2 ile hangi işlevler yerine getirilebilir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> F2 tuşu ile programın menüsünde yer alacak bileşenler, süreçlerle ilgili görüntüleme seçenekleri ve eklenip çıkarılacak sütun başlıkları ayarları yapılabilir. 
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description48">Açıklama</button>
+		<div id="description48" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question49">
+	<p class="question">Soru 49:<br> Linux’ta sistem öncelikleri hangi sayılar arasındadır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Linux’ta sistem öncelikleri 0 ile 139 arasındadır. 
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description49">Açıklama</button>
+		<div id="description49" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question50">
+	<p class="question">Soru 50:<br> Nice ne için kullanılır?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> nice, belirli bir işlemci (CPU) önceliğine sahip bir yardımcı programı veya çekirdek komut dosyasını çağırmak için kullanılır.  
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description50">Açıklama</button>
+		<div id="description50" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question51">
+	<p class="question">Soru 51:<br> VIRT hangi anlama gelir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> VIRT, bir sürecin ne kadar sanal belleğe sahip olduğunu düşündüğü anlamına gelir. 
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description51">Açıklama</button>
+		<div id="description51" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question52">
+	<p class="question">Soru 52:<br> RES hangi anlama gelir?
+
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> RES, bir sürecin kilobayt değerinden ne kadar gerçek fiziksel bellek tükettiğinin doğru bir göstergesi olan yerleşik boyut anlamına gelir. 
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ...... </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ...... </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description52">Açıklama</button>
+		<div id="description52" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	
+		
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

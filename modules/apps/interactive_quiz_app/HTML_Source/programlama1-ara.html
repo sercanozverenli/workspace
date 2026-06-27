@@ -1,0 +1,1591 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	  	  <link rel="icon" type="image/png" href="icon.png">
+  <style>
+	  .block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+  
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+	text-align: justify;
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+	  font-size: 12px;
+		border-radius: 5px;
+		border: 1px solid black;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		}
+
+	  
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="anasayfa.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA I
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama1-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama1-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama1-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama1-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama1-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama1-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama1-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama1-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama1-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama1-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          BİLİŞİM HUKUKU
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="bilisimhk-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="bilisimhk-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="bilisimhk-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="bilisimhk-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="bilisimhk-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="bilisimhk-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="bilisimhk-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="bilisimhk-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="bilisimhk-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="bilisimhk-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB'DE TELİF HAKLARI VE ETİK
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="webtelif-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="webtelif-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="webtelif-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="webtelif-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="webtelif-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="webtelif-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="webtelif-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="webtelif-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="webtelif-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="webtelif-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          AĞ YÖNETİMİ VE BİLGİ GÜVENLİĞİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="agyonetimi-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="agyonetimi-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="agyonetimi-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="agyonetimi-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="agyonetimi-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="agyonetimi-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="agyonetimi-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="agyonetimi-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="agyonetimi-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="agyonetimi-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİTABANI PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veritabaniprg-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veritabaniprg-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  </nav>
+  
+    <h4 id="ders">Programlama I - Çıkmış Sorular (Ara Sınav) </h4>
+	     
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	<button class="block-group" data-start="40" data-end="59">Part 3</button>		
+</div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Yazılım geliştirme sürecinin bu aşamasında, yazılımın nasıl geliştirileceğinden ziyade, ihtiyaçların neler olduğuna odaklanılmaktadır. Aynı zamanda, isteklerin mevcut teknoloji ve bütçe ile karşılanabilme durumu kontrol edilmektedir. Yazılım geliştirme ekibi ile en uygun yazılım dili, mimari yapı ve sunucu özelliklerine karar verilmektedir. <br><br>
+		Yukarıda açıklaması verilen yazılım geliştirme sürecinin hangi aşamasıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Tasarım </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bakım </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kodlama </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Planlama ve Analiz </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Test ve Entegrasyon </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> I. Programdaki tüm adımlar geometrik şekiller ile gösterilir<br>
+									II. Her bir geometrik şekil ve simge, bir iş veya komuta karşılık gelmektedir.<br>
+									III. Adımlar arası geçişler, akış diyagramında oklar ile temsil edilmektedir.<br><br>
+									Akış diyagramları ile ilgili yukarıdaki ifadelerden hangileri doğrudur</p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II, ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Algoritma akış yönünün bazı kural ve durumlara göre değiştiği akış şemaları aşağıdakilerden hangisidir?  </p>
+	<span class="option" data-correct="false"><b>A)</b> Doğrusal </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Koşullu </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tekrarlı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Döngüsel </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sıralı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Algoritmanın bir programlama diline dönüştürülmeden önceki bir ara formudur. Bu ara form, algoritmanın yarı programlama dili yarı konuşma dili şeklinde ifade edilmesidir.<br>
+									Yukarıda açıklaması verilen tanım aşağıdakilerden hangisidir?</p>
+	<span class="option" data-correct="false"><b>A)</b> Algoritma </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Sözde kod </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Analiz </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Mantıksal Akış </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Akış diyagramı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> - Uygulamalar, nesneler ve birbirleri ile olan ilişkileri çerçevesinde belirli bir işi yapmak için geliştirilebilmelidir.<br>
+									- Her nesne bir sınıfa ait olmalıdır ve sınıflar nesnelerin ortak özelliklerini ifade etmelidir.<br>
+									- Nesneler birbirleri ile iletişime geçebilmelidir. <br><br>
+									Yukarıda özellikleri verilen kavram aşağıdakilerden hangisidir?</p>
+	<span class="option" data-correct="false"><b>A)</b> Kapsülleme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Çok biçimlilik </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Soyutlama </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Nesne yönelimli programlama </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Miras alma </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Tüm donanım ve yazılımların arasındaki iletimi belirli kurallar çrçevesinde düzenleyen yazılımlardır. Bunun yanında tüm yazılımların kullandıkları kaynakların planlama ve kontrolünü yaparlar <br><br>Yukarıdaki açıklaması verilen yazılım türü aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Sistem Yazılımı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ticari yazılım </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Beta yazılım </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Uygulama yazılımı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Antivirüs yazılımı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> Bir sınıftan türetilen başka bir sınıfın, türediği sınıfın tüm davranışlarını göstermek zorunda olmamasıdır. Türetilen sınıfın farklı davranışlar göstermesidir. Farklı bir ifade ile, metodları ve türetilmiş sınıfları değişik şekillerde yeniden tanımlayabilmektir.
+							<br><br>Yukarıda açıklaması verilen tanım aşağıdakilerden hangisidir?
+									</p>
+	<span class="option" data-correct="false"><b>A)</b> Kapsülleme (Encapsulation) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Miras Alma (Inheritance) </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Çok Biçimlilik (Polymorphism) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Soyutlama (Abstraction) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Nesne Yönelimli Programlama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> Yapısal programlama mantığına göre bir tasarım yaparak akış diyagramı hazırlamak istendiğinde aşağıdaki adımlardan hangisinin takip edilmesine <u>gerek yoktur?</u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Tekrarlı bloklar için döngüler ve koşulların tanımlanması </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Koşullu dallanmalar (if) için şartların tanımlanması </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Goto komutu ile yönlendirilmelerin yapılması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Tüm blokların tek bir çıkışı olacak şekilde tekrar tasarlanması ya da bölünmesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Adımların basit bloklara bölünmesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      Aşağıdaki
+adımlar takip edilmelidir:<br><br>
+
+- Adımların basit bloklara bölünmesi<br>
+- Tüm blokların tek bir çıkışı olacak şekilde tekrar tasarlanması ya da bölünmesi<br>
+- Çıkış noktaları vasıtasıyla blokların birbirine bağlanması<br>
+- Tekrarlı bloklar için döngüler ve koşulların tanımlanması<br>
+- Koşullu dallanmalar (if ) için şartların tanımlanması<br>
+- Bağlantı eksikliklerinin tamamlanması <br>    </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> I. IOS	<br>
+									II. Android			<br>
+									III. Linux			<br>
+									IV. Office			<br><br>
+									Yukarıdakilerden hangileri işletim sistemi (sistem) yazılımlarındandır?
+												</p>
+	<span class="option" data-correct="false"><b>A)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve IV </span><br>
+	<span class="option" data-correct="false"><b>C)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> III ve IV </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">       <strong> Sistem yazılımları (İşletim Sistemleri):</strong> Bilgisayarın temel bileşenleri olan donanımlar ve diğer yazılımlar arasındaki iletişimi sağlarlar.<br>
+			İşletim sistemi yazılımlarına örnek verecek olursak;<br>
+- Linux<br>
+- Mac-Os<br>
+- Windows 10, 8, 7…<br>
+- Android (Mobil)<br>
+- IOS (Mobil)      </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> I. isim="Kerem";	<br>
+									II. sonuc+=26;			<br>
+									III. 258=alanKodu;			<br>
+									IV. taban*yukseklik/2=alan;			<br><br>
+									Yukarıdaki değişken değer atamalarından hangileri hatalıdır?</p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve IV </span><br>
+	<span class="option" data-correct="true"><b>E)</b> III ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      III hatalıdır çünkü değişkenin ismi solda olmalıdır ve sayısal bir değer sol tarafta olamaz. Bu değişken tanımı şu şekilde düzeltilebilir: int alanKodu = 258;
+<br>
+IV hatalıdır çünkü matematiksel bir formül, değişken adı olamaz. Bu formülün sonucu bir değişkene atanabilir. Örneğin: double alan = taban * yukseklik / 2;<br>
+
+sonuc+=26; değişken değer ataması hatalı değildir. Çünkü daha önce tanımlanan "sonuc" isimli değişkene 26 değerinin eklenerek güncellemek istendiği anlaşılmaktadır.      </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> I. for	<br>
+									II. while			<br>
+									III. switch			<br>
+									IV. do while			<br><br>
+									Yukarıdakilerden hangileri döngü komutlarıdır?</p>
+	<span class="option" data-correct="false"><b>A)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> II ve IV </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I, II ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      C# dilinde kullanılabilen döngü komutları şunlardır:<br><br>
+
+<strong>for:</strong> Belirli sayıda tekrarlamalar için kullanılır.<br>
+<strong>while:</strong> Koşul doğru olduğu sürece tekrarlamalar için kullanılır.<br>
+<strong>do-while:</strong> Koşul doğru olduğu sürece tekrarlamalar için kullanılır, ancak en az bir kez çalıştırılır.<br>
+<strong>foreach:</strong> Bir koleksiyonun elemanları üzerinde dolaşmak için kullanılır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> Bir değer türü bir nesneye atanmaya çalışıldığında, değer türünün verisinin bir kopyasının yığından (stack) alınıp öbeğe (heap) taşınması ve nesnenin bu verinin kopyasına ulaşmasının gerekmesine ne ad verilir?  </p>
+	<span class="option" data-correct="false"><b>A)</b> Tür dönüşümü </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Boxing (Kutulama) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Referans Tipi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Unboxing (Kutudan Çıkarma) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Değer tipi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> int i =20; <br>
+									int j = i + 3			<br>
+									i += j++;			<br>
+									Console.WriteLine ( ++i );			<br><br>
+						Yukarıda verilen kod parçasının ekranda göstereceği çıktı aşağıdakilerden hangisidir?</p>
+	<span class="option" data-correct="false"><b>A)</b> 20 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 23 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 43 </span><br>
+	<span class="option" data-correct="true"><b>D)</b> 44 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 45 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      - "i" değişkenine 20 değeri atanır.<br>
+- "j" değişkenine "i+3" yani 23 değeri atanır.<br>
+- "i" değişkenine "j++" ifadesinde "++" "j"'den sonra olduğu için. Yapılan işlemden sonra "j" değeri 1 arttırılacaktır.<br> Bu yüzden önce "i"'nin değeri olan 20 ile "j"'ninin 23 değeri toplanır ve yeni "i" değeri 43 olarak bulunur.<br> Bu işlemden sonra "j" değişkeninin değeri bir attırıldığından yeni "j" değeri 24 olur.<br>
+- Console.WriteLine(++i) ifadesi çalıştırılır. Burada "++" ibaresi "i"'den önce olduğundan önce "i" değişkeni bir arttırılır. Yani "i" 44 değerine sahip olur. Daha sonra "i" değişkeninin son değeri ekrana yazdırılır, yani 44 ekrana yazılır.     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> Aşağıdakilerden hangisi Stack (istif) yapısına bir örnektir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Sözlükteki kelimeler </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kütüphanedeki raflardaki kitaplar </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Üst üste konulmuş tabaklar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kitabın fihrist kısmı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Market sırasında bekleyen insanlar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> Programların çalıştırılabilmesi için bir başlangıç noktasına ihtiyaçları vardır. <br><br>
+									Programın bütün işlevlerinden sorumlu, onları yaptıran hatta başka sınıflar ile iletişim kuran bu ana metot aşağıdakilerden hangisidir.
+									</p>
+	<span class="option" data-correct="true"><b>A)</b> Main </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Public </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yapıcı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kurucu </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yıkıcı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Aşağıdakilerden hangisi String sınıfının özelliklerinden biri değildir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Count </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Concat </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ToUpper </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Compare </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ToLower </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">        <u><strong>String sınıfının sık kullanılan metotları/özellikleri:<br></strong></u><br><br>
+<strong>• Length: </strong>Metnin uzunluğunu yani kaç karakterden oluştuğu bilgisini vermektedir. int türünde değer döndürür.<br>
+<strong>• ToLower:</strong> String türünde tanımlanmış değişkendeki metnin tümünü küçük harfe çevirir.<br>
+<strong>• ToUpper:</strong> String türünde tanımlanmış değişkendeki metnin tümünü büyük harfe çevirir.<br>
+<strong>• Compare:</strong> Metin karşılaştırma işlemi yapmak için kullanılır. String ifadeleri karakter karakter karşılaştırarak sonucu int bir değer olarak döndürür.<br>
+<strong>• Concat:</strong> Bu metot, string ifadeleri birleştirmek için kullanılır. Verilen metinleri art arda ekler ve yine string türünden bir değer döndürmektedir. <br>
+<strong>• Copy:</strong> Metni başka bir değişkene kopyalamak için kullanılır.<br>
+<strong>• Format:</strong> Verilen string bir ifadeyi istenilen formata uygun şekilde düzenleyerek yine geriye string bir değer döndürür. <br>
+<strong>• IsNullOrEmpty:</strong> Parametre olarak verilen string değişkenin boş olup olmadığını kontrol etmek için kullanılır. Sonucu boolean olarak döndürmektedir.<br>
+<strong>• Contains:</strong> Bu metot, bir string değer içinde karakter ya da metin aramak için kullanılmaktadır. Boolean bir değer döndürür. True ise aranan metin, string değerin içinde vardır, false ise bulunamamıştır.	<br>
+<strong>• CopyTo:</strong> Bu metot ile, string bir değişken içinden belirtilen konumdan bir char dizisine kopyalama yapar. String değişkenin başlangıç indeksi seçilir, char dizisinin kopyalama yapılacağı başlangıç indeksi ve kopyalanacak karakter sayısı verilerek kopyalama yapılır.<br>
+<strong>• EndsWith:</strong> String bir değişkenin sonunun verilen bir char veya string türündeki değere eşit olup olmadığını kontrol eder.<br>
+<strong>• IndexOf:</strong> String bir değişken veya değer içinde karakter ya da string bir ifadeyi aramak için kullanılır.
+Aranan değer bulunur ise ilk bulduğu metnin indeks değerini döndürür. Bulamazsa -1 döndürür. <u>4 farklı kullanım şekli vardır.</u><br>
+&emsp;- IndexOf(Char)<br>
+&emsp;- IndexOf(String)<br>
+&emsp;- IndexOf(Char degisken_ismi, int başlangıç_konumu)<br>
+&emsp;- IndexOf(String degisken_ismi, int başlangıç_konumu)<br>
+<strong>• Insert:</strong> Verilen string bir değer içerisine, belirtilen başlangıç pozisyonundan itibaren araya yeni metin ilave edilir. Geriye metnin ilave edilmiş hâlini döndürür.<br>
+<strong>• LastIndexOf:</strong> IndexOf metoduna benzerdir ve benzer bir kullanımı vardır. IndexOf aranan metnin bulduğu ilk indeksini verirken, LastIndexOf ise aranan metnin bulunduğu son konumu int türünde vermektedir. Aranan metin bulunamazsa yine -1 değerini döndürür.<br>
+<strong>• PadLeft:</strong> İki çeşit kullanımı vardır.<br>
+&emsp;- PadLeft(int bosluk_sayisi): Metnin sol başına verilen boşluk sayısı kadar “ ” boşluk karakteri
+ekler. <br>
+&emsp;- PadLeft(int bosluk_sayisi, char karakter): Metnin sol başına parametrede verilen sayı kadar
+belirtilen karakteri ekler.<br>
+<strong>• PadRight:</strong> Kullanımı ve özelliği PadLeft gibidir. İki çeşit kullanımı vardır.<br>
+&emsp;- PadRight(int bosluk_sayisi): Metnin sağına verilen boşluk sayısı kadar “ ” boşluk karakteri ekler.<br>
+&emsp;- PadRight(int bosluk_sayisi, char karakter): Metnin sağına parametrede verilen sayı kadar belirtilen karakteri ekler.<br>
+<strong>• Remove:</strong> Bu metodun da iki farklı kullanımı vardır.<br>
+&emsp;- Remove( int baslangıç_konumu ): String ifadenin verilen konumundan sonuna kadar silmek için kullanılır.<br>
+&emsp;- Remove( int baslangıç_konumu, int kaç_adet_silineceği ): String ifadenin verilen başlangıç konumundan belirtilen adet kadar karakter silmek için kullanılır.<br>
+<strong>• Replace:</strong> Verilen metin içerisindeki bir metin arar ve bunu yeni metin ile değiştirir. İki farklı kullanımı vardır.<br>
+&emsp;- string degistirilmis_metin = eski_metin.Replace( char eski_karakter, char yeni_karakter )<br>
+&emsp;- string degistirilmis_metin = eski_metin.Replace( string eski_kelime, string yeni_kelime )<br>
+<strong>• Split:</strong> String bir değişkenin değerini belirtilen koşullara göre parçalara ayırmaya yarar. İçerisinde nokta “.” geçen bir paragraf metnini, cümlelerden oluşan bir string dizisine çevirebilir.	<br>
+<strong>• StartsWith:</strong> Bir metnin verilen bir karakter ya da bir metin ile başlayıp başlamadığını kontrol etmektedir. Boolean bir değer döndürür. True ise verilen metin ile başlamış, False ise verilen metin ile başlamamıştır.	<br>
+<strong>• Substring:</strong> Bir metnin içinden istenilen yerden, istenildiği kadar metin almak için kullanılır. İki farklı kullanımı vardır.<br>
+&emsp;- Substring( int başlangıç_konumu ): Verilen başlangıç konumundan metnin sonuna kadar alarak bir metin oluşturur.	<br>
+&emsp;- Substring( int başlangıç_konumu, int adet ): Verilen başlangıç konumundan parametrede belirtilen adet kadar karakter alarak metin oluşturur.			
+			     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> İşlemlerin daha kolay yapılabilmesi amacıyla bazı işlemleri kendi içinde toplanmış bir sınıftır. Bir sayının karesini alma, karekökünü bulma, ikinci dereceden kuvvetini alma, alt ve üste yuvarlama, Sin/Cos gibi trigonometrik işlemler, logaritmeik işlemler, sayı karşılaştırma gibi işlemleri desteklemektedir. <br><br>
+									 Yukarıda bahsedilen sınıf aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> String sınıfı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Logaritma sınıfı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Random sınıfı </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Matematik sınıfı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Collection sınıfı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> double x = Math.Sqrt( 256 ); <br><br>
+									Yukarıda kodu verilen matematiksel işlem aşağıdakilerden hangisidir?</p>
+	<span class="option" data-correct="false"><b>A)</b> 16² =x </span><br>
+	<span class="option" data-correct="true"><b>B)</b> x =√256 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> x =256² </span><br>
+	<span class="option" data-correct="false"><b>D)</b> X =16² </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 256 =x </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      Math sınıfından bir metot olan Sqrt() metodu kullanılarak bir değişkene değer atar. Metodun parametresi olarak 256 verilmiştir.<br>
+
+
+Sqrt() metodu, parametre olarak aldığı sayının karekökünü hesaplar ve sonucu double tipinde bir değer olarak döndürür. Bu nedenle değişkenin tipi double olarak tanımlanmıştır.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> Aşağıdakilerden hangisinde C# kodunun çalışma sırası doğru bir şekilde verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Makine Kodu - C# Kodu - C# Derleyici - IL Kod - .Net Framework </span><br>
+	<span class="option" data-correct="false"><b>B)</b> C# Kodu - IL Kod - C# Derleyici - .Net Framework - Makine Kodu </span><br>
+	<span class="option" data-correct="false"><b>C)</b> C# Kodu - Makine Kodu - C# Derleyici - IL Kod - .Net Framework </span><br>
+	<span class="option" data-correct="false"><b>D)</b> C# Kodu - .Net Framework - C# Derleyici - IL Kod - Makine Kodu </span><br>
+	<span class="option" data-correct="true"><b>E)</b> C# Kodu - C# Derleyici - IL Kod - .Net Framework - Makine Kodu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19" >Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> Yazılım geliştirme süreci aşamalarının doğru sıralaması aşağıdakilerden hangileirnde verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Planlama ve Analiz - Tasarım - Kodlama - Test ve Entegrasyon - Bakım - Değerlendirme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Planlama ve Analiz - Tasarım - Kodlama - Test ve Entegrasyon - Bakım </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Taleplerin Belirlenmesi - Planlama ve Analiz - Tasarım - Test ve Entegrasyon - Kodlama - Bakım </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Taleplerin Belirlenmesi - Planlama ve Analiz - Tasarım - Kodlama - Test ve Entegrasyon - Bakım </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Planlama ve Analiz - Tasarım - Kodlama - Bakım - Test ve Entegrasyon - Değerlendirme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Array ve ArrayList sınıflarından tanımlanmış dizi elemanlarına bir indeks numarası ile erişilebilir. Ancak kod yazımında bu her zaman en verimli yöntem olmayabilir. Çünkü hangi nesnenin hangi sırada listeye eklendiğinin bilinmesi gerekir. ........ sınıfı da tam bu eksikliği gidermek üzere tasarlanmıştır. Bu koleksiyon türünde, listeye eklenecek her bir eleman için indeks kullanmak yerine, bir anahtar ve buna karşılık değer ataamsı yapılmaktadır.
+	<br><br> Yukarıda boş bırakılan yeri aşağıdakilerden hangisi doğru şekilde tanımlar?</p>
+	<span class="option" data-correct="true"><b>A)</b> Hashtable </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Queue </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Stack </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Dictionary </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Format </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Türetilen sınıftan gelen bazı özelliklerin değiştirilmesine ve nesne üzerinden çağrılabilmesine ne ad verilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Çok biçimlilik </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Public metot </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Soyut sınıf </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Arayüz </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Mühürlü sınıf </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> Sözde kod (pseudo code) ile ilgili aşağıdaki ifadelerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Problemin çözümüne yönelik bir
+algoritmanın herhangi bir programlama
+diline dönüştürülmeden önceki ara formudur. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sözde kod, algoritmanın yarı programlama
+ve yarı konuşma dili şeklinde ifade edilir. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Sözde kod şeklinde verilen bir algoritmada
+daha çok veri yapıları gibi detaylar üzerine
+odaklanılır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kodlama bilmeyen kişilerin de yapılacak işin
+akışını ve mantığını kavramalarına kolaylık
+sağlar. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> "başla, bitir, oku, yaz" sözde kod komutları
+arasında sayılabilir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      Sözde kod şeklinde verilen bir algoritmada, veri yapıları gibi detaylar göz ardı edilerek <strong>daha çok algoritmanın davranışı üzerine </strong>odaklanılır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Aşağıdakilerden hangisi belirlenen bir
+problemin bilgisayar ortamında çözüm aşamalarından <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Problemi tanımlama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Alternatif çözüm yolları </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Girdi ve çıktıların belirlenmesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Algoritmanın kodlanması </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Çalışma takımlarının oluşturulması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      <u><strong>Çözüm aşamaları şu şekilde sıralanabilir:</strong></u><br><br>
+
+<strong>1. Problemi Tanımlama (İnceleme, Analiz):</strong> Algoritmanın amacı problemi çözmektir. Çözülecek problem ne kadar iyi anlaşılır ise algoritmayı geliştirmek o kadar kolay olacaktır.<br>
+<strong>2. Girdi ve Çıktıların Belirlenmesi:</strong> Problemi iyi tanımlayabilmek için başlangıç ve bitiş noktaları belirlenmiş, sistemin girdi ve çıktı parametrelerinin ortaya konulmuş olması beklenmektedir.<br>
+<strong>3. Alternatif Çözüm Yolları:</strong> Bir problemin birden fazla çözüm yolu olduğu unutulmamalıdır. Zamana ve insan kaynağına göre en uygun çözüm yolu belirlenmelidir. Algoritma, seçilen çözümü adımlara ayrıştırıp birbirleri ile ilişkilerinin düzgün biçimde kurulmasını sağlayacak şekilde dizayn edilmelidir.<br>
+<strong>4. Çözümün Sınanması ve İyileştirilmesi:</strong> Hazırlanan algoritmanın kodlamadan önce nasıl çalışacağının adım adım incelenmesi, varsa eksik ve hataların giderilmesi ve gerekli görülen değişikliklerin yapılması gerekmektedir. Bu işlemler sırasında işlemci ve bellek kullanımı konusunda görülen iyileştirme imkânları da mutlaka göz önünde bulundurulmalıdır.<br>
+<strong>5. Algoritmanın Kodlanması:</strong> Problemin çözümü için geliştirilen algoritma, bilgisayar üzerinde çalışabilmesi için ihtiyaca uygun olarak belirlenen bir programlama dili ile kodlanır.<br>
+<strong>6. Kodun Sınanması ve İyileştirilmesi:</strong> Yazılan kod da tıpkı algoritmada olduğu gibi sınanmalıdır. Bu seferki sınama, belirlenen girdiler için belirlenen çıktıların alınmasının kontrol edilmesi amacıyla kodun çalıştırılmasıdır. Bu aşamada da performans ve olası hataların düzeltilmesi beklenmektedir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> Ayşe akşam gelecek misafirler için mutfakta çaydanlığa su koyar. Daha sonra da çaydanlığı ocağa yerleştirerek altını yakar. Ayşe'nin başka telaşları olduğundan; odasında oyun oynayan oğlu Ahmet'e seslenir ve su kaynadığında çayı demlemesini ve sonrasında da oturma odasına geçmesini rica eder.<br> <br> 
+Yukarıda bir bölümü verilen senaryo örneğinden hareketle; kaynamış su ile çayı demlemek için mutfağa giden Ahmet'in; annesinin ricalarını yerine getirmede takip etmesi gereken işlem adımları aşağıdakilerden hangisinde eksiksiz ve doğru sırası ile yer almaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b><br> 
+1. Mutfağa git.<br>
+2. Su kaynamış mı kontrol et.<br>
+3. Evet ise 5. adıma git.<br>
+4. Hayır ise 2. adıma git.<br>
+5. Çayı demle </span><br><br>
+	<span class="option" data-correct="true"><b>B)</b><br> 
+1. Mutfağa git.<br>
+2. Su kaynamış mı kontrol et.<br>
+3. Evet ise 5. adıma git.<br>
+4. Hayır ise 2. adıma git.<br>
+5. Çayı demle.<br>
+6. Oturma odasına geç. </span><br><br>
+	<span class="option" data-correct="false"><b>C)</b><br> 
+1. Mutfağa git.<br>
+2. Çayı demle.<br>
+3. Ourma odasına geç. </span><br><br>
+	<span class="option" data-correct="false"><b>D)</b><br> 
+1. Oturma odasına geç.<br>
+2. Su kaynamış mı kontrol et.<br>
+3. Evet ise 5. adıma git.<br>
+4. Hayır ise 2. adıma git.<br>
+5. Çayı demle. </span><br><br>
+	<span class="option" data-correct="false"><b>E)</b><br> 
+1. Su kaynamış mı kontrol et.<br>
+2. Evet ise 4. adıma git.<br>
+3. Hayır ise 1. adıma git.<br>
+4. Çayı demle. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> Aşağıdakilerden hangisi nesne yönelimli
+programlamanın <u><strong>temel</strong></u> prensiplerinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Nesneler kendi aralarında mesaj iletir ya da
+istek oluşturur. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Her nesne bir sınıfın örneği olup; sınıf ise
+benzer nesneleri gruplayan bir şemadır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sınıflar, tek kökü olan bir ağaç yapısı altında
+dizayn edilir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Her nesne kendi bilgilerini tutabilmeli ve her
+nesnenin bir hafızası olmalıdır. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Tüm bloklar tek bir çıkışı olacak şekilde
+tekrar tasarlanır ya da bölünür. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      <u><strong>Temel prensipleri ise şu şekilde sıralayabiliriz:</strong></u><br>
+- Her şey bir nesnedir.<br>
+- Nesneler kendi aralarında mesaj iletir ya da istek oluşturur.<br>
+- Her nesne kendi bilgilerini tutabilmelidir, bir hafızası olmalıdır.<br>
+- Her nesne bir sınıfın örneğidir. Sınıf, benzer nesneleri gruplayan bir şemadır.<br>
+- Sınıf içinde nesnelerin özellikleri belirtilir.<br>
+- Sınıflar, tek kökü olan bir ağaç yapısı altında dizayn edilir. Buna miras hiyerarşisi denmektedir     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> C# programlama dili diğer programlama
+dilleri ile karşılaştırıldığında <u><strong>en önemli</strong></u> farkı aşağıdakilerden hangisinde verilmektedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Direkt makine diline derlenmeyip ; önce IL (Intermediate Language) adı verilen bir ara kod formuna derlenirler. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Çoklu dil desteği ile program geliştirilebilir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Microsoft tarafından geliştirilmiştir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Nesne yönelimli bir programlama dilidir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> .Net platformunun bir ögesidir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> I. _ilkkarakter<br>
+II. tc_kimlik_no<br>
+III. 40lar<br>
+IV. #sokakAdı<br>
+Yukarıda verilen değişkenlerden hangisi/hangileri geçerli şekilde isimlendirilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız II </span><br>
+	<span class="option" data-correct="true"><b>B)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve IV </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> III ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      <strong>Değişken isimlendirmede de bazı kurallar mevcuttur. <br></strong>
+
+• Değişken isimlendirmelerinde büyük-küçük harf duyarlılığı vardır.<br>
+• Değişken isimleri nümerik (sayısal) bir karakterle başlayamaz.<br>
+• Değişken isimlerinde boşluk karakteri, tire (-) işareti ve tırnak (“) işareti bulunamaz, tüm değişkenler tek kelimelik olmalıdır.<br>
+• Değişken isimleri, harf (A-Z veya a-z), sayılar (0-9) ve alt çizgi (_) karakteri kullanarak oluşturulabilir. Ancak değişken isimleri sayı ile başlayamaz. <br>
+• #, ?, !, & gibi diğer özel karakterler ise değişken isimlendirilmesinde kullanılamaz.<br>
+
+     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> C# programlama dilinde enum
+(enumerations) türü ile ilgili aşağıdaki ifadelerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Enum ilk değer ataması yapılması gereken
+bir türdür. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Varsayılan değişken türleri integer’dır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İsimlendirme kuralları diğer değişken türleri
+ile aynıdır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Enum byte, sbyte, short, ushort, long, ulong,
+int, uint türlerinde tanımlanabilir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Alabileceği değerleri sabit olan değişkenler
+enum olarak tanımlanabilir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      
+- C# programlama dilinde enum, enumeration sabitleri olarak isimlendirilir.<br>
+- Alabileceği değerleri sabit olan değişkenler enum olarak tanımlanabilir.<br>
+- Enum türü, belirli bir sınırlı değer kümesi içinde olan değerleri temsil etmek için kullanılır ve bu değer kümesi tanımlama sırasında belirtilir. <br>
+- Program içerisinde sayısal türde yapılacak karşılaştırma ve işlemlerde kullanılır. Kodun okunurluğu ve hata ayıklamasını kolaylaştırır.<br>
+- Enum sabitlerine değer ataması yapılmazsa, ilk elemanının değeri sıfırdan başlayarak birer birer artan sayısal değer alırlar. Varsayılan değişken türleri integer’dır. <br>
+- Enum sabitler ayrıca byte, sbyte, short, ushort, long, ulong, int, uint türlerinden de tanımlanabilirler. <br>
+- Diğer değişken türleri ile aynı isimlendirme kuralları, enum sabitler için de geçerlidir.<br>
+     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> ------- türleri ve tür üyelerini kimlerin değiştirebileceğini belirterek programların belirli bölümlerinin diğer bölümler tarafından değiştirilmesine izin verir veya bunları engeller.<br> <br> 
+Yukarıda boş bırakılan yeri aşağıdakilerden hangisi doğru şekilde tamamlar? </p>
+	<span class="option" data-correct="false"><b>A)</b> Değer ve referans türleri </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Enum sabitleri </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Referans tipleri </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Belirleyici anahtar sözcükler </span><br>
+	<span class="option" data-correct="false"><b>E)</b> “ref” ve “out” anahtar kelimeleri </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> İki sayının çarpımlarının sonucunu, kendi türlerinden daha fazla veri alabilen “long” türünde döndürmesi işlemini gerçekleştiren ve math sınıfında kullanılan metot aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Math.Log( sayı, taban ) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Math.DivRem( sayı1, sayı2, out kalan ) </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Math.BigMul( sayı1, sayı2 ) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Math.Log10( sayı1, sayı2 ) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Math.Max( sayı1, sayı2 ) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> C# dilinde yer alan “System.Math” sınıfı ile ilgili aşağıdaki ifadelerden hangisi doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Math sınıfında hazırlanmış metotlar "static"
+değildir. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Math sınıfından kalıtım yapılamaz. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Pi sayısı ve Euler değeri "System.Math"
+içerisinde tanımlanan değişkenlerdir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Math sınıfının bir nesnesi yaratılabilir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Tüm matematiksel işlemlerin toplandığı
+sınıftır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> public int ucgenAlanHesapla( int taban, int yukseklik)<br>
+{<br>
+&emsp;int alan = (taban*yukseklik) /2 ;<br>
+&emsp;return alan ;<br>
+}<br><br>
+		
+Yukarıda C# kodlarıyla örnek bir metot bulunmaktadır.<br><br>
+		
+Buna göre ilgili kod bloğunda yer alan metot elemanları ile ilgili aşağıdakilerden hangisi <u><strong>söylenemez?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Metodumuz { } arasına yazılarak kod bloğu
+ayrılmıştır. Bu bloğa metodun gövdesi de
+diyebiliriz. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Metotta “alan” değişkeni "return" olarak
+belirtilmiş ve "int" anahtar kelimesi ile geri
+döndürülmüştür. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Erişim belirleyicisi “public” (programın her
+yerinden çağrılabilir) olarak tanımlanmıştır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Metodun geri döndürdüğü değer türü “int”
+olarak tanımlanmıştır. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Metodun isimlendirilmesinde “Snake Case”
+isimlendirme standardı kullanılmıştır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      
+	<strong>- E şıkkı yanlıştır</strong> çünkü Snake Case isimlendirmesinde her kelime alt tire ile ayrılır. <br>
+Örneğin: "ucgen_alan_hesapla", <br>
+- Pascal case isimlendirmesinde isim kelimeler birleşik yazılır ve ilk kelime dahil tüm kelimelerin baş harfi büyük yazılır. <br>
+Örneğin: "UcgenAlanHesapla"<br>
+- Soruda ise ilk kelime hariç diğer kelimelerin ilk harfi büyük yazılmıştır ve boşluk kullanılmamıştır. Yani bu şekilde: "ucgenAlanHesapla" bu örnek <strong>Camel Case</strong> isimlendirmesidir.<br><br>
+
+<strong>Sorudaki kod parçacığı her yönüyle incelendiğinde şunlar görülmektedir:
+</strong><br>
+• Erişim belirleyicisi “public” (programın her yerinden çağrılabilir) olarak tanımlanmıştır.<br>
+• Metodun geri döndürdüğü değer türü “int” olarak tanımlanmıştır.<br>
+• Metodun içine bakıldığında “alan” değişkeni int olarak belirtilmiş ve metotta “return” anahtar kelimesi<br>
+ile geri döndürülen değer, dönüş türü ile aynı olduğu görülmüştür.<br>
+• Metodun isimlendirilmesinde “camelCase” isimlendirme standardı kullanılmıştır.<br>
+• Metodumuz iki tane “int” türünde parametre almış ve aralarına virgül “,” koyularak ayrılmıştır.<br>
+• Metodumuz { } arasına yazılarak kod bloğu ayrılmıştır. Bu bloğa metodun gövdesi de diyebiliriz.     </div>
+	</div>
+</div>
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> Referans ile metot çağırma işleminde, ref parametresi olarak gönderilen değişkene mutlaka bir değer atanması gerekmektedir.<br><br>
+Yukarıda gereklilik olarak verilen ifadenin nedeni aşağıdakilerden hangisinde doğru olarak verilmiştir?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> Metot içinde birden fazla geri dönüş yapılmasının beklenmesidir. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Kendisine referans olarak gönderilen değişkenin başka bir veri ile ilişkili olduğunun varsayılmasıdır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kullanılan değişkenlere değer atanmamış olarak kabul edilmesidir.  </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Değerlerin metotlara referans ile geçirilmesidir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bellekte veri yerine verinin tutulduğu adresinin bilinmesidir.  </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> Aşağıdakilerden hangisi programlama dili değerlendirme ölçütlerinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Veri türleri ve yapıları </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Derleyicilik </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Verimlilik </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Esneklik </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Taşınabilirlik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      <u><strong>"Programlama Dili Değerlendirme Ölçütleri"</strong></u><br><br>
+
+
+<u><strong>• Verimlilik (efficiency):</strong></u> Bir programın genel olarak hızlı, az bellek kullanarak çalışmasına denir. Çalışan kod ne kadar küçükse çalışması da o kadar hızlı olacaktır. Tabii bu bahsedilen hız, düzgün bir algoritma ile yazılmış, ortalama bir bilgisayar üzerinde çalıştırılan program için geçerlidir.<br><br>
+
+<u><strong>• Veri türleri ve yapıları (data types and structures):</strong></u> Bünyesinde farklı veri türlerini (tam sayı, gerçek sayı, boolean ve karakter işlemleri gibi) ve veri yapılarını (dizi, ağaç, liste, yapılar gibi) destekleme kabiliyetidir. Veri yapıları, verileri alma ve bunları depolama tarzıdır. Bu depolamaya veri türlerinin oluşturduğu mantıksal gruplar da diyebiliriz. Elemanları belirlenen uzunluktaki karakterlerden oluşmuş bir karakter dizisini örnek olarak verebiliriz.<br><br>
+
+<u><strong>• Alt programlama yeteneği (Modularity):</strong></u> Alt programları, büyük bir problemi parçalara ayırarak oluşturulan daha küçük parçaların çözümlenmesi ve bu parçaların aralarında kurulan ilişkilerin yönetimi şeklinde ifade edebiliriz. Bir programlama dili bu şekilde kodun parçalanarak yazılmasına izin veriyorsa, alt programlama yeteneği olduğundan bahsedebiliriz.<br><br>
+
+<u><strong>• Yapısallık (structural programming support):</strong></u> Kod yazımında bloklar hâlinde yazım öne çıkmaktadır. Alt programlar yoğun şekilde kullanılmaktadır. Kullanılan alt programlar sayesinde kodun okunurluğu ve yönetimi daha kolay olur.<br><br>
+
+<u><strong>• Esneklik (flexibility):</strong></u> Programlama dilinin makinenin tüm donanım birimlerine erişiminde geniş yetkiler vermesidir diyebiliriz. Yani programcının kısıtlanmaması durumudur. Bu kısıtlamaların olmaması, hata riskini de beraberinde getirmektedir. Programcı tecrübesi ve yeteneğine göre bu özellikleri yararına kullanabilir.<br><br>
+
+<u><strong>• Öğrenme ve öğretme kolaylığı (pedagogy):</strong></u> Programlama dillerinin seviyesi yükseldikçe öğrenme ve kod yazması kolaylaşmakta, seviyesi düştükçe de öğrenme ve kod yazımı zorlaşmaktadır. Bu nedenle piyasada yaygın olarak kullanılan yüksek seviyeli diller, öğrenmesi ve kod yazması daha kolay olduğu için daha fazla kişi tarafından tercih edilmektedir. C# dilini öğrenmesi ve kod yazması, C diline nazaran çok daha kolaydır. Ayrıca iş hayatında C# dili, C dilinden daha yaygın olarak kullanılmaktadır.<br><br>
+
+<u><strong>• Genellik (generality):</strong></u> Bir programlama dilinin sadece belli bir çeşit işlem için değil, çeşitli uygulamaların geliştirilebilmesine imkân verecek şekilde dizayn edilmesidir. Örneğin COBOL dili, ticari uygulamalar için geliştirilmiştir; farklı bir tür yazılım için uygun değildir ve tercih de edilmez. C dili ise sistem programlama dili olarak dizayn edilmesine karşın, güçlü ve esnek yapısından dolayı genel amaçlı bir dil hâline gelmiştir.
+
+<u><strong>• Giriş / Çıkış (input / output, IO facility) kolaylığı:</strong></u> Dosya erişimi ve veri tabanı işlemlerinin kolaylıkla yapılabilme yeteneğidir. DBase, MySQL, MsSQL, PostgreSQL, Oracle gibi veri tabanı dillerinin bu bakımdan gelişmiş yetenekleri vardır ve bu dillerin en tipik özelliklerini oluşturmaktadır. Fakat C gibi giriş-çıkış işlemleri kolay olmayan bir dilde, veri tabanı işlemlerini yapabilmek için özel kütüphaneler kullanmak gerekmektedir.<br><br>
+
+<u><strong>• Okunabilirlik (readability):</strong></u> Sorumluluğun büyük ölçüde programı yazan kişide olduğu bir durumdur. Kodun, başkaları tarafından da kolay ve anlaşılabilir bir şekilde yazılmasıdır. Tabii kullanılan dilin de bu konuda okunabilirliği destekleyen yapıları olması gerekmektedir. Yazılan kod ne kadar okunaklı şekilde yazıldıysa, uzun zaman geçse bile koda müdahale şansı olmaktadır. Ortak bir projede çalışılan koda müdahale ve geliştirmede okunabilirliğin önemi daha da artmaktadır.<br><br>
+
+<u><strong>• Taşınabilirlik (portability):</strong></u> Taşınabilirlik, kaynak kodun başka sistemlerde de sorunsuz bir şekilde derlenerek doğru bir şekilde çalıştırılabilmesi demektedir. Yani bir standardizasyon gibi düşünülebilir. Tüm komutlar, farklı sistemlerde aynı şekilde çalışabilmeli ve aynı tepkileri vermelidir. C dilinin, standartlaşması 1989 yılında bitmiştir ve diğer dillerin çoğundan daha taşınabilir bir yapısı vardır.<br><br>
+
+<u><strong>• Nesne Yönelimlilik (object orientation):</strong></u> C dilinin geliştirildiği sıralarda, yazılan kodların uzunluğu on binler seviyesindeydi. Fakat programlardan beklentilerin artması, bilgisayar ve internetin yaygınlaşması, grafik arayüzlerinin yoğun kullanılması ile yüksek seviyeli diller daha da gelişmiştir. Bu gelişmeye bağlı olarak kodların milyon satır düzeylerine ulaştığı görülmektedir. Büyüyen kodların kontrolü de zorlaşmakta olduğundan kullanılan dillerin yapısı değişmiş, nesne yapısı üzerine kurulu diller geliştirilmiştir. Eski dillerin de nesne yönelimli yeni versiyonları piyasaya çıkmıştır. Örneğin C’nin nesne yönelimli dili olarak C++, Pascal için Delphi, ADA için ADA95 dili geliştirilmiştir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> Aşağıdakilerden hangisi C# dilinde kullanılan operatör sınıflarından <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Çift aritmetik operatörler </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Mantıksal operatörler </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Karşılaştırma operatörleri </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Atama operatörü </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Aritmetik operatörler </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      <strong>C# dilinde kullanılan operatörler şu şekilde sınıflandırılabilirler:</strong><br><br>
+• Atama Operatörü<br>
+• Tekli Aritmetik Operatörler<br>
+• Bileşik Atama Operatörleri<br>
+• Aritmetik Operatörler<br>
+• Karşılaştırma Operatörleri<br>
+• Mantıksal Operatörler <br>    </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> int[,] ikiBoyut = new int[,]{ { 4, 3},{ 2, 1 },{ 9, 6 },{ 4, 7 } };
+int t1 = ikiBoyut[ 3, 0] ;
+int t2 = ikiBoyut[ 2, 0] ;
+int t3 = ikiBoyut[ 1, 1] ;
+Yukarıda verilen kod parçasındaki t1, t2 ve t3 değişkenlerinin değerleri hangi seçenekte doğru olarak
+verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> t1=3, t2=1, t3=6  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> t1=4, t2=2, t3=9 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> t1=4, t2=9, t3=1 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> t1=6, t2=1, t3=1 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> t1=9, t2=2, t3=1 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> I. Aynı türden tanımlanmış birden çok elemanın tutulabileceği bir listedir.<br>
+II. Dizi elemanlarının türleri sadece kullanıcı tarafından tanımlanabilir.<br>
+III. Dizilerin tanımlandıkları yerde uzunluklarının belirtilmesine gerek yoktur.<br>
+<br>
+Dizi ile ilgili yukarıdaki ifadelerden hangisi/hangileri doğrudur? </p>
+	<span class="option" data-correct="true"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II, ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> Aşağıdakilerden hangisi stack (İstif/yığın) yapısına bir örnektir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kitabın fihrist kısmı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kütüphanedeki raflardaki kitaplar </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Üst üste konulmuş tabaklar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sözlükteki kelimeler </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Market sırasında bekleyen insanlar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40"> 
+	<p class="question">Soru 40:<br> Motorlu taşıtlar sınıfından türeyen araba ve traktçr örneğinden hareketle; ortak özelliklerinden motor, arabadan daha küçük ve güçsüz iken, traktörde daha büyük ve güçlü olmalıdır. İki aracın da tekerlekleri olması gerekmekte ama arabanın tekerlekleri daha küçük olacaktır. Aynı şekilde araba, traktörden daha hızlı olacaktır.<br><br>
+Yukarıdaki açıklamalar doğrultusunda "ortak özelliklerin farklı değerler ile tanımlanarak tamamen değişik bir boyut kazanması" nesne yönelimli programlamanın aşağıdaki hangisine işaret etmektedir?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> Soyutlama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yapısallık </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Çok biçimlilik </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kapsülleme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Miras alma </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+<div class="question-block">
+	<div id="question41">
+	<p class="question">Soru 41:<br> Çay demleme<br>
+1. Başla<br>
+2. Mutfağa git<br>
+3. Çaydanlığa su koy<br>
+4. Çaydanlığı ocağa koy<br>
+5. Ocağın altını yak<br>
+6. Su kaynamış mı kontrol et<br>
+7. Evet ise 9. adıma git<br>
+8. Hayır ise 6. adıma git<br>
+9. Çayı demle<br>
+10. 10 dakika demlenmesini bekle<br>
+11. Çayı servis et<br>
+12. Bitir.<br><br>
+Buna göre ilgili algoritmanın akış diyagramı çizildiğinde hangi basamak akış yönünü belirlemek için yer almaktadır?
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> 6. basamak  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 7. basamak </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 8. basamak </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 9. basamak </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 10. basamak </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description41">Açıklama</button>
+		<div id="description41" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question42">
+	<p class="question">Soru 42:<br> Veri türleri ile ilgili aşağıdaki ifadelerden hangisi doğrudur? </p>
+	<span class="option" data-correct="true"><b>A)</b> Int32 ya da int, pozitif ve negatif tam sayıları ifade etmektedir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> short veri tipinin kullanıldığı yer sadece pozitif sayılardır </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bool veri tipi hafızada 2 byte yer kaplamaktadır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İşaretsiz tam sayılar için short veri tipi kullanılır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> UInt32 ya da uint, sadece negatif tam sayıları ifade etmektedir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description42">Açıklama</button>
+		<div id="description42" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question43">
+	<p class="question">Soru 43:<br> Bir aşama süresince, hazırlanan akışlarla ilgili karşılaşılan problem ve sorunların, yazılımlar ve tasarım ekibi ile birlikte koordineli bir şekilde çözülmesi beklenmektedir.<br><br>
+Yukarıda açıklaması verilen yazılım geliştirme süreç basamağı aşağıdakilerden hangisidir?
+  </p>
+	<span class="option" data-correct="false"><b>A)</b> Planlama </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Kodlama </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Analiz </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bakım </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Tasarım </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description43">Açıklama</button>
+		<div id="description43" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question44">
+	<p class="question">Soru 44:<br> Alt programlama yeteneği (Modularity) kavramının açıklaması aşağıdakilerden hangisinde doğru olarak verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Programlama dilinin makinenin tüm donanım birimlerine erişiminde geniş yetkiler vermesidir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bir programın genel olarak hızlı, az bellek kullanarak çalışmasıdır. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Büyük bir problemi parçalara ayırarak oluşturulan daha küçük parçaların çözümlenmesidir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kod yazımında bloklar halinde yazım öne çıkmaktadır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bünyesinde farklı veri türlerini ve veri yapılarını destekleme kabiliyetidir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description44">Açıklama</button>
+		<div id="description44" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question45">
+	<p class="question">Soru 45:<br> Aşağıdakilerden hangisi nesne yönelimli programlamanın temel prensiplerinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Her şey bir nesnedir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Her nesne bir sınıfın örneğidir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sınıf içinde nesnelerin özellikleri belirtilir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Nesneler kendi aralarında mesaj iletir ya da istek oluşturur. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Nesneler kendi bilgilerini tutabilme özelliğinden yoksundur. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description45">Açıklama</button>
+		<div id="description45" class="collapse">      Her nesne kendi bilgilerini tutabilmelidir,
+bir hafızası olmalıdır.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question46">
+	<p class="question">Soru 46:<br> C# kodları ile ilgili aşağıdaki ifadelerden hangisi doğrudur? </p>
+	<span class="option" data-correct="true"><b>A)</b> C# programının çalışabilmesi herhangi bir çerçevenin kurulu olmasına gerek yoktur. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> IL ara kod formuna öncelikli derlenmektedir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Derlenen kodun uzantısı txt'dir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> C# kodları, direk makine diline derlenmektedir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Derlenen kodun uzantılı dosyasının adı dll'dir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description46">Açıklama</button>
+		<div id="description46" class="collapse">      C# kodları, direk makine diline derlenmezler.<br>
+Önce IL (Intermediate Language) adı verilen bir ara kod formuna derlenirler. <br>
+Derlenen ve uzantısı exe veya dll olan bu kodun dosyasına assembly adı verilir. <br>
+Hazırlanan bu program çalıştırılmak istendiğine ise .Net Framework devreye girerek, IL kodunu makine koduna dönüştürerek, bilgisayarın anlayacağı şekle getirir. <br>
+Yazılan bir C# programının çalışabilmesi için, bilgisayarda .Net framework kurulu olması gerekmektedir.      </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question47">
+	<p class="question">Soru 47:<br> IndexOf metodu ile ilgili aşağıdaki ifadelerden hangisi doğrudur? </p>
+	<span class="option" data-correct="true"><b>A)</b> String bir değişken veya değer içinde karakter ya da string bir ifadeyi aramak için kullanılır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> String bir değişken içinden belirtilen konumdan bir char dizisine kopyalama yapar. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Verilen string bir değer içerisinde, belirtilen başlangıç pozisyonundan itibaren yeni metin ilave edilir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bir string değer içinde karakter ya da metin aramak için kullanılmaktadır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> String bir değişkenin sonunun verilen bir char veya string türündeki değere eşit olup olmadığını kontrol eder. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description47">Açıklama</button>
+		<div id="description47" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"</button></footer>
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 119));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}	
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+//////////////////////////////////////////////  
+	
+/////////////buton outline none yapma/////
+$('.btn').click(function() {
+$(this).blur();
+});
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

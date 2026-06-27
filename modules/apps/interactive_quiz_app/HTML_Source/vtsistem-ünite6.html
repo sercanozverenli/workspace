@@ -1,0 +1,1737 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          ALGORİTMALAR
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="alg-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="alg-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="alg-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="alg-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="alg-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="alg-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="alg-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="alg-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="alg-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="alg-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB SUNUCU PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wsp-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wsp-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wsp-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wsp-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wsp-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wsp-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wsp-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wsp-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wsp-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wsp-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİ MADENCİLİĞİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="vmaden-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="vmaden-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="vmaden-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="vmaden-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="vmaden-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="vmaden-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="vmaden-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="vmaden-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="vmaden-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="vmaden-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİTABANI SİSTEMLERİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="vtsistem-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="vtsistem-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="vtsistem-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="vtsistem-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="vtsistem-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="vtsistem-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="vtsistem-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="vtsistem-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="vtsistem-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="vtsistem-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMADA YENİ EĞİLİMLER
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="prgyenieğilim-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="prgyenieğilim-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Veritabanı Sistemleri - Ünite 6 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	<button class="block-group" data-start="40" data-end="59">Part 3</button>
+	  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Aşağıdaki SQL ifadelerinden hangisi sorgunun veri kaynağı ile ilgilidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Select </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Having </span><br>
+	<span class="option" data-correct="true"><b>C)</b> From </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Order by </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Where </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Aşağıdakilerden hangisi Select komutunun mantıksal işleme sırasının en sonunda yer alır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Top </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Join </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Order By </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Having </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Where </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      MS SQL Server yazılımında seçme (SELECT) sorgularında uygulanan işlemler sırasıyla;<br><br>
+1. FROM<br>
+2. ON<br>
+3. JOIN<br>
+4. WHERE<br>
+5. GROUP BY<br>
+6. WITH CUBE or WITH ROLLUP<br>
+7. HAVING<br>
+8. SELECT<br>
+9. DISTINCT<br>
+10. ORDER BY<br>
+11. TOP     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Aşağıdaki komutlardan hangisi ile bir seçme sorgusunda tablolar birbirine bağlanabilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Order by </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Top </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Group By </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Distinct </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Where </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> INTERSECT ifadesi iki veya daha fazla veri kümesi arasında hangi işlemi gerçekleştirir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Birleştirme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Fark </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ekleme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Güncelleme </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Kesişim </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Distinct ifadesi aşağıdakilerden hangisi ile ilgilidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Ortalama hesaplama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Toplama işlemi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Gruplama </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Benzersiz değerlerle işlem </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Standart sapma </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Aşağıdaki özetleme işlevlerinden hangisi metin türündeki veri ile kullanılabilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> AVG </span><br>
+	<span class="option" data-correct="true"><b>B)</b> MAX </span><br>
+	<span class="option" data-correct="false"><b>C)</b> STDEV </span><br>
+	<span class="option" data-correct="false"><b>D)</b> SUM </span><br>
+	<span class="option" data-correct="false"><b>E)</b> VAR </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      MAX Belirtilen alanın en büyük değerini getirir. NULL değerleri dikkate alınmaz.
+Metin değerler için de alfabetik sıraya göre en küçüğünü getirir.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> Choose işlevi aşağıdakilerden hangi işlev kategorisinde yer alır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Metin İşlevleri </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Tarih İşlevleri </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sistem İşleleri </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sayısal İşlevleri </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Mantıksal İşlevler </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      Mantıksal işlevler SELECT sorgularında alanların değerlerini belirli koşullara göre farklı
+değerlere dönüştürürler. <u><strong>CHOOSE, IIF ve CASE</strong></u> mantıksal işlevler kategorisinde yer alır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> Tarih işlevlerinde aşağıdaki kısaltmalardan hangisi ay bilgisini ifade eder? </p>
+	<span class="option" data-correct="false"><b>A)</b> yy </span><br>
+	<span class="option" data-correct="true"><b>B)</b> m </span><br>
+	<span class="option" data-correct="false"><b>C)</b> mi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ms </span><br>
+	<span class="option" data-correct="false"><b>E)</b> mcs </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      Ay - month - mm, m     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> DateADD komutunun işlevi nedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> O anki tarih bilgisini getirir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Metin bilgisini tarih bilgisine çevirir. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Tarih verisine istenilen birimde ekleme yapar. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İki tarih arasındaki süreyi hesaplar. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İki tarihi birleştirir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      DATEADD: Bir tarih türündeki veriye istenilen tarih birimi olarak ekleme işlemi gerçekleştiren işlevdir. “DATEADD(DatePart, Sayı, Tarihverisi)” yazım kuralı
+ile yazılır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Aşağıdakilerden hangisi ile alt sorgu ifadesi <u><strong>kullanılamaz?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Group By </span><br>
+	<span class="option" data-correct="false"><b>B)</b> From </span><br>
+	<span class="option" data-correct="false"><b>C)</b> IN </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Exists </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Select </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> SELECT [isimler] FROM ogrenciler WHERE [soyisim]='Doğan' ORDER BY [numara] ASC <br><br>
+Aşağıdakilerden hangisi yukarıdaki sorgu ile ilgili doğru bir ifade içermektedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> İsimler tablosundaki soy ismi Doğan olan öğrencileri numaraları küçükten büyüğe olacak şekilde sıralar. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ogrenciler tablosundaki soy ismi Doğan olan öğrencilerin isimlerini A'dan Z'ye doğru sıralar. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ogrenciler tablosundaki soy ismi Doğan olan öğrencilerin isimlerini Z'den A'ya doğru sıralar. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İsimler tablosundaki soy ismi Doğan olan öğrencileri Z'den A'ya doğru sıralar. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Ogrenciler tablosundaki soy ismi Doğan olan öğrencilerin isimlerini numaraları küçükten büyüğe olacak şekilde sıralar. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      SELECT [isimler]: Bu kısım, sorgunun sonucunda döndürülecek olan sütunları belirtir. Burada "isimler" adındaki sütunu seçiyoruz.<br><br>
+
+FROM ogrenciler: Bu kısım, sorgunun hangi tablodan veri çekeceğini belirtir. "ogrenciler" adındaki tablodan veri çekeceğimizi belirtiyoruz.<br><br>
+
+WHERE [soyisim]='Doğan': Bu kısım, veritabanında filtreleme yapmak için kullanılır. Burada "soyisim" adındaki sütunu "Doğan" değeriyle eşleştiren kayıtları seçiyoruz. Yani sadece soyisimleri "Doğan" olan öğrencileri getireceğiz.<br><br>
+
+ORDER BY [numara] ASC: Bu kısım, sonuçları belirli bir sütuna göre sıralamak için kullanılır. "numara" adındaki sütuna göre küçükten büyüğe doğru (artan sıra) sıralama yapacağımızı belirtiyoruz.<br>
+<br>
+ASC, "Artan Sıra" anlamına gelir ve ORDER BY ifadesiyle birlikte kullanılır. ASC, sıralama işleminin küçükten büyüğe doğru yapılacağını ifade eder. Bu durumda, "numara" alanı küçükten büyüğe doğru sıralanacaktır. Eğer DESC (Azalan Sıra) kullanılsaydı, "numara" alanı büyükten küçüğe doğru sıralanacaktı.      </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> Aşağıda verilen özetleme işlevlerinden hangisi bir gruptaki kayıt sayısını hesaplarlar? </p>
+	<span class="option" data-correct="false"><b>A)</b> SUM </span><br>
+	<span class="option" data-correct="false"><b>B)</b> AVG </span><br>
+	<span class="option" data-correct="false"><b>C)</b> STDEV </span><br>
+	<span class="option" data-correct="true"><b>D)</b> COUNT </span><br>
+	<span class="option" data-correct="false"><b>E)</b> MAX </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Veri kümeleri aşağıdakilerden hangisi ile birleştirilemez? </p>
+	<span class="option" data-correct="true"><b>A)</b> DISTINCT </span><br>
+	<span class="option" data-correct="false"><b>B)</b> INTERSECT </span><br>
+	<span class="option" data-correct="false"><b>C)</b> EXCEPT </span><br>
+	<span class="option" data-correct="false"><b>D)</b> UNION </span><br>
+	<span class="option" data-correct="false"><b>E)</b> UNION ALL </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      DISTINCT, veri kümesini tekil değerlere indirgeyerek yinelenen değerleri kaldırmak için kullanılan bir operatördür. <br>
+<br>
+Veri kümeleri <strong>INTERSECT, EXCEPT, UNION, UNION ALL</strong> komutları ile birleştirilebilir<br>
+<br>
+<u><strong>INTERSECT:</strong></u> İki veya daha çok veri kümesindeki satırların kesişiminin bulunmasında kullanılır<br>
+<u><strong>EXCEPT:</strong></u> Bu ifade ile birleştirilen sorgular veri kümeleri arasındaki farkı listelemek için kullanılırlar. İlk sorgunun verilen diğer kümeden farkı belirlenerek görüntülenir.<br>
+<u><strong>UNION:</strong></u> Birleştirilmiş veri kümelerinde kesişim kümesi bir kez yer alır<br>
+<u><strong>UNION ALL:</strong></u> İki veri kümesini birleştirirken tekrarlayan değerleri kaldırmadan tüm verileri birleştirme yapar. Yani birleştirilmiş kümelerde herhangi bir işlem yapılmadan iki liste alt alta eklenir    </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> “Herhangi iki alanın eşleştirilmediği bağlantı türü … bağlantıdır.” cümlesinde noktalı yere aşağıdakilerden hangisi gelir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Left Outer Join </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Full Outer Join </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Join </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Cross </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Inner </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> Aşağıdakilerden hangisi özetleme işlevlerinden olan ve sayısal değerli alanların ortalamasını hesaplayan işlevdir? </p>
+	<span class="option" data-correct="false"><b>A)</b> SUM </span><br>
+	<span class="option" data-correct="false"><b>B)</b> COUNT </span><br>
+	<span class="option" data-correct="false"><b>C)</b> STDEV </span><br>
+	<span class="option" data-correct="true"><b>D)</b> AVG </span><br>
+	<span class="option" data-correct="false"><b>E)</b> VAR </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Aşağıdakilerden hangisi özetleme işlevlerinden olan ve belirtilen alan için ana kütle varyansını hesaplayan işlevdir? </p>
+	<span class="option" data-correct="false"><b>A)</b> VAR </span><br>
+	<span class="option" data-correct="false"><b>B)</b> COUNT </span><br>
+	<span class="option" data-correct="false"><b>C)</b> STDEV </span><br>
+	<span class="option" data-correct="false"><b>D)</b> AVG </span><br>
+	<span class="option" data-correct="true"><b>E)</b> VARP </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      <strong>STDEV</strong> Belirtilen alan için standart sapma hesaplar.<br><br>
+
+<strong>STDEVP</strong> Belirtilen alanın tüm değerleri için ana kütle standart sapmasını hesaplar.<br><br>
+
+<strong>VAR</strong> Belirtilen alan için varyans hesaplar.<br><br>
+
+<strong>VARP</strong> Belirtilen alanın tüm değerleri için ana kütle varyansını hesaplar.     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> Ogrenciler tablosunda şehirleri gruplandırarak ortalama başarı puanları Ortalama alan ismiyle çoktan aza listeyen sorgu aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> SELECT AVG[BPuan] FROM Ogrenciler GROUP BY [Sehir] ORDER BY [Bpuan] Desc </span><br>
+	<span class="option" data-correct="false"><b>B)</b> SELECT AVG[BPuan] AS Ortalama FROM Ogrenciler GROUP BY [Sehir] ORDER BY [Bpuan] </span><br>
+	<span class="option" data-correct="true"><b>C)</b> SELECT AVG[BPuan] AS Ortalama FROM Ogrenciler GROUP BY [Sehir] ORDER BY [Bpuan] Desc </span><br>
+	<span class="option" data-correct="false"><b>D)</b> SELECT SUM[BPuan] AS Ortalama FROM Ogrenciler GROUP BY [Sehir] ORDER BY [Bpuan] Desc </span><br>
+	<span class="option" data-correct="false"><b>E)</b> SELECT AVG[BPuan] FROM Ogrenciler GROUP BY [Sehir] ORDER BY [Bpuan] </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      SELECT AVG[BPuan] AS Ortalama: Bu kısım, "Ogrenciler" tablosundaki "BPuan" sütunundaki puanların ortalamasını alır. "AVG" fonksiyonu, verilen bir sütundaki değerlerin ortalamasını hesaplar. Bu durumda "AVG[BPuan]", "BPuan" sütunundaki puanların ortalamasını döndürecektir. Ardından "AS Ortalama" ifadesi, bu ortalama değerini "Ortalama" adında yeni bir sütuna atar.<br><br>
+
+FROM Ogrenciler: Bu kısım, "Ogrenciler" tablosundan veri alacağımızı belirtir. Yani sorgunun uygulanacağı tablo "Ogrenciler" olacaktır.<br><br>
+
+GROUP BY [Sehir]: Bu ifade, sonuçların "Sehir" sütununa göre gruplandırılacağını belirtir. Yani her bir şehir için ayrı bir grup oluşturulacak ve bu grupların içindeki "BPuan" değerleri hesaplanacak.<br><br>
+
+ORDER BY [Bpuan] Desc: Bu ifade, sonuçların "Bpuan" sütununa göre büyükten küçüğe (desc) sıralanacağını belirtir. Yani sonuçlar, "Bpuan" değerlerine göre azalan şekilde sıralanacaktır.<br><br>
+
+Sonuç olarak, bu SQL sorgusu "Ogrenciler" tablosundaki her bir şehir için puanların ortalamasını hesaplayacak, bu ortalama değerleri "Ortalama" adında yeni bir sütuna atayacak, sonuçları şehirlerin alfabetik sırasına göre gruplayacak ve her gruptaki puanları büyükten küçüğe sıralayarak gösterecektir.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Select seçme komutu ile yapılan bir sorgulamada, seçme işleminin hangi veri kümesinden yapılacağını hangisi belirtilir? Bu kısımda bir tablo, bir görünüm ya da bir alt sorgu yer alabilir. </p>
+	<span class="option" data-correct="true"><b>A)</b> FROM </span><br>
+	<span class="option" data-correct="false"><b>B)</b> WHERE </span><br>
+	<span class="option" data-correct="false"><b>C)</b> GROUP BY </span><br>
+	<span class="option" data-correct="false"><b>D)</b> HAVING </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ORDER BY </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> Aşağıdakilerden hangisi 0 ile 1 aralığında düzgün dağılmış rassal sayı üretmek için kullanılan bir işlevdir? </p>
+	<span class="option" data-correct="false"><b>A)</b> ABS </span><br>
+	<span class="option" data-correct="false"><b>B)</b> SIGN </span><br>
+	<span class="option" data-correct="false"><b>C)</b> DEGREES </span><br>
+	<span class="option" data-correct="true"><b>D)</b> RAND </span><br>
+	<span class="option" data-correct="false"><b>E)</b> SQRT </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> Aşağıdakilerden hangisi kesirli bir sayıyı üst tamsayıya yuvarlamak için kullanılan bir işlevdir? </p>
+	<span class="option" data-correct="false"><b>A)</b> POWER </span><br>
+	<span class="option" data-correct="false"><b>B)</b> SIGN </span><br>
+	<span class="option" data-correct="false"><b>C)</b> DEGREES </span><br>
+	<span class="option" data-correct="false"><b>D)</b> SQRT </span><br>
+	<span class="option" data-correct="true"><b>E)</b> CEILING </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Aşağıdakilerden hangisi Select komutunun mantıksal işleme sırasının en başında yer alır? </p>
+	<span class="option" data-correct="false"><b>A)</b> On </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Join </span><br>
+	<span class="option" data-correct="true"><b>C)</b> From </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Where </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Top </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      Select komutunun mantıksal işleme sırası;<br><br>
+
+1. FROM<br>
+2. ON<br>
+3. JOIN<br>
+4. WHERE<br>
+5. GROUP BY<br>
+6. WITH CUBE or WITH ROLLUP<br>
+7. HAVING<br>
+8. SELECT<br>
+9. DISTINCT<br>
+10. ORDER BY<br>
+11. TOP     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Veri sorgulamasında kayıtların belirli ölçütlere göre sınırlanması ya da diğer bir ifadeyle tablolar içinde aranması için aşağıdaki hangi komut kullanılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Order by </span><br>
+	<span class="option" data-correct="false"><b>B)</b> From </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Select </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Where </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Between </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br>  Aşağıdaki işlevlerden hangisi belirtilen alanın tüm değerleri için ana kütle standart sapmasını hesaplar? </p>
+	<span class="option" data-correct="false"><b>A)</b> AVG </span><br>
+	<span class="option" data-correct="false"><b>B)</b> STDEV </span><br>
+	<span class="option" data-correct="true"><b>C)</b> STDEVP </span><br>
+	<span class="option" data-correct="false"><b>D)</b> VAR </span><br>
+	<span class="option" data-correct="false"><b>E)</b> VARP </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      <strong>STDEV</strong> Belirtilen alan için standart sapma hesaplar.<br><br>
+
+<strong>STDEVP</strong> Belirtilen alanın tüm değerleri için ana kütle standart sapmasını hesaplar.<br><br>
+
+<strong>VAR</strong> Belirtilen alan için varyans hesaplar.<br><br>
+
+<strong>VARP</strong> Belirtilen alanın tüm değerleri için ana kütle varyansını hesaplar. <br><br>    </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Sayısal bir değeri istenilen hassasiyette metne çeviren metinsel işlev aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> STR </span><br>
+	<span class="option" data-correct="false"><b>B)</b> LEN </span><br>
+	<span class="option" data-correct="false"><b>C)</b> CONCAT </span><br>
+	<span class="option" data-correct="false"><b>D)</b> SPACE </span><br>
+	<span class="option" data-correct="false"><b>E)</b> CHAR </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      
+<u><strong>SUBSTRING:</strong></u> Metin türündeki bir değerin içerisinden belirli bir bölümün alınmasını sağlayan işlevdir. <br>
+<strong>Örnek:</strong> SUBSTRING ('YBS206U',4,3) <strong>Sonuç:</strong> 206<br><br>
+
+<u><strong>PATINDEX:</strong></u> Bir metin içerisinde belirli bir metin ifadesinin arayarak ilk bulunduğu konum bilgisini döndürür. <br>
+<strong>Örnek:</strong> PATINDEX ('%bugün%', 'Merhaba, bugün nasılsın.'') <strong>Sonuç:</strong> 10<br><br>
+
+<u><strong>LEN:</strong></u> Metindeki karakter sayısını döndürür.<br>
+<strong>Örnek:</strong> LEN ('YBS206U') <strong>Sonuç:</strong> 7<br>
+
+<u><strong>LEFT, RIGHT:</strong></u> Metin türündeki bir alan ya da değerin soldan(LEFT) veya sağdan(RIGHT)
+istenilen sayıda karakterin seçilmesini sağlar.
+<strong>Örnek:</strong> LEFT ('YBS206U',3) <strong>Sonuç:</strong> 'YBS'<br>
+
+<u><strong>REPLACE:</strong></u> Bir metin içerisinde belirli bir metni bularak o istenilen metin ile değiştirir. <br>
+<strong>Örnek:</strong> REPLACE ('YBS206U','206','304') <strong>Sonuç:</strong> 'YBS304U'<br><br>
+
+<u><strong>CONCAT:</strong></u> Bir veya daha fazla metin değeri birleştirir.<br>
+<strong>Örnek:</strong> CONCAT ('Veri','tabanı','I') <strong>Sonuç:</strong> 'VeritabanıI'<br><br>
+
+<u><strong>REPLICATE:</strong></u> Bir metinin değişkenin istenildiği kadar tekrarlanması için kullanılır.<br>
+<strong>Örnek:</strong> REPLICATE('0',5) <strong>Sonuç:</strong> '00000'<br><br>
+
+<strong>SPACE:</strong> İstenilen sayıda boşluk karakteri üretir. <br>
+<strong>Örnek:</strong> 'A'+SPACE(3)+'B'  <strong>Sonuç:</strong> 'A&nbsp;&nbsp;&nbsp;B'<br><br>
+
+<u><strong>NCHAR, CHAR:</strong></u> NCHAR Unicode karakter tablosunun, CHAR ise ASCII kod tablosunun belirtilen rakama karşı gelen karakterini getirir.<br>
+<strong>Örnek:</strong> NCHAR(65) <strong>Sonuç:</strong> 'A'<br><br>
+
+<u><strong>UNICODE, ASCII:</strong></u> UNICODE bir karakterin Unicode, ASCII ise ASCII kod tablosundaki kod
+karşılığını getirir. <br>
+<strong>Örnek:</strong> ASCII ('A') <strong>Sonuç:</strong> 65<br><br>
+
+<u><strong>STR:</strong></u> Sayısal bir değeri istenilen hassasiyette metne çevirir.<br>
+<strong>Örnek:</strong> STR(123.45, 6, 1); <strong>Sonuç:</strong> 123.5     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> Select seçme komutu ile yapılan bir sorgulamada, hangisi verileri özetleme ya da gruplama işlemleri için kullanılabilecek bir seçme sorgusu bölümüdür? </p>
+	<span class="option" data-correct="false"><b>A)</b> FROM </span><br>
+	<span class="option" data-correct="false"><b>B)</b> WHERE </span><br>
+	<span class="option" data-correct="true"><b>C)</b> GROUP BY </span><br>
+	<span class="option" data-correct="false"><b>D)</b> HAVING </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ORDER BY </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> SELECT komutu ile elde edilen verilerdeki belli bir sütünun artan bir şekilde sıralanması için aşağıdakilerden hangisi kulanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> ASC </span><br>
+	<span class="option" data-correct="false"><b>B)</b> DISTINCT </span><br>
+	<span class="option" data-correct="false"><b>C)</b> DESC </span><br>
+	<span class="option" data-correct="false"><b>D)</b> FROM </span><br>
+	<span class="option" data-correct="false"><b>E)</b> TOP </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Aşağıdakilerden hangisi alt sorgular ile mevcut sorgunun sınırlanmasını sağlar? </p>
+	<span class="option" data-correct="true"><b>A)</b> EXISTS </span><br>
+	<span class="option" data-correct="false"><b>B)</b> HAVING </span><br>
+	<span class="option" data-correct="false"><b>C)</b> TOP </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ORDER BY </span><br>
+	<span class="option" data-correct="false"><b>E)</b> DISTINCT </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> "FULL OUTER JOIN" ifadesi neyi sağlar? </p>
+	<span class="option" data-correct="true"><b>A)</b> Her iki tabloda yer alan tüm satırların görüntülenmesini sağlar. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Her iki tablonun da eşleşen alanlarının seçilmesi sağlanır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Soldaki tablonun tüm içeriğinin görüntülenmesi sağlar. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sağında kalan tablodaki tüm değerlerin seçilmesini sağlar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Her iki tablonun da eşleşen satırlarından ilkinin görüntülenmesini sağlar. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      <u><strong>Outer Bağlantıları:</strong></u> Outer bağlantıları soldan, sağdan ve tüm (Full) şeklinde üç farklı
+bağlantı türünden oluşmaktadır.<br><br>
+
+<u><strong>LEFT OUTER JOIN</strong></u> bağlantısı bu ifadenin solunda ve sağında kalan tabloların
+konumu baz alınarak soldaki tablonun tüm içeriğinin görüntülenmesi sağlar.<br><br>
+
+<u><strong>RIGHT OUTER JOIN</strong></u> ise ifadenin sağında kalan tablodaki tüm değerlerin seçilmesini sağlar. Sorgu sonucundaki sağdaki
+tablonun satır sayısı kadar veri kümesi elde edilir.<br>
+<br>
+<u><strong>FULL OUTER JOIN</strong></u> ise her iki tabloda yer alan tüm satırların görüntülenmesini
+sağlar
+</div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> Aşağıdakilerden hangisi belirtilen alan için standart sapma hesaplar? </p>
+	<span class="option" data-correct="true"><b>A)</b> STDEV </span><br>
+	<span class="option" data-correct="false"><b>B)</b> STDEVP </span><br>
+	<span class="option" data-correct="false"><b>C)</b> VAR </span><br>
+	<span class="option" data-correct="false"><b>D)</b> VARP </span><br>
+	<span class="option" data-correct="false"><b>E)</b> AVG </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">       <strong>STDEV</strong> Belirtilen alan için standart sapma hesaplar.<br><br>
+
+<strong>STDEVP</strong> Belirtilen alanın tüm değerleri için ana kütle standart sapmasını hesaplar.<br><br>
+
+<strong>VAR</strong> Belirtilen alan için varyans hesaplar.<br><br>
+
+<strong>VARP</strong> Belirtilen alanın tüm değerleri için ana kütle varyansını hesaplar. <br><br>      </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> Tabloları bir sorgu içerisinde birbiri ile bağlamayı mümkün kılan komut aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Join </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Freetext </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Between </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Order by </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Select </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> SQL Server metinsel işlevlerinden hangisi bir metin içerisinde belirli bir metin ifadesinin arayarak ilk bulunduğu konum bilgisini döndürür? </p>
+	<span class="option" data-correct="false"><b>A)</b> SUBSTRING </span><br>
+	<span class="option" data-correct="false"><b>B)</b> LEN </span><br>
+	<span class="option" data-correct="false"><b>C)</b> REPLACE </span><br>
+	<span class="option" data-correct="false"><b>D)</b> CONCAT </span><br>
+	<span class="option" data-correct="true"><b>E)</b> PATINDEX </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">           
+<u><strong>SUBSTRING:</strong></u> Metin türündeki bir değerin içerisinden belirli bir bölümün alınmasını sağlayan işlevdir. <br>
+<strong>Örnek:</strong> SUBSTRING ('YBS206U',4,3) <strong>Sonuç:</strong> 206<br><br>
+
+<u><strong>PATINDEX:</strong></u> Bir metin içerisinde belirli bir metin ifadesinin arayarak ilk bulunduğu konum bilgisini döndürür. <br>
+<strong>Örnek:</strong> PATINDEX ('%bugün%', 'Merhaba, bugün nasılsın.'') <strong>Sonuç:</strong> 10<br><br>
+
+<u><strong>LEN:</strong></u> Metindeki karakter sayısını döndürür.<br>
+<strong>Örnek:</strong> LEN ('YBS206U') <strong>Sonuç:</strong> 7<br>
+
+<u><strong>LEFT, RIGHT:</strong></u> Metin türündeki bir alan ya da değerin soldan(LEFT) veya sağdan(RIGHT)
+istenilen sayıda karakterin seçilmesini sağlar.
+<strong>Örnek:</strong> LEFT ('YBS206U',3) <strong>Sonuç:</strong> 'YBS'<br>
+
+<u><strong>REPLACE:</strong></u> Bir metin içerisinde belirli bir metni bularak o istenilen metin ile değiştirir. <br>
+<strong>Örnek:</strong> REPLACE ('YBS206U','206','304') <strong>Sonuç:</strong> 'YBS304U'<br><br>
+
+<u><strong>CONCAT:</strong></u> Bir veya daha fazla metin değeri birleştirir.<br>
+<strong>Örnek:</strong> CONCAT ('Veri','tabanı','I') <strong>Sonuç:</strong> 'VeritabanıI'<br><br>
+
+<u><strong>REPLICATE:</strong></u> Bir metinin değişkenin istenildiği kadar tekrarlanması için kullanılır.<br>
+<strong>Örnek:</strong> REPLICATE('0',5) <strong>Sonuç:</strong> '00000'<br><br>
+
+<strong>SPACE:</strong> İstenilen sayıda boşluk karakteri üretir. <br>
+<strong>Örnek:</strong> 'A'+SPACE(3)+'B'  <strong>Sonuç:</strong> 'A&nbsp;&nbsp;&nbsp;B'<br><br>
+
+<u><strong>NCHAR, CHAR:</strong></u> NCHAR Unicode karakter tablosunun, CHAR ise ASCII kod tablosunun belirtilen rakama karşı gelen karakterini getirir.<br>
+<strong>Örnek:</strong> NCHAR(65) <strong>Sonuç:</strong> 'A'<br><br>
+
+<u><strong>UNICODE, ASCII:</strong></u> UNICODE bir karakterin Unicode, ASCII ise ASCII kod tablosundaki kod
+karşılığını getirir. <br>
+<strong>Örnek:</strong> ASCII ('A') <strong>Sonuç:</strong> 65<br><br>
+
+<u><strong>STR:</strong></u> Sayısal bir değeri istenilen hassasiyette metne çevirir.<br>
+<strong>Örnek:</strong> STR(123.45, 6, 1); <strong>Sonuç:</strong> 123.5     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> Ogrenciler tablosunda başarı puanı 50 den yüksek ve Eskişehir'de yaşayan ögrencilerin adı, soyadı ve başarı puanını listeleyen sorgu aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Select Ad, Soyad, BPuan From Ogrenciler Where BPuan&gt;50 and Like 'Eskisehir' </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Select Ad, Soyad, BPuan From Ogrenciler Where BPuan&lt;50 and Like 'Eskisehir' </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Select Ad, Soyad, BPuan From Ogrenciler Where BPuan &gt;50 and Sehir = 'Eskisehir' </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Select Ad, Soyad, BPuan From Ogrenciler Where BPuan=50 and Sehir = 'Eskisehir' </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Select Ad, Soyad, BPuan From Ogrenciler Where BPuan =50 and Like Sehir 'Eskisehir' </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      SELECT: Sorguda kullanılan ilk kelime "SELECT" ifadesidir. Bu kelime, tablodan hangi sütunların seçileceğini belirtir. Örneğimizde "Ad," "Soyad," ve "BPuan" sütunları seçilecek.<br><br>
+
+Ad, Soyad, BPuan: SELECT ifadesinin ardından belirtilen "Ad," "Soyad," ve "BPuan" sütunları, "Ogrenciler" tablosundan alınacak ve sonuç olarak gösterilecek sütunlardır.<br><br>
+
+FROM Ogrenciler: Bu ifade, hangi tablodan sorgunun çalışacağını belirtir. Örneğimizde "Ogrenciler" tablosundan veri seçileceği belirtilmiştir.<br><br>
+
+WHERE: Bu kelime, sorgunun belirli bir koşulu karşılayan verileri seçmesini sağlar. Koşullar, "WHERE" ifadesinin hemen ardından belirtilir.<br><br>
+
+BPuan &gt; 50: Bu koşulda, "BPuan" sütunu 50'den büyük olan öğrenciler seçilecektir. Yani, sadece "BPuan" değeri 50'den büyük olan öğrencilerin verileri sonuç olarak gösterilecektir.<br><br>
+
+and: "and" kelimesi, iki veya daha fazla koşulu aynı anda kontrol etmek için kullanılır. Örneğimizde "BPuan" sütununun 50'den büyük olması ve "Sehir" sütununun "Eskisehir" olması gereken öğrenciler seçilecektir.<br><br>
+
+Sehir = 'Eskisehir': Bu koşulda, "Sehir" sütununun değeri "Eskisehir" olan öğrenciler seçilecektir.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> SELECT [Ad],[Soyad],[BPuan] FROM [Notlar] WHERE BPuan &gt; (SELECT AVG (BPuan) FROM [Notlar]) sorgusuna ilişkin aşağıdakilerden hangisi doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Notlar tablosundaki öğrencilerin adı, soyadı ve başarı puanını listeler. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Notlar tablosunda başarı puanlarının ortalamasından büyük not alan öğrencilerin adı, soyadı ve başarı puanını listeler.  </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Notlar tablosunda başarı puanlarının ortalamasından küçük not olan öğrencilerin adı, soyadı ve başarı puanını listeler.  </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Notlar tablosunda başarı puanlarının ortalamasına eşit olan öğrencilerin adı, soyadı ve başarı puanını listeler.  </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Notlar tablosunda başarı puanlarının ortalamasından büyük not olan öğrencilerin başarı puanlarını listeler.  </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      SELECT: Sorguda kullanılan ilk kelime "SELECT" ifadesidir. Bu kelime, tablodan hangi sütunların seçileceğini belirtir. Örneğimizde "Ad," "Soyad," ve "BPuan" sütunları seçilecek.<br><br>
+
+[Ad], [Soyad], [BPuan]: SELECT ifadesinin ardından belirtilen "[Ad]," "[Soyad]," ve "[BPuan]" sütunları, "Notlar" tablosundan alınacak ve sonuç olarak gösterilecek sütunlardır.<br><br>
+
+FROM [Notlar]: Bu ifade, hangi tablodan sorgunun çalışacağını belirtir. Örneğimizde "Notlar" tablosundan veri seçileceği belirtilmiştir.<br><br>
+
+WHERE: Bu kelime, sorgunun belirli bir koşulu karşılayan verileri seçmesini sağlar. Koşullar, "WHERE" ifadesinin hemen ardından belirtilir.<br><br>
+
+BPuan &gt; (SELECT AVG(BPuan) FROM [Notlar]): Bu koşulda, "BPuan" sütunu, "Notlar" tablosundaki tüm öğrencilerin "BPuan" değerlerinin ortalamasından büyük olmalıdır. "SELECT AVG(BPuan) FROM [Notlar]" ifadesi, "Notlar" tablosundaki "BPuan" sütununun ortalamasını hesaplayacaktır. Bu değer, ana sorgunun WHERE bölümünde kullanılarak, sadece "BPuan" değeri ortalamanın üzerinde olan öğrencilerin verileri sonuç olarak gösterilecektir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> Bir veritabanında Yazarlar ve Kitaplar tabloları bulunmaktadır. Yazarlar tablosunun alanları NO, İsim ve Soyİsim; Kitaplar tablosunun alanları ise KitapNO, YazarNO ve Kitapİsim'dir. Buna göre kitap ismi ve bu kitabı yazan yazarın ismini aynı tabloda getiren sorgu aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> SELECT Kitaplar.KitapNO, Yazarlar.YazarNO FROM Kitaplar INNER JOIN Yazarlar ON Kitaplar.KitapNO=Yazarlar.NO </span><br>
+	<span class="option" data-correct="true"><b>B)</b> SELECT Kitaplar.Kitapİsim, Yazarlar.Yazarİsim FROM Kitaplar INNER JOIN Yazarlar ON Kitaplar.YazarNO=Yazarlar.NO </span><br>
+	<span class="option" data-correct="false"><b>C)</b> SELECT Kitaplar.Kitapİsim, Yazarlar.Yazarİsim FROM Kitaplar INNER JOIN Yazarlar ON Kitaplar.NO=Yazarlar.YazarNO </span><br>
+	<span class="option" data-correct="false"><b>D)</b> SELECT Kitaplar.YazarNO Yazarlar.NO FROM Kitaplar INNER JOIN Yazarlar ON Kitaplar.KitapNO=Yazarlar.YazarNO </span><br>
+	<span class="option" data-correct="false"><b>E)</b> SELECT Kitaplar.YazarNO Yazarlar.NO FROM Kitaplar INNER JOIN Yazarlar ON Kitaplar.Kitapisim=Yazarlar.Yazarİsim </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      <u><strong>SELECT Kitaplar.Kitapİsim, Yazarlar.Yazarİsim:</strong></u> Bu kısım SELECT ifadesiyle başlar ve sorgunun sonucunda hangi sütunların gösterileceğini belirtir. Bu örnekte "Kitaplar" tablosundan "Kitapİsim" ve "Yazarlar" tablosundan "Yazarİsim" sütunları gösterilecektir.<br><br>
+
+<u><strong>FROM Kitaplar:</strong></u> Bu kısım, sorgunun hangi tablolar üzerinde çalışacağını belirtir. Bu örnekte "Kitaplar" tablosu sorgunun ana tablosu olacaktır.<br><br>
+
+<u><strong>INNER JOIN Yazarlar:</strong></u> INNER JOIN ifadesi, "Kitaplar" tablosu ile "Yazarlar" tablosu arasında birleştirme işlemi yapacağını belirtir. Bu şekilde iki tablo birleştirilir ve sonuç olarak tek bir sonuç kümesi oluşturulur.<br><br>
+
+<u><strong>ON Kitaplar.YazarNO = Yazarlar.NO:</strong></u> ON ifadesi, INNER JOIN ile birleştirilecek tablolar arasındaki ilişkiyi belirler. Bu örnekte, "Kitaplar" tablosundaki "YazarNO" sütunu ile "Yazarlar" tablosundaki "NO" sütunu arasında eşleştirme yapılır.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> Uzun metin verisi içeren alanlarda ilgili metin ifadelerinin bulunması için hangi komut kullanılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Like </span><br>
+	<span class="option" data-correct="false"><b>B)</b> In </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Between </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Freetext </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Exists </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      CONTAINS ve FREETEXT ifadeleri uzun metin verisi içeren alanlarda ilgili metin ifadelerinin bulunması için kullanılır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> Aşağıdakilerden hangisi yıl, ay ve gün bilgilerinin sayısal olarak girildiği ve ilgili değer- lerden tarih veri türünde değişken döndüren bir işlevdir? </p>
+	<span class="option" data-correct="false"><b>A)</b> DATENAME </span><br>
+	<span class="option" data-correct="false"><b>B)</b> DATEPART </span><br>
+	<span class="option" data-correct="true"><b>C)</b> DATEFROMPARTS </span><br>
+	<span class="option" data-correct="false"><b>D)</b> DATEADD </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ISDATE </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      <u><strong>DATENAME:</strong></u> Tarih veri türündeki bir değerin bir bölümünü isim olarak geri döndürür<br><br>
+			
+<u><strong>DATEPART:</strong></u> Tarih veri türündeki bir değerin istenen bölümünün
+elde edilmesini sağlar.<br><br>
+			
+<u><strong>DAY, MONTH, YEAR:</strong></u> Sırasıyla bir tarih verisinin yıl, ay ve gün bilgisini sayısal
+olarak geri döndürür.<br><br>
+
+<u><strong>DATEFROMPARTS:</strong></u> Yıl, ay ve gün bilgilerinin sayısal olarak girildiği ve ilgili değerlerden tarih veri türünde değişken döndüren bir işlevdir. SELECT DATEFROMPARTS
+(2016, 6, 19) komutunun çalıştırılması ile “2016-06-19” şeklinde Date türünde
+veri döndürür. Bu işlev tarih verilerinin hatalı girilmesini engellemek için istemci yazılımlar tarafından kullanılabilmektedir<br><br>
+
+<u><strong>DATEDIFF:</strong></u> İki tarih türündeki verinin arasındaki farkı istenilen tarih birimi olarak hesaplayan bir işlevdir.<br><br>
+
+<u><strong>DATEADD:</strong></u> Bir tarih türündeki veriye istenilen tarih birimi olarak ekleme işlemi gerçekleştiren işlevdir.<br><br>
+			
+<u><strong>ISDATE:</strong></u> Bir metin türündeki verinin içeriğinin tarih bilgisi olup olmadığını kontrol ederek pozitif durumda 1, negatif durumda 0 değerini döndüren işlevdir			
+			
+     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> 'Ad', 'Soyad' metin değerlerini birleştiren metin işlevi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> CONCAT </span><br>
+	<span class="option" data-correct="false"><b>B)</b> LEN </span><br>
+	<span class="option" data-correct="false"><b>C)</b> STR </span><br>
+	<span class="option" data-correct="false"><b>D)</b> SPACE </span><br>
+	<span class="option" data-correct="false"><b>E)</b> LEFT </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">              
+<u><strong>SUBSTRING:</strong></u> Metin türündeki bir değerin içerisinden belirli bir bölümün alınmasını sağlayan işlevdir. <br>
+<strong>Örnek:</strong> SUBSTRING ('YBS206U',4,3) <strong>Sonuç:</strong> 206<br><br>
+
+<u><strong>PATINDEX:</strong></u> Bir metin içerisinde belirli bir metin ifadesinin arayarak ilk bulunduğu konum bilgisini döndürür. <br>
+<strong>Örnek:</strong> PATINDEX ('%bugün%', 'Merhaba, bugün nasılsın.'') <strong>Sonuç:</strong> 10<br><br>
+
+<u><strong>LEN:</strong></u> Metindeki karakter sayısını döndürür.<br>
+<strong>Örnek:</strong> LEN ('YBS206U') <strong>Sonuç:</strong> 7<br>
+
+<u><strong>LEFT, RIGHT:</strong></u> Metin türündeki bir alan ya da değerin soldan(LEFT) veya sağdan(RIGHT)
+istenilen sayıda karakterin seçilmesini sağlar.
+<strong>Örnek:</strong> LEFT ('YBS206U',3) <strong>Sonuç:</strong> 'YBS'<br>
+
+<u><strong>REPLACE:</strong></u> Bir metin içerisinde belirli bir metni bularak o istenilen metin ile değiştirir. <br>
+<strong>Örnek:</strong> REPLACE ('YBS206U','206','304') <strong>Sonuç:</strong> 'YBS304U'<br><br>
+
+<u><strong>CONCAT:</strong></u> Bir veya daha fazla metin değeri birleştirir.<br>
+<strong>Örnek:</strong> CONCAT ('Veri','tabanı','I') <strong>Sonuç:</strong> 'VeritabanıI'<br><br>
+
+<u><strong>REPLICATE:</strong></u> Bir metinin değişkenin istenildiği kadar tekrarlanması için kullanılır.<br>
+<strong>Örnek:</strong> REPLICATE('0',5) <strong>Sonuç:</strong> '00000'<br><br>
+
+<strong>SPACE:</strong> İstenilen sayıda boşluk karakteri üretir. <br>
+<strong>Örnek:</strong> 'A'+SPACE(3)+'B'  <strong>Sonuç:</strong> 'A&nbsp;&nbsp;&nbsp;B'<br><br>
+
+<u><strong>NCHAR, CHAR:</strong></u> NCHAR Unicode karakter tablosunun, CHAR ise ASCII kod tablosunun belirtilen rakama karşı gelen karakterini getirir.<br>
+<strong>Örnek:</strong> NCHAR(65) <strong>Sonuç:</strong> 'A'<br><br>
+
+<u><strong>UNICODE, ASCII:</strong></u> UNICODE bir karakterin Unicode, ASCII ise ASCII kod tablosundaki kod
+karşılığını getirir. <br>
+<strong>Örnek:</strong> ASCII ('A') <strong>Sonuç:</strong> 65<br><br>
+
+<u><strong>STR:</strong></u> Sayısal bir değeri istenilen hassasiyette metne çevirir.<br>
+<strong>Örnek:</strong> STR(123.45, 6, 1); <strong>Sonuç:</strong> 123.5     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> Select seçme komutu ile yapılan bir sorgulamada, hangisi sorgunun en sonunda yer alır ve sıralama işlemi için kullanılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> FROM </span><br>
+	<span class="option" data-correct="false"><b>B)</b> WHERE </span><br>
+	<span class="option" data-correct="false"><b>C)</b> GROUP BY </span><br>
+	<span class="option" data-correct="false"><b>D)</b> HAVING </span><br>
+	<span class="option" data-correct="true"><b>E)</b> ORDER BY </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> “Veri ile ilgili yapılacak işlemleri tarif etmek için İngilizce dil yapısında geliştirilmiş bir bildirim dilidir.”<br><br>
+Yukarıda tanımı verilen dil aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Yapılandırılmış Sorgu Dili </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Veri Sorgulama Dili </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veri Yapılandırma Dili </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Seçilmiş Sorgu Dili </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Seçici Sorgulama Dili </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> “Birbiri ile aynı sayıda ve türde alanları olan veri kümelerinin alt alta birleştirilmesi, kesişim kümelerinin ve farklarının bulunması işlemidir.”<br> <br> 
+Yukarıda tanımı verilen işlem aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Veri Birleştirme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Veri Kesiştirme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veri Dizilimi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Veri Serileştirme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Veri Düzeltme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question41">
+	<p class="question">Soru 41:<br> Aşağıdaki ifadelerden hangisi kayıtların sayılması ile ilgili işlevlerde de benzersiz satır sayısının sayılması ile ilgili kullanılmaktadır? </p>
+	<span class="option" data-correct="true"><b>A)</b> DISTINCT </span><br>
+	<span class="option" data-correct="false"><b>B)</b> FROM </span><br>
+	<span class="option" data-correct="false"><b>C)</b> HAVING </span><br>
+	<span class="option" data-correct="false"><b>D)</b> GROUP BY </span><br>
+	<span class="option" data-correct="false"><b>E)</b> WHERE </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description41">Açıklama</button>
+		<div id="description41" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question42">
+	<p class="question">Soru 42:<br> Aşağıdakilerden hangisi bir metin içerisinde doğal dil özelliklerine göre ifade arama İçin kullanılılan bir operatördür? </p>
+	<span class="option" data-correct="false"><b>A)</b> IS DULL </span><br>
+	<span class="option" data-correct="false"><b>B)</b> EXISTS </span><br>
+	<span class="option" data-correct="false"><b>C)</b> FIND </span><br>
+	<span class="option" data-correct="true"><b>D)</b> FREE TEXT </span><br>
+	<span class="option" data-correct="false"><b>E)</b> [NOT]LIKE </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description42">Açıklama</button>
+		<div id="description42" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question43">
+	<p class="question">Soru 43:<br> SELECT DISTINCT [Şehir] from Ogrenciler Order by Sehir sorgusunun işlevine ilişkin aşağıdaki seçeneklerden hangisi doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Ögrencilerin şehirlerini tekrarlı olarak listeler. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ögrencilerin sehirlerini Adan Z'ye hepsini listeler. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Öğrencilerin şehir verilerini tekrarsız olarak listeler.  </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Öğrencilerin şehirlerini ve adlarını tekrarsız olarak listeler.  </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Öğrencilerin şehirlerini Adan Z'ye tekrarsız olarak listeler.  </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description43">Açıklama</button>
+		<div id="description43" class="collapse">       Order by ibaresi ASC ile kullanılmasa bile A'dan Z'ye - Yani artsan sıralama özelliği gösterir. Ancak azalan sıralama için mutlaka DESC belirtilmelidir.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question44">
+	<p class="question">Soru 44:<br> SQL’de verinin sadece okunması ile ilgili olan komut aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> GET </span><br>
+	<span class="option" data-correct="true"><b>B)</b> SELECT </span><br>
+	<span class="option" data-correct="false"><b>C)</b> UPDATE </span><br>
+	<span class="option" data-correct="false"><b>D)</b> DROP </span><br>
+	<span class="option" data-correct="false"><b>E)</b> MAKE </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description44">Açıklama</button>
+		<div id="description44" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question45">
+	<p class="question">Soru 45:<br> Aşağıdaki mantıksal işlevlerden hangisi  indeks değeri içeren bir değerin tanımlanan sıralı listede eşleştirerek karşı gelen elemanı görüntüler? </p>
+	<span class="option" data-correct="false"><b>A)</b> IIF </span><br>
+	<span class="option" data-correct="false"><b>B)</b> CASE </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ORDER BY </span><br>
+	<span class="option" data-correct="false"><b>D)</b> WHERE </span><br>
+	<span class="option" data-correct="true"><b>E)</b> CHOOSE </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description45">Açıklama</button>
+		<div id="description45" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question46">
+	<p class="question">Soru 46:<br> Aşağıdakilerden hangisi SELECT komutunun kısımlarından olan ve gruplanan veya hesaplanan alanların sınırlanması için kullanılan komuttur? </p>
+	<span class="option" data-correct="false"><b>A)</b> SELECT </span><br>
+	<span class="option" data-correct="true"><b>B)</b> HAVING </span><br>
+	<span class="option" data-correct="false"><b>C)</b> FROM </span><br>
+	<span class="option" data-correct="false"><b>D)</b> WHERE </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ORDER BY </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description46">Açıklama</button>
+		<div id="description46" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question47">
+	<p class="question">Soru 47:<br> SELECT komutu ile elde edilen verilerdeki belli bir sütünun azalan bir şekilde sıralanması için aşağıdakilerden hangisi kulanılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> ASC </span><br>
+	<span class="option" data-correct="false"><b>B)</b> DISTINCT </span><br>
+	<span class="option" data-correct="true"><b>C)</b> DESC </span><br>
+	<span class="option" data-correct="false"><b>D)</b> FROM </span><br>
+	<span class="option" data-correct="false"><b>E)</b> TOP </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description47">Açıklama</button>
+		<div id="description47" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question48">
+	<p class="question">Soru 48:<br> Bir veritabanında bulunan "Oğrenciler" isimli tabloda "OgrenciNo", "OgrenciIsim", "OgrenciPuan", "VeliAylikGelir" alanları bulunmaktadır. Puanı 90 ile 100 arasında bulunan başarılı öğrencilerden ekonomik durumu iyi olmayan öğrencilere burs verilecektir. Bunun için ölçüt velinin aylık gelirinin 2000 TL'nin altında olmasıdır. <br><br>Buna göre verilen şartlara uyan öğrencilerin isimlerini numara sırasına göre getiren sorgu aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> SELECT [OgrenciIsim] FROM Oğrenciler WHERE ([OgrenciPuan] BETWEEN 90 AND 100) AND ([VeliAylikGelir]&lt;2000) ORDER BY OgrenciNo ASC </span><br>
+	<span class="option" data-correct="false"><b>B)</b> SELECT [OgrenciIsim] FROM Oğrenciler WHERE ([OgrenciPuan] BETWEEN 90 AND 100) OR ([VeliAylikGelir]&lt;2000) ORDER BY OgrenciNo ASC </span><br>
+	<span class="option" data-correct="false"><b>C)</b> SELECT [OgrenciIsim] FROM Oğrenciler WHERE ([OgrenciPuan] BETWEEN 90 AND 100) AND ([VeliAylikGelir]&lt;2000) ORDER BY OgrenciNo DESC </span><br>
+	<span class="option" data-correct="false"><b>D)</b> SELECT * FROM Oğrenciler WHERE ([OgrenciPuan] BETWEEN 90 AND 100) AND ([VeliAylikGelir]&lt;2000) ORDER BY OgrenciNo ASC </span><br>
+	<span class="option" data-correct="false"><b>E)</b> SELECT [OgrenciIsim] FROM Oğrenciler WHERE ([OgrenciPuan] BETWEEN 90 AND 100) OR ([VeliAylikGelir]&lt;2000) ORDER BY OgrenciNo DESC </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description48">Açıklama</button>
+		<div id="description48" class="collapse">      SELECT [OgrenciIsim]: Bu bölüm, sorgunun sonucunda döndürmek istediğimiz veri alanını belirtir. Burada "OgrenciIsim" alanını seçiyoruz, yani sorgunun sonucunda sadece öğrenci isimlerini alacağız.<br><br>
+
+FROM Oğrenciler: Bu bölüm, sorgunun hangi tablo üzerinde çalışacağını belirtir. "Oğrenciler" tablosundan verileri çekeceğimizi belirtiyoruz.<br><br>
+
+WHERE ([OgrenciPuan] BETWEEN 90 AND 100) AND ([VeliAylikGelir]&lt;2000): Bu bölümde "WHERE" ifadesi kullanarak sorgunun koşullarını belirtiyoruz. İlk koşulda, "OgrenciPuan" alanının 90 ile 100 arasında olması gerektiğini belirtiyoruz. Yani sadece 90 ile 100 arasında puan alan öğrencileri alacağız. İkinci koşulda ise "VeliAylikGelir" alanının 2000 TL'nin altında olması gerektiğini belirtiyoruz. Yani velinin aylık geliri 2000 TL'nin altında olan öğrencileri alacağız.<br><br>
+
+ORDER BY OgrenciNo ASC: Bu bölümde "ORDER BY" ifadesi ile sonuçları nasıl sıralayacağımızı belirtiyoruz. "OgrenciNo" alanına göre sıralama yapacağımızı ve sıralamanın küçükten büyüğe (ASC) olacağını belirtiyoruz. Yani sonuçlar, öğrenci numaralarına göre küçükten büyüğe doğru sıralanacak.<br><br>
+
+Sonuç olarak, bu SQL sorgusu, "Oğrenciler" tablosunda puanı 90 ile 100 arasında olan ve velinin aylık geliri 2000 TL'nin altında olan başarılı öğrencilerin isimlerini, öğrenci numaralarına göre küçükten büyüğe doğru sıralayarak listeleyecektir.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question49">
+	<p class="question">Soru 49:<br> Ogrenciler tablosunda Ad, Soyad, TC numarası yer almaktadır. Bu tabloda kaç öğrencinin kayıtlı olduğu bilgisine aşağıdaki hangi sorgu ile ulaşılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Select Count([TCNo]) from [Ogrenciler] </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Select Var([TCNo]) from [Ogrenciler] </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Select Max([TCNo]) from [Ogrenciler] </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Select Min([TCNo]) from [Ogrenciler] </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Select Avg([TCNo]) from [Ogrenciler] </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description49">Açıklama</button>
+		<div id="description49" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question50">
+	<p class="question">Soru 50:<br> Aşağıda SQL ile ilgili verilen ifadelerden hangisi doğrudur? </p>
+	<span class="option" data-correct="true"><b>A)</b> Veritabanı sistemlerinin yönetilmesi için tasarlanmış bir bildirim dilidir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İşlemler tarif eden bir yapısı vardır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veritabanına yalnızca veri eklenmesini sağlar. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Veritabanından yalnızca veri sorgulanmasını sağlar. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Veritabanında yalnızca verilerin işlenmesini sağlar. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description50">Açıklama</button>
+		<div id="description50" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question51">
+	<p class="question">Soru 51:<br> Bir sorgulamadaki mantıksal işleme sırasına göre aşağıdaki sıralamalardan  hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> [HAVING]- [GROUP BY ]-[TOP]-[ORDER BY] </span><br>
+	<span class="option" data-correct="false"><b>B)</b> [FROM]- [ON ]-[JOIN]-[WHERE] </span><br>
+	<span class="option" data-correct="false"><b>C)</b> [GROUP BY]- [HAVING]- [ORDER BY] </span><br>
+	<span class="option" data-correct="false"><b>D)</b> [SELECT]-[DISTINCT]-[ORDER BY]-[TOP] </span><br>
+	<span class="option" data-correct="false"><b>E)</b> [FROM]- [WHERE]- [ORDER BY] </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description51">Açıklama</button>
+		<div id="description51" class="collapse">      MS SQL Server yazılımında seçme (SELECT) sorgularında uygulanan işlemler sırasıyla;<br><br>
+1. FROM<br>
+2. ON<br>
+3. JOIN<br>
+4. WHERE<br>
+5. GROUP BY<br>
+6. WITH CUBE or WITH ROLLUP<br>
+7. HAVING<br>
+8. SELECT<br>
+9. DISTINCT<br>
+10. ORDER BY<br>
+11. TOP     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question52">
+	<p class="question">Soru 52:<br> Select sorgusuyla elde edilen bir veri kümesinin yeni bir tablo olarak kaydedilmesi için FROM ifadesinden önce hangi komut kullanılmalıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> DESC </span><br>
+	<span class="option" data-correct="false"><b>B)</b> FROM </span><br>
+	<span class="option" data-correct="false"><b>C)</b> SELECT </span><br>
+	<span class="option" data-correct="false"><b>D)</b> WHERE </span><br>
+	<span class="option" data-correct="true"><b>E)</b> INTO </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description52">Açıklama</button>
+		<div id="description52" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question53">
+	<p class="question">Soru 53:<br> Aşağıdakilerden hangisi bir veri tablosunun tüm satırlarını getirebildiği gibi bir veya daha çok sayıda tabloda bulunan sütun veya sütunların istenilen şartına uyan kayıtlarını da getiren komuttur? </p>
+	<span class="option" data-correct="true"><b>A)</b> SELECT </span><br>
+	<span class="option" data-correct="false"><b>B)</b> HAVING </span><br>
+	<span class="option" data-correct="false"><b>C)</b> FROM </span><br>
+	<span class="option" data-correct="false"><b>D)</b> WHERE </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ORDER BY </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description53">Açıklama</button>
+		<div id="description53" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question54">
+	<p class="question">Soru 54:<br> Select seçme komutu ile yapılan bir sorgulamada, hangisi ile seçme işleminde görüntülenecek ya da hesaba katılacak satırların sınırlanması sağlanır? Filtreleme işlemi gibi düşünülebilir. </p>
+	<span class="option" data-correct="false"><b>A)</b> FROM </span><br>
+	<span class="option" data-correct="true"><b>B)</b> WHERE </span><br>
+	<span class="option" data-correct="false"><b>C)</b> GROUP BY </span><br>
+	<span class="option" data-correct="false"><b>D)</b> DISTINCT </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ORDER BY </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description54">Açıklama</button>
+		<div id="description54" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question55">
+	<p class="question">Soru 55:<br> SELECT komutu ile elde edilen verinin en üst satırlarının görüntülenmesi için hangi komutun kullanılması gereklidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> DISTINCT </span><br>
+	<span class="option" data-correct="false"><b>B)</b> FROM </span><br>
+	<span class="option" data-correct="false"><b>C)</b> HAVING </span><br>
+	<span class="option" data-correct="false"><b>D)</b> WHERE </span><br>
+	<span class="option" data-correct="true"><b>E)</b> TOP </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description55">Açıklama</button>
+		<div id="description55" class="collapse">      Bazı durumlarda da SELECT komutu ile elde edilen verinin en üst satırlarının görüntülenmesi gerekebilir. Örneğin en fazla satış yapılan on müşteri ya da en fazla ciro yapılan ürün listesi elde edilmek istenebilir. VTYS tüm veri hazırlama sürecini yerine getirdikten sonra en son TOP kısmını işleyerek en üstte yer alan satırlar görüntülenir ya da iletilir.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question56">
+	<p class="question">Soru 56:<br> Seçme sorgularında sıkça kullanılan ifadelerden birisi de bir alandaki verilerin tekrarsız olarak görüntülenmesini sağlayan komut aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Distinct </span><br>
+	<span class="option" data-correct="false"><b>B)</b> From </span><br>
+	<span class="option" data-correct="false"><b>C)</b> On </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Order by </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Join </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description56">Açıklama</button>
+		<div id="description56" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question57">
+	<p class="question">Soru 57:<br> SELECT komutu ile kullanılabilen HAVING yapısı ile aşağıdakilerden hangisi yapılmaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Seçme işleminin hangi veri kümesinden yapılacağını belirtilir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Seçme işleminde görüntülenecek ya da hesaba katılacak satırların sınırlanması sağlanır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Verileri özetleme ya da gruplama işlemleri için kullanılabilecek bir seçme sorgusu bölümüdür </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Gruplanan ya da hesaplanan alanların sınırlanması için kullanılan bir kısımdır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Verinin kullanıcıya hangi sırada gönderileceğini belirler. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description57">Açıklama</button>
+		<div id="description57" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question58">
+	<p class="question">Soru 58:<br> İki veya daha çok veri kümesindeki satırların kesişiminin bulunmasında kullanılan komut aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Except </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Union </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Union all </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Intersect </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Between </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description58">Açıklama</button>
+		<div id="description58" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+		
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

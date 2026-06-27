@@ -1,0 +1,1642 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          ALGORİTMALAR
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="alg-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="alg-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="alg-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="alg-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="alg-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="alg-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="alg-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="alg-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="alg-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="alg-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB SUNUCU PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wsp-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wsp-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wsp-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wsp-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wsp-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wsp-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wsp-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wsp-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wsp-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wsp-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİ MADENCİLİĞİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="vmaden-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="vmaden-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="vmaden-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="vmaden-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="vmaden-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="vmaden-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="vmaden-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="vmaden-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="vmaden-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="vmaden-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİTABANI SİSTEMLERİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="vtsistem-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="vtsistem-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="vtsistem-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="vtsistem-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="vtsistem-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="vtsistem-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="vtsistem-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="vtsistem-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="vtsistem-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="vtsistem-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMADA YENİ EĞİLİMLER
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="prgyenieğilim-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="prgyenieğilim-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Programlamada Yeni Eğilimler - Ünite 2 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	<button class="block-group" data-start="40" data-end="59">Part 3</button>
+	  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Aşağıdaki elektronik araçlardan hangisi bir sensör olabilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Elektrik ampulü </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Mikrofon </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Mikroişlemci </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bellek çipi
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Parke </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      <strong>En çok kullanım alanına sahip, belli başlı sensörleri çeşitlerine göre aşağıdaki şekilde sınıflandırılabilmek olasıdır:</strong><br><br>
+•	 Akustik ve	ses	sensörleri:	Bu	sensörler	havada	veya	denizaltında,	 titreşim	üreten nesnelerin algılanmasını sağlamaktadırlar (Ör. Mikrofon, hidrofon vb.).<br><br>
+•	 Çevresel	 sensörler:	 Bu	 Sensörler	 çevresel	 meteorolojik	 değişimleri	 izlemek	 için kullanılmaktadırlar (Ör. Yağmur sensörü, kar sensörü, nem sensörü vb.).<br><br>
+•	 Kimyasal	sensörler:	Bu	sensörler	kimyasal	gazların,	sıvıların	veya	elementlerin	tespiti için kullanılmaktadırlar (Ör. pH sensörü, kimyasal gaz sensörleri, CO2 karbondioksit gazı sensörü, SO2 kükürtdioksit gazı sensörü, CO karbonmonoksit gazı sensörü vb.).<br><br>
+•	 Yaklaşma ve	 varlık	 bildirim	 sensörleri:	Bu	 sensörler	 ortamdaki	 hareketleri	 algılamada kullanılmaktadırlar (Ör. Otomobil park etme işlemlerinde kullanılan yakınlık sensörleri, hırsız alarmlarında kullanılan harekete duyarlı varlık bildirim sensörleri vb.).<br><br>
+•	 Elektrik	ve Manyetik	sensörler:	Elektrik ve manyetik alanlarda oluşabilecek	değişiklikler bu tip sensörler sayesinde algılanabilmektedir (Ör. Galvanometre, metal detektörü vb.).<br><br>
+•	 Otomotiv sensörler: Taşıt endüstrisinde kullanılan sensörlerdir (Ör. Hız ölçücü radar sensörleri, araç içi ısı sensörleri, benzin uyarı sensörleri, lastik basınç sensörleri vb.).<br><br>
+•	 Termal	 ve ısı	 sensörleri:	Bu	 sensörler	 ortam	 ısısını	 ve	 sıcaklığını	 algılamak	 için kullanılmaktadırlar (Ör. Termokupl, kalorimetre, gordon sensörü vb.).<br><br>
+•	 Optik	sensörler:	Bu	sensörler	ortamda bulunan ışık	miktarını	algılamak	için	kullanılmaktadırlar (Ör. Foto diyot, fototransistor vb.).<br><br>
+•	 Mekanik	sensörler:	Bu	sensörler	ortam	titreşimini,	yer	değişimleri	ölçmek	için	kullanılmaktadırlar (Ör. Yükseklik sensörleri vb.).<br><br>
+•	 Biyosensörler:	Bu	sensörler	elektrokimyasal	vasıflardan	faydalanarak	ölçüm	yapmaktadırlar. Genelde sağlık sektöründe ve besin endüstrisinde kullanılmaktadırlar (Ör. Kalp atış sensörleri, kızıl ötesi sensörler vb.).</div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Bir müzede tarihi eserlerin çalınmasını önleyici bir güvenlik sistemi kurulacağını düşünelim. Aşağıda verilen sensörlerden hangisi böyle bir sistemin yapılandırması için uygun <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Kızılötesi algılayıcı sensör </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Hareket sensörü </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Karbonmonoksit gaz sensörü </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Basınç sensörü </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Titreşim sensörü </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Bir RFID etiketi kaç bitlik veri saklamaktadır?  </p>
+	<span class="option" data-correct="false"><b>A)</b> 48 Bit </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 56 Bit </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 72 Bit </span><br>
+	<span class="option" data-correct="true"><b>D)</b> 96 Bit </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 128 Bit </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Bir RFID etiketinin okunabilmesi için aşağıda verilen hangi yöntem kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Radyo Dalgası </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Optik (Işık)
+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Isı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Radyoaktif ışıma </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Lazer </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Aşağıda verilen hangi yapı için bir gömülü sistem kullanmak akıllıca <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> ATM cihazı </span><br>
+	<span class="option" data-correct="true"><b>B)</b> El çırpma ile çalışan lamba </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Buzdolabındaki yiyecekleri taze tutmayı sağlayan sistem </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Otomobil otomatik fren sistemi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Cep telefonu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Aşağıda seçeneklerden hangisi bir RTOS özelliği <u><strong>değildir? </strong></u></p>
+	<span class="option" data-correct="false"><b>A)</b> Gömülü sistemlerde kullanılır </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bir işletim sistemidir </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Zamanlamanın önemli olduğu problemlerde kullanılır </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Gelişkin bilgisayar sunucularında kullanılır </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Gerçek zamanlı çalışırlar. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> IPv6 protokolünde cihaz tanımlamak için kullanılan adres kaç byte uzunluğundadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> 128 Byte </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 32 Byte </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 4 Byte </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 8 Byte </span><br>
+	<span class="option" data-correct="true"><b>E)</b> 16 Byte </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      16 Byte = 128 bit     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> Aşağıda verilen seçeneklerden hangisi bir uygulama katmanı protokolüdür? </p>
+	<span class="option" data-correct="false"><b>A)</b> TCP </span><br>
+	<span class="option" data-correct="false"><b>B)</b> UDP </span><br>
+	<span class="option" data-correct="true"><b>C)</b> CoAP </span><br>
+	<span class="option" data-correct="false"><b>D)</b> IP </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ZigBee </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      - HTTP<br>
+- MQTT  (Message Queing Telemetri Transport) <br>
+- CoAP (Constrained Application Protocol) <br>
+- XMPP (Extensible Messaging and Presence Protokol)     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> Aşağıda verilen seçeneklerden hangisi bir veri bağlantı katmanı protokolüdür? </p>
+	<span class="option" data-correct="false"><b>A)</b> IP </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Bluetooth </span><br>
+	<span class="option" data-correct="false"><b>C)</b> XMPP </span><br>
+	<span class="option" data-correct="false"><b>D)</b> TCP </span><br>
+	<span class="option" data-correct="false"><b>E)</b> CoAP </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      - ZigBee<br>
+- Z-Wave<br>
+- Bluetooth<br>
+- Ethernet<br>
+- Wi-Fi vb.
+     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Aşağıdaki seçeneklerden hangisi bir kablosuz iletişim protokolü değildir? </p>
+	<span class="option" data-correct="false"><b>A)</b> WiFi </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Ethernet </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ZigBee </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Z-Wave </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bluetooth </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> Farklı ağların, farklı teknolojilerin birbirleriyle iletişimini sağlayan ağ donanımlarına ne denir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Ağ geçidi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sensör </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Çevresel sensör </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kimyasal sensör </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Elektrik ve Manyetik sensör </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> Fiziksel ortamdan, yani çevreden gelen çeşitli türdeki girdileri algılayan ve bu algıyı elektronik sinyallere çeviren aygıta ne denir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Sensör </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ağ Geçidi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Nesne </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İnternet </span><br>
+	<span class="option" data-correct="false"><b>E)</b> RFID </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Aşağıdakilerden hangisi, RFID teknolojisinin özelliklerindendir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Tüm birimlerin bir araya geldiği ortak bir paydaya göre birlikte çalışan bir düzenleme olarak adlandırılabilir. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Nesnelere eklenen etiketleri otomatik olarak tanımlamak ve izlemek için
+elektromanyetik alanları kullanır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sinyalleri veriye dönüştürmek gerektiğinde değişiklikler yapmak ve sonuçta İnternet ağına iletmek için ortaya çıkmış yapılardır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bileşenleri, zaman göstermek için bir dizi kurala göre çalışır </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Donanımı mikroişlemci üzerinde çalışan hafif bir işletim sistemi sayesinde uygulama yazılımının çalışmasını sağlamaktadır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> Aşağıdakilerden hangisi, Gömülü Sistemlerde Uygulama Yazılımının özelliklerindendir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Bir işletim sisteminin “gerçek zamanlı” olarak adlandırılabilmesi için sistemin gerçekleştirdiği kritik işlemlerin tanımlanmış maksimum sürede işlenmesi esastır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sistem üzerinde yazılımın ve gerektiğinde alınan verilerin saklanmasını sağlayan bir bellek yongası bulunmaktadır. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Gömülü sistem uygulama yazılımı, sadece donanım aygıtlarının
+sınırlı ve temel işlevlerini kontrol etmek için kullanılır ve genellikle kullanıcı girişine ihtiyaç duymaz. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İşletim sistemi, bir bilgisayarın donanım ve kaynaklarının kullanıcı programları tarafından paylaşılması ve yönetilmesini sağlar. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Ölçme ve otomasyon sistemlerindeki en ufak bir zamanlama hatasının çok kritik
+sonuçlara neden olacağı ortamlarda bu gerçek zamanlı işletim sistemlerinin çalıştığı modüllere güvenilmektedir.  </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> Aşağıdakilerden hangisi Nesnelerin İnterneti altyapısında kullanılan bir Uygulama Katmanı Protokolü <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Wi-Fi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> HTTP </span><br>
+	<span class="option" data-correct="false"><b>C)</b> MOTT </span><br>
+	<span class="option" data-correct="false"><b>D)</b> CoAP </span><br>
+	<span class="option" data-correct="false"><b>E)</b> XMPP </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Nesnelere eklenen etiketleri otomatik olarak tanımlamak ve izlemek için elektromanyetik alanları kullanan teknoloji aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Gömülü sistem </span><br>
+	<span class="option" data-correct="true"><b>B)</b> RFID  </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sensör </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Nesneden nesneye iletişim </span><br>
+	<span class="option" data-correct="false"><b>E)</b> MQTT </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> IPv4 protokolünde cihaz tanımlamak için kullanılan adres kaç byte uzunluğundadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> 128 Byte </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 32 Byte </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 4 Byte </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 8 Byte </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 16 Byte </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Kullanıcıların akıllı nesne verilerini bir bulut hizmetinden ve farklı kaynaklardan gelen verilerle birlikte işlemesine ve analiz etmesine olanak tanıyan bir iletişim mimarisini ifade eden temel iletişim altyapısı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Nesneden Nesneye İletişim </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Nesne Bulut İletişimi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Nesne-Ağ Geçidi İletişim Modeli </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Arka Uç Veri Paylaşım Modeli </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Temelden Sona İletişim Modeli </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> RFID EPC Açılımında Header önbilgi kaç bittir? </p>
+	<span class="option" data-correct="true"><b>A)</b> 8 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 28 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 24 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 36 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 96 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      RFID EPC Açılımı<br><br>
+
+Header (Önbilgi): 8 bit<br>
+EPC Maneger Number (EPC İşletme Numarası): 28 bit<br>
+Object Class (Ürün tipi): 24 bit<br>
+Serial Number (Seri NUmarası): 36 bit  <br>
+<br>
+Toplam 96 bit  </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> IPv4 ve IPv6 protokollerinin desteklediği adres alanı boyutları aşağıdaki şıklardan hangisinde doğru olarak verilmiştir? </p>
+	<span class="option" data-correct="true"><b>A)</b> 32 bit ve 128 bit </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 32 bit ve 64 bit </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 16 bit ve 32 bit </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 8 bit ve 32 bit </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 4 bit ve 6 bit </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      32 bit= 4 byte<br>
+128 bit = 16 byte     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Aşağıdakilerden hangisi Sensör çeşitlerinden, ortamda bulunan ışık miktarını algılamak için kullanılmaktadırlar? </p>
+	<span class="option" data-correct="true"><b>A)</b> Optik sensörler </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Elektrik ve Manyetik sensörler </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Mekanik sensörler </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Biyosensörler </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kimyasal sensörler </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      <u><strong>•	 Akustik ve	ses	sensörleri:</strong></u>	Bu	sensörler	havada	veya	denizaltında,	 titreşim	üreten	 nesnelerin algılanmasını sağlamaktadırlar (Ör. Mikrofon, hidrofon vb.).<br><br>
+			
+<u><strong>•	 Çevresel	 sensörler:</strong></u>	 Bu	 Sensörler	 çevresel	 meteorolojik	 değişimleri	 izlemek	 için 
+kullanılmaktadırlar (Ör. Yağmur sensörü, kar sensörü, nem sensörü vb.).<br><br>
+			
+<u><strong>•	 Kimyasal	sensörler:</strong></u>	Bu	sensörler	kimyasal	gazların,	sıvıların	veya	elementlerin	tespiti için kullanılmaktadırlar (Ör. pH sensörü, kimyasal gaz sensörleri, CO2 karbondioksit gazı sensörü, SO2 kükürtdioksit gazı sensörü, CO karbonmonoksit gazı sensörü vb.).<br><br>
+
+<u><strong>•	 Yaklaşma ve	 varlık	 bildirim	 sensörleri:</strong></u>	Bu	 sensörler	 ortamdaki	 hareketleri	 algılamada kullanılmaktadırlar (Ör. Otomobil park etme işlemlerinde kullanılan yakınlık sensörleri, hırsız alarmlarında kullanılan harekete duyarlı varlık bildirim sensörleri vb.).<br><br>
+			
+<u><strong>•	 Elektrik	ve Manyetik	sensörler:</strong></u>	Elektrik ve manyetik alanlarda oluşabilecek	değişiklikler bu tip sensörler sayesinde algılanabilmektedir (Ör. Galvanometre, metal detektörü vb.).<br><br>
+			
+<u><strong>•	 Otomotiv sensörler:</strong></u> Taşıt endüstrisinde kullanılan sensörlerdir (Ör. Hız ölçücü radar sensörleri, araç içi ısı sensörleri, benzin uyarı sensörleri, lastik basınç sensörleri vb.).<br><br>
+			
+<u><strong>•	 Termal	 ve ısı	 sensörleri:</strong></u>	Bu	 sensörler	 ortam	 ısısını	 ve	 sıcaklığını	 algılamak	 için 
+kullanılmaktadırlar (Ör. Termokapıl, kalorimetre, gordon sensörü vb.).<br><br>
+			
+<u><strong>•	 Optik	sensörler:</strong></u>	Bu	sensörler	ortamda bulunan ışık	miktarını	algılamak	için	kullanılmaktadırlar (Ör. Foto diyot, fototransistor vb.).<br><br>
+			
+<u><strong>•	 Mekanik	sensörler:</strong></u>	Bu	sensörler	ortam	titreşimini,	yer	değişimleri	ölçmek	için	kullanılmaktadırlar (Ör. Yükseklik sensörleri vb.).<br><br>
+			
+<u><strong>•	 Biyosensörler:</strong></u>	Bu	sensörler	elektrokimyasal	vasıflardan	faydalanarak	ölçüm	yapmaktadırlar. Genelde sağlık sektöründe ve besin endüstrisinde kullanılmaktadırlar (Ör. Kalp atış sensörleri, kızıl ötesi sensörler vb.).
+			
+
+     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Ortam titreşimini ve yer değişimlerini ölçmek için kullanılan sensörler aşağıdaki sensör türlerinden hangisine dahildir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Mekanik sensörler </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Elektrik ve manyetik sensörler </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Optik sensörler </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yaklaşma ve varlık bildirim sensörleri </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Çevresel sensörler </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">       <u><strong>•	 Akustik ve	ses	sensörleri:</strong></u>	Bu	sensörler	havada	veya	denizaltında,	 titreşim	üreten	 nesnelerin algılanmasını sağlamaktadırlar (Ör. Mikrofon, hidrofon vb.).<br><br>
+			
+<u><strong>•	 Çevresel	 sensörler:</strong></u>	 Bu	 Sensörler	 çevresel	 meteorolojik	 değişimleri	 izlemek	 için 
+kullanılmaktadırlar (Ör. Yağmur sensörü, kar sensörü, nem sensörü vb.).<br><br>
+			
+<u><strong>•	 Kimyasal	sensörler:</strong></u>	Bu	sensörler	kimyasal	gazların,	sıvıların	veya	elementlerin	tespiti için kullanılmaktadırlar (Ör. pH sensörü, kimyasal gaz sensörleri, CO2 karbondioksit gazı sensörü, SO2 kükürtdioksit gazı sensörü, CO karbonmonoksit gazı sensörü vb.).<br><br>
+
+<u><strong>•	 Yaklaşma ve	 varlık	 bildirim	 sensörleri:</strong></u>	Bu	 sensörler	 ortamdaki	 hareketleri	 algılamada kullanılmaktadırlar (Ör. Otomobil park etme işlemlerinde kullanılan yakınlık sensörleri, hırsız alarmlarında kullanılan harekete duyarlı varlık bildirim sensörleri vb.).<br><br>
+			
+<u><strong>•	 Elektrik	ve Manyetik	sensörler:</strong></u>	Elektrik ve manyetik alanlarda oluşabilecek	değişiklikler bu tip sensörler sayesinde algılanabilmektedir (Ör. Galvanometre, metal detektörü vb.).<br><br>
+			
+<u><strong>•	 Otomotiv sensörler:</strong></u> Taşıt endüstrisinde kullanılan sensörlerdir (Ör. Hız ölçücü radar sensörleri, araç içi ısı sensörleri, benzin uyarı sensörleri, lastik basınç sensörleri vb.).<br><br>
+			
+<u><strong>•	 Termal	 ve ısı	 sensörleri:</strong></u>	Bu	 sensörler	 ortam	 ısısını	 ve	 sıcaklığını	 algılamak	 için 
+kullanılmaktadırlar (Ör. Termokapıl, kalorimetre, gordon sensörü vb.).<br><br>
+			
+<u><strong>•	 Optik	sensörler:</strong></u>	Bu	sensörler	ortamda bulunan ışık	miktarını	algılamak	için	kullanılmaktadırlar (Ör. Foto diyot, fototransistor vb.).<br><br>
+			
+<u><strong>•	 Mekanik	sensörler:</strong></u>	Bu	sensörler	ortam	titreşimini,	yer	değişimleri	ölçmek	için	kullanılmaktadırlar (Ör. Yükseklik sensörleri vb.).<br><br>
+			
+<u><strong>•	 Biyosensörler:</strong></u>	Bu	sensörler	elektrokimyasal	vasıflardan	faydalanarak	ölçüm	yapmaktadırlar. Genelde sağlık sektöründe ve besin endüstrisinde kullanılmaktadırlar (Ör. Kalp atış sensörleri, kızıl ötesi sensörler vb.).     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> I. Önbilgi: 8 bit<br> 
+II. EPC İşletme Numarası:28 bit<br> 
+
+III. Ürün tipi: 28 bit<br> 
+
+IV. Seri Numarası: 32 bit<br> <br> 
+
+Etiket çipinin belleğinde saklanan elektronik ürün kodunun 96 bitlik veri dizisi ile ilgili verilen bilgilerden hangisi/hangileri doğrudur? </p>
+	<span class="option" data-correct="true"><b>A)</b> I-II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> III-IV </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I-II-III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II-III-IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I-II-IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      RFID EPC Açılımı<br><br>
+
+Header (Önbilgi): 8 bit<br>
+EPC Maneger Number (EPC İşletme Numarası): 28 bit<br>
+Object Class (Ürün tipi): 24 bit<br>
+Serial Number (Seri NUmarası): 36 bit  <br>
+<br>
+Toplam 96 bit     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> "Temelde bir asenkron haberleşme protokolüdür. Mesaj yayıncıları ve mesaj alıcılar arasında eşzamansız iletişim olmaktadır. Bu protokolün en önemli özelliği basit olması ve kaynak tüketiminde oldukça ekonomik davranmasıdır."
+Bilgileri verilen protokol aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> IPv6 </span><br>
+	<span class="option" data-correct="true"><b>B)</b> MQTT </span><br>
+	<span class="option" data-correct="false"><b>C)</b> XMPP </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Z-Wave </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bluetooth </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> Küresel iletişimin ve İnternetin gelişimindeki teknik yönlendirmeyi sağlamak için oluşturulan organizasyona ne denir? </p>
+	<span class="option" data-correct="true"><b>A)</b> IAB Internet Architectural Board </span><br>
+	<span class="option" data-correct="false"><b>B)</b> RFC </span><br>
+	<span class="option" data-correct="false"><b>C)</b> RFID </span><br>
+	<span class="option" data-correct="false"><b>D)</b> RFIC </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Hiçbiri </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> Aşağıdakilerden hangisi gömülü sistemlerin genel yapısı içinde <u><strong>yer almaz?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Yazıcı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sensör </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Mikro işlemci/kontrolcü </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bellek </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İletişim </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      Bir gömülü sistem genelde analog sinyali sayısal sinyale çeviren A/D çevirici, mikro işlemci/kontrolcü, bellek, arabirimlerin protokollerini işleyen ve iletişimi sağlayan arabirim kontrolörleri (USB, WiFi, Bluetooth vb.) ve sensörlerin bağlanabileceği portlardan oluşmaktadır. Ayrıca sistem üzerinde yazılımın ve gerektiğinde alınan verilerin saklanmasını sağlayan bir bellek yongası bulunmaktadır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Otomobillerde kullanılan park sensörleri temelde hangi sensörleri kullanmaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Işık sensörü </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kızılötesi sensör </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Yakınlık sensörü </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Hareket sensörü </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yükseklik sensörü </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> Aşağıdakilerden hangisi için gömülü sistem kullanmak en iyi çözüm olacaktır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Harekete duyarlı aydınlatma </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yaklaşılınca açılan kapı sistemi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Güneş ışığına göre kapanan perdeler </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Islık algılayınca titreyen anahtarlık </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Otomobil otomatik fren sistemi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      İlk dört seçenekte verilen cihazlar sensörden gelen uyarıma tepki veren çıktı aygıtları olarak düzenlenmiş yapıdadır. Otomobillerde bulunan otomatik hız sistemi ise kullanıcıdan gelen uyarıları, ve farklı sensörlerden gelen verileri kullanarak bir işlem yapan gömülü sistem ile başarılabilir.
+
+
+     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> Polis güvenlik noktalarındaki geçiş kapılarından geçerken uyarı veren sistem, genellikle hangi tip sensörlerin uyarılması ile çalışmaktadır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Metal sensörü </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kızıl ötesi sensörler </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Isı sensörü </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Basınç sensörü </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Titreşim sensörü </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> Aşağıdakilerden hangisi nesnelerin interneti teknolojilerinde kullanılan temel iletişim altyapısından biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Nesneden Bilgisayara İletişim </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Nesneden Nesneye İletişim </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Nesne Bulut İletişimi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Nesne-Ağ Geçidi İletişim Modeli </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Arka Uç Veri Paylaşım Modeli </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> Ortamda bulunan ışık miktarını algılamak için aşağıdaki sensörlerden hangisi kullanılabilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Foto diyot </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Galvanometre </span><br>
+	<span class="option" data-correct="false"><b>C)</b> pH sensörü </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Mikrofon </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Hidrofon </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> Kısa mesafeli kablosuz cihazdan cihaza iletişim temellenmesinde en yaygın kullanılan protokol aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Bluetooth </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ethernet </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Wi-Fi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> GPRS </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Z-Wave </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> Aşağıdaki bileşenlerden hangisinin bir gömülü sistemin donanımında yer alması <u><strong>gerekmez?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Verilerin saklanacağı harici disk </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Analog sinyali sayısal sinyale çeviren A/D çevirici </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Mikro işlemci/kontrolcü ve bellek </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Arabirimlerin protokollerini işleyen arabirim kontrolörleri </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sensörlerin bağlanabileceği portlar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      Bir gömülü sistem genelde analog sinyali sayısal sinyale çeviren A/D çevirici, mikro işlemci/kontrolcü, bellek, arabirimlerin protokollerini işleyen arabirim kontrolörleri (USB, WiFi, Bluetooth vb.) ve sensörlerin bağlanabileceği portlardan oluşmaktadır     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> Aşağıdakilerden hangisi birbirleriyle konuşmak istediğinde eşleştirilmeleri gereken, aralarındaki iletişimin kısa menzilli olduğu,  iletişimin pikonet olarak ad hoc (ortak kontrol noktası olmayan ağ yapısı) ağlar üzerinden gerçekleştiği, nesnelerin interneti altyapısında kullanılan bir ağ teknolojisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Bluetooth </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Z-Wave </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ZigBee </span><br>
+	<span class="option" data-correct="false"><b>D)</b> XMPP </span><br>
+	<span class="option" data-correct="false"><b>E)</b> CoAP </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> Etiket çipinin belleğinde saklanan elektronik ürün kodu (EPC) aşağıdaki bilgilerden hangisini <u><strong>içermez?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Önbilgi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> EPC İşletme Numarası </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ürün Tipi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Seri Numarası </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Etiket Son Kullanım Tarihi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> Uygulama Hizmeti Sağlayıcısı ve Müze Güvenlik Sistemi arasında ne <u><strong>bulunmaz?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> TLS </span><br>
+	<span class="option" data-correct="false"><b>B)</b> HTTP </span><br>
+	<span class="option" data-correct="false"><b>C)</b> TCP </span><br>
+	<span class="option" data-correct="false"><b>D)</b> UDP </span><br>
+	<span class="option" data-correct="true"><b>E)</b> IP </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> IPv6 protokolü ile IPv4 protokolünde desteklenen 32 bitlik adres alanı kaç bit alan ile yer değiştirmiştir? </p>
+	<span class="option" data-correct="true"><b>A)</b> 128 bit </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 256 bit </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 16 bit </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 32 bit </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 64 bit </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> Aşağıdaki sensörlerden hangisi diğerlerinden farklı bir sınıflandırmaya dahildir? </p>
+	<span class="option" data-correct="false"><b>A)</b> CO2(karbon dioksit) sensörü </span><br>
+	<span class="option" data-correct="false"><b>B)</b> pH sensörü </span><br>
+	<span class="option" data-correct="false"><b>C)</b> CO (karbon monoksit) sensörü </span><br>
+	<span class="option" data-correct="false"><b>D)</b> SO2 ( kükürtdioksit gazı) sensörü </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Nem sensörü </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      pH sensörü, kimyasal gaz sensörleri, CO2 karbondioksit gazı sensörü, SO kükürtdioksit gazı sensörü, CO karbonmonoksit gazı sensörü vb. sensörler kimyasal sensörlerdir. Nem sensörü ise çevresel sensörler içerisinde sınıflandırılır.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> Aşağıdakilerden hangisi çevresel sensör olarak sınıflandırılabilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Mikrofon </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kimyasal gaz sensörleri </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Yağmur sensörü </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yükseklik sensörü </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kızıl ötesi sensör </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      Çevresel sensörler: Bu Sensörler çevresel meteorolojik değişimleri izlemek için
+kullanılmaktadırlar (Ör. Yağmur sensörü, kar sensörü, nem sensörü vb.)     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> Uygulama Hizmeti Sağlayıcısı ve Ev Hırsız Alarm Sistemi arasında ne <u><strong>bulunmaz?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> HTTP </span><br>
+	<span class="option" data-correct="false"><b>B)</b> DTLS </span><br>
+	<span class="option" data-correct="false"><b>C)</b> TCP </span><br>
+	<span class="option" data-correct="false"><b>D)</b> IP </span><br>
+	<span class="option" data-correct="true"><b>E)</b> TLS </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question41">
+	<p class="question">Soru 41:<br> Kalp atış sensörleri, kızıl ötesi sensörler vb.gibi elektrokimyasal vasıflardan faydalanarak ölçüm yapmak için kullanılan sensörler aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Mekanik sensörler </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Termal ve ısı sensörleri </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Çevresel sensörler </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kimyasal sensörler </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Biyosensörler </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description41">Açıklama</button>
+		<div id="description41" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question42">
+	<p class="question">Soru 42:<br> Aşağıdakilerden hangisi Nesnelerin İnterneti bünyesinde iletim esnasında kullanılabilecek yöntem ve modellerden birisi <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Nesne yönelimli model </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Nesne-Ağ Geçidi İletişim Modeli </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Arka Uç Veri Paylaşım Modeli </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Nesne Bulut İletişimi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Nesneden Nesneye İletişim </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description42">Açıklama</button>
+		<div id="description42" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question43">
+	<p class="question">Soru 43:<br> Nesnelerin interneti kavramı ilk kez kim tarafından ortaya atılmış bir terim ya da kavramdır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Kevin Ashton </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ken Schwaber </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Jeff Sutherland </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Andy Rubin </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Steve Jobs </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description43">Açıklama</button>
+		<div id="description43" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question44">
+	<p class="question">Soru 44:<br> Aşağıdakilerden hangisi 2004 yılında ortaya çıkan ve günümüz ev otomasyon sistemlerinde yaygın bir kullanıma ulaşmış, Amerika’da 908.42 MHz, Avrupa’da ise 868.42 MHz iletişim bandında çalışan, teoride 232 düğümü destekleyen radyo sinyalleriyle haberleşme esasına dayalı bir protokoldür? </p>
+	<span class="option" data-correct="true"><b>A)</b> Z-Wave </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bluetooth </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ZigBee </span><br>
+	<span class="option" data-correct="false"><b>D)</b> XMPP </span><br>
+	<span class="option" data-correct="false"><b>E)</b> CoAP </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description44">Açıklama</button>
+		<div id="description44" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question45">
+	<p class="question">Soru 45:<br> -Bu protokol ile IPv4 protokolünde desteklenen 32 bitlik adres alanı 128 bit (16 byte) alan ile yer değiştirmiştir. Böylece 2128 = 3.4E38 değişik cihaz tanımlanabilecektir.<br>
+-IPSec desteği ile güvenlik sağlanabilmektedir.<br>
+-Akış kontrolü ile Servis Kalitesi temelli yönlendirmeye olanak sağlamaktadır.<br><br>
+Bilgileri verilen protokol aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> IPv6 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> MQTT </span><br>
+	<span class="option" data-correct="false"><b>C)</b> CoAP </span><br>
+	<span class="option" data-correct="false"><b>D)</b> XMPP </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Z-Wave </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description45">Açıklama</button>
+		<div id="description45" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question46">
+	<p class="question">Soru 46:<br> I. Nesneden nesneye iletişim modelinde iki veya ikiden fazla nesne, üçüncü bir uygulama servisine ihtiyaç duymadan birbirleriyle doğrudan iletişim içindedirler.<br>
+II. Bu cihazlar IP veya Internet gibi genel ağ protokollerini tercih edebildikleri gibi daha özel protokoller de (Bluetooth, Z-Wave ve ZigBee) kullanabilmektedirler. <br>
+III. Nesneden nesneye iletişimde farklı firmalara ait cihazlar veri iletiminde farklı protokoller kullanabilmektedir.<br><br>
+Nesneden nesneye iletişim ile ilgili verilen bilgilerden hangisi/hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I-II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I-III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II-III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description46">Açıklama</button>
+		<div id="description46" class="collapse">      Nesneden nesneye iletişim modelinde iki veya ikiden fazla nesne, üçüncü bir uygulama servisine ihtiyaç duymadan birbirleriyle doğrudan iletişim içindedirler.
+
+Bu cihazlar IP veya Internet gibi genel ağ protokollerini tercih edebildikleri gibi daha özel protokoller de (Bluetooth, Z-Wave ve ZigBee) kullanabilmektedirler. 
+
+Nesneden nesneye iletişimdeki en önemli sorun, farklı firmalara ait cihazların veri iletiminde farklı protokoller kullanıyor olmasıdır. Bu sebeple farklı protokol kullanıldığında nesneden nesneye iletişim sağlanamayacaktır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question47"><br>
+	<p class="question">Soru 47:<br> "Günümüzde en geniş kapsamlı ve esnek iletişim modeli olarak göze çarpan teknolojidir. Güvenlik sağladığı gibi veri ve protokol çevrimi gibi yükümlülüklerle bağlanacak cihazlarla bulutta konuşlanmış servis arasında esnekliği sağlamaktadır."<br><br>
+Yukarıda bilgileri verilen iletişim modeli aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Nesne-Ağ Geçidi İletişim Modeli </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Nesne Bulut İletişimi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Nesneden Nesneye İletişim </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Arka Uç Veri Paylaşım Modeli </span><br>
+	<span class="option" data-correct="false"><b>E)</b> RFID </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description47">Açıklama</button>
+		<div id="description47" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question48">
+	<p class="question">Soru 48:<br> Jaber tabanlı açık kaynak kodlu bir protokol olup anlık mesajlaşma, çoklu sohbet ve görüntülü görüşme için geliştirilmiş uygulama katmanı protokolü aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> MQTT </span><br>
+	<span class="option" data-correct="false"><b>B)</b> CoAP </span><br>
+	<span class="option" data-correct="true"><b>C)</b> XMPP </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ZigBee </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Z-Wave </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description48">Açıklama</button>
+		<div id="description48" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question49">
+	<p class="question">Soru 49:<br> Aşağıdakilerden hangisi Veri Toplama Teknolojilerinden Sensörlerin özelliklerinden biridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Otomatik tanımlama, nesnelerin belirlenmesi ilkesi ile ortaya çıkmış bir teknoloji olarak
+ifade edilebilir. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Fiziksel ortamdan, yani çevreden gelen çeşitli türdeki girdileri algılayan ve bu algıyı
+elektronik sinyallere çeviren aygıttır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Nesnelerin İnterneti kavramının alt yapısı şekillenmeye başlamaktadır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sinyalleri veriye dönüştürmek gerektiğinde değişiklikler yapmak ve sonuçta İnternet ağına iletmek için ortaya çıkmış yapılardır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Tüm birimlerin bir araya geldiği ortak bir paydaya göre birlikte çalışan bir düzenleme olarak adlandırılabilir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description49">Açıklama</button>
+		<div id="description49" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question50">
+	<p class="question">Soru 50:<br> Aşağıdakilerden hangisi Gömülü Sistemlerin Özelliklerinden biridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Otomatik tanımlama, nesnelerin belirlenmesi ilkesi ile ortaya çıkmış bir teknoloji olarak
+ifade edilebilir. </span><br><br>
+	<span class="option" data-correct="false"><b>B)</b> Otomatik tanımlama ile otomatik veri toplama arasında etkin bir ilişki kurulduğu takdirde, tanımlanmış ve algılanabilir nesnelerdeki tüm çevresel ve nesnel değişimlerin otomatik olarak algılandığı ve izlendiği bir ortam da yaratılmış olacaktır. </span><br><br>
+	<span class="option" data-correct="false"><b>C)</b> Fiziki dünyayı otomatik olarak ve doğru bir şekilde izlemek ve yönetmek için kullanılabilir. Ortamda neler olduğu ve yaşanan değişimler otomatik olarak algılanmakta,
+ilgili verileri paylaşılmakta ve gerekli tepkiler bunlara bağlı olarak üretilmektedir. </span><br><br>
+	<span class="option" data-correct="true"><b>D)</b> ortamdaki değişimleri sinyale dönüştürmekte ancak bu sinyallerin bilgisayar ortamında işlenebilecek veriye çevrilmesi için akıllı sistemlere ihtiyaç duyulmaktadır. Bu sistemler, bu sinyalleri veriye dönüştürmek gerektiğinde değişiklikler yapmak ve sonuçta İnternet ağına iletmek için ortaya çıkmış yapılardır. </span><br><br>
+	<span class="option" data-correct="false"><b>E)</b> Bir nesnenin ne olduğunu, nerede olduğunu ve durumunu kolaylıkla söyleyebilir; bu da Nesnelerin İnterneti teknolojisine önemli bir katkı sağlamaktadır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description50">Açıklama</button>
+		<div id="description50" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question51">
+	<p class="question">Soru 51:<br> Aşağıdakilerden hangisi Nesnelerin İnterneti uygulamaları için tasarlanmış olan, veri iletimi için yayınlama/abone mantığını kullanan,  TCP/IP yığıtının üzerinde çalışan ve  ölçeklendirilebilir bir hafif bir uygulama katmanı protokolüdür? </p>
+	<span class="option" data-correct="true"><b>A)</b> MQTT </span><br>
+	<span class="option" data-correct="false"><b>B)</b> CoAP </span><br>
+	<span class="option" data-correct="false"><b>C)</b> XMPP </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Zigbee </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Z-Wave </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description51">Açıklama</button>
+		<div id="description51" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question52">
+	<p class="question">Soru 52:<br> RFID okuyucular nesnelere eklenen etiketleri hangi teknolojiyi kullanarak tanımaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Wi-Fi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bluetooth </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Radyo frekansı </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Elektromanyetik alan  </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kızıl ötesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description52">Açıklama</button>
+		<div id="description52" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question53">
+	<p class="question">Soru 53:<br>  Aşağıdakilerden hangisi nesnelerin internetinde temel iletişim altyapılarından <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Nesneden Nesneye İletişim </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Nesne Bulut İletişimi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Nesne-Ağ Geçidi İletişim Modeli </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Arka Uç Veri Paylaşım Modeli </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Temelden Sona İletişim Modeli </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description53">Açıklama</button>
+		<div id="description53" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question54">
+	<p class="question">Soru 54:<br> Aşağıdakilerden hangisi Uygulama Katmanı Protokollerinden Mesaj Kuyruk Telemetri Ulaşım protokolünün kısaltmasıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> CoAP </span><br>
+	<span class="option" data-correct="true"><b>B)</b> MQTT </span><br>
+	<span class="option" data-correct="false"><b>C)</b> TCP </span><br>
+	<span class="option" data-correct="false"><b>D)</b> XMPP </span><br>
+	<span class="option" data-correct="false"><b>E)</b> HTTP </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description54">Açıklama</button>
+		<div id="description54" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question55">
+	<p class="question">Soru 55:<br> I. Mikrofon<br>
+II. Hareket duyarlı varlık bildirim sensörü<br>
+III. Termokapıl<br>
+IV. Elektrik ampülü<br><br>
+Yukarıdakilerden hangisi/hangileri sensör örneklerindendir? </p>
+	<span class="option" data-correct="false"><b>A)</b> I-II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> II-III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> III-IV </span><br>
+	<span class="option" data-correct="true"><b>D)</b> I-II-III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II-III-IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description55">Açıklama</button>
+		<div id="description55" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question56">
+	<p class="question">Soru 56:<br> Hafif bir ara katman yazılımı olup çoklu düğümler arası veri birleştirme için oldukça etkili bir protokoldür. Başlangıçta sohbet programlarının temel protokolü olup, 2011 yılında tekrar güncellenerek Nesnelerin İnterneti altyapısına uygun standartlar içermesi sağlanmıştır."<br><br>
+Bilgileri verilen protokol aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> IPv6 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> MQTT </span><br>
+	<span class="option" data-correct="false"><b>C)</b> CoAP </span><br>
+	<span class="option" data-correct="true"><b>D)</b> XMPP </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ZigBee </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description56">Açıklama</button>
+		<div id="description56" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question57">
+	<p class="question">Soru 57:<br> Nesnelerin İnterneti teknolojisi iletişim modelleriyle birlikte ihtiyaçlar doğrultusunda gerekli iletişim protokollerini de ortaya koymaktadır. Aşağıdakilerden hangisi bu protokollerden biri <strong>değildir?</strong> </p>
+	<span class="option" data-correct="false"><b>A)</b> Farklı kablosuz iletişim teknolojileri kullanılabilmelidir. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Güvenlik, önemli bir gereklilik değildir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veriler bulutta saklanabilmeli / işlenebilmelidir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Buluttaki veri depolama alanı bağlantılarına olanak tanınmalıdır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bulut depolama alanına kablosuz ve kablolu bağlantılar yoluyla bilgi yönlendirilmesi yapılabilmelidir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description57">Açıklama</button>
+		<div id="description57" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question58">
+	<p class="question">Soru 58:<br>  Aşağıdakilerden hangisi gömülü sistemlerin temel bileşenlerinden <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> A/D Çevirici </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Mikro işlemci/kontrolcü </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bellek </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sensör </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Yazıcı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description58">Açıklama</button>
+		<div id="description58" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question59">
+	<p class="question">Soru 59:<br> -Sadece donanım aygıtlarının sınırlı ve temel işlevlerini kontrol etmek için kullanılır ve genellikle kullanıcı girişine ihtiyaç duymaz.<br>
+-Çoğunlukla kullanıcıdan bağımsız işlemekte ve fonksiyonları harici kontrollerle etkinleştirilmektedir.<br>
+
+-Gerektiğinde kalibre edilebilmesi için kontrol pinleri kullanılabilmekte ve bu kontroller uzun zaman aralıklarıyla gerçekleşmektedir.<br><br>
+
+Yukarıda bilgileri verilen Gömülü sistem bileşeni aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Donanım </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Gömülü sistem işletim sistemi </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Uygulama Yazılımı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Gerçek zamanlı işletim sistemi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Nesnelerin İnterneti Senaryosu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description59">Açıklama</button>
+		<div id="description59" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question60">
+	<p class="question">Soru 60:<br> Aşağıdakilerden hangisi, Gömülü sistemlerin temel bileşenlerinden Donanımın özelliklerindendir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Bir gömülü sistem genelde analog sinyali sayısal sinyale çeviren A/D çevirici,
+mikro işlemci/kontrolcü, bellek, arabirimlerin protokollerini işleyen arabirim kontrolörleri
+(USB, WiFi, Bluetooth vb.) ve sensörlerin bağlanabileceği portlardan oluşmaktadır. </span><br><br>
+	<span class="option" data-correct="false"><b>B)</b> Gömülü sistem uygulama yazılımı, sadece donanım aygıtlarının sınırlı ve temel işlevlerini kontrol etmek için kullanılır ve genellikle kullanıcı girişine ihtiyaç duymaz. Yazılım çoğunlukla kullanıcıdan bağımsız işlemekte ve fonksiyonları harici kontrollerle etkinleştirilmektedir. </span><br><br>
+	<span class="option" data-correct="false"><b>C)</b> Gerektiğinde kalibre edilebilmesi için kontrol pinleri kullanılabilmekte ve bu kontroller uzun zaman aralıklarıyla gerçekleşmektedir. Yazılım, üzerinde çalışılan cihazın ve üstlendiği görevin karmaşıklığı doğrultusunda belleğe ihtiyaç duymakta ve genelde bu bellek de cihaz üzerine yerleştirilmektedir. </span><br><br>
+	<span class="option" data-correct="false"><b>D)</b> İşletim sistemi, bir bilgisayarın donanım ve kaynaklarının kullanıcı programları tarafından paylaşılması ve yönetilmesini sağlar. </span><br><br>
+	<span class="option" data-correct="false"><b>E)</b> Gerçek zamanlı işletim sistemlerindeki (Real-time Operating System–RTOS) temel olgu, bu sistemlerin çok hassas bir zamanlama yeteneğine sahip
+olması ve yüksek düzeyde güvenilirlik ile uygulamaları çalıştırmak için özel olarak tasarlanmış
+olmalarıdır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description60">Açıklama</button>
+		<div id="description60" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1609 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          ALGORİTMALAR
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="alg-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="alg-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="alg-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="alg-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="alg-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="alg-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="alg-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="alg-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="alg-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="alg-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB SUNUCU PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wsp-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wsp-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wsp-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wsp-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wsp-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wsp-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wsp-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wsp-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wsp-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wsp-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİ MADENCİLİĞİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="vmaden-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="vmaden-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="vmaden-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="vmaden-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="vmaden-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="vmaden-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="vmaden-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="vmaden-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="vmaden-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="vmaden-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİTABANI SİSTEMLERİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="vtsistem-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="vtsistem-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="vtsistem-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="vtsistem-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="vtsistem-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="vtsistem-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="vtsistem-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="vtsistem-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="vtsistem-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="vtsistem-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMADA YENİ EĞİLİMLER
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="prgyenieğilim-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="prgyenieğilim-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Programlamada Yeni Eğilimler - Ünite 7 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	<button class="block-group" data-start="40" data-end="59">Part 3</button>
+	  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Aşağıdakilerden hangisi büyük verinin beş bileşeninden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Çeşitlilik </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Hız </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Doğrulama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Değer </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Yalınlık </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      Büyük veri beş temel bileşenden oluşmaktadır. Bunlar;<br><br>
+			Çeşitlilik (variety),<br> Değer (value),<br>
+Doğrulama (verification),<br> Veri büyüklüğü (volume)<br> Hız (velocity) <br>
+<br>
+ Bu bileşenler İngilizce isimlerinin baş harflerinin aynı olmasından dolayı 5V olarak adlandırılmaktadır.    </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Büyük verinin yalnızca doğru kişilerle paylaşılması, istenmeyen kişilerden gizlenmesi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Çeşitlilik </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Hız </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Doğrulama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Değer </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Veri büyüklüğü </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Aşağıdakilerden hangisi metin analitiği uygulamalarından biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Ses analizi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Metin özetlemesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Soru-cevap sistemleri </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Güven analizi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Tercih madenciliği </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Büyük veri işlemlerinin <u><strong>ilk aşaması</strong></u> aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Birleştirme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Çıkartım </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Anlamlandırma </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Veri toplama ve kayıt </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Veri modelleme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Hadoop çerçevesinde verinin kendisinin saklandığı kısım aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> MapReduce </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İş takipçisi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Görev takipçisi
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Ad düğümü </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Veri düğümü </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Aşağıdakilerin hangisinde MapReduce ikilisi birlikte ve doğru verilmiştir? </p>
+	<span class="option" data-correct="true"><b>A)</b> İş takipçisi-Görev takipçisi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ad düğümü-Veri düğümü </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ad düğümü-Görev takipçisi </span><br>
+	<span class="option" data-correct="false"><b>D)</b>  İş takipçisi-Veri düğümü </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İş takipçisi-Ad düğümü </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> MapReduce kelime sayma işleminde, her bir sunucudaki metinde ilgili kelimeden kaç tane olduğunun sayıldığı aşama
+aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Haritalama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Giriş okuyucu </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bölümlendirme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sıralama </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sonuç </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> Aşağıdakilerin hangisinde Hadoop dağıtık dosya sistemi bölümleri ikilisi birlikte ve doğru verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> İş takipçisi-Görev takipçisi </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Ad düğümü-Veri düğümü </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ad düğümü-Görev takipçisi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İş takipçisi-Veri düğümü </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İş takipçisi-Ad düğümü </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> Ürünler hakkında müşterilerin görüşlerini toplama ve bu görüşleri analiz etmede örnek oluşturan büyük veri analitiği aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Soru-cevap analitiği </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Özetleme </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Tercih analitiği </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Ses analitiği </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Video analitiği </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Aşağıdakilerin hangisi büyük verinin farklı kaynaklardan gelen verilerle oluşması özelliğine karşılık gelmektedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Çeşitlilik </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Hız </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Doğrulama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Değer </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Veri büyüklüğü </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> - Elektronik postalar<br>
+- Sosyal medyadaki fotoğraf, video gibi paylaşımlar<br>
+- Çeşitli sensörlerden gelen sürekli bilgiler<br>
+- GSM operatörlerindeki arama kayıtları<br><br>
+Yukarıda sıralanan kaynaklar aşağıdakilerden hangisi kapsamında yer almaktadır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Büyük veri kaynakları </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Büyük veri analitiği </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Hadoop </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Büyük veri bileşenleri </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Büyük veri analizleri </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> Farklı veri setlerinden oluşan çok boyutlu verilerin hatasız biçimde bir araya getirilmesi için aşağıdaki veri yönetimi sistemlerinden hangisi kullanılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Veri toplama ve kayıt </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Çıkartım </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Birleştirme ve gösterim </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Temizleme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Belirtim </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Veri düğümü Hadoop şemasında aşağıdaki sistemlerden hangisi altında yer almaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Ad düğümü </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Görev takipçisi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İş takipçisi </span><br>
+	<span class="option" data-correct="true"><b>D)</b> HDFS katmanı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İş takipçisi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      Hadoop şematik
+yapısı<br><br>
+<u><strong>HADOOP</strong></u><br>
+<strong>1-HDFS Katmanı</strong><br>
+&emsp;&emsp;- Ad Düğümü<br>
+&emsp;&emsp;- Veri Düğümü<br>
+<strong>2- Map Reduce Katmanı</strong><br>
+&emsp;&emsp;- Görev Takipçisi<br>
+&emsp;&emsp;- İş Takipçisi     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> Aşağıdakilerden hangisi büyük verinin tanımlanmasında kullanılan sözcüklerdendir?<br><br>
+I. Büyük<br>
+II. Kolay<br>
+III. Zor<br>
+IV. Karmaşık </p>
+	<span class="option" data-correct="false"><b>A)</b> I, II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> II, III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> III, IV </span><br>
+	<span class="option" data-correct="true"><b>D)</b> I, III, IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II, III, IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      Büyük veri; geleneksel yöntemlerle işlenmesi zor olan, hacimsel olarak büyük olan ve karmaşık yapıdaki veridir.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> Büyük veri analitiğinde veri yönetimi hangi aşamalarda gerçekleştirilir?<br><br>
+I. Veri Toplama ve Kayıt,<br>
+II. Çıkartım Temizleme ve Belirtim<br>
+III. Birleştirme ve Gösterim<br>
+IV. Modelleme ve Analiz<br>
+V. Anlamlandırma </p>
+	<span class="option" data-correct="true"><b>A)</b> I, II, III </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I, II, IV </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I, III, IV </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II, III, V </span><br>
+	<span class="option" data-correct="false"><b>E)</b> III, IV, V </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      Büyük veri analitiğindeki işlemler, toplam beş aşamadan oluşan iki ana parçaya ayrılabilir.<br><br>
+
+Veri Yönetimi; Veri Toplama ve Kayıt, Çıkartım Temizleme ve Belirtim, Birleştirme ve Gösterim<br><br>
+
+Veri Analitiği; Modelleme ve Analiz, Anlamlandırma     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Hem kullanıcılar hem de servis sağlayıcılar açısından sorunlara neden olabilecek etken aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Sabit bilgilerin kullanılması </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Doğrulanmamış bilgilerin kullanılması </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Hızlı bilgilerin kullanılması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Çeşitlilik gösteren bilgilerin kullanılması </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Değerli olmayan bilgilerin kullanılması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> Aşağıdaki büyük veri analitiği işlemlerinden hangisi “Veri Analitiği” işlem grubuna aittir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Anlamlandırma </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Veri toplama ve kayıt </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Çıkartım ve temizleme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Belirtim </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Birleştirme ve gösterim </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      Büyük veri analitiğindeki işlemler, toplam beş aşamadan oluşan iki ana parçaya ayrılabilir.<br><br>
+
+Veri Yönetimi; Veri Toplama ve Kayıt, Çıkartım Temizleme ve Belirtim, Birleştirme ve Gösterim<br><br>
+
+Veri Analitiği; Modelleme ve Analiz, Anlamlandırma     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Aşağıdakilerden hangisi büyük veri bileşenlerinden <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Çeşitlilik </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Analiz </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veri büyüklüğü </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Hız </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Doğrulama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      Büyük veri beş temel bileşenden oluşmaktadır. Bunlar çeşitlilik, değer, doğrulama, veri büyüklüğü ve hızdır.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> Büyük veri hangi bileşenlerden oluşmaktadır?<br><br>
+
+I. Çeşitlilik (variety)<br>
+II. Değer (value)<br>
+III. Doğrulama (verification)<br>
+IV. Veri büyüklügü (volume)<br>
+V. Hız (velocity) </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I, II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II, III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yalnız III, IV </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yalnız I, IV, V </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II, III, IV, V </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> Aşağıdakilerden hangisi büyük veri analitiği için <u><strong>söylenemez?</strong></u></p>
+	<span class="option" data-correct="false"><b>A)</b> Büyük veri seti işlenir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Çeşitli örüntüler, veriler arasındaki ilişkileri ortaya çıkartır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Çeşitli tiplerdeki verileri içerir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Doğru karar almaya yardımcı olur. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Veri tek tiptedir </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Aşağıdakilerden hangisi büyük veri bileşenlerinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Çeşitlilik </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Değer </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Kullanışlılık </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Doğrulama </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Veri büyüklüğü </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br>  Farklı veri tiplerindeki büyük veriyi işleyerek anlamlı sonuçlar çıkarma işlemine ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Büyük veri korelasyonu </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Büyük veri standartı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Büyük veri uygulaması </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Büyük veri analitiği </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Büyük veri sapması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> I. Elektronik postalar<br>
+II. Sosyal medyadaki paylaşımlar<br>
+III. Çeşitli sensörlerden gelen bilgiler<br>
+IV. GSM operatörlerindeki arama kayıtları<br><br>
+Yukarıdakilerden hangisi veya hangileri büyük veri kaynaklarındandır? </p>
+	<span class="option" data-correct="false"><b>A)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> III ve IV </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I, II ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II, III ve IV </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II, III ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Bir dokümandan önemli bilgiler ve cümleler alındıktan sonra, doğal dil işleme yöntemleri kullanılarak bu bilgilerin daha anlamlı başka kelimelerle yeniden ifade edilmesine dayalı metin madenciliği yöntemi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Soyut tabanlı özetleme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Çıkarım tabanlı özetleme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Güven analizi ve tercih madenciliği </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Soru cevaplama tekniği </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Konu modelleme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> Apache Hadoop için aşağıdaki ifadelerden hangisi geçerlidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Büyük veri setlerinin dağıtık olarak saklanması ve üzerinde dağıtık işlemler yapılması için Java dilinde yazılmış açık kaynak kodlu bir yazılım çerçevesidir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Büyük veri setlerinin depolanması ve analizi için kullanılan SQL tabanlı bir sorgulama dilidir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Büyük veri setlerinin üzerinde dağıtık işlemler yapılması için Apache firması tarafından pazarlanan Java dilinde yazılmış ticari uygulamadır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Büyük veri setlerinin dağıtık olarak saklanması için Python dilinde yazılmış ticari bir yazılım çerçevesidir. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Büyük veri setlerini geleneksel yapılandırılmış veritabanlarına dönüştürmek amacıyla kullanılan bir  tasarım mimarisidir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> Aşağıdakilerden hangisi Hadoop çerçevesinin şematik yapısında yer alan temel kavramlardan biri değildir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Arayüz yönetimi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ad düğümü </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veri düğümü </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Görev takipçisi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İş takipçisi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      Hadoop şematik
+yapısı<br><br>
+<u><strong>HADOOP</strong></u><br>
+<strong>1-HDFS Katmanı</strong><br>
+&emsp;&emsp;- Ad Düğümü<br>
+&emsp;&emsp;- Veri Düğümü<br>
+<strong>2- Map Reduce Katmanı</strong><br>
+&emsp;&emsp;- Görev Takipçisi<br>
+&emsp;&emsp;- İş Takipçisi
+     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Büyük veri analitiğinde çeşitli veri modelleme teknikleri kullanılarak sıklıkla kullanılan örüntüler ve veriler arasındaki ilişkiler bulunabilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Anlamlandırma </span><br>
+	<span class="option" data-correct="false"><b>B)</b>  Birleştirme ve Gösterim </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Çıkartım Temizleme ve Belirtim </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Modelleme ve Analiz </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Veri Toplama ve Kayıt </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> Dağıtık mimari içerisinde bulunan dosyaları paralel bir şekilde analiz ederek, sonuçları çıkaran ve gönderen sistemlerden biri olan MapReduce sistemi ilk olarak ne zaman kullanılmıştır? </p>
+	<span class="option" data-correct="false"><b>A)</b> 1994 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 2000 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 2004 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 2008 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 2012 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      İlk olarak 2004 yılında Google tarafından duyurulan ve kullanılan bu sistem, günümüzde Facebook, Yahoo ve daha birçok şirket tarafından kullanılmaktadır.     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> Mapreduce'da yapılan işlemlere göre aşağıdakilerden hangisi yanlıştır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Dağıtık mimari kullanır </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Dosyalar seri bir şekilde işlenir </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Dosyalar analiz edilir </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Dosyalar saklanır </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sonuç çıkartılır </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      MapReduce, dağıtık mimari içerisinde bulunan dosyaları <u><strong>paralel</strong></u> bir şekilde analiz ederek, sonuçları çıkaran ve gönderen sistemlerden biridir.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> Aşağıdakilerden hangisi büyük veri işleme projeleri kullanılmayan bir yazılımdır? </p>
+	<span class="option" data-correct="false"><b>A)</b>  Apache Pig </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Apache Hive </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Apache HTTP </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Apache Spark </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Apache Storm </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> Veri her yerden ve hızlı bir şekilde geldiği için aşağıdakilerden hangisi katlanarak artmaktadır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Verinin büyüklüğü </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Verinin çeşitliliği </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Verinin güvenilirliği </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Verinin doğruluğu </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Verinin hızı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> I. Hadoop için Java’da yazılmıştır<br>
+II. Dağıtık, ölçeklenebilir ve taşınabilir bir dosya sistemidir<br>
+III. Büyük dosyaları birden fazla sunucuda saklamaktadır<br><br>
+HDFS için yukarıdakilerden hangisi veya hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> Aşağıdakilerden hangisi büyük veri için geçerlidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Hacimsel olarak büyük miktarda olan karma yapıdaki veridir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İlişkisel veritabanlarında yapılandırılmış olarak saklanmaktadır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bu tür veriye erişmek mümkün değildir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İşlenmesi kolay ve basit yapıdaki verilerden oluşur. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Geleneksel veri işleme uygulamalarıyla işlenmesi kolaydır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> Aşağıdakilerden hangisinde MapReduce işleminin aşamaları doğru sırada verilmiştir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Giriş – bölümlendirme – haritalama – karşılaştırma ve sıralama – azaltma - sonuç </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Giriş– haritalama – bölümlendirme – karşılaştırma ve sıralama – azaltma - sonuç </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Giriş – bölümlendirme– karşılaştırma ve sıralama – haritalama – azaltma - sonuç </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Giriş – bölümlendirme– karşılaştırma ve sıralama – azaltma – haritalama - sonuç </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Giriş – haritalama– karşılaştırma ve sıralama – bölümlendirme – azaltma - sonuç </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> "Bir GSM operatöründen gelen veri ile web sunucularından gelen veriler yapısal olarak farklıdır. Bu nedenle gelen veriyi analiz edecek büyük veri uzmanlarının verinin içeriğinin tipi hakkında bilgi sahibi olması gerekmektedir."
+Yukarıda verilen örnek veri bileşenlerinden hangisiyle doğrudan ilişkilidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> değer (value) </span><br>
+	<span class="option" data-correct="true"><b>B)</b> çeşitlilik (variety) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> doğrulama (verification) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> veri büyüklüğü (volume) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> hızdır (velocity) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> Sosyal ağlardaki paylaşımlar, elektronik postalar, forumlara girilen yorumlar, çeşitli dokümanlar ve haberler şirketler tarafından kullanılan metin verilerinden bilgi çıkarma tekniğine ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Metin belirtimi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Metin çıkartımı </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Metin analitiği </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Metin birleştirme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Metin kayıt </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> “Çeşitli tiplerdeki verileri içeren büyük veri setlerini işleyerek bu veri setlerinden çeşitli örüntüleri, veriler arasındaki ilişkileri, müşteri tercihlerini, market eğilimleri gibi yararlı iş bilgilerini açığa çıkarma işlemidir.”<br><br>
+
+Yukarıda verilen ifade aşağıdaki seçeneklerden hangisini tanımlamaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Veri yönetimi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Tercih madenciliği </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Metin analitiği </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Ses analitiği </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Büyük veri analitiği </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> I. Veri düğümü<br>
+II. Görev takipçisi<br>
+III. Ad düğümü<br>
+IV. İş takipçisi<br><br>
+Yukarıdakilerden hangileri Apache Hadoop yapısında HDFS katmanında bulunur? </p>
+	<span class="option" data-correct="false"><b>A)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> III ve IV </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      Hadoop şematik
+yapısı<br><br>
+<u><strong>HADOOP</strong></u><br>
+<strong>1-HDFS Katmanı</strong><br>
+&emsp;&emsp;- Ad Düğümü<br>
+&emsp;&emsp;- Veri Düğümü<br>
+<strong>2- Map Reduce Katmanı</strong><br>
+&emsp;&emsp;- Görev Takipçisi<br>
+&emsp;&emsp;- İş Takipçisi     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> “Veriler hızlı bir şekilde gelip büyük bir hacim oluşturduğu için, verinin güvenilirliğinin önemi de artmaktadır. Verinin kaynağı bilinmeli ve yalnızca doğru kişilerle paylaşılmalıdır, istenmeyen kişilerden gizlenmelidir. Aksi durumda hem kullanıcılar hem de servis sağlayıcılar açısından sorunlara neden olabilir. Bu nedenle, özellikle kişilerin kontrolünden geçmeyen otomatik sistemlerde ver güvenilirliğinin önemi de artmaktadır.”
+Yukarıdaki ifade büyük verinin beş bileşeninden hangisine aittir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Doğrulama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Çeşitlilik </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Hız </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Veri büyüklüğü </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Değer </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> MapReduce ilk kez 2004 yılında aşağıdaki firmalardan hangisi tarafından duyurulmuştur? </p>
+	<span class="option" data-correct="true"><b>A)</b> Google </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Facebook </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Twitter </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Amazon </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yahoo </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question41">
+	<p class="question">Soru 41:<br> Büyük veri analitiğindeki son aşama olup bilginin değerlendirildiği aşamadır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Anlamlandırma </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Birleştirme ve Gösterim </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Çıkartım Temizleme ve Belirtim </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Modelleme ve Analiz </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Veri Toplama ve Kayıt </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description41">Açıklama</button>
+		<div id="description41" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question42">
+	<p class="question">Soru 42:<br> Aşağıdakilerden hangisi büyük veri setlerinin dağıtık olarak saklanması ve üzerinde işlem yapılması için gerçekleştirilmiş bir yazılım çerçevesine verilen kavramdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Metin analitiği </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Hadoop </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Modelleme ve analiz </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Anlamlandırma </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Birleştirme ve gösterim </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description42">Açıklama</button>
+		<div id="description42" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question43">
+	<p class="question">Soru 43:<br> Bir diğer adıyla metin madenciliği olan, bir metinden bilgi çıkarma tekniğinin adı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Çıkartım, temizleme ve belirtim </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Anlamlandırma </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Birleştirme ve gösterim </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Modelleme ve analiz </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Metin analitiği </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description43">Açıklama</button>
+		<div id="description43" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question44">
+	<p class="question">Soru 44:<br> Aşağıdakilerden hangisi büyük veri kaynaklarından biri <strong>değildir?</strong> </p>
+	<span class="option" data-correct="true"><b>A)</b> Şirket çalışanlarının maaş ödeme listesi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Elektronik postalar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> GSM operatörlerinin arama kayıtları </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Meteorolojik veriler </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Uydu görüntüleri </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description44">Açıklama</button>
+		<div id="description44" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question45">
+	<p class="question">Soru 45:<br> Özellikle kişilerin kontrolünden geçmeyen otomatik sistemlerde veri güvenilirliğinin önemi de artıran büyük veri bileşeni aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Değer </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Çeşitlilik </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Hız </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Doğrulama </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Veri büyüklüğü </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description45">Açıklama</button>
+		<div id="description45" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question46">
+	<p class="question">Soru 46:<br> Mapreduce işlemine göre bir dosyadaki kelime sayma işlemi yapılırken hangi aşamada hangi kelimeden kaçar tane olduğu hesaplanır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Ayırma </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Haritalama </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Karıştırma </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Azaltma </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sonuç </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description46">Açıklama</button>
+		<div id="description46" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question47">
+	<p class="question">Soru 47:<br> Büyük veri kaç telem bileşenden oluşmaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> 2 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 3 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 4 </span><br>
+	<span class="option" data-correct="true"><b>D)</b> 5 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 6 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description47">Açıklama</button>
+		<div id="description47" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question48">
+	<p class="question">Soru 48:<br> Çeşitli büyük şirketlerin çağrı merkezindeki müşteri davranışlarını, ürünlerdeki problemleri araştırabilmek için yapılacak veri analitiği tekniği aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Video içerik analitiği </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Ses analitiği </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Metin analitiği </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Tercih analitiği </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Güven analitiği </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description48">Açıklama</button>
+		<div id="description48" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question49">
+	<p class="question">Soru 49:<br> İlişkisel veri tabanlarında tutulamayan çok çeşitli birleşimlerden oluşmakta olan veri aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Büyük veri </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Veri tabanı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sabit veri </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kontrol verisi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Değerlendirme verisi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description49">Açıklama</button>
+		<div id="description49" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question50">
+	<p class="question">Soru 50:<br> Kişilerin veri paylaşımının artmasını sağlayan unsurlar aşağıdakilerden hangileridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kablosuz ağlar- İnternet </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Akıllı telefon- İnternet </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ev telefonu- İnternet </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Telegraf- İnternet </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Çağrı cihazı- İnternet </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description50">Açıklama</button>
+		<div id="description50" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question51">
+	<p class="question">Soru 51:<br> Büyük veri üzerinde işlem yapmaya olanak sağlayan yazılım çerçevelerinden biri Apache Hadoop'ta asıl verinin tutulduğu kısım aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Ad düğümü </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Veri düğümü </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Görev takipçisi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İş takipçisi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Harita takipçisi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description51">Açıklama</button>
+		<div id="description51" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question52">
+	<p class="question">Soru 52:<br> MapReduce kelime sayma işlemi yapılırken öncelikli olarak yapılacak işlem aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Dosyada bulunan kayıt üç parçaya bölünür.
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Her bir parça işlenmek üzere farklı bir sunucuya gönderilir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Her bir sunucu haritalama programları ile verilen işi işler. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> MapReduce sistemi sonuçları kendi içerisinde karıştırıp sıralar. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Azaltma sisteminde her bir kelimeden teker teker kaç tane olduğu hesaplanır ve sonuç döndürülür. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description52">Açıklama</button>
+		<div id="description52" class="collapse">      Öncelikli olarak dosyada bulunan kayıt üç parçaya bölünür. Her bir parça işlenmek üzere farklı bir sunucuya gönderilir. Her bir sunucu haritalama programları ile verilen işi işler. Yani, her bir kelimeden kaçar tane olduğunu hesaplar. Daha sonra MapReduce sistemi sonuçları kendi içerisinde karıştırıp sıralar. Azaltma sisteminde her bir kelimeden teker teker kaç tane olduğu hesaplanır ve sonuç döndürülür.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question53">
+	<p class="question">Soru 53:<br> - Sıklıkla kullanılan örüntüler ve veriler arasındaki ilişkiler bulunabilir.<br>
+- Büyük veri üzerinden ilişkisel bilgi çıkarımı yapılır.<br><br>
+Yukarıda işlevleri sıralanan veri analitiği yöntemi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Modelleme ve analiz </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Anlamlandırma </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Metin analitiği </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Birleştirme ve gösterim </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Çıkartım ve belirtim </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description53">Açıklama</button>
+		<div id="description53" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question54">
+	<p class="question">Soru 54:<br> Büyük veri analitiğinde verideki gürültü hangi aşamada yok edilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Veri Toplama ve Kayıt </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Çıkartım Temizleme ve Belirtim </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Birleştirme ve Gösterim </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Modelleme ve Analiz </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Anlamlandırma </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description54">Açıklama</button>
+		<div id="description54" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question55">
+	<p class="question">Soru 55:<br> Bankaların kişinin bütün finans hareketlerini sistemlerinden izlemeleri  ve bu verileri inceleyerek bir kimseye kredi verilip verilemeyeceğinin analizi yapılarak karar vermelerini sağlamaları hangi büyük veri bileşenini ifade eder? </p>
+	<span class="option" data-correct="true"><b>A)</b> Değer </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Doğrulama </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veri büyüklüğü </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Hız </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Çeşitlilik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description55">Açıklama</button>
+		<div id="description55" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	 
+	  
+<div class="question-block">
+	<div id="question56">
+	<p class="question">Soru 56:<br> Büyük veri üzerinde sorgu hangi aşamada gerçekleştirilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Veri Toplama ve Kayıt </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Çıkartım Temizleme ve Belirtim </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Birleştirme ve Gösterim </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Modelleme ve Analiz </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Anlamlandırma </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description56">Açıklama</button>
+		<div id="description56" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question57">
+	<p class="question">Soru 57:<br> Aşağıda büyük veri analitiğindeki işlemlerle ilgili olarak yapılan eşleşmelerden hangisi doğrudur?  </p>
+	<span class="option" data-correct="false"><b>A)</b> Veri yönetimi- Modelleme ve analiz </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Veri analitiği- Veri toplama ve kayıt </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veri analitiği- Birleştirme ve Gösterim </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Veri analitiği- Anlamlandırma </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Veri yönetimi- Anlamlandırma </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description57">Açıklama</button>
+		<div id="description57" class="collapse">      Büyük veri analitiğindeki işlemler, toplam beş aşamadan oluşan iki ana parçaya ayrılabilir.<br><br>
+
+Veri Yönetimi; Veri Toplama ve Kayıt, Çıkartım Temizleme ve Belirtim, Birleştirme ve Gösterim<br><br>
+
+Veri Analitiği; Modelleme ve Analiz, Anlamlandırma     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question58">
+	<p class="question">Soru 58:<br> Metin analitiği konusunda aşağıdaki ifadelerden hangisi <u><strong>söylenemez?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Bir metinden bilgi çıkarma tekniğidir. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Makine öğrenimi algoritmaları kullanılır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Soru cevaplama tekniklerinde kullanılır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Güven analizi ve tercih madenciliği konuları arasındadır. </span><br>
+	<span class="option" data-correct="true"><b>E)</b> İstatistiksel yöntemlerden bağımsızdır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description58">Açıklama</button>
+		<div id="description58" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question59">
+	<p class="question">Soru 59:<br> I- Metin analitiği<br>
+II – Ses analitiği<br>
+III – Video içerik analitiği<br><br>
+Yukarıdakilerden hangisi büyük veri analitiği tekniklerinden biridir. </p>
+	<span class="option" data-correct="true"><b>A)</b> I, II ve III </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>C)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I ve II </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description59">Açıklama</button>
+		<div id="description59" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question60">
+	<p class="question">Soru 60:<br> Büyük veri analitiğindeki işlemleri yapılış sırasına göre sıralayınız?<br><br>
+
+I. Anlamlandırma<br>
+II. Birleştirme ve Gösterim<br>
+III. Çıkartım Temizleme ve Belirtim<br>
+IV. Modelleme ve Analiz<br>
+V. Veri Toplama ve Kayıt </p>
+	<span class="option" data-correct="false"><b>A)</b> I-II-III-IV-V </span><br>
+	<span class="option" data-correct="false"><b>B)</b> II-III-I-V-IV </span><br>
+	<span class="option" data-correct="false"><b>C)</b> III-I-V-IV-II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> IV-I-II-V-III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> V-III-II-IV-I </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description60">Açıklama</button>
+		<div id="description60" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

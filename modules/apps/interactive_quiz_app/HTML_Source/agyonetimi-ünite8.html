@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="anasayfa.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA I
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama1-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama1-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama1-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama1-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama1-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama1-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama1-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama1-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama1-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama1-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          BİLİŞİM HUKUKU
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="bilisimhk-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="bilisimhk-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="bilisimhk-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="bilisimhk-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="bilisimhk-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="bilisimhk-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="bilisimhk-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="bilisimhk-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="bilisimhk-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="bilisimhk-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB'DE TELİF HAKLARI VE ETİK
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="webtelif-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="webtelif-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="webtelif-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="webtelif-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="webtelif-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="webtelif-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="webtelif-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="webtelif-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="webtelif-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="webtelif-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          AĞ YÖNETİMİ VE BİLGİ GÜVENLİĞİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="agyonetimi-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="agyonetimi-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="agyonetimi-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="agyonetimi-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="agyonetimi-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="agyonetimi-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="agyonetimi-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="agyonetimi-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="agyonetimi-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="agyonetimi-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİTABANI PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veritabaniprg-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veritabaniprg-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  </nav>
+  
+    <h4 id="ders">Ağ Yönetimi ve Bilgi Güvenliği - Ünite 8 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Araya girme (snooping) tehdidi aşağıda verilen hangi güvenlik kavramı ile engellenir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Bütünlük </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Gizlilik </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Hazır bulunma </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Antivirüs </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Erişilebilirlik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Aşağıdakilerden hangisi virüs bulaşma yöntemlerinden biri olarak <u><strong>değerlendirilmez?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> USB bellek </span><br>
+	<span class="option" data-correct="false"><b>B)</b> E-posta </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ağ paylaşımı </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Kaynağı güvenilir program yüklemek </span><br>
+	<span class="option" data-correct="false"><b>E)</b> CD </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Bilişim sistemini zararlı yazılımlardan korumak için aşağıdakilerden hangisi <u><strong>önerilmez?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Tüm hesaplar için tek bir şifre oluşturmak </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Çok yönlü ve güvenlik duvarı içeren güvenlik programı kullanmak </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Önemli verilerin başka bir bellekte yedeklemesini yapmak </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sisteme yapılan uzaktan erişimi denetlemek ve güçlü
+bir erişim altyapısı kullanmak </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İşletim sistemini ve İnternet tarayıcılarını güncel tutmak </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Kendisini bir bilgisayardan diğerine kopyalamak için tasarlanan ve bunu otomatik bir şekilde gerçekleştiren, işlem gücü ya da bant genişliğini tüketerek bilgisayarın çalışma hızını etkileyip çökmesine kadar etkilere yol açabilen yazılımlara verilen ad aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Truva Atları </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Solucanlar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Casus yazılımları </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Antivirüs </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yedekleme programı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Bilgisayar sistemlerini ve üzerinde saklanan verileri zararlı yazılımlardan korumak için aşağıdakilerden hangisinin yapılması uygun <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Bilgisayar çalışma performansı etkilememesi için
+anti virüs programı kurmamak </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kimden geldiği bilinmeyen e-postaları açmamak </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İşletim sistemine ait güncellemeleri yapmak </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Anti virüs programlarını güncel tutmak </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Karmaşık düzeyde, tahmin edilmesi zor ve uzun bir
+parola seçmek </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Aşağıdakilerden hangisi bilgi güvenliği yaşam döngüsü
+içinde <u><strong>yer almaz?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Tehditlerin analizi </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Sistem fonksiyonlarının iyileştirilmesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Güvenlik mekanizmasının oluşturulması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sistemin tasarlanması ve uygulanması </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sistemin sürekli izlenip kontrol edilmesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> Bir üniversitenin, laboratuvar ortamında herhangi bir öğrencinin başka bir öğrencinin hazırlamış olduğu laboratuvar sonuçlarını kopyalamasını yasaklayan bir politikası olduğunu varsayalım. Dersi alan bir öğrencinin sistem tarafından sunulan bu mekanizmaları, laboratuvar ile ilgili oluşturmuş olduğu dosyalarını korumak için kullanmadığını ve başka bir öğrencinin bu dosyaları gördüğünü düşünelim. Bu koşullar altında aşağıdakilerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Bir güvenlik ihlali oluşmamıştır çünkü güvenlik politikası başka bir öğrencinin dosyaları kopyalamasını yasaklamıştır. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Bir güvenlik ihlali söz konusudur ve güvenlik politikası doğru bir şekilde tanımlanmıştır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Güvenlik politikası, laboratuvar sonuçlarını kopyalamasını ve görüntülemesini yasaklayacak şekilde değiştirilmelidir. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Dersi alan öğrencilerin yapabileceği olası güvenlik ihlallerinin hepsi güvenlik politikasında tanımlanmalıdır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Güvenlik politikası, olası tüm ihlalleri tamamen engelleyecek şekilde de tanımlanabilir </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> ISO 27001 BGYS aşağıdakilerden hangisi <u><strong>kapsamaz?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Kuruluşların güvenlik gereksinimlerini belirler </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kuruluşlar içinde güvenlik risklerinin yönetilmesini
+sağlar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kuruluşların yasa ve yönetmeliklere uyumunu sağlar </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Kuruluşlara öz kaynak sağlar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İş ortamında bilgi güvenliğinin uygulanmasını sağlar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      ISO 27001 BGYS aşağıdakileri de içeren birçok farklı kullanım türü için uygundur:<br><br>
+
+• Kuruluşların güvenlik gereksinimlerini ve hedeflerini formüle etmek,<br>
+• Kuruluşlar içinde güvenlik risklerinin maliyet etkin bir şekilde yönetilmesini sağlamak,<br>
+• Kuruluşların yasa ve yönetmeliklere uyumunu sağlamak,<br>
+• Bir organizasyonun kendine özgü güvenlik hedeflerinin yerine getirildiğinden
+emin olmak,<br>
+• Kurumların iç ve dış denetçilerince bir organizasyon tarafından benimsenen politikalara, direktiflere ve standartlara uyum derecesini belirlemek,<br>
+• Kuruluşlar tarafından ticari ortaklıklar veya ticari nedenlerden dolayı etkileşimde bulunduğu diğer kuruluşlara, bilgi güvenliği politikaları, direktifleri, standartları ve prosedürleri hakkında gerekli bilgileri sağlamak,<br>
+• İş ortamında bilgi güvenliğinin uygulanmasını sağlamak <br>
+• Kuruluşlar tarafından müşterilere bilgi güvenliği ile ilgili bilgi sağlamak için kullanılır.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> Bir sisteme giriş için sadece nümerik karakterlerden oluşan 4 basamaklı bir PIN numarası kullanılsın. Saldırgan bir program aracılığıyla bütün olası PIN numara kombinasyonlarını deneyerek bu erişim kontrol mekanizmasını kırar. Bu saldırı çeşidinin ismi aşağıdakilerden hangisi ile ifade edilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Aradaki adam saldırısı </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Kaba kuvvet saldırısı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Araya girme (snooping) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Telekulak </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sahtecilik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Saldırganlar sisteme aşağıdakilerden hangisinden faydalanarak kötü niyetli saldırı düzenlerler? </p>
+	<span class="option" data-correct="false"><b>A)</b> Karşı önlem </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Güvenlik mekanizmaları </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Güvenlik açığı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Tehdit </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Güvenlik politikası </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> Bir güvenlik açığından yararlanabilecek olası bir tehlike aşağıdakilerden hangisini ifade eder? </p>
+	<span class="option" data-correct="false"><b>A)</b> Güvenlik açığı </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Tehdit </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Risk </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Saldırgan </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Saldırı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> Sisteme saldıran kişi ya da kuruluş tanımı aşağıdaki kavramlardan hangisini ifade eder? </p>
+	<span class="option" data-correct="true"><b>A)</b> Saldırgan </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Saldırı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Risk </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Tehdit </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Güvenlik açığı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Aşağıdakilerden hangisi ISO 27000 Bilgi Güvenliği Yönetim Sistemi'nin 2013 yılında güncellenerek revize edilen sürümünün getirdiği önemli yeniliklerden birisi <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Bilgi güvenliği politikasına uyumlu olması </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kurum içinde yaygınlaştırılmış olması </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bilgi güvenliği gereksinimlerini dikkate alması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Risk değerlendirme sonuçlarını göz önünde bulundurması </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Güncellemeye ihtiyaç duymaması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> "................. atının hedefi sistem üzerinde belli kanallar açarak programcısına, bulaştığı kullanıcının sistemini izlemesini veya kontrol etmesini sağlayan bir ortam yaratmaktır." Boşluğa aşağıdakilerden hangisi gelmelidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Truva  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Solucan </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Virüs </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Siber saldırı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sistem çökmesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> Sistemin güvenlik politikasını ihlal etmek için kullanılabilecek, sistemin tasarımında veya gerçeklemesinde ortaya çıkan, tasarımcı tarafından düşünülmemiş zayıflıklar olarak tanımlanır.  Denildiğinde aşağıdakilerden hangisi olduğunu anlamalıyız? </p>
+	<span class="option" data-correct="true"><b>A)</b> Güvenlik Açığı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Tehdit </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Risk </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Karşı Önlem </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Saldırı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Sistem üzerindeki tehdidi, saldırıya açıklığı veya saldırının neden olabileceği zararları öngörüp bunları azaltarak ortadan kaldırmaya ya da engellemeye yönelik bir eylemdir. Tanımı bize aşağıdakilerden hangisini anlatmaktadır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Karşı Önlem </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Güvenlik Politikası </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sistem Kaynakları </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Saldırı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Saldırgan </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> Aşağıdakilerden hangisi Virüslere karşı en iyi korunma yöntemlerinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Bir anti virüs yazılımı kullanmak, </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Güncellemeleri zamanında edinmek, </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kimden geldiği bilinmeyen şüpheli e-postaları açmamak, </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İnternet üzerinde bilinmeyen programları kullanmamak, </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Kişisel bilgileri kullanıcının bilgisi dışında kullanmak, </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Bilişim dünyasında ise “..................” , bir sistem üzerinde var olan sistem açıklarından, kod hatalarından veya hatalı varsayımlardan faydalanarak istenmeyen veya planlanmamış hatalar oluşturmak için tasarlanmış küçük kod veya programlardır.<br><br>
+
+Yukarıdaki cümlede, .............. ile gösterilen yere gelecek uygun kelime nedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Exploit (Sömürme) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Entegre Devre </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Saldırı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sistem Kaynakları </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Karşı Önlem </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> Aşağıdakilerden hangisi, Sistem güvenliği tehditleri temel sınıflamasından biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Ele geçirme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Uydurma/Üretme </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Yok etme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kesinti </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Değişiklik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br>  “Bir güvenlik açığından yararlanabilecek olası bir tehlike veya üvenliği ihlal etme potansiyeli olarak da ifade edilir.” Denildiğinde sistem güvenliği ile ilgili bilinmesi gereken temel terimlerden hangisi olduğunu anlarız? </p>
+	<span class="option" data-correct="true"><b>A)</b> Tehdit </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Risk </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Saldırı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Karşı Önlem </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Saldırgan </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> I. Gizlilik<br>
+II. Bütünlük<br>
+III. Erişilebilirlik<br><br>
+Yukarıdakilerden hangisi ya da hangileri sistem güvenliği tanımında yer verilen 3 temel güvenlik kavramlarındandır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      Gizlilik: Bilginin yetkisiz kişilere ifşasının önlenmesi. <br><br>
+Bütünlük: Bilginin yetkisiz kişiler tarafından değiştirilmesinin önlenmesi. <br><br>
+Hazır Bulunma (Erişilebilirlik): Bilgi veya kaynakların yetkisiz bir şekilde alıkonulmasının önlenmesi.
+
+
+     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Sistemin kendisi, sistem yetenekleri, sistem hizmetleri, donanım bileşenleri, iletişim hatları vb. varlıklar sistem kaynağı olarak kabul edilen kavram aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Saldırgan </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Saldırı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Karşı önlem </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Sistem kaynakları </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Risk </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> Aşağıdakilerden hangisi bilgisayar tabanlı bir sistemin zararlı yazılımlardan korunması amacıyla alınan önlemlerden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Sistemdeki trafiği izleyip müdahale edin ve izinsiz sistem girişlerini engelleyin </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sistem üzerindeki programların son güncellemelerini yükleyin </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sistem üzerinde kurulu uygulamaları düzenli aralıklarla denetleyin, artık kullanılmayan programları sistem üzerinden kaldırın </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Önemli verilerinizin başka bir bellekte yedeklemesini mutlaka yapın </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Lisanslı yazılım kullanılmaması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Sistem ve bilgi güvenliği önlemlerini aşmak için bir güvenlik açığından yararlanıp sisteme akıllı bir şekilde izinsiz girmeye ne denir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Güvenlik Açığı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Tehdit </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Saldırı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Karşı Önlem </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Risk </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> I. Ele geçirme<br>
+II. Uydurma<br>
+
+III. Kesinti<br>
+
+IV. Değişiklik<br>
+
+Yukarıdakilerin hangileri Sistem Güvenliği İçin tehditlerin sınıflandırılması içerisinde yer alır? </p>
+	<span class="option" data-correct="false"><b>A)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I, III ve IV </span><br>
+	<span class="option" data-correct="false"><b>C)</b> III ve IV </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II, III ve IV </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Hepsi  </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br>  Sisteme sataşan, mütecaviz olan kişi ya da kuruluş olarak tanımlanır. Denildiğinde aşağıdakilerden hangisi olduğunu anlamalıyız? </p>
+	<span class="option" data-correct="false"><b>A)</b> Saldırgan </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Saldırı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tehdit </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Risk </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Karşı Önlem </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Aşağıdakilerden hangisi exploit” yani sömürme için örnek verilebilir?<br><br>
+I. Bir sisteme yetkisiz bir şekilde erişmeye çalışma,<br>
+II. Yetkili sahte kullanıcı kimliği oluşturma<br>
+III. Sistemi devre dışı bırakma<br>
+IV. Uygun bilgi güvenliği politikası </p>
+	<span class="option" data-correct="false"><b>A)</b> I.II </span><br>
+	<span class="option" data-correct="true"><b>B)</b> I.II.III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I.II.III.IV </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II.IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> IV.I </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> Bilginin izinsiz bir şekilde ele geçirilmesidir ve bir gözetleme biçimine ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Uydurma </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Snooping </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kesinti </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Tehdit </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Risk </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> Aşağıdakilerden hangisi Virüslere karşı en iyi korunma yöntemlerinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Kişisel bilgileri kullanıcının bilgisi dışında kullanmak,
+
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İnternet üzerinde bilinmeyen programları kullanmamak, </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kimden geldiği bilinmeyen şüpheli e-postaları açmamak, </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Güncellemeleri zamanında edinmek, </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bir anti virüs yazılımı kullanmak,
+
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> Sistem güvenliği, bilgi sistemi kaynaklarının bütünlüğünü, erişilebilirliğini ve gizliliğini korumak amacıyla uygulanacak tedbirler bütünüdür. “Bilginin yetkisiz kişilere ifşasının önlenmesi” denilince aşağıdakilerden hangisinin, sistem güvenliği tanımında verilen temel güvenlik kavramlarından olduğunu anlarız? </p>
+	<span class="option" data-correct="true"><b>A)</b> Gizlilik </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bütünlük </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Hazır Bulunma </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Güvenlik </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Erişilebilirlik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> I. Tehdit analizi
+II. Sistem tasarımı
+III. Sistemin kontrolü
+IV. Güvenlik mekanizması oluşturulması
+Yukarıda bilgi güvenliği yaşam döngüsü içerisinde gerçekleşen doğru sıralamasıdır? </p>
+	<span class="option" data-correct="true"><b>A)</b> I, IV, II, III </span><br>
+	<span class="option" data-correct="false"><b>B)</b> II, I, III, IV </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I, III, IV, II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I, IV, III, II </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II, III, IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br>  'Virüslerin en tehlikeli ve yayılması nispeten daha kolay olan türlerinden birisidir. Kendilerini bir bilgisayardan diğerine kopyalamak için tasarlanmışlardır' <br><br>
+
+Sözü edilen kötü amaçlı yazılım aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Solucanlar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Truva Atı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Casus Yazılım </span><br>
+	<span class="option" data-correct="false"><b>D)</b> e-posta </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Anti virüs yazılımı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> Shirey (1994) tehditleri dört ana sınıfta incelemiştir. Aşağıdakilerden hangisi bunlardan biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Ele geçirme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Uydurma/Üretme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kesinti </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Değişiklik </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Taklitçilik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> “Bir güvenlik ilkesinin uygulanması için kullanılan yöntem, araç veya izlektir.”<br><br>
+
+Yukarıdaki tanım aşağıdakilerden hangisine aittir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Sistem güvenliği </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bilgi güvenliği </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Güvenlik açığı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Güvenlik politikası </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Güvenlik mekanizması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> Aşağıdakilerden hangisi Sistem güvenliğini temin etmek için gerekli bir unsur <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Uygulamalar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Politikalar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yöntemler </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yazılım ve donanım </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Hazır Bulunma </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> Aşağıdakilerden hangisi araya girme, (Snooping) <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Bilginin izinsiz bir şekilde ele geçirilmesi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bir çeşit gözetleme biçimi olarak değerlendirilmesi </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Sistem dosyalarının değiştirilmesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Pasif bir tehdit biçimi oluşması </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sistemin bilgisini ve dosyalarını taraması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> Bir varlığın başkasının kimliğine bürünerek sistemde yetkisi olmayan servislerden faydalanması ya da sisteme erişerek sistemin doğru çalışmasını engellemek istemesine ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Karşı önlem </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kesinti </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Araya girme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Modifikasyon </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Sahtecilik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> Gizli kalması gereken verileri ve kritik sistemn kaynaklarını korumak için sistemin güvenlik hizmetlerinin nasıl sağlandığını belirten kuralları aşağıdakilerden hangisi ifade eder? </p>
+	<span class="option" data-correct="false"><b>A)</b> Güvenlik açığı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Tehdit </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Karşı önlem </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sisetm kaynakları </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Güvenlik politikası </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> Kredi kartı aidatları geri ödenmesi için www.bddk.org.tr  kendi kurduğu site adresine yönlendirerek kişilerin bilgilerini ele geçirerek dolandırıcılık türü aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kaba kuvvet saldırısı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Casus yazılımları </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Araya girme (Snooping) </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Sahtecilik </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Telekulak </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> I. Risk<br>
+II. Saldırı<br>
+III. Tedbir<br>
+IV. Sistem kaynakları<br><br>
+Yukarıda sıralananlardan hangisi veya hangileri sistem güvenliği ile ilgili temel terimlerdendir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I, II, III </span><br>
+	<span class="option" data-correct="true"><b>D)</b> I, II, IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II, III, IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      Risk: Bilgi veya kaynak kaybı olasılığı, sistem güvenliğinde risk olarak tanımlanır. Belirli bir tehdidin sistemde bulunan bir güvenlik açığından yararlanarak sistemi zarara uğratma olasılığını ifade eder. <br>
+<br>
+Saldırgan: Sisteme saldıran kişi ya da kuruluş olarak tanımlanır. <br><br>
+
+Saldırı: Sistem ve bilgi güvenliği önlemlerini aşmak için bir güvenlik açığından yararlanıp sisteme akıllı bir şekilde izinsiz girmeye denir. Sistemdeki güvenlik servislerini aşan ve güvenlik politikalarını ihlal eden kasıtlı bir girişimdir.<br><br>
+
+ Karşı Önlem: Sistem üzerindeki tehdidi, saldırıya açıklığı veya saldırının neden olabileceği zararları öngörüp bunları azaltarak ortadan kaldırmaya ya da engellemeye yönelik bir eylemdir. Bu amaca yönelik uygulanan araç, yöntem veya teknikler karşı önlem olarak adlandırılır. <br>
+<br>
+Sistem Kaynakları: Sistemin kendisi, sistem yetenekleri, sistem hizmetleri, donanım bileşenleri, iletişim hatları vb. varlıklar sistem kaynağı olarak kabul edilir.
+
+
+     </div>
+	</div>
+</div>
+	  
+	  
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

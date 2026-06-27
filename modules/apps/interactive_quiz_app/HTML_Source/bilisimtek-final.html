@@ -1,0 +1,1604 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+	  
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          BİLİŞİM TEKNOLOJİLERİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="bilisimtek-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="bilisimtek-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="bilisimtek-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="bilisimtek-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="bilisimtek-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="bilisimtek-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="bilisimtek-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="bilisimtek-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="bilisimtek-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="bilisimtek-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB TABANLI KODLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wtk-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wtk-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wtk-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wtk-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wtk-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wtk-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wtk-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wtk-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wtk-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wtk-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          KULLANICI DENEYİMİ TASARIMI
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="kdt-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="kdt-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="kdt-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="kdt-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="kdt-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="kdt-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="kdt-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="kdt-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="kdt-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="kdt-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          İŞLEM TABLOSU PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="itp-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="itp-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="itp-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="itp-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="itp-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="itp-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="itp-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="itp-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="itp-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="itp-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          DİJİTAL DÖNÜŞÜM
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="digitald-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="digitald-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="digitald-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="digitald-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="digitald-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="digitald-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="digitald-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="digitald-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="digitald-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="digitald-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Bilişim Teknolojileri - Çıkmış Sorular (Final) </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	<button class="block-group" data-start="40" data-end="59">Part 3</button>
+	  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> 1. Halka<br>
+2. Veri Yolu<br>
+3. Örgü<br>
+4. Yıldız<br>
+5. Ağaç<br><br>
+
+<u><strong>K.</strong></u> Bu topolojide bilgisayarlar düz bir hat üzerinde birbirine bağlanırlar.<br>
+
+<u><strong>L.</strong></u> Bu mimaride ağın merkezinde hub ya da anahtar olmak üzere bir merkezi donanım bulunur ve diğer tüm bilgisayarlar bu merkezi donanıma bağlanarak veri alışverişinde bulunur.<br>
+
+<u><strong>M.</strong></u> Veri yolu topolojisi üzerine yıldız topolojideki ağların bağlanması yoluyla oluşturulur.<br><br>
+Yukarıda verilen fiziksel ağ topolojileri ve özelliklerinin doğru eşleştirmesi aşağıdakilerin hangisinde verilmiştir?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> 1-K, 2-M, 3-L </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 1-L, 2-K, 3-M </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 2-M, 3-L, 4-K </span><br>
+	<span class="option" data-correct="true"><b>D)</b> 2-K, 4-L, 5-M </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 3-L, 4-M, 5-K </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> .................. tüketicilere işletmeyle ilgili temel bilgiler sunmanın yanında, doğrudan satış işlemi gerçekleştirme, işletme imajına katkı sağlama, işletmenin tanınırlığını artırma gibi işlevlere sahiptir. Aynı zamanda işletmelerin global ölçekte dünyaya açılan pencereleridir.<br><br>
+Yukarıdaki cümlede boş bırakılan yeri aşağıdakilerden hangisi doğru şekilde tamamlar?
+</p>
+	<span class="option" data-correct="false"><b>A)</b> Kurumsal satış ofis </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kurumsal anlaşma </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Kurumsal web sitesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kurumsal yardım masası </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kurumsal logo </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Aşağıdakilerin hangisinde mobil iletişim
+uygulaması ve bu uygulama kapsamında gerçekleştirilen işlem eşleştirmesi <u><strong>yanlıştır?</strong></u><br><br>
+1-Mobil İletişim Uygulaması<br>
+2-Gerçekleştirilen İşlem<br>
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> 1-Mobil Mesaj<br>
+2-SMS ve MMS ile bilgi iletilmesi<br>
+ </span><br>
+	<span class="option" data-correct="true"><b>B)</b> 1-Mobil Bankacılık<br>
+2-Akıllı telefon ile haritada adres bulunması </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 1-Konum Bazlı Uygulamalar<br>
+2-En yakın noktadaki eczane, hastane, sinemanın bulunması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 1-Yakın Alan İletişimi Teknolojisi<br>
+2-Kredi kartı ya da banka kartı ile temassız ödeme yapılması </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 1-Arttırılmış Gerçeklik Uygulamaları<br>
+2-Özel olarak geliştirilmiş bir gözlük aracılığıyla e-posta gönderimi, sosyal paylaşım, ses, video kaydı, fotoğraf çekimi gibi işlemlerin yapılması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> I. Geleneksel medyadan farklı olarak sosyal
+ağlarda içerik bireyler tarafından oluşturulur.<br> 
+II. Sosyal ağlar masaüstü bilgisayarlardan erişilebildiği gibi mobil uygulamalar aracılığıyla akıllı telefon, tablet gibi mobil
+cihazlardan da kolaylıkla takip edilmektedir.<br> 
+III. Sosyal ağ kullanıcıları bu ortamlarda içerik oluşturma, yayınlama ya da var olan içeriğe yorum yapma konusunda insan hakları ve etik değerler çerçevesinde özgürdür.<br> <br> 
+Yukarıda verilen ifadelerden hangisi veya hangileri sosyal ağların özellikleri arasında yer alır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Zararlı yazılımlardan olan ------- tıpkı adını aldığı
+canlı organizmalar gibi bilgisayar kaynaklarını kullanarak kendi kopyalarını üretmekte, hızla yayılarak bilgisayarı ele geçirmektedir.<br><br>
+Yukarıdaki cümlede boş bırakılan yeri aşağıdakilerden hangisi doğru şekilde tamamlar? </p>
+	<span class="option" data-correct="false"><b>A)</b> Parola Ele Geçirme Saldırıları </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Çalışma Engelleyici Saldırılar </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Virüsler </span><br>
+	<span class="option" data-correct="false"><b>D)</b> İstenmeyen e-Posta </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Truva Atları </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Aşağıdakilerden hangisi güncel bir teknoloji
+olan kitle kaynak uygulamalarına örnektir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Wikipedia </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Alexa </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Siri </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Facebook </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Youtube </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> Bu aşamada “Problemi nasıl çözeriz?” sorusuna odaklanılır. Analiz sonucunda netleştirilen gereksinimlerin nasıl hayata geçirileceğine dair çözümler üretilir. Sistem modeli, yazılımın özellikleri, kullanıcı deneyimi ve arayüz bu aşamada belirlenir.<br><br>
+Yukarıda verilen ifade yazılım geliştirme yaşam döngüsünün hangi aşamasını tanımlamaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Planlama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Dağıtım </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bakım </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Tasarım </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Geliştirme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> Dijital ürünlerin yanı sıra yiyecek, giyecek, barınma, ulaşım, eğitim vb. ürün ve hizmetleri belirli bir abonelik ödemesi karşılığı belirli bir süre boyunca temin edilmesi eğilimi aşağıdaki kavramlardan hangisi ile ifade edilmektedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Sosyal kredi puanı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Fiziksel ürünlerin dijitalleşmesi
+ </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Sahipliğin sona ermesi
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Niceliksel benlik
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Akıllı nesneler </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> I. Zip Drive adlı floppy disk (disket) tanıtılmıştır.<br>
+II. İlk “iPhone” Apple firması tarafından tanıtılmıştır.<br>
+III. Commodore Amiga 1000 adlı kişisel bilgisayar tanıtılmıştır.<br>
+IV. Apple şirketinin ilk bilgisayarı “Apple I” tanıtılmıştır.<br><br>
+Yukarıda verilen ifadelerden hangileri 1991 yılından son yıllara kadar geçen süreyi kapsayan ''Altıncı Nesil'' kapsamında gerçekleşen gelişmelerdendir?
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> I ve II
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve III
+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve IV </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> <br>
+using System;<br>
+class Program<br>
+{<br>
+ &emsp; static void Main()<br>
+ &emsp; {<br>
+ &emsp; &emsp; Console.WriteLine(“Merhaba dünya!”);<br>
+ &emsp; }<br>
+}<br><br>
+Yukarıda verilen kod bloğu hangi programlama dili ile yazılmıştır?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> C </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Python </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Pascal </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Visual Basic </span><br>
+	<span class="option" data-correct="true"><b>E)</b> C#
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> Farklı teknolojik sistemlerin benzer görevleri yerine getirecek biçimde gelişme eğilimine ne ad verilir?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> Sürdürülebilir yenilik </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Teknolojik gelişme
+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yıkıcı yenilik
+ </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Teknolojik yakınsama </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yeniliklerin yayılması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> Aşağıdakilerin hangisinde programlama
+sürecinin adımları sırasıyla ve doğru olarak verilmiştir?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> Analiz – Algoritma Geliştirme - Çalıştırma – Hata Ayıklama – Kodlama –Test
+ </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Analiz – Algoritma Geliştirme – Kodlama – Çalıştırma – Hata Ayıklama - Test </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Algoritma Geliştirme – Analiz – Hata Ayıklama - Kodlama – Çalıştırma –Test </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Algoritma Geliştirme – Kodlama – Çalıştırma – Hata Ayıklama - Test - Analiz
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Analiz – Algoritma Geliştirme – Hata Ayıklama - Kodlama – Çalıştırma - Test </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Derinin üzerine yapıştırılan ya da deri altına yerleştirilen, içerisindeki sensörler aracılığıyla düzenli olarak veri takibi yapılabilen akıllı cihazlar aşağıdakilerden hangisidir?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> Akıllı takılar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Akıllı gözlükler </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Akıllı saatler </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Akıllı giysiler </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Akılllı implantlar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> Yakın mesafedeki elektronik cihazlar
+arasında çok kısa sürede iletişim kurarak güvenli bir temassız arayüz oluşturan ve böylece cep telefonlarının bir ödeme aracına, anahtara ya da bilete dönüşebilmesine olanak sağlayan teknoloji aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> GPS </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bluetooth </span><br>
+	<span class="option" data-correct="false"><b>C)</b> SMS </span><br>
+	<span class="option" data-correct="true"><b>D)</b> NFC </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kızılötesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> Hastaların EKG, nabız, tansiyon gibi
+fizyolojik verilerinin sağlık merkezlerine iletilmesi için tıp alanında, ATM’lerin nakit düzeyi verilerinin aktarılması için bankacılık alanında, atmosfer ve yeryüzünden toplanan verilerin araştırma merkezlerine iletilmesi için bilimsel araştırma alanında kullanılan mobil iletişim uygulaması aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Mobil POS
+ </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Telemetri </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Biyometrik </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Mobil mesaj </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Konum bazlı uygulamalar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> LTE, WiMax ve WiBro gibi iletişim
+standartları mobil iletişimin hangi neslinde geliştirilmişlerdir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Birinci Nesil </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İkinci Nesil </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Üçüncü Nesil </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Dördüncü Nesil </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Beşinci Nesil </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> Aşağıdakilerden hangisi farklı fiziksel
+özelliklere sahip olan ağları birbirine bağlayarak veri aktarımı kurulmasını sağlayan bir cihazdır?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> Router </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Bridge </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Hub </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Switch </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Modem </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Veri yolu topolojisi üzerine yıldız topolojideki ağların bağlanması yoluyla oluşturulan ağ topolojisi aşağıdakilerden hangisidir?
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Ağaç (tree)
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yıldız topolojisi (star) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Örgü (mesh)
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Halka (ring)
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Veri yolu (bus)
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> Derlenmiş bir amaç programı diğer yazılım
+kütüphaneleri ve alt programlarla bağlayarak işletim sistemlerinin çalıştırabileceği programlara dönüştüren ara programlar aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yorumlayıcı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Derleyici </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Editör </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Bağlayıcı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sanal makine
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> Yazılım geliştirme yaşam döngüsünde yoğun
+bir programlama ve test süreci içeren aşama aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Analiz </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Tasarım </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Dağıtım </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Geliştirme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bakım </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Aşağıdaki programlama dillerinden hangileri
+çok üst düzey deklaratif dillere örnektir? </p>
+	<span class="option" data-correct="false"><b>A)</b> C ve C++ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Visual Basic, Java, C# </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Makine dili </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Assembly </span><br>
+	<span class="option" data-correct="true"><b>E)</b> LISP ve SQL </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> İnsanları birbirinden ayırt etmek amacıyla
+kullanılan, fizyolojik ve davranışsal insan özellikleriyle ilgili ölçüm bilimine ne ad verilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Biyometri </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kişilik tanımlama
+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Büyük veri
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kişisel veri kaydı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Üretici algoritmalar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> Lazer darbeleri kullanılarak bir nesne veya
+bir yüzeyin uzaklığını anlamaya yarayan; radar teknolojisiyle benzer olan; radyo dalgaları yerine ışık, yani lazer darbelerinin kullanıldığı teknoloji aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> RFID </span><br>
+	<span class="option" data-correct="false"><b>B)</b> GPDR </span><br>
+	<span class="option" data-correct="true"><b>C)</b> LIDAR </span><br>
+	<span class="option" data-correct="false"><b>D)</b> GLONASS </span><br>
+	<span class="option" data-correct="false"><b>E)</b> SLAM </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Kullanıcıların hareketlerini, konumlarını,
+günlük rutinlerini, fiziksel ve ruhsal sağlık durumlarını sensörler aracılığıyla veri olarak kayıt altına alabilen; sensörlerden gelen bilgileri kullanıcının akıllı telefonuna kablosuz ya da bluetooth bağlantısı ile aktarabilen; daha sonra bu verilerin yapay zekâ yardımıyla işlenmesi ve kullanıcının yaşam standartlarının iyileştirilmesi için kullanılabildiği teknoloji aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Nesnelerin interneti
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Mobil teknolojiler </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Akıllı cihazlar </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Giyilebilir teknolojiler </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Akıllı çevre
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> Bilginin viral yayılımını sağlama yeteneği
+nedeniyle işletmeler tarafından kurumsal iletişim için tercih edilen ortamlara ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> e-Ticaret </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bulut bilişim </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Dijital medya </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sanal dünyalar </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Sosyal ağlar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> Aşağıdakilerden hangisi ağ güvenliğini
+sağlamada kullanılan stratejilerden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Bilgisayar ağının sade yapıda tasarlanması </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Güvenlik duvarlarının kullanılması </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Ürün ve yöntemlerin sabit tutulması </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Düzenli aralıklarla verilerin yedeklenmesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kullanılan antivirüs yazılımlarının güncel olması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Ağların işletmeler tarafından kullanım
+amaçları açısından ele alındığında bir ağda yer alan diğer donanımların alternatif donanım kaynağı olması, örneğin bir işlemcinin arızalanması durumunda diğer işlemcilerin arızalananın görevini üstlenmeleri aşağıdakilerden hangisi ile ifade edilir?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> Yazılım paylaşımı
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Belge paylaşımı
+ </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Yüksek güvenilirlik
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Haberleşme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Donanım paylaşımı
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> Projeler kapsamında oluşturulan
+dosyalardaki değişiklikleri izlemeyi ve yönetebilmenizi sağlayan arşivleme algoritmasını içeren sistem aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Derleyiciler </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Çalışma çerçeveleri (frameworks) </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Sürüm kontrol sistemleri
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kod editörler </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Tümleşik geliştirme ortamı
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> Kaynak kod yönetimi, kod editörü, sürüm
+kontrolü, kod iyileştirme, hata ayıklama, derleyici ve yorumlayıcı gibi programlama araçlarının tamamını tek bir arayüzde yazılım geliştiricilere sunan; yazılım geliştirme sürecini kolaylaştırmak ve daha verimli hale getirmek için tasarlanmış uygulamalara ne ad verilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Tümleşik geliştirme ortamları  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sürüm kontrol sistemleri
+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Çalışma çerçeveleri (frameworks) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Hızlı geliştirme araçları </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kod editörleri
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> Teknolojik gelişme çerçeveleri yaklaşımına
+göre, laboratuvardan çıkıp birer ürün ve hizmet haline dönüşerek “yenilikçiler” ve “ilk benimseyenler” gibi küçük gruplar tarafından son beş yıl boyunca denenmekte olan ve bundan sonra erken çoğunluk tarafından benimsenerek yayılması beklenen teknolojiler aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Sınırdaki teknolojiler
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Güncel teknolojiler
+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Geleneksel teknolojiler
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yakın gelecekteki teknolojiler
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kullanımdan kalkmış teknolojiler
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> Aşağıdakilerden hangisi bir sosyal ağ ortamı <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Forumlar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bloglar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Anlık mesajlaşma ortamları </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Dijital platformlar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> E-posta grupları
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> nternetin temellerinin atılmasını sağlayan
+gelişme aşağıdakilerden hangisidir?  </p>
+	<span class="option" data-correct="false"><b>A)</b> TCP/IP protokolünün Amerikan Savunma Bakanlığı bünyesinde kullanılmaya başlanması
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Lawrence Roberts ile Thomas Merrill’in bilgisayarların ilk kez birbirleri ile iletişim kurmasını sağlamaları </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ray Tomlinson’ın çalışmaları ile e-posta teknolojisinin ARPANET içerisinde kullanılmaya başlanması </span><br>
+	<span class="option" data-correct="true"><b>D)</b> J.C.R Licklider’ın Massachusetts Institute of Tecnology’de Galaktik Ağ kavramını tartışmaya açması </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Lawrence Roberts DARPA’da ARPANET isimli proje önerisini yapması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> Bir sinyali iletmek üzere elektrik akımı yerine ışığı kullanan iletim aracı aşağıdakilerden hangisidir?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> Ethernet </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Eş eksenli kablo </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Modem </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Fiber </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ADSL </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> Bazı portların erişimini engelleyerek ya da
+belirli IP bloklarına bağlanma konusunda kısıtlama getirerek bilgisayar ağlarını belirli kriterlere göre filtreleyen ve böylece dışarıdan gelebilecek saldırılara karşı koruyan sistem aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Parola kullanımı </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Güvenlik duvarları </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Antivirüs Yazılımları
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sanal Özel Ağ (VPN)
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kullanıcı yetkileri yönetimi
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> Aşağıdakilerden hangisi VCS (Version
+Control Systems)’lerin geliştiricilere sağladığı kolaylıklardan biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Program kodlarında hata ayıklama olanağı sunması </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sürümler arasındaki farklılıkların karşılaştırılması </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tüm projenin veya seçili dosyaların önceki sürümlerine geri döndürülmesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sürümler arasında oluşan sorunların tespiti ve çözümü </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Proje kapsamında yapılan değişikliklerin sürümler halinde saklanması </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> Enformasyon simsarlarının insanların sosyal
+medyada paylaştıkları verileri, sahip oldukları başka verilerle eşleştirerek oluşturdukları veri kayıtları yardımıyla gerçekleştirebildikleri teknoloji aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Biyometri </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Kişilik tanımlama </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Akıllı kişisel yardımcılar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bağlam farkındalıklı bilgi işlem  </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yaşam günlüğü
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> 2010’lu yıllarda mobil cihazlarda yaşanan
+patlamayla küresel boyutta yaygınlaşan kişisel video yayıncılığı teknolojik gelişme çerçeveleri yaklaşımına göre aşağıdaki sınıflardan hangisine girer?
+ </p>
+	<span class="option" data-correct="true"><b>A)</b> Güncel teknolojiler </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kullanımdan kalkmış teknolojiler </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Geleneksel teknolojiler </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yakın gelecekteki teknolojiler </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sınırdaki teknolojiler </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> Adrese ürün teslim eden ve kapıda ödeme
+gerektiren firmalar, dağıtım şirketleri, evlere ve iş yerlerine servis yapan yiyecek firmaları, restoran, kafe gibi masada ödeme uygulaması bulunan firmaların yaygın olarak kullandığı mobil iletişim sistemi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Mobil POS </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Restoran Yönetim Sistemi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Araç Takip Sistemi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Telemetri Uygulamaları
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Mobil Ticaret
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> .................. bireylerin bir profil oluşturarak kimlik kazandıkları, profilleri aracılığıyla diğer bireylere ulaşabildikleri, dahil oldukları ağdaki bireylerin arkadaş listeleri aracılığıyla diğer ağlara katılabildikleri, iletişimde ve paylaşımda bulunabildikleri ortamlardır.<br><br>
+Yukarıdaki cümlede boş bırakılan yeri aşağıdakilerden hangisi doğru şekilde tamamlar?</p>
+	<span class="option" data-correct="false"><b>A)</b> Programlama diller </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Giyilebilir teknolojiler </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Sosyal iletişim ağları
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Köşe yazıları
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Mobil cihazlar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> Aşağıdakilerden hangisi yerel ağlar için
+kullanılan bir bilgisayar ağı standardı <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> DNS </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ethernet </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Token Ring </span><br>
+	<span class="option" data-correct="false"><b>D)</b> FDDI </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ARCNET </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question41">
+	<p class="question">Soru 41:<br> I.  İnsan gözünün göremediği, uzun dalga
+boyuna sahip elektromanyetik ışıktır.<br>
+II. Yakın mesafede veri iletimi sağlamak amacıyla kullanılır.<br>
+III. Diğer aygıtlara bu teknolojiyi kazandırmak için Bluetooth Hub kartları kullanılır.<br><br>
+Yukarıda verilen ifadelerden hangisi/hangileri kablosuz ağ teknolojilerinden biri olan kızılötesi teknolojisinin özellikleri arasında yer alır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve III
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II ve III
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description41">Açıklama</button>
+		<div id="description41" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question42">
+	<p class="question">Soru 42:<br> Bir ağın sunucu bilgisayarının ağdaki tüm
+bilgisayarlara veri göndermek istediğinde kullandığı her yöne yayın yöntemi aşağıdakilerden hangisidir?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> Unicast </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Simplex </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Full dublex </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Multicast </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Broadcast </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description42">Açıklama</button>
+		<div id="description42" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question43">
+	<p class="question">Soru 43:<br> Aşağıdaki öğelerden hangisi bir
+programlama dilinde <u><strong>yer almaz?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> İfadeler </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Aksanlar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veri yapıları </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Döngüler </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Koşullar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description43">Açıklama</button>
+		<div id="description43" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question44">
+	<p class="question">Soru 44:<br> 2000’de kullanıcıların mobil cihazlarının
+birbiriyle kablosuz iletişim kurabilmesi için standart bir sistem sunan Bluetooth’un ortaya çıkmasıyla ekonomik hale gelmiş ve yaygınlaşmış olan güncel teknoloji/uygulama aşağıdakilerden hangisidir?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> Mobil işbirliği sistemler </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Giyilebilir teknolojiler
+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Elektronik para
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Radyo frekanslı tanıma
+ </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Kişisel alan ağları
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description44">Açıklama</button>
+		<div id="description44" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question45">
+	<p class="question">Soru 45:<br> Güncel teknolojiler için aşağıdakilerden hangisi <u><strong>söylenemez?</strong></u>   </p>
+	<span class="option" data-correct="false"><b>A)</b> Günümüzde  olgunlaşmış ve yayılma dönemlerinin tam ortasında bulunan teknolojilerdir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Son yıllarda "erken  çoğunluk" kategorisi yoğun olarak kullanmaktadır </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Günümüzde “geç çoğunluk” tarafından yeni kullanılmaya başlanacaktır </span><br>
+	<span class="option" data-correct="true"><b>D)</b> “Yenilikçiler” ve “ilk benimseyenler” kategorileri yeni kullanmaya başlamışlardır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Toplumun yarısı için gereksinim olmaktan çıkmaya ve toplumun diğer yarısı için gereksinim hâline gelmeye başlamaktadır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description45">Açıklama</button>
+		<div id="description45" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question46">
+	<p class="question">Soru 46:<br> -------, gündelik yaşantımızda kullandığımız ve algılayıcılar, işleticiler, görüntüleyiciler ve hesaplama bileşenlerinin gömülü olduğu, bir birine bağlı akıllı nesnelerin ağı tarafından oluşturulan fiziksel dünyadır.<br><br>
+Yukarıdaki cümlede boş bırakılan yeri aşağıdakilerden hangisi doğru şekilde tamamlar?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> Akıllı şehir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Akıllı ev </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Akıllı bina </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Akıllı çevre </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Akıllı nesneler </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description46">Açıklama</button>
+		<div id="description46" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+	
+<div class="question-block">
+	<div id="question47">
+	<p class="question">Soru 47:<br> Aşağıdaki iletişim teknolojilerinin hangisinde radyo dalgalarından <u><strong>yararlanılmaz?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Telsizler </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Uydu sistemler </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kablosuz yerel alan ağları </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Kablolu ağlar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Hücresel telefon sistemleri </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description47">Açıklama</button>
+		<div id="description47" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question48">
+	<p class="question">Soru 48:<br> Hub’larla ilgili aşağıdaki ifadelerden hangisi doğru <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Hub, üzerinde bilgisayarların bağlanacağı
+portların bulunduğu, birimleri birbirine
+bağlayan merkez konumundadır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bir Hub üzerinde kaç tane port varsa o
+kadar sayıda cihaz birbirine bağlanabilir
+ancak zamanla daha fazla cihazın
+bağlanması ihtiyacı doğduğunda tek Hub
+yetersiz kalacaktır. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Birden fazla Hub’ın birbirine bağlanması
+yoluyla ağda bağlantı kurulacak cihaz sayısı
+da arttırılabilir </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Hub’ların da ağ bağdaştırıcı kartlarda olduğu
+gibi Mbps cinsinden ifade edilen veri iletim
+hızları bulunmaktadır </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Hub’lar ağdaki cihazların MAC adreslerini
+hafızalarında tutarak veri paketlerini
+doğrudan ilgili cihaza iletirler. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description48">Açıklama</button>
+		<div id="description48" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question49">
+	<p class="question">Soru 49:<br> Küçük bir alan içerisindeki veya uzak
+mesafelerdeki kaynakların iletişim hatları
+aracılığıyla birbirine bağlandığı, farklı kullanıcılar
+tarafından paylaşıldığı, bir yerden başka bir yere
+veri aktarımının mümkün olduğu iletişim
+sistemine ------- denir.<br><br>
+Yukarıdaki cümlede boş bırakılan yeri
+aşağıdakilerden hangisi doğru olarak
+tamamlar? </p>
+	<span class="option" data-correct="false"><b>A)</b> programlama dili </span><br>
+	<span class="option" data-correct="false"><b>B)</b> protokol </span><br>
+	<span class="option" data-correct="true"><b>C)</b> bilgisayar ağları </span><br>
+	<span class="option" data-correct="false"><b>D)</b> donanım </span><br>
+	<span class="option" data-correct="false"><b>E)</b> yazılım </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description49">Açıklama</button>
+		<div id="description49" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question50">
+	<p class="question">Soru 50:<br> Hem OSI referans modelinde hem de TCP/IP
+referans modelinde HTTP, SMTP, Telnet, FTP
+gibi protokollerin çalıştığı katman
+aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Oturum katmanı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İnternet katmanı
+ </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Uygulama katmanı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sunum katmanı
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Ağ katmanı
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description50">Açıklama</button>
+		<div id="description50" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+	
+<div class="question-block">
+	<div id="question51">
+	<p class="question">Soru 51:<br> "Git" aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Arayüz tasarım uygulaması </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Sürüm kontrol sistemi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Hata ayıklayıcı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Tümleşik geliştirme ortamı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Uygulama geliştirme çerçevesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description51">Açıklama</button>
+		<div id="description51" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question52">
+	<p class="question">Soru 52:<br> 1954’te John Backus liderliğindeki bir grup
+IBM çalışanı tarafından genel amaçlı olarak
+geliştirilen; derlenen programlama dillerinin
+ilk örneklerinden biri olan; sahip olduğu
+yerleşik hesaplama kabiliyetleri nedeniyle
+özellikle matematiksel ve bilimsel
+çalışmalarda sıklıkla tercih edilen dil
+aşağıdakilerden hangisidir?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> Algol </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Cobol </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Basic </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Lisp </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Fortran </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description52">Açıklama</button>
+		<div id="description52" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question53">
+	<p class="question">Soru 53:<br> Bireyin günlük olaylarının, hareketlerinin ve
+çevresiyle etkileşiminin yakalanması ve
+kaydedilmesini, bu verileri kullanarak bireyin
+deneyimlerinin belirlenmesi ve
+değerlendirilmesini sağlayacak sistem
+aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Bağlam farkındalıklı bilgi işlem
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kişilik tanımlama
+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Akıllı kişisel yardımcı
+ </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Yaşam günlüğü
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kişisel veri kaydı
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description53">Açıklama</button>
+		<div id="description53" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+
+		
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

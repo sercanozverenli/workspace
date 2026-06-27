@@ -1,0 +1,2452 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	  <link rel="icon" type="image/png" href="icon.png">
+  <style>
+	  	  	  .block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="anasayfa.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA I
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama1-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama1-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama1-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama1-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama1-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama1-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama1-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama1-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama1-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama1-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          BİLİŞİM HUKUKU
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="bilisimhk-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="bilisimhk-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="bilisimhk-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="bilisimhk-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="bilisimhk-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="bilisimhk-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="bilisimhk-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="bilisimhk-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="bilisimhk-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="bilisimhk-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB'DE TELİF HAKLARI VE ETİK
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="webtelif-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="webtelif-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="webtelif-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="webtelif-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="webtelif-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="webtelif-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="webtelif-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="webtelif-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="webtelif-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="webtelif-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          AĞ YÖNETİMİ VE BİLGİ GÜVENLİĞİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="agyonetimi-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="agyonetimi-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="agyonetimi-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="agyonetimi-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="agyonetimi-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="agyonetimi-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="agyonetimi-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="agyonetimi-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="agyonetimi-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="agyonetimi-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİTABANI PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veritabaniprg-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veritabaniprg-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veritabaniprg-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  </nav>
+  
+    <h4 id="ders">Ağ Yönetimi ve Bilgi Güvenliği - Çıkmış Sorular (Ara Sınav) </h4>
+	  	  <div id="parts">	 	  <button id="show-all">Tümü</button>
+<button class="block-group" data-start="0" data-end="19">Part 1</button>
+<button class="block-group" data-start="20" data-end="39">Part 2</button>
+<button class="block-group" data-start="40" data-end="59">Part 3</button>
+<button class="block-group" data-start="60" data-end="79">Part 4</button>
+<button class="block-group" data-start="80" data-end="99">Part 5</button>
+<button class="block-group" data-start="100" data-end="119">Part 6</button>
+	  
+    <form id="test-form">
+	
+		
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Tek bir kablo üzerinde ve genellikle BNC
+adaptöre sahip Ethernet kartlarının birbirine bağlanması ile oluşturulan ağ topolojisi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Ortak Yol (Bus) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Halka (Ring) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Örgü (Mesh) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Ağaç (Tree) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yıldız (Star) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Bant genişliğine göre Cat1, Cat2, Cat3 gibi
+çeşitleri bulunan ve günümüz internet
+altyapısının yerel alan ağlarında kullanımı
+sıklıkla görülen kablo türü aşağıdakilerden
+hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> FTP Kablo </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Fiber Optik Kablo </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Eşmerkezli Kablo </span><br>
+	<span class="option" data-correct="false"><b>D)</b> UDP Kablo </span><br>
+	<span class="option" data-correct="true"><b>E)</b> UTP Kablo </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Verilerin alıcı bilgisayara eksiksiz, sıralı ve güvenilir bir şekilde ulaşmasını garanti eden <strong>en gelişmiş</strong> taşıma katmanı protokolü aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> POP3 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> DNS </span><br>
+	<span class="option" data-correct="false"><b>C)</b> FTP </span><br>
+	<span class="option" data-correct="true"><b>D)</b> TCP </span><br>
+	<span class="option" data-correct="false"><b>E)</b> SMTP </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Dünyadaki <strong>en geniş</strong> alan ağı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Çerçeve aktarıcı </span><br>
+	<span class="option" data-correct="true"><b>B)</b> İnternet </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İntranet </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Jetonlu halka </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ADSL </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Akıllı telefon, tablet, kişisel dijital asistan vb.
+cihazların oluşturduğu ağ çeşiti
+aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> VPN </span><br>
+	<span class="option" data-correct="false"><b>B)</b> MAN </span><br>
+	<span class="option" data-correct="false"><b>C)</b> LAN </span><br>
+	<span class="option" data-correct="false"><b>D)</b> WAN </span><br>
+	<span class="option" data-correct="true"><b>E)</b> PAN </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> SNMP protokolünün kullanımı için gerekli
+bileşenler aşağıdakilerden hangisinde birlikte ve doğru olarak verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Uç uygulama, yönetici uygulama ve ağ yönetim sistemi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Araç uygulama, iletici uygulama ve yönetim bilgi üssü </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Araç uygulama, Yönetici uygulama ve Ağ yönetim sistemi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Araç uygulama, iletici uygulama ve ağ yönetim sistemi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Uç uygulama, iletici uygulama ve yönetim bilgi üssü </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> Aşağıdakilerden hangisi SNMP protokolü
+dâhilinde bulunan ağaç yapısında <u><strong>yer almaz?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Cihazların ısı değerleri </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Cihazların kasa renkleri </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Çalışma süreleri </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yönlendirme tabloları </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İnternet bağlantı hızları </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> Aşağıdakilerden hangisi ağ bileşeni
+elemanlarından biri <u><strong>değildir? </strong></u></p>
+	<span class="option" data-correct="false"><b>A)</b> Köprü cihaz (bridge) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Anahtar cihaz (switch) </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Kayıt cihazı (log) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yönlendirici cihaz (router) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Göbek cihaz (hub) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> Evde kullanılan ADSL hesabının kotasının
+belirlenmesi işlemi aşağıdaki ağ yönetim çeşitlerinden hangisinin konusudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Hata yönetimi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Performans yönetimi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yapılandırma yönetimi </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Hesaplama yönetimi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Güvenlik yönetimi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Son yıllarda kullanılan teknolojilerde ağ
+kartının UTP kablo üzerindeki hızı hangi
+aralıkta değişmektedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> 1-10 Gbps </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 10-20 Gbps </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 20-30 Gbps </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 30-40 Gbps </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 40-50 Gbps </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> Aşağıdakilerden hangisi simetrik şifreleme algoritmalarının temel öğelerinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Şifreleme fonksiyonu </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Veri bütünlüğü </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Açık metin </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Gizli anahtar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Şifrelenmiş metin </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">       Simetrik şifreleme algoritmalarının beş temel öğesi vardır:<br>
+1- Açık metin<br>
+2- Şifreleme fonksiyonu<br>
+3- Gizli anahtar<br>
+4- Şifrelenmiş metin<br>
+5- Çözme fonksiyonu      </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> Bilinen <strong>en eski</strong> ve <strong>en basit</strong> şifreleme yöntemi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Blok şifreleme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Vigenere şifreleme </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Sezar şifreleme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Affine şifreleme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Monoalfabetik şifreleme </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> 
+Açık metin &emsp;&nbsp;: 0 1 0 0 1 1 0 1<br>
+Anahtar dizisi : 1 0 1 1 0 1 0 0<br><br>
+Yukarıdaki tek zamanlı blok ile şifreleme sürecinde sahip olunan açık metin ve anahtar dizisine göre şifrelenmiş metin aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 1 0 1 0 1 0 0 1 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 1 1 1 1 1 0 0 0 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 1 1 0 1 1 0 0 1 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 1 1 1 1 0 0 0 1 </span><br>
+	<span class="option" data-correct="true"><b>E)</b> 1 1 1 1 1 0 0 1 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> ......., 64 bit uzunluğunda bloklar kullanarak şifreleme yapan, uzun yıllar boyunca güvenle kullanılmış ve üzerinde en çok araştırma yapılmış simetrik şifreleme algoritmalarından biridir.<br><br>
+Yukarıdaki cümlede boş bırakılan yeri aşağıdakilerden hangisi doğru şekilde
+tamamlar? </p>
+	<span class="option" data-correct="true"><b>A)</b> DES </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Affine Şifreleme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sezar Şifreleme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Monoalfabetik Şifreleme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> AES </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> Kullanıcılar arasında güvenli bir iletişim oluşturmak için gerekli algoritmaları ve protokolleri tasarlayan ve geliştiren bilim dalı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kriptoanaliz </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sonografi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Tipografi </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Kriptografi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Steganografi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Dijital imza ile ilgili aşağıdaki ifadelerden hangisi doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Dijital imzanın, imzalanan metinden
+bağımsız bir örüntüsü olmalıdır. </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Dijital imzaları üretmek hesaplama
+açısından karmaşık olmalıdır. </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Dijital imza benzersiz olmalıdır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Göndericiden gelen imzaları tanımak ve
+doğrulamak zorlayıcı olmalıdır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Göndericinin dijital imzasının bir kopyasını
+oluşturabilmesi önlenmelidir. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> İki büyük sayıyı çarpmanın kolay olması
+ancak büyük bir sayıyı faktörlerine ayırmanın
+zor olması prensibi üzerine kurulan açık
+anahtar şifreleme algoritması
+aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> SHA </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ElGamal </span><br>
+	<span class="option" data-correct="false"><b>C)</b> MD5 </span><br>
+	<span class="option" data-correct="true"><b>D)</b> RSA </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Diffie - Hellman </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Ahmet, ofisindeki bilgisayarları kötü niyetli kişiler tarafından zarara uğratılmasını engellemek için gerekli donanım güvenlik önlemleri almış ve çevresel faktörler ile doğal afetlere karşı korunaklı hale getirmiştir.<br><br>
+Yukarıdaki cümlede Ahmet güvenlik sisteminin sağlanması için hangi güvenlik servisinden yararlanmıştır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Erişim kontrolü </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kullanılabilirlik </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Gizlilik </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Denetim </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Fiziksel güvenlik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> Yetkisi olmayan tarafların iletim halindeki mesaj içeriğinde değişiklik yapamaması anlamına gelen güvenlik servisi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Mesaj bütünlüğü </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Gizlilik </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Erişim kontrolü </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Fiziksel güvenlik </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Denetim </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> RSA algoritması için p değeri 7, q değeri ise 19 seçilmiştir.<br><br>
+Buna göre Euler Sayısı hangi değeri alır? </p>
+	<span class="option" data-correct="false"><b>A)</b> 100 </span><br>
+	<span class="option" data-correct="true"><b>B)</b> 108 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 114 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 133 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 152 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      Euler sayısı (p-1) ile (q-1) değerlerinin çarpımı olarak hesaplanır.<br>
+			Euler sayısı Ø ile gösterilir. Bu nedenle Ø (n) = (p-1)×(q-1) olarak bulunur. <br><br>
+		6x18=108</div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> SNMP protokolü aşağıdaki modellerden
+hangisinin içerisinde yer alır? </p>
+	<span class="option" data-correct="true"><b>A)</b> TCP/IP </span><br>
+	<span class="option" data-correct="false"><b>B)</b> SIP/IP </span><br>
+	<span class="option" data-correct="false"><b>C)</b> HTTP/IP </span><br>
+	<span class="option" data-correct="false"><b>D)</b> UDP/IP </span><br>
+	<span class="option" data-correct="false"><b>E)</b> OSI/IP </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Tarihte <strong>ilk</strong> devre dışı kalan ağ
+aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> UCLA </span><br>
+	<span class="option" data-correct="true"><b>B)</b> ARPANET </span><br>
+	<span class="option" data-correct="false"><b>C)</b> PARNET </span><br>
+	<span class="option" data-correct="false"><b>D)</b> NETPA </span><br>
+	<span class="option" data-correct="false"><b>E)</b> DROPNET </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> İstemci bilgisayarlar arasında bilgi paylaşımı yapabilmek amacıyla oluşturulan ortamlara ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Bilgisayar güç ünitesi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bilgisayar belleği </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ortam girdisi </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Bilgisayar ağı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Çıktı ortamı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Bir ağın ağaç topolojisinde olabilmesi için <strong>en az</strong> kaç seviyeye ihtiyaç vardır? </p>
+	<span class="option" data-correct="false"><b>A)</b> 1 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 2 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 3 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 4 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 5 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> Aşağıdaki bileşenlerden hangisi üzerinde bağlı bulunduğu cihazın ağ ile bağlantısını sağlamaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yazıcı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ram </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Depolama cihazı </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Ağ kartı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Tarayıcı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> HTTP, FTP, SMTP </p>
+	<span class="option" data-correct="false"><b>A)</b> Taşıma katmanı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Fiziksel katmanı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veri katmanı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Ağ katmanı </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Uygulama katmanı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      <strong>HTTP, FTP, SMTP, POP3 ve DNS</strong> Uygulama katmanında bulunmaktadır.   </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Özel durumların kayıt altına alınması ile bir yanlış işlemin veya kötü niyetli kullanımın kim veya kimler tarafından yapıldığının tespit edilmesine imkân tanıyan güvenlik servisi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Denetim </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Mesaj bütünlüğü </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İnkâr edememe </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kullanılabilirlik </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Fiziksel güvenlik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> Aşağıdakilerden hangisi dizi şifreleme
+algoritmalarından biri <strong>değildir?</strong> </p>
+	<span class="option" data-correct="false"><b>A)</b> RC4A </span><br>
+	<span class="option" data-correct="false"><b>B)</b> A5/1 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> A5/2 </span><br>
+	<span class="option" data-correct="true"><b>D)</b> DES </span><br>
+	<span class="option" data-correct="false"><b>E)</b> RC4+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> I. Yıldız<br>
+II. Daire<br>
+III. Halka<br><br>
+Yukarıdakilerden hangileri bilgisayar ağı
+topolojilerindendir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="true"><b>D)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">       Topolojilerine göre ağlar:<br>
+<strong>- Ortak yol, <br>
+- Halka, <br>
+- Örgü, <br>
+- Ağaç, <br>
+- Yıldız </strong>       </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> Monoalfabetik şifreleme yönteminde 5
+karaktere sahip bir alfabe kullanılması
+durumunda kaç farklı şifreleme tablosu
+oluşturulabilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 5 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 10 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 100 </span><br>
+	<span class="option" data-correct="true"><b>D)</b> 120 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 240 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">     5 karakter denildiği için cevap 5!(120). 26 karakter denilseydi cevap 26!, Türk alfabesine göre denilseydi cevap 29! olurdu.      </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> I. Çin Kalan Teoremi<br>
+II. Hızlı Üs Hesaplama<br>
+III. Uzun Açık Anahtar Seçme<br><br>
+Yukarıdakilerden hangileri RSA algoritmasının hızlandırılması için kullanılabilecek yöntemlerdendir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> Sadece dijital imza üretmek amacıyla
+tasarlanmış olan ve şifreleme amaçlı <u><strong>kullanılmayan</strong></u> algoritma aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> RSA </span><br>
+	<span class="option" data-correct="true"><b>B)</b> DSA </span><br>
+	<span class="option" data-correct="false"><b>C)</b> DES </span><br>
+	<span class="option" data-correct="false"><b>D)</b> AES </span><br>
+	<span class="option" data-correct="false"><b>E)</b> RC4 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> Aşağıdakilerden hangisi iki kullanıcı arasında gizli bir oturum anahtarının oluşturulması için kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Diffie-Hellman </span><br>
+	<span class="option" data-correct="false"><b>B)</b> RIPEMD </span><br>
+	<span class="option" data-correct="false"><b>C)</b> MD5 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> SHA </span><br>
+	<span class="option" data-correct="false"><b>E)</b> DSA </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> Aşağıdaki algoritmalardan hangisi bir özet fonksiyonudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> IDEA </span><br>
+	<span class="option" data-correct="false"><b>B)</b> DES </span><br>
+	<span class="option" data-correct="false"><b>C)</b> AES </span><br>
+	<span class="option" data-correct="false"><b>D)</b> RSA </span><br>
+	<span class="option" data-correct="true"><b>E)</b> WHIRLPOOL </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      <strong>MD5, SHA, WHIRLPOOL ve RIPEMD</strong> özet fonksiyonlarıdır ve bunlar MD4 algoritması üzerine inşa edilmiştir.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> Aşağıdaki operatörlerden hangisi şifrelenmiş
+metin ile anahtar arasında ilişkinin
+anlaşılmasını zorlaştırmak için kullanılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yayılma </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Parçalama </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Birleştirme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sadeleştirme </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Karışıklık </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> Wi-Fi terimi aşağıdakilerden hangisinin
+kısaltmasıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Wired Field </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Wireless Fidelity </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Wireless Fire </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Wired Fidelity </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Wired Fire </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> Türk alfabesi kullanılması durumunda Sezar yönteminde şifreleme fonksiyonu olarak aşağıdakilerden hangisi kullanılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> y = x + 3 mod 26 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> y = x + 3 mod 27 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> y = x + 3 mod 29 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> y = x + 3 mod 30 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> y = x + 3 mod 31 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      İngiliz alfabesine göre ise şu şekildedir:<br>		
+Şifreleme fonksiyonu: <strong>y = x + 3 mod 26</strong>
+Çözme fonksiyonu: x = y – 3 mod 26<br>
+     </div>
+		
+		
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> Köprülerin çok arayüzlü şekli ve göbek
+cihazların akıllı sürümü aşağıdakilerden
+hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Tekrarlayıcılar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Protokoller </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Anahtar cihazlar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yönlendiriciler </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Ağ kartı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> Mobil özel amaçlı ağlarda da kullanılan ve hatalı düğümlerin veri akışını engellememesi amaçlanan ağ topolojisi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Ortak yol </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ağaç </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Halka </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yıldız </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Örgü </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br> Ağ yönetiminde ağa bağlı herhangi bir
+donanım ve uygulama aşağıdakilerden hangisi ile ifade edilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Yönetilen cihaz </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yöneltici cihaz </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Trafik cihaz </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Dağıtıcı cihaz </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Toplayıcı cihaz </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question41">
+	<p class="question">Soru 41:<br> Ağın verimliliğinin ve çıkış gücünün
+ölçülmesi, analiz edilmesi, raporlanması ve kontrol edilmesi aşağıdaki ağ yönetim çeşitlerinden hangisinin kapsamında yer alır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Hesaplama yönetimi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Hata yönetimi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yapılandırma yönetimi </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Performans yönetimi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Güvenlik yönetimi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description41">Açıklama</button>
+		<div id="description41" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question42">
+	<p class="question">Soru 42:<br> UTP kablo ucuna basılan ve ağ kartına
+bağlantıyı sağlayan konnektör tipi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> RJ11 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> RJ21 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> RJ33 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> RJ35 </span><br>
+	<span class="option" data-correct="true"><b>E)</b> RJ45 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description42">Açıklama</button>
+		<div id="description42" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question43">
+	<p class="question">Soru 43:<br> TCP/IP modelinde ağ yapısındaki en alt
+katman aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Taşıma </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Ağ erişim </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Uygulama </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Oturum </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sunum </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description43">Açıklama</button>
+		<div id="description43" class="collapse">      TCP/IP modeline
+göre dört katmanda toplanmıştır. Bu katmanlar 1-Uygulama
+Katmanı, 2-Taşıma Katmanı, 3-Ağ Katmanı ve 4-Ağ
+Erişim Katmanıdır.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question44">
+	<p class="question">Soru 44:<br> Depolama sunucularına bağlantıyı sağlayan ağ aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> PAN </span><br>
+	<span class="option" data-correct="false"><b>B)</b> CAN </span><br>
+	<span class="option" data-correct="false"><b>C)</b> VPN </span><br>
+	<span class="option" data-correct="false"><b>D)</b> MAN </span><br>
+	<span class="option" data-correct="true"><b>E)</b> SAN </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description44">Açıklama</button>
+		<div id="description44" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question45">
+	<p class="question">Soru 45:<br> Bir Data Encryption Standard (DES)
+anahtarın kaç biti kontrol amaçlı kullanılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> 4 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 6 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 8 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 10 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 12 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description45">Açıklama</button>
+		<div id="description45" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question46">
+	<p class="question">Soru 46:<br> Ayrık logaritma üzerine kurulan açık anahtar
+şifreleme yöntemi aşağıdakilerden
+hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> AES </span><br>
+	<span class="option" data-correct="false"><b>B)</b> RSA </span><br>
+	<span class="option" data-correct="false"><b>C)</b> DES </span><br>
+	<span class="option" data-correct="true"><b>D)</b> ElGamal </span><br>
+	<span class="option" data-correct="false"><b>E)</b> RC4 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description46">Açıklama</button>
+		<div id="description46" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question47">
+	<p class="question">Soru 47:<br> Aşağıdakilerden hangisi blok şifreleme
+algoritmalarından biri <strong>değildir?</strong> </p>
+	<span class="option" data-correct="false"><b>A)</b> AES </span><br>
+	<span class="option" data-correct="true"><b>B)</b> RC4 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> DES </span><br>
+	<span class="option" data-correct="false"><b>D)</b> IDEA </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 3DES </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description47">Açıklama</button>
+		<div id="description47" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question48">
+	<p class="question">Soru 48:<br> Aşağıdakilerden hangisi dijital imzaların taşıması gereken özelliklerden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Dijital imzanın, imzalanan metinden bağımsız olması </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Dijital imzaların  benzersiz olması </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Göndericinin dijital imzanın bir kopyasını
+oluşturup saklayabilmesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Göndericiden gelen imzaların kolayca
+doğrulanabilmesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Göndericinin oluşturduğu dijital imzanın kötü
+niyetli kişiler tarafından oluşturulamamasının
+gerekliliği </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description48">Açıklama</button>
+		<div id="description48" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question49">
+	<p class="question">Soru 49:<br> Aşağıdaki algoritmalardan hangisi bir özet fonksiyonudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> AES </span><br>
+	<span class="option" data-correct="false"><b>B)</b> DES </span><br>
+	<span class="option" data-correct="true"><b>C)</b> SHA </span><br>
+	<span class="option" data-correct="false"><b>D)</b> RSA </span><br>
+	<span class="option" data-correct="false"><b>E)</b> IDEA </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description49">Açıklama</button>
+		<div id="description49" class="collapse">      <strong>MD5, SHA, WHIRLPOOL ve RIPEMD</strong> özet fonksiyonlarıdır ve bunlar MD4 algoritması üzerine inşa edilmiştir.        </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question50">
+	<p class="question">Soru 50:<br> Açık anahtar şifreleme yöntemlerinde
+kullanıcının matematiksel olarak birbiriyle ilişkili kaç anahtarı vardır? </p>
+	<span class="option" data-correct="false"><b>A)</b> 1 </span><br>
+	<span class="option" data-correct="true"><b>B)</b> 2 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 3 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 4 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 5 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description50">Açıklama</button>
+		<div id="description50" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question51">
+	<p class="question">Soru 51:<br> SSH, IpSec, TLS ve Skype gibi güvenliğin önemli olduğu birçok protokolde ------- şifreleme algoritması kullanılmaktadır. Bu algoritma günümüzde yaygın olarak kullanılmakta ve en güvenilir şifreleme olarak kabul edilmektedir.<br><br>
+Yukarıdaki cümlede boş bırakılan yeri aşağıdakilerden hangisi doğru şekilde tamamlar? </p>
+	<span class="option" data-correct="false"><b>A)</b> Sezar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Affine </span><br>
+	<span class="option" data-correct="true"><b>C)</b> AES </span><br>
+	<span class="option" data-correct="false"><b>D)</b> DES </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Vigenere </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description51">Açıklama</button>
+		<div id="description51" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question52">
+	<p class="question">Soru 52:<br> I. Anahtar ekleme katmanı<br>
+II. Bayt yer değiştirme katmanı<br>
+III. Yayılma katmanı<br><br>
+Yukarıdakilerden hangileri AES şifreleme
+algoritmasının <strong>temel</strong> işlemlerindendir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description52">Açıklama</button>
+		<div id="description52" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question53">
+	<p class="question">Soru 53:<br> 29 farklı harfin yer aldığı Türk alfabesi kullanılması durumunda Affine şifreleme algoritması ile <strong>en fazla</strong> kaç farklı anahtar oluşturulabilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 312 </span><br>
+	<span class="option" data-correct="true"><b>B)</b> 812 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 930 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 1012 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 1030 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description53">Açıklama</button>
+		<div id="description53" class="collapse">      26 harfli İngiliz alfabesine göre sorulsaydı cevap <strong><u>312</u></strong> olurdu.
+</div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question54">
+	<p class="question">Soru 54:<br> Kablosuz telefon görüşmeleri, kablosuz veri aktarımı ve görüntülü konuşma gibi özellikler GSM operatörleri tarafından <u><strong>ilk kez</strong></u> hangi nesil teknolojisinde kullanıcılara sunulmuştur? </p>
+	<span class="option" data-correct="false"><b>A)</b> 1G </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 1.5G </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 2G </span><br>
+	<span class="option" data-correct="true"><b>D)</b> 3G </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 3.5G </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description54">Açıklama</button>
+		<div id="description54" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question55">
+	<p class="question">Soru 55:<br> Bilgisayarların çalışma mantığı çerçevesinde “bit” aşağıdaki sayı ikililerinden hangisini temsil eder? </p>
+	<span class="option" data-correct="true"><b>A)</b> 0 - 1 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 0 - 2 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 1 - 10 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 10 - 20 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 10 - 100 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description55">Açıklama</button>
+		<div id="description55" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question56">
+	<p class="question">Soru 56:<br> TCP/IP modelinde uygulama katmanına OSI modelinde karşılık gelen katmanlar aşağıdakilerden hangisinde doğru olarak verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Uygulama, Ağ Katmanları </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Uygulama, Sunum, Oturum Katmanları </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veri, Fiziksel Katmanlar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Ağ, Taşıma, Uygulama Katmanları </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Fiziksel, Ağ, Taşıma Katmanları </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description56">Açıklama</button>
+		<div id="description56" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question57">
+	<p class="question">Soru 57:<br> Aşağıdakilerden hangisi topolojilerine göre ağ çeşitlerinden biridir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Ortak Yol Ağları </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Geniş Alan Ağları </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Şehirsel Alan Ağları </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Sanal Özel Ağlar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kişisel Alan Ağları </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description57">Açıklama</button>
+		<div id="description57" class="collapse">      Topolojilerine göre ağlar:<br>
+<strong>- Ortak yol, <br>
+- Halka, <br>
+- Örgü, <br>
+- Ağaç, <br>
+- Yıldız </strong>    </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question58">
+	<p class="question">Soru 58:<br> Aşağıdakilerden hangisi ağ yönetim yapısı oluşturulurken cevap verilmesi gereken sorulardan biri <strong>değildir?</strong> </p>
+	<span class="option" data-correct="false"><b>A)</b> İzlenecek olan nedir? </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Ağ yöneticisi kimdir? </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ağ yöneticisi tarafından kontrol edilecek veriler hangileridir? </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Raporlanacak ya da değişime tabi tutulacak özel form bilgisi nedir? </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bilgi değişiminde kullanılacak protokoller hangileridir? </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description58">Açıklama</button>
+		<div id="description58" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question59">
+	<p class="question">Soru 59:<br> Kablosuz ağlar için kullanılan IEEE standardı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> 802.11 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 802.33 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 802.44 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 811.02 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 811.11 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description59">Açıklama</button>
+		<div id="description59" class="collapse">      IEEE 802.11 ve IEEE 802.11i     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question60">
+	<p class="question">Soru 60:<br> Aşağıdakilerden hangisi SNMP protokolünün kullanımı için gerekli üç bileşenden biridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Ağa Saldırı Olması </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yönlendirici Tablo Değişikliği </span><br>
+	<span class="option" data-correct="false"><b>C)</b> DNS Kayıt Süreci </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Araç Uygulama </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İstatistiklerin incelenmesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description60">Açıklama</button>
+		<div id="description60" class="collapse">     SNMP protokolünün kullanımı için gerekli üç bileşen şunlardır:<br>
+<strong>- Araç uygulama, <br>
+- Yönetici uygulama, <br>
+- Ağ yönetim sistemi </strong>    </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question61">
+	<p class="question">Soru 61:<br> Aşağıdakilerden hangisi ağ yönetim araçlarından biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Bir ağ cihazında ya da yönlendiricide ağ kartının arızasının belirlenmesi </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Yönlendirici tablosunun değiştirilmesi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sistemin izlenmesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kaynak dağılımı için ağ trafiğinin izlenmesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İstatistiklerin izlenmesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description61">Açıklama</button>
+		<div id="description61" class="collapse">   Ağ yönetim araçları:   <br>
+- Bir ağ cihazında ya da yönlendiricide ağ kartının arızasını belirlemek,<br>
+- Sistemi İzlemek,<br>
+- Kaynak Dağılımı için Ağ Trafiğini İzlemek,<br>
+- <strong>Yönlendirme tablolarındaki hızlı <u>değişiklikleri belirlemek,</u></strong><br>
+- İstatistiklerin İzlenmesi,<br>
+- Ağa izinsiz girişleri tespit etmek
+       </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question62">
+	<p class="question">Soru 62:<br> Üzerine kurulan yazılımlar sayesinde ağ yöneticisine gerekli bilgileri toplayan sanal depolama ünitesi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Sistem Sunucusu </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Bulut Depolama Merkezi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ağ Yazılımı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> IP Adresi </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Yönetim Bilgi Üssü </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description62">Açıklama</button>
+		<div id="description62" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question63">
+	<p class="question">Soru 63:<br> 1972 yılında Arpanet’e dahil edilen elektronik posta uygulamalarında kullanıcı adı ile alan adresinin birleştirilmesinde kullanılan işaret aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> @ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> & </span><br>
+	<span class="option" data-correct="false"><b>C)</b> % </span><br>
+	<span class="option" data-correct="false"><b>D)</b> * </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ! </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description63">Açıklama</button>
+		<div id="description63" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question64">
+	<p class="question">Soru 64:<br> Aşağıdakilerden hangisi ağ yönetim çeşitlerinden biridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> e-posta Yönetimi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Virüs Yönetimi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> İşletim Sistemi Yönetimi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Dizin Yönetimi </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Hesaplama Yönetimi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description64">Açıklama</button>
+		<div id="description64" class="collapse">      Ağ yönetim çeşitleri, Uluslararası Standartlar Teşkilatı tarafından oluşturulan ağ yönetim modeline göre <strong>beş</strong> farklı kategoride ağ yönetimini sınıflandırılmaktadır. <u>Bunlar:</u><br>
+<strong>1- </strong>Performans Yönetimi, <br>
+<strong>2-</strong> Hata Yönetimi,<br>
+<strong>3-</strong> Yapılandırma Yönetimi, <br>
+<strong>4-</strong> Hesaplama Yönetimi,<br>
+<strong>5-</strong> Güvenlik Yönetimidir.     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question65">
+	<p class="question">Soru 65:<br> SHA-1 özet fonksiyonu kaç bit uzunluğunda özet değeri üretir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 48 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 64 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 128 </span><br>
+	<span class="option" data-correct="true"><b>D)</b> 160 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 192 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description65">Açıklama</button>
+		<div id="description65" class="collapse">      <strong>SHA-0 ve SHA-1</strong> algoritmaları <strong>160 bitlik</strong> mesaj özeti üretmektedir.<br>
+SHA-2 fonksiyonunun 224, 256, 384 ve 512 bit uzunluğunda olmak
+üzere dört faklı uzunlukta özet değeri üreten sürümleri vardır.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question66">
+	<p class="question">Soru 66:<br> Aşağıdakilerden hangisi güvenlik servislerinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Erişim kontrolü </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Denetim </span><br>
+	<span class="option" data-correct="true"><b>C)</b> İnkâr etme </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kimlik doğrulama </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Kullanılabilirlik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description66">Açıklama</button>
+		<div id="description66" class="collapse">      <u><strong>Güvenlik Servisleri:</strong></u> <br>
+	- Gizlilik<br>
+	- Mesaj bütünlüğü<br>
+- Kimlik doğrulama<br>
+- İnkâr <strong><u>edememe</u></strong><br>
+- Erişim kontrolü<br>
+- Kullanılabilirlik<br>
+- Fiziksel güvenlik<br>
+- Denetim<br>
+
+    </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question67">
+	<p class="question">Soru 67:<br> Aşağıdaki algoritmalardan hangisi bir özet fonksiyonudur? </p>
+	<span class="option" data-correct="true"><b>A)</b> MD5 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> DES </span><br>
+	<span class="option" data-correct="false"><b>C)</b> AES </span><br>
+	<span class="option" data-correct="false"><b>D)</b> RSA </span><br>
+	<span class="option" data-correct="false"><b>E)</b> IDEA </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description67">Açıklama</button>
+		<div id="description67" class="collapse">      <strong>MD5, SHA, WHIRLPOOL ve RIPEMD</strong> özet fonksiyonlarıdır ve bunlar MD4 algoritması üzerine inşa edilmiştir.      </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question68">
+	<p class="question">Soru 68:<br> I. Tekdüze dağılıma sahip olmaları<br>
+II. Bir sonraki adımda üretilecek sayının tahmin edilememesi<br>
+III. Başlangıç parametrelerinin bilinmesi durumunda aynı sayı dizisinin tekrar üretilebilmesi<br><br>
+
+Yukarıdakilerden hangileri kriptolojik olarak güvenli rastgele sayıların özellikleri arasında yer alır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description68">Açıklama</button>
+		<div id="description68" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question69">
+	<p class="question">Soru 69:<br> Toplam 6 (altı) kişinin çalıştığı bir firma için simetrik şifreleme algoritması kullanılarak güvenli bir iletişim ortamı oluşturulmak istendiğinde gereksinim duyulan gizli anahtar sayısı kaçtır? </p>
+	<span class="option" data-correct="false"><b>A)</b> 6 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 10 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 15 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 18 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 36 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description69">Açıklama</button>
+		<div id="description69" class="collapse">      Simetrik şifreleme algoritması kullanılarak güvenli bir iletişim ortamı oluşturulmak istendiğinde gereksinim duyulan Gizli Anahtar Sayısının Formülü:<br>
+ <u><strong>nx(n-1)/2</strong></u>'dir. <br>
+Yani soruya uyarlarsak: 6x(5)/2 = 15     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question70">
+	<p class="question">Soru 70:<br> Sadece yetkili kişilerin mesajı okuyabilmesi olarak tanımlanan güvenlik servisi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Denetim </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kimlik doğrulama </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Fiziksel güvenlik </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Erişim kontrolü </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Gizlilik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description70">Açıklama</button>
+		<div id="description70" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question71">
+	<p class="question">Soru 71:<br> Aşağıdakilerden hangisi simetrik şifreleme algoritmalarının <u><strong>temel</strong></u> öğelerinden biridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Açık anahtar </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Gizli anahtar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Sertifika </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Özet fonksiyon </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Dijital imza </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description71">Açıklama</button>
+		<div id="description71" class="collapse">      Simetrik şifreleme algoritmalarının beş temel öğesi vardır:<br>
+1- Açık metin<br>
+2- Şifreleme fonksiyonu<br>
+3- Gizli anahtar<br>
+4- Şifrelenmiş metin<br>
+5- Çözme fonksiyonu    </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question72">
+	<p class="question">Soru 72:<br> AES şifreleme algoritması için 192 bit uzunluğunda gizli anahtar kullanıldığında, tur sayısı kaçtır? </p>
+	<span class="option" data-correct="false"><b>A)</b> 8 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 10 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 12 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 14 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 16 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description72">Açıklama</button>
+		<div id="description72" class="collapse"> 
+<u>Anahtar uzunluğu - Tur sayısı</u><br>
+&emsp; &emsp;128 &emsp; &emsp; &emsp; &emsp;10<br>
+&emsp; &emsp;<strong>192</strong> &emsp; &emsp; &emsp; &emsp;<strong>12</strong><br>
+&emsp; &emsp;256 &emsp; &emsp; &emsp; &emsp;14    </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question73">
+	<p class="question">Soru 73:<br> Aşağıdakilerden hangisi yerel ya da şehirsel alan ağlarının birleşmesiyle oluşturulan <u><strong>en geniş</strong></u> alan ağıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> LAN </span><br>
+	<span class="option" data-correct="false"><b>B)</b> VPN </span><br>
+	<span class="option" data-correct="false"><b>C)</b> PAN </span><br>
+	<span class="option" data-correct="false"><b>D)</b> MAN </span><br>
+	<span class="option" data-correct="true"><b>E)</b> WAN </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description73">Açıklama</button>
+		<div id="description73" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question74">
+	<p class="question">Soru 74:<br> Aşağıdakilerden hangisi açık anahtar
+şifreleme algoritmasının <u>temel</u> bileşenlerinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Gizli anahtar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Şifreli metin kümesi </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Kapalı anahtar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Şifreleme fonksiyonu </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Açık metin kümesi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description74">Açıklama</button>
+		<div id="description74" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question75">
+	<p class="question">Soru 75:<br> AES şifreleme algoritmasında 14 tur veya
+iterasyon gerekiyorsa kaç bit uzunluğunda
+gizli anahtar kullanılmalıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> 32 bit </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 64 bit </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 128 bit </span><br>
+	<span class="option" data-correct="true"><b>D)</b> 256 bit </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 512 bit </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description75">Açıklama</button>
+		<div id="description75" class="collapse">      <u>Anahtar uzunluğu - Tur sayısı</u><br>
+&emsp; &emsp;128 &emsp; &emsp; &emsp; &emsp;10<br>
+&emsp; &emsp;192 &emsp; &emsp; &emsp; &emsp;12<br>
+&emsp; &emsp;<strong>256</strong> &emsp; &emsp; &emsp; &emsp;<strong>14 </strong>     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question76">
+	<p class="question">Soru 76:<br> I. Tam sayıyı asal çarpanlarına ayırma<br>
+II. Ayrık logaritma<br>
+III. Eliptik eğriler<br><br>
+Yukarıdakilerden hangileri açık anahtar
+şifreleme yöntemlerinde kullanılan tek yönlü
+fonksiyonlardandır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description76">Açıklama</button>
+		<div id="description76" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question77">
+	<p class="question">Soru 77:<br> Aradaki adam saldırısı gerçekleştiren kötü niyetli bir kullanıcı öncelikle aşağıdakilerden hangisini ele geçirir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Alıcı ve gönderen arasındaki iletişim ağını </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Alıcının açık anahtarını </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Gönderenin açık anahtarını </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Alıcının imzasını </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Gönderenin imzasını </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description77">Açıklama</button>
+		<div id="description77" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question78">
+	<p class="question">Soru 78:<br> Aynı açık metin için her seferinde aynı
+şifrelenmiş metin üreten blok şifreleme metodu aşağıdakilerden hangisidir </p>
+	<span class="option" data-correct="false"><b>A)</b> Şifre Blok Zincirleme (Cipher Block Chaining-CBC)  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sayaç Modu (Counter Mode-CM) </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Elektronik Kod Kitabı (Electronic Code
+Book–ECB) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Çıktı Geribesleme Modu (Output Feedback
+Mode–OFM) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Şifre Geribesleme Modu (Cipher Feedback
+Mode–CFB) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description78">Açıklama</button>
+		<div id="description78" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question79">
+	<p class="question">Soru 79:<br> I. Ön-görüntü direnci (Tek yönlülük)<br> 
+II. İkinci ön-görüntü direnci (Zayıf çakışma direnci)<br> 
+III. Çakışma direnci (Güçlü çakışma direnci)<br> <br> 
+Yukarıdakilerden hangileri özet fonksiyonların güvenli olmaları açısından sahip olması gereken özelliklerdendir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I, II ve III </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description79">Açıklama</button>
+		<div id="description79" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question80">
+	<p class="question">Soru 80:<br> AES şifreleme algoritması için 256 bit
+uzunluğunda gizli anahtar kullanılması durumunda tur sayısı kaçtır? </p>
+	<span class="option" data-correct="false"><b>A)</b> 8 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 10 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 12 </span><br>
+	<span class="option" data-correct="true"><b>D)</b> 14 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 16 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description80">Açıklama</button>
+		<div id="description80" class="collapse">       <u>Anahtar uzunluğu - Tur sayısı</u><br>
+&emsp; &emsp;128 &emsp; &emsp; &emsp; &emsp;10<br>
+&emsp; &emsp;192 &emsp; &emsp; &emsp; &emsp;12<br>
+&emsp; &emsp;<strong>256</strong> &emsp; &emsp; &emsp; &emsp;<strong><strong>14</strong> </strong>        </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question81">
+	<p class="question">Soru 81:<br> Bir açık anahtarı; bir kişi, uygulama veya
+servis ile ilişkilendirmek için kullanılan dijital
+dokümana ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Anahtar dağıtımı </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Sertifika </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Özet değeri </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Parola </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Biyometrik özellik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description81">Açıklama</button>
+		<div id="description81" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question82">
+	<p class="question">Soru 82:<br> TCP/IP modelinde ağ yapısındaki <u><strong>en üst</strong></u>
+katman aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Taşıma </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sunum </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Oturum </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Ağ erişim </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Uygulama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description82">Açıklama</button>
+		<div id="description82" class="collapse">      TCP/IP modeline
+göre dört katmanda toplanmıştır. Bu katmanlar 1-Uygulama
+Katmanı, 2-Taşıma Katmanı, 3-Ağ Katmanı ve 4-Ağ
+Erişim Katmanıdır.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question83">
+	<p class="question">Soru 83:<br> Ham veriyi alarak üzerinde işlemler yapan, bilgiyi çıktı olarak veren ve gerektiğinde bilgiyi depolayan ağ bileşeni aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yazıcı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ağ kartı </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Bilgisayar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Tekrarlayıcılar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Protokoller </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description83">Açıklama</button>
+		<div id="description83" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question84">
+	<p class="question">Soru 84:<br>I. Ağlar büyüklükleri, topolojileri ve
+bağlantı ortamına göre sınıflandırılabilir.<br>
+II. Günümüz yerel ağlarında en yaygın
+olarak örgü topolojisi ve Ethernet
+bağlantı ortamı kullanılır.<br>
+III. ATM, hem paket anahtarlama hem de
+devre anahtarlama yöntemi kullanan bir
+veri aktarım modelidir.<br>
+IV. Uzaktaki bir ağda bulunan cihazın sanal
+olarak mevcut ağa dahil edilmesi sanal özel
+ağlar (VPN) aracılığıyla sağlanır.<br><br>
+Bilgisayar ağı çeşitleri ile ilgili yukarıdaki
+ifadelerden hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> III ve IV </span><br>
+	<span class="option" data-correct="true"><b>D)</b> I, III ve IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II, III, ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description84">Açıklama</button>
+		<div id="description" class="collapse">      Günümüzde en sık karşımıza çıkan Yıldız topolojisidir     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question85">
+	<p class="question">Soru 85:<br> Verilerin gönderimi esnasında güvenilirlik ve sıralama aranmayıp, hız ve basitlik temeline dayanan taşıma katmanı protokolü aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> TCP </span><br>
+	<span class="option" data-correct="false"><b>B)</b> FTP </span><br>
+	<span class="option" data-correct="false"><b>C)</b> SMTP </span><br>
+	<span class="option" data-correct="true"><b>D)</b> UDP </span><br>
+	<span class="option" data-correct="false"><b>E)</b> DNS </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description85">Açıklama</button>
+		<div id="description85" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question86">
+	<p class="question">Soru 86:<br> I. Çok arayüzlü tekrarlayıcı (repeater)
+cihaza göbek cihaz (hub) denir. <br>
+II. Yönlendiriciler (routers) IP adreslerine göre seçimli veri iletimi yapar. <br>
+III. Göbek cihazlar ve anahtar cihazlar (switch) birinci katman seviyesinde çalışır. <br>
+IV. Köprü cihazlar (bridge) MAC adreslerine göre seçimli veri iletimi yapabilir. <br>
+V. Yönlendiriciler ikinci katman seviyesinde çalışır. <br><br>
+Ağ bileşenleri ile ilgili yukarıdaki ifadelerden hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> IV ve V </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I, II ve IV </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I, III ve V </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II, IV ve V </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description86">Açıklama</button>
+		<div id="description86" class="collapse">      - <strong>Anahtar cihazlar</strong> (ve köprüler) <strong>ikinci katman</strong> olan bağlantı katmanında çalışmaktadır<br>
+			- Yönlendiriciler üçüncü katman seviyesinde çalışır.
+       </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question87">
+	<p class="question">Soru 87:<br> I. 128 bitlik bloklar 8x8 durum matrisinde saklanır.<br>
+II. 128 bitlik bloklar halinde şifreleme yapar.<br>
+III. Normal durumlarda 128 bit uzunluğundaki anahtar yeterli güvenliği sağlamaktadır.<br>
+IV.Tur sayıları anahtar uzunluğuna bağlı değildir.<br><br>
+AES algoritması ile ilgili yukarıdaki ifadelerden hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I ve IV </span><br>
+	<span class="option" data-correct="true"><b>D)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>E)</b> III ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description87">Açıklama</button>
+		<div id="description87" class="collapse">      -128 bitlik blok <strong>4×4</strong> durum matrisinde saklanır <br>
+		Tur sayıları anahtar uzunluğuna <strong>bağlıdır.</strong></div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question88">
+	<p class="question">Soru 88:<br> Şifreleme algoritmaları ile ilgili aşağıdaki ifadelerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Şifreleme algoritmaları, kullandıkları anahtar sayısına göre sınıflandırılabilir. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Tek anahtar kullanan şifreleme algoritmaları, özet fonksiyonları olarak isimlendirilir. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Simetrik şifreleme algoritmalarına simetrik denmesinin nedeni, şifreleme ve çözme için tek ve aynı anahtarın kullanılmasıdır. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Açık anahtar şifreleme algoritmalarında açık ve gizli olmak üzere iki anahtar kullanılır. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 1976 yılına kadar yalnızca simetrik şifreleme algoritmaları kullanılmıştır. </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description88">Açıklama</button>
+		<div id="description88" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question89">
+	<p class="question">Soru 89:<br> I. Ayfer'in arkadaşı Melis'e mesaj göndermesi ve bu mesajı sadece Melis'in okuyabilmesi<br> 
+II. Melis'in Ayfer'den aldığı mesajın içeriğinin kötü niyetli kişilerce değiştirilmediğinden emin olması<br> 
+III. Melis'in gelen mesajın Ayfer'den geldiğine emin olması<br> <br> 
+Yukarıda verilen örneklerin ilişkili olduğu güvenlik servisleri aşağıdakilerin hangisinde doğru olarak verilmiştir? </p>
+	<span class="option" data-correct="false"><b>A)</b> I-Kullanılabilirlik, II-İnkâr edememe, III-Kimlik
+doğrulama </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I-İnkâr edememe, II-Kullanılabilirlik, III-Kimlik
+doğrulama </span><br>
+	<span class="option" data-correct="false"><b>C)</b> I-Gizlilik, II-Kimlik doğrulama, III-Erişim
+kontrolü </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I-Fiziksel güvenlik, II-Mesaj bütünlüğü,
+III-Gizlilik </span><br>
+	<span class="option" data-correct="true"><b>E)</b> I-Gizlilik, II-Mesaj bütünlüğü, III-Kimlik
+doğrulama </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description89">Açıklama</button>
+		<div id="description89" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question90">
+	<p class="question">Soru 90:<br> Aşağıdakilerden hangisi bilgisayar ağı
+topolojilerinden biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Halka (Ring) </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Ay (Moon) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ortak Yol (BUS) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yıldız (Star) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Örgü (Mesh) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description90">Açıklama</button>
+		<div id="description90" class="collapse">       Topolojilerine göre ağlar:<br>
+<strong>- Ortak yol, <br>
+- Halka, <br>
+- Örgü, <br>
+- Ağaç, <br>
+- Yıldız </strong>        </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question91">
+	<p class="question">Soru 91:<br> Aşağıdakilerden hangisi simetrik şifreleme
+algoritmalarının <u><strong>temel</strong></u> ögelerinden biridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Sertifika </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Açık anahtar </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Özet fonksiyon </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Çözme fonksiyonu </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Dijital imza </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description91">Açıklama</button>
+		<div id="description91" class="collapse">       Simetrik şifreleme algoritmalarının beş temel öğesi vardır:<br>
+1- Açık metin<br>
+2- Şifreleme fonksiyonu<br>
+3- Gizli anahtar<br>
+4- Şifrelenmiş metin<br>
+5- Çözme fonksiyonu      </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question92">
+	<p class="question">Soru 92:<br> Aşağıdakilerden hangisi TCP/IP modelinin fiziksel katmanında çalışan bir cihazdır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Göbek cihaz (Hub) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Köprü cihaz (Bridge) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Anahtar cihaz (Switch) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yönlendirici cihaz (Router) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Sunucu cihaz (Server) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description92">Açıklama</button>
+		<div id="description92" class="collapse">      Hem tekrarlayıcı hem de göbek cihaz TCP/IP modelinin fiziksel katmanında çalışan
+cihazlardır     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question93">
+	<p class="question">Soru 93:<br> IDEA şifreleme algoritmasında kullanılan blok uzunluğu kaç bittir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 32 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 48 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 56 </span><br>
+	<span class="option" data-correct="true"><b>D)</b> 64 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 72 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description93">Açıklama</button>
+		<div id="description93" class="collapse">      IDEA algoritmasında açık metin boyu 64 bittir. Benzer şekilde şifrelenmiş metin boyu da 64 bittir. 64 bitlik metinleri şifrelediğinden dolayı IDEA da bir blok şifreleme algoritmasıdır. Kullanılan anahtar uzunluğu ise 128 bittir.     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question94">
+	<p class="question">Soru 94:<br> Aşağıdakilerden hangisi TCP/IP modelinde bulunan katmanlardan biri<u><strong> değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Taşıma Katmanı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Uygulama Katmanı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ağ Katmanı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Ağ Erişim Katmanı </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Sunum Katmanı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description94">Açıklama</button>
+		<div id="description94" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question95">
+	<p class="question">Soru 95:<br> Telefon hattından veri ve ses aktarımını farklı frekanslar üzerinden gerçekleştirilmesini sağlayan teknoloji aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> FDDI </span><br>
+	<span class="option" data-correct="false"><b>B)</b> RJ45 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> ADSL </span><br>
+	<span class="option" data-correct="false"><b>D)</b> LAN </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ATM </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description95">Açıklama</button>
+		<div id="description95" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question96">
+	<p class="question">Soru 96:<br> Ağ üzerinde gönderilen paketlerin IP
+adresine bakarak paketleri dağıtan cihaz aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Tekrarlayıcı (Repeater) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Köprü (Bridge) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Göbek cihaz (Hub) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Anahtar Cihaz (Switch) </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Yönlendirici (Router) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description96">Açıklama</button>
+		<div id="description96" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question97">
+	<p class="question">Soru 97:<br> Açık metnin yetkisi olmayan kişiler
+tarafından okunmaması için karıştırma işlemini yapma ile sorumlu olan simetrik şifreleme ögesi aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Şifrelenmiş metin </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Şifreleme fonksiyonu </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Gizli anahtar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Açık metin </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Çözme fonksiyonu </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description97">Açıklama</button>
+		<div id="description97" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question98">
+	<p class="question">Soru 98:<br> Aşağıdakilerden hangisi açık anahtar
+şifreleme algoritmalarının önemli uygulama alanlarından biridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Dosya şifreleme </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Elektronik imza </span><br>
+	<span class="option" data-correct="false"><b>C)</b> GSM haberleşmesinde </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Ağ haberleşmesi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Veri sıkıştırma </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description98">Açıklama</button>
+		<div id="description98" class="collapse">      Açık anahtar şifreleme algoritmalarının ise en önemli iki uygulama alanı vardır. Bunlardan birincisi <strong>oturum anahtarının kullanıcılar arasında güvenli bir şekilde paylaşılması</strong>, ikincisi ise <strong>dijital imza ya da diğer adıyla elektronik imza</strong> uygulamasıdır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question99">
+	<p class="question">Soru 99:<br> I. Güvenlik
+II. Performans
+III. Sürdürülebilirlik
+IV. Kolay Kullanılabilirlik<br><br>
+Yukarıdakilerden hangisi veya hangileri en uygun şifreleme algoritmasını seçmek için kullanılan kriterlerden biridir?
+		</p>
+	<span class="option" data-correct="false"><b>A)</b> Yanlı I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve IV </span><br>
+	<span class="option" data-correct="false"><b>C)</b> II ve III </span><br>
+	<span class="option" data-correct="true"><b>D)</b> I, II ve IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II, III ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description99">Açıklama</button>
+		<div id="description99" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question100">
+	<p class="question">Soru 100:<br> Aşağıdakilerden hangisi Yönetim Bilgi Üssünde toplanan veriler arasında <u><strong>yer almaz ?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Yönlendirme yol haritaları </span><br>
+	<span class="option" data-correct="true"><b>B)</b> MAC adreslerine ait IP eşleşmeleri </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ethernet paketlerindeki çarpışma hataları </span><br>
+	<span class="option" data-correct="false"><b>D)</b> DNS sunucu bilgisayar üzerindeki bilgilerin sürüm numaraları </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Ret edilen IP adresleri </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description100">Açıklama</button>
+		<div id="description100" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question101">
+	<p class="question">Soru 101:<br> İlk olarak IBM firması tarafından geliştirilen ve ortak yol topolojisinin iki ucunun bir araya getirilmesi ile oluşturulan ağ topolojisi aşağıdakilerden hangisidir ? </p>
+	<span class="option" data-correct="false"><b>A)</b> Ortak Yol (BUS) </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Halka (Ring) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ağaç (Tree) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yıldız (Star) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Örgü (Mesh) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description101">Açıklama</button>
+		<div id="description101" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question102">
+	<p class="question">Soru 102:<br> Alfabede her bir harfin belirli sayıda karakter ötelemesi ile şifreleme tablosu elde edilen algoritma aşağıdakilerden hangisidir ? </p>
+	<span class="option" data-correct="false"><b>A)</b> Affine Şifreleme </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Monoalfabetik Şifreleme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Vigenere Şifreleme </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Sezar Şifreleme Algoritması </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Data Encryption Standard </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description102">Açıklama</button>
+		<div id="description102" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question103">
+	<p class="question">Soru 103:<br> Gönderilecek bir uzay mekiği ile ilgili hesaplamaların yapılması gibi işlem gücü gerektiren durumlarda kullanılan bilgisayar türü aşağıdakilerden hangisidir ? </p>
+	<span class="option" data-correct="false"><b>A)</b> Sunucu bilgisayarlar </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İstemci bilgisayarlar </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Süper bilgisayarlar </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Son kullanıcı bilgisayarlar </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Taşınabilir bilgisayarlar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description103">Açıklama</button>
+		<div id="description103" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question104">
+	<p class="question">Soru 104:<br> Yetkisi olmayan kişilerin iletim halindeki mesaj içeriğinde hiçbir değişiklik yapamamaları aşağıdaki güvenlik servislerinden hangisini tanımlamaktadır ? </p>
+	<span class="option" data-correct="false"><b>A)</b> Kullanılabilirlik </span><br>
+	<span class="option" data-correct="false"><b>B)</b> İnkâr edememe </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Erişim kontrolü </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Mesaj bütünlüğü </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Gizlilik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description104">Açıklama</button>
+		<div id="description104" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question105">
+	<p class="question">Soru 105:<br> Bir ara yüzünden aldığı zayıflama başlamış voltaj seviyesini (veriyi) güçlendirerek diğer çıkışından gönderen ağ cihazı aşağıdakilerden hangisidir ? </p>
+	<span class="option" data-correct="false"><b>A)</b> Ateş duvarı </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Tekrarlayıcı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Köprü </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Anahtar cihaz </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yönlendirici </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description105">Açıklama</button>
+		<div id="description105" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question">
+	<p class="question">Soru 106:<br> Aşağıdaki algoritmalardan hangisi eliptik eğriler yöntemini kullanarak şifreleme gerçekleştirir ? </p>
+	<span class="option" data-correct="false"><b>A)</b> EIGamal </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Diffie - Hellman </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Dijital İmza </span><br>
+	<span class="option" data-correct="false"><b>D)</b> MD5 </span><br>
+	<span class="option" data-correct="true"><b>E)</b> RSA </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description106">Açıklama</button>
+		<div id="description106" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question107">
+	<p class="question">Soru 107:<br> Algoritmaların, varsa açıklarını tespit ederek, onları kırmaya çalışan bilim aşağıdakilerden hangisidir ? </p>
+	<span class="option" data-correct="true"><b>A)</b> Kriptoanaliz </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Kripto </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Kriptografi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Kripton </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Transkripsiyoloji </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description107">Açıklama</button>
+		<div id="description107" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+<div class="question-block">
+	<div id="question108">
+	<p class="question">Soru 108:<br> Verilerin sabit büyüklükte hücreler halinde aktarılmasını sağlayan veri aktarım modeli aşağıdakilerden hangisidir ? </p>
+	<span class="option" data-correct="false"><b>A)</b> Fiber </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Token Ring </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ethernet </span><br>
+	<span class="option" data-correct="true"><b>D)</b> ATM </span><br>
+	<span class="option" data-correct="false"><b>E)</b> FDDI </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description108">Açıklama</button>
+		<div id="description108" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>		
+
+		
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"</button> </footer>
+		
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 119));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}
+			
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

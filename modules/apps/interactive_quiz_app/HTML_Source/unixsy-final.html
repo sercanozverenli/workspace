@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+	  
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMA II
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="programlama2-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="programlama2-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="programlama2-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="programlama2-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="programlama2-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="programlama2-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="programlama2-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="programlama2-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="programlama2-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="programlama2-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB ARAYÜZ PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİ YAPILARI
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="veriyap-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="veriyap-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="veriyap-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="veriyap-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="veriyap-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="veriyap-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="veriyap-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="veriyap-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="veriyap-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="veriyap-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          MOBİL UYGULAMA GELİŞTİRME
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="mobilug-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="mobilug-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="mobilug-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="mobilug-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="mobilug-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="mobilug-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="mobilug-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="mobilug-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="mobilug-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="mobilug-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          UNIX SİSTEM YÖNETİMİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="unixsy-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="unixsy-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="unixsy-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="unixsy-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="unixsy-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="unixsy-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="unixsy-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="unixsy-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="unixsy-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="unixsy-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Unix Sistem Yönetimi - Çıkmış Sorular (Final) </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> OpenSUSE Linux işletim sisteminde en son
+paket güncellemelerini yüklemek için hangi komut kullanılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> sudo apt update </span><br>
+	<span class="option" data-correct="true"><b>B)</b> sudo zypper update </span><br>
+	<span class="option" data-correct="false"><b>C)</b> sudo dnf update </span><br>
+	<span class="option" data-correct="false"><b>D)</b> sudo emerge update </span><br>
+	<span class="option" data-correct="false"><b>E)</b> sudo pacman update </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Arc Linux işletim sistemine postgresql ve
+vim yazılımlarını kurmak için kullanılan komut aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> sudo rpm -S postgresql vim </span><br>
+	<span class="option" data-correct="false"><b>B)</b> sudo dnf -S postgresql vim </span><br>
+	<span class="option" data-correct="true"><b>C)</b> sudo pacman -S postgresql vim </span><br>
+	<span class="option" data-correct="false"><b>D)</b> sudo emerge -R postgresql vim </span><br>
+	<span class="option" data-correct="false"><b>E)</b> sudo apt -R postgresql vim </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      Sunucuya Postgresql veri tabanı sunucu yazılımı ve vim editörü kurmak için pacman komutunun kullanımı aşağıdaki gibidir:<br><br>
+[archlinux@archlinux2022 ~]$ sudo pacman -S postgresql vim<br>
+resolving dependencies...<br>
+looking for conflicting packages...     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> Aşağıdakilerden hangisi Arch Linux işletim
+sisteminde komut satırı arayüzünde kullanılan paket yönetim aracıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> apt </span><br>
+	<span class="option" data-correct="false"><b>B)</b> dnf </span><br>
+	<span class="option" data-correct="true"><b>C)</b> pacman </span><br>
+	<span class="option" data-correct="false"><b>D)</b> rpm </span><br>
+	<span class="option" data-correct="false"><b>E)</b> emerge </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> Aşağıdakilerden hangisiyle RedHat tabanlı
+sistemlere lsb_release paketi yüklenir? </p>
+	<span class="option" data-correct="false"><b>A)</b> sudo apt install redhat-lsb-core </span><br>
+	<span class="option" data-correct="true"><b>B)</b> sudo dnf install redhat-lsb-core </span><br>
+	<span class="option" data-correct="false"><b>C)</b> sudo rpm install redhat-lsb-core </span><br>
+	<span class="option" data-correct="false"><b>D)</b> D.sudo dpkg install redhat-lsb-core </span><br>
+	<span class="option" data-correct="false"><b>E)</b> sudo emerge install redhat-lsb-core </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      lsb_release -a komutu Debian tabanlı sistemlerin çoğunda (Pardus Sunucu hariç; onun için sudo apt install lsb-release komutu ile paketin yüklenmesi gerekir) işletim sisteminin verisyonunu verse de RedHat tabanlı sistemlerde cat /etc/redhat-release ya da cat /etc/os-release komutlarından biri kullanılır. RedHat tabanlı sistemlerde lsb_release komutu kullanabilmek için sudo dnf install redhat-lsb-core komutu kullanılarak yüklenmelidir.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> Harf ile gösterimi “rw-“ olan okuma ve yazma
+izninin ikili mod karşılığı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 011 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 100 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 101 </span><br>
+	<span class="option" data-correct="true"><b>D)</b> 110 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 111 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      
+		
+<table style="border: 1px solid darkred; border-collapse: collapse;">
+ <caption style="caption-side: top;">Sekizli ve İkili Modda Dosya ve Klasör İzinlerinin Harf Karşılıkları</caption>
+  <tr>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;">#</th>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;">İzin</th>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;">Harf ile Gösterim</th>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;">İkili Mod Karşılığı</th>
+  </tr>
+	
+ 
+<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> 7 </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Okuma, yazma ve çalıştırma </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> rwx </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> 111 </td>
+
+  </tr>
+	
+	
+<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> 6 </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Okuma ve yazma </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> rw- </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> 110 </td>
+
+  </tr>
+	
+	<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> 5 </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Okuma ve çalıştırma </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> r-x </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> 101 </td>
+
+  </tr>
+	
+	<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> 4 </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Yalnızca okuma </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> r-- </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> 100 </td>
+
+  </tr>
+	
+	<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> 3 </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Yazma ve çalıştırma </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> -wx </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> 011 </td>
+
+  </tr>
+	
+	<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> 2 </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Yalnızca yazma </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> -w- </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> 010 </td>
+
+  </tr>
+	
+	<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> 1 </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Yalnızca çalıştırma </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> --x </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> 001 </td>
+
+  </tr>
+	
+<tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> 0 </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Hiçbiri </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> --- </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> 000 </td>
+
+  </tr>
+	
+			
+</table>
+			
+		</div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Aşağıdaki komutlardan hangisiyle “hosts”
+dosyasında tüm kullanıcıların yazma yetkisi kaldırılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> chmod a-r hosts </span><br>
+	<span class="option" data-correct="false"><b>B)</b> chmod a+w hosts </span><br>
+	<span class="option" data-correct="true"><b>C)</b> chmod a-w hosts </span><br>
+	<span class="option" data-correct="false"><b>D)</b> chmod a+x hosts </span><br>
+	<span class="option" data-correct="false"><b>E)</b> chmod a-x hosts </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      Dosya izinleri sırasıyla artı (+) ve eksi (–) işaretlerinin yanı sıra hangi iznin kimin için değiştiğini gösteren harfler kullanılarak gerçekleştirilebilir. Harfleri kullanarak, her dosya için kullanıcı (u), grup (g), diğer (o) ve tüm kullanıcılar (a) için izinler değiştirilebilir. Değiştirilecek öge okuma (r), yazma (w) ve çalıştırma (x) bitlerini içerir     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> Linux işletim sisteminde sembolik link
+oluşturmak için kullanılan komut aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> cp -s </span><br>
+	<span class="option" data-correct="false"><b>B)</b> mv -s </span><br>
+	<span class="option" data-correct="false"><b>C)</b> rm -s </span><br>
+	<span class="option" data-correct="true"><b>D)</b> ln -s </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ls -s </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      Linux işletim sistemlerinde genel olarak komut satırı arayüzü (command line interface- cli) kullanıldığı için dosyalarla ilgili işlemler komutlar yardımıyla gerçekleştirilmektedir. Bu işlemlerden sık kullanılanları kopyalama (cp), taşıma ve adını değiştirme (mv), silme, sembolik link oluşturma (ln -s), dosya oluşturma (touch) ve oluşturulan dosyanın içine girme (nano), dosyanın içeriğini görüntüleme (cat) ve dosyanın içeriğini görüntüleyip yeni satırlar eklendikçe izlemedir (tail -f ).     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> Aşağıdakilerden hangisi sunucu
+kaynaklarının kullanılabilirliğini düzenli bir şekilde izlemek amacıyla kullanılan yazılımlardan biridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Gitlab </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Nagios Core </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Redmine </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Confluence </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Jira </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      İzleme görevinin gerçekleştirilmesinde sistem yöneticileri tarafından;<br><br>
+Prometheus, Grafana, Nagios Core ve Zabbix gibi bir dizi açık kaynak ve<br><br>
+Solarwinds, Nagios XI ve DataDog gibi ticari lisansa sahip izleme
+yazılımları kullanılabilir.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> Debian tabanlı sistemlerde kurulumu
+yapılacak yerel yazılım deposunu senkronize etmek için kullanılan komut aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> sudo apt-install </span><br>
+	<span class="option" data-correct="false"><b>B)</b> sudo apt-update </span><br>
+	<span class="option" data-correct="false"><b>C)</b> sudo apt-upgrade </span><br>
+	<span class="option" data-correct="false"><b>D)</b> sudo apt-base_path </span><br>
+	<span class="option" data-correct="true"><b>E)</b> sudo apt-mirror </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> RedHat  tabanlı sistemlerde, yüklü programlar tarafından gerekli olmayan bağımlılıkların kaldırıldığı komut aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> dnf autoremove </span><br>
+	<span class="option" data-correct="false"><b>B)</b> dnf remove 
+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> dnf search </span><br>
+	<span class="option" data-correct="false"><b>D)</b> dnf info </span><br>
+	<span class="option" data-correct="false"><b>E)</b> dnf downgrade </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> Linux işletim sistemlerinde “useradd”
+komutuna eklenecek hangi seçenek ile kullanıcı hesabının devre dışı bırakılacağı tarih ifade edilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> -m </span><br>
+	<span class="option" data-correct="false"><b>B)</b> -d </span><br>
+	<span class="option" data-correct="false"><b>C)</b> -c </span><br>
+	<span class="option" data-correct="false"><b>D)</b> -g </span><br>
+	<span class="option" data-correct="true"><b>E)</b> -e </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      
+		
+		
+<table style="border: 1px solid darkred; border-collapse: collapse;">
+ <caption style="caption-side: top;">Useradd komutu ile sık kullanılan seçenekler ve açıklamaları [komut satırı arayüzü- useradd man sayfası]</caption>
+  <tr>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;">Useradd Seçeneği</th>
+    <th style="border: 1px solid darkred; border-collapse: collapse; background-color: black; padding: 5px;">Açıklaması</th>
+
+  </tr>
+	
+  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> -b, --base-dir </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> -d (HOME_DIR) belirtilmemişse sistem için varsayılan temel dizin. BASE_DIR, ana dizini tanımlamak için hesap adıyla birleştirilir. -m seçeneği kullanılmıyorsa BASE_ DIR bulunmalıdır. </td>
+  </tr>
+
+  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> -c, --comment </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Yeni kullanıcı hesabının açıklaması için kullanılır. Genelde hesap sahibinin tam adıdır. Kullanımı -c Özgün şeklindedir. Birden fazla kelime girmek için tırnak işaretleri kullanılmalıdır (örneğin, -c “Özgün Arda”). </td>
+  </tr>
+	
+  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> -d, --home </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Hesap için kullanılacak ana dizin belirlenir. Aksi belirtilmedikçe (-M) varsayılan olarak işletim sisteminin /home dizini altında oluşturulacak kullanıcının kullanıcı adı otomatik olarak oluşturulur. </td>
+  </tr>
+	
+  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> -D, --defaults </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Yeni bir hesap oluşturmak yerine, verilen bilgileri oluşturulan tüm yeni hesaplar için yeni varsayılan ayarlar olarak kaydetmek için kullanılır. </td>
+  </tr>
+	
+  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> -e, --expiredate </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Kullanıcı hesabının devre dışı bırakılacağı tarihi ifade eder. Tarih YYYY-AA-GG formatında girilmelidir. Belirtilmezse, useradd, /etc/default/useradd içindeki EXPIRE değişkeni tarafından belirtilen varsayılan sona erme tarihini veya varsayılan olarak boş bir dize olan süresiz kullanılır. </td>
+  </tr>
+	
+  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> -f, --inactive </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Parolanın süresi dolduktan sonra hesabın kalıcı olarak kaç gün sonra devre dışı bırakılacağını gösterir. 0 değeri, parolanın süresi dolduğunda hesabı devre dışı
+bırakır ve -1 değeri bu özelliği devre dışı bırakır. Belirtilmezse, /etc/default/useradd içindeki INACTIVE değeri veya varsayılan olarak -1 kullanılır. </td>
+  </tr>
+	
+  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> -g, --gid </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Kullanıcının ilk oturum açma grubunun grup adı veya numarasıdır. Grup adı mevcut olmalıdır. Grup numarası zaten var olan bir gruba karşılık gelmelidir.
+Grup numarası belirtilmezse, /etc/login.defs içindeki USERGROUPS_ENAB
+değişkenine bağlı olarak oluşturulacaktır. Bu değişken “evet” (yes) olarak ayarlanırsa (veya komut satırında -U/--user-group belirtilirse) kullanıcının oturum adı ile aynı olan bir grup oluşturulur. Değişken “hayır” (no) olarak ayarlanırsa (veya komut
+satırında -N/--no-user-group belirtilirse), useradd komutu, yeni kullanıcının birincil grubunu /etc/default/useradd içindeki GROUP değişkeni tarafından belirtilen
+değere ya da varsayılan olarak linux sistemlerde kullanıcılar (users) grubuna karşılık gelen 100 rakamına ayarlar. </td>
+  </tr>
+	
+  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> -G,<br>
+--groups </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Üye olarak kullanıcının dahil edileceği grupların listesi. Her grup, araya boşluk bırakılmadan bir sonrakinden virgülle ayrılır. Gruplar, -g seçeneği ile verilen grup ile aynı kısıtlamalara tabidir. Varsayılan, kullanıcının yalnızca ilk gruba ait olmasıdır. </td>
+  </tr>
+	
+  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> -m, --create-home </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Önceden oluşturulmamışsa, kullanıcıya ait bir ev dizini oluşturulur. İskelet (skeleton) dizininde (/etc/skel) bulunan (-k seçeneği ile tanımlanabilen) .bash_logout, .bashrc ve .profile dosyaları ve varsa diğer dizinler yeni oluşturulan ev dizinine kopyalanır. Varsayılan olarak bu seçenek belirtilmemiş ve /etc/login.defs dosyasında CREATE_
+HOME etkinleştirilmemişse yeni kullanıcılar için ev dizinleri oluşturulmaz. </td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> -M </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> /etc/login.defs dosyasında CREATE_HOME değeri evet (yes) olarak ayarlanmış olsa bile kullanıcı içi ev dizini oluşturulmaz. </td>
+  </tr>
+	
+  <tr>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> -N, --no-usergroup </td>
+    <td style="border: 1px solid darkred; border-collapse: collapse; padding: 5px;"> Kullanıcı ile aynı ada sahip bir grup oluşturulmaz ancak kullanıcı -g seçeneğiyle veya /etc/default/useradd içindeki GROUP değişkeniyle belirtilen gruba eklenir.
+Varsayılan davranış (-g, -N ve -U seçenekleri belirtilmemişse) /etc/login.defs içindeki USERGROUPS_ENAB değişkeni tarafından belirlenir. </td>
+  </tr>
+	
+</table>
+			
+		</div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> Linux işletim sisteminde firewalld hizmetini
+kullanan tüm servislerin listesini almak için kullanılan komut aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> sudo firewall-cmd --list-ports </span><br>
+	<span class="option" data-correct="false"><b>B)</b> sudo firewall-cmd --get-ports </span><br>
+	<span class="option" data-correct="false"><b>C)</b> sudo firewall-cmd --get-active-zones </span><br>
+	<span class="option" data-correct="true"><b>D)</b> sudo firewall-cmd --get-services </span><br>
+	<span class="option" data-correct="false"><b>E)</b> sudo firewall-cmd --list-services </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      Firewalld hizmetini kullanan tüm servislerin listesini almak için <u><strong>sudo firewall-cmd --get-services</strong></u> komutu kullanılacaktır.<br><br>
+
+		Mevcut bölgede (zone) hangi servislerin izinli olduğunu görmek için <u><strong>sudo firewall-cmd --list-services</strong></u> komutu kullanılacaktır.<br><br>
+
+		Mevcut bölgede izin verilmiş portları görmek için <u><strong>sudo firewall-cmd --list-ports</strong></u> komutu kullanılacaktır.<br><br>
+			
+Güvenlik duvarında yapılan değişikliğin etkin olabilmesi için <u><strong>sudo firewall-cmd --reload</strong></u> komutu kullanılmalıdır<br><br>
+			
+Hangi bölgenin etkin olduğunu öğrenmek için de <u><strong>sudo firewall-cmd --get-active-zones komutu</strong></u> kullanılacaktır.<br><br>
+
+			
+</div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Kubernetes ortamında bir "Nginx"
+uygulamasının yayınlama durumunu kontrol etmek için kullanılan komut aşağıdakilerden hangisidir?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> kubectl get pods nginx-app </span><br>
+	<span class="option" data-correct="false"><b>B)</b> kubectl expose deployment nginx-app </span><br>
+	<span class="option" data-correct="true"><b>C)</b> kubectl get deployment nginx-app </span><br>
+	<span class="option" data-correct="false"><b>D)</b> kubectl describe svc nginx-app </span><br>
+	<span class="option" data-correct="false"><b>E)</b> kubectl create deployment nginx-app </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> Aşağıdaki komutlardan hangisiyle ssh
+anahtarı, "192.168.56.111" IP nolu yönetilen makineye ansible kullanıcısı ile kopyalanır? </p>
+	<span class="option" data-correct="true"><b>A)</b> ssh-copy-id ansible@192.168.56.111 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ssh-passphrase ansible@192.168.56.111 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ssh-id_rsa ansible@192.168.56.111 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ssh-keygen ansible@192.168.56.111 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ssh-publickey ansible@192.168.56.111 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> "/etc/sysctl.d/kubernetes.conf" dosyasında
+yapılan değişikliklerin etkin olabilmesi için kullanılan komut aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> sudo sysctl --reboot </span><br>
+	<span class="option" data-correct="false"><b>B)</b> sudo sysctl --restart </span><br>
+	<span class="option" data-correct="false"><b>C)</b> sudo sysctl --reload </span><br>
+	<span class="option" data-correct="false"><b>D)</b> sudo sysctl --start </span><br>
+	<span class="option" data-correct="true"><b>E)</b> sudo sysctl --system
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Aşağıdaki komutlardan hangisi ile ansible
+envanterindeki sunucular görülür? </p>
+	<span class="option" data-correct="true"><b>A)</b> ansible-inventory --list -y </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ansible-list --inventory -y </span><br>
+	<span class="option" data-correct="false"><b>C)</b> ansible-inventory --servers -y </span><br>
+	<span class="option" data-correct="false"><b>D)</b> ansible-list --servers -y </span><br>
+	<span class="option" data-correct="false"><b>E)</b> ansible-inventory --inventory -y </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> Gentoo Linux işletim sisteminde
+aşağıdakilerden hangisi ile nginx yazılımı @world listesinden kaldırılır?  </p>
+	<span class="option" data-correct="false"><b>A)</b> pacman --deselect nginx
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> dnf --remove nginx
+ </span><br>
+	<span class="option" data-correct="true"><b>C)</b> emerge --deselect nginx
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> apt --remove nginx
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> zypper --unlist nginx
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Dosyanın sahibinin okuma ve yazma,
+grubunun yalnızca okuma ve diğer herkesin yalnızca okuma izninin olduğunu gösteren rakamsal ifade aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 641 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 640 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 644 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 750 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 755 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br> Debian tabanlı sistemlerde hangi komut ile
+"ufw (güvenlik duvarı)" servisine tanımlı uygulamaların adları gösterilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> sudo ufw app reload </span><br>
+	<span class="option" data-correct="false"><b>B)</b> sudo ufw app start </span><br>
+	<span class="option" data-correct="false"><b>C)</b> sudo ufw app enable </span><br>
+	<span class="option" data-correct="true"><b>D)</b> sudo ufw app list </span><br>
+	<span class="option" data-correct="false"><b>E)</b> sudo ufw app allow </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> playbook.yml çalışma kitabında proje
+dosyalarını uzak makinedeki belge kök dizinine kontrol makinesindeki kaynak dosya ile aynı dosya izinlerine sahip olacak şekilde yüklemek için aşağıdakilerden hangisi kullanılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> name </span><br>
+	<span class="option" data-correct="false"><b>B)</b> dest </span><br>
+	<span class="option" data-correct="false"><b>C)</b> state </span><br>
+	<span class="option" data-correct="false"><b>D)</b> src </span><br>
+	<span class="option" data-correct="true"><b>E)</b> preserve </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Linux işletim sistemlerinde root hesabı ile
+ssh protokolü üzerinden bağlantı
+sağlanabilmesi için "/etc/ssh/sshd_config"
+dosyasındaki hangi parametrenin değeri
+"Yes" olarak düzenlenmelidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> RootLogin </span><br>
+	<span class="option" data-correct="false"><b>B)</b> PermitRoot </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Permit </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Root </span><br>
+	<span class="option" data-correct="true"><b>E)</b> PermitRootLogin </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Debian tabanlı sistemlerde aşağıdaki paket
+yönetim araçlarından hangisiyle yapılan yazılım kurulumlarında, yüklenmesi istenen yazılımın bağımlı olduğu diğer paketler dikkate <u><strong>alınmaz?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> dpkg </span><br>
+	<span class="option" data-correct="false"><b>B)</b> dnf </span><br>
+	<span class="option" data-correct="false"><b>C)</b> yum </span><br>
+	<span class="option" data-correct="false"><b>D)</b> apt </span><br>
+	<span class="option" data-correct="false"><b>E)</b> rpm </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> Aşağıdakilerden hangisi kurulacak Web
+sunucu yazılımına http protokolü ile erişim için izin verilebilecek portlardan biridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 22 </span><br>
+	<span class="option" data-correct="true"><b>B)</b> 80 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 2222 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 8080 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 8443 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Linux işletim sisteminde klasörün içindeki
+dosyalar ile birlikte boyutunu görmek için kullanılan komut aşağıdakilerden hangisidir?
+ </p>
+	<span class="option" data-correct="false"><b>A)</b> ls </span><br>
+	<span class="option" data-correct="false"><b>B)</b> ah </span><br>
+	<span class="option" data-correct="false"><b>C)</b> lt </span><br>
+	<span class="option" data-correct="true"><b>D)</b> du </span><br>
+	<span class="option" data-correct="false"><b>E)</b> tr </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> Linux işletim sistemlerinde bir dosyaya
+çalıştırılma izni vermek için hangi komut kullanılır? </p>
+	<span class="option" data-correct="false"><b>A)</b> jammy -x </span><br>
+	<span class="option" data-correct="false"><b>B)</b> chown +x </span><br>
+	<span class="option" data-correct="false"><b>C)</b> sudo -x </span><br>
+	<span class="option" data-correct="true"><b>D)</b> chmod +x </span><br>
+	<span class="option" data-correct="false"><b>E)</b> dist -x </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> Aşağıdakilerden hangisi rpm paketlerini
+silmek için kullanılan seçeneklerden biridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> -qA </span><br>
+	<span class="option" data-correct="false"><b>B)</b> -i </span><br>
+	<span class="option" data-correct="true"><b>C)</b> -e </span><br>
+	<span class="option" data-correct="false"><b>D)</b> -U </span><br>
+	<span class="option" data-correct="false"><b>E)</b> -q </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> Bir Linux işletim sisteminde "ahmet"
+kullanıcısı ile oturum açılmıştır. Buna göre hangi komut ile "ahmet" kullanıcısı için parola değiştirilebilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> password ahmet </span><br>
+	<span class="option" data-correct="false"><b>B)</b> set-password ahmet </span><br>
+	<span class="option" data-correct="false"><b>C)</b> set passwd ahmet </span><br>
+	<span class="option" data-correct="false"><b>D)</b> user passdw ahmet </span><br>
+	<span class="option" data-correct="true"><b>E)</b> passwd ahmet </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> Kubernetes kümesindeki tüm makinelerin
+makine adları ve ip bilgileri her bir makinede hangi dosyaya kaydedilmelidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> /etc/hosts
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> /sbin/sh
+ </span><br>
+	<span class="option" data-correct="false"><b>C)</b> /etc/fstab
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> /exec/bash
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> /bin/swap
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> Aşağıdakilerden hangisi zaman zaman
+değişebilen değişkenleri saklayan basit şablon dosya uzantısıdır? </p>
+	<span class="option" data-correct="false"><b>A)</b> *.sh
+ </span><br>
+	<span class="option" data-correct="false"><b>B)</b> *.yml
+ </span><br>
+	<span class="option" data-correct="true"><b>C)</b> *.j2
+ </span><br>
+	<span class="option" data-correct="false"><b>D)</b> *.conf
+ </span><br>
+	<span class="option" data-correct="false"><b>E)</b> *.html
+ </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+
+		
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          ALGORİTMALAR
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="alg-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="alg-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="alg-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="alg-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="alg-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="alg-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="alg-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="alg-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="alg-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="alg-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB SUNUCU PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wsp-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wsp-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wsp-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wsp-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wsp-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wsp-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wsp-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wsp-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wsp-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wsp-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİ MADENCİLİĞİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="vmaden-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="vmaden-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="vmaden-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="vmaden-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="vmaden-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="vmaden-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="vmaden-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="vmaden-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="vmaden-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="vmaden-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİTABANI SİSTEMLERİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="vtsistem-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="vtsistem-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="vtsistem-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="vtsistem-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="vtsistem-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="vtsistem-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="vtsistem-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="vtsistem-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="vtsistem-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="vtsistem-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMADA YENİ EĞİLİMLER
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="prgyenieğilim-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="prgyenieğilim-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Web Sunucu Programlama - Ünite 4 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+
+	  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Aşağıdakilerden hangisi bir döngü yapısı <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> if-else </span><br>
+	<span class="option" data-correct="false"><b>B)</b> while </span><br>
+	<span class="option" data-correct="false"><b>C)</b> do-while </span><br>
+	<span class="option" data-correct="false"><b>D)</b> for </span><br>
+	<span class="option" data-correct="false"><b>E)</b> foreach </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> Döngülerde döngü koşulunun bir sonraki testine atlamak için aşağıdakilerden hangisi kullanılır? </p>
+	<span class="option" data-correct="true"><b>A)</b> continue </span><br>
+	<span class="option" data-correct="false"><b>B)</b> break </span><br>
+	<span class="option" data-correct="false"><b>C)</b> if </span><br>
+	<span class="option" data-correct="false"><b>D)</b> switch </span><br>
+	<span class="option" data-correct="false"><b>E)</b> endwhile </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> &lt;?php<br>
+$gun= "3";<br>
+switch($gun){<br>
+&emsp;case "Pazartesi":<br>
+&emsp;&emsp;echo "En güzel gün Pazartesi";<br>
+&emsp;&emsp;break;<br>
+&emsp;case "Salı":<br>
+&emsp;&emsp;echo "En güzel gün Salı";<br>
+&emsp;&emsp;break;<br>
+&emsp;case "Çarşamba":<br>
+&emsp;&emsp;echo "En güzel gün Çarşamba";<br>
+&emsp;&emsp;break;<br>
+&emsp;default:<br>
+&emsp;&emsp;echo "Hiçbiri";<br>
+}<br>
+?&gt; <br><br>
+Yukarıdaki kod bloğunun çıktısı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 3 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> En güzel gün Pazartesi </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Hiçbiri </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Salı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> En güzel gün Çarşamba </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      Değişkenin değeri "3" olarak belirtilmiştir. Ancak switch case bloklarında hiçbir case ifadesi "3" ile eşleşmediği için default bloğu çalışır ve "Hiçbiri" ifadesi ekrana yazdırılır.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> 4 tane koşuldan oluşan bir kod bloğunda kullanılacak else if yapısının sayısı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 0 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 1 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 2 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 3 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 4 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      4 koşul varsa. Koşullar için kullanılacak olan yapı<br><br>
+
+1. koşul için, if<br>
+2. koşul için, else if<br>
+3. koşul için, else if<br>
+4. koşul için, else<br><br>
+
+Şeklinde olacağı için sadece iki else if kullanılmış olur.<br><br>
+Örnek kod:<br>
+$not = 75;<br>
+
+if ($not &gt;= 90) {<br>
+    echo "Notunuz AA";<br>
+}<br>
+else if ($not &gt;= 80) {<br>
+    echo "Notunuz BA";<br>
+}<br>
+else if ($not &gt;= 70) {<br>
+    echo "Notunuz BB";<br>
+}<br>
+else {<br>
+    echo "Notunuz FF";<br>
+}
+			  </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> &lt;?php<br>
+$i=0;<br>
+$j=0;<br>
+$k=0;<br>
+while($i&lt;10){<br>
+&emsp;while($j&lt;10){<br>
+&emsp;&emsp;while($k&lt;10){<br>
+&emsp;&emsp;&emsp;if ($k==5)<br>
+&emsp;&emsp;&emsp;{<br>
+&emsp;&emsp;&emsp;&emsp;break 1;<br>
+&emsp;&emsp;&emsp;}<br>
+&emsp;&emsp;&emsp;$k++;<br>
+&emsp;&emsp;}<br>
+&emsp;&emsp;$j++;<br>
+&emsp;}<br>
+&emsp;$i++;<br>
+}<br>
+echo "{$k}, {$j}, {$i}";<br>
+?&gt;<br><br>
+Yukarıdaki kodların ekran çıktısı hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 5, 0, 0 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 5, 5, 5 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 1, 10, 5 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 10, 10, 10 </span><br>
+	<span class="option" data-correct="true"><b>E)</b> 5, 10, 10 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      Yukarıdaki kodun ekran çıktısı "5, 10, 10" olacaktır. İç içe geçmiş while döngüleri kullanılarak belirli bir koşulu kontrol ediliyor. İlk döngüde (dıştaki döngü), $i değişkeni 10'dan küçük olduğu sürece çalışır. İkinci döngü (orta döngü) içindeki $j değişkeni 10'dan küçük olduğu sürece çalışır. Üçüncü döngü (iç döngü) içindeki $k değişkeni 10'dan küçük olduğu sürece çalışır. İç döngü içinde $k değişkeni 5 olduğunda "break 1;" ifadesiyle döngüden çıkılır.<br><br>
+
+Bu durumda, $k değeri 5 olurken, $j değeri 10 ve $i değeri de 10 olacaktır. Ekrana yazdırılan ifadeyle ($k, $j, $i) bu değerler sırasıyla "5, 10, 10" olarak görüntülenecektir.<br><br>
+Bu kod bloğundaki break 1; ifadesindeki 1, kaç katman yukarıdaki döngüden çıkılacağını belirtir. Yani break 1; ifadesi, en içteki while($k&lt;10) döngüsünden çıkar     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 6:<br> Şartların sağlanması veya sağlanmaması durumunda kod bloğunu mutlaka bir defa çalıştıran döngü
+yapısı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> do-while </span><br>
+	<span class="option" data-correct="false"><b>B)</b> for </span><br>
+	<span class="option" data-correct="false"><b>C)</b> for-each </span><br>
+	<span class="option" data-correct="false"><b>D)</b> while </span><br>
+	<span class="option" data-correct="false"><b>E)</b> continue </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> Diziler için özel kullanılan döngü kodu aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> for </span><br>
+	<span class="option" data-correct="false"><b>B)</b> do-while </span><br>
+	<span class="option" data-correct="false"><b>C)</b> while </span><br>
+	<span class="option" data-correct="true"><b>D)</b> foreach </span><br>
+	<span class="option" data-correct="false"><b>E)</b> if </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> Aşağıdaki * karakterinden oluşan şekli oluşturmak için kaç for döngüsü kullanılmalıdır?<br><br>
+*<br>
+**<br>
+***<br>
+****<br>
+*****<br> </p>
+	<span class="option" data-correct="false"><b>A)</b> 1 </span><br>
+	<span class="option" data-correct="true"><b>B)</b> 2 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 3 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 4 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 5 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      2 adet for döngüsü kullanılmalıdır.<br><br>
+
+İlk for döngüsü satır sayısını temsil eder ve her satır için bir döngü adımı yapar. İkinci for döngüsü ise her satırdaki yıldız (*) karakterlerini basar. İç içe geçmiş for döngüleri kullanarak şekli oluşturabiliriz.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> 2 4 6 8 10 12 14 16 18 20<br><br>
+Yukarıdaki ekran görüntüsünü alabilmek için kod bloğundaki X yerine hangi değer gelmelidir?<br><br>
+for ($deg01=1; $deg01&lt;=10; $deg01++) {<br>
+echo $deg01 * X. “ “;<br>
+} </p>
+	<span class="option" data-correct="false"><b>A)</b> 1 </span><br>
+	<span class="option" data-correct="true"><b>B)</b> 2 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 3 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 4 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 5 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      
+		Kod bloğu içindeki for döngüsü, $deg01 değişkenini 1'den 10'a kadar artırarak döngüyü sürdürür. Her döngü adımında echo ifadesiyle $deg01 * X değeri ekrana yazdırılır.<br><br>
+
+Verilen ekran görüntüsünde, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 sayıları yer almaktadır. Bu sayılar $deg01 değerinin 1'den 10'a kadar olan değerlerine karşılık gelmektedir.<br><br>
+
+Ekranda yer alan sayılar, $deg01 değerinin 2 ile çarpılması sonucu elde edilmiştir. Yani, $deg01 * X ifadesinin sonucu, ekranda yer alan sayılar olmalıdır.<br><br>
+
+Bu nedenle, X değeri "2" olmalıdır.</div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> &lt;?php<br>
+$toplam=0;<br>
+$dizi = array(1,2,3,4,5,6,7,8,9);<br>
+foreach ($dizi as $eleman) {<br>
+$toplam=$eleman+$toplam;<br>
+}<br>
+echo "$toplam";<br>
+?&gt;<br><br>
+Yukarıdaki kod bloğunun ekrana bastığı değer aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> 1 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 2 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 45 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 50 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 90 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      Kod bloğu, $dizi adında bir dizi oluşturur ve bu diziyi foreach döngüsü kullanarak elemanlarını dolaşırken her elemanı $toplam değişkeniyle toplar. Dizideki tüm elemanlar (1, 2, 3, 4, 5, 6, 7, 8, 9) toplandığında toplam değer "45" olur. Bu nedenle, ekrana "$toplam" ifadesi yazıldığında "45" değeri görüntülenir.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> "____ gibi döngüler, belirli kod bölümlerinin tekrar tekrar yürütülmesini desteklemekte iken; ____ ve switch gibi koşullu ifadeler ise, bir programın bazı koşullara bağlı olarak farklı kod parçalarını yürütmesine veya hiçbirini yürütmemesine izin verir."
+Yukarıda verilmiş olan cümledeki boşluklara aşağıdakilerden hangisi gelmelidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> PHP/HTML ve sql/delete </span><br>
+	<span class="option" data-correct="true"><b>B)</b> while/for ve if/else </span><br>
+	<span class="option" data-correct="false"><b>C)</b> update/access ve false/rules </span><br>
+	<span class="option" data-correct="false"><b>D)</b> resource/details ve role_id/unset </span><br>
+	<span class="option" data-correct="false"><b>E)</b> do/for ve foreach/break </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> Aşağıdakilerden hangisi PHP'de bir döngü yapısı değildir? </p>
+	<span class="option" data-correct="true"><b>A)</b> forelse  </span><br>
+	<span class="option" data-correct="false"><b>B)</b> while  </span><br>
+	<span class="option" data-correct="false"><b>C)</b> do while  </span><br>
+	<span class="option" data-correct="false"><b>D)</b> for  </span><br>
+	<span class="option" data-correct="false"><b>E)</b> foreach  </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> do while döngüsü hangi işaret ile sonlanır? </p>
+	<span class="option" data-correct="true"><b>A)</b> ; </span><br>
+	<span class="option" data-correct="false"><b>B)</b> } </span><br>
+	<span class="option" data-correct="false"><b>C)</b> . </span><br>
+	<span class="option" data-correct="false"><b>D)</b> , </span><br>
+	<span class="option" data-correct="false"><b>E)</b> &gt; </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> $a = array(1,2,3);<br>
+for($i = 0; $i &lt; sizeof($a); $i++)｛<br>
+echo $a[$i];//"123"<br>
+}<br><br>
+
+Verilen döngü hangi işlevi temsil etmektedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> array </span><br>
+	<span class="option" data-correct="false"><b>B)</b> for </span><br>
+	<span class="option" data-correct="true"><b>C)</b> sizeof </span><br>
+	<span class="option" data-correct="false"><b>D)</b> echo </span><br>
+	<span class="option" data-correct="false"><b>E)</b> while </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      sizeof($a) ifadesi, dizinin içindeki elemanların sayısını verir. Bu durumda, $a dizisi üç elemanlı olduğu için sizeof($a) ifadesi 3 olacaktır. Döngü, $i değişkeni 0'dan başlayarak 3'e kadar artacak şekilde üç kez çalışacaktır. Dolayısıyla, her döngü adımında $a[$i] ifadesi sırasıyla 1, 2 ve 3 değerlerini döndürerek bu değerleri ekranda yazdıracaktır. Bu nedenle çıktı olarak "123" ekranda görüntülenir.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> &lt;?php<br>
+$hava=25;<br>
+&emsp;if($hava&gt; 30) {<br>
+&emsp;&emsp;echo "Hava Sıcak";<br>
+}<br>
+&emsp;else {<br>
+&emsp;&emsp;echo "Hava Serin";<br>
+}		
+?&gt;<br><br>
+Yukarıdaki kod bloğunun çıktısı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Hava </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Hava sıcak </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Hiçbiri </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Hava serin </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 25 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Aşağıdakilerden hangisi PHP'deki döngü yapılarından biri <u><strong>değildir?</strong></u>  </p>
+	<span class="option" data-correct="false"><b>A)</b> while döngüsü </span><br>
+	<span class="option" data-correct="false"><b>B)</b> do..while döngüsü </span><br>
+	<span class="option" data-correct="false"><b>C)</b> for döngüsü </span><br>
+	<span class="option" data-correct="false"><b>D)</b> foreach döngüsü </span><br>
+	<span class="option" data-correct="true"><b>E)</b> each döngüsü </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> $toplam=0;<br>
+$x=1;<br>
+do{<br>
+   &emsp;$toplam += $x++;<br>
+}while ($x &lt;=10);<br>
+echo "{$x}, {$toplam}";<br>
+?&gt;<br><br>
+Yukarıdaki kod bloğunun çıktısı aşağıdakilerden hangisidir?  </p>
+	<span class="option" data-correct="false"><b>A)</b> 10, 55 </span><br>
+	<span class="option" data-correct="true"><b>B)</b> 11, 55 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 10, 50 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 11, 50 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 10 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">       $x++ kod parçasında "++" ifadesinin değişkenden sonra gelmesi, önce x'değerinin toplama ekleneceğini, daha sonra x'in bir arttırıalcağını gösteriri. Yani;<br>
+<br>
+x 1 iken toplama eklenir. <br>
+x = 1 <br>
+toplam = 1<br>
+daha sonra x bir arttırılır ve x = 2 olur.<br><br>
+x 2 iken toplama eklenir.<br>
+x = 2<br>
+toplam = 3 olur.<br>
+daha sonra x bir arttırılır ve x = 3 olur.<br><br>
+ve böyle sürekli x bir artarak devam eder.<br>
+<br>
+En son x = 10 olduğunda.<br>
+x toplama eklenir. <br>
+x = 10 <br>
+toplam = 55 (1'den 10'a kadar olans ayıların toplamı)<br>
+daha sonra x bir arttırlır ve x = 11 olur.<br>
+<br>
+x artık 10'dan büyük olduğundan while döngüsü devam etmeyecek ve ekrana 11 ve 55 sayıları yazdırılacaktır.      </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br> Aşağıdakilerden hangisi PHP'de kontrol yapılarından biridir? </p>
+	<span class="option" data-correct="false"><b>A)</b> do..while </span><br>
+	<span class="option" data-correct="false"><b>B)</b> foreach </span><br>
+	<span class="option" data-correct="true"><b>C)</b> switch-case </span><br>
+	<span class="option" data-correct="false"><b>D)</b> for </span><br>
+	<span class="option" data-correct="false"><b>E)</b> while </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      Kontrol Yapıları<br><br>
+- if-else<br>
+- if-elseif-else<br>
+- switch-case     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br>  $a=array(1,2,3);<br>
+foreach($a as $v){<br>
+    echo $v; <br>
+}<br><br>
+Yukarıdaki kod bloğunun çıktısı aşağıdakilerden hangisidir?  </p>
+	<span class="option" data-correct="false"><b>A)</b> 12 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 13 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 123 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 1 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 2 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      Başlangıçta $a adında bir dizi tanımlanır: $a = array(1, 2, 3);<br><br>
+foreach döngüsü, $a dizisinin her elemanını sırayla $v değişkenine atayarak çalışır.<br><br>
+İlk adımda, $v değişkenine $a dizisinin ilk elemanı olan 1 atanır ve bu değer ekrana yazdırılır: echo 1; (Çıktı: 1)<br><br>
+Döngü devam eder, $v değişkenine $a dizisinin ikinci elemanı olan 2 atanır ve bu değer ekrana yazdırılır: echo 2; (Çıktı: 2)<br><br>
+Döngü son adıma gelir, $v değişkenine $a dizisinin üçüncü ve son elemanı olan 3 atanır ve bu değer ekrana yazdırılır: echo 3; (Çıktı: 3)<br><br>
+Döngü sonlanır.<br>
+Sonuç olarak, ekrana sırayla 1, 2 ve 3 yazdırılır.     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> Hava sıcaklığı kontrolünde olduğu gibi birden fazla koşul kullanılmasının gerekmesi halinde aşağıdaki PHP yapılarından hangisi kullanılır?  </p>
+	<span class="option" data-correct="true"><b>A)</b> if-elseif-else </span><br>
+	<span class="option" data-correct="false"><b>B)</b> switch-case </span><br>
+	<span class="option" data-correct="false"><b>C)</b> while </span><br>
+	<span class="option" data-correct="false"><b>D)</b> foreach </span><br>
+	<span class="option" data-correct="false"><b>E)</b> for </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br> Döngüler için, while döngülerinde olduğu gibi, döngüyü veya geçerli yinelemeyi sonlandırmak için hangi anahtar sözcükler kullanabiliriz? </p>
+	<span class="option" data-correct="true"><b>A)</b> break-continue </span><br>
+	<span class="option" data-correct="false"><b>B)</b> for-foreach </span><br>
+	<span class="option" data-correct="false"><b>C)</b> for-echo </span><br>
+	<span class="option" data-correct="false"><b>D)</b> endfor-foreach </span><br>
+	<span class="option" data-correct="false"><b>E)</b> array-endfor </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> &lt;?php<br>
+$hava=15;<br>
+&emsp;if($hava&gt; 30) {<br>
+&emsp;&emsp;echo "Hava Sıcak";<br>
+}<br>
+&emsp;elseif($hava&gt; 20) {<br>
+&emsp;&emsp;echo "Hava Serin";<br>
+}		
+&emsp;else {<br>
+&emsp;&emsp;echo "Hava Soğuk";<br>
+}		
+?&gt;<br><br>
+Verilen if-elseif-else kod bloğu için aşağıdakilerden hangisi <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Hava 30 olarak belirlenmiştir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Hava 25 olarak belirlenmiş olsa "hava serin" olacaktı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Hava 35 olarak belirlenmiş olsa "hava sıcak" olacaktı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Hava 15 olarak belirlenmiştir </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Ekrana gelen sonuç "Hava soğuk" </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      Hava <u><strong>15</strong></u> olarak belirlenmiştir     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> Aşağıdaki ifadelerden hangisi for döngüsü ile ilgili bir ifadedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Belirtilen koşul doğru olduğu sürece bir kod bloğunda döngü yapar. </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Bir kod bloğunda belirtilen sayıda döngü yapar. </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Belirtilen koşul doğru olduğu sürece döngüyü tekrarlar. </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bir kod bloğunda bir kez döngü yapar. </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Bir dizideki her öge için bir kod bloğunda döngü yapar </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> $sayac=0;<br>
+while($sayac &lt; 10){<br>
+   echo "Sayaç: {$sayac}";<br>
+   $sayac++;<br>
+}<br>
+?&gt;<br>
+Yukarıdaki  </p>
+	<span class="option" data-correct="true"><b>A)</b> 0’dan 9’a kadar sayan ve her sayıyı yazdıran bir döngü </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Sadece 10 sayısını yazdıran bir döngü </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 10 dan büyük sayıları yazdıran bir döngü </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 9 dan küçük sayıları sayan ve yazdıran döngü </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 10 sayısını sayan ve yazdıran bir döngü </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      Bu kod bloğu, bir "while" döngüsü kullanarak $sayac değişkenini 0'dan başlayarak 1'er 1'er artırarak 10'a kadar olan sayıları ekrana yazdırmaktadır. İşleyişi aşağıda adım adım açıklanmıştır:<br><br>
+
+
+$sayac değişkeni başlangıçta 0 olarak tanımlanır.<br><br>
+
+while döngüsü, $sayac değişkeninin değeri 10'dan küçük olduğu sürece çalışır. Yani $sayac &lt; 10 koşulu sağlanıyorsa döngü devam eder, aksi halde döngüden çıkılır.<br><br>
+
+Döngü bloğu, yani döngü süresince tekrar eden kodlar, {} içinde yer almaktadır.<br><br>
+Döngü bloğu, önce $sayac değişkeninin değerini ekrana yazdırır. (Sayac: ifadesinden sonra) $sayac değişkeninin değeri echo komutu ile ekrana çıktı olarak yazdırılır.<br><br>
+$sayac değişkeninin değeri ekrana <u><strong>yazdırıldıktan sonra,</strong></u> $sayac değişkeni 1 arttırılır. Bu işlem $sayac++ ifadesi ile gerçekleştirilir.<br><br>
+Adıma dönülür ve $sayac değişkeninin değeri 10'dan küçük mü diye kontrol edilir. Eğer $sayac değişkeninin değeri hala 10'dan küçükse döngü tekrar eder ve bir sonraki değer ekrana yazdırılır.<br><br>
+Bu işlem, $sayac değişkeni 10'a eşit veya büyük olduğunda sona erer ve döngüden çıkılır.<br>
+		
+		
+		</div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br> Aşağıdaki hangisi PHP'de örnekte hava durumu kontrolü ile eğer hava sıcaklığı 30 dereceden fazla ise hava sıcak, değilse hava serin olarak ekrana sonuç vermeyi sağlayacak komuttur? </p>
+	<span class="option" data-correct="true"><b>A)</b> if-else </span><br>
+	<span class="option" data-correct="false"><b>B)</b> if-elseif-else </span><br>
+	<span class="option" data-correct="false"><b>C)</b> for </span><br>
+	<span class="option" data-correct="false"><b>D)</b> foreach </span><br>
+	<span class="option" data-correct="false"><b>E)</b> switch-case </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      Sadece 2 koşul olduğundan if-else yeterlidir.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> PHP'de program çıktısının 123 olması için aşağıdaki kod bloğunda X işareti yerine aşağıdakilerden hangisi gelmesi gerekir? <br><br>
+$a=array(1,2,3);<br>
+X($a as $v){<br>
+     echo $v; // "123"<br>
+}<br>
+?&gt; </p>
+	<span class="option" data-correct="false"><b>A)</b> if </span><br>
+	<span class="option" data-correct="false"><b>B)</b> switch </span><br>
+	<span class="option" data-correct="false"><b>C)</b> while </span><br>
+	<span class="option" data-correct="true"><b>D)</b> foreach </span><br>
+	<span class="option" data-correct="false"><b>E)</b> for </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      Foreach döngüsü, dizileri ve diğer nesneleri eleman eleman işlemek için kullanılan bir döngü yapısıdır. Yukarıdaki kod bloğunda, dizideki her elemanı $v değişkenine atayarak dizi elemanlarını ekrana yazdırmış oluyoruz     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> &lt;?php<br>
+$i=0;<br>
+$j=0;<br>
+while($i&lt;10){<br>
+ &emsp;$i++;<br>
+ &emsp;while($i&lt;10){<br>
+ &emsp;&emsp;if($j==5){<br>
+ &emsp;&emsp;continue 2; // İki seviyede devam eder<br>
+ &emsp;&emsp;}<br>
+ &emsp;$j++;<br>
+ &emsp;}<br>
+}<br>
+echo "{$i}, {$j}";<br>
+?&gt;<br><br>
+Verilen şekilde $j hiçbir zaman 5'in üzerinde bir değere sahip değilken, <u><strong>$i hangi görevi</strong></u> üstlenir?
+		</p>
+	<span class="option" data-correct="true"><b>A)</b> 0'dan 9'a kadar olan tüm değerleri gözden geçirir </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 10'dan küçük olan tüm değerleri gözden geçirir </span><br>
+	<span class="option" data-correct="false"><b>C)</b> $j｝ile while döngüsüne katılır </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 0'dan 5'e kadar olan tüm değerleri gözden geçirir </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Continue 2 ifadesiyle iki seviyede devam eder </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      j = 5 olana kadar içteki while döngüsü de dıştaki while döngüsü gibi çalış ve i ve j değerleri sürekli bir artar.<br><br>
+
+Ancak j = 5 olduğunda içteki döngü continue=2 ifadesi sebebiyle çalışmaz ve j'değeri artmaz. continue=2 ifadesi sebebiyle dıştaki while döngüsüne atlanır ve i değişkeni artmaya devam eder.<br><br>
+
+i değişkeni ise 10'dan küçük olmak zorunda olduğu için en fazla 9 olabilir.  9 olduktan sonra da i bir kez daha arttırılacağı için i'nin son değeri 10 olur.<br><br>
+
+j değişkeni ise 5 olduktan sonra continue ifadesi sebebiyle artmayacağından 5 olarak kalır.      </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> I. Önceden belirlenen koşullara göre hareket etmeyi sağlar.<br>
+II. break ve default komutlarıyla kullanılır.<br>
+III. break komutların yukarıdan aşağıya akışında koşulların sağlanması durumunda diğer koşulları kontrol eder.<br>
+IV. default ise girilen değer önceden belirlenmiş şartların hiçbirine uymuyorsa çalıştırılacak komutları içerir.<br><br>
+Yukarıdaki switch-case ile ilgili ifadelerden hangileri doğrudur?  </p>
+	<span class="option" data-correct="false"><b>A)</b> I ve ıI </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Yalnız III </span><br>
+	<span class="option" data-correct="true"><b>D)</b> I, II ve IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      break komutların yukarıdan aşağıya akışında koşulların sağlanması durumunda diğer koşulları <u><strong>kontrol etmez ve switch komutundan çıkar</strong></u>     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> Önceden belirlenen koşullara göre hareket etmeyi sağlayan komut aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> break-default </span><br>
+	<span class="option" data-correct="false"><b>B)</b> if-elseif </span><br>
+	<span class="option" data-correct="false"><b>C)</b> for-foreach </span><br>
+	<span class="option" data-correct="true"><b>D)</b> switch-case </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Hiçbiri </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>

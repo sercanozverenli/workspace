@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <title>Bilgisayar Programcılığı</title>
+	<link rel="icon" type="image/png" href="icon.png">  
+  <style>
+	  
+	body {
+	caret-color: transparent;
+	}
+	
+	body.dark-mode {
+	background-color: rgb(0, 0, 0, 0.95)
+	}
+
+	body.dark-mode .navbar-nav {
+  background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+
+	body.dark-mode .navbar {
+	background-color: rgba(58,58,58, 0.8) !important;
+
+	}
+	
+
+
+	body.dark-mode .navbar-light {
+	background-color: rgb(113, 121, 126) !important;
+
+	}
+	
+
+	body.dark-mode .nav-link {
+	background-color: rgb(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+	}
+
+	body.dark-mode .dropdown-menu {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	body.dark-mode .dropdown-item {
+    background-color: rgba(113, 121, 126) !important;
+	color: rgb(226, 223, 210) !important;
+}
+
+	
+	body.dark-mode .question-block {
+	background-color: rgba(58,58,58, 0.7);
+	color: #F9F6EE;;
+	}
+
+	body.dark-mode .question {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	text-align: justify;
+	}
+
+	body.dark-mode .option {
+	color: rgb(237, 234, 222, 0.6);
+	}
+	
+	body.dark-mode .option.selected {
+	color: #4F7942;
+	}
+	
+	body.dark-mode .option.incorrect {
+	color: #AA4A44;
+	}
+
+	body.dark-mode #test-submit {
+	background-color: rgba(58,58,58, 1);
+	color: #F9F6EE;
+	}
+	
+	body.dark-mode .modal-header {
+		color: rgb(237, 234, 222) !important;
+	}
+	
+		body.dark-mode .modal-body {
+		color: rgb(237, 234, 222) !important;
+	}
+
+		body.dark-mode #toggle-theme-button {
+		background-color: transparent;
+		background-image: url('sun.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+		
+		body.dark-mode .btn{
+		padding: 0rem 0rem; 
+        background-color: darkolivegreen;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+
+		#toggle-theme-button {
+		background-color: transparent;
+		background-image: url('moon.png');
+		background-size: contain; 
+		display: inline-block; 
+		margin: 0 auto;
+		margin-right: 20px;
+		border: 0;
+		width:25px;
+		height:25px;
+		
+		}
+ 
+  
+      .question-block {
+ 		background-color: aliceblue;       
+        padding: 10px;
+        margin: 10px;
+		max-width: 725px;
+		border-radius: 10px;
+      }
+	   .question {
+	   background-color: rgb(211,211,211, 0.6);
+	   border-radius: 10px;
+        color: rgba(165, 206, 247, 0.4);
+		letter-spacing: 0.5px;
+		-webkit-text-stroke: black 0.5px;//
+		box-sizing: border-box;
+		padding: 5px;
+		 text-align: justify;  
+        
+      }
+      .option {
+        color: black;
+      }
+      .selected {
+        color: green;
+		font-weight: bold;
+      }
+      .incorrect {
+        color: red;
+		font-weight: bold;
+      }
+	  
+	  #ders {
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+	  
+	  	.block-group{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  	  	  #show-all{
+		background-color: rgb(127, 255, 212, 0.1);
+		display: inline-block; 
+		margin: 0 auto;
+		margin-top: 10px;
+		margin-left: 10px;
+		border: solid aliceblue;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 5px;
+		color: grey;
+		
+	}
+
+	  .btn{
+		padding: 0rem 0rem; 
+        background-color: green;
+		border-radius: 5px;
+		color: white;
+		weight: 60px;
+		height: 25px;
+		font-size: 14px;
+		margin-top: 5px;
+		
+      }
+	  
+	  #aciklama-textarea {
+		border-radius: 5px;
+		border: 1px solid black;
+		 text-align: justify;
+		}
+
+		div[id^='description'] {
+		font-size: 14px;
+		text-align: justify;
+		padding: 5px;			
+		}	  
+		
+		
+	  #topbuton {
+		background-color: transparent;
+		border: 0;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		
+	}
+		#topbuton img {
+		background-color: transparent;
+		width: 50px;
+		height:50px;
+		
+	}
+	
+		#home {
+		background-color: transparent;
+		border: 0;
+		margin-right: 10px;
+		
+		
+	}
+	
+		#home img {
+		background-color: transparent;
+		width: 30px;
+		height:30px;
+	}	
+	
+		.modal-content {
+		width: 250px;
+		height:175px;
+		background-color: rgba(255, 255, 255, 0.2);
+		border: solid rgb(240, 248, 255, 0.4) 10px;
+		
+	}
+	
+
+		.modal-dialog {
+		width: 250px;
+		height:100px;
+		
+		
+	}
+	
+		.modal-header {
+		margin: 0;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+		.
+		modal-body {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	
+	}
+	
+		.modal-body p {
+		margin: 0;
+		margin-top: 0;
+			}
+				
+		.close::after {
+		content: "";
+	}
+		.close img {
+		width:25px;
+		height:25px;
+		
+	}
+	
+
+
+
+		#test-form {
+		max-width: 725px;
+	
+	}
+		#test-submit {
+		color: white;
+		display: block;
+		margin: 0 auto;
+		width: 100px;
+		height:40px;
+		border: solid #F3CFC6 3px;
+		background-color: red;
+		border-radius: 10px;
+		padding: 1px;
+		outline: none;
+		
+			}
+			
+		#iptalettim {
+		display: none;
+		
+	}
+	
+
+
+
+    </style>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <button class="btn btn-primary" id="toggle-theme-button"><img></button>
+  <a href="donemsec.html"><button id="home"><img src="home.png" width="30px" height="30px"></button></a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" class="container-fluid" id="navbarNav">
+
+    <ul class="navbar-nav">
+	
+      <li class="nav-item dropdown">
+	  
+                   
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          ALGORİTMALAR
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="alg-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="alg-final.html">Çıkmış Sorular (Final)</a>
+		  <a class="dropdown-item" href="alg-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="alg-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="alg-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="alg-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="alg-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="alg-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="alg-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="alg-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+       
+       
+		<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          WEB SUNUCU PROGRAMLAMA
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		  <a class="dropdown-item" href="wsp-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="wsp-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="wsp-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="wsp-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="wsp-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="wsp-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="wsp-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="wsp-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="wsp-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="wsp-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİ MADENCİLİĞİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="vmaden-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="vmaden-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="vmaden-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="vmaden-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="vmaden-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="vmaden-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="vmaden-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="vmaden-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="vmaden-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="vmaden-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+	  
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          VERİTABANI SİSTEMLERİ
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="vtsistem-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="vtsistem-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="vtsistem-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="vtsistem-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="vtsistem-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="vtsistem-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="vtsistem-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="vtsistem-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="vtsistem-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="vtsistem-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+      
+	    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          PROGRAMLAMADA YENİ EĞİLİMLER
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="prgyenieğilim-ara.html">Çıkmış Sorular (Ara Sınav)</a>
+		  <a class="dropdown-item" href="prgyenieğilim-final.html">Çıkmış Sorular (Final)</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite1.html">Ünite 1</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite2.html">Ünite 2</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite3.html">Ünite 3</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite4.html">Ünite 4</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite5.html">Ünite 5</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite6.html">Ünite 6</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite7.html">Ünite 7</a>
+          <a class="dropdown-item" href="prgyenieğilim-ünite8.html">Ünite 8</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+  
+</nav>
+	  
+  
+    <h4 id="ders">Algoritmalar - Ünite 5 </h4>
+	<div id="parts">	 	  <button id="show-all">Tümü</button>
+	<button class="block-group" data-start="0" data-end="19">Part 1</button>
+	<button class="block-group" data-start="20" data-end="39">Part 2</button>
+	<button class="block-group" data-start="40" data-end="59">Part 3</button>
+	  
+	  </div>
+	  
+    <form id="test-form">
+	
+	
+	
+<div class="question-block">
+	<div id="question1">
+	<p class="question">Soru 1:<br> Algoritmaları karşılaştırmak için gerçekleştirdiğimiz algoritmanın zorluk derecesi ölçümüne ------- denmektedir </p>
+	<span class="option" data-correct="true"><b>A)</b> Hesaplama Karmaşıklığı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Algoritma analizi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Asimptotik gösterim </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Alan Karmaşıklığı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Algoritma Tasarımı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description1" >Açıklama</button>
+		<div id="description1" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question2">
+	<p class="question">Soru 2:<br> FOR i=0 TO n<br>
+&emsp;IF i&lt;n/2 THEN<br>
+&emsp;&emsp;PRINT i<br>
+&emsp;ELSE<br>
+&emsp;&emsp;FOR j=1 TO n<br>
+&emsp;&emsp;&emsp;PRINT J<br>
+&emsp;&emsp;ENDFOR<br>
+&emsp;ENDIF<br>
+ENDFOR<br><br>
+
+Yukarıdaki kod bloğunun yürütme zamanı aşağıdakilerden
+hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> n^2 +
+5n/2 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> n^2 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> n^3 + n/2 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> n^2 + n </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 2n </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description2">Açıklama</button>
+		<div id="description2" class="collapse">      ^ işareti üssü anlamına gelmektedir.
+		
+		FOR i=0 TO n -&gt; (n kez)<br>
+&emsp;IF i&lt;n/2 THEN -&gt; (n kez)<br>
+&emsp;&emsp;PRINT i -&gt; (n/2 kez)<br>
+&emsp;ELSE <br>
+&emsp;&emsp;FOR j=1 TO n -&gt; (n*(n/2) kez)<br>
+&emsp;&emsp;&emsp;PRINT J -&gt; (n*(n/2) kez)<br>
+&emsp;&emsp;ENDFOR <br>
+&emsp;ENDIF <br>
+ENDFOR <br><br></div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question3">
+	<p class="question">Soru 3:<br> FOR i=1 to n<br>
+&emsp;READ x<br>
+&emsp; x%2==0 THEN<br>
+&emsp;&emsp;PRINT X<br>
+&emsp;ENDIF<br>
+ENDFOR<br><br>
+Yukarıdaki kod bloğunun yürütme zamanı aşağıdakilerden
+hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> n </span><br>
+	<span class="option" data-correct="false"><b>B)</b> n^2 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> 4n </span><br>
+	<span class="option" data-correct="false"><b>D)</b> n^3 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> n^2 + n/2 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description3">Açıklama</button>
+		<div id="description3" class="collapse">      FOR i=1 to n -&gt; (n kez)
+ &emsp;READ x -&gt; (n kez)
+  &emsp;x%2==0 THEN -&gt; (n kez)
+  &emsp;&emsp;PRINT X -&gt; (n kez)     </div>
+	</div>
+</div>
+	  
+	
+	  
+<div class="question-block">
+	<div id="question4">
+	<p class="question">Soru 4:<br> max=0<br>
+FOR i=0 TO n<br>
+&emsp;READ sayi<br>
+&emsp;IF sayi&gt;max THEN<br>
+&emsp;&emsp;max= sayi<br>
+ENDFOR<br>
+PRINT max<br><br>
+Yukarıdaki algoritmanın yürütme zamanı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> 4n+ 2 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> n<sup>2</sup> + n+ 2 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> n+ 25 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> n<sup>2</sup>/2+ 2 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> n<sup>n</sup> + 4 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description4">Açıklama</button>
+		<div id="description4" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question5">
+	<p class="question">Soru 5:<br> T(n)=(1/2)n<sup>3</sup> +(n<sup>2</sup>/2)−
+(n/2) <br><br>
+Yukarıdaki zaman karmaşıklığı fonksiyonu için big-O gösterimi aşağıdakilerden hangisidir?		
+		
+		</p>
+	<span class="option" data-correct="false"><b>A)</b> O(n) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> O(n<sup>2</sup>) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> O(n<sup>4</sup>) </span><br>
+	<span class="option" data-correct="true"><b>D)</b> O(n<sup>3</sup>) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> O(n!) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description5">Açıklama</button>
+		<div id="description5" class="collapse">      En yüksek dereceli terim n<sup>3</sup>'dür. Diğer terimler n<sup>2</sup> ve n/2 olarak daha düşüktür.<br>
+Bu nedenle, T(n) fonksiyonu O(n<sup>3</sup>) olarak ifade edilebilir.  </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question6">
+	<p class="question">Soru 7:<br> T (n) = (n<sup>3</sup>/8) - 8 <br><br>
+
+Yukarıdaki zaman karmaşıklığı fonksiyonu için big-Omega gösterimi aşağıdakilerden hangisidir (n&gt;4 için) </p>	
+
+	<span class="option" data-correct="false"><b>A)</b> Ω (n<sup>2</sup>/4) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Ω (n/4) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ω (n<sup>2</sup>/8) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Ω (n<sup>3</sup>) </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Ω (n<sup>3</sup>/8) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description6">Açıklama</button>
+		<div id="description6" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question7">
+	<p class="question">Soru 7:<br> I- O(n<sup>2</sup>) gösterime sahip algoritmalar O(2<sup>n</sup>)
+gösterime sahip algoritmalardan daha yavaştır. <br>
+II- big-O gösterimi algoritmanın en kötü çalışma zamanı üzerinden hesaplanır.
+III- big-Omega ortalama çalışma zamanını gösterir. <br>
+IV- O(nlog(n)) gösterime sahip algoritmalar O(n) gösterime sahip algoritmalardan
+daha yavaştır. <br><br>
+Yukarıdakilerden hangisi/hangileri doğrudur? </p>
+	<span class="option" data-correct="false"><b>A)</b> I ve II </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve III </span><br>
+	<span class="option" data-correct="true"><b>C)</b> II ve IV </span><br>
+	<span class="option" data-correct="false"><b>D)</b> III ve IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, III ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description7">Açıklama</button>
+		<div id="description7" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question8">
+	<p class="question">Soru 8:<br> ------- programın kodu ve verisi için gerekli
+tüm alanları kapsamaktadır.<br><br> 
+
+Yukarıdaki cümlede boş bırakılan yeri aşağıdakilerden hangisi doğru şekilde tamamlar? </p>
+	<span class="option" data-correct="false"><b>A)</b> Zaman Karmaşıklığı </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Alan karmaşıklığı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Asimptotik gösterim </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Algoritma analizi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Big-tetha </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description8">Açıklama</button>
+		<div id="description8" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question9">
+	<p class="question">Soru 9:<br> Aşağıdaki asimptotik gösterimlerinden hangisi
+ortalama zaman üzerinden hesaplanmaktadır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Big-O </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Big-tetha </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Big-omega </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Little-o </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Little-omega </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description9">Açıklama</button>
+		<div id="description9" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question10">
+	<p class="question">Soru 10:<br> Aşağıda big-O gösterimleri verilen algoritmalardan hangisi daha yavaştır? </p>
+	<span class="option" data-correct="false"><b>A)</b> O(log n) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> O(n) </span><br>
+	<span class="option" data-correct="true"><b>C)</b> O(n<sup>n</sup>) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> O(n) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> O(2<sup>n</sup>) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description10">Açıklama</button>
+		<div id="description10" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question11">
+	<p class="question">Soru 11:<br> max=0<br>
+FOR i=1 TO n<br>
+&emsp;READ sayi<br>
+&emsp;IF sayi&gt;max THEN<br>
+&emsp;&emsp;max=sayi<br>
+END FOR<br>
+PRINT max<br><br>
+Yukarıdaki kod bloğunun yürütme zamanı aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> n </span><br>
+	<span class="option" data-correct="false"><b>B)</b> n<sup>2</sup> </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 2n </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 3n+1 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 4n+2 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description11">Açıklama</button>
+		<div id="description11" class="collapse">      max=0 -&gt; (1 kez)<br>
+FOR i=1 TO n -&gt; (n kez)<br>
+&emsp;READ sayi -&gt; (n kez)<br>
+&emsp;IF sayi&gt;max THEN -&gt; (n kez)<br>
+&emsp;&emsp;max=sayi -&gt; (n kez)<br>
+END FOR <br>
+PRINT max -&gt; (1 kez)<br><br>     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question12">
+	<p class="question">Soru 12:<br> F (x) ve g(x) herhangi iki fonksiyon olsun.<br>
+F(x) fonksiyonu için<br>
+
+C ve k sabit olmak üzere O(g(x))<br>
+
+O(g(x)) = c. |g(x)| + k<br><br>
+
+Yukarıdaki matematiksel ifadeye göre Big-O Gösteriminin formülü aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> |f(x)| ≤ c. |g(x)| + k </span><br>
+	<span class="option" data-correct="false"><b>B)</b> |f(g)| ≤ c. |g(x)| + k </span><br>
+	<span class="option" data-correct="false"><b>C)</b> |g(x)| ≤ c. |f(x)| + k </span><br>
+	<span class="option" data-correct="false"><b>D)</b> |f(x)| = c. |g(x)| + k </span><br>
+	<span class="option" data-correct="false"><b>E)</b> |f(x)| ≥c. |g(x)| + k </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description12">Açıklama</button>
+		<div id="description12" class="collapse">      Big-O gösterimi diğer asimptotik gösterimlerde de olduğu gibi birçok ifadeyi sadeleştirerek elde edilir. Örneğin çalışma zamanı T(n)=n4+n2+2n+8 olan bir algoritma için Big-O gösterimi O(n4) şeklinde olacaktır. Bu işlem bir fonksiyonun büyümesi şeklinde de tanımlanmaktadır. Matematiksel olarak ifade etmek gerekirse;<br><br>
+
+f ve g reel sayılarda tanımlı iki fonksiyon olsun.<br><br>
+
+f(x) fonksiyonu için<br><br>
+
+c ve k sabit olmak üzere O(g(x)) fonksiyonu aşağıdaki gibi tanımlanmaktadır.<br><br>
+
+O(g(x)) = c. |g(x)| + k olmak üzere;<br><br>
+
+|f(x)| ≤ c. |g(x)| + k     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question13">
+	<p class="question">Soru 13:<br> Aşağıdakilerden hangisi insanoğlunun karşılaştığı problemlerden çözüme ulaşmak için geçmesi gereken aşamalardan biri <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Problemin farkına varılması </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Problemin
+anlaşılması/tanımlanması, </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Problem için farklı çözüm yollarının üretilmesi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Problem için çözümün uygulanması </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Hiçbiri </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description13">Açıklama</button>
+		<div id="description13" class="collapse">      Bu aşamalar; <br>
+- problemin farkına varılması, <br>
+- problemin anlaşılması/tanımlanması, <br>
+- problem için farklı çözüm yollarının üretilmesi, <br>
+- çözüm yollarının test edilmesi, <br>
+- en uygun çözümün belirlenmesi, <br>
+- çözümün uygulanması, <br>
+- elde edilen sonuçların değerlendirilmesi<br>
+- çözümün iyileştirilmesi şeklinde sıralanabilir     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question14">
+	<p class="question">Soru 14:<br> Aşağıdakilerden hangisi algoritmanın özelliklerinden <u><strong>değildir?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> Kesinlik </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Doğruluk </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Verimlilik </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Ürün verme </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Genellenebilirlik </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description14">Açıklama</button>
+		<div id="description14" class="collapse">      Bunlar; <br>
+- etkinlik, <br>
+- kesinlik, <br>
+- doğruluk, <br>
+- sonluluk, <br>
+- verimlilik, <br>
+- genellenebilirilik <br>
+- girdi/çıktı içerme şeklinde sıralanabilir.<br><br>
+
+Bunlara ek olarak algoritmanın performansının da değerlendirilebilir olması gerekmektedir     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question15">
+	<p class="question">Soru 15:<br> Bir problemi çözerken aşağıdaki hangi algoritmayı öncelikle seçeriz? </p>
+	<span class="option" data-correct="true"><b>A)</b> Hızlı olanı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Hesaplama yapabileni </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Analiz edeni </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Çok yer kaplayanı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İngilizce olanı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description15">Açıklama</button>
+		<div id="description15" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question16">
+	<p class="question">Soru 16:<br> Aşağıdakilerden hangisi zaman karmaşıklığında <u><strong>alt sınırı</strong></u> gösterir, bir başka deyişle onunla ölçülen değerden daha iyi daha hızlı bir değer bulunamaz? </p>
+	<span class="option" data-correct="true"><b>A)</b> Big-Omega gösterimi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Big-O gösterimi </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Big Theta Gösterimi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Asimptotik Gösterim </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Little-o Gösterimi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description16">Açıklama</button>
+		<div id="description16" class="collapse">      Big-Omega gösterimi Big-O gösteriminin tam tersi olarak görülebilir. Yani Big Omega gösterimi zaman karmaşıklığında alt sınırı göstermektedir. Bir başka deyişle Big-Omega ile ölçülen değerden daha iyi daha hızlı bir değer bulunamaz.     </div>
+	</div>
+</div>
+
+
+	  
+<div class="question-block">
+	<div id="question17">
+	<p class="question">Soru 17:<br> Algoritmadaki eleman sayısı çok fazla olduğunda yürütme zamanı, ------- olarak da adlandırılır.<br><br>
+Yukarıdaki cümlede boş bırakılan yeri aşağıdakilerden hangisi doğru olarak tamamlar? </p>
+	<span class="option" data-correct="true"><b>A)</b> zaman karmaşıklığı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> hesaplama karmaşıklığı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> alan karmaşıklığı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> yer karmaşıklığı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> dil karmaşıklığı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description17">Açıklama</button>
+		<div id="description17" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question18">
+	<p class="question">Soru 18:<br>  Zaman karmaşıklığı T(n)=n, T(n)=2n, T(n)=100n, T(n)=2n ve T(n)=3n olan algoritmalardan hangisinin tercih edilmesi gerekir? </p>
+	<span class="option" data-correct="true"><b>A)</b> T(n)=n </span><br>
+	<span class="option" data-correct="false"><b>B)</b> T(n)=2n </span><br>
+	<span class="option" data-correct="false"><b>C)</b> T(n)=100n </span><br>
+	<span class="option" data-correct="false"><b>D)</b> T(n)=2n </span><br>
+	<span class="option" data-correct="false"><b>E)</b> T(n)=3n </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description18">Açıklama</button>
+		<div id="description18" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question19">
+	<p class="question">Soru 19:<br>  Zaman karmaşıklığı fonksiyonu T(n)=1/4(n<sup>4</sup>)+4n<sup>3</sup>+4n<sup>2</sup>+n+4 için big-O gösterimi aşağıdakilerden hangisidir?  </p>
+	<span class="option" data-correct="false"><b>A)</b> O(n) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> O(n<sup>2</sup>) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> O(n<sup>3</sup>) </span><br>
+	<span class="option" data-correct="true"><b>D)</b> O(n<sup>4</sup>) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> O(n!) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description19">Açıklama</button>
+		<div id="description19" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question20">
+	<p class="question">Soru 20:<br> Bir f(x) fonksiyonu için her durumda
+c<sub>1</sub>.g(x) &lt;=f(x) &lt;=c<sub>2</sub>.g(x) koşullarını sağlayan pozitif, sabit c<sub>1</sub> , c<sub>2</sub>   değerleri bulunabiliyorsa f fonksiyonuna ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Big-O </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Big-Omega </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Big-Tetha </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Little-o </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Little-omega </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description20">Açıklama</button>
+		<div id="description20" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question21">
+	<p class="question">Soru 21:<br>  Algoritmanın olabilecek en kötü durumu üzerinden hesaplanan asimptotik gösterim aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Big-O </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Big-Omega </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Big-Tetha </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Little-o </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Little-omega </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description21">Açıklama</button>
+		<div id="description21" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question22">
+	<p class="question">Soru 22:<br> Geliştirilen bir algoritmanın problemi çözmek için harcadığı süre tanımı aşağıdaki seçeneklerden hangisine aittir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Hesaplama karmaşıklığı </span><br>
+	<span class="option" data-correct="true"><b>B)</b> Zaman karmaşıklığı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Alan karmaşıklığı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Algoritma analizi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Algoritma tasarımı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description22">Açıklama</button>
+		<div id="description22" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question23">
+	<p class="question">Soru 23:<br> Zaman karmaşıklığında alt sınırı gösteren gösterim türü aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Asimptotik Gösterim </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Big-O Gösterim </span><br>
+	<span class="option" data-correct="true"><b>C)</b> Big Omega Gösterimi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Big Theta Gösterimi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Alan Karmaşıklığı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description23">Açıklama</button>
+		<div id="description23" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question24">
+	<p class="question">Soru 24:<br> Bir algoritmanın performansının ölçülebilmesi için kullanılacak en önemli araçlardan biri  Big Theta gösteriminin doğru olarak yer aldığı formül aşağıdakilerden hangisidir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Θ(g(n)) ≥ O(g(n)) ∩ Ω (g(x)) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Θ(g(x)) = O(g(n)) Ω (g(n)) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Θ(g(n)) ≤ O(g(x)) ∩ Ω (g(x)) </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Θ(g(n)) = O(g(n)) ∩ Ω (g(x)) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Θ(g(n)) ≠O(g(n)) ∩ Ω (g(x)) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description24">Açıklama</button>
+		<div id="description24" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question25">
+	<p class="question">Soru 25:<br>  I. O(n) bir algoritmanın en kötü çalışma zamanını gösterir.<br>
+II. O(n²) gösterimine sahip algoritmalar O(2n) gösterimine sahip algoritmalardan daha yavaştır.<br>
+
+III. Big Omega zaman karmaşıklığında üst sınırı gösterir.<br>
+
+IV. Big Theta bir algoritmanın ortalama çalışma zamanını gösterir.<br><br>
+
+Yukarıdaki iadelerden hangisi/ hangileri <u><strong>yanlıştır?</strong></u> </p>
+	<span class="option" data-correct="false"><b>A)</b> I ve III </span><br>
+	<span class="option" data-correct="true"><b>B)</b> II ve III </span><br>
+	<span class="option" data-correct="false"><b>C)</b> III ve IV </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I ve IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> II ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description25">Açıklama</button>
+		<div id="description25" class="collapse">      II ve III. İfadeler tamamen yanlıştır. Big Omega gösterimi zaman karmaşıklığında alt sınırı göstermektedir. Bir başka deyişle Big-Omega ile ölçülen değerden daha iyi daha hızlı bir değer bulunamaz. O(n<sup>2</sup>) gösterimine sahip algoritmalar O(2<sup>n</sup>) gösterimine sahip algoritmalardan daha yavaş değildir. .     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question26">
+	<p class="question">Soru 26:<br> Geliştirilen bir algoritmanın problemi çözmek için harcadığı sürece ne ad verilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Yürütme zamanı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Komut zamanı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Bellek </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Karmaşa </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Yön bulma </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description26">Açıklama</button>
+		<div id="description26" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question27">
+	<p class="question">Soru 27:<br> I.  Yürütme zamanı / Zaman karmaşıklığı<br>
+II. Alan karmaşıklığı<br>
+
+III. En iyi, ortalama, en kötü durumlar<br>
+
+IV. Girdi<br><br>
+
+Yukarıdakilerden hangileri algoritma analizindeki temel kavramlardandır? </p>
+	<span class="option" data-correct="false"><b>A)</b> Yalnız I </span><br>
+	<span class="option" data-correct="false"><b>B)</b> I ve IV </span><br>
+	<span class="option" data-correct="true"><b>C)</b> I, II ve III </span><br>
+	<span class="option" data-correct="false"><b>D)</b> I, II ve IV </span><br>
+	<span class="option" data-correct="false"><b>E)</b> I, II, III ve IV </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description27">Açıklama</button>
+		<div id="description27" class="collapse">      Algoritma analizinde temel kavramlar, yürütme zamanı / zaman karmaşıklığı, alan karmaşıklığı, en iyi, ortalama, en kötü durumlar olarak karşımıza çıkmaktadır. Bu kavramlar alt başlıklar hâlinde incelenecektir.     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question28">
+	<p class="question">Soru 28:<br> Yürütme zamanı 2n<sup>4</sup>+n<sup>2</sup>+3 olan bir durumda n=3 için yürütme zamanı kaçtır? </p>
+	<span class="option" data-correct="true"><b>A)</b> 174 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> 182 </span><br>
+	<span class="option" data-correct="false"><b>C)</b> 196 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> 212 </span><br>
+	<span class="option" data-correct="false"><b>E)</b> 221 </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description28">Açıklama</button>
+		<div id="description28" class="collapse">      n yerine 3 koyduğumuzda:<br> 
+
+2.81+9+3 = 174   olur.      </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question29">
+	<p class="question">Soru 29:<br> Bir algoritmanın algoritmanın problemi çözmesi için gerekli bellek alanını veren bir değer veya fonksiyona ne ad verilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> En iyi durum </span><br>
+	<span class="option" data-correct="false"><b>B)</b> En kötü durum </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Ortalama durum </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yürütme zamanı </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Alan karmaşıklığı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description29">Açıklama</button>
+		<div id="description29" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question30">
+	<p class="question">Soru 30:<br> Algoritmanın en hızlı şekilde sonuca ulaşma durumuna ne ad verilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> En iyi durum (best case) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> En kötü durum (worst case) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Durum (case) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Ortalama durum (average case) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Karmaşık durum </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description30">Açıklama</button>
+		<div id="description30" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question31">
+	<p class="question">Soru 31:<br> Big-O gösterimi ilk olarak kimler tarafından ortaya atılmıştır? </p>
+	<span class="option" data-correct="true"><b>A)</b> Paul Bachman ve Edmund Landau </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Alonzo Church ve Gödel-Herbrand-Kleen </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Alan Turing ve Alonzo Church </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Thomas Bayes ve Gerolamo Cardano </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Gerolamo Cardano ve Edmund Landau </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description31">Açıklama</button>
+		<div id="description31" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question32">
+	<p class="question">Soru 32:<br> Aşağıdakilerden hangisi big-O gösterimi ile big-Omega gösterimi arasında ortalama bir karmaşıklığı ifade eder?  </p>
+	<span class="option" data-correct="true"><b>A)</b> Big theta gösterimi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Alan karmaşıklığı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Asimptotik varyans </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Yürütme zamanı </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Ortalama durum </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description32">Açıklama</button>
+		<div id="description32" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question33">
+	<p class="question">Soru 33:<br> ArananKalem=”Sarı”<br>
+WHILE (Kalem kutuda bakılmayan kalem kaldı mı?)<br>
+IF (sıradakiKalem=arananKalem)<br>
+PRINT “kalem bulundu”<br>
+EXIT<br>
+ENDWHILE<br><br>
+Yukarıdaki kod Sarı renkteki kalemin kalem kutuda bulunup bulunmadığını test etmektedir. n kalem kutudaki kalem sayısı olmak üzere ortalama durum nedir? </p>
+	<span class="option" data-correct="false"><b>A)</b> T(n)=0 </span><br>
+	<span class="option" data-correct="false"><b>B)</b> T(n)=1 </span><br>
+	<span class="option" data-correct="true"><b>C)</b> T(n)=n/2 </span><br>
+	<span class="option" data-correct="false"><b>D)</b> T(n)=n </span><br>
+	<span class="option" data-correct="false"><b>E)</b> T(n)=2n </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description33">Açıklama</button>
+		<div id="description33" class="collapse">      Bu algoritma için en iyi yürütme zamanı n kalem sayısı olmak üzere T(n)=1’ dir. Bu durum sorgulanan ilk kalemin sarı renkte olma durumunda gerçekleşir. Algoritma için en kötü durum ise sarı renkteki kalemin kalem kutuda bulunmaması veya en son sorguda bulunmasıdır. Bu durumda yürütme zamanı T(n)=n olacaktır. Ortalama durumda ise T(n)=n/2 şeklinde hesaplanabilir     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question34">
+	<p class="question">Soru 34:<br> Çözüm için geliştirilen algoritmaların veya programların kaynak (bellek, bant genişliği vb.) kullanımı ve performansı üzerine yapılan çalışmalar tanımı aşağıdakilerden hangisine aittir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Hesaplama karmaşıklığı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Yürütme zamanı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Alan karmaşıklığı </span><br>
+	<span class="option" data-correct="true"><b>D)</b> Algoritma analizi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Algoritma tasarımı </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description34">Açıklama</button>
+		<div id="description34" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question35">
+	<p class="question">Soru 35:<br> Algoritma kelimesi aşağıdakilerden hangisinin isminden gelmektedir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Harezmi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Aristoteles </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Platon </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Russell </span><br>
+	<span class="option" data-correct="false"><b>E)</b> İbni Sina </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description35">Açıklama</button>
+		<div id="description35" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question36">
+	<p class="question">Soru 36:<br> n=100 olduğunda alan karmaşıklığı açısından aşağıdaki algoritmalardan hangisi tercih edilir? </p>
+	<span class="option" data-correct="false"><b>A)</b> S(n) = 1000n </span><br>
+	<span class="option" data-correct="false"><b>B)</b> S(n) = nn </span><br>
+	<span class="option" data-correct="true"><b>C)</b> S(n) = 10n +  n<sup>2</sup> </span><br>
+	<span class="option" data-correct="false"><b>D)</b> S(n) = n<sup>3</sup> </span><br>
+	<span class="option" data-correct="false"><b>E)</b> S(n) = n(n<sup>2</sup>+1) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description36">Açıklama</button>
+		<div id="description36" class="collapse">      C şıkkındaki fonksiyonun n=100 için değeri 10*100+1002=11.000 olmaktadır.<br><br>
+
+(A şıkkındaki fonksiyonun n=100 için değeri 1000*100=100.000 olarak daha büyüktür. Diğer seçenekler ise n3 = 1003 = 1.000.000 veya daha fazla bir değere sahip olmaktadır. Bu sebeple A şıkkından da büyük alan kaplamaktadır. Alan karmaşıklığı daha fazladır.)<br><br>
+
+n=100 için en küçük değerin elde edildiği fonksiyon c şıkkındaki fonksiyon olduğundan doğru cevap (C) şıkkıdır.     </div>
+	</div>
+</div>
+		
+		
+	
+<div class="question-block">
+	<div id="question37">
+	<p class="question">Soru 37:<br> Algoritma analizinde, t(zaman) ve n (girdi büyüklüğü) arasındaki ilişki için bir fonksiyon bulunmaya çalışılmaktadır. Ama genelde bu ilişki oldukça karışık ve çok terimli olabilmektedir. Fonksiyon içerisindeki katsayılar ve sabit sayılar atılarak fonksiyon daha basit hâle getirilebilir. Bu basitleştirme işlemi ile elde edilen ölçüme ne denir? </p>
+	<span class="option" data-correct="false"><b>A)</b> Hesaplama karmaşıklığı </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Zaman karmaşıklığı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Alan karmaşıklığı </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Big-O gösterimi </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Asimptotik karmaşıklık </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description37">Açıklama</button>
+		<div id="description37" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+
+
+
+<div class="question-block">
+	<div id="question38">
+	<p class="question">Soru 38:<br> Aşağıdaki Big-O gösterimlerinden hangisi en yavaştır? </p>
+	<span class="option" data-correct="false"><b>A)</b> O(logn) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> O(n) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> O(nlogn) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> O(n<sup>2</sup>) </span><br>
+	<span class="option" data-correct="true"><b>E)</b> O(n!) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description38">Açıklama</button>
+		<div id="description38" class="collapse">      O(n<sup>n</sup>) daha yavaştır ancak şıklarda yok.    </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question39">
+	<p class="question">Soru 39:<br> Bilgisayarın gücünden, özel durumlardan ve veriden bağımsız hesaplanan çözümlere <u><strong>ne ad verilir?</strong></u> </p>
+	<span class="option" data-correct="true"><b>A)</b> Algoritma analizi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Optimizasyon </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Veri sıkıştırma </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Bellek yönetimi </span><br>
+	<span class="option" data-correct="false"><b>E)</b> Zaman analizi </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description39">Açıklama</button>
+		<div id="description39" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+      
+	  
+	  
+<div class="question-block">
+	<div id="question40">
+	<p class="question">Soru 40:<br>  Zaman karmaşıklığı T(n)=n<sup>2</sup>+3n+3 olan bir algoritmanın n2 biçiminde düzenlenerek basitleştirilmesi işlemi ile elde edilen ölçüme ne ad verilir? </p>
+	<span class="option" data-correct="true"><b>A)</b> Asimptotik karmaşıklık </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Alan karmaşıklığı </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Algoritma analizi </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Ortalama durum </span><br>
+	<span class="option" data-correct="false"><b>E)</b> En iyi durum </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description40">Açıklama</button>
+		<div id="description40" class="collapse">      Esasen algoritma analizinde, t(zaman) ve n (girdi büyüklüğü) arasındaki ilişki için bir fonksiyon bulunmaya çalışılmaktadır. Ama genelde bu ilişki oldukça karışık ve çok terimli olabilmektedir. Bu nedenle fonksiyon içerisindeki katsayılar ve sabit sayılar atılarak fonksiyon daha basit hâle getirilebilir. Basitleştirilir ve gerçek fonksiyona göre yaklaşık bir fonksiyon sunulur. Bu basitleştirme işlemi ile elde edilen ölçüme asimptotik karmaşıklık denmektedir.      </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question41">
+	<p class="question">Soru 41:<br> Aşağıdakilerden hangisi algoritmanın alanına girmez </p>
+	<span class="option" data-correct="false"><b>A)</b> Bellek yönetimi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Paketleme </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Genetik </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Optimizasyon </span><br>
+	<span class="option" data-correct="true"><b>E)</b> Kitap yazma </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description41">Açıklama</button>
+		<div id="description41" class="collapse">      Günümüzde bilgisayar ağları, kriptografi, bilgisayar Grafiği, Veritabanı, hesapsal biyoloji/geometri/işlem, tıp, uzay ve havacılık, doğal dil işleme vb birçok alanda farklı algoritmalar geliştirilmiştir. Alanyazında, sıralama, arama, En-kısa-yol problemi, süreç planlama, bellek yönetimi, benzerlik, paketleme, çizge, genetik, optimizasyon, veri sıkıştırma vb. gibi problemlere yönelik bir çok algoritma bulunmaktadır     </div>
+	</div>
+</div>
+	  
+	  
+	  
+<div class="question-block">
+	<div id="question42">
+	<p class="question">Soru 42:<br> Aşağıdakilerden hangisi algoritmanın zaman karmaşıklığındaki üst sınırı ifade eder? </p>
+	<span class="option" data-correct="true"><b>A)</b> Big-O Gösterimi </span><br>
+	<span class="option" data-correct="false"><b>B)</b> Big-tetha </span><br>
+	<span class="option" data-correct="false"><b>C)</b> Big-omega </span><br>
+	<span class="option" data-correct="false"><b>D)</b> Np-complete </span><br>
+	<span class="option" data-correct="false"><b>E)</b> T-zaman </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description42">Açıklama</button>
+		<div id="description42" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+		
+		
+<div class="question-block">
+	<div id="question43">
+	<p class="question">Soru 43:<br> Çalışma zamanı T(n)=8n<sup>2</sup>logn+5n<sup>2</sup>+n olan bir algoritma için Big-Omega gösterimi aşağıdakilerden hangisi olacaktır? </p>
+	<span class="option" data-correct="true"><b>A)</b> O(n<sup>2</sup>logn) </span><br>
+	<span class="option" data-correct="false"><b>B)</b> O(nlogn) </span><br>
+	<span class="option" data-correct="false"><b>C)</b> O(logn) </span><br>
+	<span class="option" data-correct="false"><b>D)</b> O(n<sup>2</sup>) </span><br>
+	<span class="option" data-correct="false"><b>E)</b> O(n!) </span><br>
+		<button type="button" class="btn btn-success btn-sm text-xs" data-toggle="collapse" data-target="#description43">Açıklama</button>
+		<div id="description43" class="collapse">      AçıklamaYok     </div>
+	</div>
+</div>
+		
+
+
+<button type="submit" id="test-submit" data-toggle="modal" data-target="#result-modal">Testi Bitir</button>
+
+	
+    </form>
+	
+<!-- Modal HTML -->
+<div id="result-modal" class="modal fade">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Sonuçlar</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<img src="close.png" alt="Close button">
+         </button>
+      </div>
+      <div class="modal-body">
+        <p>Doğru: <span id="correct-answers"></span></p>
+        <p>Yanlış: <span id="incorrect-answers"></span></p>
+        <p>Boş: <span id="unanswered"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+	
+	<footer><button onclick="topFunction()" id="topbuton"><img src="top.png"></button> </footer>
+		
+    <script>
+///////soruları parta bölme//////
+const blockGroups = document.querySelectorAll(".block-group");
+blockGroups.forEach((group) => {
+  group.addEventListener("click", () => showBlocks(group.dataset.start, group.dataset.end));
+});
+
+document.querySelector("#show-all").addEventListener("click", () => showBlocks(0, 199));
+
+function showBlocks(startIndex, endIndex) {
+  const blocks = document.querySelectorAll(".question-block");
+  blocks.forEach((block) => {
+    const blockIndex = Array.from(block.parentNode.children).indexOf(block);
+    if (blockIndex >= startIndex && blockIndex <= endIndex) {
+      block.style.display = "block";
+    } else {
+      block.style.display = "none";
+    }
+  });
+}		
+		
+//////////////DARK/LIGHT TEMA GEÇİŞİ////////////
+const toggleThemeButton = document.getElementById("toggle-theme-button");
+
+function switchTheme(){
+    if(localStorage.getItem('theme')==='dark'){
+        document.body.classList.add('dark-mode');
+    }else{
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+toggleThemeButton.addEventListener("click", function() {
+    if(localStorage.getItem('theme')==='dark'){
+        localStorage.setItem('theme','light');
+    }else{
+        localStorage.setItem('theme','dark');
+    }
+    switchTheme();
+});
+
+switchTheme();
+
+
+/////////////////////////////////////////////	
+	
+/////////////kırık link yönlendirme//////////
+
+/*
+window.addEventListener("error", function (event) {
+   event.preventDefault();
+   window.location.replace("anasayfa.html");
+}, true);
+*/
+
+
+////////////////////////////////////////////// 	
+
+/////////////buton outline none yapma/////
+
+$('.btn').click(function() {
+$(this).blur();
+});
+
+////////////////TOP BUTON/////////////////////////
+document.getElementById("topbuton").style.display = "none";
+
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0;
+}
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("topbuton").style.display = "block";
+  } else {
+    document.getElementById("topbuton").style.display = "none";
+  }
+}
+
+
+//////////////Doğru / Yanlış Renk Değişimi/////////////////	
+const form = document.querySelector('#test-form');
+const questionBlocks = form.querySelectorAll('.question-block');
+questionBlocks.forEach(questionBlock => {
+const options = questionBlock.querySelectorAll('.option');
+options.forEach(option => {
+option.addEventListener('click', e => {
+  // Get the parent element of the clicked option
+  const parent = option.parentNode;
+  // Remove the 'selected' and 'incorrect' classes from all options in the same question block
+  const siblingOptions = parent.querySelectorAll('.option');
+  siblingOptions.forEach(opt => {
+    opt.classList.remove('selected', 'incorrect');
+  });
+  // Add the 'selected' class to the clicked option
+  option.classList.add('selected');
+  // If the clicked option is incorrect, add the 'incorrect' class
+  if (option.dataset.correct == "false") {
+    option.classList.add('incorrect');
+  }
+});
+});
+});
+
+
+/////MODAL İÇİN//////////
+$("#test-form").submit(function(e) {
+    e.preventDefault();
+    var correctAnswers = 0;
+    var incorrectAnswers = 0;
+    var unanswered = 0;
+    //loop through each question
+    $('[id^="question"]').each(function() {
+        var selectedOption = $(this).find('.option.selected');
+        if (selectedOption.length > 0) {
+            if (selectedOption.data('correct') == true) {
+                correctAnswers++;
+            } else {
+                incorrectAnswers++;
+            }
+        } else {
+            unanswered++;
+        }
+    });
+    $('#correct-answers').text(correctAnswers);
+    $('#incorrect-answers').text(incorrectAnswers);
+    $('#unanswered').text(unanswered);
+    $('#result-modal').modal('show');
+});
+
+
+    </script>
+  </body>
+</html>
