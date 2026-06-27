@@ -72,6 +72,11 @@ APK Builder ile Android'e dönüştürülmüş iki çapraz platform uygulama:
 
 ## Bağlantılar
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Profil-0077B5?style=flat&logo=linkedin)](https://linkedin.com/in/sercanozverenli)
+<a href="https://www.linkedin.com/in/sercanozverenli/" target="_blank">
+  <img src="/workspace/docs/icons/linkedin-app-icon.png" alt="LinkedIn" width="32" height="32" style="margin-right:12px;">
+</a>
+<a href="https://github.com/sercanozverenli" target="_blank">
+  <img src="/workspace/docs/icons/github-icon.png" alt="GitHub" width="32" height="32">
+</a>
 
 <a href="/docs/assets/cv/Sercan_Ozverenli_CV.pdf" download>📄 CV İndir (PDF)</a>
