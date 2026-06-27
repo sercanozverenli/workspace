@@ -10,12 +10,10 @@ Uygulama etkileşimli bir ödül mantığı üzerine kuruludur:
 * **Ödül Sistemi:** Tüm sorular hatasız tamamlandığında; seçilen zorluk seviyesine özel olarak havuzdan çekilen gizli bir karakterin kimlik bilgilerini içeren özel bir ödül sayfasına yönlendirme yapılır.
 
 ### Uygulama İçi Görseller
-*(Not: Ekran görüntülerini portföy dizinindeki `docs/assets/` klasörü altına ekleyebilirsiniz.)*
-
 <div style="display: flex; gap: 10px; margin-top: 15px;">
-  <img src="docs/assets/gamified-multiplication-tool/multiplication_1.png" alt="Zorluk Seçimi" width="30%">
-  <img src="docs/assets/gamified-multiplication-tool/multiplication_2.png" alt="Soru Ekranı" width="30%">
-  <img src="docs/assets/gamified-multiplication-tool/multiplication_3.png" alt="Ödül Ekranı" width="30%">
+  <img src="https://github.com/sercanozverenli/workspace/blob/main/docs/assets/gamified-multiplication-tool/multiplication_1.png" alt="Zorluk Seçimi" width="30%">
+  <img src="https://github.com/sercanozverenli/workspace/blob/main/docs/assets/gamified-multiplication-tool/multiplication_2.png" alt="Soru Ekranı" width="30%">
+  <img src="https://github.com/sercanozverenli/workspace/blob/main/docs/assets/gamified-multiplication-tool/multiplication_3.png" alt="Ödül Ekranı" width="30%">
 </div>
 
 ### Kullanılan Teknolojiler (Tech Stack)
