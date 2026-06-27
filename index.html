@@ -5,112 +5,113 @@
   <title>Workspace · Personal R&D Hub</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  
+  <link rel="stylesheet" id="docsify-theme" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
   
   <style>
-    /* Üst Bar Yerleşimi (Search & Theme için optimize edildi) */
+    /* Üst Bar Yerleşimi - Jilet gibi Dashboard Düzeni */
     .top-bar {
       position: fixed;
       top: 0;
       right: 0;
       left: 0;
-      height: 50px;
+      height: 60px;
       background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(4px);
+      backdrop-filter: blur(8px);
       border-bottom: 1px solid #e2e8f0;
-      z-index: 10;
+      z-index: 100;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 20px 0 320px; /* Sidebar açıkken çakışmayı önler */
+      padding: 0 30px 0 330px; /* Sidebar alanını korur */
+      box-sizing: border-box;
     }
 
-    /* Mobil Ekran Optimizasyonu */
+    /* Docsify'ın Sol Menü Butonunu Üst Bara Göre Hizala */
+    .sidebar-toggle {
+      bottom: auto !important;
+      top: 18px !important;
+      left: 15px !important;
+      position: fixed !important;
+      z-index: 1000 !important;
+      background: transparent !important;
+    }
+
+    /* Sidebar'ı Üst Barın Altından Başlat */
+    .sidebar {
+      padding-top: 70px !important;
+      z-index: 90 !important;
+    }
+
+    /* İçerik Alanını Aşağı Kaydır ki Üst Barın Altında Kalmasın */
+    .content {
+      padding-top: 40px !important;
+    }
+
+    /* Mobil Ekran Uyumluluğu */
     @media screen and (max-width: 768px) {
       .top-bar {
-        padding-left: 70px;
+        padding-left: 80px;
       }
       .markdown-section {
-        padding-top: 70px !important;
+        padding-top: 60px !important;
       }
     }
 
-    /* Arama Kutusu Modernizasyonu */
-    .search {
-      margin: 0 !important;
-      width: 250px;
-    }
-    .search input {
-      border: 1px solid #cbd5e1 !important;
-      border-radius: 6px !important;
-      padding: 6px 12px !important;
-      font-size: 13px !important;
-      background: #f8fafc !important;
-      transition: all 0.2s !important;
-    }
-    .search input:focus {
-      border-color: #42b983 !important;
-      background: #ffffff !important;
-      box-shadow: 0 0 0 3px rgba(66, 185, 131, 0.1) !important;
-    }
-
-    /* Sağ Bölüm Buton Alanı */
+    /* Üst Bar Sağ Aksiyon Alanı */
     .top-bar-actions {
       display: flex;
       align-items: center;
       gap: 12px;
     }
 
-    /* Tema Değiştirme Butonu Tasarımı */
-    .theme-btn {
-      background: #f1f5f9;
-      border: 1px solid #e2e8f0;
-      padding: 6px 12px;
-      border-radius: 20px;
-      cursor: pointer;
-      font-weight: 600;
-      font-size: 13px;
-      color: #334155;
-      transition: all 0.2s;
-    }
-    .theme-btn:hover {
-      background: #e2e8f0;
-    }
-
-    /* Docsify Yerleşik Navbar'ını (Dil Seçeneğini) Sağ Üste Hizalama */
-    .app-nav {
-      position: static !important;
-      margin: 0 !important;
-    }
-    .app-nav ul {
-      margin: 0;
-      padding: 0;
-      display: flex;
-      gap: 8px;
-    }
-    .app-nav ul li {
+    /* Üst Bar Buton Standartları */
+    .top-btn {
       background-color: #f4f6f8;
+      border: 1px solid #e2e8f0;
       border-radius: 20px;
-      padding: 4px 14px;
-      list-style: none;
-      transition: all 0.2s ease-in-out;
-    }
-    .app-nav ul li:hover {
-      background-color: #e2e8f0;
-    }
-    .app-nav li a {
+      padding: 6px 14px;
       font-weight: 600;
-      color: #2c3e50 !important;
-      text-decoration: none;
       font-size: 13px;
+      color: #2c3e50;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      display: inline-flex;
+      align-items: center;
+    }
+    .top-btn:hover {
+      background-color: #e2e8f0;
+      color: #1a202c;
     }
 
-    /* Sidebar Düzenlemeleri */
-    .sidebar-toggle { bottom: auto !important; top: 12px !important; left: 15px !important; position: fixed !important; z-index: 99; }
-    .sidebar { padding-top: 70px !important; z-index: 20; }
-    .content { padding-top: 40px !important; }
+    /* Docsify'ın Sidebar İçindeki Orijinal Arama Kutusunu Tamamen Gizle */
+    .sidebar .search {
+      display: none !important;
+    }
 
-    /* Rozet (Badge) Tasarımları */
+    /* Bizim Üst Bardaki Özel Arama Kutumuz */
+    .custom-search-container {
+      width: 280px;
+    }
+    .custom-search-container input {
+      width: 100%;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      padding: 7px 12px;
+      font-size: 13px;
+      background: #f8fafc;
+      outline: none;
+      transition: all 0.2s;
+      box-sizing: border-box;
+    }
+    .custom-search-container input:focus {
+      border-color: #42b983;
+      background: #ffffff;
+      box-shadow: 0 0 0 3px rgba(66, 185, 131, 0.1);
+    }
+
+    /* Rozet (Badge) Stilleri */
     .badge { font-size: 10px; padding: 2px 6px; border-radius: 4px; margin-left: 6px; font-weight: bold; }
     .badge.active { background-color: #e6fffa; color: #047481; }
     .badge.planned { background-color: #f7fafc; color: #4a5568; border: 1px solid #edf2f7; }
@@ -119,51 +120,41 @@
 <body>
   
   <div class="top-bar">
-    <div id="search-placeholder"></div>
+    <div class="custom-search-container">
+      <input type="text" id="custom-search-input" placeholder="Ara / Search...">
+    </div>
     
     <div class="top-bar-actions">
-      <button class="theme-btn" id="theme-toggle">🌓 Tema</button>
-      <nav class="app-nav"></nav>
+      <button class="top-btn" id="theme-toggle">🌓 Tema</button>
+      
+      <a href="#/tr/" class="top-btn" id="lang-tr">TR</a>
+      <a href="#/en/" class="top-btn" id="lang-en">EN</a>
     </div>
   </div>
 
-  <div id="app">Yükleniyor...</div>
+  <div id="app">Workspace yükleniyor...</div>
 
   <script>
     window.$docsify = {
       loadSidebar: true,
-      loadNavbar: true, // NAVBAR'I TEKRAR AKTİF EDİYORUZ
+      loadNavbar: false, // Çakışma yaratan yerleşik navbar'ı kapattık! Üst bar elle yönetiliyor.
       subMaxLevel: 0,
       
-      // Arama Ayarları (Üst bara taşındı)
+      // Yerleşik arama motorunu arka planda aktif tutuyoruz (indexleme yapsın diye)
       search: {
         maxAge: 86400000,
         paths: 'auto',
-        placeholder: {
-          '/en/': 'Search...',
-          '/': 'Ara...'
-        },
-        noData: {
-          '/en/': 'No results!',
-          '/': 'Sonuç bulunamadı!'
-        },
-        depth: 2,
-        hideOtherSidebarContent: false,
-        // Aramayı bizim oluşturduğumuz placeholder içine koyar
-        el: '#search-placeholder' 
+        depth: 2
       },
 
       alias: {
-        // BOZULAN KURAL: Kök dizine girişte doğrudan Türkçe çalışma alanını yükler
+        // BAŞARDIĞIMIZ VE KORUDUĞUMUZ KÖK DİZİN KURALI
         '/':                     '/tr/README.md',
 
-        // Mevcut ve tıkır tıkır çalışan diğer alias kuralların (Aynen Korundu)
+        // Çalışan tünel kuralların
         '/_sidebar.md':          '/tr/_sidebar.md',
         '/tr/.*/_sidebar.md':    '/tr/_sidebar.md',
-        '/en/.*/_sidebar.md':    '/en/_sidebar.md',
-        '/_navbar.md':           '/tr/_navbar.md',
-        '/tr/.*/_navbar.md':     '/tr/_navbar.md',
-        '/en/.*/_navbar.md':     '/en/_navbar.md'
+        '/en/.*/_sidebar.md':    '/en/_sidebar.md'
       }
     }
   </script>
@@ -172,16 +163,37 @@
   <script src="//cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
 
   <script>
-    const themeBtn = document.getElementById('theme-toggle');
-    let currentTheme = 'vue';
-    themeBtn.addEventListener('click', () => {
-      const link = document.querySelector('link[href*="themes"]');
-      if (currentTheme === 'vue') {
-        link.href = '//cdn.jsdelivr.net/npm/docsify@4/lib/themes/buble.css';
-        currentTheme = 'buble';
+    // 1. ARAMA MOTORUNU ÜST BARA BAĞLAMA (PROXY MANTIĞI)
+    // Docsify'ın gizli arama motorunu tetikleyen akıllı input köprüsü
+    document.getElementById('custom-search-input').addEventListener('input', function(e) {
+      const docsifySearchInput = document.querySelector('.sidebar .search input');
+      if (docsifySearchInput) {
+        docsifySearchInput.value = e.target.value;
+        docsifySearchInput.dispatchEvent(new Event('input', { bubbles: true }));
+      }
+    });
+
+    // Dynamic placeholder yönetimi
+    window.addEventListener('hashchange', function() {
+      const input = document.getElementById('custom-search-input');
+      if (window.location.hash.includes('/en/')) {
+        input.placeholder = "Search...";
       } else {
-        link.href = '//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css';
-        currentTheme = 'vue';
+        input.placeholder = "Ara...";
+      }
+    });
+
+    // 2. TEMA DEĞİŞTİRME MOTORU (YENİDEN KURGULANDI - ÇÖKMEZ)
+    const themeBtn = document.getElementById('theme-toggle');
+    let themeState = 'vue';
+    themeBtn.addEventListener('click', () => {
+      const themeLink = document.getElementById('docsify-theme');
+      if (themeState === 'vue') {
+        themeLink.href = '//cdn.jsdelivr.net/npm/docsify@4/lib/themes/buble.css';
+        themeState = 'buble';
+      } else {
+        themeLink.href = '//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css';
+        themeState = 'vue';
       }
     });
   </script>
