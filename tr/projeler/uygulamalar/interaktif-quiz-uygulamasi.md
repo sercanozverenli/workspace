@@ -1,4 +1,4 @@
-# İnteraktif Quiz Uygulaması (Sınav Simülatörü)
+# İnteraktif Test Uygulaması (Sınav Simülatörü)
 
 Bilişim sistemleri ve bilgisayar programcılığı müfredatında yer alan (Veri Yapıları, Unix Sistem Yönetimi, Mobil Uygulama Geliştirme vb.) birçok farklı dersi tek bir çatı altında toplayan; öğrencilerin vize, final ve ünite sonu değerlendirmelerini pratik etmelerini sağlayan kapsamlı bir sınav simülatörüdür.
 
