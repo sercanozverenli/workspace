@@ -7,26 +7,24 @@ Uygulama, bilişsel yükü azaltan ve öğrenmeyi pekiştiren bir mimariyle tasa
 
 * **Çoklu Ders ve Kategori Seçimi:** Kullanıcılar; ilgili dönemi, çalışmak istedikleri spesifik dersi ve test türünü (Ünite Testi, Ara Sınav veya Final) seçerek spesifik bir soru havuzuna giriş yaparlar.
   
-  ![Dönem ve Ders Seçimi](../../../docs/assets/interactive-quiz-app/int_quiz_1.PNG ':size=30%')  ![Alt Kategori Seçimi](../../../docs/assets/interactive-quiz-app/int_quiz_2.PNG ':size=35%')
+  ![Dönem ve Ders Seçimi](../../../docs/assets/interactive-quiz-app/int_quiz_1.PNG ':size=35%')  ![Alt Kategori Seçimi](../../../docs/assets/interactive-quiz-app/int_quiz_2.PNG ':size=35%')
 
 * **Anında Geri Bildirim ve Detaylı Açıklamalar:** Klasik test çözme mantığının ötesinde, kullanıcı bir şıkkı işaretlediğinde sistem anında renk kodlarıyla (Doğru: Yeşil, Yanlış: Kırmızı) tepki verir. Ayrıca her sorunun altında yer alan "Açıklama" butonu ile hatanın nedeni veya konunun detayı anında öğrenilebilir. Testler arası geçişi kolaylaştırmak için sayfalandırma (Part 1, Part 2) özelliği bulunmaktadır.
   
-  ![Quiz Arayüzü](../../../docs/assets/interactive-quiz-app/int_quiz_3.PNG ':size=30%')
+  ![Quiz Arayüzü](../../../docs/assets/interactive-quiz-app/int_quiz_3.PNG ':size=35%')
 
 * **Karanlık Mod (Dark Mode) Entegrasyonu:** Uzun süreli çalışmalarda göz yorgunluğunu önlemek amacıyla sisteme tam entegre bir Karanlık Mod eklenmiştir. Kullanıcının tema tercihi tarayıcı önbelleğinde (`localStorage`) tutularak sayfa geçişlerinde kalıcılık sağlanır.
   
-  ![Karanlık Mod](../../../docs/assets/interactive-quiz-app/int_quiz_4.PNG ':size=30%')
+  ![Karanlık Mod](../../../docs/assets/interactive-quiz-app/int_quiz_4.PNG ':size=35%')
 
 * **Gelişmiş Sonuç Analizi (Modal):** Test bitirildiğinde tetiklenen algoritma, kullanıcının sınav performansını hesaplayarak doğru, yanlış ve boş bırakılan soru sayılarını dinamik bir pop-up (modal) ekranında raporlar. Rastgelelik (randomization) algoritmalarıyla desteklenen soru yapıları, ezberden ziyade öğrenmeyi test eder.
   
-  ![Sonuç Ekranı](../../../docs/assets/interactive-quiz-app/int_quiz_5.PNG ':size=30%')
+  ![Sonuç Ekranı](../../../docs/assets/interactive-quiz-app/int_quiz_5.PNG ':size=35%')
 
 
 ### Kullanılan Teknolojiler (Tech Stack)
-* **Arayüz ve Mobil Uyumluluk:** HTML5, CSS3, Bootstrap 4.5.2
-* **DOM Manipülasyonu ve Etkileşim:** jQuery 3.5.1, Vanilla JS *(Soru validasyonları, tema geçişleri, filtreleme mantığı ve asenkron veri işlemleri)*
-* **Durum Yönetimi (State Management):** LocalStorage *(Kullanıcı arayüzü tercihlerinin hafızada tutulması için)*
-* **Mobil Dağıtım:** Geliştirilen web mimarisi, APK Builder aracı kullanılarak dağıtıma hazır Android (`.apk`) formatına dönüştürülmüştür.
+* **Arayüz ve Tasarım:** HTML5, CSS3, Bootstrap 4.5.2
+* **Etkileşim, Mantık ve Mobil Dağıtım:** jQuery 3.5.1, Vanilla JS, LocalStorage ve APK Builder *(Arayüz ve tasarım teknolojileri haricindeki tüm sistemlerin; soru validasyonları, tema geçişleri, sayfa filtreleme algoritmaları, verilerin hafızada tutulması ve projenin Android `.apk` formatına dönüştürülmesi süreçlerinde **ChatGPT 3.5** yapay zeka asistanından faydalanılmıştır.)*
 
 ---
 
