@@ -7,15 +7,15 @@ Uygulama etkileşimli bir ödül mantığı üzerine kuruludur:
 
 * **Zorluk Seçimi:** Kullanıcı, pratik yapmak istediği seviyeye uygun çarpım tablosu zorluk derecesini belirler.
   
-  ![Zorluk Seçimi](../../../docs/assets/gamified-multiplication-tool/multiplication_1.png ':size=40%')
+  ![Zorluk Seçimi](../../../docs/assets/gamified-multiplication-tool/multiplication_1.png ':size=35%')
 
 * **Dinamik Soru Havuzu ve Hata Kontrolü:** Çarpım tablosu soruları rastgele karıştırılarak (randomized) ekrana getirilir. Test bitiminde "Kimim Ben?" butonuna tıklandığında, arka planda çalışan algoritma cevapları denetler. Eğer hata varsa, kullanıcı uyarılır ve doğruları bulmaya teşvik edilir.
   
-  ![Soru Ekranı ve Hata Kontrolü](../../../docs/assets/gamified-multiplication-tool/multiplication_2.png ':size=40%')
+  ![Soru Ekranı ve Hata Kontrolü](../../../docs/assets/gamified-multiplication-tool/multiplication_2.png ':size=35%')
 
 * **Ödül Sistemi:** Tüm sorular hatasız tamamlandığında; seçilen zorluk seviyesine özel olarak havuzdan çekilen gizli bir karakterin kimlik bilgilerini içeren özel bir ödül sayfasına yönlendirme yapılır.
   
-  ![Ödül Ekranı](../../../docs/assets/gamified-multiplication-tool/multiplication_3.png ':size=30%')
+  ![Ödül Ekranı](../../../docs/assets/gamified-multiplication-tool/multiplication_3.png ':size=35%')
 
 
 ### 🚀 Kullanılan Teknolojiler (Tech Stack)
@@ -25,13 +25,15 @@ Uygulama etkileşimli bir ödül mantığı üzerine kuruludur:
 
 ---
 
-> **⚠️ Telif Hakkı ve Feragatname**
-> Bu uygulama tamamen **eğitim ve kişisel portföy** amaçlı olarak, bir "Proof of Concept" (Kavram Kanıtı) niteliğinde geliştirilmiştir. "Kimim Ben?" ödül mekanizması havuzunda kullanılan karakter görselleri açık internet kaynaklarından temin edilmiş olup **hiçbir ticari amaç güdülmemektedir**.
-
----
-
 ### Kaynak Kodları ve Kurulum
 Uygulamanın web tabanlı kaynak kodlarına ve derlenmiş Android sürümüne aşağıdaki bağlantılardan ulaşabilirsiniz:
 
 **[GitHub Üzerinden HTML Kaynak Kodlarını İncele](https://github.com/sercanozverenli/web_and_mobile_apps/tree/main/Gamified_Multiplication_Tool/HTML_Source)** <br>
 👉 **[Kurulabilir Android APK Dosyasını İndir](https://github.com/sercanozverenli/web_and_mobile_apps/blob/main/Gamified_Multiplication_Tool/Android_Build/Gamified_Multiplication_Tool_1_1.0.apk)**
+
+---
+
+> **⚠️ Telif Hakkı ve Yasal Uyarı (Disclaimer)**
+> Bu proje tamamen **eğitim, öğrenme ve kişisel portföy** sergileme amacıyla, bir "Proof of Concept" (Kavram Kanıtı) niteliğinde açık kaynaklı olarak geliştirilmiştir. Uygulama içinde yer alan ve üçüncü taraflara ait olan karakter görsellerinin (IP'ler) **tüm telif hakları asıl sahiplerine aittir** ve bu proje kapsamında tarafımca hiçbir **ticari gelir veya amaç güdülmemektedir**.
+> 
+> **Sorumluluk Reddi:** Bu deponun kaynak kodlarını indiren, kopyalayan (fork) veya kendi projelerinde kullanan **üçüncü şahıslar**, proje içerisindeki üçüncü parti görsellerin telif hakkı lisans gereksinimlerinden **tamamen kendileri sorumludur**. Projenin geliştiricisi olarak ben; bu kaynak kodların veya içeriklerin başkaları tarafından ticari faaliyetlerde kullanılmasından, izinsiz dağıtımından veya telif hakkı ihlali doğuracak herhangi bir kötüye kullanımından doğabilecek **hiçbir hukuki ve cezai sorumluluğu kabul etmiyorum**. Projeyi veya kodları indiren/kullanan herkes bu şartları peşinen kabul etmiş sayılır.
