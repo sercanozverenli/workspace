@@ -63,20 +63,6 @@
     }
     #theme-toggle:hover { background: #e2e8f0; }
 
-    .lang-switcher { display: flex; align-items: center; gap: 4px; }
-    .lang-switcher a {
-      font-size: 13px;
-      font-weight: 600;
-      color: #475569;
-      text-decoration: none;
-      padding: 5px 8px;
-      border-radius: 6px;
-      transition: background 0.15s, color 0.15s;
-    }
-    .lang-switcher a:hover { background: #f0f4f8; color: #1e293b; }
-    .lang-switcher a.active { color: #1d4ed8; background: #dbeafe; }
-    .lang-switcher .divider { color: #cbd5e1; }
-
     /* ── SIDEBAR ─────────────────────────────────────── */
     .sidebar {
       border-right: 1px solid #e2e8f0;
@@ -311,16 +297,6 @@
       localStorage.setItem('theme', isDark ? 'dark' : 'light');
       this.textContent = isDark ? '☀️' : '🌙';
     });
-
-    // Dil seçici aktif durumu
-    function updateLang() {
-      const isEn = window.location.hash.startsWith('#/en/');
-      document.getElementById('lang-tr').classList.toggle('active', !isEn);
-      document.getElementById('lang-en').classList.toggle('active', isEn);
-      document.getElementById('topbar-search-input').placeholder = isEn ? 'Search...' : 'Ara...';
-    }
-    updateLang();
-    window.addEventListener('hashchange', updateLang);
 
     // Arama proxy — topbar input'u Docsify'ın gizli arama input'una bağlar
     function setupSearchProxy() {
