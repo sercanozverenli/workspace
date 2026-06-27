@@ -4,16 +4,21 @@ Eğitim teknolojileri odaklı geliştirilen bu proje, ilköğretim seviyesindeki
 
 ### 🎮 Oyun Mekaniği ("Kimim Ben?")
 Uygulama etkileşimli bir ödül mantığı üzerine kuruludur:
+
 * **Zorluk Seçimi:** Kullanıcı, pratik yapmak istediği seviyeye uygun çarpım tablosu zorluk derecesini belirler.
-* **Dinamik Soru Havuzu:** Çarpım tablosu soruları rastgele karıştırılarak (randomized) ekrana getirilir.
-* **Hata Kontrolü:** Test bitiminde "Kimim Ben?" butonuna tıklandığında, arka planda çalışan algoritma cevapları denetler. Eğer hata varsa, kullanıcı uyarılır ve doğruları bulmaya teşvik edilir.
+  
+  ![Zorluk Seçimi](../../../docs/assets/gamified-multiplication-tool/multiplication_1.png ':width=70%')
+
+* **Dinamik Soru Havuzu ve Hata Kontrolü:** Çarpım tablosu soruları rastgele karıştırılarak (randomized) ekrana getirilir. Test bitiminde "Kimim Ben?" butonuna tıklandığında, arka planda çalışan algoritma cevapları denetler. Eğer hata varsa, kullanıcı uyarılır ve doğruları bulmaya teşvik edilir.
+  
+  ![Soru Ekranı ve Hata Kontrolü](../../../docs/assets/gamified-multiplication-tool/multiplication_2.png ':width=70%')
+
 * **Ödül Sistemi:** Tüm sorular hatasız tamamlandığında; seçilen zorluk seviyesine özel olarak havuzdan çekilen gizli bir karakterin kimlik bilgilerini içeren özel bir ödül sayfasına yönlendirme yapılır.
+  
+  ![Ödül Ekranı](../../../docs/assets/gamified-multiplication-tool/multiplication_3.png ':width=70%')
 
-### Uygulama İçi Görseller
 
-![Zorluk Seçimi](../../../docs/assets/gamified-multiplication-tool/multiplication_1.png ':width=32%') ![Soru Ekranı](../../../docs/assets/gamified-multiplication-tool/multiplication_2.png ':width=32%') ![Ödül Ekranı](../../../docs/assets/gamified-multiplication-tool/multiplication_3.png ':width=32%')
-
-### Kullanılan Teknolojiler (Tech Stack)
+### 🚀 Kullanılan Teknolojiler (Tech Stack)
 * **Arayüz ve Tasarım:** HTML5, CSS3, Bootstrap 4.0
 * **JavaScript Ekosistemi ve Oyun Motoru:** Vanilla JS, jQuery 3.5.1, Fabric.js *(Uygulama mantığının kurgulanması, DOM manipülasyonları ve Canvas üzerindeki karakter yönetim süreçleri GPT-3.5 yapay zeka asistanı desteğiyle entegre edilmiştir.)*
 * **Mobil Dağıtım:** HTML/JS mimarisi APK Builder aracı kullanılarak dağıtıma hazır Android (`.apk`) formatına dönüştürülmüştür.
@@ -25,7 +30,8 @@ Uygulama etkileşimli bir ödül mantığı üzerine kuruludur:
 
 ---
 
-### Kaynak Kodları ve Kurulum
+### 📂 Kaynak Kodları ve Kurulum
 Uygulamanın web tabanlı kaynak kodlarına ve derlenmiş Android sürümüne aşağıdaki bağlantılardan ulaşabilirsiniz:
 
-👉 **[GitHub Üzerinden HTML Kaynak Kodlarını İncele](https://github.com/sercanozverenli/web_and_mobile_apps/tree/main/Gamified_Multiplication_Tool/HTML_Source)** 👉 **[Kurulabilir Android APK Dosyasını İndir](https://github.com/sercanozverenli/web_and_mobile_apps/blob/main/Gamified_Multiplication_Tool/Android_Build/Gamified_Multiplication_Tool_1_1.0.apk)**
+👉 **[GitHub Üzerinden HTML Kaynak Kodlarını İncele](https://github.com/sercanozverenli/web_and_mobile_apps/tree/main/Gamified_Multiplication_Tool/HTML_Source)** <br>
+👉 **[Kurulabilir Android APK Dosyasını İndir](https://github.com/sercanozverenli/web_and_mobile_apps/blob/main/Gamified_Multiplication_Tool/Android_Build/Gamified_Multiplication_Tool_1_1.0.apk)**
