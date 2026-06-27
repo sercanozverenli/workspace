@@ -19,7 +19,7 @@
     <summary>Uygulamalar</summary>
     <ul>
       <li><a href="#/tr/projeler/uygulamalar/oyunlastirilmis-carpim-tablosu">Oyunlaştırılmış Çarpım Tablosu <span class="badge active">Aktif</span></a></li>
-      <li><a href="#/tr/projeler/uygulamalar/interaktif-quiz-uygulamasi">İnteraktif Quiz Uygulaması <span class="badge active">Aktif</span></a></li>
+      <li><a href="#/tr/projeler/uygulamalar/interaktif-quiz-uygulamasi">İnteraktif Test Uygulaması <span class="badge active">Aktif</span></a></li>
     </ul>
   </details>
 
