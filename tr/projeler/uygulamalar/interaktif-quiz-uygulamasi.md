@@ -7,19 +7,19 @@ Uygulama, bilişsel yükü azaltan ve öğrenmeyi pekiştiren bir mimariyle tasa
 
 * **Çoklu Ders ve Kategori Seçimi:** Kullanıcılar; ilgili dönemi, çalışmak istedikleri spesifik dersi ve test türünü (Ünite Testi, Ara Sınav veya Final) seçerek spesifik bir soru havuzuna giriş yaparlar.
   
-  ![Dönem ve Ders Seçimi](../../../docs/assets/interactive-quiz-app/int_quiz_1.PNG ':size=35%')  ![Alt Kategori Seçimi](../../../docs/assets/interactive-quiz-app/int_quiz_2.PNG ':size=35%')
+  ![Dönem ve Ders Seçimi](../../../docs/assets/interactive-quiz-app/int_quiz_1.PNG ':size=30%')  ![Alt Kategori Seçimi](../../../docs/assets/interactive-quiz-app/int_quiz_2.PNG ':size=35%')
 
 * **Anında Geri Bildirim ve Detaylı Açıklamalar:** Klasik test çözme mantığının ötesinde, kullanıcı bir şıkkı işaretlediğinde sistem anında renk kodlarıyla (Doğru: Yeşil, Yanlış: Kırmızı) tepki verir. Ayrıca her sorunun altında yer alan "Açıklama" butonu ile hatanın nedeni veya konunun detayı anında öğrenilebilir. Testler arası geçişi kolaylaştırmak için sayfalandırma (Part 1, Part 2) özelliği bulunmaktadır.
   
-  ![Quiz Arayüzü](../../../docs/assets/interactive-quiz-app/int_quiz_3.PNG ':size=35%')
+  ![Quiz Arayüzü](../../../docs/assets/interactive-quiz-app/int_quiz_3.PNG ':size=30%')
 
 * **Karanlık Mod (Dark Mode) Entegrasyonu:** Uzun süreli çalışmalarda göz yorgunluğunu önlemek amacıyla sisteme tam entegre bir Karanlık Mod eklenmiştir. Kullanıcının tema tercihi tarayıcı önbelleğinde (`localStorage`) tutularak sayfa geçişlerinde kalıcılık sağlanır.
   
-  ![Karanlık Mod](../../../docs/assets/interactive-quiz-app/int_quiz_4.PNG ':size=35%')
+  ![Karanlık Mod](../../../docs/assets/interactive-quiz-app/int_quiz_4.PNG ':size=30%')
 
 * **Gelişmiş Sonuç Analizi (Modal):** Test bitirildiğinde tetiklenen algoritma, kullanıcının sınav performansını hesaplayarak doğru, yanlış ve boş bırakılan soru sayılarını dinamik bir pop-up (modal) ekranında raporlar. Rastgelelik (randomization) algoritmalarıyla desteklenen soru yapıları, ezberden ziyade öğrenmeyi test eder.
   
-  ![Sonuç Ekranı](../../../docs/assets/interactive-quiz-app/int_quiz_5.PNG ':size=35%')
+  ![Sonuç Ekranı](../../../docs/assets/interactive-quiz-app/int_quiz_5.PNG ':size=30%')
 
 
 ### Kullanılan Teknolojiler (Tech Stack)
