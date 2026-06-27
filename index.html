@@ -226,7 +226,7 @@
 
     body.dark .sidebar { background: #1e293b !important; border-right-color: #334155 !important; border-left-color: #334155 !important;}
     body.dark #topbar { background: #1e293b; border-bottom-color: #334155; }
-    body.dark .sidebar-toggle { background: rgba(30,41,59,0.9) !important; }
+    
 
     body.dark #topbar-search-input { background: #0f172a; border-color: #334155; color: #e2e8f0; }
     body.dark #topbar-search-input::placeholder { color: #64748b; }
@@ -346,6 +346,18 @@
       });
     }
 
+    // Mobilden summary tıklanınca sidebar kapanmasın,
+// sadece gerçek link tıklanınca kapansın
+function fixMobileSidebar() {
+  document.querySelectorAll('.sidebar-nav summary').forEach(function(summary) {
+    summary.addEventListener('click', function(e) {
+      e.stopPropagation();
+    });
+  });
+}
+
+
+    
     // Docsify config
     window.$docsify = {
       loadSidebar: true,
@@ -366,10 +378,16 @@
         '/en/.*/_sidebar.md':  '/en/_sidebar.md'
       },
       plugins: [
-        function(hook) {
-          hook.ready(function() { setupSearchProxy(); });
-        }
-      ]
+  function(hook) {
+    hook.ready(function() {
+      setupSearchProxy();
+      fixMobileSidebar();
+    });
+    hook.doneEach(function() {
+      fixMobileSidebar();
+    });
+  }
+]
     }
   </script>
 
