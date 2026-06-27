@@ -7,15 +7,15 @@ Uygulama etkileşimli bir ödül mantığı üzerine kuruludur:
 
 * **Zorluk Seçimi:** Kullanıcı, pratik yapmak istediği seviyeye uygun çarpım tablosu zorluk derecesini belirler.
   
-  ![Zorluk Seçimi](../../../docs/assets/gamified-multiplication-tool/multiplication_1.png ':width=40%')
+  ![Zorluk Seçimi](../../../docs/assets/gamified-multiplication-tool/multiplication_1.png ':size=40%')
 
 * **Dinamik Soru Havuzu ve Hata Kontrolü:** Çarpım tablosu soruları rastgele karıştırılarak (randomized) ekrana getirilir. Test bitiminde "Kimim Ben?" butonuna tıklandığında, arka planda çalışan algoritma cevapları denetler. Eğer hata varsa, kullanıcı uyarılır ve doğruları bulmaya teşvik edilir.
   
-  ![Soru Ekranı ve Hata Kontrolü](../../../docs/assets/gamified-multiplication-tool/multiplication_2.png ':width=40%')
+  ![Soru Ekranı ve Hata Kontrolü](../../../docs/assets/gamified-multiplication-tool/multiplication_2.png ':size=40%')
 
 * **Ödül Sistemi:** Tüm sorular hatasız tamamlandığında; seçilen zorluk seviyesine özel olarak havuzdan çekilen gizli bir karakterin kimlik bilgilerini içeren özel bir ödül sayfasına yönlendirme yapılır.
   
-  ![Ödül Ekranı](../../../docs/assets/gamified-multiplication-tool/multiplication_3.png ':width=30%')
+  ![Ödül Ekranı](../../../docs/assets/gamified-multiplication-tool/multiplication_3.png ':size=30%')
 
 
 ### 🚀 Kullanılan Teknolojiler (Tech Stack)
@@ -30,8 +30,8 @@ Uygulama etkileşimli bir ödül mantığı üzerine kuruludur:
 
 ---
 
-### 📂 Kaynak Kodları ve Kurulum
+### Kaynak Kodları ve Kurulum
 Uygulamanın web tabanlı kaynak kodlarına ve derlenmiş Android sürümüne aşağıdaki bağlantılardan ulaşabilirsiniz:
 
-👉 **[GitHub Üzerinden HTML Kaynak Kodlarını İncele](https://github.com/sercanozverenli/web_and_mobile_apps/tree/main/Gamified_Multiplication_Tool/HTML_Source)** <br>
+**[GitHub Üzerinden HTML Kaynak Kodlarını İncele](https://github.com/sercanozverenli/web_and_mobile_apps/tree/main/Gamified_Multiplication_Tool/HTML_Source)** <br>
 👉 **[Kurulabilir Android APK Dosyasını İndir](https://github.com/sercanozverenli/web_and_mobile_apps/blob/main/Gamified_Multiplication_Tool/Android_Build/Gamified_Multiplication_Tool_1_1.0.apk)**
