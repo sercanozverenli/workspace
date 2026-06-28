@@ -333,6 +333,15 @@ function setupSearchProxy() {
 
   const topbarInput = document.getElementById('topbar-search-input');
 
+  const observer = new MutationObserver(function() {
+    const panel = document.querySelector('.results-panel');
+    if (panel && panel.parentElement !== document.body) {
+      document.body.appendChild(panel);
+      repositionResultsPanel();
+    }
+  });
+  observer.observe(document.body, { childList: true, subtree: true });
+
   topbarInput.addEventListener('input', function() {
     sidebarInput.value = this.value;
     sidebarInput.dispatchEvent(new Event('input', { bubbles: true }));
