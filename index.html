@@ -272,30 +272,62 @@ body.dark .badge.active { background: #172554; color: #60a5fa; }
 body.dark .badge.planned { background: #1e293b; color: #64748b; }
 
 
-/* ── SADECE EN DERİNDEKİ (4. SEVİYE) ELEMANLARI HEDEFLEYEN DÜZENLEME ─────── */
+/* ── 3. VE 4. SEVİYE DETAYLI MENÜ DÜZENLEMESİ ────────────────────────────── */
 
-/* Üst seviye details'lara dokunmadan, sadece 3. ve 4. seviyedeki tarayıcı oklarını temizler */
+/* 1. Tarayıcının tüm alt katmanlara (3 ve 4. seviye) zorla eklediği büyük siyah okları tamamen yok eder */
 .sidebar-nav details details summary::marker,
 .sidebar-nav details details details summary::marker,
 .sidebar-nav details details summary::-webkit-details-marker,
-.sidebar-nav details details details summary::-webkit-details-marker {
+.sidebar-nav details details details summary::-webkit-details-marker,
+.sidebar-nav details ul li details::marker,
+.sidebar-nav details ul li details summary::marker {
   display: none !important;
-}
-
-/* 4. Seviyedeki listelerin (Amplify Core altındakiler) iç içe boşluklarını sıfırlar */
-.sidebar-nav details ul li details ul,
-.sidebar-nav details ul li details ul li {
   list-style: none !important;
-  padding: 0 !important;
-  margin: 0 !important;
+  content: none !important;
 }
 
-/* Açık Tema: 4. Seviye linklerinin yazı tipi ve iç girintisini (40px) üst seviyeyle eşitler */
-.sidebar-nav > details > ul > li > details > ul > li li a {
+/* 2. 3. Seviyedeki açılır menü başlıklarının (01-Araştırma, 02-Mimari vb.) stilini üstteki 'Amplify Core' ile eşitler */
+.sidebar-nav > details > ul > li > details > ul > li > details > summary {
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 5px 12px 5px 24px !important; /* Amplify Core ile aynı iç girinti */
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: #475569 !important;
+  list-style: none !important;
+  border-radius: 6px !important;
+  border-left: 3px solid transparent !important;
+  user-select: none !important;
+  transition: background 0.15s, border-color 0.15s, color 0.15s !important;
+}
+
+/* 3. 3. Seviye başlıkların Hover (üzerine gelme) efekti */
+.sidebar-nav > details > ul > li > details > ul > li > details > summary:hover {
+  background: #f0f4f8 !important;
+  border-left-color: #3b82f6 !important;
+  color: #1e293b !important;
+}
+
+/* 4. Sizin kendi yazdığınız o küçük kibar ok ikonunu ('▶') 3. seviye başlıkların başına da ekler */
+.sidebar-nav > details > ul > li > details > ul > li > details > summary::before {
+  content: '▶' !important;
+  font-size: 8px !important;
+  transition: transform 0.2s !important;
+  flex-shrink: 0 !important;
+  display: inline-block !important;
+}
+.sidebar-nav > details > ul > li > details > ul > li > details[open] > summary::before {
+  transform: rotate(90deg) !important;
+}
+
+/* 5. 4. Seviyedeki düz linklerin (01-Kavramsal Çerçeve vb.) stilini ve iç girintisini düzenler */
+.sidebar-nav > details > ul > li > details > ul > li > details > ul > li > a {
   display: flex !important;
   align-items: center !important;
   gap: 6px !important;
-  padding: 5px 12px 5px 40px !important;
+  padding: 5px 12px 5px 40px !important; /* Bir tık daha içeride durması için 40px girinti */
   font-size: 13px !important;
   color: #64748b !important;
   text-decoration: none !important;
@@ -304,23 +336,29 @@ body.dark .badge.planned { background: #1e293b; color: #64748b; }
   transition: background 0.15s, border-color 0.15s, color 0.15s !important;
 }
 
-/* Açık Tema Hover efekti */
-.sidebar-nav > details > ul > li > details > ul > li li a:hover {
+/* 4. Seviye düz linklerin Hover efekti */
+.sidebar-nav > details > ul > li > details > ul > li > details > ul > li > a:hover {
   background: #f0f4f8 !important;
   border-left-color: #3b82f6 !important;
   color: #1e293b !important;
 }
 
-/* Dark Mode: 4. Seviye link renk uyumu */
-body.dark .sidebar-nav > details > ul > li > details > ul > li li a {
-  color: #64748b !important;
+/* ── DARK MODE (KARANLIK TEMA) UYUMLULUĞU ───────────────────────────────────── */
+body.dark .sidebar-nav > details > ul > li > details > ul > li > details > summary {
+  color: #94a3b8 !important;
 }
-
-/* Dark Mode Hover efekti */
-body.dark .sidebar-nav > details > ul > li > details > ul > li li a:hover {
+body.dark .sidebar-nav > details > ul > li > details > ul > li > details > summary:hover {
   background: #334155 !important;
   color: #e2e8f0 !important;
 }
+body.dark .sidebar-nav > details > ul > li > details > ul > li > details > ul > li > a {
+  color: #64748b !important;
+}
+body.dark .sidebar-nav > details > ul > li > details > ul > li > details > ul > li > a:hover {
+  background: #334155 !important;
+  color: #e2e8f0 !important;
+}
+
 
   
 </style>
