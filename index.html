@@ -272,22 +272,17 @@ body.dark .badge.active { background: #172554; color: #60a5fa; }
 body.dark .badge.planned { background: #1e293b; color: #64748b; }
 
 
-/* ── 4. SEVİYE ALT MENÜ TASARIM VE HİZALAMA DÜZENLEMESİ ────────────────────── */
+/* ── SADECE EN DERİNDEKİ (4. SEVİYE) ELEMANLARI HEDEFLEYEN DÜZENLEME ─────── */
 
-/* 1. Tarayıcının 4. seviye ve daha derin listelere eklediği siyah okları/üçgenleri tamamen yok eder */
-.sidebar-nav details,
-.sidebar-nav li::marker,
-.sidebar-nav ul li::before,
-.sidebar-nav summary::marker,
-.sidebar-nav details summary::-webkit-details-marker {
+/* Üst seviye details'lara dokunmadan, sadece 3. ve 4. seviyedeki tarayıcı oklarını temizler */
+.sidebar-nav details details summary::marker,
+.sidebar-nav details details details summary::marker,
+.sidebar-nav details details summary::-webkit-details-marker,
+.sidebar-nav details details details summary::-webkit-details-marker {
   display: none !important;
-  list-style: none !important;
-  list-style-type: none !important;
-  content: none !important;
 }
 
-/* 2. 4. Seviye altındaki tüm listelerin çirkin dış boşluklarını ve liste işaretlerini sıfırlar */
-.sidebar-nav details ul li details,
+/* 4. Seviyedeki listelerin (Amplify Core altındakiler) iç içe boşluklarını sıfırlar */
 .sidebar-nav details ul li details ul,
 .sidebar-nav details ul li details ul li {
   list-style: none !important;
@@ -295,12 +290,12 @@ body.dark .badge.planned { background: #1e293b; color: #64748b; }
   margin: 0 !important;
 }
 
-/* 3. Açık Tema: 4. Seviye linklerinin (01-Araştırma vb.) hizasını (padding), yazı boyutunu ve rengini 3. seviyeyle eşitler */
+/* Açık Tema: 4. Seviye linklerinin yazı tipi ve iç girintisini (40px) üst seviyeyle eşitler */
 .sidebar-nav > details > ul > li > details > ul > li li a {
   display: flex !important;
   align-items: center !important;
   gap: 6px !important;
-  padding: 5px 12px 5px 40px !important; /* 3. seviyedeki 40px iç girinti korunarak hiyerarşi bozulmaz */
+  padding: 5px 12px 5px 40px !important;
   font-size: 13px !important;
   color: #64748b !important;
   text-decoration: none !important;
@@ -309,23 +304,24 @@ body.dark .badge.planned { background: #1e293b; color: #64748b; }
   transition: background 0.15s, border-color 0.15s, color 0.15s !important;
 }
 
-/* 4. Açık Tema Hover: 4. Seviye linklerinin üzerine gelindiğinde sol mavi çizgi ve arka plan efekti */
+/* Açık Tema Hover efekti */
 .sidebar-nav > details > ul > li > details > ul > li li a:hover {
   background: #f0f4f8 !important;
   border-left-color: #3b82f6 !important;
   color: #1e293b !important;
 }
 
-/* 5. Dark Mode (Karanlık Tema): 4. Seviye linklerinin karanlık mod renk uyumu */
+/* Dark Mode: 4. Seviye link renk uyumu */
 body.dark .sidebar-nav > details > ul > li > details > ul > li li a {
   color: #64748b !important;
 }
 
-/* 6. Dark Mode Hover: Karanlık modda üzerlerine gelindiğinde alacakları renk ve arka plan */
+/* Dark Mode Hover efekti */
 body.dark .sidebar-nav > details > ul > li > details > ul > li li a:hover {
   background: #334155 !important;
   color: #e2e8f0 !important;
 }
+
   
 </style>
 </head>
