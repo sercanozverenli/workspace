@@ -5,7 +5,7 @@
   <details>
     <summary>Experiments</summary>
     <ul>
-      <li><a href="#/en/projects/experiments/exploratory-data-analysis">Exploratory Data Analysis <span class="badge active">Active</span></a></li>
+      <li><a href="#/en/projects/experiments/exploratory-data-analysis">Exploratory Data Analysis <span class="badge planned">Planned</span></a></li>
       <!-- Opens when ready:
       <li><a href="#/en/projects/experiments/data-acquisition-pipeline">Data Acquisition Pipeline <span class="badge planned">Planned</span></a></li>
       <li><a href="#/en/projects/experiments/sql-data-modelling">SQL Data Modelling <span class="badge planned">Planned</span></a></li>
