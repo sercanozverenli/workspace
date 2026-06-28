@@ -5,7 +5,7 @@
   <details>
     <summary>Deneysel Çalışmalar</summary>
     <ul>
-      <li><a href="#/tr/projeler/deneysel-calismalar/kesifsel-veri-analizi">Keşifsel Veri Analizi <span class="badge active">Planlı</span></a></li>
+      <li><a href="#/tr/projeler/deneysel-calismalar/kesifsel-veri-analizi">Keşifsel Veri Analizi <span class="badge planned">Planlı</span></a></li>
       <!-- Hazır olunca aç:
       <li><a href="#/tr/projeler/deneysel-calismalar/veri-toplama-hatti">Veri Toplama Hattı <span class="badge planned">Planlı</span></a></li>
       <li><a href="#/tr/projeler/deneysel-calismalar/sql-veri-modelleme">SQL Veri Modelleme <span class="badge planned">Planlı</span></a></li>
