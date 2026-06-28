@@ -27,11 +27,11 @@
   <summary>Sistemler</summary>
   <ul>
     <li>
-      <details open>
+      <details>
         <summary>Amplify Core <span class="badge active">Aktif</span></summary>
         <ul>
           <li>
-            <details open>
+            <details>
               <summary>01-Araştırma <span class="badge active">Aktif</span></summary>
               <ul>
                 <li><a href="#/tr/projeler/sistemler/amplify-core/01-arastirma/01-kavramsal-cerceve">01-Kavramsal Çerçeve <span class="badge active">Aktif</span></a></li>
