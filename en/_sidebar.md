@@ -39,5 +39,5 @@
       </li>
     </ul>
   </details>
-<a class="sidebar-item" href="#/en/about" style="display:flex;align-items:center;padding:6px 12px;font-size:13px;color:#475569;text-decoration:none;border-radius:6px;border-left:3px solid transparent;margin-top:8px;" onmouseover="this.style.background='#f0f4f8';this.style.borderLeftColor='#3b82f6';this.style.color='#1e293b'" onmouseout="this.style.background='';this.style.borderLeftColor='transparent';this.style.color='#475569'">About</a>
+<a class="sidebar-item" href="#/en/about" style="display:flex;align-items:center;padding:6px 12px;font-size:13px;color:#475569;text-decoration:none;border-radius:6px;border-left:3px solid transparent;margin-top:8px;" onmouseover="this.style.background='#f0f4f8';this.style.borderLeftColor='#3b82f6';this.style.color='#1e293b'" onmouseout="this.style.background='';this.style.borderLeftColor='transparent';this.style.color='#475569'">About Me</a>
 </div>
