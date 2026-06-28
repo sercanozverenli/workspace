@@ -34,5 +34,3 @@ Amplify Core'un verinin durumuna göre benimsediği karar rejimleri, dört aşam
 
 
 
-Şİmdi ise şuna dönelim 1. ve 2. kalsörü netleştirmiştik bu metin ise 1. klasörde yani araştırma klasöründe olacaktı sanırım ama hangi dosyada olacka ve dosyanın adı ne oalcak
-
