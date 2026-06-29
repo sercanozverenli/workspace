@@ -1,6 +1,6 @@
 <div class="sidebar-nav">
  
- <a class="home-link" href="#/tr/">Ana Sayfa</a>
+ <a href="#/tr/" style="display: block; margin: 0 0 20px 0; padding: 0; font-size: 16px; font-weight: 700; color: #364149; text-decoration: none;">Ana Sayfa</a>
  
  <details>
   <summary>Deneysel Çalışmalar</summary>
