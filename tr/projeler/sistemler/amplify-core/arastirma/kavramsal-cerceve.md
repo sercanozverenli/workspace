@@ -32,6 +32,6 @@ Amplify Core'un verinin durumuna göre benimsediği karar rejimleri, dört aşam
 
 Otonom sürüş analojisiyle somutlaştırılan bu dört aşamalı güvenlik yaklaşımı, Amplify Core'un teknik mimarisinin merkezini oluşturur. Aşağıdaki veri yönlendirme şemasında görüldüğü üzere sistem; kendisine ulaşan ham veriyi koşulsuz olarak ana karar modeline iletmek yerine, veriyi öncelikle DRS (Veri Güvenilirlik Skoru) katmanından geçirerek istatistiksel sağlığını ölçer ve elde edilen sonuca göre en güvenli karar rejimine yönlendirir.
 
-  ![Veri Yönlendirme Mimarisi](../../../../../docs/diagrams/amplify-core/sekil-1.png ':size=80%') 
+  ![Veri Yönlendirme Mimarisi](../../../../../docs/diagrams/amplify-core/sekil-1.png) 
 
 
