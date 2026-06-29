@@ -1,4 +1,4 @@
-<div class="sidebar-nav"> 
+<div class="sidebar-nav">
 
 <a class="home-link" href="#/tr/">Ana Sayfa</a>
 
