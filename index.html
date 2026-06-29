@@ -122,6 +122,10 @@ border-radius: 0 0 8px 8px !important;
 box-shadow: 0 8px 24px rgba(0,0,0,0.08) !important;
 }
 
+/* FIX: Sidebar kapalıyken arama sonuçlarını görünür yap */
+body.close .sidebar { overflow: visible !important; }
+body.close .results-panel { transform: translateX(300px) !important; }
+
 /* Docsify aktif link override */
 .sidebar ul li a, .sidebar ul li a.active,
 .sidebar ul li a.active:hover, .sidebar ul li a:hover {
@@ -352,9 +356,6 @@ body.dark .sidebar-nav > details > ul > li > details > ul > li > details > ul > 
   color: #e2e8f0 !important;
 }
 
-
-
-  
 </style>
 </head>
 <body>
@@ -412,37 +413,56 @@ window.addEventListener('hashchange', updateLang);
 
 // Arama proxy — topbar input'u Docsify'ın gizli arama input'una bağlar
 function setupSearchProxy() {
-const sidebarInput = document.querySelector('.search input');
-if (!sidebarInput) { setTimeout(setupSearchProxy, 300); return; }
+    const sidebarInput = document.querySelector('.search input');
+    if (!sidebarInput) { setTimeout(setupSearchProxy, 300); return; }
 
-const topbarInput = document.getElementById('topbar-search-input');
+    const topbarInput = document.getElementById('topbar-search-input');
 
-topbarInput.addEventListener('input', function() {
-sidebarInput.value = this.value;
-sidebarInput.dispatchEvent(new Event('input', { bubbles: true }));
-});
-
-function repositionResultsPanel() {
+    function repositionResultsPanel() {
         const panel = document.querySelector('.results-panel');
         const input = document.getElementById('topbar-search-input');
         if (!panel || !input) return;
 
         const rect = input.getBoundingClientRect();
-        panel.style.setProperty('left', rect.left + 'px', 'important');
-        panel.style.setProperty('width', Math.max(rect.width, 280) + 'px', 'important');
+        
+        // Sidebar kapalı mı kontrol et
+        const isSidebarClosed = document.body.classList.contains('close');
+        const isMobile = window.innerWidth <= 768;
+
+        // Eğer sidebar kapalıysa, panel sidebar'ın içinde olduğu için koordinat sistemi kaymıştır.
+        // Bunu düzeltmek için 300px çıkarıyoruz (CSS'deki translateX(300px) ile dengelenir).
+        let finalLeft = rect.left;
+        if (isSidebarClosed && !isMobile) {
+            finalLeft = rect.left - 300; 
+        }
+
+        panel.style.setProperty('left', finalLeft + 'px', 'important');
+        panel.style.setProperty('width', Math.max(rect.width, 380) + 'px', 'important');
     }
 
-topbarInput.addEventListener('input', repositionResultsPanel);
-window.addEventListener('resize', repositionResultsPanel);
+    topbarInput.addEventListener('input', function() {
+        sidebarInput.value = this.value;
+        sidebarInput.dispatchEvent(new Event('input', { bubbles: true }));
+        // Panelin oluşması için bir frame bekle
+        requestAnimationFrame(repositionResultsPanel);
+    });
 
-topbarInput.addEventListener('keydown', function(e) {
-if (e.key === 'Escape') {
-this.value = '';
-sidebarInput.value = '';
-sidebarInput.dispatchEvent(new Event('input', { bubbles: true }));
-}
-});
+    // Sidebar açma/kapama butonuna basıldığında konumu güncelle
+    document.addEventListener('click', function(e) {
+        if (e.target.closest('.sidebar-toggle')) {
+            setTimeout(repositionResultsPanel, 300); // Animasyon bitişini bekle
+        }
+    });
 
+    window.addEventListener('resize', repositionResultsPanel);
+
+    topbarInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            this.value = '';
+            sidebarInput.value = '';
+            sidebarInput.dispatchEvent(new Event('input', { bubbles: true }));
+        }
+    });
 }
 
 // Mobilden summary tıklanınca sidebar kapanmasın,
@@ -472,8 +492,6 @@ setTimeout(fixTogglePosition, 50);
 
 fixTogglePosition();
 
-
-
 // Docsify config
 window.$docsify = {
 loadSidebar: true,
@@ -488,7 +506,7 @@ depth: 3,
 hideOtherSidebarContent: false
 },
 alias: {
-'/': '/tr/README.md', // <-- Kök dizin hatasını gideren satır
+'/': '/tr/README.md',
 '/_sidebar.md':        '/tr/_sidebar.md',
 '/tr/.*/_sidebar.md':  '/tr/_sidebar.md',
 '/en/.*/_sidebar.md':  '/en/_sidebar.md'
