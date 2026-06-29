@@ -124,9 +124,30 @@ box-shadow: 0 8px 24px rgba(0,0,0,0.08) !important;
 body.close .sidebar { overflow: visible !important; }
 body.close .results-panel { transform: translateX(300px) !important; }
 
-
-/* ── SIDEBAR NAV ─────────────────────────────────── */
+/* ── SIDEBAR NAV GENEL STİLLER (Amplify Core Fix) ── */
 .sidebar-nav { padding: 4px 8px; }
+
+/* Tüm menü elemanlarının ortak rengi */
+.sidebar-nav summary, .sidebar-nav a {
+    color: #94a3b8 !important;
+    text-decoration: none !important;
+}
+
+/* Klasör olanlar (summary) her seviyede BOLD */
+.sidebar-nav summary {
+    font-weight: 700 !important;
+}
+
+/* Dosya olanlar (a) her seviyede NORMAL */
+.sidebar-nav a {
+    font-weight: 400 !important;
+}
+
+/* 1. Seviye Başlıklar (SİSTEMLER vb.) - Büyük Harf */
+.sidebar-nav > details > summary {
+    text-transform: uppercase !important;
+    letter-spacing: 0.08em !important;
+}
 
 .sidebar-nav .home-link {
 display: block;
@@ -142,34 +163,13 @@ letter-spacing: 0.02em;
 }
 .sidebar-nav .home-link:hover { background: #f0f4f8; }
 
-.sidebar-nav > details { margin: 2px 0; }
-.sidebar-nav > details > summary {
-cursor: pointer;
-padding: 6px 12px;
-font-size: 11px;
-font-weight: 700;
-text-transform: uppercase;
-letter-spacing: 0.08em;
-color: #94a3b8;
-list-style: none;
-display: flex;
-align-items: center;
-gap: 8px;
-border-radius: 6px;
-user-select: none;
-}
-.sidebar-nav > details > summary::-webkit-details-marker { display: none; }
-
+/* Aktif Link Görünümü */
 .sidebar-nav a.active {
     color: #1e293b !important;
-    font-weight: normal !important; 
-    background: transparent !important; 
     border-left: 3px solid #3b82f6 !important;
 }
-
 body.dark .sidebar-nav a.active {
     color: #f1f5f9 !important;
-    background: transparent !important;
     border-left-color: #3b82f6 !important;
 }
 
@@ -206,16 +206,8 @@ body.dark .markdown-section h4 { color: #f1f5f9; border-color: #334155; }
 body.dark .markdown-section a { color: #60a5fa; }
 body.dark .markdown-section code { background: #334155; color: #e2e8f0; }
 body.dark .markdown-section pre { background: #1e293b; border: 1px solid #334155; }
-body.dark .markdown-section table th { background: #1e293b; color: #e2e8f0; }
-body.dark .markdown-section table td { border-color: #334155; color: #e2e8f0; }
-body.dark .markdown-section table tr:nth-child(even) { background: #1e293b; }
 
-body.dark .results-panel { background: #1e293b !important; border-color: #334155 !important; }
-body.dark .badge.active { background: #172554; color: #60a5fa; }
-body.dark .badge.planned { background: #1e293b; color: #64748b; }
-
-
-/* ── TOTAL MINIMALIST: TÜM OK İKONLARINI KALDIRMA VE ALAN GENİŞLETME ─────── */
+/* ── TOTAL MINIMALIST: OKLARI KALDIRMA VE PADDING AYARLARI ── */
 .sidebar-nav summary::before,
 .sidebar-nav details summary::before,
 .sidebar-nav details details summary::before,
@@ -231,15 +223,12 @@ body.dark .badge.planned { background: #1e293b; color: #64748b; }
 
 .sidebar-nav > details > summary { padding: 6px 12px !important; font-size: 11px !important; }
 .sidebar-nav > details > ul > li > details > summary { padding: 5px 12px 5px 14px !important; }
-
 .sidebar-nav > details > ul > li > details > ul > li > details > summary {
   cursor: pointer !important;
   display: flex !important;
   align-items: center !important;
   padding: 5px 12px 5px 26px !important;
   font-size: 13px !important;
-  font-weight: 600 !important;
-  color: #475569 !important;
   border-radius: 6px !important;
   border-left: 3px solid transparent !important;
   transition: background 0.15s, border-color 0.15s, color 0.15s !important;
@@ -249,14 +238,11 @@ body.dark .badge.planned { background: #1e293b; color: #64748b; }
   border-left-color: #3b82f6 !important;
   color: #1e293b !important;
 }
-
 .sidebar-nav > details > ul > li > details > ul > li > details > ul > li > a {
   display: flex !important;
   align-items: center !important;
   padding: 5px 12px 5px 38px !important;
   font-size: 13px !important;
-  color: #64748b !important;
-  text-decoration: none !important;
   border-radius: 6px !important;
   border-left: 3px solid transparent !important;
   transition: background 0.15s, border-color 0.15s, color 0.15s !important;
@@ -266,11 +252,6 @@ body.dark .badge.planned { background: #1e293b; color: #64748b; }
   border-left-color: #3b82f6 !important;
   color: #1e293b !important;
 }
-
-body.dark .sidebar-nav > details > ul > li > details > ul > li > details > summary { color: #94a3b8 !important; }
-body.dark .sidebar-nav > details > ul > li > details > ul > li > details > summary:hover { background: #334155 !important; color: #e2e8f0 !important; }
-body.dark .sidebar-nav > details > ul > li > details > ul > li > details > ul > li > a { color: #64748b !important; }
-body.dark .sidebar-nav > details > ul > li > details > ul > li > details > ul > li > a:hover { background: #334155 !important; color: #e2e8f0 !important; }
 
 /* ── MODERN BUTON TASARIMLARI (Hamburger & Tema) ── */
 .sidebar-toggle {
@@ -289,7 +270,6 @@ body.dark .sidebar-nav > details > ul > li > details > ul > li > details > ul > 
     position: fixed !important;
     z-index: 99;
 }
-
 .sidebar-toggle span {
     background-color: #475569 !important; 
     height: 2px !important;
@@ -310,29 +290,21 @@ body.dark .sidebar-nav > details > ul > li > details > ul > li > details > ul > 
     cursor: pointer;
     transition: all 0.2s !important;
 }
-
 .sidebar-toggle:hover, #theme-toggle:hover {
     background: #f1f5f9 !important;
     transform: translateY(-1px);
 }
-
 body.dark .sidebar-toggle, body.dark #theme-toggle {
     background: #1e293b !important;
     border-color: #334155 !important;
     color: #f1f5f9 !important;
 }
-
 body.dark .sidebar-toggle span { background-color: #94a3b8 !important; }
 
 /* Scrollbar */
 .sidebar::-webkit-scrollbar { width: 5px; }
 .sidebar::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
 body.dark .sidebar::-webkit-scrollbar-thumb { background: #334155; }
-
-/* Mikro Etkileşimler */
-.badge, #theme-toggle, .lang-switcher a, .sidebar-nav a {
-    transition: all 0.2s ease-in-out !important;
-}
 
 </style>
 <script src="https://unpkg.com/lucide@latest"></script>    
@@ -356,7 +328,7 @@ body.dark .sidebar::-webkit-scrollbar-thumb { background: #334155; }
 <div id="app"></div>
 
 <script>
-// 1. TEMA VE İKON YÖNETİMİ
+// 1. TEMA VE İKON YÖNETİMİ (Merkezi Sistem)
 (function() {
     const themeToggle = document.getElementById('theme-toggle');
     const saved = localStorage.getItem('theme');
@@ -433,7 +405,7 @@ function setupSearchProxy() {
     });
 }
 
-// 5. MOBİL FIX VE TOGGLE KONUMU
+// 5. TOGGLE KONUMU SABİTLEME
 function fixTogglePosition() {
     const toggle = document.querySelector('.sidebar-toggle');
     if (!toggle) return;
@@ -446,13 +418,7 @@ window.$docsify = {
     loadSidebar: true,
     loadNavbar: false,
     subMaxLevel: 0,
-    search: { 
-        maxAge: 86400000,
-        paths: 'auto', 
-        placeholder: 'Ara...',
-        noData: 'Sonuç bulunamadı.',
-        depth: 3
-    },
+    search: { paths: 'auto', placeholder: 'Ara...', depth: 3 },
     alias: {
         '/': '/tr/README.md',
         '/_sidebar.md': '/tr/_sidebar.md',
