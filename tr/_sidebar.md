@@ -32,29 +32,29 @@
         <ul>
           <li>
             <details>
-              <summary>01-Araştırma <span class="badge active">Aktif</span></summary>
+              <summary>Araştırma <span class="badge active">Aktif</span></summary>
               <ul>
-                <li><a href="#/tr/projeler/sistemler/amplify-core/01-arastirma/01-kavramsal-cerceve">01-Kavramsal Çerçeve <span class="badge active">Aktif</span></a></li>
+                <li><a href="#/tr/projeler/sistemler/amplify-core/01-arastirma/01-kavramsal-cerceve">Kavramsal Çerçeve <span class="badge active">Aktif</span></a></li>
               </ul>
             </details>
           </li>          
           <li>
             <details>
-              <summary>02-Mimari <span class="badge active">Aktif</span></summary>
+              <summary>Mimari <span class="badge active">Aktif</span></summary>
               <ul> 
               </ul>
             </details>
           </li>          
           <li>
             <details>
-              <summary>03-Analiz ve Ara Çıktılar <span class="badge planned">Planlı</span></summary>
+              <summary>Analiz ve Ara Çıktılar <span class="badge planned">Planlı</span></summary>
               <ul>
               </ul>
             </details>
           </li>          
           <li>
             <details>
-              <summary>04-Sonuçlar ve Kavramsal Kanıt <span class="badge planned">Planlı</span></summary>
+              <summary>Sonuçlar ve Kavramsal Kanıt <span class="badge planned">Planlı</span></summary>
               <ul>
               </ul>
             </details>
