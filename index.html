@@ -91,6 +91,30 @@ padding-top: 16px !important;
     margin: 2em 0 !important;
 }
 
+/* ── TABLO DÜZELTMELERİ (Karanlık Mod Okunabilirlik) ── */
+body.dark .markdown-section table {
+    background-color: #1e293b !important;
+    color: #e2e8f0 !important;
+    border-collapse: collapse !important;
+}
+body.dark .markdown-section table tr {
+    background-color: #0f172a !important; /* Koyu arka plan */
+    border-top: 1px solid #334155 !important;
+}
+body.dark .markdown-section table tr:nth-child(2n) {
+    background-color: #1e293b !important; /* Zebra satırı da koyu kalsın */
+}
+body.dark .markdown-section table td,
+body.dark .markdown-section table th {
+    border: 1px solid #334155 !important;
+    color: #e2e8f0 !important;
+    padding: 10px !important;
+}
+body.dark .markdown-section table th {
+    background-color: #1e293b !important;
+    font-weight: bold !important;
+}
+
 body.dark .markdown-section blockquote {
     background: #1e293b !important;
     color: #94a3b8 !important;
@@ -124,23 +148,32 @@ box-shadow: 0 8px 24px rgba(0,0,0,0.08) !important;
 body.close .sidebar { overflow: visible !important; }
 body.close .results-panel { transform: translateX(300px) !important; }
 
-/* ── SIDEBAR NAV GENEL STİLLER (Amplify Core Fix) ── */
+/* ── SIDEBAR NAV GENEL STİLLER ── */
 .sidebar-nav { padding: 4px 8px; }
 
 /* Tüm menü elemanlarının ortak rengi */
 .sidebar-nav summary, .sidebar-nav a {
     color: #94a3b8 !important;
     text-decoration: none !important;
+    transition: all 0.15s ease !important;
 }
 
 /* Klasör olanlar (summary) her seviyede BOLD */
-.sidebar-nav summary {
-    font-weight: 700 !important;
-}
+.sidebar-nav summary { font-weight: 700 !important; }
 
 /* Dosya olanlar (a) her seviyede NORMAL */
-.sidebar-nav a {
-    font-weight: 400 !important;
+.sidebar-nav a { font-weight: 400 !important; }
+
+/* ── HOVER SİSTEMİ (Tüm Seviyeler İçin) ── */
+.sidebar-nav summary:hover, .sidebar-nav a:hover {
+    background: #f1f5f9 !important;
+    color: #1e293b !important;
+    border-radius: 6px !important;
+}
+
+body.dark .sidebar-nav summary:hover, body.dark .sidebar-nav a:hover {
+    background: #334155 !important; /* Yumuşak koyu gri hover */
+    color: #f1f5f9 !important;
 }
 
 /* 1. Seviye Başlıklar (SİSTEMLER vb.) - Büyük Harf */
@@ -167,6 +200,7 @@ letter-spacing: 0.02em;
 .sidebar-nav a.active {
     color: #1e293b !important;
     border-left: 3px solid #3b82f6 !important;
+    background: transparent !important;
 }
 body.dark .sidebar-nav a.active {
     color: #f1f5f9 !important;
@@ -221,39 +255,34 @@ body.dark .markdown-section pre { background: #1e293b; border: 1px solid #334155
   list-style: none !important;
 }
 
-.sidebar-nav > details > summary { padding: 6px 12px !important; font-size: 13px !important; }
+/* 1. Seviye (SİSTEMLER) */
+.sidebar-nav > details > summary { padding: 6px 1px !important; font-size: 13px !important; }
+
+/* 2. Seviye (Amplify Core) - Punto 13px yapıldı */
 .sidebar-nav > details > ul > li > details > summary { 
-    padding: 5px 12px 5px 12px !important;
-    font-size: 13px !important;
+    padding: 5px 12px 5px 14px !important; 
+    font-size: 13px !important; 
 }
+
+/* 3. Seviye (Araştırma, Mimari) */
 .sidebar-nav > details > ul > li > details > ul > li > details > summary {
   cursor: pointer !important;
   display: flex !important;
   align-items: center !important;
   padding: 5px 12px 5px 26px !important;
-  font-size: 11px !important;
+  font-size: 12x !important;
   border-radius: 6px !important;
   border-left: 3px solid transparent !important;
-  transition: background 0.15s, border-color 0.15s, color 0.15s !important;
 }
-.sidebar-nav > details > ul > li > details > ul > li > details > summary:hover {
-  background: #f0f4f8 !important;
-  border-left-color: #3b82f6 !important;
-  color: #1e293b !important;
-}
+
+/* 4. Seviye (Linkler) */
 .sidebar-nav > details > ul > li > details > ul > li > details > ul > li > a {
   display: flex !important;
   align-items: center !important;
   padding: 5px 12px 5px 38px !important;
-  font-size: 11px !important;
+  font-size: 12px !important;
   border-radius: 6px !important;
   border-left: 3px solid transparent !important;
-  transition: background 0.15s, border-color 0.15s, color 0.15s !important;
-}
-.sidebar-nav > details > ul > li > details > ul > li > details > ul > li > a:hover {
-  background: #f0f4f8 !important;
-  border-left-color: #3b82f6 !important;
-  color: #1e293b !important;
 }
 
 /* ── MODERN BUTON TASARIMLARI (Hamburger & Tema) ── */
@@ -273,6 +302,7 @@ body.dark .markdown-section pre { background: #1e293b; border: 1px solid #334155
     position: fixed !important;
     z-index: 99;
 }
+
 .sidebar-toggle span {
     background-color: #475569 !important; 
     height: 2px !important;
@@ -293,21 +323,29 @@ body.dark .markdown-section pre { background: #1e293b; border: 1px solid #334155
     cursor: pointer;
     transition: all 0.2s !important;
 }
+
 .sidebar-toggle:hover, #theme-toggle:hover {
     background: #f1f5f9 !important;
     transform: translateY(-1px);
 }
+
 body.dark .sidebar-toggle, body.dark #theme-toggle {
     background: #1e293b !important;
     border-color: #334155 !important;
     color: #f1f5f9 !important;
 }
+
 body.dark .sidebar-toggle span { background-color: #94a3b8 !important; }
 
 /* Scrollbar */
 .sidebar::-webkit-scrollbar { width: 5px; }
 .sidebar::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
 body.dark .sidebar::-webkit-scrollbar-thumb { background: #334155; }
+
+/* Mikro Etkileşimler */
+.badge, #theme-toggle, .lang-switcher a, .sidebar-nav a {
+    transition: all 0.2s ease-in-out !important;
+}
 
 </style>
 <script src="https://unpkg.com/lucide@latest"></script>    
@@ -331,7 +369,7 @@ body.dark .sidebar::-webkit-scrollbar-thumb { background: #334155; }
 <div id="app"></div>
 
 <script>
-// 1. TEMA VE İKON YÖNETİMİ (Merkezi Sistem)
+// 1. TEMA VE İKON YÖNETİMİ
 (function() {
     const themeToggle = document.getElementById('theme-toggle');
     const saved = localStorage.getItem('theme');
@@ -421,7 +459,13 @@ window.$docsify = {
     loadSidebar: true,
     loadNavbar: false,
     subMaxLevel: 0,
-    search: { paths: 'auto', placeholder: 'Ara...', depth: 3 },
+    search: { 
+        maxAge: 86400000,
+        paths: 'auto', 
+        placeholder: 'Ara...',
+        noData: 'Sonuç bulunamadı.',
+        depth: 3
+    },
     alias: {
         '/': '/tr/README.md',
         '/_sidebar.md': '/tr/_sidebar.md',
