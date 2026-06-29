@@ -272,62 +272,57 @@ body.dark .badge.active { background: #172554; color: #60a5fa; }
 body.dark .badge.planned { background: #1e293b; color: #64748b; }
 
 
-/* ── 3. VE 4. SEVİYE DETAYLI MENÜ DÜZENLEMESİ ────────────────────────────── */
+/* ── TOTAL MINIMALIST: TÜM OK İKONLARINI KALDIRMA VE ALAN GENİŞLETME ─────── */
 
-/* 1. Tarayıcının tüm alt katmanlara (3 ve 4. seviye) zorla eklediği büyük siyah okları tamamen yok eder */
-.sidebar-nav details details summary::marker,
-.sidebar-nav details details details summary::marker,
-.sidebar-nav details details summary::-webkit-details-marker,
-.sidebar-nav details details details summary::-webkit-details-marker,
-.sidebar-nav details ul li details::marker,
-.sidebar-nav details ul li details summary::marker {
+/* 1. Sistemdeki EN ÜST SEVİYE dahil tüm katmanlardaki ok işaretlerini tamamen siler */
+.sidebar-nav summary::before,
+.sidebar-nav details summary::before,
+.sidebar-nav details details summary::before,
+.sidebar-nav details details details summary::before,
+.sidebar-nav li::marker,
+.sidebar-nav ul li::before,
+.sidebar-nav summary::marker,
+.sidebar-nav details summary::-webkit-details-marker {
   display: none !important;
-  list-style: none !important;
   content: none !important;
+  list-style: none !important;
 }
 
-/* 2. 3. Seviyedeki açılır menü başlıklarının (01-Araştırma, 02-Mimari vb.) stilini üstteki 'Amplify Core' ile eşitler */
+/* 2. SİSTEMLER, UYGULAMALAR (1. Seviye Başlıklar) - Ok gidince sola çekildi ve alanı genişletildi */
+.sidebar-nav > details > summary {
+  padding: 6px 12px !important;
+  font-size: 11px !important;
+}
+
+/* 3. Amplify Core (2. Seviye) - Hizalaması optimize edildi */
+.sidebar-nav > details > ul > li > details > summary {
+  padding: 5px 12px 5px 14px !important; /* Ok kalktığı için girinti 14px'e çekilerek yer kazanıldı */
+}
+
+/* 4. 01-Araştırma, 02-Mimari (3. Seviye Klasörler) - Kademeli girinti korundu */
 .sidebar-nav > details > ul > li > details > ul > li > details > summary {
   cursor: pointer !important;
   display: flex !important;
   align-items: center !important;
-  gap: 8px !important;
-  padding: 5px 12px 5px 24px !important; /* Amplify Core ile aynı iç girinti */
+  padding: 5px 12px 5px 26px !important; /* Net hiyerarşi için 26px iç girinti */
   font-size: 13px !important;
   font-weight: 600 !important;
   color: #475569 !important;
-  list-style: none !important;
   border-radius: 6px !important;
   border-left: 3px solid transparent !important;
-  user-select: none !important;
   transition: background 0.15s, border-color 0.15s, color 0.15s !important;
 }
-
-/* 3. 3. Seviye başlıkların Hover (üzerine gelme) efekti */
 .sidebar-nav > details > ul > li > details > ul > li > details > summary:hover {
   background: #f0f4f8 !important;
   border-left-color: #3b82f6 !important;
   color: #1e293b !important;
 }
 
-/* 4. Sizin kendi yazdığınız o küçük kibar ok ikonunu ('▶') 3. seviye başlıkların başına da ekler */
-.sidebar-nav > details > ul > li > details > ul > li > details > summary::before {
-  content: '▶' !important;
-  font-size: 8px !important;
-  transition: transform 0.2s !important;
-  flex-shrink: 0 !important;
-  display: inline-block !important;
-}
-.sidebar-nav > details > ul > li > details > ul > li > details[open] > summary::before {
-  transform: rotate(90deg) !important;
-}
-
-/* 5. 4. Seviyedeki düz linklerin (01-Kavramsal Çerçeve vb.) stilini ve iç girintisini düzenler */
+/* 5. 01-Kavramsal Çerçeve (4. Seviye Alt Linkler) - En iç katman */
 .sidebar-nav > details > ul > li > details > ul > li > details > ul > li > a {
   display: flex !important;
   align-items: center !important;
-  gap: 6px !important;
-  padding: 5px 12px 5px 40px !important; /* Bir tık daha içeride durması için 40px girinti */
+  padding: 5px 12px 5px 38px !important; /* Klasörün altında olduğu belli olsun diye 38px girinti */
   font-size: 13px !important;
   color: #64748b !important;
   text-decoration: none !important;
@@ -335,8 +330,6 @@ body.dark .badge.planned { background: #1e293b; color: #64748b; }
   border-left: 3px solid transparent !important;
   transition: background 0.15s, border-color 0.15s, color 0.15s !important;
 }
-
-/* 4. Seviye düz linklerin Hover efekti */
 .sidebar-nav > details > ul > li > details > ul > li > details > ul > li > a:hover {
   background: #f0f4f8 !important;
   border-left-color: #3b82f6 !important;
@@ -358,6 +351,7 @@ body.dark .sidebar-nav > details > ul > li > details > ul > li > details > ul > 
   background: #334155 !important;
   color: #e2e8f0 !important;
 }
+
 
 
   
