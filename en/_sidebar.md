@@ -1,6 +1,7 @@
 <div class="sidebar-nav">
   
-  <a class="home-link" href="#/en/">Home</a>
+   <a href="#/tr/" class="home-link">Home</a>
+   
   <details>
     <summary>Experiments</summary>
     <ul>
