@@ -18,8 +18,8 @@ I am a student focusing on developing skills in data analytics tools such as Pyt
 
 ## Projects
 
-**Amplify Core (DRDRS)** — Ongoing
-A model-agnostic reliability assessment and decision routing system for noisy and incomplete data environments. Conducted under TÜBİTAK 2209-A.
+**Amplify Core (DRDRS)** — <span class="badge ongoing">Ongoing</span>
+A model-agnostic reliability assessment and decision routing system for noisy and incomplete data environments. 
 
 **Mobile Applications** — 2023
 Two cross-platform applications converted into functional Android apps via APK Builder:
