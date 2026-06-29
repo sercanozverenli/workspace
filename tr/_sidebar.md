@@ -34,7 +34,7 @@
             <details>
               <summary>Araştırma <span class="badge active">Aktif</span></summary>
               <ul>
-                <li><a href="#/tr/projeler/sistemler/amplify-core/arastirma/kavramsal-cerceve">Kavramsal Çerçeve <span class="badge active">Aktif</span></a></li>
+                <li><a href="#/tr/projects/systems/amplify-core/research/kavramsal-cerceve">Kavramsal Çerçeve <span class="badge active">Aktif</span></a></li>
               </ul>
             </details>
           </li>          
