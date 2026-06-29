@@ -18,7 +18,7 @@ I am a student focusing on developing skills in data analytics tools such as Pyt
 
 ## Projects
 
-**Amplify Core (DRDRS)** — <span class="badge ongoing">Ongoing</span>
+**Amplify Core (DRDRS)** — <span class="badge planned">Ongoing</span>
 A model-agnostic reliability assessment and decision routing system for noisy and incomplete data environments. 
 
 **Mobile Applications** — 2023
