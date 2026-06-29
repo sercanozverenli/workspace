@@ -91,13 +91,12 @@ padding-top: 16px !important;
     margin: 2em 0 !important;
 }
 
-/* ── TABLO DÜZELTMELERİ (Karanlık Mod Okunabilirlik) ── */
+/* ── TABLO DÜZELTMELERİ (GitHub Style) ── */
 body.dark .markdown-section table { background-color: #1e293b !important; color: #e2e8f0 !important; }
 body.dark .markdown-section table tr { background-color: #0f172a !important; border-top: 1px solid #334155 !important; }
 body.dark .markdown-section table tr:nth-child(2n) { background-color: #1e293b !important; }
 body.dark .markdown-section table td, body.dark .markdown-section table th { border: 1px solid #334155 !important; color: #e2e8f0 !important; padding: 10px !important; }
 body.dark .markdown-section table th { background-color: #1e293b !important; font-weight: bold !important; }
-
 body.dark .markdown-section blockquote { background: #1e293b !important; color: #94a3b8 !important; }    
     
 @media screen and (max-width: 768px) {
@@ -105,118 +104,64 @@ body.dark .markdown-section blockquote { background: #1e293b !important; color: 
 .markdown-section { padding-top: 60px !important; }
 }
 
-/* ── DOCSIFY ARAMA ─────── */
+/* ── BAĞIMSIZ ARAMA PANELİ (Independent Layer) ── */
 .search { border: none !important; padding: 0 !important; margin: 0 !important; }
 .search .input-wrap { display: none !important; }
 .search > p { display: none !important; }
 
 .results-panel {
-position: fixed !important;
-top: 50px !important;
-left: 0 !important;
-width: 380px !important;
-max-height: 420px !important;
-overflow-y: auto !important;
-z-index: 400 !important;
-background: #fff !important;
-border: 1px solid #e2e8f0 !important;
-border-top: none !important;
-border-radius: 0 0 8px 8px !important;
-box-shadow: 0 8px 24px rgba(0,0,0,0.08) !important;
+    position: fixed !important; /* Sidebar'dan bağımsız hale getirildi */
+    z-index: 1000 !important; /* Her şeyin üstünde */
+    background: #fff !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.12) !important;
+    max-height: 450px !important;
+    overflow-y: auto !important;
+    display: none; /* JavaScript ile kontrol edilecek */
 }
+body.dark .results-panel { background: #1e293b !important; border-color: #334155 !important; }
 
-body.close .sidebar { overflow: visible !important; }
-body.close .results-panel { transform: translateX(300px) !important; }
-
-/* ── SIDEBAR TYPOGRAPHY (MERKEZİ YÖNETİM) ── */
+/* ── SIDEBAR TYPOGRAPHY (ALTIN KURALLAR) ── */
 .sidebar-nav { padding: 4px 8px; }
+.sidebar-nav summary, .sidebar-nav a { color: #94a3b8 !important; text-decoration: none !important; transition: all 0.15s ease !important; }
 
-/* Tüm menü elemanlarının ortak rengi */
-.sidebar-nav summary, .sidebar-nav a {
-    color: #94a3b8 !important;
-    text-decoration: none !important;
-    transition: all 0.15s ease !important;
-}
+/* 1. ANA SAYFA / HOME (15px) */
+.sidebar-nav .home-link { font-size: 15px !important; font-weight: 700 !important; display: block; padding: 8px 12px; color: #2c3e50 !important; margin-bottom: 16px; margin-top: 40px; }
 
-/* 1. ANA SAYFA / HOME */
-.sidebar-nav .home-link {
-    font-size: 15px !important;
-    font-weight: 700 !important;
-    display: block;
-    padding: 8px 12px;
-    color: #2c3e50 !important;
-    margin-bottom: 16px;
-    margin-top: 40px;
-}
+/* 2. SEVİYE 1 KLASÖRLER (13px Bold/Caps) */
+.sidebar-nav > details > summary { font-size: 13px !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 0.08em !important; }
 
-/* 2. SEVİYE 1 KLASÖRLER (SİSTEMLER, UYGULAMALAR) */
-.sidebar-nav > details > summary {
-    font-size: 13px !important;
-    font-weight: 700 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.08em !important;
-}
+/* 3. DİĞER TÜM KLASÖRLER (12px Bold) */
+.sidebar-nav details details summary { font-size: 12px !important; font-weight: 700 !important; text-transform: none !important; }
 
-/* 3. DİĞER TÜM KLASÖRLER (Amplify Core, Araştırma vb.) */
-.sidebar-nav details details summary {
-    font-size: 12px !important;
-    font-weight: 700 !important;
-    text-transform: none !important;
-}
-
-/* 4. TÜM DOSYALAR / LİNKLER (Seviye fark etmeksizin) */
-.sidebar-nav a:not(.home-link) {
-    font-size: 11px !important;
-    font-weight: 400 !important;
-}
+/* 4. TÜM DOSYALAR / LİNKLER (11px Normal) */
+.sidebar-nav a:not(.home-link) { font-size: 11px !important; font-weight: 400 !important; }
 
 /* ── HOVER & AKTİF DURUMLAR ── */
-.sidebar-nav summary:hover, .sidebar-nav a:hover {
-    background: #f1f5f9 !important;
-    color: #1e293b !important;
-    border-radius: 6px !important;
-}
-body.dark .sidebar-nav summary:hover, body.dark .sidebar-nav a:hover {
-    background: #334155 !important;
-    color: #f1f5f9 !important;
-}
-.sidebar-nav a.active {
-    color: #1e293b !important;
-    border-left: 3px solid #3b82f6 !important;
-    background: transparent !important;
-}
-body.dark .sidebar-nav a.active {
-    color: #f1f5f9 !important;
-    border-left-color: #3b82f6 !important;
-}
+.sidebar-nav summary:hover, .sidebar-nav a:hover { background: #f1f5f9 !important; color: #1e293b !important; border-radius: 6px !important; }
+body.dark .sidebar-nav summary:hover, body.dark .sidebar-nav a:hover { background: #334155 !important; color: #f1f5f9 !important; }
+.sidebar-nav a.active { color: #1e293b !important; border-left: 3px solid #3b82f6 !important; background: transparent !important; }
+body.dark .sidebar-nav a.active { color: #f1f5f9 !important; border-left-color: #3b82f6 !important; }
 
 .badge { font-size: 10px; font-weight: 600; padding: 1px 7px; border-radius: 10px; margin-left: auto; flex-shrink: 0; white-space: nowrap; }
 .badge.active  { background: #dbeafe; color: #1d4ed8; }
 .badge.planned { background: #f1f5f9; color: #64748b; }
 
-/* ── DARK MODE ───────────────────────────────────── */
+/* ── DARK MODE GENEL ── */
 body.dark { background: #0f172a; color: #e2e8f0; }
 body.dark .sidebar { background: #1e293b !important; border-right: 1px solid #334155 !important; border-left: none !important; }
 body.dark #topbar-search-input { background: #0f172a; border-color: #334155; color: #e2e8f0; }
-body.dark #topbar-search-input::placeholder { color: #64748b; }
 body.dark #topbar-search-input:focus { border-color: #3b82f6; background: #1e293b; }
-body.dark .lang-switcher a { color: #94a3b8; }
-body.dark .lang-switcher a:hover { background: #334155; color: #e2e8f0; }
-body.dark .markdown-section { color: #e2e8f0; }
-body.dark .markdown-section h1, body.dark .markdown-section h2, body.dark .markdown-section h3, body.dark .markdown-section h4 { color: #f1f5f9; border-color: #334155; }
-body.dark .markdown-section a { color: #60a5fa; }
-body.dark .markdown-section code { background: #334155; color: #e2e8f0; }
-body.dark .markdown-section pre { background: #1e293b; border: 1px solid #334155; }
 
 /* ── TOTAL MINIMALIST: OKLARI KALDIRMA VE PADDING AYARLARI ── */
 .sidebar-nav summary::before, .sidebar-nav details summary::before, .sidebar-nav details details summary::before, .sidebar-nav details details details summary::before, .sidebar-nav li::marker, .sidebar-nav ul li::before, .sidebar-nav summary::marker, .sidebar-nav details summary::-webkit-details-marker { display: none !important; content: none !important; list-style: none !important; }
-
 .sidebar-nav > details > summary { padding: 6px 12px !important; }
 .sidebar-nav > details > ul > li > details > summary { padding: 5px 12px 5px 14px !important; }
 .sidebar-nav > details > ul > li > details > ul > li > details > summary { cursor: pointer !important; display: flex !important; align-items: center !important; padding: 5px 12px 5px 26px !important; border-radius: 6px !important; border-left: 3px solid transparent !important; }
 .sidebar-nav > details > ul > li > details > ul > li > details > ul > li > a { display: flex !important; align-items: center !important; padding: 5px 12px 5px 38px !important; border-radius: 6px !important; border-left: 3px solid transparent !important; }
 
-/* ── MODERN BUTON TASARIMLARI (Hamburger & Tema) ── */
+/* ── MODERN BUTONLAR ── */
 .sidebar-toggle { background: #f8fafc !important; border: 1px solid #e2e8f0 !important; border-radius: 8px !important; padding: 10px !important; width: 38px !important; height: 38px !important; display: flex !important; align-items: center !important; justify-content: center !important; transition: all 0.2s ease-in-out !important; top: 65px !important; left: 15px !important; position: fixed !important; z-index: 99; }
 .sidebar-toggle span { background-color: #475569 !important; height: 2px !important; width: 18px !important; margin-bottom: 3px !important; }
 .sidebar-toggle span:last-child { margin-bottom: 0 !important; }
@@ -229,9 +174,6 @@ body.dark .sidebar-toggle span { background-color: #94a3b8 !important; }
 .sidebar::-webkit-scrollbar { width: 5px; }
 .sidebar::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
 body.dark .sidebar::-webkit-scrollbar-thumb { background: #334155; }
-
-/* Mikro Etkileşimler */
-.badge, #theme-toggle, .lang-switcher a, .sidebar-nav a { transition: all 0.2s ease-in-out !important; }
 
 </style>
 <script src="https://unpkg.com/lucide@latest"></script>    
@@ -313,15 +255,40 @@ function syncSidebar() {
     }
 }
 
-// 4. ARAMA PROXY
+// 4. AKILLI ARAMA YÖNETİMİ (Independent Layer Logic)
 function setupSearchProxy() {
     const sidebarInput = document.querySelector('.search input');
     if (!sidebarInput) { setTimeout(setupSearchProxy, 300); return; }
     const topbarInput = document.getElementById('topbar-search-input');
+
+    function repositionResultsPanel() {
+        const panel = document.querySelector('.results-panel');
+        if (!panel) return;
+
+        const rect = topbarInput.getBoundingClientRect();
+        
+        // Paneli tam olarak input'un altına yapıştır
+        panel.style.display = topbarInput.value.trim() ? 'block' : 'none';
+        panel.style.top = (rect.bottom + 8) + 'px';
+        panel.style.left = rect.left + 'px';
+        panel.style.width = rect.width + 'px';
+    }
+
     topbarInput.addEventListener('input', function() {
         sidebarInput.value = this.value;
         sidebarInput.dispatchEvent(new Event('input', { bubbles: true }));
+        requestAnimationFrame(repositionResultsPanel);
     });
+
+    // Dışarı tıklandığında veya Esc basıldığında kapat
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('#topbar-search') && !e.target.closest('.results-panel')) {
+            const panel = document.querySelector('.results-panel');
+            if (panel) panel.style.display = 'none';
+        }
+    });
+
+    window.addEventListener('resize', repositionResultsPanel);
 }
 
 // 5. TOGGLE KONUMU SABİTLEME
