@@ -1,5 +1,5 @@
 <div class="sidebar-nav">
-
+  
   <a class="home-link" href="#/en/">Home</a>
 
   <details>
