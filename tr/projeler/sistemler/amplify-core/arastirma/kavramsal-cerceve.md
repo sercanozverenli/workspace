@@ -32,5 +32,6 @@ Amplify Core'un verinin durumuna göre benimsediği karar rejimleri, dört aşam
 
 *(Buraya otonom sürüş analojisini özetleyen Şekil-1 diyagramı eklenecektir.)* 
 
+  ![Dönem ve Ders Seçimi](../../../docs/diagrams/amplify-core/sekil-1.png ':size=35%') 
 
 
