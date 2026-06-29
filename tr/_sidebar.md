@@ -1,9 +1,9 @@
 <div class="sidebar-nav">
-
-<a class="home-link" href="#/tr/">Ana Sayfa</a>
-
-<details>
-<summary>Deneysel Çalışmalar</summary>
+ 
+ <a class="home-link" href="#/tr/">Ana Sayfa</a>
+ 
+ <details>
+  <summary>Deneysel Çalışmalar</summary>
 <ul>
  <li><a href="#/tr/projects/experiments/exploratory-data-analysis">Keşifsel Veri Analizi <span class="badge planned">Planlı</span></a></li>
  </ul>
