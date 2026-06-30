@@ -12,8 +12,8 @@
   <details>
     <summary>Apps</summary>
     <ul>
-      <li><a href="#/en/projects/apps/gamified-multiplication-tool"><i class="status-wip"></i>Gamified Multiplication Tool</a></li>
-      <li><a href="#/en/projects/apps/interactive-quiz-app"><i class="status-wip"></i>Interactive Quiz App</a></li>
+      <li><a href="#/en/projects/apps/gamified-multiplication-tool"><i class="status-done"></i>Gamified Multiplication Tool</a></li>
+      <li><a href="#/en/projects/apps/interactive-quiz-app"><i class="status-done"></i>Interactive Quiz App</a></li>
     </ul>
   </details>
 
