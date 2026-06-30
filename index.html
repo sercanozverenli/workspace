@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
@@ -72,15 +72,13 @@ transition: background 0.15s, color 0.15s;
     border-right: 1px solid #e2e8f0;
     top: 50px !important;
     height: calc(100vh - 50px) !important;
-    padding-top: 16px !important;
-    /* Transform yerine left kullanarak arama panelini özgür bırakıyoruz */
+    padding: 0 !important; /* İç boşluğu nav'a devrettik */
     left: 0 !important;
     transform: none !important;
     transition: left 0.25s ease-out !important;
-    overflow: visible !important;
+    overflow: visible !important; /* Arama sonuçları için kritik */
 }
 
-/* Sidebar kapalıyken konumu */
 body.close .sidebar {
     left: -300px !important;
     transform: none !important;
@@ -113,9 +111,7 @@ body.dark .markdown-section blockquote { background: #1e293b !important; color: 
 @media screen and (max-width: 768px) {
     #topbar { padding-left: 60px; }
     .markdown-section { padding-top: 60px !important; }
-    /* Mobilde sidebar kapalıyken */
     body.close .sidebar { left: -300px !important; }
-    /* Mobilde sidebar açıkken */
     .sidebar { left: 0 !important; }
 }
 
@@ -125,8 +121,8 @@ body.dark .markdown-section blockquote { background: #1e293b !important; color: 
 .search > p { display: none !important; }
 
 .results-panel {
-    position: fixed !important; /* Sidebar'dan bağımsız, ekrana çivili */
-    z-index: 9999 !important; /* Her şeyin üstünde */
+    position: fixed !important;
+    z-index: 9999 !important;
     background: #fff !important;
     border: 1px solid #e2e8f0 !important;
     border-radius: 8px !important;
@@ -137,8 +133,15 @@ body.dark .markdown-section blockquote { background: #1e293b !important; color: 
 }
 body.dark .results-panel { background: #1e293b !important; border-color: #334155 !important; }
 
-/* ── SIDEBAR TYPOGRAPHY (ALTIN KURALLAR) ── */
-.sidebar-nav { padding: 4px 8px; }
+/* ── SIDEBAR NAV & SCROLL (AKILLI KONTEYNER) ── */
+.sidebar-nav { 
+    padding: 4px 8px 60px 8px !important; 
+    height: 100% !important;
+    overflow-y: auto !important; /* Kaydırma buraya eklendi */
+    overflow-x: hidden !important;
+}
+
+/* Tüm menü elemanlarının ortak rengi */
 .sidebar-nav summary, .sidebar-nav a { color: #94a3b8 !important; text-decoration: none !important; transition: all 0.15s ease !important; }
 
 /* 1. ANA SAYFA / HOME (15px) */
@@ -185,10 +188,11 @@ body.dark #topbar-search-input:focus { border-color: #3b82f6; background: #1e293
 body.dark .sidebar-toggle, body.dark #theme-toggle { background: #1e293b !important; border-color: #334155 !important; color: #f1f5f9 !important; }
 body.dark .sidebar-toggle span { background-color: #94a3b8 !important; }
 
-/* Scrollbar */
-.sidebar::-webkit-scrollbar { width: 5px; }
-.sidebar::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
-body.dark .sidebar::-webkit-scrollbar-thumb { background: #334155; }
+/* ── SCROLLBAR TASARIMI (Sadece Menü İçin) ── */
+.sidebar-nav::-webkit-scrollbar { width: 5px; }
+.sidebar-nav::-webkit-scrollbar-track { background: transparent; }
+.sidebar-nav::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
+body.dark .sidebar-nav::-webkit-scrollbar-thumb { background: #334155; }
 
 /* Mikro Etkileşimler */
 .badge, #theme-toggle, .lang-switcher a, .sidebar-nav a { transition: all 0.2s ease-in-out !important; }
@@ -282,10 +286,7 @@ function setupSearchProxy() {
     function repositionResultsPanel() {
         const panel = document.querySelector('.results-panel');
         if (!panel) return;
-
         const rect = topbarInput.getBoundingClientRect();
-        
-        // Paneli tam olarak input'un altına yapıştır (Ekran koordinatlarına göre)
         panel.style.display = topbarInput.value.trim() ? 'block' : 'none';
         panel.style.top = (rect.bottom + 8) + 'px';
         panel.style.left = rect.left + 'px';
@@ -298,7 +299,6 @@ function setupSearchProxy() {
         requestAnimationFrame(repositionResultsPanel);
     });
 
-    // Dışarı tıklandığında veya Esc basıldığında kapat
     document.addEventListener('click', (e) => {
         if (!e.target.closest('#topbar-search') && !e.target.closest('.results-panel')) {
             const panel = document.querySelector('.results-panel');
