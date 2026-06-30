@@ -1,4 +1,6 @@
-# Kavramsal Çerçeve ve Literatürdeki Temel Sorun
+# Amplify Core (Data Reliability & Decision Routing System — Veri Güvenilirliği ve Karar Yönlendirme Sistemi)
+
+## Kavramsal Çerçeve ve Literatürdeki Temel Sorun
 
 Günümüzde ister yapay zekâ (AI) ve makine öğrenmesi (ML) algoritmaları olsun, ister sensörlerle çalışan uçtan uca endüstriyel otomasyon sistemleri olsun; veriye dayalı karar mekanizmalarının önemli bir bölümü ortak bir yapısal sınırlılığa sahiptir. Bu sistemlerin çoğu, karar sürecinden önce verinin güvenilirliğini bağımsız olarak değerlendiren bir mekanizmaya sahip değildir. Bunun yerine, kendilerine sunulan girdiden mümkün olduğunca bir çıktı üretmeye odaklanırlar. Başka bir ifadeyle, sistemler çoğu durumda "Bu veriyle güvenilir bir karar veremem." diyerek karar üretmekten kaçınabilecek bir üst karar katmanına sahip değildir.
 
@@ -18,7 +20,7 @@ Sistemin temel yaklaşımı, algoritmaların her koşulda bir tahmin üretmesini
 
 ---
 
-# Operasyonel Analoji: Karar Verme Rejimleri
+## Operasyonel Analoji: Karar Verme Rejimleri
 
 Amplify Core'un verinin durumuna göre benimsediği karar rejimleri, dört aşamalı bir otonom sürüş senaryosu ile özetlenebilir:
 
