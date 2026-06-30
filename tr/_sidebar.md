@@ -12,8 +12,8 @@
  <details>
   <summary>Uygulamalar</summary>
   <ul>
-    <li><a href="#/tr/projects/apps/gamified-multiplication-tool"><i class="status-wip"></i>Oyunlaştırılmış Çarpım Tablosu</a></li>
-    <li><a href="#/tr/projects/apps/interactive-quiz-app"><i class="status-wip"></i>İnteraktif Test Uygulaması</a></li>
+    <li><a href="#/tr/projects/apps/gamified-multiplication-tool"><i class="status-done"></i>Oyunlaştırılmış Çarpım Tablosu</a></li>
+    <li><a href="#/tr/projects/apps/interactive-quiz-app"><i class="status-done"></i>İnteraktif Test Uygulaması</a></li>
   </ul>
  </details>
 
