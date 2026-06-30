@@ -145,35 +145,10 @@ body.dark .results-panel { background: #1e293b !important; border-color: #334155
 .sidebar-nav summary, .sidebar-nav a { color: #94a3b8 !important; text-decoration: none !important; transition: all 0.15s ease !important; }
 
 /* ── SIDEBAR TYPOGRAPHY (YENİ PUNTOLAR) ── */
-
-/* 1. ANA SAYFA / HOME (18px) */
-.sidebar-nav .home-link { 
-    font-size: 18px !important; 
-    font-weight: 700 !important; 
-    display: block; 
-    padding: 8px 12px; 
-    color: #2c3e50 !important; 
-    margin-bottom: 16px; 
-    margin-top: 40px; 
-}
-
-/* 2. SEVİYE 1 KLASÖRLER (16px Bold/Caps) */
-.sidebar-nav > details > summary { 
-    font-size: 16px !important; 
-    font-weight: 700 !important; 
-    text-transform: uppercase !important; 
-    letter-spacing: 0.08em !important; 
-}
-
-/* 3. DİĞER TÜM SEVİYELER (14px) */
-.sidebar-nav details details summary,
-.sidebar-nav a:not(.home-link) { 
-    font-size: 14px !important; 
-}
-
-/* Klasör olanlar Bold kalsın */
+.sidebar-nav .home-link { font-size: 18px !important; font-weight: 700 !important; display: block; padding: 8px 12px; color: #2c3e50 !important; margin-bottom: 16px; margin-top: 40px; }
+.sidebar-nav > details > summary { font-size: 16px !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 0.08em !important; }
+.sidebar-nav details details summary, .sidebar-nav a:not(.home-link) { font-size: 14px !important; }
 .sidebar-nav summary { font-weight: 700 !important; }
-/* Dosya olanlar Normal kalsın */
 .sidebar-nav a:not(.home-link) { font-weight: 400 !important; }
 
 /* ── HOVER & AKTİF DURUMLAR ── */
@@ -182,14 +157,19 @@ body.dark .sidebar-nav summary:hover, body.dark .sidebar-nav a:hover { backgroun
 .sidebar-nav a.active { color: #1e293b !important; border-left: 3px solid #3b82f6 !important; background: transparent !important; }
 body.dark .sidebar-nav a.active { color: #f1f5f9 !important; border-left-color: #3b82f6 !important; }
 
-/* ── DURUM İKONLARI (SVG) STİLLERİ ── */
-.status-icon {
-    width: 22px; /* Punto büyüdüğü için ikonlar da büyütüldü */
-    height: 22px;
+/* ── DURUM İKONLARI (KLASÖRDEN ÇEKİLEN) ── */
+.status-icon-img {
+    width: 20px;
+    height: 20px;
     margin-right: 10px;
     vertical-align: middle;
     display: inline-block;
-    fill: currentColor; /* PNG'lerdeki gibi dolgulu olması için */
+    object-fit: contain;
+}
+
+/* Karanlık modda siyah ikonları beyaza çevirir (Eğer ikonların siyahsa) */
+body.dark .status-icon-img {
+    filter: invert(0.8) brightness(1.5);
 }
 
 /* ── DARK MODE GENEL ── */
@@ -303,19 +283,11 @@ window.addEventListener('hashchange', updateLang);
 updateLang();
 
 // 3. SIDEBAR SENKRONİZASYONU VE İKON ENJEKSİYONU
-const STATUS_ICONS = {
-    // Fikir: Kafa silüeti ve içinde iki çark (PNG 20)
-    idea: `<svg class="status-icon idea" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7z"/><path fill="white" d="M10.5 7.5a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0zm4 3a1 1 0 1 1 2 0 1 1 0 0 1-2 0z"/></svg>`,
-    // Devam Eden: Üçlü çark sistemi (PNG 21)
-    wip: `<svg class="status-icon wip" viewBox="0 0 24 24"><path d="M8.5 10a2.5 2.5 0 1 0 5 0 2.5 2.5 0 0 0-5 0zm7.5 4a2 2 0 1 0 4 0 2 2 0 0 0-4 0zm-5 6a1.5 1.5 0 1 0 3 0 1.5 1.5 0 0 0-3 0z"/><path d="M11 10l-1-1m5 5l1-1m-4 6l-1-1"/></svg>`,
-    // Tamamlanan: Çark ve Onay (PNG 22)
-    done: `<svg class="status-icon done" viewBox="0 0 24 24" style="fill:none; stroke-width:1.5;"><circle cx="12" cy="12" r="9"/><path d="M12 7v2m0 6v2m-5-5h2m6 0h2m-1.5-3.5l-1 1m-7 7l-1 1m0-9l1 1m7 7l1-1"/><path d="m9 12 2 2 4-4" stroke-width="2"/></svg>`
-};
-
 function injectStatusIcons() {
     document.querySelectorAll('.sidebar-nav i[class^="status-"]').forEach(el => {
-        const type = el.className.split('-')[1];
-        if (STATUS_ICONS[type]) el.innerHTML = STATUS_ICONS[type];
+        const type = el.className.split('-')[1]; // idea, wip veya done
+        // docs/icons/ klasöründen ilgili PNG'yi çeker
+        el.innerHTML = `<img src="docs/icons/status-${type}.png" class="status-icon-img" alt="${type}">`;
     });
 }
 
