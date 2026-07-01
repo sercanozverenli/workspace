@@ -1,4 +1,4 @@
-# Code Rollback and Error Recovery (Reset vs Revert)
+# Code Rollback and Error Recovery (Reset vs Revert) 
 
 This document covers the architectural mechanics and methods for cleaning up faulty code, removing incorrect commits, or rolling back unwanted changes cleanly without breaking the repository structure.
 
