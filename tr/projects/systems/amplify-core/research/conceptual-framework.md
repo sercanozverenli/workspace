@@ -1,4 +1,6 @@
-# Amplify Core (Data Reliability & Decision Routing System — Veri Güvenilirliği ve Karar Yönlendirme Sistemi)
+# Amplify Core:
+# Veri Güvenilirliği ve Karar Yönlendirme Sistemi 
+(Data Reliability & Decision Routing Systemi)
 
 ## Kavramsal Çerçeve ve Literatürdeki Temel Sorun
 
