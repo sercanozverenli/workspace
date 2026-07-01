@@ -68,7 +68,7 @@
         <details>
           <summary><i class="status-idea"></i>Git and GitHub</summary>
           <ul>
-            <li><a href="#/en/guides/git-and-github/rebase"><i class="status-done"></i>Rebase</a></li>
+            <li><a href="#/en/projects/guides/git-and-github/rebase"><i class="status-done"></i>Rebase</a></li>
           </ul>
         </details>
       </li>
