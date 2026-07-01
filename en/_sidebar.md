@@ -3,21 +3,6 @@
    <a href="#/en/" class="home-link">Home</a>
    
   <details>
-    <summary>Experiments</summary>
-    <ul>
-      <li><a href="#/en/projects/experiments/exploratory-data-analysis"><i class="status-idea"></i>Exploratory Data Analysis</a></li>
-    </ul>
-  </details>
-
-  <details>
-    <summary>Apps</summary>
-    <ul>
-      <li><a href="#/en/projects/apps/gamified-multiplication-tool"><i class="status-done"></i>Gamified Multiplication Tool</a></li>
-      <li><a href="#/en/projects/apps/interactive-quiz-app"><i class="status-done"></i>Interactive Quiz App</a></li>
-    </ul>
-  </details>
-
-  <details>
     <summary>Systems</summary>
     <ul>
       <li>
@@ -55,6 +40,35 @@
                 </ul>
               </details>
             </li>
+          </ul>
+        </details>
+      </li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>Apps</summary>
+    <ul>
+      <li><a href="#/en/projects/apps/gamified-multiplication-tool"><i class="status-done"></i>Gamified Multiplication Tool</a></li>
+      <li><a href="#/en/projects/apps/interactive-quiz-app"><i class="status-done"></i>Interactive Quiz App</a></li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>Experiments</summary>
+    <ul>
+      <li><a href="#/en/projects/experiments/exploratory-data-analysis"><i class="status-idea"></i>Exploratory Data Analysis</a></li>
+    </ul>
+  </details>
+
+  <details>
+    <summary>Guides</summary>
+    <ul>
+      <li>
+        <details>
+          <summary><i class="status-idea"></i>Git and GitHub</summary>
+          <ul>
+            <li><a href="#/en/guides/git-and-github/rebase"><i class="status-idea"></i>Rebase</a></li>
           </ul>
         </details>
       </li>
