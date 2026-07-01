@@ -68,7 +68,13 @@
       <details>
         <summary><i class="status-idea"></i>Git ve GitHub</summary>
         <ul>
-          <li><a href="#/tr/projects/guides/git-and-github/rebase"><i class="status-done"></i>Rebase</a></li>
+          <li><a href="#/tr/projects/guides/git-and-github/git-basics"><i class="status-idea"></i>Git Temelleri</a></li>
+          <li><a href="#/tr/projects/guides/git-and-github/branching"><i class="status-idea"></i>Dallanma ve Geçmiş</a></li>
+          <li><a href="#/tr/projects/guides/git-and-github/merge-conflicts"><i class="status-idea"></i>Kriz Yönetimi</a></li>
+          <li><a href="#/tr/projects/guides/git-and-github/remote-repositories"><i class="status-idea"></i>Uzak Depo ve Ekip Çalışması</a></li>
+          <li><a href="#/tr/projects/guides/git-and-github/stash"><i class="status-idea"></i>Geçici Hafıza Yönetimi</a></li>
+          <li><a href="#/tr/projects/guides/git-and-github/undoing-changes"><i class="status-idea"></i>Hata Geri Alma</a></li>
+          <li><a href="#/tr/projects/guides/git-and-github/rebase"><i class="status-idea"></i>Rebase Mimarisi</a></li>
         </ul>
       </details>
     </li>
