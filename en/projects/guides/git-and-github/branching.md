@@ -1,4 +1,4 @@
-Time Travel, Branching Architecture, and Basic Merge
+# Time Travel, Branching Architecture, and Basic Merge
 
 This document covers exploring your project history, opening secure parallel work environments (branches) independent of the main line, using modern navigation tools, and executing a clean, conflict-free merge process.
 
