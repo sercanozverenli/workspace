@@ -66,15 +66,15 @@
     <ul>
       <li>
         <details>
-          <summary><i class="status-idea"></i>Git and GitHub</summary>
+          <summary><i class="status-wip"></i>Git and GitHub</summary>
           <ul>
-            <li><a href="#/en/projects/guides/git-and-github/git-basics"><i class="status-idea"></i>Git Basics</a></li>
-            <li><a href="#/en/projects/guides/git-and-github/branching"><i class="status-idea"></i>Branching & History</a></li>
-            <li><a href="#/en/projects/guides/git-and-github/merge-conflicts"><i class="status-idea"></i>Crisis Management</a></li>
-            <li><a href="#/en/projects/guides/git-and-github/remote-repositories"><i class="status-idea"></i>Remote Repos & Teamwork</a></li>
-            <li><a href="#/en/projects/guides/git-and-github/stash"><i class="status-idea"></i>Temporary Memory Management</a></li>
-            <li><a href="#/en/projects/guides/git-and-github/undoing-changes"><i class="status-idea"></i>Undoing Errors</a></li>
-            <li><a href="#/en/projects/guides/git-and-github/rebase"><i class="status-idea"></i>Rebase Architecture</a></li>
+            <li><a href="#/en/projects/guides/git-and-github/git-basics"><i class="status-done"></i>Git Basics</a></li>
+            <li><a href="#/en/projects/guides/git-and-github/branching"><i class="status-done"></i>Branching & History</a></li>
+            <li><a href="#/en/projects/guides/git-and-github/merge-conflicts"><i class="status-done"></i>Crisis Management</a></li>
+            <li><a href="#/en/projects/guides/git-and-github/remote-repositories"><i class="status-done"></i>Remote Repos & Teamwork</a></li>
+            <li><a href="#/en/projects/guides/git-and-github/stash"><i class="status-done"></i>Temporary Memory Management</a></li>
+            <li><a href="#/en/projects/guides/git-and-github/undoing-changes"><i class="status-done"></i>Undoing Errors</a></li>
+            <li><a href="#/en/projects/guides/git-and-github/rebase"><i class="status-done"></i>Rebase Architecture</a></li>
           </ul>
         </details>
       </li>
