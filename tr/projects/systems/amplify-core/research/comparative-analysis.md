@@ -1,5 +1,6 @@
 # Amplify Core:
-# Veri Güvenilirliği ve Karar Yönlendirme Sistemi (Data Reliability & Decision Routing Systemi)
+# Veri Güvenilirliği ve Karar Yönlendirme Sistemi 
+(Data Reliability & Decision Routing Systemi)
 
 ## Karşılaştırmalı Analiz
 
