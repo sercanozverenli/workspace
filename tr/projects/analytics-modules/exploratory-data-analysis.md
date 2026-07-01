@@ -1,2 +1,0 @@
-
-# Keşifsel Veri Analizi
