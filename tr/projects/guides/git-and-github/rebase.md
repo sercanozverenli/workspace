@@ -1,4 +1,4 @@
-# Git Rebase Rehberi
+# Git Rebase Rehberi 
 
 Bu dokümantasyon, Git versiyon kontrol sistemindeki en güçlü ve en çok tartışılan komutlardan biri olan `git rebase` mekanizmasını, mimarisini, en iyi kullanım pratiklerini (Best Practices) ve interaktif rebase süreçlerini derinlemesine ele almaktadır.
 
