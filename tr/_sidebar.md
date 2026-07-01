@@ -55,12 +55,19 @@
  </details>
 
  <details>
-  <summary>Deneysel Çalışmalar</summary>
-  <ul>
-    <li><a href="#/tr/projects/experiments/exploratory-data-analysis"><i class="status-idea"></i>Keşifsel Veri Analizi</a></li>
+  <summary>Analitik Modüller</summary>
+   <ul>
+    <li>
+       <details>
+        <summary><i class="status-idea"></i>Keşifsel Veri Analizi</summary> 
+        <ul>
+          <li><a href="#/tr/projects/analitik-moduller/yahoo-finance-eda"><i class="status-idea"></i>Finansal Zaman Serisi</a></li>
+        </ul>
+       </details>
+     </li>
   </ul>
  </details>
-
+   
  <details>
   <summary>Rehberler</summary>
   <ul>
