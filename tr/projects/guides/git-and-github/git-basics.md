@@ -1,6 +1,6 @@
-# DOSYA 1: Git Temelleri (Terminal ve Git Altyapısı)
+# Git Temelleri (Terminal ve Git Altyapısı)
 
-Bu döküman, bilgisayarınızda yerel bir çalışma alanı kurarak tek bir dal üzerinde dosya üretme, yönetme ve kaydetme adımlarını eksiksiz şekilde kapsar.
+Bu döküman, bilgisayarınızda yerel bir çalışma alanı kurarak tek bir dal üzerinde dosya üretme, yönetme ve kaydetme adımlarını kapsar.
 
 ---
 
