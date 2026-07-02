@@ -43,10 +43,9 @@ body.dark #topbar { background: rgba(30, 41, 59, 0.8) !important; border-bottom-
     left: 0 !important;
     transform: none !important;
     transition: left 0.25s ease-out !important;
-    overflow: hidden !important;
+    z-index: 500 !important;
 }
 
-/* Masaüstünde Kapanma Durumu */
 @media screen and (min-width: 769px) {
     body.close .sidebar { left: -300px !important; }
 }
@@ -67,7 +66,6 @@ body.dark .markdown-section blockquote { background: #1e293b !important; color: 
 @media screen and (max-width: 768px) {
     #topbar { padding-left: 60px !important; }
     .markdown-section { padding-top: 60px !important; }
-    /* Mobilde metin sağa sola kaymasın diye sabitliyoruz */
     section.content { transform: none !important; margin-left: 0 !important; transition: none !important; width: 100% !important; }
     
     /* Mobilde Sidebar her zaman kapalı başlar, sadece 'mobile-sidebar-open' class'ı ile açılır */
@@ -75,7 +73,7 @@ body.dark .markdown-section blockquote { background: #1e293b !important; color: 
     body.mobile-sidebar-open .sidebar { left: 0 !important; }
 }
 
-/* ── GLOBAL ARAMA MODALI (ÇALIŞAN ALTIN YAPI) ── */
+/* ── GLOBAL ARAMA MODALI (KÖKTEN ÇÖZÜM) ── */
 #search-modal-overlay {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
@@ -88,16 +86,27 @@ body.dark .markdown-section blockquote { background: #1e293b !important; color: 
 body.dark #search-modal-container { background: #1e293b; border: 1px solid #334155; }
 @keyframes modalSlide { from { transform: translateY(-20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 
-#search-modal-container .results-panel {
+/* Docsify'ın orijinal arama kutusunu sidebar'da gizle */
+.sidebar > .search { display: none !important; }
+
+/* Modal içine taşınan arama kutusunun stilleri */
+#search-modal-container .search { display: block !important; padding: 0 !important; margin: 0 !important; border: none !important; }
+#search-modal-container .search .input-wrap { display: flex !important; align-items: center; border-bottom: 1px solid #e2e8f0 !important; border-radius: 0 !important; margin: 0 !important; padding: 0 !important; }
+body.dark #search-modal-container .search .input-wrap { border-bottom-color: #334155 !important; }
+
+#search-modal-container .search input {
+    width: 100% !important; padding: 20px 24px !important; font-size: 16px !important;
+    border: none !important; outline: none !important; background: transparent !important; color: #1e293b !important;
+}
+body.dark #search-modal-container .search input { color: #f1f5f9 !important; }
+
+#search-modal-container .search .clear-button { margin-right: 16px !important; cursor: pointer; }
+
+#search-modal-container .search .results-panel {
     position: static !important; display: block !important; width: 100% !important;
     max-height: 60vh !important; border: none !important; box-shadow: none !important;
-    background: transparent !important; overflow-y: auto !important; visibility: visible !important; opacity: 1 !important;
+    background: transparent !important; overflow-y: auto !important; padding: 16px !important;
 }
-#modal-search-input {
-    width: 100%; padding: 18px 24px; font-size: 16px; border: none; border-bottom: 1px solid #e2e8f0;
-    outline: none; background: transparent; color: #1e293b;
-}
-body.dark #modal-search-input { color: #f1f5f9; border-bottom-color: #334155; }
 
 /* ── SIDEBAR NAV & SCROLL ── */
 .sidebar-nav { padding: 4px 8px 60px 8px !important; height: 100% !important; overflow-y: auto !important; overflow-x: hidden !important; }
@@ -170,9 +179,6 @@ body.dark .sidebar-nav::-webkit-scrollbar-thumb { background: #334155; }
 .markdown-section a:hover { background-color: rgba(220, 220, 220, 0.3) !important; color: #2563eb !important; }
 body.dark .markdown-section a:hover { background-color: rgba(255, 255, 255, 0.1) !important; color: #60a5fa !important; }    
 
-/* Docsify'ın orijinal arama kutusunu "canlı ama görünmez" yap */
-.search .input-wrap { position: absolute !important; opacity: 0 !important; pointer-events: none !important; z-index: -1 !important; }
-
 </style>
 <script src="https://unpkg.com/lucide@latest"></script>    
 </head>
@@ -192,10 +198,10 @@ body.dark .markdown-section a:hover { background-color: rgba(255, 255, 255, 0.1)
     </div>
 </div>
 
+<!-- YENİ: Arama Modalı Yapısı -->
 <div id="search-modal-overlay">
     <div id="search-modal-container">
-        <input type="text" id="modal-search-input" placeholder="Ara..." autocomplete="off">
-        <div id="modal-results-placeholder"></div>
+        <!-- Docsify'ın arama kutusu buraya taşınacak -->
     </div>
 </div>
 
@@ -206,7 +212,7 @@ body.dark .markdown-section a:hover { background-color: rgba(255, 255, 255, 0.1)
 <div id="app"></div>
 
 <script>
-// 1. TEMA VE İKON YÖNETİMİ
+// 1. TEMA YÖNETİMİ
 (function() {
     const themeToggle = document.getElementById('theme-toggle');
     const saved = localStorage.getItem('theme');
@@ -232,19 +238,10 @@ body.dark .markdown-section a:hover { background-color: rgba(255, 255, 255, 0.1)
 function updateLang() {
     let currentHash = window.location.hash || '#/tr/';
     const langToggle = document.getElementById('lang-toggle');
-    const modalInput = document.getElementById('modal-search-input');
     const isEn = currentHash.startsWith('#/en/');
-
-    if (isEn) {
-        langToggle.textContent = 'TR';
-        langToggle.href = currentHash.replace('#/en/', '#/tr/');
-        if (modalInput) modalInput.placeholder = 'Search...';
-    } else {
-        langToggle.textContent = 'EN';
-        let target = currentHash.includes('#/tr/') ? currentHash.replace('#/tr/', '#/en/') : '#/en/';
-        langToggle.href = target;
-        if (modalInput) modalInput.placeholder = 'Ara...';
-    }
+    
+    langToggle.textContent = isEn ? 'TR' : 'EN';
+    langToggle.href = isEn ? currentHash.replace('#/en/', '#/tr/') : (currentHash.includes('#/tr/') ? currentHash.replace('#/tr/', '#/en/') : '#/en/');
 }
 window.addEventListener('hashchange', updateLang);
 updateLang();
@@ -273,78 +270,74 @@ function syncSidebar() {
     }
 }
 
-// 4. ARAMA MODALI VE SONUÇ TAKİBİ (ÇALIŞAN ALTIN VERSİYON)
-(function() {
+// 4. ARAMA MODALI (KÖKTEN ÇÖZÜM)
+function initSmartSearch() {
     const trigger = document.getElementById('search-trigger');
     const overlay = document.getElementById('search-modal-overlay');
-    const modalInput = document.getElementById('modal-search-input');
-    const placeholder = document.getElementById('modal-results-placeholder');
+    const container = document.getElementById('search-modal-container');
 
-    function openModal() {
-        overlay.style.display = 'flex';
-        setTimeout(() => modalInput.focus(), 50);
-    }
-
-    function closeModal() {
-        overlay.style.display = 'none';
-        modalInput.value = '';
-        const docsifyInput = document.querySelector('.search input');
-        if (docsifyInput) {
-            docsifyInput.value = '';
-            docsifyInput.dispatchEvent(new Event('input'));
-        }
-    }
-
-    trigger.addEventListener('click', openModal);
-    overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeModal();
-        if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); openModal(); }
-    });
-
-    modalInput.addEventListener('input', function() {
-        const docsifyInput = document.querySelector('.search input');
-        if (docsifyInput) {
-            docsifyInput.value = this.value;
-            docsifyInput.dispatchEvent(new Event('input', { bubbles: true }));
-        }
-    });
-
-    // Docsify'ın sonuç panelini yakala ve modal içine taşı (SÜREKLİ TAKİP)
+    // Docsify'ın arama widget'ını KÖKTEN modal içine taşı
     const observer = new MutationObserver(() => {
-        const results = document.querySelector('.results-panel');
-        if (results && results.parentElement !== placeholder) {
-            placeholder.appendChild(results);
+        const docsifySearch = document.querySelector('.sidebar .search');
+        if (docsifySearch && docsifySearch.parentElement !== container) {
+            container.appendChild(docsifySearch);
+            observer.disconnect(); // Taşıma bitti, dinlemeyi bırak
         }
     });
     observer.observe(document.body, { childList: true, subtree: true });
-})();
+
+    function openSearch() {
+        overlay.style.display = 'flex';
+        setTimeout(() => {
+            const input = container.querySelector('input');
+            if (input) input.focus();
+        }, 50);
+    }
+
+    function closeSearch() {
+        overlay.style.display = 'none';
+        const input = container.querySelector('input');
+        if (input) {
+            input.value = '';
+            input.dispatchEvent(new Event('input')); // Sonuçları temizle
+            input.blur();
+        }
+    }
+
+    trigger.addEventListener('click', openSearch);
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) closeSearch();
+    });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && overlay.style.display === 'flex') closeSearch();
+        if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+            e.preventDefault();
+            overlay.style.display === 'flex' ? closeSearch() : openSearch();
+        }
+    });
+}
 
 // 5. KUSURSUZ SIDEBAR TOGGLE KONTROLÜ (Docsify'ı bypass eder)
 function setupStrictSidebarToggle() {
     const oldToggle = document.querySelector('.sidebar-toggle');
     if (!oldToggle) return;
     
-    // Sadece bir kere clone yapıldığından emin ol
     if (oldToggle.classList.contains('cloned-toggle')) return;
 
-    // Kopyalama işlemi: Docsify'ın bu butona atadığı tüm dinleyicileri (event listener) siler!
+    // Kopyalama işlemi: Docsify'ın bu butona atadığı tüm dinleyicileri siler!
     const newToggle = oldToggle.cloneNode(true);
     newToggle.classList.add('cloned-toggle');
     oldToggle.parentNode.replaceChild(newToggle, oldToggle);
 
-    // Konumu Sabitle
     newToggle.style.setProperty('top', '65px', 'important');
     newToggle.style.setProperty('left', '15px', 'important');
 
-    // Kendi tertemiz tıklama mantığımızı yazıyoruz
+    // Kendi tertemiz tıklama mantığımız
     newToggle.addEventListener('click', function(e) {
-        e.stopPropagation(); // Olayın sayfaya yayılmasını engelle
+        e.stopPropagation(); 
         if (window.innerWidth <= 768) {
-            // Mobildeysen sadece bizim özel class'ımızı aç/kapat
             document.body.classList.toggle('mobile-sidebar-open');
         } else {
-            // Masaüstünde Docsify'ın native class'ını aç/kapat
             document.body.classList.toggle('close');
         }
     });
@@ -364,11 +357,18 @@ window.$docsify = {
     loadSidebar: true,
     loadNavbar: false,
     subMaxLevel: 0,
-    search: { maxAge: 86400000, paths: 'auto', placeholder: 'Ara...', depth: 3 },
+    search: { 
+        maxAge: 86400000, 
+        paths: 'auto', 
+        placeholder: { '/en/': 'Search...', '/': 'Ara...' },
+        noData: { '/en/': 'No results found!', '/': 'Sonuç bulunamadı.' },
+        depth: 3 
+    },
     alias: { '/': '/tr/README.md', '/_sidebar.md': '/tr/_sidebar.md', '/tr/.*/_sidebar.md': '/tr/_sidebar.md', '/en/.*/_sidebar.md': '/en/_sidebar.md' },
     plugins: [
         function(hook) {
             hook.ready(() => {
+                initSmartSearch();
                 syncSidebar();
                 injectStatusIcons();
                 setupStrictSidebarToggle();
