@@ -127,6 +127,7 @@ body.dark #search-modal-container { background: #1e293b; border: 1px solid #3341
     background: transparent !important;
     overflow-y: auto !important;
     visibility: visible !important;
+    opacity: 1 !important;
 }
 
 #modal-search-input {
@@ -358,6 +359,7 @@ function syncSidebar() {
         }
     });
 
+    // Docsify'ın sonuç panelini yakala ve modal içine taşı (SÜREKLİ TAKİP)
     const observer = new MutationObserver(() => {
         const results = document.querySelector('.results-panel');
         if (results && results.parentElement !== placeholder) {
@@ -375,16 +377,15 @@ function fixTogglePosition() {
     toggle.style.setProperty('left', '15px', 'important');
 }
 
-// MOBİLDE ANA METNE TIKLAYINCA SIDEBAR AÇILMASINI ENGELLER (KESİN ÇÖZÜM)
+// MOBİLDE ANA METNE TIKLAYINCA SIDEBAR AÇILMASINI ENGELLER (TOPBAR İSTİSNALI)
 window.addEventListener('click', function(e) {
     if (window.innerWidth <= 768) {
-        // Eğer tıklanan yer sidebar-toggle değilse ve sidebar'ın kendisi değilse
-        if (!e.target.closest('.sidebar-toggle') && !e.target.closest('.sidebar')) {
-            // Docsify'ın bu tıklamayı görmesini engelle
+        // Eğer tıklanan yer Topbar, Sidebar veya Toggle değilse engelle
+        if (!e.target.closest('#topbar') && !e.target.closest('.sidebar-toggle') && !e.target.closest('.sidebar')) {
             e.stopImmediatePropagation();
         }
     }
-}, true); // 'true' parametresi olayı en tepede yakalar
+}, true);
 
 // 6. DOCSIFY CONFIG
 window.$docsify = {
