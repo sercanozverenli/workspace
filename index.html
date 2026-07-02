@@ -34,7 +34,7 @@ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans
 body.dark #topbar { background: rgba(30, 41, 59, 0.8) !important; border-bottom-color: #334155; }
 .topbar-right { display: flex; align-items: center; gap: 12px; margin-left: auto; }
 
-/* ── SIDEBAR ─────────────────────────────────────── */
+/* ── SIDEBAR (MANUEL VE ÖZGÜR YAPI) ──────────────── */
 .sidebar {
     border-right: 1px solid #e2e8f0;
     top: 50px !important;
@@ -43,15 +43,19 @@ body.dark #topbar { background: rgba(30, 41, 59, 0.8) !important; border-bottom-
     left: 0 !important;
     transform: none !important;
     transition: left 0.25s ease-out !important;
-    z-index: 500 !important;
+    overflow: hidden !important;
 }
 
-body.close .sidebar { left: -300px !important; transform: none !important; }
+/* Masaüstünde Kapanma Durumu */
+@media screen and (min-width: 769px) {
+    body.close .sidebar { left: -300px !important; }
+}
 
-/* ── İÇERİK & TABLOLAR ───────────────────────────── */
+/* ── İÇERİK ──────────────────────────────────────── */
 .markdown-section { padding-top: 70px !important; line-height: 1.7; font-size: 16px; }
 .markdown-section blockquote { border-left: 4px solid #3b82f6 !important; background: #f8fafc !important; padding: 16px !important; border-radius: 0 8px 8px 0 !important; color: #475569 !important; margin: 2em 0 !important; }
 
+/* ── TABLO DÜZELTMELERİ ── */
 body.dark .markdown-section table { background-color: #1e293b !important; color: #e2e8f0 !important; }
 body.dark .markdown-section table tr { background-color: #0f172a !important; border-top: 1px solid #334155 !important; }
 body.dark .markdown-section table tr:nth-child(2n) { background-color: #1e293b !important; }
@@ -59,79 +63,54 @@ body.dark .markdown-section table td, body.dark .markdown-section table th { bor
 body.dark .markdown-section table th { background-color: #1e293b !important; font-weight: bold !important; }
 body.dark .markdown-section blockquote { background: #1e293b !important; color: #94a3b8 !important; }    
     
+/* ── MOBİL UYUM VE MOBİL SIDEBAR KONTROLÜ ── */
 @media screen and (max-width: 768px) {
     #topbar { padding-left: 60px !important; }
     .markdown-section { padding-top: 60px !important; }
+    /* Mobilde metin sağa sola kaymasın diye sabitliyoruz */
     section.content { transform: none !important; margin-left: 0 !important; transition: none !important; width: 100% !important; }
-    body.close .sidebar { left: -300px !important; }
-    .sidebar { left: 0 !important; }
+    
+    /* Mobilde Sidebar her zaman kapalı başlar, sadece 'mobile-sidebar-open' class'ı ile açılır */
+    .sidebar { left: -300px !important; }
+    body.mobile-sidebar-open .sidebar { left: 0 !important; }
 }
 
-/* ── YENİ: MOBİL SIDEBAR KALKANI (Tıklama Sorunu Çözümü) ── */
-/* Bu kalkan, mobilde sidebar açıkken ana metnin üstünü örter. 
-   Böylece Docsify tıklandığını hissetmez, sidebar sadece butonla kapanır. */
-#mobile-sidebar-shield {
+/* ── GLOBAL ARAMA MODALI (ÇALIŞAN ALTIN YAPI) ── */
+#search-modal-overlay {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    z-index: 499; /* Sidebar'ın hemen altında */
-    display: none;
+    background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    z-index: 10000; display: none; justify-content: center; align-items: flex-start; padding-top: 10vh;
 }
-@media screen and (max-width: 768px) {
-    body:not(.close) #mobile-sidebar-shield { display: block; }
-}
-
-/* ── KUSURSUZ ARAMA MODALI (Z-Index Sorunu Çözümü) ── */
-#search-overlay {
-    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    z-index: 9998; /* Modalın hemen altında */
-    display: none;
-}
-body.search-active #search-overlay { display: block; }
-
 #search-modal-container {
-    position: fixed; top: 10vh; left: 50%; transform: translateX(-50%);
-    width: 90%; max-width: 650px;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
-    z-index: 9999; /* En üst katman, blur etki etmez! */
-    display: none;
-    overflow: hidden;
-    animation: modalFadeIn 0.2s ease-out;
+    width: 90%; max-width: 650px; background: #fff; border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2); overflow: hidden; animation: modalSlide 0.3s ease-out;
 }
-body.search-active #search-modal-container { display: block; }
 body.dark #search-modal-container { background: #1e293b; border: 1px solid #334155; }
+@keyframes modalSlide { from { transform: translateY(-20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 
-@keyframes modalFadeIn { from { opacity: 0; transform: translate(-50%, -10px); } to { opacity: 1; transform: translate(-50%, 0); } }
-
-/* Docsify'ın Arama Kutusunu Modal İçinde Güzelleştirme */
-#search-modal-container .search { border: none !important; padding: 0 !important; margin: 0 !important; }
-#search-modal-container .search .input-wrap { border-bottom: 1px solid #e2e8f0 !important; border-radius: 0 !important; margin: 0 !important; padding: 0 !important; }
-body.dark #search-modal-container .search .input-wrap { border-bottom-color: #334155 !important; }
-
-#search-modal-container .search input {
-    width: 100% !important; padding: 20px 24px !important; font-size: 16px !important;
-    border: none !important; outline: none !important; background: transparent !important; color: #1e293b !important;
+#search-modal-container .results-panel {
+    position: static !important; display: block !important; width: 100% !important;
+    max-height: 60vh !important; border: none !important; box-shadow: none !important;
+    background: transparent !important; overflow-y: auto !important; visibility: visible !important; opacity: 1 !important;
 }
-body.dark #search-modal-container .search input { color: #f1f5f9 !important; }
-
-#search-modal-container .search .results-panel {
-    padding: 16px !important; max-height: 50vh !important; overflow-y: auto !important;
-    position: static !important; width: 100% !important; border: none !important; box-shadow: none !important; background: transparent !important;
+#modal-search-input {
+    width: 100%; padding: 18px 24px; font-size: 16px; border: none; border-bottom: 1px solid #e2e8f0;
+    outline: none; background: transparent; color: #1e293b;
 }
+body.dark #modal-search-input { color: #f1f5f9; border-bottom-color: #334155; }
 
-/* ── SIDEBAR NAV & TYPOGRAPHY ── */
+/* ── SIDEBAR NAV & SCROLL ── */
 .sidebar-nav { padding: 4px 8px 60px 8px !important; height: 100% !important; overflow-y: auto !important; overflow-x: hidden !important; }
 .sidebar-nav summary, .sidebar-nav a { color: #94a3b8 !important; text-decoration: none !important; transition: all 0.15s ease !important; display: flex !important; align-items: center !important; gap: 10px; }
 
+/* ── SIDEBAR TYPOGRAPHY ── */
 .sidebar-nav .home-link { font-size: 18px !important; font-weight: 700 !important; display: flex; padding: 8px 12px; color: #2c3e50 !important; margin-bottom: 16px; margin-top: 50px; }
 .sidebar-nav > details > summary { font-size: 16px !important; font-weight: 700 !important; letter-spacing: 0.08em !important; }
 .sidebar-nav details details summary, .sidebar-nav a:not(.home-link) { font-size: 14px !important; }
 .sidebar-nav summary { font-weight: 700 !important; }
 .sidebar-nav a:not(.home-link) { font-weight: 400 !important; }
 
+/* ── HOVER & AKTİF DURUMLAR ── */
 .sidebar-nav summary:hover, .sidebar-nav a:hover { background: #f0f4f8 !important; color: #1e293b !important; border-radius: 6px !important; }
 body.dark .sidebar-nav summary:hover, body.dark .sidebar-nav a:hover { background: #334155 !important; color: #f1f5f9 !important; }
 .sidebar-nav a.active { color: #1e293b !important; border-left: 3px solid #3b82f6 !important; background: transparent !important; }
@@ -140,6 +119,10 @@ body.dark .sidebar-nav a.active { color: #f1f5f9 !important; border-left-color: 
 /* ── DURUM İKONLARI ── */
 .status-icon-img { width: 20px; height: 20px; flex-shrink: 0; object-fit: contain; margin-top: 2px; }
 body.dark .status-icon-img { filter: invert(0.8) brightness(1.5); }
+
+/* ── DARK MODE GENEL ── */
+body.dark { background: #0f172a; color: #e2e8f0; }
+body.dark .sidebar { background: #1e293b !important; border-right: 1px solid #334155 !important; border-left: none !important; }
 
 /* ── TOTAL MINIMALIST (GİRİNTİLER) ── */
 .sidebar-nav summary::before, .sidebar-nav details summary::before, .sidebar-nav details details summary::before, .sidebar-nav details details details summary::before, .sidebar-nav li::marker, .sidebar-nav ul li::before, .sidebar-nav summary::marker, .sidebar-nav details summary::-webkit-details-marker { display: none !important; content: none !important; list-style: none !important; }
@@ -187,6 +170,9 @@ body.dark .sidebar-nav::-webkit-scrollbar-thumb { background: #334155; }
 .markdown-section a:hover { background-color: rgba(220, 220, 220, 0.3) !important; color: #2563eb !important; }
 body.dark .markdown-section a:hover { background-color: rgba(255, 255, 255, 0.1) !important; color: #60a5fa !important; }    
 
+/* Docsify'ın orijinal arama kutusunu "canlı ama görünmez" yap */
+.search .input-wrap { position: absolute !important; opacity: 0 !important; pointer-events: none !important; z-index: -1 !important; }
+
 </style>
 <script src="https://unpkg.com/lucide@latest"></script>    
 </head>
@@ -206,12 +192,12 @@ body.dark .markdown-section a:hover { background-color: rgba(255, 255, 255, 0.1)
     </div>
 </div>
 
-<!-- Modal Yapısı -->
-<div id="search-overlay"></div>
-<div id="search-modal-container"></div>
-
-<!-- Mobil Tıklama Kalkanı -->
-<div id="mobile-sidebar-shield"></div>
+<div id="search-modal-overlay">
+    <div id="search-modal-container">
+        <input type="text" id="modal-search-input" placeholder="Ara..." autocomplete="off">
+        <div id="modal-results-placeholder"></div>
+    </div>
+</div>
 
 <button id="back-to-top" title="Yukarı Çık">
     <i data-lucide="arrow-up"></i>
@@ -220,7 +206,7 @@ body.dark .markdown-section a:hover { background-color: rgba(255, 255, 255, 0.1)
 <div id="app"></div>
 
 <script>
-// 1. TEMA YÖNETİMİ
+// 1. TEMA VE İKON YÖNETİMİ
 (function() {
     const themeToggle = document.getElementById('theme-toggle');
     const saved = localStorage.getItem('theme');
@@ -242,64 +228,28 @@ body.dark .markdown-section a:hover { background-color: rgba(255, 255, 255, 0.1)
     });
 })();
 
-// 2. ARAMA MODALI VE DİL GÜNCELLEME (BİRLEŞTİRİLDİ)
-function initSmartSearch() {
-    const trigger = document.getElementById('search-trigger');
-    const overlay = document.getElementById('search-overlay');
-    const modalContainer = document.getElementById('search-modal-container');
-
-    function openSearch() {
-        document.body.classList.add('search-active');
-        const input = modalContainer.querySelector('input');
-        if (input) setTimeout(() => input.focus(), 100);
-    }
-
-    function closeSearch() {
-        document.body.classList.remove('search-active');
-        const input = modalContainer.querySelector('input');
-        if (input) {
-            input.value = '';
-            input.dispatchEvent(new Event('input'));
-            input.blur();
-        }
-    }
-
-    trigger.addEventListener('click', openSearch);
-    overlay.addEventListener('click', closeSearch);
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && document.body.classList.contains('search-active')) closeSearch();
-        if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); document.body.classList.contains('search-active') ? closeSearch() : openSearch(); }
-    });
-
-    // Docsify'ın arama kutusunu sayfa yüklendiğinde BİR KERE modal içine taşıyoruz
-    const observer = new MutationObserver(() => {
-        const originalSearch = document.querySelector('.sidebar .search');
-        if (originalSearch) {
-            modalContainer.appendChild(originalSearch); // DOM taşıma (Z-index sorununu çözer)
-            updateLang(); // Taşıma bittikten sonra dili güncelle
-            observer.disconnect(); // İşlem bitti, dinlemeyi bırak
-        }
-    });
-    observer.observe(document.body, { childList: true, subtree: true });
-}
-
+// 2. DİL YÖNETİMİ
 function updateLang() {
     let currentHash = window.location.hash || '#/tr/';
     const langToggle = document.getElementById('lang-toggle');
+    const modalInput = document.getElementById('modal-search-input');
     const isEn = currentHash.startsWith('#/en/');
-    
-    langToggle.textContent = isEn ? 'TR' : 'EN';
-    langToggle.href = isEn ? currentHash.replace('#/en/', '#/tr/') : (currentHash.includes('#/tr/') ? currentHash.replace('#/tr/', '#/en/') : '#/en/');
 
-    // Sadece "Ara..." veya "Search..." yazdır
-    const modalInput = document.querySelector('#search-modal-container input');
-    if (modalInput) {
-        modalInput.placeholder = isEn ? 'Search...' : 'Ara...';
+    if (isEn) {
+        langToggle.textContent = 'TR';
+        langToggle.href = currentHash.replace('#/en/', '#/tr/');
+        if (modalInput) modalInput.placeholder = 'Search...';
+    } else {
+        langToggle.textContent = 'EN';
+        let target = currentHash.includes('#/tr/') ? currentHash.replace('#/tr/', '#/en/') : '#/en/';
+        langToggle.href = target;
+        if (modalInput) modalInput.placeholder = 'Ara...';
     }
 }
 window.addEventListener('hashchange', updateLang);
+updateLang();
 
-// 3. İKON ENJEKSİYONU VE SIDEBAR SENKRONİZASYONU
+// 3. SIDEBAR SENKRONİZASYONU VE İKON ENJEKSİYONU
 function injectStatusIcons() {
     document.querySelectorAll('.sidebar-nav i[class^="status-"]').forEach(el => {
         const type = el.className.split('-')[1];
@@ -323,35 +273,111 @@ function syncSidebar() {
     }
 }
 
-// 4. TOGGLE KONUM SABİTLEME
-function fixTogglePosition() {
-    const toggle = document.querySelector('.sidebar-toggle');
-    if (toggle) {
-        toggle.style.setProperty('top', '65px', 'important');
-        toggle.style.setProperty('left', '15px', 'important');
+// 4. ARAMA MODALI VE SONUÇ TAKİBİ (ÇALIŞAN ALTIN VERSİYON)
+(function() {
+    const trigger = document.getElementById('search-trigger');
+    const overlay = document.getElementById('search-modal-overlay');
+    const modalInput = document.getElementById('modal-search-input');
+    const placeholder = document.getElementById('modal-results-placeholder');
+
+    function openModal() {
+        overlay.style.display = 'flex';
+        setTimeout(() => modalInput.focus(), 50);
     }
+
+    function closeModal() {
+        overlay.style.display = 'none';
+        modalInput.value = '';
+        const docsifyInput = document.querySelector('.search input');
+        if (docsifyInput) {
+            docsifyInput.value = '';
+            docsifyInput.dispatchEvent(new Event('input'));
+        }
+    }
+
+    trigger.addEventListener('click', openModal);
+    overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeModal();
+        if ((e.ctrlKey || e.metaKey) && e.key === 'k') { e.preventDefault(); openModal(); }
+    });
+
+    modalInput.addEventListener('input', function() {
+        const docsifyInput = document.querySelector('.search input');
+        if (docsifyInput) {
+            docsifyInput.value = this.value;
+            docsifyInput.dispatchEvent(new Event('input', { bubbles: true }));
+        }
+    });
+
+    // Docsify'ın sonuç panelini yakala ve modal içine taşı (SÜREKLİ TAKİP)
+    const observer = new MutationObserver(() => {
+        const results = document.querySelector('.results-panel');
+        if (results && results.parentElement !== placeholder) {
+            placeholder.appendChild(results);
+        }
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+})();
+
+// 5. KUSURSUZ SIDEBAR TOGGLE KONTROLÜ (Docsify'ı bypass eder)
+function setupStrictSidebarToggle() {
+    const oldToggle = document.querySelector('.sidebar-toggle');
+    if (!oldToggle) return;
+    
+    // Sadece bir kere clone yapıldığından emin ol
+    if (oldToggle.classList.contains('cloned-toggle')) return;
+
+    // Kopyalama işlemi: Docsify'ın bu butona atadığı tüm dinleyicileri (event listener) siler!
+    const newToggle = oldToggle.cloneNode(true);
+    newToggle.classList.add('cloned-toggle');
+    oldToggle.parentNode.replaceChild(newToggle, oldToggle);
+
+    // Konumu Sabitle
+    newToggle.style.setProperty('top', '65px', 'important');
+    newToggle.style.setProperty('left', '15px', 'important');
+
+    // Kendi tertemiz tıklama mantığımızı yazıyoruz
+    newToggle.addEventListener('click', function(e) {
+        e.stopPropagation(); // Olayın sayfaya yayılmasını engelle
+        if (window.innerWidth <= 768) {
+            // Mobildeysen sadece bizim özel class'ımızı aç/kapat
+            document.body.classList.toggle('mobile-sidebar-open');
+        } else {
+            // Masaüstünde Docsify'ın native class'ını aç/kapat
+            document.body.classList.toggle('close');
+        }
+    });
 }
 
-// 5. DOCSIFY CONFIG
+// YUKARI ÇIK BUTONU
+const backToTop = document.getElementById('back-to-top');
+window.addEventListener('scroll', () => {
+    backToTop.style.display = window.scrollY > 400 ? 'flex' : 'none';
+});
+backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// 6. DOCSIFY CONFIG
 window.$docsify = {
     loadSidebar: true,
     loadNavbar: false,
     subMaxLevel: 0,
-    search: { paths: 'auto', depth: 3 }, // Placeholder'ı biz JS ile yönetiyoruz
+    search: { maxAge: 86400000, paths: 'auto', placeholder: 'Ara...', depth: 3 },
     alias: { '/': '/tr/README.md', '/_sidebar.md': '/tr/_sidebar.md', '/tr/.*/_sidebar.md': '/tr/_sidebar.md', '/en/.*/_sidebar.md': '/en/_sidebar.md' },
     plugins: [
         function(hook) {
             hook.ready(() => {
-                initSmartSearch();
                 syncSidebar();
                 injectStatusIcons();
-                fixTogglePosition();
+                setupStrictSidebarToggle();
                 if (window.lucide) lucide.createIcons();
             });
             hook.doneEach(() => {
                 syncSidebar();
                 injectStatusIcons();
-                fixTogglePosition();
+                setupStrictSidebarToggle();
             });
         }
     ]
