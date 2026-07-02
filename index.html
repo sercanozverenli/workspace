@@ -37,35 +37,7 @@ body.dark #topbar {
     border-bottom-color: #334155; 
 }
 
-#topbar-search { flex: 1; max-width: 380px; }
-
-#topbar-search-input {
-width: 100%;
-padding: 7px 16px;
-border: 1px solid #e2e8f0;
-border-radius: 20px;
-font-size: 13px;
-color: #2c3e50;
-background: #f8fafc;
-outline: none;
-transition: border-color 0.15s, background 0.15s;
-box-sizing: border-box;
-}
-#topbar-search-input:focus { border-color: #3b82f6; background: #fff; }
-
-.topbar-right { display: flex; align-items: center; gap: 10px; margin-left: auto; }
-
-.lang-switcher { display: flex; align-items: center; gap: 4px; }
-.lang-switcher a {
-font-size: 13px;
-font-weight: 600;
-color: #475569;
-text-decoration: none;
-padding: 5px 8px;
-border-radius: 6px;
-transition: background 0.15s, color 0.15s;
-}
-.lang-switcher a:hover { background: #f0f4f8; color: #1e293b; }
+.topbar-right { display: flex; align-items: center; gap: 12px; margin-left: auto; }
 
 /* ── SIDEBAR (TRANSFORM TUZAĞI FIX) ──────────────── */
 .sidebar {
@@ -76,7 +48,7 @@ transition: background 0.15s, color 0.15s;
     left: 0 !important;
     transform: none !important;
     transition: left 0.25s ease-out !important;
-    overflow: visible !important;
+    overflow: hidden !important; /* Modal bağımsız olduğu için artık hidden olabilir */
 }
 
 body.close .sidebar {
@@ -111,62 +83,69 @@ body.dark .markdown-section blockquote { background: #1e293b !important; color: 
 @media screen and (max-width: 768px) {
     #topbar { padding-left: 60px !important; }
     .markdown-section { padding-top: 60px !important; }
-    
-    /* MOBİLDE ANA METNİN SAĞA KAYMASINI ENGELLER */
-    section.content {
-        transform: none !important;
-        margin-left: 0 !important;
-        transition: none !important;
-        width: 100% !important;
-    }
-    
+    section.content { transform: none !important; margin-left: 0 !important; transition: none !important; width: 100% !important; }
     body.close .sidebar { left: -300px !important; }
     .sidebar { left: 0 !important; }
 }
 
-/* ── ARAMA PANELİ ── */
-.search { border: none !important; padding: 0 !important; margin: 0 !important; overflow: visible !important; }
-.search .input-wrap { display: none !important; }
-.search > p { display: none !important; }
-
-.results-panel {
-    position: fixed !important;
-    z-index: 400 !important;
-    background: #fff !important;
-    border: 1px solid #e2e8f0 !important;
-    border-radius: 8px !important;
-    box-shadow: 0 12px 32px rgba(0,0,0,0.15) !important;
-    max-height: 450px !important;
-    overflow-y: auto !important;
-    display: none;
+/* ── GLOBAL ARAMA MODALI (CLAUDE/GEMINI STYLE) ── */
+#search-modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 10000;
+    display: none; /* JS ile açılacak */
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 10vh;
 }
-body.dark .results-panel { background: #1e293b !important; border-color: #334155 !important; }
+
+#search-modal-container {
+    width: 90%;
+    max-width: 650px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+    overflow: hidden;
+    animation: modalSlide 0.3s ease-out;
+}
+
+body.dark #search-modal-container { background: #1e293b; border: 1px solid #334155; }
+
+@keyframes modalSlide { from { transform: translateY(-20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+/* Modal içindeki Docsify arama sonuçlarını düzenle */
+#search-modal-container .results-panel {
+    position: static !important;
+    display: block !important;
+    width: 100% !important;
+    max-height: 60vh !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+}
+
+#modal-search-input {
+    width: 100%;
+    padding: 18px 24px;
+    font-size: 16px;
+    border: none;
+    border-bottom: 1px solid #e2e8f0;
+    outline: none;
+    background: transparent;
+    color: #1e293b;
+}
+body.dark #modal-search-input { color: #f1f5f9; border-bottom-color: #334155; }
 
 /* ── SIDEBAR NAV & SCROLL ── */
-.sidebar-nav { 
-    padding: 4px 8px 60px 8px !important; 
-    height: 100% !important;
-    overflow-y: auto !important;
-    overflow-x: hidden !important;
-}
+.sidebar-nav { padding: 4px 8px 60px 8px !important; height: 100% !important; overflow-y: auto !important; overflow-x: hidden !important; }
+.sidebar-nav summary, .sidebar-nav a { color: #94a3b8 !important; text-decoration: none !important; transition: all 0.15s ease !important; display: flex !important; align-items: center !important; gap: 10px; }
 
-/* Tüm menü elemanlarının ortak rengi ve DİKEY ORTALAMA */
-.sidebar-nav summary, .sidebar-nav a { 
-    color: #94a3b8 !important; 
-    text-decoration: none !important; 
-    transition: all 0.15s ease !important;
-    display: flex !important;
-    align-items: center !important;
-    gap: 10px; 
-}
-
-/* ── SIDEBAR TYPOGRAPHY (YENİ PUNTOLAR) ── */
+/* ── SIDEBAR TYPOGRAPHY ── */
 .sidebar-nav .home-link { font-size: 18px !important; font-weight: 700 !important; display: flex; padding: 8px 12px; color: #2c3e50 !important; margin-bottom: 16px; margin-top: 50px; }
-.sidebar-nav > details > summary { 
-    font-size: 16px !important; 
-    font-weight: 700 !important; 
-    letter-spacing: 0.08em !important; 
-}
+.sidebar-nav > details > summary { font-size: 16px !important; font-weight: 700 !important; letter-spacing: 0.08em !important; }
 .sidebar-nav details details summary, .sidebar-nav a:not(.home-link) { font-size: 14px !important; }
 .sidebar-nav summary { font-weight: 700 !important; }
 .sidebar-nav a:not(.home-link) { font-weight: 400 !important; }
@@ -177,29 +156,17 @@ body.dark .sidebar-nav summary:hover, body.dark .sidebar-nav a:hover { backgroun
 .sidebar-nav a.active { color: #1e293b !important; border-left: 3px solid #3b82f6 !important; background: transparent !important; }
 body.dark .sidebar-nav a.active { color: #f1f5f9 !important; border-left-color: #3b82f6 !important; }
 
-/* ── DURUM İKONLARI (KLASÖRDEN ÇEKİLEN) ── */
-.status-icon-img {
-    width: 20px;
-    height: 20px;
-    flex-shrink: 0;
-    object-fit: contain;
-    margin-top: 8px; 
-}
-
-body.dark .status-icon-img {
-    filter: invert(0.8) brightness(1.5);
-}
+/* ── DURUM İKONLARI ── */
+.status-icon-img { width: 20px; height: 20px; flex-shrink: 0; object-fit: contain; margin-top: 2px; }
+body.dark .status-icon-img { filter: invert(0.8) brightness(1.5); }
 
 /* ── DARK MODE GENEL ── */
 body.dark { background: #0f172a; color: #e2e8f0; }
 body.dark .sidebar { background: #1e293b !important; border-right: 1px solid #334155 !important; border-left: none !important; }
-body.dark #topbar-search-input { background: #0f172a; border-color: #334155; color: #e2e8f0; }
-body.dark #topbar-search-input:focus { border-color: #3b82f6; background: #1e293b; }
 
 /* ── TOTAL MINIMALIST (GİRİNTİLER) ── */
 .sidebar-nav summary::before, .sidebar-nav details summary::before, .sidebar-nav details details summary::before, .sidebar-nav details details details summary::before, .sidebar-nav li::marker, .sidebar-nav ul li::before, .sidebar-nav summary::marker, .sidebar-nav details summary::-webkit-details-marker { display: none !important; content: none !important; list-style: none !important; }
 .sidebar-nav ul, .sidebar-nav li { margin: 0 !important; padding: 0 !important; list-style: none !important; }
-
 .sidebar-nav > details > summary { padding: 5px 2px !important; }
 .sidebar-nav > details > ul > li > a, .sidebar-nav > details > ul > li > details > summary { padding: 5px 2px 5px 8px !important; }
 .sidebar-nav > details > ul > li > details > ul > li > a, .sidebar-nav > details > ul > li > details > ul > li > details > summary { cursor: pointer !important; padding: 5px 2px 5px 18px !important; border-radius: 6px !important; border-left: 3px solid transparent !important; }
@@ -210,7 +177,7 @@ body.dark #topbar-search-input:focus { border-color: #3b82f6; background: #1e293
 .sidebar-toggle span { background-color: #475569 !important; height: 2px !important; width: 18px !important; margin-bottom: 3px !important; }
 .sidebar-toggle span:last-child { margin-bottom: 0 !important; }
 
-#theme-toggle, #back-to-top {
+#theme-toggle, #back-to-top, #search-trigger {
     background: rgba(248, 250, 252, 0.8) !important;
     backdrop-filter: blur(8px);
     border: 1px solid #e2e8f0 !important;
@@ -225,9 +192,9 @@ body.dark #topbar-search-input:focus { border-color: #3b82f6; background: #1e293
 }
 
 #back-to-top { position: fixed; bottom: 24px; right: 24px; z-index: 300; display: none; }
-.sidebar-toggle:hover, #theme-toggle:hover, #back-to-top:hover { background: #f1f5f9 !important; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+.sidebar-toggle:hover, #theme-toggle:hover, #back-to-top:hover, #search-trigger:hover { background: #f1f5f9 !important; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
 
-body.dark .sidebar-toggle, body.dark #theme-toggle, body.dark #back-to-top { background: rgba(30, 41, 59, 0.8) !important; border-color: #334155 !important; color: #f1f5f9 !important; }
+body.dark .sidebar-toggle, body.dark #theme-toggle, body.dark #back-to-top, body.dark #search-trigger { background: rgba(30, 41, 59, 0.8) !important; border-color: #334155 !important; color: #f1f5f9 !important; }
 body.dark .sidebar-toggle span { background-color: #94a3b8 !important; }
 
 /* Scrollbar */
@@ -235,46 +202,40 @@ body.dark .sidebar-toggle span { background-color: #94a3b8 !important; }
 .sidebar-nav::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
 body.dark .sidebar-nav::-webkit-scrollbar-thumb { background: #334155; }
 
-/* Mikro Etkileşimler */
-.badge, #theme-toggle, .lang-switcher a, .sidebar-nav a { transition: all 0.2s ease-in-out !important; }
+/* ── İÇERİK LİNKLERİ ── */
+.markdown-section a { text-decoration: none !important; padding: 1px 4px; margin: 0 -2px; border-radius: 4px; transition: all 0.2s ease-in-out !important; font-weight: 500; }
+.markdown-section a:hover { background-color: rgba(220, 220, 220, 0.3) !important; color: #2563eb !important; }
+body.dark .markdown-section a:hover { background-color: rgba(255, 255, 255, 0.1) !important; color: #60a5fa !important; }    
 
+/* Docsify'ın orijinal arama kutusunu gizle */
+.search .input-wrap { display: none !important; }
 
-/* ── İÇERİK LİNKLERİ MODERNİZASYONU ── */
-.markdown-section a {
-    text-decoration: none !important; /* Yeşil alt çizgiyi tamamen kaldırır */
-    padding: 1px 4px;
-    margin: 0 -2px;
-    border-radius: 4px;
-    transition: all 0.2s ease-in-out !important;
-    font-weight: 500;
-}
-
-/* Aydınlık Mod Hover */
-.markdown-section a:hover {
-    background-color: rgba(220, 220, 220, 0.3) !important; /* Çok hafif beyaz-gri transparan arka plan */
-    color: #2563eb !important; /* Yazı rengini biraz koyulaştırır */
-}
-
-/* Karanlık Mod Hover */
-body.dark .markdown-section a:hover {
-    background-color: rgba(255, 255, 255, 0.1) !important; /* Çok hafif beyaz-gri transparan arka plan */
-    color: #60a5fa !important; /* Yazı rengini parlak tutar */
-}    
 </style>
 <script src="https://unpkg.com/lucide@latest"></script>    
 </head>
 <body>
 
 <div id="topbar">
-    <div id="topbar-search">
-        <input type="text" id="topbar-search-input" placeholder="Ara..." autocomplete="off" spellcheck="false">
-    </div>
     <div class="topbar-right">
+        <!-- YENİ: Arama Tetikleyici -->
+        <button id="search-trigger" title="Ara (Ctrl+K)">
+            <i data-lucide="search"></i>
+        </button>
         <button id="theme-toggle" title="Temayı Değiştir">
             <i data-lucide="moon" id="theme-icon"></i>
         </button>
         <div class="lang-switcher">
             <a href="#/en/" id="lang-toggle">EN</a>
+        </div>
+    </div>
+</div>
+
+<!-- YENİ: Arama Modalı Yapısı -->
+<div id="search-modal-overlay">
+    <div id="search-modal-container">
+        <input type="text" id="modal-search-input" placeholder="Projelerde ara..." autocomplete="off">
+        <div id="modal-results-placeholder">
+            <!-- Docsify sonuçları buraya akacak -->
         </div>
     </div>
 </div>
@@ -312,16 +273,13 @@ body.dark .markdown-section a:hover {
 function updateLang() {
     let currentHash = window.location.hash || '#/tr/';
     const langToggle = document.getElementById('lang-toggle');
-    const searchInput = document.getElementById('topbar-search-input');
     if (currentHash.startsWith('#/en/')) {
         langToggle.textContent = 'TR';
         langToggle.href = currentHash.replace('#/en/', '#/tr/');
-        searchInput.placeholder = 'Search...';
     } else {
         langToggle.textContent = 'EN';
         let target = currentHash.includes('#/tr/') ? currentHash.replace('#/tr/', '#/en/') : '#/en/';
         langToggle.href = target;
-        searchInput.placeholder = 'Ara...';
     }
 }
 window.addEventListener('hashchange', updateLang);
@@ -351,33 +309,58 @@ function syncSidebar() {
     }
 }
 
-// 4. ARAMA PROXY
-function setupSearchProxy() {
-    const sidebarInput = document.querySelector('.search input');
-    if (!sidebarInput) { setTimeout(setupSearchProxy, 300); return; }
-    const topbarInput = document.getElementById('topbar-search-input');
-    function repositionResultsPanel() {
-        const panel = document.querySelector('.results-panel');
-        if (!panel) return;
-        const rect = topbarInput.getBoundingClientRect();
-        panel.style.display = topbarInput.value.trim() ? 'block' : 'none';
-        panel.style.top = (rect.bottom + 8) + 'px';
-        panel.style.left = rect.left + 'px';
-        panel.style.width = rect.width + 'px';
+// 4. YENİ ARAMA MODALI MANTIĞI
+(function() {
+    const trigger = document.getElementById('search-trigger');
+    const overlay = document.getElementById('search-modal-overlay');
+    const modalInput = document.getElementById('modal-search-input');
+
+    function openModal() {
+        overlay.style.display = 'flex';
+        setTimeout(() => modalInput.focus(), 50);
+        // Docsify'ın sonuç panelini modal içine taşı
+        const docsifyResults = document.querySelector('.results-panel');
+        if (docsifyResults) {
+            document.getElementById('modal-results-placeholder').appendChild(docsifyResults);
+        }
     }
-    topbarInput.addEventListener('input', function() {
-        sidebarInput.value = this.value;
-        sidebarInput.dispatchEvent(new Event('input', { bubbles: true }));
-        requestAnimationFrame(repositionResultsPanel);
+
+    function closeModal() {
+        overlay.style.display = 'none';
+        modalInput.value = '';
+        // Docsify'ın aramasını temizle
+        const docsifyInput = document.querySelector('.search input');
+        if (docsifyInput) {
+            docsifyInput.value = '';
+            docsifyInput.dispatchEvent(new Event('input'));
+        }
+    }
+
+    trigger.addEventListener('click', openModal);
+    
+    // Dışarı tıklayınca kapat
+    overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) closeModal();
     });
-    document.addEventListener('click', (e) => {
-        if (!e.target.closest('#topbar-search') && !e.target.closest('.results-panel')) {
-            const panel = document.querySelector('.results-panel');
-            if (panel) panel.style.display = 'none';
+
+    // Esc ile kapat
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeModal();
+        if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+            e.preventDefault();
+            openModal();
         }
     });
-    window.addEventListener('resize', repositionResultsPanel);
-}
+
+    // Modal input'u Docsify input'una bağla
+    modalInput.addEventListener('input', function() {
+        const docsifyInput = document.querySelector('.search input');
+        if (docsifyInput) {
+            docsifyInput.value = this.value;
+            docsifyInput.dispatchEvent(new Event('input', { bubbles: true }));
+        }
+    });
+})();
 
 // 5. YUKARI ÇIK BUTONU MANTIĞI
 const backToTop = document.getElementById('back-to-top');
@@ -398,7 +381,6 @@ window.$docsify = {
     plugins: [
         function(hook) {
             hook.ready(() => {
-                setupSearchProxy();
                 syncSidebar();
                 injectStatusIcons();
                 if (window.lucide) lucide.createIcons();
